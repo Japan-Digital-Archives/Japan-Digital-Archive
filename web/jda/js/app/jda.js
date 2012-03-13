@@ -629,6 +629,8 @@ this.jda = {
 			this.popup.events.register("click", this.popup, function(event){ $(event.target).trigger('click') });
 			
 			this.map.addPopup(this.popup);	
+			
+			
 		}
 		else this.popup=false;
 		

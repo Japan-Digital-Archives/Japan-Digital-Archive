@@ -96,6 +96,10 @@ $(document).ready(function(){
 
     /* This is where we decide which kind of content to put in the fancybox */    
       beforeLoad : function() {
+
+      //deactivate keyboard controls for OL map so arrow scrolling doesn't scroll map too
+      var keyboardControls = jda.app.map.getControlsByClass('OpenLayers.Control.KeyboardDefaults');
+      keyboardControls[0].deactivate();
         
         $('#fancybox-document-cloud').remove();
 
