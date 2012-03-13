@@ -104,8 +104,33 @@ this.jda = {
 		}
 		
 	},
-	
-	
+	getTagNamesFromSearchQuery : function(q){
+		var result = new Array();
+		if (q.indexOf("tag:") >=0){
+			var tagPart = q.substr(q.indexOf("tag:") + 4);
+			var tagNames = tagPart.split(" ");
+			for(var i=0;i<tagNames.length;i++)
+			{
+				var tagName = tagNames[i];
+				result.push(tagName);
+			}
+		} 
+		return result;
+	},
+	getTextFromSearchQuery : function(q){
+		var result = new Array();
+		var textPart = q.indexOf("tag:") >= 0 ? q.substr(0,  q.indexOf("tag:")) : q;
+		if (textPart.length > 0)
+		{
+			var texts = textPart.split(",");
+			for(var i=0;i<texts.length;i++)
+			{
+				var text = texts[i];
+				result.push(text);
+			}
+		}
+		return result;
+	},
 	
 	updateSearchUI : function(obj)
 	{
@@ -113,26 +138,23 @@ this.jda = {
 		if (!_.isUndefined(q))
 		{
 			//check for tags
-			if (q.indexOf("tag:") >=0){
-				var tagPart = q.substr(q.indexOf("tag:") + 4);
-				var tagNames = tagPart.split(" ");
-				for(var i=0;i<tagNames.length;i++)
-				{
-					var tagName = tagNames[i];
-					VisualSearch.searchBox.addFacet('tag', tagName, 0);
-				}
-			}
-			//check for text
-			var textPart = q.indexOf("tag:") >= 0 ? q.substr(0,  q.indexOf("tag:")) : q;
-			if (textPart.length > 0)
+			var tagNames = this.getTagNamesFromSearchQuery(q);
+			
+			for(var i=0;i<tagNames.length;i++)
 			{
-				var texts = textPart.split(",");
-				for(var i=0;i<texts.length;i++)
-				{
-					var text = texts[i];
-					VisualSearch.searchBox.addFacet('text', text, 0);
-				}
+				var tagName = tagNames[i];
+				VisualSearch.searchBox.addFacet('tag', tagName, 0);
 			}
+			
+			//check for texts
+			var texts = this.getTextFromSearchQuery(q);
+			
+			for(var i=0;i<texts.length;i++)
+			{
+				var text = texts[i];
+				VisualSearch.searchBox.addFacet('text', text, 0);
+			}
+			
 			
 		}
 		if (!_.isUndefined(obj.content)){
@@ -213,11 +235,20 @@ this.jda = {
 	showEventView : function()
 	{
 		console.log('switch to Event view');
+		
+		VisualSearch.searchBox.addFacet('data:time & place', ' ', 0);
+		_.each( VisualSearch.searchBox.facetViews, function( facet ){
+    		if (facet.model.get("category")=="data:time & place") {
+    			$(facet.el).find('.VS-icon-cancel').click(function(){
+    				jda.app.switchViewTo('list');
+    			});
+    		}
+		});
+
 		//For some reason, the map collapses after a search to 0px width
 		
-		VisualSearch.searchBox.addFacet('data:time & place', '', 0);
-		
 		$("#event-view").width(940);
+
 		this.resetMapSize();
 
 		if( !this.mapLoaded )
@@ -527,12 +558,12 @@ this.jda = {
     	$('#content').val("all");
     	$('#select-wrap-text').text( $('#content option[value=\''+$('#content').val()+'\']').text() );
 
-    	//remove search box values
-    	VisualSearch.searchBox.disableFacets();
-	    VisualSearch.searchBox.value('');
-	   VisualSearch.searchBox.flags.allSelected = false;
-
-        
+		_(VisualSearch.searchQuery.models).each(function(facet){
+    		if (facet.get("category")!="data:time & place" || (facet.get("category")=="data:time & place" && jda.app.currentView != 'event')) {
+    			VisualSearch.searchQuery.remove(facet);
+    		}
+		});
+    	    	
 	},
 	
 	

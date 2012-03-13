@@ -45,7 +45,7 @@
 					$("#related-tags li").filter(":last").click(function(){
 						
 						//clear all current search filters
-						VisualSearch.searchBox.clearSearch();
+						jda.app.clearSearchFilters();
 
 						//add only tag filter
 						VisualSearch.searchBox.addFacet('tag', tag.name, 0);
@@ -187,14 +187,25 @@
 					cqlFilters.push("media_date_created <= '" + endString +"'");
 				}	
 			}
+
+			//Tags and Texts are stored in the q property
 			if( !_.isUndefined(search.q) )
 			{
-				cqlFilters.push("(title LIKE '%"+search.q+"%' OR media_creator_username LIKE '%"+search.q+"%' OR description LIKE '%"+search.q+"%')");
+				var tags = jda.app.getTagNamesFromSearchQuery(search.q);
+				_(tags).each(function(tag){
+					cqlFilters.push("tags='" + tag + "'");
+				});
+
+				var texts = jda.app.getTextFromSearchQuery(search.q);
+				_(texts).each(function(text){
+					cqlFilters.push("(title LIKE '%"+text+"%' OR media_creator_username LIKE '%"+text+"%' OR description LIKE '%"+text+"%')");
+				});
+				
 			}
-			if( !_.isUndefined(search.tags) )
+			/*if( !_.isUndefined(search.tags) )
 			{
 				cqlFilters.push("tags='" + search.tags + "'");
-			}
+			}*/
 			if( !_.isUndefined(search.content)&&search.content!="all" )
 			{  
 				var capitalizedContent =  search.content.charAt(0).toUpperCase() + search.content.slice(1);
@@ -208,7 +219,7 @@
 			{
 				cqlFilterString = null;
 			}
-			
+			console.log(cqlFilterString);
 			return cqlFilterString;
 		},
 	
