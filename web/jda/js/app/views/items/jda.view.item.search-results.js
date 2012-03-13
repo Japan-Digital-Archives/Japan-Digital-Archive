@@ -75,10 +75,11 @@
 				blanks["author"] = this.model.get("media_creator_realname");	
 			}
 
-			
+			$(this.el).html( _.template( template, blanks ) );
 
-			$(this.el).html( _.template( template, blanks ) )
-			
+			if (blanks["author"] == ""){
+				$(this.el).find('.item-author').hide();
+			}
 			return this;
 		},
 		
