@@ -308,6 +308,35 @@ this.jda = {
 			_this.toggleMapLayer($(this).attr("id"), map);
 			_this.toggleLegendEntry($(this).attr("id"), map);
 		});
+		
+		//Adding DRAG back in -- wasn't working for some reason...
+		var dragcontrol = new OpenLayers.Control.DragPan({'map':this.mymap, 'panMapDone':function(xy){
+	        if(this.panned) {
+	            var res = null;
+	            if (this.kinetic) {
+	                res = this.kinetic.end(xy);
+	            }
+	            this.map.pan(
+	                this.handler.last.x - xy.x,
+	                this.handler.last.y - xy.y,
+	                {dragging: !!res, animate: false}
+	            );
+	            if (res) {
+	                var self = this;
+	                this.kinetic.move(res, function(x, y, end) {
+	                    self.map.pan(x, y, {dragging: !end, animate: false});
+	                });
+	            }
+	            this.panned = false;
+	        }
+	        that.userdragged  = true;
+	            
+	    }});
+	    dragcontrol.draw();
+	    map.addControl(dragcontrol);
+	    dragcontrol.activate();
+
+
 	},
 	
 	showTagView : function()
