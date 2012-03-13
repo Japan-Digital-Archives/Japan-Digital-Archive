@@ -611,6 +611,26 @@ var FancyBoxWebsiteView = FancyBoxView.extend({
 		FancyBoxView.prototype.initialize.call(this); //This is like calling super()
 
 	},
+	more : function(){
+
+		//call parent MORE method to lay out metadata
+		FancyBoxView.prototype.more.call(this);
+
+		if(this.model.get("title") == this.model.get("description")){
+			$('#fancybox-media-container .description').hide();
+		}
+
+		return false;
+	},
+	less : function(){
+
+		//call parent LESS method to lay out metadata
+		FancyBoxView.prototype.less.call(this);
+
+		$('#fancybox-media-container .description').show();
+
+		return false;
+	},
 	/* Pass in the element that the user clicked on from fancybox. */
 	render: function(obj)
 	{
