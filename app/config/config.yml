@@ -50,19 +50,6 @@ doctrine:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
 
-# fos rest configuration
-fos_rest:
-    view:
-        formats:
-            json: true
-            rss: false
-            xml: false
-        templating_formats:
-            html: true
-        force_redirects:
-            html: true
-        failed_validation: HTTP_BAD_REQUEST
-        default_engine: twig
         
 # Swiftmailer Configuration
 swiftmailer:
@@ -74,9 +61,3 @@ swiftmailer:
 jms_security_extra:
     secure_controllers:  true
     secure_all_services: false
-
-services:
-    item_loader:
-        class:        Zeega\IngestBundle\ItemLoader
-    import_widget:
-        class:      Zeega\IngestBundle\ImportWidget
