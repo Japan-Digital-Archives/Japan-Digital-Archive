@@ -1,6 +1,12 @@
 /********************************************/
-/* overriding fancybox buttons settings 	*/
+/* overriding fancybox styles 	*/
 /********************************************/
+#fancybox-overlay{
+	z-index:1004 !important;
+}
+.fancybox-opened {
+	z-index: 1005 !important;
+}
 #fancybox-buttons a.btnPrev {
 	position:absolute;
 	top:300px;

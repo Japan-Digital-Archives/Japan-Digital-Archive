@@ -341,6 +341,7 @@
 	vertical-align : top;
 	margin-top : 5px;
 	cursor : pointer;
+	z-index:200 !important;
 }
 
 .ui-tabs .ui-tabs-nav li a {
