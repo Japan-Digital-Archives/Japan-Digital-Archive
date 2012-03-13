@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+       	<meta name="robots" content="noindex,follow">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        {% block title %}
+        {% endblock %}
+         <link href="{{ asset('jda/css/bootstrap.css')}}" rel="stylesheet" type="text/css">
+			<link href="{{ asset('jda/css/home.css')}}" rel="stylesheet" type="text/css">
+			<link href="{{ asset('jda/css/style.css')}}" rel="stylesheet" type="text/css">
+			<link rel="shortcut icon" type="image/x-icon" href="{{ asset('jda/images/jda.ico')}}"> 
+         
+         {% block stylesheets %}
+	
+			
+			
+		{% endblock %}
+				
+		<script> 
+			sessionStorage.setItem('directory', '{{directory}}');
+			sessionStorage.setItem('hostname','{{hostname}}');
+		</script>
+		
+		
+		{% block scripts %}
+		{% endblock %}
+		
+		<script type="text/javascript" src="{{ asset('jda/js/lib/bootstrap.js')}}"></script>
+		
+		
+    </head>
+    
+  <body>
+
+		{% block header %}
+		<div class="white-background"></div>
+			<div id="header-bar"><div id="header-english">
+
+		<header class="clearfix"> 
+		{% if locale == 'jp' %}
+			<a href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('jda/images/logo-jp.png')}}"></a>
+		{% else %}
+			<a href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('jda/images/logo.png')}}"></a>
+		{% endif %}
+		
+		<a href='#myModal' class='alpha-header' data-toggle='modal'>alpha</a>
+		
+		<div id="user-bar">
+			<ul id="header-menu" class="unstyled">
+
+				
+				{% if locale == 'jp' %}
+					<li>{% trans %}jda.header.japanese{% endtrans %}</li>
+					<li>
+						{% if page == 'home' %}
+							<a href="{{path('home', { '_locale': 'en' })}}">
+						{% elseif page == 'about' %}
+							<a href="{{path('about', { '_locale': 'en' })}}">
+						{% elseif page == 'search' %}
+							<a href="{{path('search', { '_locale': 'en' })}}">
+						{% else %}
+							<a>
+						{% endif %}
+						{% trans %}jda.header.english{% endtrans %}</a>
+					</li>
+				{% else %}
+					<li>
+						{% if page == 'home' %}
+							<a href="{{path('home', { '_locale': 'jp' })}}">
+						{% elseif page == 'about' %}
+							<a href="{{path('about', { '_locale': 'jp' })}}">
+						{% elseif page == 'search' %}
+							<a href="{{path('search', { '_locale': 'jp' })}}">
+						{% else %}
+							<a>
+						{% endif %}
+						{% trans %}jda.header.japanese{% endtrans %}</a>
+					</li>
+					<li>{% trans %}jda.header.english{% endtrans %}</li>
+				{% endif %}
+				
+				<li>/</li>
+				
+				<li><a  href="{{path('about', { '_locale': locale})}}" class="about-english">{% trans %}jda.header.about{% endtrans %}</a></li>
+				<li><a href="#">{% trans %}jda.header.feedback{% endtrans %}</a></li>
+				<!--
+				<li><a href='#' class='btn success small'>{% trans %}jda.home.add{% endtrans %}</a></li>
+				-->
+				<!--
+				<li><a href="#">login</a></li>
+				<li>/</li>
+				<li><a href="#">register</a></li>
+				-->
+			</ul>
+		</div>
+
+			</header>
+		</div></div>
+
+		
+  		{% endblock %}
+				
+		{% block content %}
+		{% endblock %}
+		   
+		{% block footer %}
+		{% endblock %}
+
+
+		
+			
+			<div class="modal" id="myModal" style='display:none'>
+				<div class="modal-header">
+					<a class="close" data-dismiss="modal">×</a>
+					<h3>About Alpha</h3>
+				</div>
+				<div class="modal-body">
+					<p>This 'alpha' version of the Digital Archive of Japan's 2011 Disasters is still a work in progress. We invite you to look around and see what's going on, but there will be a few bumps in the road. We're working every day to expand the functionality of the site and fix bugs. We hope you you are able to make use of the site and keep checking back!</p>
+				</div>
+
+			</div>
+			
+
+		
+         
+    </body>
+</html>

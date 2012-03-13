@@ -1,0 +1,203 @@
+﻿<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>jda.home.featured</source>
+                <target>Featured Collections</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>jda.home.about.intro</source>
+                <target>The Digital Archive of Japan's 2011 Disasters</target>
+            </trans-unit>
+             <trans-unit id="3">
+                <source>jda.home.about</source>
+                <target>is an evolving, collaborative space for citizens, researchers and policy makers, and a site of shared memory for those most directly affected by these events.</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>jda.home.archive</source>
+                <target>In the Archive</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>jda.home.tags</source>
+                <target>Frequent Tags</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>jda.home.title</source>
+                <target> Digital Archive of Japan's 2011 Disasters</target>
+            </trans-unit> 
+            <trans-unit id="7">
+                <source>jda.home.more</source>
+                <target>more</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>jda.home.add</source>
+                <target>add to the archive</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>jda.home.search</source>
+                <target>search the archive</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>jda.home.logo</source>
+                <target>logo</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>jda.about.mission</source>
+                <target>The Digital Archive of Japan's 2011 Disasters' core missions</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>jda.about.one</source>
+                <target>to index, preserve and make widely accessible the digital records of the events of March 2011 and their aftermath</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>jda.about.two</source>
+                <target>to provide a public space of information sharing, collaboration and conversation for citizens, researchers and policy makers</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>jda.about.three</source>
+                <target>to serve as a site of shared memory for those most affected by these events and most concerned about their consequences</target>
+            </trans-unit>
+             <trans-unit id="15">
+                <source>jda.about.participate</source>
+                <target>Participate</target>
+            </trans-unit>	
+             <trans-unit id="16">
+                <source>jda.about.connect</source>
+                <target>Connect &amp; Explore</target>
+            </trans-unit>
+             <trans-unit id="17">
+                <source>jda.about.connectbody</source>
+                <target>The archive aims to foster new connections, both between items and among users. As they move from item to item and collection to collection users encounter an ever-expanding network of fellow archivists, from the major organization that submits thousands of location- and direction-tagged photographs to the fellow citizen who submits her family's testimonial to the historian who seeks to understand the interaction of public and private actors in the relief effort.</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>jda.about.participateone</source>
+                <target>Browse, annotate and visualize digital records</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>jda.about.participatetwo</source>
+                <target>Build and share collections (in development)</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>jda.about.participatethree</source>
+                <target>Contribute reports, photos, videos, links, etc.</target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>jda.about.participatefour</source>
+                <target>Create and share narratives (in development)</target>
+            </trans-unit>
+             <trans-unit id="22">
+                <source>jda.search.allformats</source>
+                <target>all formats</target>
+            </trans-unit>
+             <trans-unit id="23">
+                <source>jda.search.image</source>
+                <target>image</target>
+            </trans-unit>            
+             <trans-unit id="24">
+                <source>jda.search.video</source>
+                <target>video</target>
+            </trans-unit>
+             <trans-unit id="25">
+                <source>jda.search.audio</source>
+                <target>audio</target>
+            </trans-unit>            
+             <trans-unit id="26">
+                <source>jda.search.tweet</source>
+                <target>tweet</target>
+            </trans-unit>
+             <trans-unit id="27">
+                <source>jda.search.document</source>
+                <target>document</target>
+            </trans-unit>
+             <trans-unit id="28">
+                <source>jda.search.website</source>
+                <target>website</target>
+            </trans-unit>   
+             <trans-unit id="29">
+                <source>jda.search.pdf</source>
+                <target>PDF</target>
+            </trans-unit>
+             <trans-unit id="30">
+                <source>jda.search.testimonial</source>
+                <target>testimonial</target>
+            </trans-unit>
+             <trans-unit id="31">
+                <source>jda.search.listview</source>
+                <target>LIST VIEW</target>
+            </trans-unit>
+             <trans-unit id="32">
+                <source>jda.search.timeplaceview</source>
+                <target>TIME + PLACE VIEW</target>
+            </trans-unit>
+             <trans-unit id="33">
+                <source>jda.search.relatedtags</source>
+                <target>related tags</target>
+            </trans-unit>
+             <trans-unit id="34">
+                <source>jda.search.layers</source>
+                <target>Layers</target>
+            </trans-unit>
+             <trans-unit id="35">
+                <source>jda.search.legend</source>
+                <target>Legend</target>
+            </trans-unit>
+             <trans-unit id="36">
+                <source>jda.search.muncipaldistricts</source>
+                <target>Muncipal Districts</target>
+            </trans-unit>
+             <trans-unit id="37">
+                <source>jda.search.radiation</source>
+                <target>Radiation</target>
+            </trans-unit>
+             <trans-unit id="38">
+                <source>jda.search.casualties</source>
+                <target>Casualties</target>
+            </trans-unit>
+             <trans-unit id="39">
+                <source>jda.search.flooding</source>
+                <target>Flooding</target>
+            </trans-unit>
+             <trans-unit id="40">
+                <source>jda.search.shake</source>
+                <target>Shake</target>
+            </trans-unit>
+ 		    <trans-unit id="41">
+                <source>jda.header.about</source>
+                <target>About</target>
+            </trans-unit>
+    		<trans-unit id="42">
+                <source>jda.header.feedback</source>
+                <target>Feedback</target>
+            </trans-unit>           
+			<trans-unit id="43">
+                <source>jda.header.japanese</source>
+                <target>日本語</target>
+            </trans-unit>				
+			<trans-unit id="44">
+                <source>jda.header.english</source>
+                <target>English</target>
+            </trans-unit>			            
+			<trans-unit id="45">
+                <source>jda.home.partners</source>
+                <target>Partners</target>
+            </trans-unit>			            
+			<trans-unit id="46">
+                <source>jda.home.go</source>
+                <target>go</target>
+            </trans-unit>
+            <trans-unit id="47">
+                <source>jda.about.paragraph</source>
+                <target>This alpha version of the Digital Archive of Japan's 2011 Disasters is the result of an ongoing global collaborative effort. Its ever-expanding content represents the contributions of an array of individuals and organizations variously affected by the unprecedented events of March 2011 and their aftermath. The development of the archive interface has been led by the Edwin O. Reischauer Institute at Harvard University in collaboration with metaLAB (at) Harvard, Harvard's Center for Geographic Analysis and Zeega.org, a non-profit creative technology company. This current version lays the groundwork for an ever-evolving and ultimately participatory archive. The interface is built using Zeega, an open-source platform that supports initaitives in crisis archiving, enabling anyone to create participatory projects that combine original content with photos, videos, text, audio, data feeds and maps via APIs from across the web.</target>
+            </trans-unit>
+            <trans-unit id="48">
+                <source>jda.search.results</source>
+                <target> results</target>
+            </trans-unit>
+             <trans-unit id="49">
+                <source>jda.home.source</source>
+                <target>image source</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

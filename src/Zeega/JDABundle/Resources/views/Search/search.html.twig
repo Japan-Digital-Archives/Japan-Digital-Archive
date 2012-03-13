@@ -1,0 +1,251 @@
+{# src/Zeega/JDABundle/Resources/views/Home/home.html.twig #}
+
+{% extends 'ZeegaJDABundle::base.html.twig' %}
+
+{% block title %}<title>{% trans %}jda.home.title{% endtrans %}</title>{% endblock %}
+
+
+
+{% block stylesheets %}
+<link type="text/css" href="{{ asset('jda/js/lib/jquery-ui-1.8.18.custom/css/smoothness/jquery-ui-1.8.18.custom.css')}}" rel="Stylesheet" />
+
+<link href="{{ asset('jda/css/bootstrap-2.0.css')}}" rel="stylesheet" type="text/css">
+
+<link href="{{ asset('jda/css/itemPage.css')}}" rel="stylesheet" type="text/css">
+<link href="{{ asset('jda/css/textStyles.css')}}" rel="stylesheet" type="text/css">
+<link href="{{ asset('jda/css/lightbox.css')}}" rel="stylesheet"	type="text/css">
+<link href="{{ asset('jda/css/discovery.css')}}" rel="stylesheet" type="text/css">
+<link href="{{ asset('jda/css/collectionsTab.css')}}" rel="stylesheet" type="text/css">
+<link href="{{ asset('jda/css/imageStyles.css')}}" rel="stylesheet" type="text/css">
+
+
+
+<link href="{{ asset('jda/js/lib/jquerySVG/jquery.svg.css')}}" rel="stylesheet" type="text/css">
+
+<!-- Leaflet CSS --> 
+<link rel="stylesheet" href="{{ asset('jda/js/lib/leaflet/leaflet.css')}}" />
+<!--[if lte IE 8]><link rel="stylesheet" href="{{ asset('jda/js/lib/leaflet/leaflet.ie.css')}}" /><![endif]-->
+
+
+<!-- Tags --> 
+<link rel="stylesheet" type="text/css" href="{{ asset('jda/js/lib/jquery.tagsinput.css')}}" />
+
+<!-- Visual Search --> 
+<!--[if (!IE)|(gte IE 8)]><!-->
+  <link href="{{ asset('jda/js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+<!--[if lte IE 7]><!-->
+  <link href="{{ asset('jda/js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+
+<!-- FANCYBOX -->
+
+
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="{{ asset('jda/css/zeega.fancybox.css')}}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{{ asset('jda/js/lib/fancybox/jquery.fancybox.css')}}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{{ asset('jda/js/lib/fancybox/helpers/jquery.fancybox-buttons.css')}}" type="text/css" media="screen" />
+
+	
+{% endblock %}	
+
+{% block scripts %}
+
+
+
+<script type="text/javascript" src="http://s3.documentcloud.org/viewer/loader.js"></script>
+<script data-main="{{ asset('jda/js/loaders/search') }}" src="{{ asset('jda/js/lib/require/require-1.0.5.js') }}"></script>
+
+
+
+
+{% endblock %}
+
+
+
+
+
+{% block content %}
+<div class="white-background-search"></div>
+<div class='container'>
+
+	
+	<div id="non-scrolling-things">
+	<!-- search-bar -->
+	<div id="search-bar" class='hero-unit group'>
+		
+		<div class="visual_search"></div>
+		<span id="select-wrap"><span id="select-wrap-text">{% trans %}jda.search.allformats{% endtrans %}</span><div class="arrow-down"></div><select id="content">
+		  <option value="all">{% trans %}jda.search.allformats{% endtrans %}</option>
+		  <option value="image">{% trans %}jda.search.image{% endtrans %}</option>
+		  <option value="video">{% trans %}jda.search.video{% endtrans %}</option>
+		  <option value="audio">{% trans %}jda.search.audio{% endtrans %}</option>
+		  <option value="tweet">{% trans %}jda.search.tweet{% endtrans %}</option>
+		  <option value="document">{% trans %}jda.search.document{% endtrans %}</option>
+		  <option value="website">{% trans %}jda.search.website{% endtrans %}</option>
+		  <option value="PDF">{% trans %}jda.search.pdf{% endtrans %}</option>
+		  <option value="text">{% trans %}jda.search.testimonial{% endtrans %}</option>
+		</select>
+		</span>
+		
+	</div>
+	
+		<!-- number of results -->
+		<div id="results-count"><span id="results-count-number"></span> Results</div>
+
+		<!-- time & place vs list view -->
+		<div id='search-filters' class="btn-group">
+				<a id="list-view-button" class='nav-btn btn large' data-goto-view='list' href="#" style="display:none"><i class="jdicon-small-list"></i><span class="btn-text">{% trans %}jda.search.listview{% endtrans %}</span></a>
+				<a id="event-view-button" class='nav-btn btn large' data-goto-view='event' href="#"><i class="jdicon-small-world"></i><span class="btn-text">{% trans %}jda.search.timeplaceview{% endtrans %}</span></a>
+				<!-- <a class='btn large' data-goto-view='tag' href="#">TAGS</a> -->
+		</div>	
+
+		<!-- related tags -->
+		<div id="related-tags"><span id="related-tags-title" class="span2">{% trans %}jda.search.relatedtags{% endtrans %}</span><ul class="span10"></ul></div>
+	</div><!-- end non-scrolling things -->
+		<!-- item list -->
+		<div id="scrolling-things">
+		<div id='list-view'>
+
+			<ul id="items-list" class='unstyled'></ul>
+			<div id="spinner"></div>
+		</div>
+
+		<div id='event-view' class='hidden'>
+			<div id='event-time-slider'></div>
+			<div id='event-map'></div>
+			<div id="layer-control-drawer">
+			<div id ="layer-control-drawer-tab">
+				<p><span id="layer-control-drawer-arrows">&laquo;</span><i class="jdicon-small-layers"></i></p>
+			</div>
+			<div id="layer-control">
+				<ul>
+					<li><a href="#layer-checkboxes">{% trans %}jda.search.data{% endtrans %}</a></li>
+					<li><a href="#layer-legend">{% trans %}jda.search.legend{% endtrans %}</a></li>
+				</ul>
+				<div id='layer-checkboxes'>
+					<label class="checkbox">
+						{% trans %}jda.search.muncipaldistricts{% endtrans %}
+						<input type='checkbox' class="layer-checkbox" id='municipal-layer'/>
+					</label>
+					<label class="checkbox">
+						{% trans %}jda.search.radiation{% endtrans %}
+						<input type='checkbox' class="layer-checkbox" id='radiation-layer'/>
+					</label>
+					<label class="checkbox">
+						{% trans %}jda.search.casualties{% endtrans %}
+						<input type='checkbox' class="layer-checkbox" id='casualties-layer'/>
+					</label>
+					<label class="checkbox">
+						{% trans %}jda.search.flooding{% endtrans %}
+						<input type='checkbox' class="layer-checkbox" id='flooding-layer'/>
+					</label>
+					<label class="checkbox">
+						{% trans %}jda.search.shake{% endtrans %}
+						<input type='checkbox' class="layer-checkbox" id='shake-layer'/>
+					</label>
+					<br><br>
+				</div>
+				
+				<div id='layer-legend'>
+					<div class="legend-entry hidden" id="municipal-legend">
+						<p>{% trans %}jda.search.muncipaldistricts{% endtrans %}</p>
+					</div>
+					<div class="legend-entry hidden" id="radiation-legend">
+						<p>{% trans %}jda.search.radiation{% endtrans %}</p>
+					</div>
+					<div class="legend-entry hidden" id="casualties-legend">
+						<p>{% trans %}jda.search.casualties{% endtrans %}</p>
+					</div>
+					<div class="legend-entry hidden" id="flooding-legend">
+						<p>{% trans %}jda.search.flooding{% endtrans %}</p>
+					</div>
+					<div class="legend-entry hidden" id="shake-legend">
+						<p>{% trans %}jda.search.shake{% endtrans %}</p>
+					</div>
+				</div>
+			</div> <!-- layer control -->
+			</div> <!--layer-control-drawer -->
+		</div>
+		<!-- <div id='tag-view' class='hidden'>tag-view</div>-->
+	</div><!-- #scrolling things -->
+</div><!-- #container -->
+			
+
+<!-- Templates -->
+<script type="text/template" id="list-item-template">
+<div>
+	<div class="discovery-list-thumb-container">
+		<img class="img-144 discovery-list-thumb" src = "<%= thumbnail_url ? thumbnail_url : "{{ asset('jda/images/blank-144x144.jpg')}}" %>">
+	</a></div>
+	<div class='discovery-list-info-area'>
+		<%= date_created ? "<div class='item-meta'>" + stringToFormatted(date_created['date']) + "</div>" : "" %>
+
+		<p>
+			<span class="black-18 discovery-list-title"><%=title%></span>
+		</p>
+		<p>
+			<%= media_creator_username ? "<span class='gray-18'>From: </span>
+			  <span class='black-18'>" + media_creator_realname + "</span> " : "" %>
+		</p>
+		
+	</div>
+	<div class="lightbox-hider">
+	</div>
+</div>
+</script>
+
+<script type="text/template" id="compact-list-item-template">
+<div>
+	<div class="discovery-compact-list-thumb-container">
+		<img class="img-72" src = "<%= thumbnail_url ? thumbnail_url : "{{ asset('jda/images/blank-72x72.jpg')}}" %>">
+	</div>
+	<div class='discovery-list-info-area' >
+		<p  class="black-12"><%=title%></p>
+		<%= media_creator_realname ? "<p><span class='gray-12'>From: </span>
+			<span class='black-12'>" + media_creator_realname + "</span></p> " : "" %> 
+		<%= date_created ? "<p class='blue-12'>" + stringToFormatted(date_created['date']) + "</p>" : "" %>
+	</div>
+	<div class="lightbox-hider">
+	</div>
+</div>
+</script>
+
+<script type="text/template" id="lightbox-item-template">
+<div>
+	<div class='lightbox-preview'></div>
+	<div class='lightbox-infobar'>
+		<%= title ? "<p class='white-18 lightbox-title'>" + title + "</p>" : "" %>
+		<%= media_creator_username ? "<p><span class='white-15'>from</span>
+			<span class='white-15'>" + media_creator_username + "</span></p> " : "" %> 
+		<%= date_created ? "<p class='blue-15'>" + stringToFormatted(date_created['date']) + "</p>" : "" %>
+	</div>
+</div>
+</script>
+
+<script type="text/template" id="page-item-template">
+<div class="page-container">
+	<div class='page-preview-area'>
+		<p class="page-back-to-results"> < Back to results</p>
+		<div class="page-preview"></div>
+		<p class="black-15">Description:</p>
+		<p class="black-12"><%=description%></p>
+	</div>
+	<div class='page-metadata-area'>
+		<div class='page-metadata-scroll'>
+			<p class="blue-18 page-title"><%=title%></p>
+			<%= media_creator_username ? "<p><span class='gray-15'>From: </span>
+				<span class='black-15'>" + media_creator_username + "</span></p> " : "" %>
+			<%= media_creator_username ? "<p><span class='gray-15'>Date: </span>
+				<span class='black-15'>" + stringToFormatted(date_created['date']) + "</span></p> " : "" %>
+			<p class='gray-15'>Tags:</p>
+			<p class='black-15 page-tag-text'></p>
+			<p class='black-12'>add tag : <input type="text" id="add-tag" class='metadata-new-tag-input'/></p>
+		</div>
+	</div>
+	<div class="page-related-area">
+	</div>
+</div>
+</script>
+
+{% endblock %}
