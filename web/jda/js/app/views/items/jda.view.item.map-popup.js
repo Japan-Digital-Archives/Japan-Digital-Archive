@@ -9,7 +9,17 @@
 		render: function(done)
 		{
 			var _this = this;
-			template = this.getTemplate();
+			var template;
+			switch( this.model.get('media_type') )
+			{
+				
+				case 'Tweet':
+					template = this.getTweetTemplate();
+					break;
+				default:
+					template = this.getDefaultTemplate();
+			}
+			
 			var blanks = this.model.attributes;
 		
 			
@@ -17,15 +27,28 @@
 			$(this.el).html( _.template( template, blanks ));
 			return this;
 		},
-
-		getTemplate : function()
+		getTweetTemplate : function()
 		{
 			html =
 			'<a  class="map-fancymedia" id="<%= id %>" rel="group">'+
 			'<div style="float:left;">'+
 				'<img  src="<%= thumbnail_url %>" height="50" width="50"/>'+
 			'</div>'+
-			'<div class="span">'+
+			'<div class="span popup-text">'+
+				'<%= text %>'+
+			'</div>'+
+			'</a>';
+
+			return html;
+		},
+		getDefaultTemplate : function()
+		{
+			html =
+			'<a  class="map-fancymedia" id="<%= id %>" rel="group">'+
+			'<div style="float:left;">'+
+				'<img  src="<%= thumbnail_url %>" height="50" width="50"/>'+
+			'</div>'+
+			'<div class="span popup-text">'+
 				'<%= title %>'+
 			'</div>'+
 			'</a>';
