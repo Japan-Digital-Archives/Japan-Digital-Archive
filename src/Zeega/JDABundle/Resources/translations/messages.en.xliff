@@ -198,6 +198,10 @@
                 <source>jda.home.source</source>
                 <target>image source</target>
             </trans-unit>
+            <trans-unit id="50">
+                <source>jda.search.data</source>
+                <target>Search Data</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
