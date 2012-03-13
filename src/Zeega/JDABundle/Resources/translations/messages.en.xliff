@@ -200,7 +200,7 @@
             </trans-unit>
             <trans-unit id="50">
                 <source>jda.search.data</source>
-                <target>Search Data</target>
+                <target>Layers</target>
             </trans-unit>
         </body>
     </file>
