@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle($this),
             new Zeega\JDABundle\ZeegaJDABundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new Zeega\UserBundle\ZeegaUserBundle(),
         );
 
 
