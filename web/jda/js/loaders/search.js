@@ -29,6 +29,7 @@ var loadFiles = [
 
 	'order!../lib/bootstrap',
 	'order!../lib/leaflet/leaflet',
+	
 	'order!../lib/jquery.tagsinput.min',
 	'order!../lib/fancybox/jquery.easing-1.3.pack',
 	'order!../lib/fancybox/jquery.mousewheel-3.0.6.pack',
@@ -39,6 +40,7 @@ var loadFiles = [
 	'order!../lib/dateformat/date.format',
 	'order!../lib/visualsearch/visualsearch',
 	'order!../lib/popcorn_flash',
+	'order!../lib/wax.ol.min',
 	//mvc
 	'order!../app/jda',
 	
