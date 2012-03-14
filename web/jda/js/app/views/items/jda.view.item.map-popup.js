@@ -24,6 +24,7 @@
 			}
 			var blanks = jQuery.extend({}, this.model.attributes);
 			blanks.id=this.model.get("id").split('.')[1];
+			
 			if (this.model.get("media_creator_realname") == null || this.model.get("media_creator_realname") == "" || this.model.get("media_creator_realname") == "Unknown" || this.model.get("media_creator_realname") == "unknown"){
 				blanks["author"] = this.model.get("media_creator_username");
 			} else {

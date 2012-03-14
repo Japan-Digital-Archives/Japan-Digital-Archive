@@ -191,16 +191,17 @@
 			//Tags and Texts are stored in the q property
 			if( !_.isUndefined(search.q) )
 			{
+				/*
 				var tags = jda.app.getTagNamesFromSearchQuery(search.q);
 				_(tags).each(function(tag){
 					cqlFilters.push("tags='" + tag + "'");
 				});
-
+				
 				var texts = jda.app.getTextFromSearchQuery(search.q);
 				_(texts).each(function(text){
 					cqlFilters.push("(title LIKE '%"+text+"%' OR media_creator_username LIKE '%"+text+"%' OR description LIKE '%"+text+"%')");
 				});
-				
+				*/
 			}
 			/*if( !_.isUndefined(search.tags) )
 			{
@@ -287,6 +288,7 @@
 	
 		url : function()
 		{
+			console.log(jda.app);
 			//constructs the search URL
 			var url = this.base;
 			if( !_.isUndefined(this.search.q) && this.search.q.length > 0) url += '&q=' + this.search.q.toString();
@@ -294,12 +296,14 @@
 			if( !_.isUndefined(this.search.content) ) url += '&content=' + this.search.content;
 			if( !_.isUndefined(this.search.page) ) url += '&page=' + this.search.page;
 			if( !_.isUndefined(this.search.r_items) ) url += '&r_items=' + this.search.r_items;
-			if( !_.isUndefined(this.search.r_tags) ) url += '&r_tags=' + this.search.r_tags;
+			if( !_.isUndefined(this.search.r_tags)) url += '&r_tags=' + this.search.r_tags;
 			if( !_.isUndefined(this.search.r_itemswithcollections) ) url += '&r_itemswithcollections=' + this.search.r_itemswithcollections;
 			if( !_.isUndefined(this.search.times) ){
-				if( !_.isUndefined(this.search.times.start) ) url += '&dtstart=' + this.search.times.start;
-				if( !_.isUndefined(this.search.times.end) ) url += '&dtend=' + this.search.times.end;
+				if( !_.isUndefined(this.search.times.start) ) url += '&min_date=' + this.search.times.start;
+				if( !_.isUndefined(this.search.times.end) ) url += '&max_date=' + this.search.times.end;
 	     	}
+	     	if(jda.app.currentView=='event') url+='&geo_located=1';
+	    
 			console.log('search url: '+ url);
 			return url;
 		},

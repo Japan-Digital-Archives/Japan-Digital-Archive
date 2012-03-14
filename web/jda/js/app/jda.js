@@ -42,7 +42,10 @@ this.jda = {
 	
 	search : function(params, useValuesFromURL)
 	{
-		console.log('search')
+		console.log('search');
+		console.log(params);
+		console.log(useValuesFromURL);
+		console.log('search done');
 		
 		//Parse out search box values for putting them in the Search query
 		if (useValuesFromURL)
@@ -84,7 +87,7 @@ this.jda = {
 		
 		}
 		
-		if (!_.isUndefined(params.view_type))  this.switchViewTo(params.view_type) ;
+		if (!_.isUndefined(params.view_type))  this.switchViewTo(params.view_type,false) ;
 		
 		if (params.view_type == 'event')
 		{
@@ -95,7 +98,7 @@ this.jda = {
 		
 		if (this.currentView == 'event')
 		{
-			if(1==2&&!_.isUndefined(cqlFilterString))
+			if(!_.isUndefined( this.itemViewCollection.getCQLSearchString())&&this.mapLoaded)
 			{
 				this.map.layers[1].mergeNewParams({
 					'CQL_FILTER' : this.itemViewCollection.getCQLSearchString()
@@ -104,33 +107,8 @@ this.jda = {
 		}
 		
 	},
-	getTagNamesFromSearchQuery : function(q){
-		var result = new Array();
-		if (q.indexOf("tag:") >=0){
-			var tagPart = q.substr(q.indexOf("tag:") + 4);
-			var tagNames = tagPart.split(" ");
-			for(var i=0;i<tagNames.length;i++)
-			{
-				var tagName = tagNames[i];
-				result.push(tagName);
-			}
-		} 
-		return result;
-	},
-	getTextFromSearchQuery : function(q){
-		var result = new Array();
-		var textPart = q.indexOf("tag:") >= 0 ? q.substr(0,  q.indexOf("tag:")) : q;
-		if (textPart.length > 0)
-		{
-			var texts = textPart.split(",");
-			for(var i=0;i<texts.length;i++)
-			{
-				var text = texts[i];
-				result.push(text);
-			}
-		}
-		return result;
-	},
+	
+	
 	
 	updateSearchUI : function(obj)
 	{
@@ -138,23 +116,26 @@ this.jda = {
 		if (!_.isUndefined(q))
 		{
 			//check for tags
-			var tagNames = this.getTagNamesFromSearchQuery(q);
-			
-			for(var i=0;i<tagNames.length;i++)
-			{
-				var tagName = tagNames[i];
-				VisualSearch.searchBox.addFacet('tag', tagName, 0);
+			if (q.indexOf("tag:") >=0){
+				var tagPart = q.substr(q.indexOf("tag:") + 4);
+				var tagNames = tagPart.split(" ");
+				for(var i=0;i<tagNames.length;i++)
+				{
+					var tagName = tagNames[i];
+					VisualSearch.searchBox.addFacet('tag', tagName, 0);
+				}
 			}
-			
-			//check for texts
-			var texts = this.getTextFromSearchQuery(q);
-			
-			for(var i=0;i<texts.length;i++)
+			//check for text
+			var textPart = q.indexOf("tag:") >= 0 ? q.substr(0,  q.indexOf("tag:")) : q;
+			if (textPart.length > 0)
 			{
-				var text = texts[i];
-				VisualSearch.searchBox.addFacet('text', text, 0);
+				var texts = textPart.split(",");
+				for(var i=0;i<texts.length;i++)
+				{
+					var text = texts[i];
+					VisualSearch.searchBox.addFacet('text', text, 0);
+				}
 			}
-			
 			
 		}
 		if (!_.isUndefined(obj.content)){
@@ -184,17 +165,23 @@ this.jda = {
 		}
  	},
 	
+		resetMapSize :function(){
+		var h = Math.max($(window).height() - 310,400);
+		$("#event-map").height(h);
+	},
 	
-	switchViewTo : function( view )
+	
+	switchViewTo : function( view , refresh )
 	{
-		this.itemViewCollection  .setView(view);
+		
+		this.itemViewCollection.setView(view);
 		if( view != this.currentView )
 		{
 			$('#'+this.currentView+'-view').hide();
 			this.currentView = view;
-			 $('#'+view+'-view').show();
- 	 		 $("#"+view+"-view-button").hide();
- 			 $("#"+view+"-view-button").siblings().show();
+			$('#'+view+'-view').show();
+			$("#"+view+"-view-button").hide();
+			$("#"+view+"-view-button").siblings().show();
  	 		$(this).hide();
 			switch( this.currentView )
 			{
@@ -210,8 +197,21 @@ this.jda = {
 				default:
 					console.log('view type not recognized')
 			}
+			if(refresh){
+				$('#results-count').fadeOut('fast');
+				var searchView=this.itemViewCollection;
+				searchView.collection.fetch({
+					success : function(model, response){ 
+						searchView.renderTags(response.tags);
+						searchView.render();      
+						$('#results-count-number').text(response["items_count"]);        
+						$('#results-count').fadeTo(100, 1);
+					}
+				});
+			}
 		}
 	},
+	
 	
 	showListView : function()
 	{
@@ -227,39 +227,29 @@ this.jda = {
 			console.log('render collection')
 			this.itemViewCollection.render();
 		}
-	},
-	
-	resetMapSize :function(){
-		var h = Math.max($(window).height() - 310,400);
-		$("#event-map").height(h);
+		
 	},
 	
 	showEventView : function()
 	{
 		console.log('switch to Event view');
-		
-		VisualSearch.searchBox.addFacet('data:time & place', ' ', 0);
-		_.each( VisualSearch.searchBox.facetViews, function( facet ){
-    		if (facet.model.get("category")=="data:time & place") {
-    			$(facet.el).find('.VS-icon-cancel').click(function(){
-    				jda.app.switchViewTo('list');
-    			});
-    		}
-		});
-
 		//For some reason, the map collapses after a search to 0px width
 		
+		
+		
+		
+		VisualSearch.searchBox.addFacet('data:time & place', '', 0);
+		
 		$("#event-view").width(940);
-
 		this.resetMapSize();
 
 		if( !this.mapLoaded ) this.initWorldMap();
-		else{
-			this.map.layers[1].mergeNewParams({
-			'CQL_FILTER' : this.itemViewCollection.getCQLSearchString()
-			});
-		}
-		
+		else if( this.itemViewCollection.getCQLSearchString()!=null){
+				
+				this.map.layers[1].mergeNewParams({
+						'CQL_FILTER' : this.itemViewCollection.getCQLSearchString()
+					});
+		 }
 		console.log('map loaded')
 	},
 	
@@ -308,9 +298,11 @@ this.jda = {
 			
 				});
 				
-				
-				
-				
+				if( _this.itemViewCollection.getCQLSearchString()!=null){
+					_this.map.layers[1].mergeNewParams({
+						'CQL_FILTER' : _this.itemViewCollection.getCQLSearchString()
+					});
+				}
 				
 				
 				_this.map.addLayers(_this.getMapLayers());
@@ -587,12 +579,12 @@ this.jda = {
     	$('#content').val("all");
     	$('#select-wrap-text').text( $('#content option[value=\''+$('#content').val()+'\']').text() );
 
-		_(VisualSearch.searchQuery.models).each(function(facet){
-    		if (facet.get("category")!="data:time & place" || (facet.get("category")=="data:time & place" && jda.app.currentView != 'event')) {
-    			VisualSearch.searchQuery.remove(facet);
-    		}
-		});
-    	    	
+    	//remove search box values
+    	VisualSearch.searchBox.disableFacets();
+	    VisualSearch.searchBox.value('');
+	   VisualSearch.searchBox.flags.allSelected = false;
+
+        
 	},
 	
 	
@@ -655,7 +647,7 @@ this.jda = {
 		if (response.responseText != "")
 		{
 			var Items = jda.module("items");
-			console.log(response)
+			console.log(response.responseText)
 			try
 			{
 				var data = eval('(' + response.responseText + ')');
@@ -663,6 +655,7 @@ this.jda = {
 			catch(err)
 			{
 			  	this.popup=false;
+			  	console.log('failure to parse json');
 				return;
 			}
 			
@@ -673,7 +666,10 @@ this.jda = {
 			
 			//Fix model ids (remove prepended "item.id")
 			_.each(_.toArray(jda.app.mapViewCollection.collection),function(model){
-				jda.app.mapViewCollection.collection.get(model.id).set({id:model.get('id')});
+				var newid = model.get("id").split('.')[1];
+				jda.app.mapViewCollection.collection.get(model.id).set({id:newid});
+				console.log(jda.app.mapViewCollection.collection.get(newid));
+				console.log(model.get('id'));
 			});
 			
 			this.popup = new OpenLayers.Popup.FramedCloud( 

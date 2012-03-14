@@ -15,7 +15,7 @@ $(document).ready(function(){
   $('#search-filters a').click(function(){
     $(this).siblings().show();
     $(this).hide();
-    jda.app.switchViewTo( $(this).data('goto-view') );
+    jda.app.switchViewTo( $(this).data('goto-view') , true);
     
     return false;
   });
@@ -118,7 +118,6 @@ $(document).ready(function(){
 
         
             var elementID = $(this.element).attr('id');
-            console.log(elementID);
             var thisModel = jda.app.currentView == 'list' ? jda.app.itemViewCollection.collection.get(elementID) : jda.app.mapViewCollection.collection.get(elementID);
       this.fancyView = null;
 
