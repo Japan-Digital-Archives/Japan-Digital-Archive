@@ -1,0 +1,28 @@
+default:
+    pattern:   /
+    defaults:  { _controller: JDACoreBundle:Home:index, _locale: en}
+
+default_search:
+    pattern:   /search
+    defaults:  { _controller: JDACoreBundle:Search:index, _locale: en}
+
+
+default_about:
+    pattern:   /about
+    defaults:  { _controller: JDACoreBundle:About:index, _locale: en }
+    
+search:
+    pattern:   /{_locale}/search
+    defaults:  { _controller: JDACoreBundle:Search:index, _locale: en }
+    requirements:
+        _locale: en|jp
+home:
+    pattern:   /{_locale}/home
+    defaults:  { _controller: JDACoreBundle:Home:index, _locale: en }
+    requirements:
+        _locale: en|jp
+about:
+    pattern:   /{_locale}/about
+    defaults:  { _controller: JDACoreBundle:About:index, _locale: en }
+    requirements:
+        _locale: en|jp

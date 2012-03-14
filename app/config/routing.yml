@@ -1,8 +1,8 @@
-ZeegaJDABundle:
-    resource: "@ZeegaJDABundle/Resources/config/routing.yml"
+CoreBundle:
+    resource: "@JDACoreBundle/Resources/config/routing.yml"
     prefix:   /
 
-ZeegaJDABundle:
+ZeegaUserBundle:
     resource: "@ZeegaUserBundle/Resources/config/routing.yml"
     prefix:   /
 

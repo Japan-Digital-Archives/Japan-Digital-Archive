@@ -3,9 +3,9 @@ _configurator:
     prefix:   /_configurator
 
 jda:
-    resource: "@ZeegaJDABundle/Resources/config/routing.yml"
+    resource: "@JDACoreBundle/Resources/config/routing.yml"
 
-ZeegaJDABundle:
+CoreBundle:
     resource: "@ZeegaUserBundle/Resources/config/routing.yml"
     prefix:   /
 

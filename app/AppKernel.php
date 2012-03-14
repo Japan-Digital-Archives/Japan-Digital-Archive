@@ -18,7 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle($this),
-            new Zeega\JDABundle\ZeegaJDABundle(),
+            new JDA\CoreBundle\JDACoreBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Zeega\UserBundle\ZeegaUserBundle(),
             new Zeega\DataBundle\ZeegaDataBundle(),

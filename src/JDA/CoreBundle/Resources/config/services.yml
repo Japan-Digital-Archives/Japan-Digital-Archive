@@ -1,5 +1,5 @@
 parameters:
-#    zeega_jda.example.class: Zeega\JDABundle\Example
+#    zeega_jda.example.class: JDA\CoreBundle\Example
 
 services:
 #    zeega_jda.example:
