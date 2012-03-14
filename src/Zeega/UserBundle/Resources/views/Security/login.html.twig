@@ -5,40 +5,130 @@
 {% block scripts %}
 <script type="text/javascript" src="{{ asset('jda/js/lib/jquery/jquery-1.7.1.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('jda/js/ux/jda.ux.login.js')}}"></script>
-
 {% endblock %}
 
+{% block stylesheets %}
+<style type="text/css">
+
+.login-modal-background
+{
+	background-color: #000000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 10;
+	filter: alpha(opacity = 80);
+	-khtml-opacity: 0.8;
+	-moz-opacity: 0.8;
+	opacity: 0.8;
+}
+
+.modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 11000;
+	max-height: 500px;
+	overflow: auto;
+	width: 620px;
+	margin: -240px 0 0 -280px;
+	background-color: white;
+	border: 1px solid #999;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding-box;
+	background-clip: padding-box;
+}
+
+.modal-header {
+	padding: 20px 0px 0px 30px;
+	border: none;
+}
+
+.modal-body {
+	padding: 10px 30px 20px 30px;
+	margin-left: 120px;
+}
+
+h1
+{
+	font-size: 20px;
+	font-weight: bold;
+	margin: 0px;
+	padding:0px;
+	line-height: 20px;
+	color: #000000;
+}
+
+h2
+{
+	font-size: 16px;
+	font-weight: normal;
+	margin: 0px;
+	padding: 0px;
+	color: #000000;
+}
+
+h3
+{
+	font-size: 14px;
+	margin: 0px;
+	padding: 0px;
+	color: #000000;
+}
+
+.go-button {
+	height: 55px;
+	width: 85px;
+	float: left;
+	font-size: 11px;
+	background-color: #50B456;
+	color: white;
+}
+	
+</style>	
+{% endblock %}
 
 {% set page = 'login'%}
 {% if locale is not defined %}
 	{% set locale = 'en'%}
 {% endif %}
 {% block extra %}
-
-	<div class="modal" id="login-modal" style='display:none'>
+	<div class="login-modal-background"></div>
+	<div class="modal">
 		<div class="modal-header">
-			<a class="close" data-dismiss="modal">×</a>
-			<h3>Welcome to the Digital Archive of Japan's 2011 Disasters</h3>
-			The archive is currently in development and only available to partners.
+			<h1>Welcome to the Digital Archive of Japan's 2011 Disasters</h1>
+			<h2>The archive is currently in development and only available to partners.</h2>
 		</div>
 		<div class="modal-body">
-			<p>Partner login</p><a>Request a login</a>
+			<h3>Partner Login</h3><span><a>Request a login</a></span>
 				<form action="{{ path("fos_user_security_check") }}" method="post">
 					<div class="box">
 				    	<label for="username">{{ 'Username'|trans({}, 'FOSUserBundle') }}</label>
+						<br>
 					    <input type="text" id="username" name="_username" value="{{ last_username }}" class="input_text" />
-
+						<br><br>
 					    <label for="password">{{ 'Password'|trans({}, 'FOSUserBundle') }}</label>
+						<br>
 					    <input type="password" id="password" name="_password" class="input_text" />
 						<!--
 					    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
 					    <label for="remember_me">{{ 'Remember me'|trans({}, 'FOSUserBundle') }}</label>
 						-->	
 						<br><br>
-				    	<input type="submit" id="_submit" name="_submit" value="{{ 'submit'|trans({}, 'FOSUserBundle') }}" class="button"/>
+				    	<input type="submit" id="_submit" name="_submit" value="{{ 'submit'|trans({}, 'FOSUserBundle') }}" class="go-button"/>
 						<br><br>
 					</div>
 				</form>
 		</div>
 	</div>
+
 {% endblock %}

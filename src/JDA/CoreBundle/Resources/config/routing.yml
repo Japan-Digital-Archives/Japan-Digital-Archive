@@ -1,6 +1,6 @@
 default:
     pattern:   /
-    defaults:  { _controller: JDACoreBundle:Home:index, _locale: en}
+    defaults:  { _controller:  ZeegaUserBundle:Security:login, _locale: en}
 
 default_search:
     pattern:   /search

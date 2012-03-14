@@ -20,16 +20,21 @@ security:
             form_login:
                 provider: fos_userbundle
             logout:
-                path:   /logout
-                target: /login
-            anonymous: ~
-
+                path:   /en/logout
+                target: /en/home
+            anonymous:    true
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         #- { path: ^/_internal, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/home, role: ROLE_USER }
+        - { path: ^/en/home, role: ROLE_USER }
+        - { path: ^/jp/home, role: ROLE_USER }        
         - { path: ^/search, role: ROLE_USER }
-        - { path: ^/home role: ROLE_USER }
+        - { path: ^/en/search, role: ROLE_USER }
+        - { path: ^/jp/search, role: ROLE_USER }        
         - { path: ^/about role: ROLE_USER }
+        - { path: ^/en/about role: ROLE_USER }
+        - { path: ^/jp/about role: ROLE_USER }
         - { path: ^/register/confirmed, role: ROLE_USER }
