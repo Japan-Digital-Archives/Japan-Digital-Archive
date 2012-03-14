@@ -14,6 +14,7 @@ var FancyBoxView = Backbone.View.extend({
 
 	},
 	afterShow : function(){
+		if(_this.locatorMapView.geoLocated&&sessionStorage.getItem('moreFancy')) _this.locatorMapView.addMap();
 
 	},
 	more : function(){
@@ -352,10 +353,10 @@ var FancyBoxVideoView = FancyBoxView.extend({
 		return this;
 	},
 	afterShow:function(){
-		
+		FancyBoxView.prototype.afterShow.call(this);
 		var source = "http://www.youtube.com/watch?v="+this.model.get('uri')+"&controls=0";
 		//format is either youtube or video
-		this.plyr = new Plyr('fancybox-video-'+this.unique,{url:source,format:'youtube',load:'true'});
+		this.plyr = new Plyr('fancybox-video-'+this.unique,{url:source});
 		
 	},
 	
@@ -394,7 +395,7 @@ var FancyBoxAudioView = FancyBoxView.extend({
 	
 	
 	afterShow:function(){
-	
+		FancyBoxView.prototype.afterShow.call(this);
 		
 		this.plyr = new Plyr('fancybox-video-'+this.unique,{url:this.model.get('uri'),format:'html5',load:'true'});
 		
