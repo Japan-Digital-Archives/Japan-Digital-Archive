@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-		{% block head %}{% endblock head %}
-		
-    </head>
-    <body>
-	    <div>
+{% extends '::base.html.twig' %}
+
+{% set page = 'login'%}
+{% if locale is not defined %}
+	{% set locale = 'en'%}
+{% endif %}
+
+{% block content %}
 	        {% block fos_user_content %}
             {% endblock fos_user_content %}
-        </div>
-    </body>
-</html>
+{% endblock content %}

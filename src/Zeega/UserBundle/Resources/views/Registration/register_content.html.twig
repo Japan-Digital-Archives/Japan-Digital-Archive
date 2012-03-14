@@ -1,0 +1,58 @@
+
+{% block head %}
+	<style type="text/css">	
+	.fos_user_registration_register label {
+		display: block;
+		color: black;
+		margin-top: 10px;
+		font-weight: bold;
+		text-align: left;
+		font-size: 14px;
+		font-weight: regular;
+	}
+	#password-change
+	{
+		clear;
+	}
+	#password-change-button
+	{
+		margin-left:0;
+	}
+	.fos_user_success
+	{
+		color: red;
+	}
+	#registration-content
+	{
+		margin-left:265px;
+	}
+	
+	</style>
+{% endblock head %}
+
+{% block body %}
+<div id="registration-content">
+	<h1>User registration</h1>
+	<br/>
+	
+	<div style="font-size: 16px; color: red;">Create new user</div>
+
+	<br/>
+	{% for key, message in app.session.getFlashes() %}
+	<div class="{{ key }}">
+	    {{ message|trans({}, 'FOSUserBundle') }}
+	</div>
+	{% endfor %}
+
+	<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+	    {{ form_widget(form) }}
+	    <div>
+	        <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
+	    </div>
+	</form>
+</div>
+{% endblock %}	
+
+{% block scripts %}
+	<script data-main="{{ asset('js/main.settings.js') }}" src="{{ asset('js/libraries/require-jquery.js')}}"></script>
+{% endblock %}

@@ -10,4 +10,6 @@ _security_check:
         _locale: en|jp
 
 _security_logout:
-    pattern:  /logout
+    pattern:  /{_locale}/logout
+    requirements:
+        _locale: en|jp
