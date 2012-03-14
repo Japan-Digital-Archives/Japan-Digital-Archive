@@ -28,7 +28,7 @@ this.jda = {
 	mapLoaded : false,
 	timeSliderLoaded : false,
 	japanMapUrl : "http://worldmap.harvard.edu/geoserver/",
-	geoUrl : "http://geo.zeega.org/geoserver/",
+	geoUrl : "http://geo.zeega.org:80/geoserver/",
 	resultsPerPage : 100,
 	
 	init : function()
@@ -95,7 +95,7 @@ this.jda = {
 		
 		if (this.currentView == 'event')
 		{
-			if(!_.isUndefined(cqlFilterString))
+			if(1==2&&!_.isUndefined(cqlFilterString))
 			{
 				this.map.layers[1].mergeNewParams({
 					'CQL_FILTER' : this.itemViewCollection.getCQLSearchString()
@@ -206,10 +206,12 @@ this.jda = {
 			this.itemViewCollection.render();
 		}
 	},
+	
 	resetMapSize :function(){
-		var h = $(window).height() - 310;
+		var h = Math.max($(window).height() - 310,400);
 		$("#event-map").height(h);
 	},
+	
 	showEventView : function()
 	{
 		console.log('switch to Event view');
@@ -220,17 +222,12 @@ this.jda = {
 		$("#event-view").width(940);
 		this.resetMapSize();
 
-		if( !this.mapLoaded )
-		{
-			var map = this.initWorldMap();
-			this.initTimeSlider(map);
-			this.initLayerControl();
-			this.mapLoaded = true;
-		}
-		
-		this.map.layers[1].mergeNewParams({
+		if( !this.mapLoaded ) this.initWorldMap();
+		else{
+			this.map.layers[1].mergeNewParams({
 			'CQL_FILTER' : this.itemViewCollection.getCQLSearchString()
-		});
+			});
+		}
 		
 		console.log('map loaded')
 	},
@@ -239,42 +236,72 @@ this.jda = {
 	{
 		console.log("Initializing Map");
 
-		//OpenLayers.IMAGE_RELOAD_ATTEMPTS = 5;
-		//OpenLayers.DOTS_PER_INCH = 25.4 / 0.28;
+		OpenLayers.IMAGE_RELOAD_ATTEMPTS = 5;
+		OpenLayers.DOTS_PER_INCH = 25.4 / 0.28;
 		
-		var myControls = [
-			//new OpenLayers.Control.OverviewMap(), 
-			//new OpenLayers.Control.LayerSwitcher(),
-			new OpenLayers.Control.PanZoomBar(),
-			//new OpenLayers.Control.MouseToolbar(), 
-			new OpenLayers.Control.KeyboardDefaults()
-		];
+		var _this=this;
+		wax.tilejson('http://d.tiles.mapbox.com/v2/mapbox.mapbox-streets.jsonp',
+			function(tilejson) {
+			
+				var baseLayer =  wax.ol.connector(tilejson);
+				var dataLayer =  new OpenLayers.Layer.WMS(
+					"cite:item - Tiled",
+					_this.geoUrl + "cite/wms",
+						{
+							layers : 'cite:item',
+							transparent : true,
+							format : 'image/png',
+							//'CQL_FILTER' : function(){ return this.itemViewCollection.getCQLSearchString() },
+							tiled: true,
+							
+						},
+						{
+							buffer: 0,
+								displayOutsideMaxExtent: true,
+								isBaseLayer: false,
+								yx : {'EPSG:900913' : false},
+								'sphericalMercator': true,
+								'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
 		
-		var map = new OpenLayers.Map(
-			'event-map',
-			{
-				controls:myControls
-			}
-		);
-		var baseLayer = new OpenLayers.Layer.WMS(
-			"OpenLayers WMS",
-			"http://vmap0.tiles.osgeo.org/wms/vmap0?",
-			{ 'layers' : 'basic', tiled:true } );
-
-		map.addLayer( baseLayer );
-		map.setCenter(new OpenLayers.LonLat(140.652466, 38.052417), 9);
-		map.addLayers(this.getMapLayers());
-
-		this.startMapListeners( map );
-		this.map = map;
-		return map;
+						}
+					);
+				
+				
+				_this.map = new OpenLayers.Map('event-map',{
+					
+					controls: [ new OpenLayers.Control.PanZoomBar()],
+					layers: [baseLayer,dataLayer],
+                    maxResolution: 1.3053327578125,
+                    projection: "EPSG:900913",
+                    units: 'm'
+			
+				});
+				
+				
+				
+				
+				
+				
+				_this.map.addLayers(_this.getMapLayers());
+			
+				var proj = new OpenLayers.Projection("EPSG:4326");
+				_this.map.setCenter(new OpenLayers.LonLat(140.652466, 38.052417).transform(proj, _this.map.getProjectionObject()), 9);
+			
+				_this.startMapListeners( _this.map );
+				
+				_this.initTimeSlider(_this.map);
+				_this.initLayerControl();
+				_this.mapLoaded = true;
+		
+			});
 	},
 	
-	startMapListeners : function( map )
+	startMapListeners : function(map)
 	{
 		var _this = this;
-		map.events.register('click', map, function(e){
+		this.map.events.register('click', map, function(e){
 			
+			console.log('clicked');
 			var params = {
 				REQUEST : "GetFeatureInfo",
 				EXCEPTIONS : "application/vnd.ogc.se_xml",
@@ -290,14 +317,14 @@ this.jda = {
 				WIDTH : map.size.w,
 				HEIGHT : map.size.h,
 				// format : format,
-				styles : map.layers[0].params.STYLES,
-				srs : map.layers[0].params.SRS,
+				styles : map.layers[1].params.STYLES,
+				srs : map.layers[1].params.SRS,
 				TILED : true
 			};
 			// merge filters
-			if (map.layers[0].params.CQL_FILTER != null) params.cql_filter = map.layers[0].params.CQL_FILTER;
-			if (map.layers[0].params.FILTER != null) params.filter = map.layers[0].params.FILTER;
-			if (map.layers[0].params.FEATUREID) params.featureid = map.layers[0].params.FEATUREID;
+			if (map.layers[1].params.CQL_FILTER != null) params.cql_filter = map.layers[1].params.CQL_FILTER;
+			if (map.layers[1].params.FILTER != null) params.filter = map.layers[1].params.FILTER;
+			if (map.layers[1].params.FEATUREID) params.featureid = map.layers[1].params.FEATUREID;
 			
 			OpenLayers.loadURL( _this.geoUrl + "cite/wms", params, _this, _this.onMapClick, _this.onMapClick );
 			_this.mapClickEvent = e;
@@ -310,7 +337,8 @@ this.jda = {
 		});
 		
 		//Adding DRAG back in -- wasn't working for some reason...
-		var dragcontrol = new OpenLayers.Control.DragPan({'map':this.mymap, 'panMapDone':function(xy){
+		var dragcontrol = new OpenLayers.Control.DragPan({'map':this.map, 'panMapDone':function(xy){
+			
 	        if(this.panned) {
 	            var res = null;
 	            if (this.kinetic) {
@@ -329,13 +357,14 @@ this.jda = {
 	            }
 	            this.panned = false;
 	        }
-	        that.userdragged  = true;
+	        _this.userdragged  = true;
+	        console.log(map.getCenter());
 	            
 	    }});
 	    dragcontrol.draw();
 	    map.addControl(dragcontrol);
 	    dragcontrol.activate();
-
+		
 
 	},
 	
@@ -657,17 +686,7 @@ this.jda = {
 			));
 			*/
 
-			layers.push(new OpenLayers.Layer.WMS(
-				"cite:item - tiled",
-				this.geoUrl + "cite/wms",
-				{
-					layers : 'cite:item',
-					transparent : true,
-					format : 'image/png',
-					'CQL_FILTER' : function(){ return this.itemViewCollection.getCQLSearchString() },
-					tiled: true
-				}
-			));
+			
 			
 			
 			//JapanMap layers.  For more layers, it will make sense to load these only when needed.
@@ -684,7 +703,13 @@ this.jda = {
 					singleTile : false,
 					wrapDateLine : true,
 					visibility : false,
-					opacity : 0.3
+					opacity : 0.3,
+					buffer: 0,
+								displayOutsideMaxExtent: true,
+								isBaseLayer: false,
+								yx : {'EPSG:900913' : false},
+								'sphericalMercator': true,
+								'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
 				})
 			);
 			
@@ -700,7 +725,13 @@ this.jda = {
 				{
 					singleTile : false,
 					wrapDateLine : true,
-					visibility : false
+					visibility : false,
+					buffer: 0,
+								displayOutsideMaxExtent: true,
+								isBaseLayer: false,
+								yx : {'EPSG:900913' : false},
+								'sphericalMercator': true,
+								'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
 				})
 			);
 		
@@ -717,7 +748,13 @@ this.jda = {
 					singleTile : false,
 					wrapDateLine : true,
 					visibility : false,
-					opacity : 0.5
+					opacity : 0.5,
+					buffer: 0,
+								displayOutsideMaxExtent: true,
+								isBaseLayer: false,
+								yx : {'EPSG:900913' : false},
+								'sphericalMercator': true,
+								'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
 				})
 			);
 		
@@ -736,7 +773,13 @@ this.jda = {
 					singleTile : false,
 					wrapDateLine : true,
 					visibility : false,
-					opacity : 0.3
+					opacity : 0.3,
+					buffer: 0,
+								displayOutsideMaxExtent: true,
+								isBaseLayer: false,
+								yx : {'EPSG:900913' : false},
+								'sphericalMercator': true,
+								'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
 				})
 			);
 		
@@ -752,7 +795,13 @@ this.jda = {
 				{
 					singleTile : false,
 					wrapDateLine : true,
-					visibility : false
+					visibility : false,
+					buffer: 0,
+								displayOutsideMaxExtent: true,
+								isBaseLayer: false,
+								yx : {'EPSG:900913' : false},
+								'sphericalMercator': true,
+								'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
 				})
 			);
 			
