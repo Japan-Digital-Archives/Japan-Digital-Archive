@@ -29,7 +29,7 @@
 .jdicon-email{background-position:-50px 0}
 .jdicon-website{background-position:-100px 0}
 .jdicon-audio{background-position:-350px -100px}
-.jdicon-twitter{background-position:-150px 0}
+.jdicon-tweet{background-position:-150px 0}
 .jdicon-facebook{background-position:-200px 0}
 .jdicon-map{background-position:-250px 0}
 .jdicon-document{background-position:-300px 0px}
@@ -199,7 +199,7 @@ height:231px;
 #list-view{
 	clear:both;
 }
-#items-list li, #items-list a
+#items-list li, #items-list a, .map-popup-list-items
 {
 	padding:12px 0;
 	color:#555;
@@ -209,11 +209,11 @@ height:231px;
 	border-bottom:1px solid whiteSmoke;
 	border-radius:6px;
 }
-#items-list li:hover{
+#items-list li:hover, .discovery-map-list li:hover{
 	background-color:whiteSmoke;
 	cursor: pointer;
 }
-#items-list li a:hover{
+#items-list li a:hover, .discovery-map-list li a:hover{
 	text-decoration:none;
 	color:#08C;
 }
