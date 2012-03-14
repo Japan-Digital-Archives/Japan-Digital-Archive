@@ -877,6 +877,7 @@ VS.ui.SearchFacet = Backbone.View.extend({
     if (e.which == null) {
         this.searchAutocomplete(e);
         _.defer(_.bind(this.resize, this, e));
+
     }
   }
 
@@ -1253,6 +1254,12 @@ VS.ui.SearchInput = Backbone.View.extend({
         this.app.searchBox.focusNextFacet(this, -1, {backspace: true});
         return false;
       }
+    }
+    else if (VS.app.hotkeys.command &&
+               String.fromCharCode(e.which).toLowerCase() == 'v') {
+      /*var e = jQuery.Event("keydown");
+      e.which = 'left'; // # Some key code value
+      this.box.trigger(e);*/
     }
 
     this.box.trigger('resize.autogrow', e);
