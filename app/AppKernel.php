@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Zeega\JDABundle\ZeegaJDABundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Zeega\UserBundle\ZeegaUserBundle(),
+            new Zeega\DataBundle\ZeegaDataBundle(),
         );
 
 

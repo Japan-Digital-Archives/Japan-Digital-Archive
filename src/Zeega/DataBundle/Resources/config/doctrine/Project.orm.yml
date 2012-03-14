@@ -1,0 +1,41 @@
+# src/Zeega/EditorBundle/Resources/config/doctrine/Project.orm.yml
+Zeega\DataBundle\Entity\Project:
+   type: entity
+   table: project
+   cascade: remove
+   repositoryClass: Zeega\DataBundle\Repository\EditorRepository
+   manyToMany:
+    users:
+     targetEntity: Zeega\DataBundle\Entity\User
+     inversedBy:
+      name: projects
+     joinTable:
+      name: project_users
+      joinColumns:
+       project_id:
+        referencedColumnName: id
+      inverseJoinColumns:
+       user_id:
+        referencedColumnName: id
+   manyToOne:
+    site:
+     targetEntity: Site
+   id:
+    id:
+     type: integer
+     generator: { strategy: AUTO }
+   fields:
+    title:
+     type: string
+     length: 255
+     nullable: true
+    published:
+     type: boolean
+     nullable: true
+    created_at:
+     type: datetime
+     nullable: true
+    attr:
+     type: array
+     nullable: true
+ 

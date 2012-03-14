@@ -1,0 +1,23 @@
+# src/Zeega/\CoreBundle\/Resources/config/doctrine/ItemTags.orm.yml
+Zeega\DataBundle\Entity\ItemTags:
+    type: entity
+    table: itemtags
+    repositoryClass: Zeega\DataBundle\Repository\ItemTagsRepository
+    manyToOne:
+        user:
+            targetEntity: Zeega\DataBundle\Entity\User
+        item:
+            targetEntity: Item
+            inversedBy: tags
+        tag:
+            targetEntity: Tag
+            inversedBy: items
+    id:
+        item:
+            associationKey: true
+        tag:
+            associationKey: true
+    fields:
+        tag_date_created:
+            type: datetime
+            nullable: false
