@@ -188,7 +188,7 @@
 
 			'<a id="<%= id %>" class="list-fancymedia" rel="group">'+
 			'<div class="span2">'+
-				'<i class="jdicon-twitter"></i>'+
+				'<i class="jdicon-tweet"></i>'+
 				'<div class="item-author item-author-left">by <%= author %></div>'+
 			'</div>'+
 			'<div class="span7 item-description">'+

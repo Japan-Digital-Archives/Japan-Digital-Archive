@@ -2,12 +2,12 @@
 
 /* OVERRIDING STYLES FROM OPEN LAYERS */
 .olFramedCloudPopupContent {
-	padding: 5px;
+	padding: 0 !important;
 	overflow: auto;
-	width: 90% !important;
+	width: 92% !important;
 	background-color: white;
 	left: 0px !important;
-	height: 120% !important;
+	height: 99% !important;
 	top: inherit !important;
 	border: 1px #CCC solid;
 	border-radius: 6px;
@@ -237,9 +237,11 @@ border-radius: 0px 4px 0px 0px;
 }
 
 .map-popup-list-items{
-	width : 270px;
-	height : 60px;
-	margin-left: 5px;
+	min-width : 270px;
+	max-width:300px;
+	min-height:50px;
+	margin:0;
+	clear:both;
 }
 
 .map-popup-list-items>div{
@@ -254,11 +256,19 @@ border-radius: 0px 4px 0px 0px;
 }
 
 .discovery-map-list {
-	margin-left: 5px;
+	margin: 0;
 	list-style: none;
 	max-height: 100%;
 }
-
+.discovery-map-list li{
+	border-bottom:1px solid #ddd;
+	padding:5px;
+}
+.discovery-map-list img{
+	
+	margin-right:5px;
+	
+}
 .discovery-time-slider {
 	margin-top: 15px;
 }
