@@ -1,6 +1,31 @@
 @CHARSET "UTF-8";
 
+/* OVERRIDING STYLES FROM OPEN LAYERS */
+.olFramedCloudPopupContent {
+	padding: 0 !important;
+	overflow: auto;
+	width: 92% !important;
+	background-color: white;
+	left: 0px !important;
+	height: 99% !important;
+	top: inherit !important;
+	border: 1px #CCC solid;
+	border-radius: 6px;
+}
+.olPopupCloseBox {
+background: url("img/close.gif") no-repeat;
+cursor: pointer;
+top: 0 !important;
+right: 22px !important;
+-moz-border-radius-topleft: 0px;
+-moz-border-radius-topright: 4px;
+-moz-border-radius-bottomright: 0px;
+-moz-border-radius-bottomleft: 0px;
+-webkit-border-radius: 0px 4px 0px 0px;
+border-radius: 0px 4px 0px 0px;
+}
 
+/* END OVERRIDING STYLES FROM OPEN LAYERS */
 .item-meta
 {
 	text-transform:uppercase;
@@ -212,9 +237,11 @@
 }
 
 .map-popup-list-items{
-	width : 270px;
-	height : 60px;
-	margin-left: 5px;
+	min-width : 270px;
+	max-width:300px;
+	min-height:50px;
+	margin:0;
+	clear:both;
 }
 
 .map-popup-list-items>div{
@@ -229,11 +256,19 @@
 }
 
 .discovery-map-list {
-	margin-left: 5px;
+	margin: 0;
 	list-style: none;
 	max-height: 100%;
 }
-
+.discovery-map-list li{
+	border-bottom:1px solid #ddd;
+	padding:5px;
+}
+.discovery-map-list img{
+	
+	margin-right:5px;
+	
+}
 .discovery-time-slider {
 	margin-top: 15px;
 }
@@ -341,6 +376,7 @@
 	vertical-align : top;
 	margin-top : 5px;
 	cursor : pointer;
+	z-index:200 !important;
 }
 
 .ui-tabs .ui-tabs-nav li a {

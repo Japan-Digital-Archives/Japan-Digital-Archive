@@ -75,10 +75,11 @@
 				blanks["author"] = this.model.get("media_creator_realname");	
 			}
 
-			
+			$(this.el).html( _.template( template, blanks ) );
 
-			$(this.el).html( _.template( template, blanks ) )
-			
+			if (blanks["author"] == ""){
+				$(this.el).find('.item-author').hide();
+			}
 			return this;
 		},
 		
@@ -187,7 +188,7 @@
 
 			'<a id="<%= id %>" class="list-fancymedia" rel="group">'+
 			'<div class="span2">'+
-				'<i class="jdicon-twitter"></i>'+
+				'<i class="jdicon-tweet"></i>'+
 				'<div class="item-author item-author-left">by <%= author %></div>'+
 			'</div>'+
 			'<div class="span7 item-description">'+

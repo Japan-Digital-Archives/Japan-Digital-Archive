@@ -15,7 +15,7 @@ $(document).ready(function(){
   $('#search-filters a').click(function(){
     $(this).siblings().show();
     $(this).hide();
-    jda.app.switchViewTo( $(this).data('goto-view') );
+    jda.app.switchViewTo( $(this).data('goto-view') , true);
     
     return false;
   });
@@ -88,6 +88,16 @@ $(document).ready(function(){
           //set video src to null to prevent browser bug
           $('video').attr("src", null);
 
+          //reactivate keyboard controls for OL map so arrow scrolling works again
+       
+       /*
+       if (!_.isUndefined(jda.app.map)){
+          var keyboardControls = jda.app.map.getControlsByClass('OpenLayers.Control.KeyboardDefaults');
+          keyboardControls[0].activate();
+        }
+
+		*/
+		
       },
       afterShow : function(){
         this.fancyView.afterShow();
@@ -96,12 +106,18 @@ $(document).ready(function(){
 
     /* This is where we decide which kind of content to put in the fancybox */    
       beforeLoad : function() {
-        
+
+      //deactivate keyboard controls for OL map so arrow scrolling doesn't scroll map too
+      /*
+      if (!_.isUndefined(jda.app.map)){
+        var keyboardControls = jda.app.map.getControlsByClass('OpenLayers.Control.KeyboardDefaults');
+        keyboardControls[0].deactivate();
+      } 
+      */
         $('#fancybox-document-cloud').remove();
 
         
             var elementID = $(this.element).attr('id');
-            console.log(elementID);
             var thisModel = jda.app.currentView == 'list' ? jda.app.itemViewCollection.collection.get(elementID) : jda.app.mapViewCollection.collection.get(elementID);
       this.fancyView = null;
 
