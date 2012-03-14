@@ -84,22 +84,84 @@ var Plyr = Class.extend({
 		this.url = args['url'];
 		this.format = args['format'];
 		this.wrapper = $('#'+this.id);
+		this.seeking = false;
+		if("controls" in args) this.controls = args['controls'];
+		else this.controls = 1;
 		
+		if("controlsType" in args) this.controlsType = args['controlsType'];
+		else this.controlsType = 'standard';
 		
-		this.wrapper.append($('<div>').addClass('plyr-controls-wrapper')
-			.append($('<div>').addClass('plyr-controls')
-			.append($('<div>').addClass('plyr-button-wrapper').append($('<div>').addClass('plyr-button').addClass('plyr-play')))
-			.append($('<div>').addClass('plyr-time'))
-			.append($('<div>').addClass('plyr-timeline').append($('<div>').addClass('plyr-scrubber')))
+		if("controlsId" in args) this.controlsWrapper  = $('#'+args['controlsId']);
+		else this.controlsWrapper = this.wrapper;
+		
+		if("cueIn" in args) this.cueIn  = args['cueIn'];
+		else this.cueIn  = 50;
+		
+		if("cueOut" in args) this.cueOut  = args['cueOut'];
+		else this.cueOut  = 150;
+		
+		if("volume" in args) this.volume  = args['volume'];
+		else this.volume  = 1;
+	
+		
+		if(this.controls==1){
+			if(this.controlsType =='standard'){		
+				this.controlsWrapper.append($('<div>').attr('id','plyr-standard')
+				.append($('<div>').addClass('plyr-controls-wrapper').addClass('plyr-controls-wrapper')
+					.append($('<div>').addClass('plyr-controls')
+					.append($('<div>').addClass('plyr-button-wrapper').append($('<div>').addClass('plyr-button').addClass('plyr-play')))
+					.append($('<div>').addClass('plyr-time'))
+					.append($('<div>').addClass('plyr-timeline').append($('<div>').addClass('plyr-scrubber'))))
 			));
+			}else if(this.controlsType == 'editor'){
+				
+				this.controlsWrapper.append($('<div>').attr({id:'plyr-editor'})
+					.append($('<div>').addClass('plyr-controls-wrapper')
+					.append($('<div>').addClass('plyr-time-wrapper')
+						.append($('<div>').addClass('plyr-cuein-time'))
+						.append($('<div>').addClass('plyr-cueout-time'))
+					
+					)
+					.append($('<div>').addClass('plyr-timeline-wrapper')
+					.append($('<div>').addClass('plyr-button-wrapper').append($('<div>').addClass('plyr-button').addClass('plyr-play')))
+					.append($('<div>').addClass('plyr-timeline')
+						.append($('<div>').addClass('plyr-cuein-bar').addClass('plyr-bar'))
+						.append($('<div>').addClass('plyr-time-bar').addClass('plyr-bar'))
+						.append($('<div>').addClass('plyr-cueout-bar').addClass('plyr-bar'))
+						.append($('<div>').addClass('plyr-cuein-scrubber').addClass('plyr-edit-scrubber')
+							.append($('<div>').addClass('plyr-scrubber-select'))
+							.append($('<div>').addClass('plyr-arrow-down-green'))
+						)
+						.append($('<div>').addClass('plyr-scrubber').addClass('plyr-edit-scrubber')
+							.append($('<div>').addClass('plyr-hanging-box'))
+							
+						)
+						
+					
+						.append($('<div>').addClass('plyr-cueout-scrubber').addClass('plyr-edit-scrubber')
+							.append($('<div>').addClass('plyr-scrubber-select'))
+							.append($('<div>').addClass('plyr-arrow-down'))
+						)
+						
+						)
+					
+					)
+					.append($('<div>').addClass('plyr-time-wrapper')
+						.append($('<span>').addClass('plyr-time'))
+					)
+				
+				.append($('<div>').attr({id:'plyr-volume'}))
+				)
+			);
+				
+	
+	
+	
+			}
+		}
 		
 		var _this=this;
-		this.wrapper.resize(function(){
-			console.log('resizing');
 		
-			$(this).find('.plyr-controls-wrapper').css({width:parseInt(_this.wrapper.width()),'height':parseInt(_this.wrapper.height())});
-		
-		});
 		
 		
 		
@@ -114,29 +176,52 @@ var Plyr = Class.extend({
 		
 		var _this=this;
 		
-		//Create appropriate popcorn instance
+		
+		this.displayControls=function(){
+			console.log('disping controls');
+			if(this.cueOut==0) _this.cueOut=_this.pop.duration();
+			
+			//	_this.pop.currentTime(Math.floor(parseFloat(ui.position.left)*_this.pop.duration()/parseFloat(_this.controlsWrapper.find('.plyr-timeline').width())));
+				
+			
+			_this.controlsWrapper.find('.plyr-cuein-scrubber').css({'left':parseFloat(this.cueIn)*_this.controlsWrapper.find('.plyr-timeline').width()/_this.pop.duration()});
+			_this.controlsWrapper.find('.plyr-cuein-bar').css({'width':_this.controlsWrapper.find('.plyr-cuein-scrubber').css('left')});
+				
+			
+			_this.controlsWrapper.find('.plyr-cueout-scrubber').css({'left':parseFloat(this.cueOut)*_this.controlsWrapper.find('.plyr-timeline').width()/_this.pop.duration()});
+			
+			_this.controlsWrapper.find('.plyr-cueout-bar').css({'width':parseInt(_this.controlsWrapper.find('.plyr-timeline').width())-parseInt(_this.controlsWrapper.find('.plyr-cueout-scrubber').css('left'))});
+				
+			_this.controlsWrapper.find('.plyr-cuein-time').html(convertTime(_this.cueIn,true));
+			_this.controlsWrapper.find('.plyr-cueout-time').html(convertTime(_this.cueOut,true));
+			_this.controlsWrapper.find('.plyr-controls-wrapper').fadeIn();
+			console.log(_this.pop.duration());
+			
+		}
+		
+		//Create Popcorn instance
 		
 		switch(this.format)
 		{
 			case 'html5':
 			  this.wrapper.prepend($('<video>').addClass('plyr-video').attr({'src':this.url,'id':'z-'+this.id}));
 			  this.pop = Popcorn('#z-'+this.id);
-			  this.pop.listen('canplay',function(){ _this.wrapper.find('.plyr-controls').fadeIn();});
+			  this.pop.listen('canplay',function(){ if(_this.controls==1)_this.displayControls();});
 			  break;
 			case 'flashvideo':
 			  this.wrapper.prepend($('<div>').addClass('plyr-video').attr({'id':'z-'+this.id}));
 			  this.pop = Popcorn.flashvideo('#z-'+this.id,this.url);
-			  this.pop.listen('loadeddata',function(){ _this.wrapper.find('.plyr-controls').fadeIn();});
+			  this.pop.listen('loadeddata',function(){ if(_this.controls==1)_this.displayControls();});
 			  break;
 			case 'youtube':
 			  this.wrapper.prepend($('<div>').addClass('plyr-video').attr({'id':'z-'+this.id}));
 			  this.pop = Popcorn.youtube('#z-'+this.id,this.url);
-			  this.pop.listen('loadeddata',function(){ _this.pop.play();_this.pop.pause(); _this.wrapper.find('.plyr-controls').fadeIn();}); 
+			  this.pop.listen('canplaythrough',function(){ _this.pop.play(); _this.pop.pause(); if(_this.controls==1) _this.displayControls();});
 			 break;
 			case 'vimeo':
 			  this.wrapper.prepend($('<div>').addClass('plyr-video').attr({'id':'z-'+this.id}));
 			  this.pop = Popcorn.vimeo('#z-'+this.id,this.url);
-			  this.pop.listen('loadeddata',function(){  _this.wrapper.find('.plyr-controls').fadeIn();}); 
+			  this.pop.listen('loadeddata',function(){ if(_this.controls==1)_this.displayControls();});
 			 break;
 			default:
 			  console.log('none set');
@@ -144,53 +229,139 @@ var Plyr = Class.extend({
 		
 		//UX
 		
-		this.wrapper.find('.plyr-button').click(function(){ if (_this.pop.paused()) _this.pop.play(); else _this.pop.pause();});
-		this.wrapper.find('.plyr-scrubber').draggable({axis:'x',containment: 'parent',stop: function(event, ui) {
-				var newTime = Math.floor(parseFloat(_this.wrapper.find('.plyr-scrubber').css('left'))*_this.pop.duration()/parseFloat(_this.wrapper.find('.plyr-timeline').width()));
+		
+		
+		this.controlsWrapper.find('.plyr-button').click(function(){ _this.pop.volume(parseInt(_this.volume));if (_this.pop.paused()) _this.pop.play(); else _this.pop.pause();});
+		
+		if(this.controlsType=='standard'){
+			this.controlsWrapper.find('.plyr-scrubber').draggable({axis:'x',containment: 'parent',stop: function(event, ui) {
+				var newTime = Math.floor(parseFloat(_this.controlsWrapper.find('.plyr-scrubber').css('left'))*_this.pop.duration()/parseFloat(_this.controlsWrapper.find('.plyr-timeline').width()));
+				_this.pop.trigger('timeupdate');
 				_this.pop.currentTime(newTime);
-				_this.pop.play();
+				//_this.pop.play();
+				
 			},
 			start:function(){
 				_this.pop.pause();
 			},
 			drag:function(event, ui){
-				var newTime = Math.floor(parseFloat(ui.position.left)*_this.pop.duration()/parseFloat(_this.wrapper.find('.plyr-timeline').width()));
+				var newTime = Math.floor(parseFloat(ui.position.left)*_this.pop.duration()/parseFloat(_this.controlsWrapper.find('.plyr-timeline').width()));	
+				_this.controlsWrapper.find('.plyr-time').html(convertTime(newTime)+' / '+convertTime(_this.pop.duration()));
+			}
+		});
+		
+		}else if(this.controlsType=='editor'){
+		
+			this.controlsWrapper.find('.plyr-scrubber').draggable({axis:'x',containment: 'parent',stop: function(event, ui) {
+				var newTime = Math.floor(parseFloat(_this.controlsWrapper.find('.plyr-scrubber').css('left'))*_this.pop.duration()/parseFloat(_this.controlsWrapper.find('.plyr-timeline').width()));
+				if(newTime<_this.cueIn) newTime=_this.cueIn;
+				else if(newTime>_this.cueOut) newTime=Math.max(parseFloat(_this.cueIn), parseFloat(_this.cueOut)-5.0);
+				
+				_this.pop.trigger('timeupdate');
 				_this.pop.currentTime(newTime);
+				//_this.pop.play();
+			},
+			start:function(){
+				_this.pop.pause();
+			},
+			drag:function(event, ui){
+				var newTime = Math.floor(parseFloat(ui.position.left)*_this.pop.duration()/parseFloat(_this.controlsWrapper.find('.plyr-timeline').width()));	
+				_this.controlsWrapper.find('.plyr-time').html(convertTime(newTime)+' / '+convertTime(_this.pop.duration()));
+			}
+		});
+		this.controlsWrapper.find('.plyr-cuein-scrubber').draggable({axis:'x',containment: 'parent',stop: function(event, ui) {
+				_this.controlsWrapper.find('.plyr-cuein-bar').css({'width':_this.controlsWrapper.find('.plyr-cuein-scrubber').css('left')});
+				
+				
+				_this.pop.currentTime(Math.floor(parseFloat(ui.position.left)*_this.pop.duration()/parseFloat(_this.controlsWrapper.find('.plyr-timeline').width())));
+				
+				var left = parseFloat(_this.pop.currentTime())/parseFloat(_this.pop.duration())*100;
+			_this.controlsWrapper.find('.plyr-scrubber').css({'left':left+'%'});
+			_this.controlsWrapper.find('.plyr-time').html(convertTime(_this.pop.currentTime())+' / '+convertTime(_this.pop.duration()));
+			_this.controlsWrapper.find('.plyr-time-bar').css({'width':left+'%'});
+			},
+			drag:function(event, ui){
+				_this.cueIn = Math.floor(parseFloat(ui.position.left)*_this.pop.duration()/parseFloat(_this.controlsWrapper.find('.plyr-timeline').width()));	
+				_this.controlsWrapper.find('.plyr-cuein-time').html(convertTime(_this.cueIn,true));
+			}
+		});
+		this.controlsWrapper.find('.plyr-cueout-scrubber').draggable({axis:'x',containment: 'parent',stop: function(event, ui) {
+			
+				_this.controlsWrapper.find('.plyr-cueout-bar').css({'width':parseInt(_this.controlsWrapper.find('.plyr-timeline').width())-parseInt(_this.controlsWrapper.find('.plyr-cueout-scrubber').css('left'))});
+				_this.pop.currentTime(Math.max(parseFloat(_this.cueIn), parseFloat(_this.cueOut)-5.0));
+			},
+			start:function(){
+				_this.pop.pause();
+			},
+			drag:function(event, ui){
+				_this.cueOut = Math.floor(parseFloat(ui.position.left)*_this.pop.duration()/parseFloat(_this.controlsWrapper.find('.plyr-timeline').width()));	
+				_this.controlsWrapper.find('.plyr-cueout-time').html(convertTime(_this.cueOut,true));
 			
 			}
 		});
 		
+		}
+		
+		this.controlsWrapper.find('#plyr-volume').slider({
+				min : 0,
+				max : 1,
+				value :_this.volume,
+				step : .1,
+				slide: function(e,ui){
+					_this.volume=ui.value
+					_this.pop.volume(_this.volume);
+				},
+				stop : function(e, ui){
+					
+					//$('#player-'+_this._id).trigger('updated');
+				}
+		});
+		
+		
+		
 		//Add popcorn listeners
+		
+		
 		
 		this.pop.listen('loadedmetadata',function(){
 		
-			_this.wrapper.find('.plyr-time').html(convertTime(_this.pop.currentTime())+' / '+convertTime(_this.pop.duration()));
+			_this.controlsWrapper.find('.plyr-time').html(convertTime(_this.pop.currentTime())+' / '+convertTime(_this.pop.duration()));
 			
 		});
 		this.pop.listen('timeupdate',function(){
+
+
+			
+			if(_this.pop.currentTime()>_this.cueOut) {
+				_this.pop.pause();
+				_this.pop.currentTime(_this.cueIn);
+			}
 		
+			
 			var left = parseFloat(_this.pop.currentTime())/parseFloat(_this.pop.duration())*100;
-			_this.wrapper.find('.plyr-scrubber').css({'left':left+'%'});
-			_this.wrapper.find('.plyr-time').html(convertTime(_this.pop.currentTime())+' / '+convertTime(_this.pop.duration()));
-			
-			
+			_this.controlsWrapper.find('.plyr-scrubber').css({'left':left+'%'});
+			_this.controlsWrapper.find('.plyr-time').html(convertTime(_this.pop.currentTime())+' / '+convertTime(_this.pop.duration()));
+			_this.controlsWrapper.find('.plyr-time-bar').css({'width':left+'%'});
 			
 			
 		});
 		this.pop.listen('pause',function(){
-			_this.wrapper.find('.plyr-button').removeClass('plyr-pause').addClass('plyr-play');
+			_this.controlsWrapper.find('.plyr-button').removeClass('plyr-pause').addClass('plyr-play');
 		
 		});
 		this.pop.listen('play',function(){
-			_this.wrapper.find('.plyr-button').removeClass('plyr-play').addClass('plyr-pause');
+			_this.controlsWrapper.find('.plyr-button').removeClass('plyr-play').addClass('plyr-pause');
 		});
 		this.pop.listen('seeking',function(){
 		
+			
 		
 		});
 		this.pop.listen('seeked',function(){
-		
-		
+			
+			
+			
+			
 		});
 		this.pop.listen('ended',function(){
 			
@@ -202,21 +373,29 @@ var Plyr = Class.extend({
 		
 		});
 	},
+	destroy: function(){
+	
+		Popcorn.destroy(this.pop);
+	
+	}
 });
 
-function convertTime(seconds){
+function convertTime(seconds,tenths){
 	
 	var m=Math.floor(seconds/60);
-	var s=Math.floor(seconds%60);
+	if(tenths&&1==0)var s=Math.floor(seconds%600)/10.0;
+	else var s=Math.floor(seconds%60)
 	if(s<10) s="0"+s;
 	return m+":"+s;
 }
 
-/*
-$(document).ready(function(){
-	//var p = new Plyr('div_id',{url:'http://ia700202.us.archive.org/23/items/youth_media_clip2/youth_media_clip2_512kb.mp4',format:'video',load:'true'});
-	var p = new Plyr('div_id',{url:'http://www.youtube.com/watch?v=Wvx5JMZzUUA&controls=0'});
-	//var p = new Plyr('div_id',{url:'http://vimeo.com/6059734'});
-});
 
+/*
+
+$(document).ready(function(){
+	var p = new Plyr('video',{url:'http://ia700202.us.archive.org/23/items/youth_media_clip2/youth_media_clip2_512kb.mp4'});
+	//var p = new Plyr('video',{url:'http://www.youtube.com/watch?v=Wvx5JMZzUUA&controls=0'});
+
+	//var p = new Plyr('video',{url:'http://vimeo.com/6059734'});
+});
 */

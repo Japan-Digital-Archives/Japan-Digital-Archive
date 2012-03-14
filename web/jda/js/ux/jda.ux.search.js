@@ -89,11 +89,15 @@ $(document).ready(function(){
           $('video').attr("src", null);
 
           //reactivate keyboard controls for OL map so arrow scrolling works again
-        if (!_.isUndefined(jda.app.map)){
+       
+       /*
+       if (!_.isUndefined(jda.app.map)){
           var keyboardControls = jda.app.map.getControlsByClass('OpenLayers.Control.KeyboardDefaults');
           keyboardControls[0].activate();
         }
 
+		*/
+		
       },
       afterShow : function(){
         this.fancyView.afterShow();
@@ -104,10 +108,12 @@ $(document).ready(function(){
       beforeLoad : function() {
 
       //deactivate keyboard controls for OL map so arrow scrolling doesn't scroll map too
+      /*
       if (!_.isUndefined(jda.app.map)){
         var keyboardControls = jda.app.map.getControlsByClass('OpenLayers.Control.KeyboardDefaults');
         keyboardControls[0].deactivate();
       } 
+      */
         $('#fancybox-document-cloud').remove();
 
         
