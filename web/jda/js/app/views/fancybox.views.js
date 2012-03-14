@@ -14,7 +14,7 @@ var FancyBoxView = Backbone.View.extend({
 
 	},
 	afterShow : function(){
-		if(_this.locatorMapView.geoLocated&&sessionStorage.getItem('moreFancy')) _this.locatorMapView.addMap();
+		if(this.locatorMapView.geoLocated&&sessionStorage.getItem('moreFancy')) this.locatorMapView.addMap();
 
 	},
 	more : function(){
