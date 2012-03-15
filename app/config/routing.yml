@@ -43,3 +43,9 @@ _sonata_admin:
     resource: .
     type: sonata_admin
     prefix: /admin
+    
+#maint:
+#    pattern:   /
+#    defaults:  { _controller: JDACoreBundle:Maintenance:index}
+
+

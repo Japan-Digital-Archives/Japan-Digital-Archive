@@ -19,11 +19,11 @@ security:
             pattern:    ^/
             form_login:
                 provider: fos_userbundle
-                default_target_path: /en/home
+                default_target_path: /jp/home
                 login_path: /login 
             logout:
-                path:   /en/logout
-                target: /en/home
+                path:   /jp/logout
+                target: /jp/home
             anonymous:    true
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
@@ -39,5 +39,5 @@ security:
         - { path: ^/about role: IS_AUTHENTICATED_FULLY }
         - { path: ^/en/about role: IS_AUTHENTICATED_FULLY }
         - { path: ^/jp/about role: IS_AUTHENTICATED_FULLY }
-        - { path: ^/register, role: ROLE_SUPER_ADMIN }
+        - { path: ^/register, role: ROLE_ADMIN }
         - { path: ^/admin, role: ROLE_ADMIN }
