@@ -217,6 +217,8 @@ this.jda = {
 	{
 		console.log('switch to List view');
 
+		$('#related-tags').show();
+
 		//loop through all facets to find the data & time one
 		_.each( VisualSearch.searchBox.facetViews, function( facet ){
 			if( facet.model.get('category') == 'data:time & place' ) facet.remove();
@@ -235,10 +237,27 @@ this.jda = {
 		console.log('switch to Event view');
 		//For some reason, the map collapses after a search to 0px width
 		
+		$('#related-tags').hide();
 		
 		
-		
-		VisualSearch.searchBox.addFacet('data:time & place', '', 0);
+		VisualSearch.searchBox.addFacet('data:time & place', ' ', 0);
+		_.each( VisualSearch.searchBox.facetViews, function( facet ){
+			if( facet.model.get('category') == 'tag' ) {
+				var facetValue = facet.model.get('value');
+				facet.model.set({'value': null });
+				facet.remove();
+				$('#removed-tag-name').text(facetValue);
+				$('#remove-tag-alert').show('slow');
+				setTimeout(function() {
+				  $('#remove-tag-alert').hide('slow');
+				}, 3000);
+			}
+			if (facet.model.get("category")=="data:time & place") {
+    			$(facet.el).find('.VS-icon-cancel').click(function(){
+    				jda.app.switchViewTo('list');
+    			});
+    		}
+		})
 		
 		$("#event-view").width(940);
 		this.resetMapSize();

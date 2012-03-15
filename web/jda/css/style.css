@@ -601,6 +601,7 @@ opacity: 1;
 	padding: 5px 0;
 	border-top:1px solid #eee;
 	border-bottom:1px solid #eee;
+	display:none;
 }
 #related-tags-title{
 	display:none;
@@ -623,6 +624,15 @@ opacity: 1;
 }
 #related-tags li{
 	margin-right:20px;
+}
+#remove-tag-alert{
+	font-size: 11px;
+	background-color: #FFFC7F;
+	position: absolute;
+	top: 24px;
+	left: 40px;
+	padding: 3px 5px;
+	display:none;
 }
 .item-title{
 	text-align:justify;
