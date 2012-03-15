@@ -202,6 +202,39 @@
                 <source>jda.search.data</source>
                 <target>Layers</target>
             </trans-unit>
+            <trans-unit id="51">
+                <source>jda.login.username</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="52">
+                <source>jda.login.password</source>
+                <target>Password</target>
+            </trans-unit>
+            <trans-unit id="53">
+                <source>jda.login.partnerlogin</source>
+                <target>Partner Login</target>
+            </trans-unit>
+            <trans-unit id="54">
+                <source>jda.login.requestalogin</source>
+                <target>Request a login</target>
+            </trans-unit>
+            <trans-unit id="55">
+                <source>jda.login.description</source>
+                <target>This project is built on participation and collaboration. We welcome requests to join the growing community of partners working with this alpha version of the archive. For those already registered, we encourage you to share any feedback or ideas you may have, and to let us know about any issues you encounter. You will find a feedback link at the top right.</target>
+            </trans-unit>
+            <trans-unit id="56">
+                <source>jda.login.header</source>
+                <target>Welcome to the Digital Archive of Japan's 2011 Disasters</target>
+            </trans-unit>
+            <trans-unit id="57">
+                <source>jda.login.subheader</source>
+                <target>The archive is currently in development and only available to partners.</target>
+            </trans-unit>
+            <trans-unit id="58">
+                <source>jda.login.button</source>
+                <target>Submit</target>
+            </trans-unit>
+
         </body>
     </file>
 </xliff>

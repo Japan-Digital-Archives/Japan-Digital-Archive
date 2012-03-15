@@ -39,4 +39,5 @@ security:
         - { path: ^/about role: IS_AUTHENTICATED_FULLY }
         - { path: ^/en/about role: IS_AUTHENTICATED_FULLY }
         - { path: ^/jp/about role: IS_AUTHENTICATED_FULLY }
-        - { path: ^/register, role: IS_AUTHENTICATED_FULLY }
+        - { path: ^/register, role: ROLE_SUPER_ADMIN }
+        - { path: ^/admin, role: ROLE_ADMIN }
