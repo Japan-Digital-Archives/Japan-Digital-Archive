@@ -16,7 +16,6 @@ class SearchController extends Controller
 	 	$query=$request->query->get('query');
     	return $this->render('JDACoreBundle:Search:search.html.twig', array(
 					// last displayname entered by the user
-					'locale' => $locale,
 					'page'=> 'search',
 					'query'=>$query
 					

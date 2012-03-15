@@ -20,7 +20,6 @@ class AboutController extends Controller
    
         return $this->render('JDACoreBundle:About:about.html.twig', array(
 					// last displayname entered by the user
-					'locale' => $locale,
 					'page'=> 'about',
 					
 				));

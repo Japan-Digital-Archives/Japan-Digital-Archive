@@ -8,125 +8,41 @@
 {% endblock %}
 
 {% block stylesheets %}
-<style type="text/css">
-
-.login-modal-background
-{
-	background-color: #000000;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 10;
-	filter: alpha(opacity = 80);
-	-khtml-opacity: 0.8;
-	-moz-opacity: 0.8;
-	opacity: 0.8;
-}
-
-.modal {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	z-index: 11000;
-	max-height: 500px;
-	overflow: auto;
-	width: 620px;
-	margin: -240px 0 0 -280px;
-	background-color: white;
-	border: 1px solid #999;
-	border: 1px solid rgba(0, 0, 0, 0.3);
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
-	-webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-	-moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-	box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-	-webkit-background-clip: padding-box;
-	-moz-background-clip: padding-box;
-	background-clip: padding-box;
-}
-
-.modal-header {
-	padding: 20px 0px 0px 30px;
-	border: none;
-}
-
-.modal-body {
-	padding: 10px 30px 20px 30px;
-	margin-left: 120px;
-}
-
-h1
-{
-	font-size: 20px;
-	font-weight: bold;
-	margin: 0px;
-	padding:0px;
-	line-height: 20px;
-	color: #000000;
-}
-
-h2
-{
-	font-size: 16px;
-	font-weight: normal;
-	margin: 0px;
-	padding: 0px;
-	color: #000000;
-}
-
-h3
-{
-	font-size: 14px;
-	margin: 0px;
-	padding: 0px;
-	color: #000000;
-}
-
-.go-button {
-	height: 55px;
-	width: 85px;
-	float: left;
-	font-size: 11px;
-	background-color: #50B456;
-	color: white;
-}
-
-#login-text
-{
-	font-size: 10pt;
-	padding-right: 20px;
-	
-}
-	
-</style>	
+	<link href="{{ asset('jda/css/authorization.css')}}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% set page = 'login'%}
-{% if locale is not defined %}
-	{% set locale = 'en'%}
-{% endif %}
 {% block extra %}
 	<div class="login-modal-background"></div>
-	<div class="modal">
-		<div class="modal-header">
-			<h1>Welcome to the Digital Archive of Japan's 2011 Disasters</h1>
-			<h2>The archive is currently in development and only available to partners.</h2>
+	<div class="login-modal">
+		<div class="login-modal-header">
+			<div style="text-align:right; width:96%;" >
+			{% if locale == 'jp' %}
+				<a href="{{path('_security_login', { '_locale': 'en' })}}">
+					{% trans %}jda.header.english{% endtrans %}
+				</a>
+			{% else %}
+				<a href="{{path('_security_login', { '_locale': 'jp' })}}">
+				{% trans %}jda.header.japanese{% endtrans %}
+				</a>
+			{% endif %}
+			</div>
+			<h1>{% trans %}jda.login.header{% endtrans %}</h1>
+			<h2>{% trans %}jda.login.subheader{% endtrans %}</h2>
 			<div id="login-text">
-				This project is built on participation and collaboration. We welcome requests to join the growing community of partners working with this alpha version of the archive. For those already registered, we encourage you to share any feedback or ideas you may have, and to let us know about any issues you encounter. You will find a feedback link at the top right. 
+				{% trans %}jda.login.description{% endtrans %}
 			</div>
 		</div>
-		<div class="modal-body">
-			<h3>Partner Login</h3><span><a>Request a login</a></span>
+		<div class="login-modal-body">
+			<span id="partner-login">{% trans %}jda.login.partnerlogin{% endtrans %}</span><a id="request-login" href="http://jdarchive.org">{% trans %}jda.login.requestalogin{% endtrans %}</a>
+			<div style="clear:both"></div>
 				<form action="{{ path("fos_user_security_check") }}" method="post">
 					<div class="box">
-				    	<label for="username">{{ 'Username'|trans({}, 'FOSUserBundle') }}</label>
+				    	<label for="username">{% trans %}jda.login.username{% endtrans %}</label>
 						<br>
 					    <input type="text" id="username" name="_username" value="{{ last_username }}" class="input_text" />
 						<br><br>
-					    <label for="password">{{ 'Password'|trans({}, 'FOSUserBundle') }}</label>
+					    <label for="password">{% trans %}jda.login.password{% endtrans %}</label>
 						<br>
 					    <input type="password" id="password" name="_password" class="input_text" />
 						<!--
@@ -134,7 +50,7 @@ h3
 					    <label for="remember_me">{{ 'Remember me'|trans({}, 'FOSUserBundle') }}</label>
 						-->	
 						<br><br>
-				    	<input type="submit" id="_submit" name="_submit" value="{{ 'submit'|trans({}, 'FOSUserBundle') }}" class="go-button"/>
+				    	<input type="submit" id="_submit" name="_submit" value="{% trans %}jda.login.password{% endtrans %}" class="login-button"/>
 						<br><br>
 					</div>
 				</form>

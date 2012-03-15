@@ -19,9 +19,7 @@ class HomeController extends Controller
    
     	return $this->render('JDACoreBundle:Home:home.html.twig', array(
 					// last displayname entered by the user
-					'locale' => $locale,
 					'page'=> 'home',
-					
 				));
     
     }

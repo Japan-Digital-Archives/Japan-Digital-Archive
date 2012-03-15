@@ -1,9 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% set page = 'login'%}
-{% if locale is not defined %}
-	{% set locale = 'en'%}
-{% endif %}
+
 {% block stylesheets %}
 	<link href="{{ asset('jda/css/authorization.css')}}" rel="stylesheet" type="text/css">
 {% endblock %}
