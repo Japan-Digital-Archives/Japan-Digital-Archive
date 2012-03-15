@@ -2161,6 +2161,7 @@ button.btn::-moz-focus-inner,input[type=submit].btn::-moz-focus-inner {
 }
 
 .close {
+	cursor: pointer;
 	float: right;
 	color: #000000;
 	font-size: 20px;
