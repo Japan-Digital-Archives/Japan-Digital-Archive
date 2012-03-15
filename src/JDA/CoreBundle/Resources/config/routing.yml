@@ -1,3 +1,7 @@
+maint:
+    pattern:   /
+    defaults:  { _controller: JDACoreBundle:Maintenance:index}
+
 default:
     pattern:   /
     defaults:  { _controller:  ZeegaUserBundle:Security:login, _locale: en}
