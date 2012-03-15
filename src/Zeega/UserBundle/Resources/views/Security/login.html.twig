@@ -16,6 +16,17 @@
 	<div class="login-modal-background"></div>
 	<div class="login-modal">
 		<div class="login-modal-header">
+			<div style="text-align:right; width:96%;" >
+			{% if locale == 'jp' %}
+				<a href="{{path('_security_login', { '_locale': 'en' })}}">
+					{% trans %}jda.header.english{% endtrans %}
+				</a>
+			{% else %}
+				<a href="{{path('_security_login', { '_locale': 'jp' })}}">
+				{% trans %}jda.header.japanese{% endtrans %}
+				</a>
+			{% endif %}
+			</div>
 			<h1>{% trans %}jda.login.header{% endtrans %}</h1>
 			<h2>{% trans %}jda.login.subheader{% endtrans %}</h2>
 			<div id="login-text">
