@@ -4,8 +4,19 @@
 {% if locale is not defined %}
 	{% set locale = 'en'%}
 {% endif %}
+{% block stylesheets %}
+	<link href="{{ asset('jda/css/authorization.css')}}" rel="stylesheet" type="text/css">
+{% endblock %}
 
 {% block content %}
-	    {% block fos_user_content %}
-    	{% endblock fos_user_content %}
+		{% for key, message in app.session.getFlashes() %}
+        <div class="{{ key }}">
+            {{ message|trans({}, 'FOSUserBundle') }}
+        </div>
+        {% endfor %}
+
+        <div id="authorization-content">
+            {% block fos_user_content %}
+            {% endblock fos_user_content %}
+        </div>
 {% endblock content %}

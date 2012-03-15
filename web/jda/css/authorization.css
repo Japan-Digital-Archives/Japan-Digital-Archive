@@ -1,0 +1,25 @@
+#authorization-content
+{
+	padding-top:100px;
+	padding-left: 140px;
+}
+
+input
+{
+	display:block;
+}
+
+label
+{
+	display:block;
+}
+
+input[type="submit"] {
+	margin-top: 10px;
+	height: 25px;
+	width: 85px;
+	float: left;
+	font-size: 11px;
+	background-color: #50B456;
+	color: white;
+}
