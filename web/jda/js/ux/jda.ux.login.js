@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 	BrowserDetect.init();
-	if((BrowserDetect.browser=='Explorer'&&parseInt(BrowserDetect.version)<9)||(BrowserDetect.browser=='Firefox'&&parseInt(BrowserDetect.version)<8)){
+	if((BrowserDetect.browser=='Explorer'&&parseInt(BrowserDetect.version)<9)||(BrowserDetect.browser=='Firefox'&&parseInt(BrowserDetect.version)<88)){
 			
 			$('.modal-body').hide();
 			$('.modal-header').html('<h1>Welcome to the Digital Archive of Japan\'s 2011 Disasters</h1><br><h2>This site has been optimized for the latest versions of </h2><ul><li> <a href="http://www.microsoft.com/IE9" target="_blank">Internet Explorer</a></li><li> <a href="http://www.mozilla.org/" target="_blank">Firefox</a></li><li><a href="http://www.google.com/chrome" target="_blank">Chrome</a></li> <li><a href="http://www.apple.com/safari/" target="_blank">Safari</a></li></ul><h2>To view this site, please use the links above to update your browser.</h2><br>');
