@@ -37,7 +37,7 @@
 		renderTags : function(tags)
 		{
 			$("#related-tags ul").empty();
-			if (tags.length > 0)
+			if (tags.length > 0 && jda.app.currentView == 'list')
 			{
 				_.each( _.toArray(tags), function(tag){
 					var li = '<li><a href=".">'+tag.name+'</a></li>';
@@ -83,7 +83,8 @@
 			this.updated = true;
 			
 			$("#results-count").fadeTo(1000,0.5);
-			$("#related-tags, #related-tags-title").fadeTo(1000,0.5);
+
+			$("#related-tags:visible, #related-tags-title:visible").fadeTo(1000,0.5);
 			//$(this.el).fadeTo(1000,0.5);
 			jda.app.isLoading = true;
 			if (obj.page == 1) $(this.el).hide();
