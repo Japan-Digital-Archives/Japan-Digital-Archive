@@ -252,9 +252,11 @@ this.jda = {
 				  $('#remove-tag-alert').hide('slow');
 				}, 3000);
 			}
-			if( facet.model.get('category') == 'data:time & place' ){
-				//add custom close functionality so user goes to list view??
-			}
+			if (facet.model.get("category")=="data:time & place") {
+    			$(facet.el).find('.VS-icon-cancel').click(function(){
+    				jda.app.switchViewTo('list');
+    			});
+    		}
 		})
 		
 		$("#event-view").width(940);
