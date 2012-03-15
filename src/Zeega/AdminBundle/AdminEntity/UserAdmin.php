@@ -16,11 +16,7 @@ class UserAdmin extends Admin
         $formMapper
             ->add('username')
 			->add('display_name')
-			->add('bio')
-			->add('thumb_url')
 			->add('email')
-			->add('email')
-			->add('sites', 'entity', array('class' => 'Zeega\DataBundle\Entity\Site', 'multiple' => true, 'property' => 'short'))
 			->add('roles', 'choice', array('choices' => $roles,'multiple' => true))
         ;
     }
@@ -31,6 +27,12 @@ class UserAdmin extends Admin
             ->add('username')
 
         ;
+    }
+
+	public function preUpdate($user)
+    {
+        $this->getUserManager()->updateCanonicalFields($user);
+        $this->getUserManager()->updatePassword($user);
     }
 
     protected function configureListFields(ListMapper $listMapper)
