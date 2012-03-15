@@ -144,23 +144,23 @@
             </trans-unit>
              <trans-unit id="36">
                 <source>jda.search.muncipaldistricts</source>
-                <target>Municipal Districts</target>
+                <target>行政区</target>
             </trans-unit>
              <trans-unit id="37">
                 <source>jda.search.radiation</source>
-                <target>Radiation</target>
+                <target>放射能</target>
             </trans-unit>
              <trans-unit id="38">
                 <source>jda.search.casualties</source>
-                <target>Casualties</target>
+                <target>死者</target>
             </trans-unit>
              <trans-unit id="39">
                 <source>jda.search.flooding</source>
-                <target>Flooding</target>
+                <target>津波</target>
             </trans-unit>
              <trans-unit id="40">
                 <source>jda.search.shake</source>
-                <target>Shake</target>
+                <target>震度分布</target>
             </trans-unit>
 		    <trans-unit id="41">
                 <source>jda.header.about</source>
@@ -188,7 +188,7 @@
             </trans-unit>			
 			 <trans-unit id="47">
                 <source>jda.about.paragraph</source>
-                <target>This alpha version of the Digital Archive of Japan's 2011 Disasters is the result of an ongoing global collaborative effort. Its ever-expanding content represents the contributions of an array of individuals and organizations variously affected by the unprecedented events of March 2011 and their aftermath. The development of the archive interface has been led by the Edwin O. Reischauer Institute in collaboration with metaLAB (at) Harvard, Harvard's Center for Geographic Analysis and non-profit technology company Zeega.org. This current version lays the groundwork for an ever-evolving and ultimately participatory archive. The interface is built using Zeega, an open-source platform that supports initaitives in crisis archiving, enabling anyone to create participatory projects that combine original content with photos, videos, text, audio, data feeds and maps via APIs from across the web.</target>
+                <target>2011年東日本大震災デジタルアーカイブ・試作モデルalphaは、国際的な協力関係の下で進められている取り組みの結果生まれたものです。そこに収蔵されているコンテンツは拡大を続けており、2011年3月とその後の未曾有の出来事によって様々に影響を受けた個人や団体からの投稿で構成されています。このアーカイブのインターフェースは、ハーバード大学エドウィン・O・ライシャワー日本研究所を中心としながら、ハーバード大学メタ・ラボ（metaLAB(at)Harvard）や地理学分析センター（Harvard's Center for Geographic Analysis）、そして非営利のクリエイティブ・テクノロジスト集団であるジーガ（Zeega.org）と密接に連携しながら開発されています。alpha版は進化し続ける参加型のアーカイブにその基礎を置いています。このインターフェースはジーガ（Zeega）というオープンソース・プラットフォームの上に構築されております。ジーガは危機的状況の際のアーカイブ作業において先導的な役割を果たしており、これを利用することで、どなたでも参加型のプロジェクトを作り、そこで写真・動画・文書・音声・データフィード・地図などの素材をウェブ上のAPIを通じて編集することが可能です。</target>
             </trans-unit>
   			<trans-unit id="48">
                 <source>jda.search.results</source>
@@ -196,7 +196,7 @@
             </trans-unit>	
 			<trans-unit id="49">
                 <source>jda.home.source</source>
-                <target>image source</target>
+                <target>出典</target>
             </trans-unit>
             <trans-unit id="51">
                 <source>jda.login.username</source>
@@ -208,7 +208,7 @@
             </trans-unit>
             <trans-unit id="53">
                 <source>jda.login.partnerlogin</source>
-                <target>Partner Login</target>
+                <target>協力企業・団体 ログイン</target>
             </trans-unit>
             <trans-unit id="54">
                 <source>jda.login.requestalogin</source>
@@ -216,21 +216,28 @@
             </trans-unit>
             <trans-unit id="55">
                 <source>jda.login.description</source>
-                <target>This project is built on participation and collaboration. We welcome requests to join the growing community of partners working with this alpha version of the archive. For those already registered, we encourage you to share any feedback or ideas you may have, and to let us know about any issues you encounter. You will find a feedback link at the top right.</target>
+                <target>このアーカイブ・プロジェクトは皆様のご参加とご協力なくしては成立し得ません。共に試作モデル・アルファ版の改良にあたって下さるパートナーの輪は広がり続けており、そこに是非加わって頂ければと願っております。既に登録がお済みでしたら、どのようなご意見・ご感想、不具合のご指摘でも結構ですので、私どもと共有して下されば幸いです。トップページ右上部のリンクを通じて承っております。</target>
             </trans-unit>
             <trans-unit id="56">
                 <source>jda.login.header</source>
-                <target>Welcome to the Digital Archive of Japan's 2011 Disasters</target>
+                <target>2011年東日本大震災デジタルアーカイブへようこそ</target>
             </trans-unit>
             <trans-unit id="57">
                 <source>jda.login.subheader</source>
-                <target>The archive is currently in development and only available to partners.</target>
+                <target>現在開発中につき、アーカイブはパートナーの皆様だけに公開させて頂いております。</target>
             </trans-unit>
             <trans-unit id="58">
                 <source>jda.login.button</source>
                 <target>Submit</target>
             </trans-unit>
-
+  			<trans-unit id="59">
+                <source>jda.header.alphadescription</source>
+                <target>2011年東日本大震災デジタルアーカイブ・alphaは現在まさに開発段階にあります。そのため、皆様がウェブサイト内の様々な機能をご利用になり、このプロジェクトで行われていることをご覧になる際、いくつかの技術的課題にお気づきになるかと存じます。しかし私たちは機能の向上とプログラムの不具合の修正に日々取り組んでおりますので、今後も皆様がこのインターフェースをお使いになり、ご意見・ご要望をお寄せ頂けるようでしたら幸いです。</target>
+            </trans-unit>
+             <trans-unit id="60">
+                <source>jda.header.aboutalpha</source>
+                <target>Alpha版について</target>
+            </trans-unit>
 			</body>
     </file>
 </xliff>
