@@ -1,28 +1,19 @@
 default:
     pattern:   /
-    defaults:  { _controller:  ZeegaUserBundle:Security:login, _locale: en}
+    defaults:  { _controller: JDACoreBundle:Home:redirect, _locale: ja }
 
-default_search:
-    pattern:   /search
-    defaults:  { _controller: JDACoreBundle:Search:index, _locale: en}
-
-
-default_about:
-    pattern:   /about
-    defaults:  { _controller: JDACoreBundle:About:index, _locale: en }
-    
 search:
     pattern:   /{_locale}/search
-    defaults:  { _controller: JDACoreBundle:Search:index, _locale: en }
+    defaults:  { _controller: JDACoreBundle:Search:index, _locale: ja }
     requirements:
-        _locale: en|jp
+        _locale: en|ja
 home:
     pattern:   /{_locale}/home
-    defaults:  { _controller: JDACoreBundle:Home:index, _locale: en }
+    defaults:  { _controller: JDACoreBundle:Home:index, _locale: ja }
     requirements:
-        _locale: en|jp
+        _locale: en|ja
 about:
     pattern:   /{_locale}/about
-    defaults:  { _controller: JDACoreBundle:About:index, _locale: en }
+    defaults:  { _controller: JDACoreBundle:About:index, _locale: ja }
     requirements:
-        _locale: en|jp
+        _locale: en|ja

@@ -8,6 +8,15 @@ use Symfony\Component\HttpFoundation\Response;
 class HomeController extends Controller
 {
     
+    
+    
+    public function redirectAction(){
+    	
+  	
+		return $this->redirect($this->generateUrl('home',array(),true),302);
+    		
+    }
+    
     public function indexAction()
     {
     

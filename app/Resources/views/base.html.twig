@@ -39,7 +39,7 @@
 			<div id="header-bar"><div id="header-english">
 
 		<header class="clearfix"> 
-		{% if locale == 'jp' %}
+		{% if locale == 'ja' %}
 			<a href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('jda/images/logo-jp.png')}}"></a>
 		{% else %}
 			<a href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('jda/images/logo.png')}}"></a>
@@ -51,7 +51,7 @@
 			<ul id="header-menu" class="unstyled">
 
 				
-				{% if locale == 'jp' %}
+				{% if locale == 'ja' %}
 					<li>{% trans %}jda.header.japanese{% endtrans %}</li>
 					<li>
 						{% if page == 'home' %}
@@ -68,11 +68,11 @@
 				{% else %}
 					<li>
 						{% if page == 'home' %}
-							<a href="{{path('home', { '_locale': 'jp' })}}">
+							<a href="{{path('home', { '_locale': 'ja' })}}">
 						{% elseif page == 'about' %}
-							<a href="{{path('about', { '_locale': 'jp' })}}">
+							<a href="{{path('about', { '_locale': 'ja' })}}">
 						{% elseif page == 'search' %}
-							<a href="{{path('search', { '_locale': 'jp' })}}">
+							<a href="{{path('search', { '_locale': 'ja' })}}">
 						{% else %}
 							<a>
 						{% endif %}

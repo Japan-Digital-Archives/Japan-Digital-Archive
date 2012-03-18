@@ -16,28 +16,28 @@ security:
 
     firewalls:
         secured_area:
-            pattern:    ^/
             form_login:
                 provider: fos_userbundle
-                default_target_path: /jp/home
+                default_target_path: /ja/home
                 login_path: /login 
             logout:
-                path:   /jp/logout
-                target: /jp/home
+                path:   /logout
+                target: /ja/login
             anonymous:    true
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         #- { path: ^/_internal, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
+       # - { path: ^/, role: IS_AUTHENTICATED_FULLY }
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/home, role: IS_AUTHENTICATED_FULLY }
         - { path: ^/en/home, role: IS_AUTHENTICATED_FULLY }
-        - { path: ^/jp/home, role: IS_AUTHENTICATED_FULLY }        
+        - { path: ^/ja/home, role: IS_AUTHENTICATED_FULLY }        
         - { path: ^/search, role: IS_AUTHENTICATED_FULLY }
         - { path: ^/en/search, role: IS_AUTHENTICATED_FULLY }
-        - { path: ^/jp/search, role: IS_AUTHENTICATED_FULLY }        
+        - { path: ^/ja/search, role: IS_AUTHENTICATED_FULLY }        
         - { path: ^/about role: IS_AUTHENTICATED_FULLY }
         - { path: ^/en/about role: IS_AUTHENTICATED_FULLY }
-        - { path: ^/jp/about role: IS_AUTHENTICATED_FULLY }
+        - { path: ^/ja/about role: IS_AUTHENTICATED_FULLY }
         - { path: ^/register, role: ROLE_ADMIN }
         - { path: ^/admin, role: ROLE_ADMIN }

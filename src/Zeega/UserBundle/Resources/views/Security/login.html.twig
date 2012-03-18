@@ -17,12 +17,12 @@
 	<div class="login-modal">
 		<div class="login-modal-header">
 			<div style="text-align:right; width:96%;" >
-			{% if locale == 'jp' %}
+			{% if locale == 'ja' %}
 				<a href="{{path('_security_login', { '_locale': 'en' })}}">
 					{% trans %}jda.header.english{% endtrans %}
 				</a>
 			{% else %}
-				<a href="{{path('_security_login', { '_locale': 'jp' })}}">
+				<a href="{{path('_security_login', { '_locale': 'ja' })}}">
 				{% trans %}jda.header.japanese{% endtrans %}
 				</a>
 			{% endif %}
@@ -36,6 +36,7 @@
 		<div class="login-modal-body">
 			<span id="partner-login">{% trans %}jda.login.partnerlogin{% endtrans %}</span><a id="request-login" href="http://jdarchive.org">{% trans %}jda.login.requestalogin{% endtrans %}</a>
 			<div style="clear:both"></div>
+		
 				<form action="{{ path("fos_user_security_check") }}" method="post">
 					<div class="box">
 				    	<label for="username">{% trans %}jda.login.username{% endtrans %}</label>
@@ -51,7 +52,9 @@
 						-->	
 						<br><br>
 				    	<input type="submit" id="_submit" name="_submit" value="{% trans %}jda.login.login{% endtrans %}" class="login-button"/>
-						<br><br>
+						<br>	{% if error %}
+	       		<div class="error" style="width:200px; text-align:right; color:red; font-weight:bold">{{ error.message }}</div>
+	    	{% endif %}<br>
 					</div>
 				</form>
 		</div>

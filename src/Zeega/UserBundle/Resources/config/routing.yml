@@ -1,15 +1,13 @@
 _security_login:
     pattern:   /{_locale}/login
-    defaults: { _controller:  ZeegaUserBundle:Security:login, _locale: en }
+    defaults: { _controller:  ZeegaUserBundle:Security:login, _locale: ja }
     requirements:
-        _locale: en|jp
+        _locale: en|ja
 
 _security_check:
     pattern:  /{_locale}/login_check
     requirements:
-        _locale: en|jp
+        _locale: en|ja
 
 _security_logout:
-    pattern:  /jp/logout
-    requirements:
-        _locale: en|jp
+    pattern:  /logout
