@@ -238,6 +238,10 @@
                 <source>jda.header.aboutalpha</source>
                 <target>Alpha版について</target>
             </trans-unit>
+            <trans-unit id="61">
+                <source>jda.login.login</source>
+                <target>Login</target>
+            </trans-unit>
 			</body>
     </file>
 </xliff>
