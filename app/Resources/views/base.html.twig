@@ -61,7 +61,7 @@
 						{% elseif page == 'search' %}
 							<a href="{{path('search', { '_locale': 'en' })}}">
 						{% else %}
-							<a>
+							<a href="{{path('user_registration', { '_locale': 'en' })}}">
 						{% endif %}
 						{% trans %}jda.header.english{% endtrans %}</a>
 					</li>
@@ -74,7 +74,7 @@
 						{% elseif page == 'search' %}
 							<a href="{{path('search', { '_locale': 'ja' })}}">
 						{% else %}
-							<a>
+							<a href="{{path('user_registration', { '_locale': 'ja' })}}">
 						{% endif %}
 						{% trans %}jda.header.japanese{% endtrans %}</a>
 					</li>
