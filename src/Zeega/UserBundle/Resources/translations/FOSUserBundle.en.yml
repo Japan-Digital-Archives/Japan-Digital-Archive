@@ -89,8 +89,8 @@ fos_user_profile_form_user_username: "Email:"
 fos_user_profile_form_user_email: "Email Verification:"
 fos_user_profile_form_current: "Current Password:"
 
-fos_user_registration_form_username: "Username"
-fos_user_registration_form_email: "Email"
+fos_user_registration_form_username: "Email"
+fos_user_registration_form_email: "Email Verification"
 fos_user_registration_form_plainPassword_first: "Password"
 fos_user_registration_form_plainPassword_second: "Password Verification"
 
