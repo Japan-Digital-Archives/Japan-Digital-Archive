@@ -11,3 +11,9 @@ _security_check:
 
 _security_logout:
     pattern:  /logout
+
+user_registration:
+    pattern:  /{_locale}/register
+    defaults: { _controller:  FOSUserBundle:Registration:register, _locale: ja }
+    requirements:
+        _locale: en|ja
