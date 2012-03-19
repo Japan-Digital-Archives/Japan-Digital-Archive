@@ -1,0 +1,247 @@
+﻿<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>jda.home.featured</source>
+                <target>印象的なコレクション</target>
+            </trans-unit>
+             <trans-unit id="2">
+                <source>jda.home.about.intro</source>
+                <target></target>
+            </trans-unit>
+             <trans-unit id="3">
+                <source>jda.home.about</source>
+                <target>2011年東日本大震災デジタルアーカイブは、皆様お一人おひとり、研究者、そして政策に携わる方が対話し、つながるための参加型空間であり、この震災によって大きな影響を受けた皆様にとって大切な記憶を共有する場所となることを願っています。</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>jda.home.archive</source>
+                <target>アーカイブの内容</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>jda.home.tags</source>
+                <target>タグ</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>jda.home.title</source>
+                <target> Digital Archive of Japan's 2011 Disasters</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>jda.home.more</source>
+                <target>続きを読む</target>
+            </trans-unit> 
+            <trans-unit id="8">
+                <source>jda.home.add</source>
+                <target>投稿する</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>jda.home.search</source>
+                <target>キーワードを入力して下さい</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>jda.home.logo</source>
+                <target>logo-jp</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>jda.about.mission</source>
+                <target>2011年東日本大震災デジタルアーカイブには3つの使命があります</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>jda.about.one</source>
+                <target>2011年3月11日の震災とその後の出来事に関するデジタル情報を整理、保存し、できる限り多くの方にとって活用可能な状態にすること。</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>jda.about.two</source>
+                <target>皆様お一人おひとりが、そして研究者や政策に携わる方が、情報を共有し、協力し合い、対話することができる公共空間を提供すること。</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>jda.about.three</source>
+                <target>震災から大きな被害を受けた方や、今後を強く憂慮している方が、記憶や思いを共有できる場となること。</target>
+            </trans-unit>
+             <trans-unit id="15">
+                <source>jda.about.participate</source>
+                <target>参加型アーカイブ</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>jda.about.connect</source>
+                <target>つながり</target>
+            </trans-unit>	
+            <trans-unit id="17">
+                <source>jda.about.connectbody</source>
+                <target>このアーカイブが目指すのは、収蔵された情報同士の、そしてユーザ同士の新たなつながりを促進することです。ユーザがデジタルアーカイブ内の収蔵情報やコレクションの間を行き来するとき、他のアーキビストたちの拡大し続けるネットワークに出会うことでしょう。それは、位置情報や説明がタグ付けされた何千枚の写真をアーカイブに提供した大きな団体である場合もあれば、自分の家族の経験を綴ったユーザや、そして救援活動に携わる公共・民間団体の関係を研究する歴史家であるかもしれません</target>
+            </trans-unit>
+                    <trans-unit id="18">
+                <source>jda.about.participateone</source>
+                <target>デジタル情報を閲覧し、説明を加え、可視化する</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>jda.about.participatetwo</source>
+                <target>自分だけのコレクションをつくり、他のユーザに公開する(開発中)</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>jda.about.participatethree</source>
+                <target>テキストや写真、動画、リンクなどをアーカイブする</target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>jda.about.participatefour</source>
+                <target>震災に関する皆様の「物語」を共有する (開発中)</target>
+            </trans-unit>
+             <trans-unit id="22">
+                <source>jda.search.allformats</source>
+                <target>すべて検索</target>
+            </trans-unit>
+             <trans-unit id="23">
+                <source>jda.search.image</source>
+                <target>画像</target>
+            </trans-unit>            
+             <trans-unit id="24">
+                <source>jda.search.video</source>
+                <target>動画</target>
+            </trans-unit>
+             <trans-unit id="25">
+                <source>jda.search.audio</source>
+                <target>音声</target>
+            </trans-unit>            
+             <trans-unit id="26">
+                <source>jda.search.tweet</source>
+                <target>ツイート</target>
+            </trans-unit>
+             <trans-unit id="27">
+                <source>jda.search.document</source>
+                <target>ドキュメント</target>
+            </trans-unit>
+             <trans-unit id="28">
+                <source>jda.search.website</source>
+                <target>ウェブサイト</target>
+            </trans-unit>   
+             <trans-unit id="29">
+                <source>jda.search.pdf</source>
+                <target>PDF</target>
+            </trans-unit>
+             <trans-unit id="30">
+                <source>jda.search.testimonial</source>
+                <target>物語</target>
+            </trans-unit>
+             <trans-unit id="31">
+                <source>jda.search.listview</source>
+                <target>リスト表示</target>
+            </trans-unit>
+             <trans-unit id="32">
+                <source>jda.search.timeplaceview</source>
+                <target>時間／空間表示</target>
+            </trans-unit>
+             <trans-unit id="33">
+                <source>jda.search.relatedtags</source>
+                <target>関連タグ</target>
+            </trans-unit>
+             <trans-unit id="34">
+                <source>jda.search.layers</source>
+                <target>レイヤー</target>
+            </trans-unit>
+             <trans-unit id="35">
+                <source>jda.search.legend</source>
+                <target>Legend</target>
+            </trans-unit>
+             <trans-unit id="36">
+                <source>jda.search.muncipaldistricts</source>
+                <target>行政区</target>
+            </trans-unit>
+             <trans-unit id="37">
+                <source>jda.search.radiation</source>
+                <target>放射能</target>
+            </trans-unit>
+             <trans-unit id="38">
+                <source>jda.search.casualties</source>
+                <target>死者</target>
+            </trans-unit>
+             <trans-unit id="39">
+                <source>jda.search.flooding</source>
+                <target>津波</target>
+            </trans-unit>
+             <trans-unit id="40">
+                <source>jda.search.shake</source>
+                <target>震度分布</target>
+            </trans-unit>
+		    <trans-unit id="41">
+                <source>jda.header.about</source>
+                <target>このアーカイブについて</target>
+            </trans-unit>
+    		<trans-unit id="42">
+                <source>jda.header.feedback</source>
+                <target>お問い合わせ</target>
+            </trans-unit>
+			<trans-unit id="43">
+                <source>jda.header.japanese</source>
+                <target>日本語</target>
+            </trans-unit>				
+			<trans-unit id="44">
+                <source>jda.header.english</source>
+                <target>English</target>
+            </trans-unit>			
+			<trans-unit id="45">
+                <source>jda.home.partners</source>
+                <target>協力企業・団体</target>
+            </trans-unit>			
+			<trans-unit id="46">
+                <source>jda.home.go</source>
+                <target>検索</target>
+            </trans-unit>			
+			 <trans-unit id="47">
+                <source>jda.about.paragraph</source>
+                <target>2011年東日本大震災デジタルアーカイブ・試作モデルalphaは、国際的な協力関係の下で進められている取り組みの結果生まれたものです。そこに収蔵されているコンテンツは拡大を続けており、2011年3月とその後の未曾有の出来事によって様々に影響を受けた個人や団体からの投稿で構成されています。このアーカイブのインターフェースは、ハーバード大学エドウィン・O・ライシャワー日本研究所を中心としながら、ハーバード大学メタ・ラボ（metaLAB(at)Harvard）や地理学分析センター（Harvard's Center for Geographic Analysis）、そして非営利のクリエイティブ・テクノロジスト集団であるジーガ（Zeega.org）と密接に連携しながら開発されています。alpha版は進化し続ける参加型のアーカイブにその基礎を置いています。このインターフェースはジーガ（Zeega）というオープンソース・プラットフォームの上に構築されております。ジーガは危機的状況の際のアーカイブ作業において先導的な役割を果たしており、これを利用することで、どなたでも参加型のプロジェクトを作り、そこで写真・動画・文書・音声・データフィード・地図などの素材をウェブ上のAPIを通じて編集することが可能です。</target>
+            </trans-unit>
+  			<trans-unit id="48">
+                <source>jda.search.results</source>
+                <target> 検索結果</target>
+            </trans-unit>	
+			<trans-unit id="49">
+                <source>jda.home.source</source>
+                <target>出典</target>
+            </trans-unit>
+            <trans-unit id="51">
+                <source>jda.login.username</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="52">
+                <source>jda.login.password</source>
+                <target>Password</target>
+            </trans-unit>
+            <trans-unit id="53">
+                <source>jda.login.partnerlogin</source>
+                <target>協力企業・団体 ログイン</target>
+            </trans-unit>
+            <trans-unit id="54">
+                <source>jda.login.requestalogin</source>
+                <target>Request a login</target>
+            </trans-unit>
+            <trans-unit id="55">
+                <source>jda.login.description</source>
+                <target>このアーカイブ・プロジェクトは皆様のご参加とご協力なくしては成立し得ません。共に試作モデル・アルファ版の改良にあたって下さるパートナーの輪は広がり続けており、そこに是非加わって頂ければと願っております。既に登録がお済みでしたら、どのようなご意見・ご感想、不具合のご指摘でも結構ですので、私どもと共有して下されば幸いです。トップページ右上部のリンクを通じて承っております。</target>
+            </trans-unit>
+            <trans-unit id="56">
+                <source>jda.login.header</source>
+                <target>2011年東日本大震災デジタルアーカイブへようこそ</target>
+            </trans-unit>
+            <trans-unit id="57">
+                <source>jda.login.subheader</source>
+                <target>現在開発中につき、アーカイブはパートナーの皆様だけに公開させて頂いております。</target>
+            </trans-unit>
+            <trans-unit id="58">
+                <source>jda.login.button</source>
+                <target>Submit</target>
+            </trans-unit>
+  			<trans-unit id="59">
+                <source>jda.header.alphadescription</source>
+                <target>2011年東日本大震災デジタルアーカイブ・alphaは現在まさに開発段階にあります。そのため、皆様がウェブサイト内の様々な機能をご利用になり、このプロジェクトで行われていることをご覧になる際、いくつかの技術的課題にお気づきになるかと存じます。しかし私たちは機能の向上とプログラムの不具合の修正に日々取り組んでおりますので、今後も皆様がこのインターフェースをお使いになり、ご意見・ご要望をお寄せ頂けるようでしたら幸いです。</target>
+            </trans-unit>
+             <trans-unit id="60">
+                <source>jda.header.aboutalpha</source>
+                <target>Alpha版について</target>
+            </trans-unit>
+            <trans-unit id="61">
+                <source>jda.login.login</source>
+                <target>Login</target>
+            </trans-unit>
+			</body>
+    </file>
+</xliff>
