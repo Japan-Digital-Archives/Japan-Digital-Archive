@@ -85,8 +85,8 @@ layout:
 # Form field labels
 fos_user_group_form_name: "Group name:"
 
-fos_user_profile_form_user_username: "Username:"
-fos_user_profile_form_user_email: "Email:"
+fos_user_profile_form_user_username: "Email:"
+fos_user_profile_form_user_email: "Email Verification:"
 fos_user_profile_form_current: "Current Password:"
 
 fos_user_registration_form_username: "Username"
