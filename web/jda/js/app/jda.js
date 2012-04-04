@@ -677,7 +677,7 @@ this.jda = {
 		if (response.responseText != "")
 		{
 			var Items = jda.module("items");
-			console.log(response.responseText)
+			
 			try
 			{
 				var data = eval('(' + response.responseText + ')');
@@ -698,8 +698,7 @@ this.jda = {
 			_.each(_.toArray(jda.app.mapViewCollection.collection),function(model){
 				var newid = model.get("id").split('.')[1];
 				jda.app.mapViewCollection.collection.get(model.id).set({id:newid});
-				console.log(jda.app.mapViewCollection.collection.get(newid));
-				console.log(model.get('id'));
+				
 			});
 			
 			this.popup = new OpenLayers.Popup.FramedCloud( 

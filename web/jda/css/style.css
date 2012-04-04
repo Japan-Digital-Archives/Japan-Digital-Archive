@@ -249,7 +249,7 @@ height:200px;
 }
 #event-time-slider {
 
-top: 40px;
+top: 28px;
 }
 #event-map
 {
@@ -606,15 +606,16 @@ opacity: 1;
 .hidden{ display: none;}
 #results-background{
 	background-color: rgba(100, 100, 100, 0.5);
-	height: 80px;
+	height: 60px;
 	position: absolute;
 	z-index: 1000;
 	width: 100%;
+
 }
 #results-overlay{
 	z-index: 1001;
 	clear:both;
-	height:80px;
+	height:60px;
 	-moz-border-radius-topleft: 6px;
 	-moz-border-radius-topright: 6px;
 	-moz-border-radius-bottomright: 0px;

@@ -929,7 +929,7 @@ OpenLayers.Popup = OpenLayers.Class({
         var dx = origTL.x - newTL.x;
         var dy = origTL.y - newTL.y;
         
-        this.map.pan(dx, dy);
+        this.map.pan(dx, dy - 60);
     },
 
     /** 
