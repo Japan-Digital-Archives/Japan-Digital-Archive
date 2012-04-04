@@ -166,8 +166,8 @@ this.jda = {
  	},
 	
 	resetMapSize :function(){
-		var h = Math.max($(window).height() - 150,400);
-		$("#event-map").height(h);
+		var h = Math.max($(window).height() - 139,400);
+		$("#event-map").height(h +20);
 	},
 	
 	

@@ -322,17 +322,15 @@ border-radius: 0px 4px 0px 0px;
 .date-time-block{
 	position: absolute;
 	top : -20px;
-	border : 1px solid #999;
 	border-radius: 3px;
-	background : #F4F4F4;
-	width : 167px;
+	width:167px;
 }
 
 .date-time-block>input{
 	font-size: 12px;
 	margin : 1px;
-	text-align: right;
-	padding : 2px;
+	text-align: center;
+	padding : 1px;
 	border : 1px solid #CCC;
 }
 

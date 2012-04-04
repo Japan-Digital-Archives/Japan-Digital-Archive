@@ -137,8 +137,7 @@ height:200px;
 	right: 0;
 	width: 940px;
 	margin: 18px auto;
-	z-index:10;
-	background-color:white;
+	z-index:1001;
 	padding-top:20px;
 }
 #search-bar{
@@ -245,12 +244,12 @@ height:200px;
 	position: fixed !important;
 	overflow: hidden;
 	left: 0;
-	top: 200px;
+	top: 139px;
 	border-top: 2px solid #CCC;
 }
 #event-time-slider {
-margin-left: 50px;
-top: 20px;
+
+top: 40px;
 }
 #event-map
 {
@@ -605,8 +604,15 @@ opacity: 1;
 }
 
 .hidden{ display: none;}
+#results-background{
+	background-color: rgba(100, 100, 100, 0.5);
+	height: 80px;
+	position: absolute;
+	z-index: 1000;
+	width: 100%;
+}
 #results-overlay{
-	background-color:#ccc;
+	z-index: 1001;
 	clear:both;
 	height:80px;
 	-moz-border-radius-topleft: 6px;
@@ -620,12 +626,13 @@ opacity: 1;
 #results-count {
 	clear:both;
 	font-size: 1.5em;
-	color: #666;
-	float: left;
+	color: #fff;
 	margin-top: 10px;
 	font-weight:bold;
 	margin-left:0;
 	padding-left:5px;
+	position: relative;
+	left: -200px;
 }
 #related-tags{
 	margin-left:0;
