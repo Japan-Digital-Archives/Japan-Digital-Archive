@@ -103,7 +103,7 @@
 					//deselect/unfocus last tag - temp fix till figure out why tag is popping up autocomplete
 					VisualSearch.searchBox.disableFacets();
 
-					$('#results-count-number').html(response["items_count"]);
+					$('#results-count-number').html( jda.app.addCommas(response["items_count"]));
 					
 					_this.renderTags(response.tags);
 					_this.render();
@@ -324,7 +324,8 @@
 		parse : function(response)
 		{
 			return response.items;
-		}
+		},
+		
 	
 	});
 

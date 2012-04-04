@@ -84,7 +84,7 @@ z-index:10;
 
 }
 .white-background-search{
-height:231px;
+height:200px;
 	}
 .narrow-container{
 	position: relative;
@@ -100,10 +100,18 @@ height:231px;
 **************************************/
 .VS-search .VS-search-box {
 	-webkit-border-radius:6px !important;
+	width:760px;
+	background-color:white !important;
+	border: 1px solid #CCC !important;
+	padding:4px;
 }
+.VS-search .VS-icon-search, .VS-search .VS-cancel-search-box {
+	top: 12px !important;
+}
+
 #search-filters { float:right; padding: 0 0 5px 0;}
 #search{
-	height:44px;
+	
 }
 
 
@@ -131,13 +139,16 @@ height:231px;
 	margin: 18px auto;
 	z-index:10;
 	background-color:white;
+	padding-top:20px;
 }
 #search-bar{
 	
 	opacity: 0;
 	-moz-opacity: 0;
 	filter:alpha(opacity=0);
-	
+	padding: 0 !important;
+	background-color:white;
+	float:left;
 }
 #scrolling-things{
 	position:relative;
@@ -162,17 +173,16 @@ height:231px;
 
 #select-wrap {
 
-	height:30px;
-
+	height: 35px;
 	position: absolute;
-	top: 20px;
-	left: 745px;
+	top: 22px;
+	left: 585px;
 	font-size: 1.2em;
 	font-weight: bold;
 	color: #999;
 	width: 150px;
-	border-left: 2px solid #CCC;
-	border-right: 2px solid #CCC;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
 	font-variant: small-caps;
 	font-family:Arial,sans-serif;
 }
@@ -231,11 +241,20 @@ height:231px;
 	event view
 
 **************************************/
-
+#event-view{
+	position: fixed !important;
+	overflow: hidden;
+	left: 0;
+	top: 200px;
+	border-top: 2px solid #CCC;
+}
+#event-time-slider {
+margin-left: 50px;
+top: 20px;
+}
 #event-map
 {
-	width:100%;
-	height:800px;
+	
 }
 
 
@@ -586,21 +605,33 @@ opacity: 1;
 }
 
 .hidden{ display: none;}
+#results-overlay{
+	background-color:#ccc;
+	clear:both;
+	height:80px;
+	-moz-border-radius-topleft: 6px;
+	-moz-border-radius-topright: 6px;
+	-moz-border-radius-bottomright: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	-webkit-border-radius: 6px 6px 0px 0px;
+	border-radius: 6px 6px 0px 0px;
 
+}
 #results-count {
+	clear:both;
 	font-size: 1.5em;
 	color: #666;
 	float: left;
-	margin-top: 18px;
+	margin-top: 10px;
 	font-weight:bold;
+	margin-left:0;
+	padding-left:5px;
 }
 #related-tags{
-	clear:both;
+	margin-left:0;
 	height:20px;
-	margin-top: 10px;
+	margin-top: 8px;
 	padding: 5px 0;
-	border-top:1px solid #eee;
-	border-bottom:1px solid #eee;
 	display:none;
 }
 #related-tags-title{

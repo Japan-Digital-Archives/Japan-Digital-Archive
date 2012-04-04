@@ -165,8 +165,8 @@ this.jda = {
 		}
  	},
 	
-		resetMapSize :function(){
-		var h = Math.max($(window).height() - 310,400);
+	resetMapSize :function(){
+		var h = Math.max($(window).height() - 150,400);
 		$("#event-map").height(h);
 	},
 	
@@ -204,14 +204,25 @@ this.jda = {
 					success : function(model, response){ 
 						searchView.renderTags(response.tags);
 						searchView.render();      
-						$('#results-count-number').text(response["items_count"]);        
+						$('#results-count-number').text(jda.app.addCommas(response["items_count"]));        
 						$('#results-count').fadeTo(100, 1);
 					}
 				});
 			}
 		}
 	},
-	
+	addCommas : function(nStr)
+	{
+		nStr += '';
+		x = nStr.split('.');
+		x1 = x[0];
+		x2 = x.length > 1 ? '.' + x[1] : '';
+		var rgx = /(\d+)(\d{3})/;
+		while (rgx.test(x1)) {
+			x1 = x1.replace(rgx, '$1' + ',' + '$2');
+		}
+		return x1 + x2;
+	},
 	
 	showListView : function()
 	{
@@ -259,7 +270,7 @@ this.jda = {
     		}
 		})
 		
-		$("#event-view").width(940);
+		$("#event-view").width($(window).width());
 		this.resetMapSize();
 
 		if( !this.mapLoaded ) this.initWorldMap();
@@ -527,7 +538,7 @@ this.jda = {
 			success : function(model, response){ 
 				searchView.renderTags(response.tags);
 				searchView.render();      
-				$('#results-count-number').text(response["items_count"]);        
+				$('#results-count-number').text(jda.app.addCommas(response["items_count"]));        
 				$('#results-count').fadeTo(100, 1);
 			}
 		});

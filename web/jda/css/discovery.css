@@ -316,7 +316,7 @@ border-radius: 0px 4px 0px 0px;
 /*time slider */
 #range-slider{
 	margin : 20px 144px 0px 144px;
-	top : 20px;
+	top : 10px;
 }
 
 .date-time-block{
@@ -324,7 +324,6 @@ border-radius: 0px 4px 0px 0px;
 	top : -20px;
 	border : 1px solid #999;
 	border-radius: 3px;
-	padding : 3px;
 	background : #F4F4F4;
 	width : 167px;
 }

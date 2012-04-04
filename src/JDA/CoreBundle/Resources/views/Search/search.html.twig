@@ -89,19 +89,25 @@
 		</span>
 		
 	</div>
-		<div id="remove-tag-alert"><strong>Removed tag '<span id='removed-tag-name'></span>'</strong>: Sorry, the events view doesn't support filtering by tag yet.</div>
-		<!-- number of results -->
-		<div id="results-count"><span id="results-count-number"></span> Results</div>
-
-		<!-- time & place vs list view -->
+	<!-- time & place vs list view -->
 		<div id='search-filters' class="btn-group">
 				<a id="list-view-button" class='nav-btn btn large' data-goto-view='list' href="#" style="display:none"><i class="jdicon-small-list"></i><span class="btn-text">{% trans %}jda.search.listview{% endtrans %}</span></a>
 				<a id="event-view-button" class='nav-btn btn large' data-goto-view='event' href="#"><i class="jdicon-small-world"></i><span class="btn-text">{% trans %}jda.search.timeplaceview{% endtrans %}</span></a>
 				<!-- <a class='btn large' data-goto-view='tag' href="#">TAGS</a> -->
 		</div>	
+		<div id="remove-tag-alert"><strong>Removed tag '<span id='removed-tag-name'></span>'</strong>: Sorry, the events view doesn't support filtering by tag yet.</div>
+		<div id="results-overlay">
+			<!-- number of results -->
+			<div id="results-count" class="span3"><span id="results-count-number"></span> Results</div>
 
-		<!-- related tags -->
-		<div id="related-tags"><span id="related-tags-title" class="span2">{% trans %}jda.search.relatedtags{% endtrans %}</span><ul class="span10"></ul></div>
+			
+			
+			<!-- related tags -->
+			<div id="related-tags" class="span8"><span id="related-tags-title" class="span2">{% trans %}jda.search.relatedtags{% endtrans %}</span><ul></ul></div>
+
+			<!-- event time slider -->
+			<div id='event-time-slider' ></div>
+		</div>
 	</div><!-- end non-scrolling things -->
 		<!-- item list -->
 		<div id="scrolling-things">
@@ -112,7 +118,7 @@
 		</div>
 
 		<div id='event-view' class='hidden'>
-			<div id='event-time-slider'></div>
+			
 			<div id='event-map'></div>
 			<div id="layer-control-drawer">
 			<div id ="layer-control-drawer-tab">
