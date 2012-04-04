@@ -345,6 +345,7 @@ this.jda = {
 				_this.initTimeSlider(_this.map);
 				_this.initLayerControl();
 				_this.mapLoaded = true;
+				$(".olControlPanZoomBar").css({"top":"65px"});
 		
 			});
 	},
