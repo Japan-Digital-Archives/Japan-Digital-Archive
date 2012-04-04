@@ -229,6 +229,9 @@ this.jda = {
 		console.log('switch to List view');
 
 		$('#related-tags').show();
+		$('#event-time-slider').hide();
+		$('#results-count').removeClass('results-count-event');
+		
 
 		//loop through all facets to find the data & time one
 		_.each( VisualSearch.searchBox.facetViews, function( facet ){
@@ -249,7 +252,8 @@ this.jda = {
 		//For some reason, the map collapses after a search to 0px width
 		
 		$('#related-tags').hide();
-		
+		$('#event-time-slider').show();
+		$('#results-count').addClass('results-count-event');
 		
 		VisualSearch.searchBox.addFacet('data:time & place', ' ', 0);
 		_.each( VisualSearch.searchBox.facetViews, function( facet ){
