@@ -330,7 +330,7 @@ this.jda = {
 				_this.map = new OpenLayers.Map('event-map',{
 					
 					//controls: [ new OpenLayers.Control.PanZoomBar()],
-					controls: [new OpenLayers.Control.ZoomPanel()],
+					controls: [new OpenLayers.Control.ZoomPanel(),new OpenLayers.Control.Navigation()],
 					layers: [baseLayer,dataLayer],
                     maxResolution: 1.3053327578125,
                     projection: "EPSG:900913",
