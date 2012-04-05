@@ -168,6 +168,8 @@ this.jda = {
 	resetMapSize :function(){
 		var h = Math.max($(window).height() - 139,400);
 		$("#event-map").height(h +20);
+
+		$('#results-count').offset( { top:$('#results-count').offset().top, left:10 } );
 	},
 	
 	
@@ -231,7 +233,7 @@ this.jda = {
 		$('#related-tags').show();
 		$('#event-time-slider').hide();
 		$('#results-count').removeClass('results-count-event');
-		
+		$('#results-count').css('left', 0);
 
 		//loop through all facets to find the data & time one
 		_.each( VisualSearch.searchBox.facetViews, function( facet ){
@@ -254,6 +256,9 @@ this.jda = {
 		$('#related-tags').hide();
 		$('#event-time-slider').show();
 		$('#results-count').addClass('results-count-event');
+		
+		$('#results-count').offset( { top:$('#results-count').offset().top, left:10 } );
+
 		
 		VisualSearch.searchBox.addFacet('data:time & place', ' ', 0);
 		_.each( VisualSearch.searchBox.facetViews, function( facet ){
@@ -324,7 +329,8 @@ this.jda = {
 				
 				_this.map = new OpenLayers.Map('event-map',{
 					
-					controls: [ new OpenLayers.Control.PanZoomBar()],
+					//controls: [ new OpenLayers.Control.PanZoomBar()],
+					controls: [new OpenLayers.Control.ZoomPanel()],
 					layers: [baseLayer,dataLayer],
                     maxResolution: 1.3053327578125,
                     projection: "EPSG:900913",
