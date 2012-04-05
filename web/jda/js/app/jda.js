@@ -724,7 +724,8 @@ this.jda = {
 			//openlayers workaround, propogates click events to trigger fancybox
 			this.popup.events.register("click", this.popup, function(event){ $(event.target).trigger('click') });
 			
-			this.map.addPopup(this.popup);	
+			this.map.addPopup(this.popup);
+			$('#map-popup').height($('#map-popup').height() - 50);	
 			
 			
 		}

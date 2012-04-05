@@ -240,6 +240,12 @@ height:175px;
 	event view
 
 **************************************/
+.olControlZoomPanel div {
+	background-image: url(../images/zoom-control.png) !important;
+}
+#map-popup{
+	padding:-65px;
+}
 #event-view{
 	position: fixed !important;
 	overflow: hidden;
