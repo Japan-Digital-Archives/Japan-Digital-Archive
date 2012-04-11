@@ -6,9 +6,9 @@ var LocatorMapView = Backbone.View.extend({
 	initialize : function()
 	{
 		this.mapRendered=false;
-		this.cloudmadeUrl = 'http://{s}.tile.cloudmade.com/da4f1fa0e3634976afb1083e06407ffc/3121/256/{z}/{x}/{y}.png',
-    	this.cloudmadeAttrib = '',
-   		this.cloudmade = new L.TileLayer(this.cloudmadeUrl, {maxZoom: 18, attribution: this.cloudmadeAttrib});
+		this.mapboxUrl = 'http://{s}.tiles.mapbox.com/v2/mapbox.mapbox-streets/{z}/{x}/{y}.png',
+    	this.mapboxAttrib = '',
+   		this.mapboxLayer = new L.TileLayer(this.mapboxUrl, {maxZoom: 18, attribution: this.mapboxAttrib});
 		if(parseFloat(this.model.get('media_geo_latitude'))) this.geoLocated=true;
 		else this.geoLocated=false;
 		
@@ -47,7 +47,7 @@ var LocatorMapView = Backbone.View.extend({
 		var div = $(this.el).find('.locator-map').get(0);
 
 		this.map = new L.Map(div);
-    	this.map.setView(this.latlng, 13).addLayer(this.cloudmade);
+    	this.map.setView(this.latlng, 13).addLayer(this.mapboxLayer);
     	$('.leaflet-control-attribution').hide();
     	
     	var that=this;
