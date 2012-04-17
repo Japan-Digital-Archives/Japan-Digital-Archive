@@ -22,13 +22,12 @@ this.jda = {
 
   // Keep active application instances namespaced under an app object.
   app: _.extend({
-
-	apiLocation : 'http://dev.zeega.org/jdaapisolr/web/',
+	apiLocation : sessionStorage.getItem("apiUrl"),
 	currentView : 'list',
 	mapLoaded : false,
 	timeSliderLoaded : false,
-	japanMapUrl : "http://worldmap.harvard.edu/geoserver/",
-	geoUrl : "http://geo.zeega.org:80/geoserver/",
+	japanMapUrl : sessionStorage.getItem("japanMapUrl"),
+	geoUrl : sessionStorage.getItem("geoServerUrl"),
 	resultsPerPage : 100,
 	
 	init : function()

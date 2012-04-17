@@ -57,6 +57,9 @@ twig:
     globals:
         hostname: %hostname%
         directory: %directory%
+        japan_map_url: %japan_map_url%
+        api_url: %api_url%
+        geoserver_url: %geoserver_url%
 
 # Assetic Configuration
 assetic:
