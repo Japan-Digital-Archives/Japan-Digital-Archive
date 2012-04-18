@@ -691,11 +691,12 @@ this.jda = {
 			
 			try
 			{
-				var data = eval('(' + response.responseText + ')');
+				var data = eval('(' + response + ')');
 			}
 			catch(err)
 			{
-			  	this.popup=false;
+			  	console.log(response);
+				this.popup=false;
 			  	console.log('failure to parse json');
 				return;
 			}
