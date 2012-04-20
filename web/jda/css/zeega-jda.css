@@ -1,0 +1,52 @@
+
+#zeega-view-navigation{
+	width:100%;
+	background-color: rgba(245,245,245,0.7);
+	height:114px;
+	z-index:2;
+	position: fixed;
+	top: 40px;
+}
+#zeega-view-navigation .tabbable ul{
+	background-color: #ccc;
+}
+#zeega-view-navigation .nav-tabs > .active > a, .nav-tabs > .active > a:hover{
+	background-color:whiteSmoke;
+}
+#zeega-view-navigation .nav-tabs a{
+	color:#333;
+}
+#zeega-view-navigation form{
+	border:none;
+	padding: 40px 20px 0;
+	background-color:transparent;
+
+}
+#zeega-my-collections{
+	border:1px solid #888;
+	margin-right: 108px;
+	margin-top: 10px;
+	background-color: #ccc;
+	width: 200px;
+	text-align: center;
+	border-radius: 4px;
+}
+#zeega-my-collections h4{
+	padding:10px;
+	
+}
+#zeega-my-collections #zeega-my-collections-items{
+	background:#ccc;
+	border-top:1px solid #888;
+}
+#zeega-my-collections p{
+	background-color: #ddd;
+	color:#666;
+	padding:14px;
+	border: 1px dotted #888;
+	font-size:0.9em;
+}
+#zeega-results-count{
+	font-size: 18px;
+	margin-top: 7px;
+}

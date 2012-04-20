@@ -1,3 +1,28 @@
-.smaller-font{
-	font-size:0.85em;
+header .container{
+	width:98% !important;
+}
+.navbar .brand {
+	padding: 8px 30px 0 10px;
+}
+#jda-main-nav {
+	font-size:1.2em;
+}
+#jda-related-tags{
+	float:right;
+	height:300px;
+	line-height: 25px;
+}
+#jda-related-tags h3{
+	font-variant: small-caps;
+	border-bottom: solid 1px #999;
+	margin-bottom: 10px;
+
+}
+header .navbar .btn-group {
+	margin-top:10px;
+	margin-left:51px;
+}
+#jda-main-content{
+	position: relative;
+	top: 114px;
 }
