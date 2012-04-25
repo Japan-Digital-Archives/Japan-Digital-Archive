@@ -82,9 +82,25 @@
 
 
 		<div id="zeega-my-collections" class="pull-right">
-		  <h3>my collection</h3>
+		  <h3><a href="#">my collection</a></h3><span class="label label-inverse" style="position: relative;top: 8px;">12 items</span>
 		  <div id="zeega-my-collections-items">
-		  	<p><em>Drag items here...</em>
+
+		  	<p id="zeega-my-collections-drag-items-here"><em>Drag items here...</em>
+		  	</p>
+		  	<p id="zeega-my-collections-item-representation">
+		  		<img src="http://placehold.it/16x12" alt="">
+		  		<img src="http://placehold.it/16x12" alt="">
+		  		<img src="http://placehold.it/16x12" alt="">
+		  		<img src="http://placehold.it/16x12" alt="">
+		  		<img src="http://placehold.it/16x12" alt="">
+		  		<img src="http://placehold.it/16x12" alt="">
+		  		<img src="http://placehold.it/16x12" alt="">
+		  		<img src="http://placehold.it/16x12" alt="">
+		  		<img src="http://placehold.it/16x12" alt="">
+		  		<img src="http://placehold.it/16x12" alt="">
+		  		<img src="http://placehold.it/16x12" alt="">
+		  		<img src="http://placehold.it/16x12" alt="">
+		  		<img src="http://placehold.it/16x12" alt="">
 		  	</p>
 		  </div>
 		</div>
@@ -295,6 +311,7 @@
     ================================================== -->
   
     <script type="text/javascript" src="jda/js/lib/jquery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="jda/js/lib/jquery-ui-1.8.18.custom/js/jquery-ui-1.8.18.custom.min.js"></script>
 	<script type="text/javascript" src="jda/js/lib/bootstrap-2.0.2/js/bootstrap.min.js"></script>
 	<script>
      $(document).ready(function(){
@@ -304,6 +321,68 @@
        $('a[href$="#tab-event-view"]').click(function(event){
 			$('#maptest').show();        	
        });
+
+       $(".thumbnail").draggable({
+			
+			cursor : 'pointer',
+			appendTo : 'body',
+			opacity : .95,
+			
+			helper : function(){
+				var drag = $(this)
+					.clone()
+					.css({
+						'z-index':'3',
+						
+					});
+				return drag;
+			},
+			
+			//init the dragged item variable
+			start : function(){
+				$(this).draggable('option','revert',true);
+				
+			},
+				
+			stop : function(){
+				
+			}
+			
+		});
+
+		
+		$('#zeega-my-collections-items p').droppable({
+			accept : '.thumbnail',
+			hoverClass : 'zeega-my-collections-items-dropping',
+			tolerance : 'pointer',
+			
+			
+			drop : function( event, ui )
+			{
+				
+				$(this).hide();
+				
+				ui.draggable.draggable('option','revert',false);
+				
+
+				
+				$('#zeega-my-collections-item-representation').fadeIn('fast');
+				$('#zeega-my-collections-item-representation').effect("highlight", {}, 2000, 
+					function(){
+						
+						$('#zeega-my-collections-item-representation').hide('fast');
+						$('#zeega-my-collections-drag-items-here').show('fast');
+					});
+				$('#zeega-my-collections-item-representation').append(' <img src="http://placehold.it/16x12" alt="">');
+		  		
+		  		var numItems= $('#zeega-my-collections-item-representation img').length;
+		  		$('#zeega-my-collections span.label').html(numItems + ' items');
+				
+				
+				
+			}
+		});
+     
      });
    </script>
    
