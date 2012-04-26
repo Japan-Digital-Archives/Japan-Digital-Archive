@@ -50,7 +50,19 @@
             <ul class="nav pull-right">
               <li><a href="#">About</a></li>
                <li class="divider-vertical"></li>
-              <li><a href="#about">Sign in</a></li>
+
+              <li>
+                  <div class="btn-group" style="margin-top:5px;margin-left:0">
+                    <button class="btn btn-inverse">Hello, Gus</button>
+                    <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>Settings</li>
+                      <li>Other settings</li>
+                    </ul>
+                  </div> 
+              </li>
               <li class="divider-vertical"></li>
               <li>
               	<div class="btn-group">
@@ -94,7 +106,9 @@
         <h4>by missakey</h4>
         <p><a href="#">View on Yahoo Japan</a></p>
         <div style="position:relative;top:30px">
-          <img src="http://placehold.it/640x480" alt="" class="thumbnail pull-left" style="margin-right:20px"><p>Sed ut perspiciatis unde omnisiste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+          <img src="http://placehold.it/640x480" alt="" class="thumbnail pull-left" style="margin-right:20px"><img id="jda-resize-smaller" src="resize_small.png" style="position: absolute;top: 425px;opacity: 0.4;left: 585px;"><img id="jda-resize-bigger" src="resize_full.png" style="position: absolute;top: 95px;opacity: 0.4;left: 135px;display: block;width: 25px;display:none"><p>Sed ut perspiciatis unde omnisiste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? <i class="icon-plus-sign"></i></p>
+          <p class="added" style="display:none">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+          <p class="added" style="display:none">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. <i class="icon-minus-sign"></i></p>
           <h3>Map</h3>
           <img src="map-screenshot.png" style="margin-bottom:12px"/>
           <h3>Tags</h3>
@@ -116,17 +130,51 @@
 	<script type="text/javascript" src="../jda/js/lib/bootstrap-2.0.2/js/bootstrap.min.js"></script>
 	<script>
      $(document).ready(function(){
-     	     $(".thumbnail, tr").draggable({
+
+          
+          $(".icon-plus-sign").click(function(){
+            $(this).hide();
+            $('.added').fadeIn();
+          });
+          $(".icon-minus-sign").click(function(){
+            $(".icon-plus-sign").fadeIn();
+            $('.added').fadeOut();
+          });
+          $("#jda-resize-smaller").click(function(){
+            
+            $('.thumbnail').attr('src','http://placehold.it/160x120');
+            $('.added').fadeIn();
+            $(this).fadeOut();
+            $("#jda-resize-bigger").fadeIn();
+            $(".icon-plus-sign").fadeOut();
+            $(".icon-minus-sign").fadeOut();
+
+
+          });
+           $("#jda-resize-bigger").click(function(){
+                $('.thumbnail').attr('src','http://placehold.it/640x480');
+                $('.added').fadeOut();
+                $(this).fadeOut();
+                $("#jda-resize-smaller").fadeIn(); 
+                $(".icon-plus-sign").fadeIn();
+              $(".icon-minus-sign").fadeIn();
+          });
+     	     $(".thumbnail").draggable({
       
             cursor : 'pointer',
             appendTo : 'body',
             opacity : .8,
-            
+            cursorAt : { 
+              top : -5,
+              left : -5
+            },
             helper : function(){
               var drag = $(this)
                 .clone()
                 .css({
                   'z-index':'3',
+                  'width':'320px',
+                  'height':'240px',
                   
                 });
               return drag;
