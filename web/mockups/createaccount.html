@@ -51,6 +51,18 @@
               <li><a href="#">About</a></li>
                <li class="divider-vertical"></li>
               <li><a href="#about">Sign in</a></li>
+              <li style="display:none" id="loggedin">
+                  <div class="btn-group" style="margin-top:5px;margin-left:0">
+                    <button class="btn btn-inverse">Hello, Gus</button>
+                    <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Settings</a></li>
+                      <li><a href="#">Other settings</a></li>
+                    </ul>
+                  </div> 
+              </li>
               <li class="divider-vertical"></li>
               <li>
               	<div class="btn-group">
@@ -117,6 +129,8 @@
         $('form.well').submit(function(e){
             $('#jda-create-account-form').fadeOut();
             $('#jda-create-account-results').fadeIn();
+            $('li a:contains(Sign in)').hide();
+            $('#loggedin').show();
             e.preventDefault();
 
           });

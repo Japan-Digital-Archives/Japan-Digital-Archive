@@ -59,7 +59,7 @@ header .container{
 #jda-related-tags{
 	
 	height:300px;
-	line-height: 25px;
+	line-height: 25px;float:right;
 }
 #jda-related-tags h3{
 	font-variant: small-caps;
