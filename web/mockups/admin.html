@@ -81,12 +81,14 @@
     <div id="jda-main-content" class="container">
       <h2 style="margin-bottom:10px">Admin</h2>
       <ul class="nav nav-tabs">
-        <li class="active"><a href="#approval"data-toggle="tab">Add to archive approval</a></li>
-        <li><a href="#manage-users" data-toggle="tab">Manage Users</a></li>
+        <li ><a href="#approval"data-toggle="tab">Add to archive approval</a></li>
+        <li class="active"><a href="#manage-users" data-toggle="tab">Manage Users</a></li>
         <li><a href="#manage-featured-collections" data-toggle="tab">Manage Featured Collections</a></li>
       </ul> 
       <div class="tab-content">
-        <div class="tab-pane active" id="approval">
+        
+        <!-- APPROVAL TAB -->
+        <div class="tab-pane" id="approval">
             <div class="btn-toolbar pull-right">
             <div class="btn-group" id="btn-group-approve-selected" style="display:none">
               <button class="btn btn-small btn-info"><i class="icon-ok-circle icon-white"></i> Approve selected</button>
@@ -107,15 +109,347 @@
             <li><a href="#">Denied <span class="badge badge-info">3</span></a></li>
           </ul>
         
-         <ul class="thumbnails" id="approve-thumbnails">
-            
-
-      
-          </ul>
+         <ul class="thumbnails" id="approve-thumbnails"></ul>
 
         </div>
-        <div class="tab-pane" id="manage-users">Hello</div>
-        <div class="tab-pane" id="manage-featured-collections">Hello</div>
+        <!-- MANAGE USERS TAB -->
+        <div class="tab-pane active" id="manage-users">
+          
+          <form class="well form-search">
+            <h3><span id="admin-num-users">45,322</span> Users</h3>
+            <input type="text" class="input-xxlarge search-query" style="margin-bottom:7px">
+            <button type="submit" class="btn" style="margin-bottom:7px">Search</button>
+            <div class="btn-group">
+              <button class="btn btn-small btn-info">A</button>
+              <button class="btn btn-small btn-info">B</button>
+              <button class="btn btn-small btn-info">C</button>
+              <button class="btn btn-small btn-info">D</button>
+              <button class="btn btn-small btn-info">E</button>
+              <button class="btn btn-small btn-info">F</button>
+              <button class="btn btn-small btn-info">G</button>
+              <button class="btn btn-small btn-info">H</button>
+              <button class="btn btn-small btn-info">I</button>
+              <button class="btn btn-small btn-info">J</button>
+              <button class="btn btn-small btn-info">K</button>
+              <button class="btn btn-small btn-info">L</button>
+              <button class="btn btn-small btn-info">M</button>
+              <button class="btn btn-small btn-info">N</button>
+              <button class="btn btn-small btn-info">O</button>
+              <button class="btn btn-small btn-info">P</button>
+              <button class="btn btn-small btn-info">Q</button>
+              <button class="btn btn-small btn-info">R</button>
+              <button class="btn btn-small btn-info">S</button>
+              <button class="btn btn-small btn-info">T</button>
+              <button class="btn btn-small btn-info">U</button>
+              <button class="btn btn-small btn-info">V</button>
+              <button class="btn btn-small btn-info">W</button>
+              <button class="btn btn-small btn-info">X</button>
+              <button class="btn btn-small btn-info">Y</button>
+              <button class="btn btn-small btn-info">Z</button>
+            </div>
+          </form>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Date Joined</th>
+                <th># Items Contributed</th>
+                <th># Collections</th>
+
+                <th> </th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>D'Igmond, Gus</td>
+                <td>6/22/11</td>
+                <td>12</td>
+                <td>1</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+                
+              </tr>
+              <tr>
+                <td>Donnelly, Joe</td>
+                <td>9/21/12</td>
+                <td>275</td>
+                <td>67</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>Dwight, Sandra</td>
+                <td>10/2/11</td>
+                <td>0</td>
+                <td>0</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>D'Igmond, Gus <span class="badge badge-warning">admin</span></td>
+                <td>6/22/11</td>
+                <td>12</td>
+                <td>1</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+                
+              </tr>
+              <tr>
+                <td>Donnelly, Joe</td>
+                <td>9/21/12</td>
+                <td>275</td>
+                <td>67</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>Dwight, Sandra</td>
+                <td>10/2/11</td>
+                <td>0</td>
+                <td>0</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>D'Igmond, Gus</td>
+                <td>6/22/11</td>
+                <td>12</td>
+                <td>1</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+                
+              </tr>
+              <tr>
+                <td>Donnelly, Joe</td>
+                <td>9/21/12</td>
+                <td>275</td>
+                <td>67</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>Dwight, Sandra</td>
+                <td>10/2/11</td>
+                <td>0</td>
+                <td>0</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>D'Igmond, Gus</td>
+                <td>6/22/11</td>
+                <td>12</td>
+                <td>1</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+                
+              </tr>
+              <tr>
+                <td>Donnelly, Joe</td>
+                <td>9/21/12</td>
+                <td>275</td>
+                <td>67</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>Dwight, Sandra <span class="badge badge-warning">admin</span></td>
+                <td>10/2/11</td>
+                <td>0</td>
+                <td>0</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>D'Igmond, Gus</td>
+                <td>6/22/11</td>
+                <td>12</td>
+                <td>1</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+                
+              </tr>
+              <tr>
+                <td>Donnelly, Joe</td>
+                <td>9/21/12</td>
+                <td>275</td>
+                <td>67</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>Dwight, Sandra</td>
+                <td>10/2/11</td>
+                <td>0</td>
+                <td>0</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>D'Igmond, Gus</td>
+                <td>6/22/11</td>
+                <td>12</td>
+                <td>1</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+                
+              </tr>
+              <tr>
+                <td>Donnelly, Joe</td>
+                <td>9/21/12</td>
+                <td>275</td>
+                <td>67</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>Dwight, Sandra</td>
+                <td>10/2/11</td>
+                <td>0</td>
+                <td>0</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>D'Igmond, Gus</td>
+                <td>6/22/11</td>
+                <td>12</td>
+                <td>1</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+                
+              </tr>
+              <tr>
+                <td>Donnelly, Joe</td>
+                <td>9/21/12</td>
+                <td>275</td>
+                <td>67</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>Dwight, Sandra</td>
+                <td>10/2/11</td>
+                <td>0</td>
+                <td>0</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>D'Igmond, Gus</td>
+                <td>6/22/11</td>
+                <td>12</td>
+                <td>1</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+                
+              </tr>
+              <tr>
+                <td>Donnelly, Joe</td>
+                <td>9/21/12</td>
+                <td>275</td>
+                <td>67</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>Dwight, Sandra</td>
+                <td>10/2/11</td>
+                <td>0</td>
+                <td>0</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>D'Igmond, Gus</td>
+                <td>6/22/11</td>
+                <td>12</td>
+                <td>1</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+                
+              </tr>
+              <tr>
+                <td>Donnelly, Joe</td>
+                <td>9/21/12</td>
+                <td>275</td>
+                <td>67</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>Dwight, Sandra</td>
+                <td>10/2/11</td>
+                <td>0</td>
+                <td>0</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>D'Igmond, Gus</td>
+                <td>6/22/11</td>
+                <td>12</td>
+                <td>1</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+                
+              </tr>
+              <tr>
+                <td>Donnelly, Joe</td>
+                <td>9/21/12</td>
+                <td>275</td>
+                <td>67</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>Dwight, Sandra</td>
+                <td>10/2/11</td>
+                <td>0</td>
+                <td>0</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>D'Igmond, Gus</td>
+                <td>6/22/11</td>
+                <td>12</td>
+                <td>1</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+                
+              </tr>
+              <tr>
+                <td>Donnelly, Joe</td>
+                <td>9/21/12</td>
+                <td>275</td>
+                <td>67</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+              <tr>
+                <td>Dwight, Sandra</td>
+                <td>10/2/11</td>
+                <td>0</td>
+                <td>0</td>
+                <td><button class="btn btn-small"><i class="icon-pencil"></i> edit</button> <button class="btn btn-small"><i class="icon-remove"></i> delete</button></td>
+              </tr>
+
+            </tbody>
+          </table>
+          
+        </div>
+
+        <!-- FEATURED COLLECTIONS TAB -->
+        <div class="tab-pane" id="manage-featured-collections">
+          <div class="pull-right">
+            <h5>Preview:</h5>
+            <a href="#" class="thumbnail">
+                <img src="http://placehold.it/640x480" alt="">
+            </a>
+          </div>
+          <form class="form-horizontal pull-left">
+            <fieldset>
+              <legend>Featured Collection 1</legend>
+              <div class="control-group">
+                <label class="control-label" for="input01">Link</label>
+                <div class="controls">
+                  <input type="text" class="input-xlarge" id="input01" placeholder="http://www.jdarchive.org/collection1">
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Featured Collection 2</legend>
+              <div class="control-group">
+                <label class="control-label" for="input02">Link</label>
+                <div class="controls">
+                  <input type="text" class="input-xlarge" id="input02" placeholder="http://www.jdarchive.org/collection2">
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Featured Collection 3</legend>
+              <div class="control-group">
+                <label class="control-label" for="input03">Link</label>
+                <div class="controls">
+                  <input type="text" class="input-xlarge" id="input03" placeholder="http://www.jdarchive.org/collection3">
+                </div>
+              </div>
+            </fieldset>
+          
+          <button type="submit" class="btn">Submit</button>
+          </form>
+        </div>
        
       </div>
         
@@ -163,6 +497,13 @@
         });
          $('.view-details').click(function(){
           alert('opens fancybox item viewer');
+         });
+         $('#manage-users .btn-small').click(function(){
+            $('#manage-users .btn-small').removeClass('active');
+            $(this).addClass('active');
+            $('#admin-num-users').text(Math.floor(Math.random() * 45000));
+            $('#manage-users table').fadeOut();
+            $('#manage-users table').fadeIn();
          });
 
      });
