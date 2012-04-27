@@ -79,14 +79,46 @@
     
 
     <div id="jda-main-content" class="container">
-        <ul class="nav nav-pills">
-          <li class="active">
-            <a href="#">Add to Archive Approval</a>
-          </li>
-          <li><a href="#">Manage Users</a></li>
-          <li><a href="#">Manage Featured Collections</a></li>
-        </ul>
+      <h2 style="margin-bottom:10px">Admin</h2>
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#approval"data-toggle="tab">Add to archive approval</a></li>
+        <li><a href="#manage-users" data-toggle="tab">Manage Users</a></li>
+        <li><a href="#manage-featured-collections" data-toggle="tab">Manage Featured Collections</a></li>
+      </ul> 
+      <div class="tab-content">
+        <div class="tab-pane active" id="approval">
+            <div class="btn-toolbar pull-right">
+            <div class="btn-group" id="btn-group-approve-selected" style="display:none">
+              <button class="btn btn-small btn-info"><i class="icon-ok-circle icon-white"></i> Approve selected</button>
+              <button class="btn btn-small btn-info"><i class="icon-ban-circle icon-white"></i> Deny selected</button>
+              
+            </div>
+            <div class="btn-group" id="btn-group-approve-all">
+              <button class="btn btn-small btn-info"><i class="icon-ok-circle icon-white"></i> Approve all</button>
+              <button class="btn btn-small btn-info"><i class="icon-ban-circle icon-white"></i> Deny all</button>
+              
+            </div>
+          </div>
+          <h4 style="float: left;margin-left: 14px;margin-top: 8px;margin-right: 10px;">Filter by: </h4>
+          <ul class="nav nav-pills">
+            <li class="active">
+              <a href="#">In Queue <span class="badge badge-warning">56</span></a>
+            </li>
+            <li><a href="#">Denied <span class="badge badge-info">3</span></a></li>
+          </ul>
+        
+         <ul class="thumbnails" id="approve-thumbnails">
+            
+
+      
+          </ul>
+
+        </div>
+        <div class="tab-pane" id="manage-users">Hello</div>
+        <div class="tab-pane" id="manage-featured-collections">Hello</div>
        
+      </div>
+        
   	
     </div> <!-- /container -->
 
@@ -99,9 +131,39 @@
 	<script>
      $(document).ready(function(){
 
-          
-          
-        
+         var liHTML = '<li class="span2">'+
+            '<a href="#" class="thumbnail">'+
+              '<img src="http://placehold.it/160x120" alt="">'+
+            '</a>'+
+            '<div class="btn-group">'+
+              '<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">'+
+                
+                '<span class="caret"></span>'+
+              '</a>'+
+              '<ul class="dropdown-menu">'+
+                '<li><a href="#">Approve</a></li>'+
+                '<li><a href="#">Deny</a></li>'+
+                '<li class="divider"></li>'+
+                '<li><a href="#" class="view-details">View details</a></li>'+
+              '</ul>'+
+            '</div>'+
+          '</li>';
+          for (var i=0;i<50;i++){
+            $('#approve-thumbnails').append(liHTML);
+          }
+        $('.thumbnail').click(function(){
+          $(this).toggleClass('thumbnail-selected');
+          if($('.thumbnail-selected').length > 0){
+              $('#btn-group-approve-selected').show();
+              $('#btn-group-approve-all').hide();
+          } else {
+              $('#btn-group-approve-selected').hide();
+              $('#btn-group-approve-all').show();
+          }
+        });
+         $('.view-details').click(function(){
+          alert('opens fancybox item viewer');
+         });
 
      });
    </script>
