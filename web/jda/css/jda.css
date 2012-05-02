@@ -94,9 +94,13 @@ tr{
 	margin-left: 30px;
 	font-weight: bold;
 }
-#approve-thumbnails .btn-group{
+#menu-thumbnails li{
+	position:relative;
+}
+#menu-thumbnails .btn-group{
+	position:absolute;
 	left: 137px;
-top: -35px;
+	top: 95px;
 }
 .thumbnail-selected{
 	border-color: #0088cc;
@@ -108,3 +112,11 @@ legend{
 	font-size:16px;
 	font-weight:bold;
 }
+.jda-play-collection{
+	position: absolute; top: -142px;left: 6px; opacity: 0.7;
+}
+.thumbnails > li {
+position:relative;
+}
+
+

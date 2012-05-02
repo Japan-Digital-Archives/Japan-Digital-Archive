@@ -1,14 +1,17 @@
 
 #zeega-view-navigation{
-	width:100%;
+	
 	background-color: rgba(245,245,245,0.7);
-	height:114px;
+	min-height:114px;
 	z-index:2;
 	position: fixed;
 	top: 40px;
 }
 #zeega-view-navigation .tabbable ul{
 	background-color: #ccc;
+	-webkit-box-shadow: inset -1px -1px 1px 1px #666;
+	box-shadow: inset -1px -1px 1px 1px #666;
+	
 }
 #zeega-view-navigation .nav-tabs > .active > a, .nav-tabs > .active > a:hover{
 	background-color:whiteSmoke;

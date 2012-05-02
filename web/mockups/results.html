@@ -307,39 +307,17 @@
 				    <a href="#" class="thumbnail">
 				      <img src="http://placehold.it/160x120" alt="">
 				    </a>
+				    <button class="btn btn-mini jda-play-collection" type="button"><i class="icon-play"></i>
+					  Play
+					</button>
 				  </li>
 				  <li class="span2">
 				    <a href="#" class="thumbnail">
 				      <img src="http://placehold.it/160x120" alt="">
 				    </a>
-				  </li>
-				  <li class="span2">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				  <li class="span2">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				  <li class="span2">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-
-
-
-				  <li class="span2">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				  <li class="span2">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
+				    <button class="btn btn-mini jda-play-collection" type="button"><i class="icon-play"></i>
+					  Play
+					</button>
 				  </li>
 				  <li class="span2">
 				    <a href="#" class="thumbnail">
@@ -363,11 +341,47 @@
 				    <a href="#" class="thumbnail">
 				      <img src="http://placehold.it/160x120" alt="">
 				    </a>
+				    <button class="btn btn-mini jda-play-collection" type="button"><i class="icon-play"></i>
+					  Play
+					</button>
 				  </li>
 				  <li class="span2">
 				    <a href="#" class="thumbnail">
 				      <img src="http://placehold.it/160x120" alt="">
 				    </a>
+				  </li>
+				  <li class="span2">
+				    <a href="#" class="thumbnail">
+				      <img src="http://placehold.it/160x120" alt="">
+				    </a>
+				  </li>
+				  <li class="span2">
+				    <a href="#" class="thumbnail">
+				      <img src="http://placehold.it/160x120" alt="">
+				    </a>
+				  </li>
+				  <li class="span2">
+				    <a href="#" class="thumbnail">
+				      <img src="http://placehold.it/160x120" alt="">
+				    </a>
+				    <button class="btn btn-mini jda-play-collection" type="button"><i class="icon-play"></i>
+					  Play
+					</button>
+				  </li>
+
+
+
+				  <li class="span2">
+				    <a href="#" class="thumbnail">
+				      <img src="http://placehold.it/160x120" alt="">
+				    </a>
+				    
+				  </li>
+				  <li class="span2">
+				    <a href="#" class="thumbnail">
+				      <img src="http://placehold.it/160x120" alt="">
+				    </a>
+
 				  </li>
 				  <li class="span2">
 				    <a href="#" class="thumbnail">
@@ -462,7 +476,10 @@
        $('a[href$="#tab-event-view"]').click(function(event){
 			$('#maptest').show();        	
        });
-       $('tr').click(function () {
+       $('.jda-play-collection').click(function () {
+             alert('plays collection as slideshow in player');
+        });
+       $('tr, a.thumbnail').click(function () {
              alert('opens fancybox');
         }).hover(function () {
               $(this).css('color','#08c');
