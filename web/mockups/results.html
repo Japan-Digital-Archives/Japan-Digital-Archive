@@ -64,51 +64,63 @@
       </div>
     </div>
 </header>
-    <div id="zeega-view-navigation">
-    	<div class="tabbable tabs-left pull-left">
-		  <ul class="nav nav-tabs">
-			<li class="active"><a href="#tab-event-view" data-toggle="tab"><i class="icon-map-marker"></i> Map</a></li>
-			<li><a href="#tab-list-view" data-toggle="tab"><i class="icon-list"></i> List</a></li>
-			<li><a href="#tab-thumb-view" data-toggle="tab"><i class="icon-th-large"></i> Thumb</a></li>
-		  </ul>
-		  
+<div class="container-fluid" id="zeega-view-navigation" style="height:114px">
+	<div class="row-fluid">
+		<div class="span1" style="position: relative;left: -20px;">
+	    	<div class="tabbable tabs-left">
+			  <ul class="nav nav-tabs" style="">
+				<li class="active"><a href="#tab-event-view" data-toggle="tab"><i class="icon-map-marker"></i> Map</a></li>
+				<li><a href="#tab-list-view" data-toggle="tab"><i class="icon-list"></i> List</a></li>
+				<li><a href="#tab-thumb-view" data-toggle="tab"><i class="icon-th-large"></i> Thumb</a></li>
+			  </ul>
+			  
+			</div>			
+		</div>
+		<div class="span6" style="padding-top:7px">
+			<form class="pull-left form-search">
+			  <input type="text" class="input-xxlarge search-query">
+			  <button type="submit" class="btn">Search</button><br/>
+			  <div id="zeega-results-count">154 Results</div>
+			</form>
+		</div>
+		<div class="span5"  style="padding-top:7px">
+				<div id="zeega-my-collections" class="pull-right">
+				  <h3><a href="#">my collection</a></h3><span class="label label-inverse" style="position: relative;top: 8px;">12 items</span>
+				  <div id="zeega-my-collections-items">
+
+				  	<p id="zeega-my-collections-drag-items-here"><em>Drag items here...</em>
+				  	</p>
+				  	<p id="zeega-my-collections-item-representation">
+				  		<img src="http://placehold.it/16x12" alt="">
+				  		<img src="http://placehold.it/16x12" alt="">
+				  		<img src="http://placehold.it/16x12" alt="">
+				  		<img src="http://placehold.it/16x12" alt="">
+				  		<img src="http://placehold.it/16x12" alt="">
+				  		<img src="http://placehold.it/16x12" alt="">
+				  		<img src="http://placehold.it/16x12" alt="">
+				  		<img src="http://placehold.it/16x12" alt="">
+				  		<img src="http://placehold.it/16x12" alt="">
+				  		<img src="http://placehold.it/16x12" alt="">
+				  		<img src="http://placehold.it/16x12" alt="">
+				  		<img src="http://placehold.it/16x12" alt="">
+				  		<img src="http://placehold.it/16x12" alt="">
+				  	</p>
+				  </div>
+				</div>
+
+			
 		</div>
 		
-		<form class="pull-left form-search">
-		  <input type="text" class="input-xxlarge search-query">
-		  <button type="submit" class="btn">Search</button><br/>
-		  <div id="zeega-results-count">154 Results</div>
-		</form>
-
-
-		<div id="zeega-my-collections" class="pull-right">
-		  <h3><a href="#">my collection</a></h3><span class="label label-inverse" style="position: relative;top: 8px;">12 items</span>
-		  <div id="zeega-my-collections-items">
-
-		  	<p id="zeega-my-collections-drag-items-here"><em>Drag items here...</em>
-		  	</p>
-		  	<p id="zeega-my-collections-item-representation">
-		  		<img src="http://placehold.it/16x12" alt="">
-		  		<img src="http://placehold.it/16x12" alt="">
-		  		<img src="http://placehold.it/16x12" alt="">
-		  		<img src="http://placehold.it/16x12" alt="">
-		  		<img src="http://placehold.it/16x12" alt="">
-		  		<img src="http://placehold.it/16x12" alt="">
-		  		<img src="http://placehold.it/16x12" alt="">
-		  		<img src="http://placehold.it/16x12" alt="">
-		  		<img src="http://placehold.it/16x12" alt="">
-		  		<img src="http://placehold.it/16x12" alt="">
-		  		<img src="http://placehold.it/16x12" alt="">
-		  		<img src="http://placehold.it/16x12" alt="">
-		  		<img src="http://placehold.it/16x12" alt="">
-		  	</p>
-		  </div>
-		</div>
+	</div>
+	
+	</div><!-- end container -->
+		
+		
 		
     </div>
     <img id="maptest" src="test.gif" style="position: relative;top: -155px;">
 
-    <div id="jda-results-main-content" class="container">
+    <div class="container" style="position:relative;top:118px">
     	<div class="tab-content">
 
 	    	  <!-- MAP VIEW -->
@@ -264,17 +276,11 @@
 
 	          <!-- THUMBNAIL VIEW -->
 	          <div class="tab-pane" id="tab-thumb-view">
-	          	<div id="jda-related-tags" class="span2 pull-right">
-	          		<h3>related tags</h3>
-	          		<button class="btn btn-mini btn-danger">Sendai</button>
-	          		<button class="btn btn-mini btn-danger">earthquake</button>
-	          		<button class="btn btn-mini btn-danger">crisis</button>
-	          		<button class="btn btn-mini btn-danger">Japan</button>
-	          		
+	          	
+	          	
+	          	
 
-	          	</div>
-
-	            <ul class="thumbnails">
+	             <ul class="thumbnails">
 				  <li class="span2">
 				    <a href="#" class="thumbnail">
 				      <img src="http://placehold.it/160x120" alt="">
@@ -470,6 +476,7 @@
 	<script type="text/javascript" src="../jda/js/lib/bootstrap-2.0.2/js/bootstrap.min.js"></script>
 	<script>
      $(document).ready(function(){
+     	$('.jda-on-select').hide();
      	$('a[href$="#tab-list-view"], a[href$="#tab-thumb-view"]').click(function(event){
 			$('#maptest').hide();        	
        });
@@ -479,7 +486,8 @@
        $('.jda-play-collection').click(function () {
              alert('plays collection as slideshow in player');
         });
-       $('tr, a.thumbnail').click(function () {
+       
+        $('tr, a.thumbnail').click(function () {
              alert('opens fancybox');
         }).hover(function () {
               $(this).css('color','#08c');
@@ -548,7 +556,6 @@
 				
 			}
 		});
-     
      });
    </script>
    
