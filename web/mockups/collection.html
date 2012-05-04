@@ -84,9 +84,20 @@
 			
 			
 			
-			<button class="btn btn-mini btn-info" type="button"><i class="icon-play icon-white"></i>
-			  Play
-			</button>
+			
+			<div class="btn-group" style="display:inline">
+			  <button class="btn btn-mini btn-info" type="button"><i class="icon-play icon-white"></i>
+				  Play 
+				</button>
+			  <button class="btn btn-mini btn-info dropdown-toggle" data-toggle="dropdown" style="height:21px">
+			    <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu" style="left:-20px">
+			  	<li><a href="#"><i class="icon-film"></i> Slideshow</a></li>
+			    <li><a href="#tab-event-view" data-toggle="tab"><i class="icon-map-marker"></i> Map</a></li>
+				<li><a href="#tab-list-view" data-toggle="tab"><i class="icon-list"></i> List</a></li>
+			  </ul>
+			</div>
 			<button class="btn btn-mini btn-info" type="button"><i class="icon-share icon-white"></i>
 			  Share
 			</button>
@@ -96,13 +107,20 @@
 
 			
 		</div>
-		<div class="span2"  style="padding-top:7px">
-			
+		<div class="span3"  style="padding-top:7px;">
+			<h4 style="margin-bottom:8px">Archive Settings <i class="icon-question-sign" data-content="<ul><li>Your collection will be published and searchable in the JDA archive when you select this box.</li><li>Adjust default play settings to control how users view your collection (Slideshow, Map or List views).</li><li> As you make future edits, your collection will be automatically updated.</li>"></i></h4>
+			<label class="checkbox" style="font-size: 12px;">
+			    <input type="checkbox"> Show in archive?
+			  </label>
+			<span style="font-size: 12px">Plays in archive as: </span>
 			<div class="btn-group">
-	          <button class="btn btn-small btn-info active">Published</button>
-	          <button class="btn btn-small btn-info">Unpublish</button>
-	          
-	        </div>
+			  <button class="btn btn-mini btn-info active"><i class="icon-film icon-white"></i> Slideshow</button>
+			  <button class="btn btn-mini btn-info"><i class="icon-map-marker icon-white"></i> Map</button>
+			  <button class="btn btn-mini btn-info"><i class="icon-list icon-white"></i> List</button>
+			</div>
+
+
+	        	
 		</div>
 	</div>
 	<div class="row-fluid">
@@ -698,7 +716,7 @@
              alert('plays collection as slideshow in player');
         });
        
-        $('.icon-plus-sign').popover({'placement':'bottom'});
+        $('.icon-plus-sign').popover({'title':'Description','placement':'bottom'});
         
 	 	$('.thumbnail').click(function(){
           $(this).toggleClass('thumbnail-selected');
@@ -721,7 +739,8 @@
        		$('.thumbnail').removeClass('thumbnail-selected');
        		$('.jda-on-select').fadeOut();
        });
-     
+       $('#menu-thumbnails').sortable();
+     	$('.icon-question-sign').popover({'title':'About Archive Settings','placement':'bottom'});
      });
    </script>
    
