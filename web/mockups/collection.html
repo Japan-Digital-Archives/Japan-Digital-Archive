@@ -112,7 +112,7 @@
 			<label class="checkbox" style="font-size: 12px;">
 			    <input type="checkbox"> Show in archive?
 			  </label>
-			<span style="font-size: 12px">Plays in archive as: </span>
+			<span style="font-size: 12px;padding-bottom:3px;">Plays in archive as: </span>
 			<div class="btn-group">
 			  <button class="btn btn-mini btn-info active"><i class="icon-film icon-white"></i> Slideshow</button>
 			  <button class="btn btn-mini btn-info"><i class="icon-map-marker icon-white"></i> Map</button>
@@ -731,6 +731,12 @@
          $('.view-details').click(function(){
           alert('opens fancybox item viewer');
          });
+       $('button:contains(Share)').click(function(){
+       		alert('opens Publish/Embed modal');
+       });
+       $('button:contains(Play)').click(function(){
+       		alert('plays collection with the default setting they have selected or slideshow if none is selected');
+       });
        $('button:contains(Select All)').click(function(){
        		$('.thumbnail').addClass('thumbnail-selected');
        		$('.jda-on-select').fadeIn();
