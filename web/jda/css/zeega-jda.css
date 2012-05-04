@@ -6,6 +6,7 @@
 	z-index:2;
 	position: fixed;
 	top: 40px;
+	width:100%;
 }
 #zeega-view-navigation .tabbable ul{
 	background-color: #ccc;
