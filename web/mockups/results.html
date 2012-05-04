@@ -278,30 +278,38 @@
 	          <div class="tab-pane" id="tab-thumb-view">
 	          	
 	          	
-	          	
+	          	<div id="jda-related-tags" class="span2 pull-right">
+	          		<h3>related tags</h3>
+	          		<button class="btn btn-mini btn-danger">Sendai</button>
+	          		<button class="btn btn-mini btn-danger">earthquake</button>
+	          		<button class="btn btn-mini btn-danger">crisis</button>
+	          		<button class="btn btn-mini btn-danger">Japan</button>
+
+
+	          	</div>
 
 	             <ul class="thumbnails">
-				  <li class="span2">
+				  <li class="span2" data-content="Type: Collection<br/>Num items: 345<br/>This is a collection of items and collections lorem ipsum.">
 				    <a href="#" class="thumbnail">
 				      <img src="http://placehold.it/160x120" alt="">
 				    </a>
 				  </li>
-				  <li class="span2">
+				  <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
 				    <a href="#" class="thumbnail">
 				      <img src="http://placehold.it/160x120" alt="">
 				    </a>
 				  </li>
-				  <li class="span2">
+				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
 				    <a href="#" class="thumbnail">
 				      <img src="http://placehold.it/160x120" alt="">
 				    </a>
 				  </li>
-				  <li class="span2">
+				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
 				    <a href="#" class="thumbnail">
 				      <img src="http://placehold.it/160x120" alt="">
 				    </a>
 				  </li>
-				  <li class="span2">
+				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
 				    <a href="#" class="thumbnail">
 				      <img src="http://placehold.it/160x120" alt="">
 				    </a>
@@ -325,17 +333,17 @@
 					  Play
 					</button>
 				  </li>
-				  <li class="span2">
+				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
 				    <a href="#" class="thumbnail">
 				      <img src="http://placehold.it/160x120" alt="">
 				    </a>
 				  </li>
-				  <li class="span2">
+				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
 				    <a href="#" class="thumbnail">
 				      <img src="http://placehold.it/160x120" alt="">
 				    </a>
 				  </li>
-				  <li class="span2">
+				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
 				    <a href="#" class="thumbnail">
 				      <img src="http://placehold.it/160x120" alt="">
 				    </a>
@@ -557,6 +565,7 @@
 			}
 		});
      });
+	$('li.span2').popover({'title':'Item title is a title','placement':'bottom'});
    </script>
    
   
