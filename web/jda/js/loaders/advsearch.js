@@ -31,6 +31,7 @@ var loadFiles = [
 	'order!../lib/jquery.tagsinput.min',
 	'order!../lib/jeditable.min',
 	'order!../lib/dateformat/date.format',
+    'order!../lib/visualsearch/visualsearch',
 	//mvc
 	'order!../app/jda',
 	

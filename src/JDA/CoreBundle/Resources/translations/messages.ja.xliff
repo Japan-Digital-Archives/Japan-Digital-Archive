@@ -278,6 +278,10 @@
                 <source>jda.advsearch.all</source>
                 <target>All</target>
             </trans-unit>
+            <trans-unit id="71">
+                <source>jda.advsearch.contentType</source>
+                <target>Content Type:</target>
+            </trans-unit>
 			</body>
     </file>
 </xliff>
