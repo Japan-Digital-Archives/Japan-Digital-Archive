@@ -770,5 +770,18 @@ text-decoration:none;
     zoom:1; /* For IE 6/7 (trigger hasLayout) */
 }
 
+/********************
 
+	ADVANCED SEARCH
+	
+*********************/
 
+.mainContPadding
+{
+	padding-top:70px;
+}
+
+.searchTermsField
+{
+	width:350px;
+}

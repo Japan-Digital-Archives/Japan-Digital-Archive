@@ -246,6 +246,10 @@
                 <source>jda.login.login</source>
                 <target>Login</target>
             </trans-unit>
+            <trans-unit id="62">
+                <source>jda.advsearch.searchTerms</source>
+                <target>Search Terms:</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

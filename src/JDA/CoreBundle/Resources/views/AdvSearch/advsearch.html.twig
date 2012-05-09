@@ -1,0 +1,59 @@
+{# src/Zeega/CoreBundle/Resources/views/Home/home.html.twig #}
+
+{% extends '::base.html.twig' %}
+
+{% block title %}<title>{% trans %}jda.home.title{% endtrans %}</title>{% endblock %}
+
+
+
+{% block stylesheets %}
+<link type="text/css" href="{{ asset('jda/js/lib/jquery-ui-1.8.18.custom/css/smoothness/jquery-ui-1.8.18.custom.css')}}" rel="Stylesheet" />
+
+<link href="{{ asset('jda/css/bootstrap-2.0.css')}}" rel="stylesheet" type="text/css">
+
+<link href="{{ asset('jda/css/itemPage.css')}}" rel="stylesheet" type="text/css">
+<link href="{{ asset('jda/css/textStyles.css')}}" rel="stylesheet" type="text/css">
+<link href="{{ asset('jda/css/lightbox.css')}}" rel="stylesheet"	type="text/css">
+<link href="{{ asset('jda/css/discovery.css')}}" rel="stylesheet" type="text/css">
+<link href="{{ asset('jda/css/collectionsTab.css')}}" rel="stylesheet" type="text/css">
+<link href="{{ asset('jda/css/imageStyles.css')}}" rel="stylesheet" type="text/css">
+
+
+
+<link href="{{ asset('jda/js/lib/jquerySVG/jquery.svg.css')}}" rel="stylesheet" type="text/css">
+
+<!-- Leaflet CSS --> 
+<link rel="stylesheet" href="{{ asset('jda/js/lib/leaflet/leaflet.css')}}" />
+<!--[if lte IE 8]><link rel="stylesheet" href="{{ asset('jda/js/lib/leaflet/leaflet.ie.css')}}" /><![endif]-->
+
+
+<!-- Tags --> 
+<link rel="stylesheet" type="text/css" href="{{ asset('jda/js/lib/jquery.tagsinput.css')}}" />
+
+	
+{% endblock %}	
+
+{% block scripts %}
+
+
+<script data-main="{{ asset('jda/js/loaders/advsearch') }}" src="{{ asset('jda/js/lib/require/require-1.0.5.js') }}"></script>
+
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+<div class='container'>
+	<div class="mainContPadding">
+		<table cellpadding="5" cellspacing="0">
+			<tr>
+				<td>{% trans %}jda.advsearch.searchTerms{% endtrans %}</td>
+				<td colspan="3"><input type="text" id="searchTerms" class="searchTermsField" /></td>
+			</tr>
+		</table>
+	</div>
+</div>
+{% endblock %}
