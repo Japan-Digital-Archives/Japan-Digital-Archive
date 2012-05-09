@@ -731,6 +731,10 @@ this.jda = {
 		else this.popup=false;
 		
 	},
+
+    initAdvSearch : function() {
+        alert('test');
+    },
 	
 	getMapLayers : function()
 	{
