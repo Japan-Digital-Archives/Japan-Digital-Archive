@@ -785,3 +785,12 @@ text-decoration:none;
 {
 	width:350px;
 }
+
+.advSearch_title
+{
+    font-size: 1.4em;
+    padding:5px 5px 5px 15px;
+    color: #666666;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

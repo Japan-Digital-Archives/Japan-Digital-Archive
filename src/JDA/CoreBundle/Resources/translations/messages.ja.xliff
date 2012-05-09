@@ -246,6 +246,10 @@
                 <source>jda.advsearch.searchTerms</source>
                 <target>Search Terms:</target>
             </trans-unit>
+            <trans-unit id="63">
+                <source>jda.advsearch.searchTerms</source>
+                <target>Advanced Search:</target>
+            </trans-unit>
 			</body>
     </file>
 </xliff>
