@@ -77,6 +77,16 @@
                         <option value="0">{% trans %}jda.advsearch.all{% endtrans %}</option>
                     </select>
                 </td>
+                <td>
+                    {% trans %}jda.advsearch.user{% endtrans %}
+                </td>
+                <td>
+                    <!-- not sure how to get the current users ID, ask -->
+                    <select id="userDDL">
+                        <option value="-1">{% trans %}jda.advsearch.allusers{% endtrans %}</option>
+                        <option value="0">{% trans %}jda.advsearch.onlyCurrentUser{% endtrans %}</option>
+                    </select>
+                </td>
             </tr>
 		</table>
 	</div>
