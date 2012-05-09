@@ -652,6 +652,10 @@ this.jda = {
 				layer ="geonode:InstruIntensity_Clip_dOd";
 				legendID = "shake-legend";
 				break;
+			case "pop-density-layer":
+				layer ="geonode:_popcensus2_2id";
+				legendID = "pop-density-legend";
+				break;
 		}
 		
 		//If the image hasn't been loaded yet, do so
@@ -864,6 +868,29 @@ this.jda = {
 					singleTile : false,
 					wrapDateLine : true,
 					visibility : false,
+					buffer: 0,
+								displayOutsideMaxExtent: true,
+								isBaseLayer: false,
+								yx : {'EPSG:900913' : false},
+								'sphericalMercator': true,
+								'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
+				})
+			);
+
+			layers.push( new OpenLayers.Layer.WMS(
+				"pop-density-layer",
+				this.japanMapUrl + "wms",
+				{
+					layers : "geonode:_popcensus2_2id",
+					format : 'image/png',
+					transparent : true,
+					tiled : true
+				},
+				{
+					singleTile : false,
+					wrapDateLine : true,
+					visibility : false,
+					opacity : 0.3,
 					buffer: 0,
 								displayOutsideMaxExtent: true,
 								isBaseLayer: false,
