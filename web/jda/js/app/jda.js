@@ -733,12 +733,17 @@ this.jda = {
 	},
 
     initAdvSearch : function() {
-        var searchView=this.itemViewCollection;
-		searchView.collection.fetch({
-			success : function(model, response){ 
-                alert(response.tags);
-                //$("#test_print").html(response.tags);
-			}
+        var Tags = jda.module("tags");
+		this.advTags=new Tags.Collection();
+
+        this.advTags.reset({silent:true});
+		this.advTags.fetch({ 
+			success: function(tags) {
+                alert(tags);
+            },
+			error: function(error) {
+                alert(error);
+            },
 		});
     },
 	
