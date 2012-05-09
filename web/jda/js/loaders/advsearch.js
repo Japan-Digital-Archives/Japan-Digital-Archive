@@ -59,10 +59,16 @@ var loadFiles = [
 	
 	];
 
-var contentTypes = ['Video','Audio','Image','Website','Tweet','Document'];
 
 
-require(loadFiles, function(){
-	
+
+require(loadFiles, function () {
+    $(document).ready(function () {
+        $.each(contentTypes, function (key, value) {
+            var temp = "<option value='" + value + "'>" + key + "</option>";
+            $("#contentTypeDDL").html($("#contentTypeDDL").html() + temp);
+        });
+
+    });
 });
 

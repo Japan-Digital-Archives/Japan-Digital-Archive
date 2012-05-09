@@ -251,8 +251,36 @@
                 <target>Search Terms:</target>
             </trans-unit>
             <trans-unit id="63">
-                <source>jda.advsearch.searchTerms</source>
+                <source>jda.advsearch.title</source>
                 <target>Advanced Search:</target>
+            </trans-unit>
+            <trans-unit id="64">
+                <source>jda.advsearch.video</source>
+                <target>Video</target>
+            </trans-unit>
+            <trans-unit id="65">
+                <source>jda.advsearch.audio</source>
+                <target>Audio</target>
+            </trans-unit>
+            <trans-unit id="66">
+                <source>jda.advsearch.image</source>
+                <target>Image</target>
+            </trans-unit>
+            <trans-unit id="67">
+                <source>jda.advsearch.website</source>
+                <target>Website</target>
+            </trans-unit>
+            <trans-unit id="68">
+                <source>jda.advsearch.tweet</source>
+                <target>Tweet</target>
+            </trans-unit>
+            <trans-unit id="69">
+                <source>jda.advsearch.document</source>
+                <target>Document</target>
+            </trans-unit>
+            <trans-unit id="70">
+                <source>jda.advsearch.all</source>
+                <target>All</target>
             </trans-unit>
         </body>
     </file>
