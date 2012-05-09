@@ -733,7 +733,12 @@ this.jda = {
 	},
 
     initAdvSearch : function() {
-        alert('test');
+        var searchView=this.itemViewCollection;
+		searchView.collection.fetch({
+			success : function(model, response){ 
+                $("#test_print").html(response.tags);
+			}
+		});
     },
 	
 	getMapLayers : function()
