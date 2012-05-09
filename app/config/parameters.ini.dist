@@ -17,8 +17,11 @@
 
     secret            = 
 
-	    
     hostname          = http://alpha.zeega.org/
     directory = test/web/
     
     thumbnails_uri    = http://alpha.zeega.org/test/images
+
+    api_uri           =
+    japan_map_url     =
+    geoserver_url     =	
