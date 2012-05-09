@@ -736,7 +736,8 @@ this.jda = {
         var searchView=this.itemViewCollection;
 		searchView.collection.fetch({
 			success : function(model, response){ 
-                $("#test_print").html(response.tags);
+                alert(response.tags);
+                //$("#test_print").html(response.tags);
 			}
 		});
     },
