@@ -35,19 +35,18 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#"><img src="../jda/images/logo.png" style="height:30px;"></a>
-          <div class="nav-collapse">
-            <ul id="jda-main-nav" class="nav">
-              <li class="active"><a href="#">Archive</a></li>
-              <li><a href="#about">Collections</a></li>
-              <li><a href="#contact">Participate</a></li>
-            </ul>
-            <ul class="nav pull-right">
+          <div class="row">
+			<div class="span8">
+	          	<a class="brand" href="#"><img src="../jda/images/logo.png" style="height:30px;"></a>
+	          	
+	          
+	            <ul id="jda-main-nav" class="nav span4">
+	              <li><a href="#">Archive</a></li>
+	              <li><a href="#about">Collections</a></li>
+	              <li><a href="#contact">Participate</a></li>
+	            </ul>
+        	</div>
+            <ul class="nav span4 pull-right">
               <li><a href="#">About</a></li>
                <li class="divider-vertical"></li>
               <li><a href="#about">Sign in</a></li>
@@ -59,482 +58,383 @@
 				</div>
 			</li>
             </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
+      	</div><!--/row -->
+      </div><!--/container -->
+    </div><!--/navbar-inner -->
+</div><!--/navbar -->
 </header>
-<div class="container-fluid" id="zeega-view-navigation" style="height:114px">
-	<div class="row-fluid">
-		<div class="span1" style="position: relative;left: -20px;">
-	    	<div class="tabbable tabs-left">
-			  <ul class="nav nav-tabs" style="">
-				<li class="active"><a href="#tab-event-view" data-toggle="tab"><i class="icon-map-marker"></i> Map</a></li>
-				<li><a href="#tab-list-view" data-toggle="tab"><i class="icon-list"></i> List</a></li>
-				<li><a href="#tab-thumb-view" data-toggle="tab"><i class="icon-th-large"></i> Thumb</a></li>
-			  </ul>
-			  
-			</div>			
-		</div>
-		<div class="span6" style="padding-top:7px">
-			<form class="pull-left form-search">
-			  <input type="text" class="input-xxlarge search-query">
-			  <button type="submit" class="btn">Search</button><br/>
-			  <div id="zeega-results-count">154 Results</div>
-			</form>
-		</div>
-		<div class="span5"  style="padding-top:7px">
-				<div id="zeega-my-collections" class="pull-right">
-				  <h3><a href="#">my collection</a></h3><span class="label label-inverse" style="position: relative;top: 8px;">12 items</span>
-				  <div id="zeega-my-collections-items">
-
-				  	<p id="zeega-my-collections-drag-items-here"><em>Drag items here...</em>
-				  	</p>
-				  	<p id="zeega-my-collections-item-representation">
-				  		<img src="http://placehold.it/16x12" alt="">
-				  		<img src="http://placehold.it/16x12" alt="">
-				  		<img src="http://placehold.it/16x12" alt="">
-				  		<img src="http://placehold.it/16x12" alt="">
-				  		<img src="http://placehold.it/16x12" alt="">
-				  		<img src="http://placehold.it/16x12" alt="">
-				  		<img src="http://placehold.it/16x12" alt="">
-				  		<img src="http://placehold.it/16x12" alt="">
-				  		<img src="http://placehold.it/16x12" alt="">
-				  		<img src="http://placehold.it/16x12" alt="">
-				  		<img src="http://placehold.it/16x12" alt="">
-				  		<img src="http://placehold.it/16x12" alt="">
-				  		<img src="http://placehold.it/16x12" alt="">
-				  	</p>
-				  </div>
-				</div>
-
+<div class="container" id="zeega-view-navigation">
+	<div class="row">
+		<div class="span12">
 			
-		</div>
+			<div class="btn-group" id="zeega-view-buttons">
+			  <button class="btn btn-inverse active" rel="tooltip" title="Map View"><a href="#zeega-event-view" data-toggle="tab"><i class="icon-map-marker icon-white"></i></a></button>
+			  <button class="btn btn-inverse" rel="tooltip" title="List View"><a href="#zeega-list-view" data-toggle="tab"><i class="icon-list icon-white"></i></a></button>
+			  <button class="btn btn-inverse" rel="tooltip" title="Thumbnail View"><a href="#zeega-thumb-view" data-toggle="tab"><i class="icon-th-large icon-white"></i></a></button>
+			</div>
+			
 		
-	</div>
-	
-	</div><!-- end container -->
-		
-		
-		
-    </div>
-    <img id="maptest" src="test.gif" style="position: relative;top: -155px;">
+			<form class="form-search pull-left">
+			  <input type="text" class="input-xxlarge search-query">
+			  <button type="submit" class="btn">Search</button>
+			  
+			</form>
+			<span class="badge badge-inverse" id="zeega-search-help" data-content="Here are some tips for searching.">?</span>
+			
+		</div>	<!-- end span12 -->
+	</div><!-- end row -->
+</div><!-- end container -->
+    
+<img id="maptest" src="test.gif" style="position: relative;top: -155px;">
+    
+    <div class="container" id="zeega-main-content">
+    	<div class="row">
+			<div class="span10">
 
-    <div class="container" style="position:relative;top:118px">
-    	<div class="tab-content">
-
-	    	  <!-- MAP VIEW -->
-	          <div class="tab-pane active" id="tab-event-view">
-	            <p>I'm in event view.</p>
-	          </div>
-
-	          <!-- LIST VIEW -->
-	          <div class="tab-pane" id="tab-list-view">
-	            
-
-	            	<table class="table">
-
-	            		<tbody>
-					    <tr>
-					      <td class="span2"><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
-					      
-					      <td class="jda-item-description span8">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2 jda-item-author"><i class="jdicon-tweet"></i> <span class="jda-item-author">by nkhk</span></td>
-					      <td class="jda-item-description span8">RT @TAKARAMACHIneco: 【拡散希望】被害が激しくメディア侵入も難しい／電波塔が倒壊し連絡がとれない／岩手県上閉伊郡大槌町吉里吉里の情報がほしいです。家族友達がいます。#otsuchi #jisin #tunami #hinan #anpi</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2"><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
-					      
-					      <td class="jda-item-description span8">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2 jda-item-author"><i class="jdicon-tweet"></i> <span class="jda-item-author">by nkhk</span></td>
-					      <td class="jda-item-description span8">RT @TAKARAMACHIneco: 【拡散希望】被害が激しくメディア侵入も難しい／電波塔が倒壊し連絡がとれない／岩手県上閉伊郡大槌町吉里吉里の情報がほしいです。家族友達がいます。#otsuchi #jisin #tunami #hinan #anpi</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2"><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
-					      
-					      <td class="jda-item-description span8">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2 jda-item-author"><i class="jdicon-tweet"></i> <span class="jda-item-author">by nkhk</span></td>
-					      <td class="jda-item-description span8">RT @TAKARAMACHIneco: 【拡散希望】被害が激しくメディア侵入も難しい／電波塔が倒壊し連絡がとれない／岩手県上閉伊郡大槌町吉里吉里の情報がほしいです。家族友達がいます。#otsuchi #jisin #tunami #hinan #anpi</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2"><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
-					      
-					      <td class="jda-item-description span8">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2 jda-item-author"><i class="jdicon-tweet"></i> <span class="jda-item-author">by nkhk</span></td>
-					      <td class="jda-item-description span8">RT @TAKARAMACHIneco: 【拡散希望】被害が激しくメディア侵入も難しい／電波塔が倒壊し連絡がとれない／岩手県上閉伊郡大槌町吉里吉里の情報がほしいです。家族友達がいます。#otsuchi #jisin #tunami #hinan #anpi</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2"><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
-					      
-					      <td class="jda-item-description span8">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2 jda-item-author"><i class="jdicon-tweet"></i> <span class="jda-item-author">by nkhk</span></td>
-					      <td class="jda-item-description span8">RT @TAKARAMACHIneco: 【拡散希望】被害が激しくメディア侵入も難しい／電波塔が倒壊し連絡がとれない／岩手県上閉伊郡大槌町吉里吉里の情報がほしいです。家族友達がいます。#otsuchi #jisin #tunami #hinan #anpi</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2"><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
-					      
-					      <td class="jda-item-description span8">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2 jda-item-author"><i class="jdicon-tweet"></i> <span class="jda-item-author">by nkhk</span></td>
-					      <td class="jda-item-description span8">RT @TAKARAMACHIneco: 【拡散希望】被害が激しくメディア侵入も難しい／電波塔が倒壊し連絡がとれない／岩手県上閉伊郡大槌町吉里吉里の情報がほしいです。家族友達がいます。#otsuchi #jisin #tunami #hinan #anpi</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2"><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
-					      
-					      <td class="jda-item-description span8">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2 jda-item-author"><i class="jdicon-tweet"></i> <span class="jda-item-author">by nkhk</span></td>
-					      <td class="jda-item-description span8">RT @TAKARAMACHIneco: 【拡散希望】被害が激しくメディア侵入も難しい／電波塔が倒壊し連絡がとれない／岩手県上閉伊郡大槌町吉里吉里の情報がほしいです。家族友達がいます。#otsuchi #jisin #tunami #hinan #anpi</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2"><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
-					      
-					      <td class="jda-item-description span8">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2 jda-item-author"><i class="jdicon-tweet"></i> <span class="jda-item-author">by nkhk</span></td>
-					      <td class="jda-item-description span8">RT @TAKARAMACHIneco: 【拡散希望】被害が激しくメディア侵入も難しい／電波塔が倒壊し連絡がとれない／岩手県上閉伊郡大槌町吉里吉里の情報がほしいです。家族友達がいます。#otsuchi #jisin #tunami #hinan #anpi</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2"><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
-					      
-					      <td class="jda-item-description span8">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2 jda-item-author"><i class="jdicon-tweet"></i> <span class="jda-item-author">by nkhk</span></td>
-					      <td class="jda-item-description span8">RT @TAKARAMACHIneco: 【拡散希望】被害が激しくメディア侵入も難しい／電波塔が倒壊し連絡がとれない／岩手県上閉伊郡大槌町吉里吉里の情報がほしいです。家族友達がいます。#otsuchi #jisin #tunami #hinan #anpi</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2"><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
-					      
-					      <td class="jda-item-description span8">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2 jda-item-author"><i class="jdicon-tweet"></i> <span class="jda-item-author">by nkhk</span></td>
-					      <td class="jda-item-description span8">RT @TAKARAMACHIneco: 【拡散希望】被害が激しくメディア侵入も難しい／電波塔が倒壊し連絡がとれない／岩手県上閉伊郡大槌町吉里吉里の情報がほしいです。家族友達がいます。#otsuchi #jisin #tunami #hinan #anpi</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2"><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
-					      
-					      <td class="jda-item-description span8">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2 jda-item-author"><i class="jdicon-tweet"></i> <span class="jda-item-author">by nkhk</span></td>
-					      <td class="jda-item-description span8">RT @TAKARAMACHIneco: 【拡散希望】被害が激しくメディア侵入も難しい／電波塔が倒壊し連絡がとれない／岩手県上閉伊郡大槌町吉里吉里の情報がほしいです。家族友達がいます。#otsuchi #jisin #tunami #hinan #anpi</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2"><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
-					      
-					      <td class="jda-item-description span8">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					    <tr>
-					      <td class="span2 jda-item-author"><i class="jdicon-tweet"></i> <span class="jda-item-author">by nkhk</span></td>
-					      <td class="jda-item-description span8">RT @TAKARAMACHIneco: 【拡散希望】被害が激しくメディア侵入も難しい／電波塔が倒壊し連絡がとれない／岩手県上閉伊郡大槌町吉里吉里の情報がほしいです。家族友達がいます。#otsuchi #jisin #tunami #hinan #anpi</td>
-					      <td class="jda-item-date span2">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-					    </tr>
-					   
-					  </tbody>
-	            	</table>
-
+		    	<div class="tab-content">
+		    		
+		    		<!-- Results & Sort Dropdown -->
+		    		
+		    		<span class="zeega-results-count">14,333 results</span>
+		    		<div class="btn-group pull-right" style="margin-bottom:8px">
+					  <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+					    Sort By
+					    <span class="caret"></span>
+					  </a>
+					  <ul class="dropdown-menu">
+					    <li><a href="#">A-Z</a></li>
+					    <li><a href="#">Date</a></li>
+					    <li><a href="#">Something else</a></li>
+					  </ul>
+					</div>
 					
-	          </div>
+		    		
+			    	  <!-- MAP VIEW -->
+			          <div class="tab-pane active" id="zeega-event-view">
+			            <p>I'm in event view.</p>
+			          </div>
 
-	          <!-- THUMBNAIL VIEW -->
-	          <div class="tab-pane" id="tab-thumb-view">
-	          	
-	          	
-	          	<div id="jda-related-tags" class="span2 pull-right">
-	          		<h3>related tags</h3>
-	          		<button class="btn btn-mini btn-danger">Sendai</button>
-	          		<button class="btn btn-mini btn-danger">earthquake</button>
-	          		<button class="btn btn-mini btn-danger">crisis</button>
-	          		<button class="btn btn-mini btn-danger">Japan</button>
+			          <!-- LIST VIEW -->
+			          <div class="tab-pane" id="zeega-list-view">
+			        	
+				  		<table class="table">
+		            		<tbody>
+							    <tr>
+							      <td><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
+							      <td class="jda-item-description">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
+							      <td class="jda-item-date">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
+							    </tr>
+							    <tr>
+							      <td><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
+							      <td class="jda-item-description">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
+							      <td class="jda-item-date">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
+							    </tr>
+							    <tr>
+							      <td><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
+							      <td class="jda-item-description">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
+							      <td class="jda-item-date">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
+							    </tr>
+							    <tr>
+							      <td><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
+							      <td class="jda-item-description">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
+							      <td class="jda-item-date">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
+							    </tr>
+						  	</tbody>
+		            	</table>
+						 
+						  		
+
+							
+			          </div>
+
+			          <!-- THUMBNAIL VIEW -->
+			          <div class="tab-pane" id="zeega-thumb-view" style="clear:both">
+			          	
+			          	
+			          	
+
+			             <ul class="thumbnails">
+						  <li data-content="Type: Collection<br/>Num items: 345<br/>This is a collection of items and collections lorem ipsum.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						  <li  data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li  data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						  <li data-content="Type: Collection<br/>Num items: 345<br/>This is a collection of items and collections lorem ipsum.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						  <li  data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li  data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						  <li data-content="Type: Collection<br/>Num items: 345<br/>This is a collection of items and collections lorem ipsum.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						  <li  data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li  data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						  <li data-content="Type: Collection<br/>Num items: 345<br/>This is a collection of items and collections lorem ipsum.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						  <li  data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li  data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						  <li data-content="Type: Collection<br/>Num items: 345<br/>This is a collection of items and collections lorem ipsum.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						  <li  data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li  data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						  <li data-content="Type: Collection<br/>Num items: 345<br/>This is a collection of items and collections lorem ipsum.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						  <li  data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li  data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						  <li data-content="Type: Collection<br/>Num items: 345<br/>This is a collection of items and collections lorem ipsum.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						  <li  data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li  data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						  <li data-content="Type: Collection<br/>Num items: 345<br/>This is a collection of items and collections lorem ipsum.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						  <li  data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li  data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						  <li data-content="Type: Collection<br/>Num items: 345<br/>This is a collection of items and collections lorem ipsum.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						  <li  data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li  data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
+						   <li data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
+						    <a href="#" class="thumbnail">
+						      <img src="http://placehold.it/160x120" alt="">
+						    </a>
+						  </li>
 
 
-	          	</div>
+						  
+						</ul>
+			          </div>
+		        </div> <!--/tab-->
+    	</div><!--/span10-->
+        <div class="span2">
+        	<div id="zeega-my-collections">
+			  
+			  		<div class="btn-group">
+					  <button class="btn btn-large btn-inverse" style="width: 165px;font-weight: bold;font-size: 16px;border-radius:0">my collection</button>
+					  <button class="btn btn-large btn-inverse dropdown-toggle" data-toggle="dropdown" style="height:39px;border-radius:0">
+					    <span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu" style="width:100%">
+					    <li><a href="#">my collection</a></li>
+					    <li><a href="#">Collection 23</a></li>
+					    <li><a href="#">Collection 33</a></li>
+					  </ul>
+					</div>
+			  
+			  <div id="zeega-my-collections-items">
 
-	             <ul class="thumbnails">
-				  <li class="span2" data-content="Type: Collection<br/>Num items: 345<br/>This is a collection of items and collections lorem ipsum.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				  <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-
-
-
-				  <li class="span2">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				    <button class="btn btn-mini jda-play-collection" type="button"><i class="icon-play"></i>
-					  Play
-					</button>
-				  </li>
-				  <li class="span2">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				    <button class="btn btn-mini jda-play-collection" type="button"><i class="icon-play"></i>
-					  Play
-					</button>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
+			  	<p id="zeega-my-collections-drag-items-here">Drag items here to curate your own collection
+			  	</p>
+			  	<p id="zeega-my-collections-item-representation">
+			  		<img src="http://placehold.it/16x12" alt="">
+			  		<img src="http://placehold.it/16x12" alt="">
+			  		<img src="http://placehold.it/16x12" alt="">
+			  		<img src="http://placehold.it/16x12" alt="">
+			  		<img src="http://placehold.it/16x12" alt="">
+			  		<img src="http://placehold.it/16x12" alt="">
+			  		<img src="http://placehold.it/16x12" alt="">
+			  		<img src="http://placehold.it/16x12" alt="">
+			  		<img src="http://placehold.it/16x12" alt="">
+			  		<img src="http://placehold.it/16x12" alt="">
+			  		<img src="http://placehold.it/16x12" alt="">
+			  		<img src="http://placehold.it/16x12" alt="">
+			  		<img src="http://placehold.it/16x12" alt="">
+			  	</p>
+			  </div>
+			</div>
+			<div id="jda-related-tags">
+          		<h3>related tags</h3>
+          		<button class="btn btn-mini btn-danger">Sendai</button>
+          		<button class="btn btn-mini btn-danger">earthquake</button>
+          		<button class="btn btn-mini btn-danger">crisis</button>
+          		<button class="btn btn-mini btn-danger">Japan</button>
 
 
-
-				  <ul class="thumbnails">
-				  <li class="span2" data-content="Type: Collection<br/>Num items: 345<br/>This is a collection of items and collections lorem ipsum.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				  <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-
-
-
-				  <li class="span2">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				    <button class="btn btn-mini jda-play-collection" type="button"><i class="icon-play"></i>
-					  Play
-					</button>
-				  </li>
-				  <li class="span2">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				    <button class="btn btn-mini jda-play-collection" type="button"><i class="icon-play"></i>
-					  Play
-					</button>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				  <ul class="thumbnails">
-				  <li class="span2" data-content="Type: Collection<br/>Num items: 345<br/>This is a collection of items and collections lorem ipsum.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				  <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-
-
-
-				  <li class="span2">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				    <button class="btn btn-mini jda-play-collection" type="button"><i class="icon-play"></i>
-					  Play
-					</button>
-				  </li>
-				  <li class="span2">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				    <button class="btn btn-mini jda-play-collection" type="button"><i class="icon-play"></i>
-					  Play
-					</button>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				  <ul class="thumbnails">
-				  <li class="span2" data-content="Type: Collection<br/>Num items: 345<br/>This is a collection of items and collections lorem ipsum.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				  <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-
-
-
-				  <li class="span2">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				    <button class="btn btn-mini jda-play-collection" type="button"><i class="icon-play"></i>
-					  Play
-					</button>
-				  </li>
-				  <li class="span2">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				    <button class="btn btn-mini jda-play-collection" type="button"><i class="icon-play"></i>
-					  Play
-					</button>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				   <li class="span2" data-content="Type: Item<br/>Source: Flickr<br/>Author: namaste<br/>Uploaded: 12/20/12.">
-				    <a href="#" class="thumbnail">
-				      <img src="http://placehold.it/160x120" alt="">
-				    </a>
-				  </li>
-				  
-				</ul>
-	          </div>
-        </div>
+          	</div>
+				 
+	            	
+        </div><!-- /span12 -->
+    </div><!-- /row  -->
 
   	
     </div> <!-- /container -->
@@ -548,10 +448,10 @@
 	<script>
      $(document).ready(function(){
      	$('.jda-on-select').hide();
-     	$('a[href$="#tab-list-view"], a[href$="#tab-thumb-view"]').click(function(event){
+     	$('a[href$="#zeega-list-view"], a[href$="#zeega-thumb-view"]').click(function(event){
 			$('#maptest').hide();        	
        });
-       $('a[href$="#tab-event-view"]').click(function(event){
+       $('a[href$="#zeega-event-view"]').click(function(event){
 			$('#maptest').show();        	
        });
        $('.jda-play-collection').click(function () {
@@ -629,6 +529,8 @@
 		});
      });
 	$('li.span2').popover({'title':'Item title is a title','placement':'bottom'});
+	$("#zeega-view-buttons button").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
+	$('#zeega-search-help').popover({'title':'Searching','placement':'bottom'});
    </script>
    
   
