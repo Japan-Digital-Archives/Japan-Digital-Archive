@@ -7,17 +7,12 @@
 
 
 {% block stylesheets %}
-<link type="text/css" href="{{ asset('jda/js/lib/jquery-ui-1.8.18.custom/css/smoothness/jquery-ui-1.8.18.custom.css')}}" rel="Stylesheet" />
 
-<link href="{{ asset('jda/css/bootstrap-2.0.css')}}" rel="stylesheet" type="text/css">
 
-<link href="{{ asset('jda/css/itemPage.css')}}" rel="stylesheet" type="text/css">
-<link href="{{ asset('jda/css/textStyles.css')}}" rel="stylesheet" type="text/css">
-<link href="{{ asset('jda/css/lightbox.css')}}" rel="stylesheet"	type="text/css">
-<link href="{{ asset('jda/css/discovery.css')}}" rel="stylesheet" type="text/css">
-<link href="{{ asset('jda/css/collectionsTab.css')}}" rel="stylesheet" type="text/css">
-<link href="{{ asset('jda/css/imageStyles.css')}}" rel="stylesheet" type="text/css">
-
+<link href="{{ asset('jda/js/lib/bootstrap-2.0.2/css/bootstrap.css')}}" rel="stylesheet" type="text/css">
+<link href="{{ asset('jda/js/lib/bootstrap-2.0.2/css/bootstrap-responsive.css')}}" rel="stylesheet">
+<link href="{{ asset('jda/css/zeega-jda.css')}}" rel="stylesheet" type="text/css">
+<link href="{{ asset('jda/css/jda.css')}}" rel="stylesheet" type="text/css">
 
 
 <link href="{{ asset('jda/js/lib/jquerySVG/jquery.svg.css')}}" rel="stylesheet" type="text/css">
@@ -32,10 +27,10 @@
 
 <!-- Visual Search --> 
 <!--[if (!IE)|(gte IE 8)]><!-->
-  <link href="{{ asset('jda/js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<link href="{{ asset('jda/js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
 <!--<![endif]-->
 <!--[if lte IE 7]><!-->
-  <link href="{{ asset('jda/js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<link href="{{ asset('jda/js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
 <!--<![endif]-->
 
 <!-- FANCYBOX -->
@@ -45,223 +40,460 @@
 <link rel="stylesheet" href="{{ asset('jda/css/zeega.fancybox.css')}}" type="text/css" media="screen" />
 <link rel="stylesheet" href="{{ asset('jda/js/lib/fancybox/jquery.fancybox.css')}}" type="text/css" media="screen" />
 <link rel="stylesheet" href="{{ asset('jda/js/lib/fancybox/helpers/jquery.fancybox-buttons.css')}}" type="text/css" media="screen" />
+<style>
+body {
+	padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+}
+</style>
 
-	
-{% endblock %}	
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
 
-{% block scripts %}
+      {% endblock %}	
 
-
-
-<script type="text/javascript" src="http://s3.documentcloud.org/viewer/loader.js"></script>
-<script data-main="{{ asset('jda/js/loaders/search') }}" src="{{ asset('jda/js/lib/require/require-1.0.5.js') }}"></script>
-
-
-
-
-{% endblock %}
-
+      {% block scripts %}
 
 
 
+      <script type="text/javascript" src="http://s3.documentcloud.org/viewer/loader.js"></script>
+      <script data-main="{{ asset('jda/js/loaders/search') }}" src="{{ asset('jda/js/lib/require/require-1.0.5.js') }}"></script>
 
-{% block content %}
-<div class="white-background-search"></div>
-<div class='container'>
 
-	
-	<div id="non-scrolling-things">
-	<!-- search-bar -->
-	<div id="search-bar" class='hero-unit group'>
-		
-		<div class="visual_search"></div>
-		<span id="select-wrap"><span id="select-wrap-text">{% trans %}jda.search.allformats{% endtrans %}</span><div class="arrow-down"></div><select id="content">
-		  <option value="all">{% trans %}jda.search.allformats{% endtrans %}</option>
-		  <option value="image">{% trans %}jda.search.image{% endtrans %}</option>
-		  <option value="video">{% trans %}jda.search.video{% endtrans %}</option>
-		  <option value="audio">{% trans %}jda.search.audio{% endtrans %}</option>
-		  <option value="tweet">{% trans %}jda.search.tweet{% endtrans %}</option>
-		  <option value="document">{% trans %}jda.search.document{% endtrans %}</option>
-		  <option value="website">{% trans %}jda.search.website{% endtrans %}</option>
-		  <option value="PDF">{% trans %}jda.search.pdf{% endtrans %}</option>
-		  <option value="text">{% trans %}jda.search.testimonial{% endtrans %}</option>
-		</select>
-		</span>
-		
-	</div>
-	<!-- time & place vs list view -->
-		<div id='search-filters' class="btn-group">
-				<a id="list-view-button" class='nav-btn btn large' data-goto-view='list' href="#" style="display:none"><i class="jdicon-small-list"></i><span class="btn-text">{% trans %}jda.search.listview{% endtrans %}</span></a>
-				<a id="event-view-button" class='nav-btn btn large' data-goto-view='event' href="#"><i class="jdicon-small-world"></i><span class="btn-text">{% trans %}jda.search.timeplaceview{% endtrans %}</span></a>
-				<!-- <a class='btn large' data-goto-view='tag' href="#">TAGS</a> -->
-		</div>	
-		<div id="remove-tag-alert"><strong>Removed tag '<span id='removed-tag-name'></span>'</strong>: Sorry, the events view doesn't support filtering by tag yet.</div>
-		<div id="results-overlay">
-			<!-- number of results -->
-			<div id="results-count" class="span2"><span id="results-count-number"></span> Results</div>
 
+
+      {% endblock %}
+
+
+
+
+
+      {% block content %}
+
+
+
+      <div class="container" id="zeega-view-navigation">
+      	<div class="row">
+      		<div class="span12">
+
+      			<div class="btn-group" id="zeega-view-buttons">
+
+      				<a href="#zeega-list-view" data-toggle="tab"><button class="btn btn-inverse active" rel="tooltip" title="List View" style="4px 0 0 4px"><i class="icon-list icon-white"></i></button></a>
+      				<a href="#zeega-thumb-view" data-toggle="tab"><button class="btn btn-inverse" rel="tooltip" title="Thumbnail View" style="border-radius:0"><i class="icon-th-large icon-white"></i></button></a>
+      				<a href="#zeega-event-view" data-toggle="tab"><button class="btn btn-inverse" rel="tooltip" title="Map View" style="border-radius:0 4px 4px 0"><i class="icon-map-marker icon-white"></i></button></a>
+      			</div>
+
+
+      			<div class="visual_search pull-left"></div>
+				<span id="select-wrap"><span id="select-wrap-text">{% trans %}jda.search.allformats{% endtrans %}</span><div class="arrow-down"></div><select id="content">
+				  <option value="all">{% trans %}jda.search.allformats{% endtrans %}</option>
+				  <option value="image">{% trans %}jda.search.image{% endtrans %}</option>
+				  <option value="video">{% trans %}jda.search.video{% endtrans %}</option>
+				  <option value="audio">{% trans %}jda.search.audio{% endtrans %}</option>
+				  <option value="tweet">{% trans %}jda.search.tweet{% endtrans %}</option>
+				  <option value="document">{% trans %}jda.search.document{% endtrans %}</option>
+				  <option value="website">{% trans %}jda.search.website{% endtrans %}</option>
+				  <option value="PDF">{% trans %}jda.search.pdf{% endtrans %}</option>
+				  <option value="text">{% trans %}jda.search.testimonial{% endtrans %}</option>
+				</select>
+				</span>
+      			<span class="badge badge-inverse" id="zeega-search-help" data-content="Here are some tips for searching.">?</span>
+
+      		</div>	<!-- end span12 -->
+      	</div><!-- end row -->
+      </div><!-- end container -->
+
+      <img id="maptest" src="{{ asset('mockups/test.gif')}}" style="position: relative;top: -155px;display:none">
+
+
+      <!-- ZEEGA MAIN CONTENT -->
+      <div class="container" id="zeega-main-content">
+      	<div class="row">
+      		<div class="span10">
+
+      			<div class="tab-content">
+
+      				<!-- Results & Sort Dropdown -->
+
+      				<span class="zeega-results-count">14,333 results</span>
+      				<div class="btn-group pull-right" style="margin-bottom:8px">
+      					<a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+      						Sort By
+      						<span class="caret"></span>
+      					</a>
+      					<ul class="dropdown-menu">
+      						<li><a href="#">A-Z</a></li>
+      						<li><a href="#">Date</a></li>
+      						<li><a href="#">Something else</a></li>
+      					</ul>
+      				</div>
+
+
+      				<!-- MAP VIEW -->
+      				<div class="tab-pane" id="zeega-event-view">
+      					<p>I'm in event view.</p>
+      				</div>
+
+      				<!-- LIST VIEW -->
+      				<div class="tab-pane active" id="zeega-list-view">
+
+      					<table class="table">
+      						<tbody>
+      							<tr>
+      								<td><i class="jdicon-small-drag"></i><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
+      								<td class="jda-item-description">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
+      								<td class="jda-item-date">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
+      							</tr>
+      							<tr>
+      								<td><i class="jdicon-small-drag"></i><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
+      								<td class="jda-item-description">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
+      								<td class="jda-item-date">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
+      							</tr>
+      							<tr>
+      								<td><i class="jdicon-small-drag"></i><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
+      								<td class="jda-item-description">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
+      								<td class="jda-item-date">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
+      							</tr>
+      							<tr>
+      								<td><i class="jdicon-small-drag"></i><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
+      								<td class="jda-item-description">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
+      								<td class="jda-item-date">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
+      							</tr>
+      						</tbody>
+      					</table>
+      				</div>
+
+      				<!-- THUMBNAIL VIEW -->
+      				<div class="tab-pane" id="zeega-thumb-view" style="clear:both">
+      					<ul class="thumbnails">
+      						<li>
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li>
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      								<i class="icon-share-alt" rel="tooltip" title="Go to Collection View"></i>
+
+      							</a>
+      						</li>
+      						<li>
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li>
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li>
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li>
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li >
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li >
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li>
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li >
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li >
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li>
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li>
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li>
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li >
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li >
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li>
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li >
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li >
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li>
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li>
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li>
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li >
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+      						<li >
+      							<a href="#" class="thumbnail">
+      								<i class="jdicon-small-drag"></i>
+      								<img src="http://placehold.it/160x120" alt="">
+      							</a>
+      						</li>
+
+
+
+
+      					</ul>
+      				</div>
+      			</div> <!--/tab-->
+      		</div><!--/span10-->
+
+      		<!-- RIGHT-HAND COLUMN -->
+      		<div class="span2">
+
+      			<!-- MY COLLECTIONS -->
+      			<div id="zeega-my-collections">
+
+      				<div class="btn-group">
+      					<button class="btn btn-large btn-inverse" style="width: 165px;font-weight: bold;font-size: 16px;border-radius:0">my collection</button>
+      					<button class="btn btn-large btn-inverse dropdown-toggle" data-toggle="dropdown" style="height:39px;border-radius:0">
+      						<span class="caret"></span>
+      					</button>
+      					<ul class="dropdown-menu" style="width:100%;text-align:left">
+      						<li><a href="#"><i class="icon-plus"></i> Create New Collection</a></li>
+      						<li><a href="#">my collection</a></li>
+      						<li><a href="#">Collection 23</a></li>
+      						<li><a href="#">Collection 33</a></li>
+      					</ul>
+      				</div>
+
+      				<div id="zeega-my-collections-items">
+      					<i class="jdicon-drag" style="float:none"></i> 
+      					<p id="zeega-my-collections-drag-items-here">
+      						Drag items here to curate your own collection
+      					</p>
+      					<span class="label label-success" id="zeega-my-collections-added">Added!</span>
+      					<span class="label label-info" id="zeega-my-collections-count-string" style="display:none"><span id="zeega-my-collections-count">3</span> items</span>
+      					<h4 id="zeega-my-collections-share-and-organize" style="display:none"><a href="#">Share & Organize</a>
+      					</h4>
+
+      				</div>
+
+      				<!-- RELATED TAGS -->
+      				<div id="jda-related-tags">
+      					<h3>related tags</h3>
+      					<button class="btn btn-mini btn-danger">Sendai</button>
+      					<button class="btn btn-mini btn-danger">earthquake</button>
+      					<button class="btn btn-mini btn-danger">crisis</button>
+      					<button class="btn btn-mini btn-danger">Japan</button>
+      				</div>
+      			</div><!-- /span12 -->
+      		</div><!-- /row  -->
+
+
+      	</div> <!-- /container -->
+
+      	<!-- MODAL WINDOW -->
+      	<div class="modal fade" id="zeega-my-collections-create-account-modal">
+      		<div class="modal-header">
+      			<button class="close" data-dismiss="modal">×</button>
+      			<h3>To save your collection, sign in here or <a href="#">create an account</a></h3>
+      		</div>
+      		<div class="modal-body">
+      			<form class="well">
+      				<label>Email</label>
+      				<input type="text" class="span3" placeholder="Type something…">
+      				<span class="help-block">Forgot email?</span>
+
+      				<label>Password</label>
+      				<input type="text" class="span3" placeholder="Type something…">
+      				<span class="help-block">Forgot password?</span>
+
+      				<button type="submit" class="btn">Submit</button>
+      			</form>
+      		</div>
+      		<div class="modal-footer">
+      			<a href="#" class="btn btn-primary" data-dismiss="modal">Sign in</a>
+      		</div>
+      	</div>
+      </div>
+
+    <!-- Le javascript
+    ================================================== -->
+
+    <script type="text/javascript" src="../jda/js/lib/jquery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../jda/js/lib/jquery-ui-1.8.18.custom/js/jquery-ui-1.8.18.custom.min.js"></script>
+ 
+    <script>
+    $(document).ready(function(){
+
+    	$('a[href$="#zeega-list-view"], a[href$="#zeega-thumb-view"]').click(function(event){
+    		$('#maptest').hide();      
+    		$('#zeega-main-content .span2').show();    	
+    	});
+    	$('a[href$="#zeega-event-view"]').click(function(event){
+    		$('#maptest').show();   
+    		$('#zeega-main-content .span2').hide();     	
+    	});
+    	$('.jda-play-collection').click(function () {
+    		alert('plays collection as slideshow in player');
+    	});
+
+    	$('tr, a.thumbnail').click(function () {
+    		alert('opens fancybox');
+    	}).hover(function () {
+    		$(this).css('color','#08c');
+    		$(this).css('cursor','move');
+    	}, function () {
+    		$(this).css('color','inherit');
+    		$(this).css('cursor','auto');
+    	});
+    	$(".thumbnail, tr").draggable({
+
+    		cursor : 'move',
+    		appendTo : 'body',
+    		opacity : .8,
+
+    		helper : function(){
+    			var drag = $(this)
+    			.clone()
+    			.css({
+    				'z-index':'3',
+
+    			});
+    			return drag;
+    		},
+
+			//init the dragged item variable
+			start : function(){
+				$(this).draggable('option','revert',true);
+				
+			},
+
+			stop : function(){
+				
+			}
 			
-			
-			<!-- related tags -->
-			<div id="related-tags" class="span9"><span id="related-tags-title">{% trans %}jda.search.relatedtags{% endtrans %}:</span><ul></ul></div>
+		});
 
-			<div id='event-time-slider' ></div>
-		</div>
-	</div><!-- end non-scrolling things -->
-		<!-- item list -->
-		<div id="scrolling-things">
-		<div id='list-view'>
 
-			<ul id="items-list" class='unstyled'></ul>
-			<div id="spinner"></div>
-		</div>
+    	$('#zeega-my-collections-items').droppable({
+    		accept : '.thumbnail,tr',
+    		hoverClass : 'zeega-my-collections-items-dropping',
+    		tolerance : 'pointer',
 
-		<div id='event-view' class='hidden'>
-			<div id="results-background">
-				
-				
-				
-			</div>
-			<div id='event-map'></div>
-			<div id="layer-control-drawer">
-			<div id ="layer-control-drawer-tab">
-				<p><span id="layer-control-drawer-arrows">&laquo;</span><i class="jdicon-small-layers"></i></p>
-			</div>
-			<div id="layer-control">
-				<ul>
-					<li><a href="#layer-checkboxes">{% trans %}jda.search.data{% endtrans %}</a></li>
-					<li><a href="#layer-legend">{% trans %}jda.search.legend{% endtrans %}</a></li>
-				</ul>
-				<div id='layer-checkboxes'>
-					<label class="checkbox">
-						{% trans %}jda.search.muncipaldistricts{% endtrans %}
-						<input type='checkbox' class="layer-checkbox" id='municipal-layer'/>
-					</label>
-					<label class="checkbox">
-						{% trans %}jda.search.radiation{% endtrans %}
-						<input type='checkbox' class="layer-checkbox" id='radiation-layer'/>
-					</label>
-					<label class="checkbox">
-						{% trans %}jda.search.casualties{% endtrans %}
-						<input type='checkbox' class="layer-checkbox" id='casualties-layer'/>
-					</label>
-					<label class="checkbox">
-						{% trans %}jda.search.flooding{% endtrans %}
-						<input type='checkbox' class="layer-checkbox" id='flooding-layer'/>
-					</label>
-					<label class="checkbox">
-						{% trans %}jda.search.shake{% endtrans %}
-						<input type='checkbox' class="layer-checkbox" id='shake-layer'/>
-					</label>
-					<label class="checkbox">
-						Population Density
-						<input type='checkbox' class="layer-checkbox" id='pop-density-layer'/>
-					</label>
-					<br><br>
-				</div>
-				
-				<div id='layer-legend'>
-					<div class="legend-entry hidden" id="municipal-legend">
-						<p>{% trans %}jda.search.muncipaldistricts{% endtrans %}</p>
-					</div>
-					<div class="legend-entry hidden" id="radiation-legend">
-						<p>{% trans %}jda.search.radiation{% endtrans %}</p>
-					</div>
-					<div class="legend-entry hidden" id="casualties-legend">
-						<p>{% trans %}jda.search.casualties{% endtrans %}</p>
-					</div>
-					<div class="legend-entry hidden" id="flooding-legend">
-						<p>{% trans %}jda.search.flooding{% endtrans %}</p>
-					</div>
-					<div class="legend-entry hidden" id="shake-legend">
-						<p>{% trans %}jda.search.shake{% endtrans %}</p>
-					</div>
-					<div class="legend-entry hidden" id="pop-density-legend">
-						<p>Population Density</p>
-					</div>
-				</div>
-			</div> <!-- layer control -->
-			</div> <!--layer-control-drawer -->
-		</div>
-		<!-- <div id='tag-view' class='hidden'>tag-view</div>-->
-	</div><!-- #scrolling things -->
-</div><!-- #container -->
-			
 
-<!-- Templates -->
-<script type="text/template" id="list-item-template">
-<div>
-	<div class="discovery-list-thumb-container">
-		<img class="img-144 discovery-list-thumb" src = "<%= thumbnail_url ? thumbnail_url : "{{ asset('jda/images/blank-144x144.jpg')}}" %>">
-	</a></div>
-	<div class='discovery-list-info-area'>
-		<%= date_created ? "<div class='item-meta'>" + stringToFormatted(date_created['date']) + "</div>" : "" %>
+    		drop : function( event, ui )
+    		{
 
-		<p>
-			<span class="black-18 discovery-list-title"><%=title%></span>
-		</p>
-		<p>
-			<%= media_creator_username ? "<span class='gray-18'>From: </span>
-			  <span class='black-18'>" + media_creator_realname + "</span> " : "" %>
-		</p>
-		
-	</div>
-	<div class="lightbox-hider">
-	</div>
-</div>
-</script>
+    			var numItems = $(this).find('.thumbnail').length;
+    			if (numItems ==0){
+    				$(this).find('i,#zeega-my-collections-drag-items-here').hide();
+    				$('#zeega-my-collections-create-account-modal').modal();
+    			} 
+    			if (numItems < 3){
+    				$('<a href="#" class="thumbnail"><img src="http://placehold.it/120x80"/></a>').insertAfter('#zeega-my-collections-added');
+    			} else{
+    				$('#zeega-my-collections-count').text($('#zeega-my-collections-count').text()+1);
+    				$('#zeega-my-collections-count-string').show();
+    			}
+    			$(this).find('#zeega-my-collections-added').fadeIn('fast', function(){
+    				$('#zeega-my-collections-added').fadeOut('slow');
+    			});
+    			$(this).find('#zeega-my-collections-share-and-organize').show();
+    			ui.draggable.draggable('option','revert',false);
 
-<script type="text/template" id="compact-list-item-template">
-<div>
-	<div class="discovery-compact-list-thumb-container">
-		<img class="img-72" src = "<%= thumbnail_url ? thumbnail_url : "{{ asset('jda/images/blank-72x72.jpg')}}" %>">
-	</div>
-	<div class='discovery-list-info-area' >
-		<p  class="black-12"><%=title%></p>
-		<%= media_creator_realname ? "<p><span class='gray-12'>From: </span>
-			<span class='black-12'>" + media_creator_realname + "</span></p> " : "" %> 
-		<%= date_created ? "<p class='blue-12'>" + stringToFormatted(date_created['date']) + "</p>" : "" %>
-	</div>
-	<div class="lightbox-hider">
-	</div>
-</div>
-</script>
+    		}
+    	});
+});
+$(".icon-share-alt").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
+$("#zeega-view-buttons button").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
+$(".jdicon-small-drag").tooltip({'title':'Drag to add to your collection','placement':'bottom', delay: { show: 600, hide: 100 }});
 
-<script type="text/template" id="lightbox-item-template">
-<div>
-	<div class='lightbox-preview'></div>
-	<div class='lightbox-infobar'>
-		<%= title ? "<p class='white-18 lightbox-title'>" + title + "</p>" : "" %>
-		<%= media_creator_username ? "<p><span class='white-15'>from</span>
-			<span class='white-15'>" + media_creator_username + "</span></p> " : "" %> 
-		<%= date_created ? "<p class='blue-15'>" + stringToFormatted(date_created['date']) + "</p>" : "" %>
-	</div>
-</div>
-</script>
+$('#zeega-search-help').popover({'title':'Searching','placement':'bottom'});
+$('.thumbnail, tr').hover(
+	function () {
 
-<script type="text/template" id="page-item-template">
-<div class="page-container">
-	<div class='page-preview-area'>
-		<p class="page-back-to-results"> < Back to results</p>
-		<div class="page-preview"></div>
-		<p class="black-15">Description:</p>
-		<p class="black-12"><%=description%></p>
-	</div>
-	<div class='page-metadata-area'>
-		<div class='page-metadata-scroll'>
-			<p class="blue-18 page-title"><%=title%></p>
-			<%= media_creator_username ? "<p><span class='gray-15'>From: </span>
-				<span class='black-15'>" + media_creator_username + "</span></p> " : "" %>
-			<%= media_creator_username ? "<p><span class='gray-15'>Date: </span>
-				<span class='black-15'>" + stringToFormatted(date_created['date']) + "</span></p> " : "" %>
-			<p class='gray-15'>Tags:</p>
-			<p class='black-15 page-tag-text'></p>
-			<p class='black-12'>add tag : <input type="text" id="add-tag" class='metadata-new-tag-input'/></p>
-		</div>
-	</div>
-	<div class="page-related-area">
-	</div>
-</div>
+		$(this).find('.jdicon-small-drag').show();
+	}, 
+	function () {
+		$(this).find('.jdicon-small-drag').hide();
+	}
+	);
 </script>
 
 {% endblock %}

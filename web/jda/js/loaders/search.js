@@ -26,8 +26,7 @@ var loadFiles = [
 	'order!../lib/OpenLayers-2.11/OpenLayers',
 	'order!../lib/date.format',
 	'order!../lib/jquery-ui-timepicker-addon',
-
-	'order!../lib/bootstrap',
+	'order!../lib/bootstrap-2.0.2/js/bootstrap.min',
 	'order!../lib/leaflet/leaflet',
 	
 	'order!../lib/jquery.tagsinput.min',

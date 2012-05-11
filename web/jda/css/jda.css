@@ -52,8 +52,8 @@
 	left: 1px;
 	display:none;
 	background-color: rgba(255, 255, 255, 0.8);
-}
 
+}
 
 
 header .container{
@@ -61,15 +61,17 @@ header .container{
 }
 .navbar .brand {
 	padding: 8px 30px 0 10px;
+	height:30px;
 
 }
 #jda-main-nav {
 	font-size:1.2em;
 }
 #jda-related-tags{
-	
+	margin-top:20px;
 	height:300px;
 	line-height: 25px;float:right;
+	text-align:left;
 }
 #jda-related-tags h3{
 	font-variant: small-caps;
@@ -92,7 +94,6 @@ header .navbar .btn-group {
 	font-size:11px;
 	color: #666;
 }
-
 tr{
 	background-color:white;
 	
@@ -127,7 +128,29 @@ legend{
 	position: absolute; top: -142px;left: 6px; opacity: 0.7;
 }
 .thumbnails > li {
-position:relative;
+	position:relative;
 }
+.icon-share-alt{
+	position: absolute;
+	top: 6px;
+	left: 150px;
+	background-color: whiteSmoke;
+	cursor:pointer;
+
+}
+#logo{
+	width:110px;
+}
+.VS-search .VS-search-box {
+	-webkit-border-radius:6px !important;
+	width:760px;
+	background-color:white !important;
+	border: 1px solid #CCC !important;
+	padding:4px;
+}
+.VS-search .VS-icon-search, .VS-search .VS-cancel-search-box {
+	top: 12px !important;
+}
+
 
 

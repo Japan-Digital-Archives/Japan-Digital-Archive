@@ -1,4 +1,6 @@
-
+.modal{
+	display:none;
+}
 #zeega-view-navigation{
 	
 	background-color: #444;
@@ -7,11 +9,9 @@
 	position: fixed;
 	top: 40px;
 	width:100%;
-
-
 }
 #zeega-view-buttons{
-	width: 107px;
+	width: 108px;
 	float: left;
 	margin-right: 31px;
 }
@@ -23,7 +23,6 @@
 	border:none;
 	margin:0;
 	background-color:transparent;
-
 }
 #zeega-search-help{
 	position: relative;
@@ -36,11 +35,15 @@
 	position:relative;
 	top:35px;
 }
+#zeega-main-content .span2{
+	position: fixed;
+	left: 1105px;
+	top: 135px;
+}
 #zeega-list-view td{
 	position:relative;
 }
 #zeega-my-collections{
-	
 	background-color: #ddd;
 	width: 200px;
 	text-align: center;
@@ -55,8 +58,13 @@
 	padding:2px;
 }
 .zeega-my-collections-items-dropping{
-	background-color:#ffff99 !important;
+	background-color:#F0E68C !important;
 
+}
+#zeega-my-collections-items a.thumbnail{
+	width: 120px;
+	position: relative;
+	left: 30px;
 }
 #zeega-my-collections-items p:hover{
 	border: 1px dotted #08C;
@@ -64,12 +72,18 @@
 }
 
 #zeega-my-collections p{
-	
 	color:#666;
 	padding:14px;
 	font-size:0.9em;
 	-webkit-margin-before: 0;
 	-webkit-margin-after: 0;
+}
+#zeega-my-collections-added{
+	display:none;
+	margin-bottom:10px;
+}
+#zeega-my-collections-share-and-organize{
+	padding:10px;
 }
 .zeega-results-count{
 	font-size: 18px;
