@@ -39,11 +39,20 @@
 .jdicon-pdf{background-position:-350px -50px}
 .jdicon-testimonial{background-position:-200px -200px}
 .jdicon-layers{background-position:-250px -200px}
+.jdicon-drag{background-position:-300px -200px}
 
 .jdicon-small-layers{background-position:-125px -100px}
 .jdicon-small-list{background-position:-125px -25px}
 .jdicon-small-world{background-position:-0px -50px}
 .jdicon-small-document{background-position:-150px -0px}
+.jdicon-small-drag{
+	background-position:-150px -100px;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	display:none;
+	background-color: rgba(255, 255, 255, 0.8);
+}
 
 
 
@@ -52,7 +61,7 @@ header .container{
 }
 .navbar .brand {
 	padding: 8px 30px 0 10px;
-	
+
 }
 #jda-main-nav {
 	font-size:1.2em;
@@ -86,6 +95,7 @@ header .navbar .btn-group {
 
 tr{
 	background-color:white;
+	
 }
 #jda-create-account-results{
 	display:none;
