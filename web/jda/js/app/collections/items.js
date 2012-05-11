@@ -197,12 +197,9 @@
 				_(tags).each(function(tag){
 					cqlFilters.push("tags='" + tag + "'");
 				});
-				
-				var texts = jda.app.getTextFromSearchQuery(search.q);
-				_(texts).each(function(text){
-					cqlFilters.push("(title LIKE '%"+text+"%' OR media_creator_username LIKE '%"+text+"%' OR description LIKE '%"+text+"%')");
-				});
 				*/
+				var text = search.q;
+				cqlFilters.push("title LIKE '%"+text+"%' OR media_creator_username LIKE '%"+text+"%' OR description LIKE '%"+text+"%'");
 			}
 			/*if( !_.isUndefined(search.tags) )
 			{
@@ -221,7 +218,7 @@
 			{
 				cqlFilterString = null;
 			}
-			console.log(cqlFilterString);
+			console.log("CQL filter string " + cqlFilterString);
 			return cqlFilterString;
 		},
 	
