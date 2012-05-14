@@ -9,10 +9,6 @@
 {% block stylesheets %}
 
 
-<link href="{{ asset('jda/js/lib/bootstrap-2.0.2/css/bootstrap.css')}}" rel="stylesheet" type="text/css">
-<link href="{{ asset('jda/js/lib/bootstrap-2.0.2/css/bootstrap-responsive.css')}}" rel="stylesheet">
-<link href="{{ asset('jda/css/zeega-jda.css')}}" rel="stylesheet" type="text/css">
-<link href="{{ asset('jda/css/jda.css')}}" rel="stylesheet" type="text/css">
 
 
 <link href="{{ asset('jda/js/lib/jquerySVG/jquery.svg.css')}}" rel="stylesheet" type="text/css">
@@ -84,21 +80,22 @@ body {
       				<a href="#zeega-event-view" data-toggle="tab"><button class="btn btn-inverse" rel="tooltip" title="Map View" style="border-radius:0 4px 4px 0"><i class="icon-map-marker icon-white"></i></button></a>
       			</div>
 
-
-      			<div class="visual_search pull-left"></div>
-				<span id="select-wrap"><span id="select-wrap-text">{% trans %}jda.search.allformats{% endtrans %}</span><div class="arrow-down"></div><select id="content">
-				  <option value="all">{% trans %}jda.search.allformats{% endtrans %}</option>
-				  <option value="image">{% trans %}jda.search.image{% endtrans %}</option>
-				  <option value="video">{% trans %}jda.search.video{% endtrans %}</option>
-				  <option value="audio">{% trans %}jda.search.audio{% endtrans %}</option>
-				  <option value="tweet">{% trans %}jda.search.tweet{% endtrans %}</option>
-				  <option value="document">{% trans %}jda.search.document{% endtrans %}</option>
-				  <option value="website">{% trans %}jda.search.website{% endtrans %}</option>
-				  <option value="PDF">{% trans %}jda.search.pdf{% endtrans %}</option>
-				  <option value="text">{% trans %}jda.search.testimonial{% endtrans %}</option>
-				</select>
-				</span>
-      			<span class="badge badge-inverse" id="zeega-search-help" data-content="Here are some tips for searching.">?</span>
+                        <div id="search-bar">
+            			<div class="visual_search pull-left"></div>
+      				<span id="select-wrap"><span id="select-wrap-text">{% trans %}jda.search.allformats{% endtrans %}</span><div class="arrow-down"></div><select id="content">
+      				  <option value="all">{% trans %}jda.search.allformats{% endtrans %}</option>
+      				  <option value="image">{% trans %}jda.search.image{% endtrans %}</option>
+      				  <option value="video">{% trans %}jda.search.video{% endtrans %}</option>
+      				  <option value="audio">{% trans %}jda.search.audio{% endtrans %}</option>
+      				  <option value="tweet">{% trans %}jda.search.tweet{% endtrans %}</option>
+      				  <option value="document">{% trans %}jda.search.document{% endtrans %}</option>
+      				  <option value="website">{% trans %}jda.search.website{% endtrans %}</option>
+      				  <option value="PDF">{% trans %}jda.search.pdf{% endtrans %}</option>
+      				  <option value="text">{% trans %}jda.search.testimonial{% endtrans %}</option>
+      				</select>
+      				</span>
+            			<span class="badge badge-inverse" id="zeega-search-help" data-content="Here are some tips for searching.">?</span>
+                        </div>
 
       		</div>	<!-- end span12 -->
       	</div><!-- end row -->
@@ -392,108 +389,6 @@ body {
       	</div>
       </div>
 
-    <!-- Le javascript
-    ================================================== -->
-
-    <script type="text/javascript" src="../jda/js/lib/jquery/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="../jda/js/lib/jquery-ui-1.8.18.custom/js/jquery-ui-1.8.18.custom.min.js"></script>
- 
-    <script>
-    $(document).ready(function(){
-
-    	$('a[href$="#zeega-list-view"], a[href$="#zeega-thumb-view"]').click(function(event){
-    		$('#maptest').hide();      
-    		$('#zeega-main-content .span2').show();    	
-    	});
-    	$('a[href$="#zeega-event-view"]').click(function(event){
-    		$('#maptest').show();   
-    		$('#zeega-main-content .span2').hide();     	
-    	});
-    	$('.jda-play-collection').click(function () {
-    		alert('plays collection as slideshow in player');
-    	});
-
-    	$('tr, a.thumbnail').click(function () {
-    		alert('opens fancybox');
-    	}).hover(function () {
-    		$(this).css('color','#08c');
-    		$(this).css('cursor','move');
-    	}, function () {
-    		$(this).css('color','inherit');
-    		$(this).css('cursor','auto');
-    	});
-    	$(".thumbnail, tr").draggable({
-
-    		cursor : 'move',
-    		appendTo : 'body',
-    		opacity : .8,
-
-    		helper : function(){
-    			var drag = $(this)
-    			.clone()
-    			.css({
-    				'z-index':'3',
-
-    			});
-    			return drag;
-    		},
-
-			//init the dragged item variable
-			start : function(){
-				$(this).draggable('option','revert',true);
-				
-			},
-
-			stop : function(){
-				
-			}
-			
-		});
-
-
-    	$('#zeega-my-collections-items').droppable({
-    		accept : '.thumbnail,tr',
-    		hoverClass : 'zeega-my-collections-items-dropping',
-    		tolerance : 'pointer',
-
-
-    		drop : function( event, ui )
-    		{
-
-    			var numItems = $(this).find('.thumbnail').length;
-    			if (numItems ==0){
-    				$(this).find('i,#zeega-my-collections-drag-items-here').hide();
-    				$('#zeega-my-collections-create-account-modal').modal();
-    			} 
-    			if (numItems < 3){
-    				$('<a href="#" class="thumbnail"><img src="http://placehold.it/120x80"/></a>').insertAfter('#zeega-my-collections-added');
-    			} else{
-    				$('#zeega-my-collections-count').text($('#zeega-my-collections-count').text()+1);
-    				$('#zeega-my-collections-count-string').show();
-    			}
-    			$(this).find('#zeega-my-collections-added').fadeIn('fast', function(){
-    				$('#zeega-my-collections-added').fadeOut('slow');
-    			});
-    			$(this).find('#zeega-my-collections-share-and-organize').show();
-    			ui.draggable.draggable('option','revert',false);
-
-    		}
-    	});
-});
-$(".icon-share-alt").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
-$("#zeega-view-buttons button").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
-$(".jdicon-small-drag").tooltip({'title':'Drag to add to your collection','placement':'bottom', delay: { show: 600, hide: 100 }});
-
-$('#zeega-search-help').popover({'title':'Searching','placement':'bottom'});
-$('.thumbnail, tr').hover(
-	function () {
-
-		$(this).find('.jdicon-small-drag').show();
-	}, 
-	function () {
-		$(this).find('.jdicon-small-drag').hide();
-	}
-	);
-</script>
+    
 
 {% endblock %}

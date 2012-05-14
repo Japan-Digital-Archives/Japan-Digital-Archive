@@ -1,5 +1,104 @@
 
 $(document).ready(function(){
+
+  /* FROM HTML PAGE - NEED TO INTEGRATE BETTER AND REMOVE MOCKUP STUFF*/
+
+  $('a[href$="#zeega-list-view"], a[href$="#zeega-thumb-view"]').click(function(event){
+    $('#maptest').hide();      
+    $('#zeega-main-content .span2').show();     
+  });
+  $('a[href$="#zeega-event-view"]').click(function(event){
+    $('#maptest').show();   
+    $('#zeega-main-content .span2').hide();       
+  });
+  $('.jda-play-collection').click(function () {
+    alert('plays collection as slideshow in player');
+  });
+
+  $('tr, a.thumbnail').click(function () {
+    alert('opens fancybox');
+  }).hover(function () {
+    $(this).css('color','#08c');
+    $(this).css('cursor','move');
+  }, function () {
+    $(this).css('color','inherit');
+    $(this).css('cursor','auto');
+  });
+  $(".thumbnail, tr").draggable({
+
+    cursor : 'move',
+    appendTo : 'body',
+    opacity : .8,
+
+    helper : function(){
+      var drag = $(this)
+      .clone()
+      .css({
+        'z-index':'3',
+
+      });
+      return drag;
+    },
+
+      //init the dragged item variable
+      start : function(){
+        $(this).draggable('option','revert',true);
+        
+      },
+
+      stop : function(){
+
+      }
+      
+    });
+
+
+  $('#zeega-my-collections-items').droppable({
+    accept : '.thumbnail,tr',
+    hoverClass : 'zeega-my-collections-items-dropping',
+    tolerance : 'pointer',
+
+
+    drop : function( event, ui )
+    {
+
+      var numItems = $(this).find('.thumbnail').length;
+      if (numItems ==0){
+        $(this).find('i,#zeega-my-collections-drag-items-here').hide();
+        $('#zeega-my-collections-create-account-modal').modal();
+      } 
+      if (numItems < 3){
+        $('<a href="#" class="thumbnail"><img src="http://placehold.it/120x80"/></a>').insertAfter('#zeega-my-collections-added');
+      } else{
+        $('#zeega-my-collections-count').text($('#zeega-my-collections-count').text()+1);
+        $('#zeega-my-collections-count-string').show();
+      }
+      $(this).find('#zeega-my-collections-added').fadeIn('fast', function(){
+        $('#zeega-my-collections-added').fadeOut('slow');
+      });
+      $(this).find('#zeega-my-collections-share-and-organize').show();
+      ui.draggable.draggable('option','revert',false);
+
+    }
+  });
+  $(".icon-share-alt").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
+  $("#zeega-view-buttons button").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
+  $(".jdicon-small-drag").tooltip({'title':'Drag to add to your collection','placement':'bottom', delay: { show: 600, hide: 100 }});
+
+  $('#zeega-search-help').popover({'title':'Searching','placement':'bottom'});
+  $('.thumbnail, tr').hover(
+    function () {
+
+      $(this).find('.jdicon-small-drag').show();
+    }, 
+    function () {
+      $(this).find('.jdicon-small-drag').hide();
+    }
+    );
+
+  /* FROM HTML PAGE - NEED TO INTEGRATE BETTER AND REMOVE MOCKUP STUFF*/
+
+
   
   $("#search-bar").fadeTo('slow',1);
 
