@@ -1193,6 +1193,10 @@
 
 			e.preventDefault();
 
+			//This is catherine modifying fancybox source code
+			this.rel = $(this).attr('rel');
+			//END This is catherine modifying fancybox source code
+			
 			if (this.rel && this.rel !== '' && this.rel !== 'nofollow') {
 				group = selector.length ? $(selector).filter('[rel="' + this.rel + '"]') : $('[rel="' + this.rel + '"]');
 			}

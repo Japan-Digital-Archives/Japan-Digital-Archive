@@ -36,7 +36,7 @@
 	position:relative;
 	top:35px;
 }
-#zeega-main-content .span2{
+#zeega-right-column{
 	position: fixed;
 	left: 1105px;
 	top: 135px;
@@ -86,12 +86,15 @@
 #zeega-my-collections-share-and-organize{
 	padding:10px;
 }
-.zeega-results-count{
+#zeega-results-count{
 	font-size: 18px;
 	position: relative;
 	top: 13px;
+	z-index: 1000;
 }
+.zeega-results-count-event{
 
+}
 /* SEARCH RELATED STYLES */
 #search-bar{
 	

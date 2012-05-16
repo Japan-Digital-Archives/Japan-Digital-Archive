@@ -10,6 +10,7 @@
 
 
 
+<link type="text/css" href="{{ asset('jda/js/lib/jquery-ui-1.8.18.custom/css/smoothness/jquery-ui-1.8.18.custom.css')}}" rel="Stylesheet" />
 
 <link href="{{ asset('jda/js/lib/jquerySVG/jquery.svg.css')}}" rel="stylesheet" type="text/css">
 
@@ -113,7 +114,7 @@ body {
 
       				<!-- Results & Sort Dropdown -->
 
-      				<span class="zeega-results-count">14,333 results</span>
+      				<span id="zeega-results-count"><span id="zeega-results-count-number"></span> results</span>
       				<div class="btn-group pull-right" style="margin-bottom:8px">
       					<a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
       						Sort By
@@ -129,35 +130,80 @@ body {
 
       				<!-- MAP VIEW -->
       				<div class="tab-pane" id="zeega-event-view">
-      					<p>I'm in event view.</p>
-                                     <img id="maptest" src="{{ asset('mockups/test.gif')}}" style="position: relative;top: -155px;display:none">
+      					<div id="results-background"></div>
+                                    <div id='event-map'></div>
+                                    <div id="layer-control-drawer">
+                                          <div id ="layer-control-drawer-tab">
+                                                <p><span id="layer-control-drawer-arrows">&laquo;</span><i class="jdicon-small-layers"></i></p>
+                                          </div>
+                                          <div id="layer-control">
+                                                <ul>
+                                                      <li><a href="#layer-checkboxes">{% trans %}jda.search.data{% endtrans %}</a></li>
+                                                      <li><a href="#layer-legend">{% trans %}jda.search.legend{% endtrans %}</a></li>
+                                                </ul>
+                                                <div id='layer-checkboxes'>
+                                                      <label class="checkbox">
+                                                            {% trans %}jda.search.muncipaldistricts{% endtrans %}
+                                                            <input type='checkbox' class="layer-checkbox" id='municipal-layer'/>
+                                                      </label>
+                                                      <label class="checkbox">
+                                                            {% trans %}jda.search.radiation{% endtrans %}
+                                                            <input type='checkbox' class="layer-checkbox" id='radiation-layer'/>
+                                                      </label>
+                                                      <label class="checkbox">
+                                                            {% trans %}jda.search.casualties{% endtrans %}
+                                                            <input type='checkbox' class="layer-checkbox" id='casualties-layer'/>
+                                                      </label>
+                                                      <label class="checkbox">
+                                                            {% trans %}jda.search.flooding{% endtrans %}
+                                                            <input type='checkbox' class="layer-checkbox" id='flooding-layer'/>
+                                                      </label>
+                                                      <label class="checkbox">
+                                                            {% trans %}jda.search.shake{% endtrans %}
+                                                            <input type='checkbox' class="layer-checkbox" id='shake-layer'/>
+                                                      </label>
+                                                      <label class="checkbox">
+                                                            Population Density
+                                                            <input type='checkbox' class="layer-checkbox" id='pop-density-layer'/>
+                                                      </label>
+                                                      <br><br>
+                                                </div>
+
+                                                <div id='layer-legend'>
+                                                      <div class="legend-entry hidden" id="municipal-legend">
+                                                            <p>{% trans %}jda.search.muncipaldistricts{% endtrans %}</p>
+                                                      </div>
+                                                      <div class="legend-entry hidden" id="radiation-legend">
+                                                            <p>{% trans %}jda.search.radiation{% endtrans %}</p>
+                                                      </div>
+                                                      <div class="legend-entry hidden" id="casualties-legend">
+                                                            <p>{% trans %}jda.search.casualties{% endtrans %}</p>
+                                                      </div>
+                                                      <div class="legend-entry hidden" id="flooding-legend">
+                                                            <p>{% trans %}jda.search.flooding{% endtrans %}</p>
+                                                      </div>
+                                                      <div class="legend-entry hidden" id="shake-legend">
+                                                            <p>{% trans %}jda.search.shake{% endtrans %}</p>
+                                                      </div>
+                                                      <div class="legend-entry hidden" id="pop-density-legend">
+                                                            <p>Population Density</p>
+                                                      </div>
+                                                </div>
+                                          </div> <!-- layer control -->
+                                    </div> <!--layer-control-drawer -->
       				</div>
 
       				<!-- LIST VIEW -->
       				<div class="tab-pane active" id="zeega-list-view">
-
-      					<table class="table">
+                                    <div id="spinner"></div>
+      					<table class="table" id='zeega-items-list'>
       						<tbody>
-      							<tr>
+      							<!--<tr>
       								<td><i class="jdicon-small-drag"></i><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
       								<td class="jda-item-description">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
       								<td class="jda-item-date">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
       							</tr>
-      							<tr>
-      								<td><i class="jdicon-small-drag"></i><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
-      								<td class="jda-item-description">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
-      								<td class="jda-item-date">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-      							</tr>
-      							<tr>
-      								<td><i class="jdicon-small-drag"></i><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
-      								<td class="jda-item-description">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
-      								<td class="jda-item-date">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-      							</tr>
-      							<tr>
-      								<td><i class="jdicon-small-drag"></i><i class="jdicon-tweet"></i> <span class="jda-item-author">by miyanotti</span></td>
-      								<td class="jda-item-description">取材してる人も気をつけて。昨日と同じ津波が来る可能性もあるから。 #nhk #ntv #tvasahi  #tbs #tvtokyo #fujitv #jishin</td>
-      								<td class="jda-item-date">Fri, Mar 11th, 2011<br>1:26:05 PM EST</td>
-      							</tr>
+      							-->
       						</tbody>
       					</table>
       				</div>
@@ -165,152 +211,7 @@ body {
       				<!-- THUMBNAIL VIEW -->
       				<div class="tab-pane" id="zeega-thumb-view" style="clear:both">
       					<ul class="thumbnails">
-      						<li>
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li>
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      								<i class="icon-share-alt" rel="tooltip" title="Go to Collection View"></i>
-
-      							</a>
-      						</li>
-      						<li>
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li>
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li>
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li>
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li >
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li >
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li>
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li >
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li >
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li>
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li>
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li>
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li >
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li >
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li>
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li >
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li >
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li>
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li>
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li>
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li >
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
-      						<li >
-      							<a href="#" class="thumbnail">
-      								<i class="jdicon-small-drag"></i>
-      								<img src="http://placehold.it/160x120" alt="">
-      							</a>
-      						</li>
+      						
 
 
 
@@ -321,7 +222,7 @@ body {
       		</div><!--/span10-->
 
       		<!-- RIGHT-HAND COLUMN -->
-      		<div class="span2">
+      		<div id="zeega-right-column" class="span2">
 
       			<!-- MY COLLECTIONS -->
       			<div id="zeega-my-collections">

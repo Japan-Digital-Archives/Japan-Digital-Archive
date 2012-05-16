@@ -1,6 +1,6 @@
 (function(Items) {
 	Items.ViewCollection = Backbone.View.extend({
-		el : $('#items-list'),
+		el : $('#zeega-items-list'),
 	
 		initialize : function()
 		{
@@ -17,15 +17,27 @@
 			var _this = this;
 
 			_this._isRendered = true;
+			if(jda.app.currentView == 'thumb'){
+				this.el = '.thumbnails';
+			} else {
+				this.el = '#zeega-items-list';
+			}
 			_.each( _.toArray(this.collection), function(item){
-				var itemView = new Items.Views.List({model:item});
+				var itemView;
+				if(jda.app.currentView == 'thumb'){
+					itemView = new Items.Views.Thumb({model:item});
+				} else{
+					
+					itemView = new Items.Views.List({model:item});
+				}
+				
 				_this._childViews.push( itemView );
 				$(_this.el).append( itemView.render().el );
 			})
 
 			
 			//$(this.el).fadeTo(100,1);
-			$("#results-count").fadeTo(100,1);
+			$("#zeega-results-count").fadeTo(100,1);
 
 			$('#spinner').spin(false);
 			
@@ -41,7 +53,7 @@
 			{
 				_.each( _.toArray(tags), function(tag){
 
-					var tagHTML ='<button class="btn btn-mini btn-danger">'+tag.name+'</button>&nbsp;';
+					var tagHTML ='<button class="btn btn-mini btn-danger">'+tag.name+'</button> ';
 					
 					$("#jda-related-tags").append(tagHTML);
 					$("#jda-related-tags button").filter(":last").click(function(){
@@ -84,7 +96,7 @@
 			
 			this.updated = true;
 			
-			$("#results-count").fadeTo(1000,0.5);
+			$("#zeega-results-count").fadeTo(1000,0.5);
 
 			$("#related-tags:visible, #related-tags-title:visible").fadeTo(1000,0.5);
 			//$(this.el).fadeTo(1000,0.5);
@@ -105,7 +117,7 @@
 					//deselect/unfocus last tag - temp fix till figure out why tag is popping up autocomplete
 					VisualSearch.searchBox.disableFacets();
 
-					$('#results-count-number').html( jda.app.addCommas(response["items_count"]));
+					$('#zeega-results-count-number').html( jda.app.addCommas(response["items_count"]));
 					
 					_this.renderTags(response.tags);
 					_this.render();

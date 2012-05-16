@@ -33,7 +33,7 @@ var loadFiles = [
 	'order!../lib/fancybox/jquery.easing-1.3.pack',
 	'order!../lib/fancybox/jquery.mousewheel-3.0.6.pack',
 	'order!../lib/fancybox/jquery.fancybox',
-	'order!../lib/fancybox/jquery.fancybox.pack',
+	
 	'order!../lib/fancybox/helpers/jquery.fancybox-buttons',
 	'order!../lib/jeditable.min',
 	'order!../lib/dateformat/date.format',
@@ -54,7 +54,8 @@ var loadFiles = [
 	'order!../app/collections/items',
 	
 	//views
-	'order!../app/views/items/jda.view.item.search-results',
+	'order!../app/views/items/jda.view.item.list',
+	'order!../app/views/items/jda.view.item.thumb',
 	'order!../app/views/items/jda.view.item.map-popup',
 	'order!../app/views/tag.view',
 	'order!../app/views/fancybox.views',

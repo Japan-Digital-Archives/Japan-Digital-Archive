@@ -165,10 +165,10 @@ this.jda = {
  	},
 	
 	resetMapSize :function(){
-		var h = Math.max($(window).height() - 139,400);
+		var h = Math.max($(window).height() - $('#zeega-event-view').offset().top,400);
 		$("#event-map").height(h +20);
-		$("#event-map").width($(window).width());
-		$('#results-count').offset( { top:$('#results-count').offset().top, left:10 } );
+		$("#event-map,#zeega-event-view").width($(window).width());
+		$('#zeega-results-count').offset( { top:$('#zeega-results-count').offset().top, left:10 } );
 	},
 	
 	
@@ -193,20 +193,20 @@ this.jda = {
 					this.showEventView();
 					break;
 				case 'thumb':
-					this.showTagView();
+					this.showThumbView();
 					break;
 				default:
 					console.log('view type not recognized')
 			}
 			if(refresh){
-				$('#results-count').fadeOut('fast');
+				$('#zeega-results-count').fadeOut('fast');
 				var searchView=this.itemViewCollection;
 				searchView.collection.fetch({
 					success : function(model, response){ 
 						searchView.renderTags(response.tags);
 						searchView.render();      
-						$('#results-count-number').text(jda.app.addCommas(response["items_count"]));        
-						$('#results-count').fadeTo(100, 1);
+						$('#zeega-results-count-number').text(jda.app.addCommas(response["items_count"]));        
+						$('#zeega-results-count').fadeTo(100, 1);
 					}
 				});
 			}
@@ -229,10 +229,11 @@ this.jda = {
 	{
 		console.log('switch to List view');
 
-		$('#jda-related-tags').show();
-		$('#event-time-slider').hide();
-		$('#results-count').removeClass('results-count-event');
-		$('#results-count').css('left', 0);
+		
+		//Time slider disabled for now
+		//$('#event-time-slider').hide();
+		$('#zeega-results-count').removeClass('zeega-results-count-event');
+		$('#zeega-results-count').css('left', 0);
 
 		//loop through all facets to find the data & time one
 		_.each( VisualSearch.searchBox.facetViews, function( facet ){
@@ -246,17 +247,32 @@ this.jda = {
 		}
 		
 	},
-	
+	showThumbnailView : function()
+	{
+		$('#zeega-results-count').removeClass('zeega-results-count-event');
+		$('#zeega-results-count').css('left', 0);
+
+		//loop through all facets to find the data & time one
+		_.each( VisualSearch.searchBox.facetViews, function( facet ){
+			if( facet.model.get('category') == 'data:time & place' ) facet.remove();
+		})
+		
+		if(this.itemViewCollection.updated)
+		{
+			console.log('render collection')
+			this.itemViewCollection.render();
+		}
+	},
 	showEventView : function()
 	{
 		console.log('switch to Event view');
 		//For some reason, the map collapses after a search to 0px width
 		
-		$('#jda-related-tags').hide();
-		$('#event-time-slider').show();
-		$('#results-count').addClass('results-count-event');
+		//Time slider disabled for now
+		//$('#event-time-slider').show();
+		$('#zeega-results-count').addClass('zeega-results-count-event');
 		
-		$('#results-count').offset( { top:$('#results-count').offset().top, left:10 } );
+		$('#zeega-results-count').offset( { top:$('#zeega-results-count').offset().top, left:10 } );
 
 		
 		VisualSearch.searchBox.addFacet('data:time & place', ' ', 0);
@@ -278,7 +294,7 @@ this.jda = {
     		}
 		})
 		
-		$("#event-view").width($(window).width());
+		$("#zeega-event-view").width($(window).width());
 		this.resetMapSize();
 
 		if( !this.mapLoaded ) this.initWorldMap();
@@ -439,7 +455,7 @@ this.jda = {
 	
 	initTimeSlider : function(map)
 	{
-	console.log("Initializing Time Slider");
+	/*console.log("Initializing Time Slider");
 	_this = this;
 	if( !this.timesliderLoaded )
 		{
@@ -511,6 +527,7 @@ this.jda = {
 			this.setStartDateTimeSliderBubble($( "#range-slider" ).slider( "values", 0 ));
 			this.setEndDateTimeSliderBubble($( "#range-slider" ).slider( "values", 1 ));
 		}
+		*/
 	}, 
 	
 	initLayerControl : function(){
@@ -543,13 +560,13 @@ this.jda = {
 
 	updateResultsCountForTimeSlider : function(sliderUI, map){
 		var searchView = this.itemViewCollection;
-		$("#jda-related-tags, #jda-related-tags-title, #results-count").fadeTo(100,0);
+		//$("#jda-related-tags, #jda-related-tags-title, #zeega-results-count").fadeTo(100,0);
 		searchView.collection.fetch({
 			success : function(model, response){ 
 				searchView.renderTags(response.tags);
 				searchView.render();      
-				$('#results-count-number').text(jda.app.addCommas(response["items_count"]));        
-				$('#results-count').fadeTo(100, 1);
+				$('#zeega-results-count-number').text(jda.app.addCommas(response["items_count"]));        
+				$('#zeega-results-count').fadeTo(100, 1);
 			}
 		});
  	},

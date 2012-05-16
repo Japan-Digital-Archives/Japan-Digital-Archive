@@ -92,7 +92,7 @@ header .navbar .btn-group {
 }
 .jda-item-author,.jda-item-date{
 	font-size:11px;
-	color: #666;
+	
 }
 tr{
 	background-color:white;
@@ -152,5 +152,105 @@ legend{
 	top: 12px !important;
 }
 
+#spinner{
+	margin-top:50px;
+
+}
+/********************
+
+	OPEN LAYERS MAP
+	
+*********************/
+
+.olControlOverviewMapElement
+{
+	background-color:rgba(0,0,0,0.75);
+	border-radius:6px;
+}
+/**************************************
+
+	event view
+
+**************************************/
+.olControlZoomPanel div {
+	background-image: url(../images/zoom-control.png) !important;
+}
+#map-popup{
+	padding:-65px;
+}
+#zeega-event-view{
+	position: fixed !important;
+	overflow: hidden;
+	left: 0;
+	top: 92px;
+}
+#layer-legend{
+	overflow: scroll;
+	height : 700px;
+}
+
+#layer-control-drawer{
+	display : inline-block;
+	z-index: 1004 !important;  
+	position : absolute;
+	right : -50px;
+	top : 100px;
+}
+
+.legend-entry{
+	border-bottom : 1px solid #999;
+}
+.legend-entry p{
+	padding-bottom: :0px;
+	padding-top: 10px;
+}
+
+#layer-control{
+	z-index:-1;
+	display : inline-block;
+	width : 200px;
+	height : 786px;
+	padding-right:50px;
+}
+
+#layer-control>ul{
+	margin-left : -55px;
+	padding-left : 55px;
+	margin-right : -50px;
+}
+
+#layer-control-drawer-tab{
+	display : inline-block;
+	vertical-align : top;
+	margin-top : 5px;
+	cursor : pointer;
+	z-index:200 !important;
+}
+/* OVERRIDING STYLES FROM OPEN LAYERS */
+.olFramedCloudPopupContent {
+	padding: 0 !important;
+	overflow: auto;
+	width: 92% !important;
+	background-color: white;
+	left: 0px !important;
+	height: 99% !important;
+	top: inherit !important;
+	border: 1px #CCC solid;
+	border-radius: 6px;
+}
+.olPopupCloseBox {
+background: url("img/close.gif") no-repeat;
+cursor: pointer;
+top: 0 !important;
+right: 22px !important;
+-moz-border-radius-topleft: 0px;
+-moz-border-radius-topright: 4px;
+-moz-border-radius-bottomright: 0px;
+-moz-border-radius-bottomleft: 0px;
+-webkit-border-radius: 0px 4px 0px 0px;
+border-radius: 0px 4px 0px 0px;
+}
+
+/* END OVERRIDING STYLES FROM OPEN LAYERS */
 
 

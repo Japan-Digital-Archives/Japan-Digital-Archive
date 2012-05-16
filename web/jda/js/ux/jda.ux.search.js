@@ -3,54 +3,11 @@ $(document).ready(function(){
 
   /* FROM HTML PAGE - NEED TO INTEGRATE BETTER AND REMOVE MOCKUP STUFF*/
 
-  /*$('a[href$="#zeega-list-view"], a[href$="#zeega-thumb-view"]').click(function(event){
-    $('#maptest').hide();      
-    $('#zeega-main-content .span2').show();     
-  });
-  $('a[href$="#zeega-event-view"]').click(function(event){
-    $('#maptest').show();   
-    $('#zeega-main-content .span2').hide();       
-  });*/
+  
   $('.jda-play-collection').click(function () {
     alert('plays collection as slideshow in player');
   });
 
-  $('tr, a.thumbnail').click(function () {
-    alert('opens fancybox');
-  }).hover(function () {
-    $(this).css('color','#08c');
-    $(this).css('cursor','move');
-  }, function () {
-    $(this).css('color','inherit');
-    $(this).css('cursor','auto');
-  });
-  $(".thumbnail, tr").draggable({
-
-    cursor : 'move',
-    appendTo : 'body',
-    opacity : .8,
-
-    helper : function(){
-      var drag = $(this)
-      .clone()
-      .css({
-        'z-index':'3',
-
-      });
-      return drag;
-    },
-
-      //init the dragged item variable
-      start : function(){
-        $(this).draggable('option','revert',true);
-        
-      },
-
-      stop : function(){
-
-      }
-      
-    });
 
 
   $('#zeega-my-collections-items').droppable({
@@ -82,19 +39,12 @@ $(document).ready(function(){
     }
   });
   $(".icon-share-alt").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
+
   $("#zeega-view-buttons button").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
-  $(".jdicon-small-drag").tooltip({'title':'Drag to add to your collection','placement':'bottom', delay: { show: 600, hide: 100 }});
+  
 
   $('#zeega-search-help').popover({'title':'Searching','placement':'bottom'});
-  $('.thumbnail, tr').hover(
-    function () {
-
-      $(this).find('.jdicon-small-drag').show();
-    }, 
-    function () {
-      $(this).find('.jdicon-small-drag').hide();
-    }
-    );
+  
 
   /* FROM HTML PAGE - NEED TO INTEGRATE BETTER AND REMOVE MOCKUP STUFF*/
 
@@ -114,7 +64,7 @@ $(document).ready(function(){
   $('#zeega-view-buttons a').click(function(){
     $('#zeega-view-buttons button').removeClass('active');
     $(this).find('button').addClass('active');
-    
+
     jda.app.switchViewTo( $(this).data('goto-view') , true);
     
     return false;
@@ -144,6 +94,7 @@ $(document).ready(function(){
   
   
   $(".list-fancymedia,.map-fancymedia").fancybox({
+   
     openEffect : 'fade',
       closeEffect : 'fade',
       openSpeed : 'fast',
