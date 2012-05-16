@@ -3,14 +3,14 @@ $(document).ready(function(){
 
   /* FROM HTML PAGE - NEED TO INTEGRATE BETTER AND REMOVE MOCKUP STUFF*/
 
-  $('a[href$="#zeega-list-view"], a[href$="#zeega-thumb-view"]').click(function(event){
+  /*$('a[href$="#zeega-list-view"], a[href$="#zeega-thumb-view"]').click(function(event){
     $('#maptest').hide();      
     $('#zeega-main-content .span2').show();     
   });
   $('a[href$="#zeega-event-view"]').click(function(event){
     $('#maptest').show();   
     $('#zeega-main-content .span2').hide();       
-  });
+  });*/
   $('.jda-play-collection').click(function () {
     alert('plays collection as slideshow in player');
   });
@@ -111,9 +111,10 @@ $(document).ready(function(){
   $(window).resize(function() {
     jda.app.resetMapSize();
   });
-  $('#search-filters a').click(function(){
-    $(this).siblings().show();
-    $(this).hide();
+  $('#zeega-view-buttons a').click(function(){
+    $('#zeega-view-buttons button').removeClass('active');
+    $(this).find('button').addClass('active');
+    
     jda.app.switchViewTo( $(this).data('goto-view') , true);
     
     return false;

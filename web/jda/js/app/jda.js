@@ -174,16 +174,16 @@ this.jda = {
 	
 	switchViewTo : function( view , refresh )
 	{
-		
+		$('.tab-pane').removeClass('active');
+
 		this.itemViewCollection.setView(view);
 		if( view != this.currentView )
 		{
-			$('#'+this.currentView+'-view').hide();
+			//$('#'+this.currentView+'-view').hide();
 			this.currentView = view;
-			$('#'+view+'-view').show();
-			$("#"+view+"-view-button").hide();
-			$("#"+view+"-view-button").siblings().show();
- 	 		$(this).hide();
+			$('#zeega-'+view+'-view').addClass('active');
+			
+ 	 		//$(this).hide();
 			switch( this.currentView )
 			{
 				case 'list':
@@ -192,7 +192,7 @@ this.jda = {
 				case 'event':
 					this.showEventView();
 					break;
-				case 'tag':
+				case 'thumb':
 					this.showTagView();
 					break;
 				default:
@@ -229,7 +229,7 @@ this.jda = {
 	{
 		console.log('switch to List view');
 
-		$('#related-tags').show();
+		$('#jda-related-tags').show();
 		$('#event-time-slider').hide();
 		$('#results-count').removeClass('results-count-event');
 		$('#results-count').css('left', 0);
@@ -252,7 +252,7 @@ this.jda = {
 		console.log('switch to Event view');
 		//For some reason, the map collapses after a search to 0px width
 		
-		$('#related-tags').hide();
+		$('#jda-related-tags').hide();
 		$('#event-time-slider').show();
 		$('#results-count').addClass('results-count-event');
 		
@@ -543,7 +543,7 @@ this.jda = {
 
 	updateResultsCountForTimeSlider : function(sliderUI, map){
 		var searchView = this.itemViewCollection;
-		$("#related-tags, #related-tags-title, #results-count").fadeTo(100,0);
+		$("#jda-related-tags, #jda-related-tags-title, #results-count").fadeTo(100,0);
 		searchView.collection.fetch({
 			success : function(model, response){ 
 				searchView.renderTags(response.tags);

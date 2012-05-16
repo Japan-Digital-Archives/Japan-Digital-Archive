@@ -36,13 +36,15 @@
 
 		renderTags : function(tags)
 		{
-			$("#related-tags ul").empty();
+			$("#jda-related-tags button").remove();
 			if (tags.length > 0 && jda.app.currentView == 'list')
 			{
 				_.each( _.toArray(tags), function(tag){
-					var li = '<li><a href=".">'+tag.name+'</a></li>';
-					$("#related-tags ul").append(li);
-					$("#related-tags li").filter(":last").click(function(){
+
+					var tagHTML ='<button class="btn btn-mini btn-danger">'+tag.name+'</button>&nbsp;';
+					
+					$("#jda-related-tags").append(tagHTML);
+					$("#jda-related-tags button").filter(":last").click(function(){
 						
 						//clear all current search filters
 						jda.app.clearSearchFilters();
@@ -57,11 +59,11 @@
 					});
 				})
 				
-				$("#related-tags, #related-tags-title").fadeTo(100,1);
+				$("#jda-related-tags, #jda-related-tags-title").fadeTo(100,1);
 			}
 			else
 			{
-				if ($("#related-tags-title").is(":visible")){$("#related-tags-title").fadeTo(1000,0);}
+				if ($("#jda-related-tags-title").is(":visible")){$("#jda-related-tags-title").fadeTo(1000,0);}
 			}
 		},
 		

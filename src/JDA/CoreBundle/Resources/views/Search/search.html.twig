@@ -75,9 +75,9 @@ body {
 
       			<div class="btn-group" id="zeega-view-buttons">
 
-      				<a href="#zeega-list-view" data-toggle="tab"><button class="btn btn-inverse active" rel="tooltip" title="List View" style="4px 0 0 4px"><i class="icon-list icon-white"></i></button></a>
-      				<a href="#zeega-thumb-view" data-toggle="tab"><button class="btn btn-inverse" rel="tooltip" title="Thumbnail View" style="border-radius:0"><i class="icon-th-large icon-white"></i></button></a>
-      				<a href="#zeega-event-view" data-toggle="tab"><button class="btn btn-inverse" rel="tooltip" title="Map View" style="border-radius:0 4px 4px 0"><i class="icon-map-marker icon-white"></i></button></a>
+      				<a href="#zeega-list-view" data-goto-view='list'><button class="btn btn-inverse active" rel="tooltip" title="List View" style="4px 0 0 4px"><i class="icon-list icon-white"></i></button></a>
+      				<a href="#zeega-thumb-view" data-goto-view='thumb'><button class="btn btn-inverse" rel="tooltip" title="Thumbnail View" style="border-radius:0"><i class="icon-th-large icon-white"></i></button></a>
+      				<a href="#zeega-event-view" data-goto-view='event'><button class="btn btn-inverse" rel="tooltip" title="Map View" style="border-radius:0 4px 4px 0"><i class="icon-map-marker icon-white"></i></button></a>
       			</div>
 
                         <div id="search-bar">
@@ -101,7 +101,7 @@ body {
       	</div><!-- end row -->
       </div><!-- end container -->
 
-      <img id="maptest" src="{{ asset('mockups/test.gif')}}" style="position: relative;top: -155px;display:none">
+     
 
 
       <!-- ZEEGA MAIN CONTENT -->
@@ -130,6 +130,7 @@ body {
       				<!-- MAP VIEW -->
       				<div class="tab-pane" id="zeega-event-view">
       					<p>I'm in event view.</p>
+                                     <img id="maptest" src="{{ asset('mockups/test.gif')}}" style="position: relative;top: -155px;display:none">
       				</div>
 
       				<!-- LIST VIEW -->
@@ -352,11 +353,7 @@ body {
 
       				<!-- RELATED TAGS -->
       				<div id="jda-related-tags">
-      					<h3>related tags</h3>
-      					<button class="btn btn-mini btn-danger">Sendai</button>
-      					<button class="btn btn-mini btn-danger">earthquake</button>
-      					<button class="btn btn-mini btn-danger">crisis</button>
-      					<button class="btn btn-mini btn-danger">Japan</button>
+      					<h3 id="jda-related-tags-title">{% trans %}jda.search.relatedtags{% endtrans %}</h3>
       				</div>
       			</div><!-- /span12 -->
       		</div><!-- /row  -->
