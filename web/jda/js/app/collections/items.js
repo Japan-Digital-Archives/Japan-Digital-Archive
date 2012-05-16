@@ -199,7 +199,22 @@
 				});
 				*/
 				var text = search.q;
-				cqlFilters.push("title LIKE '%"+text+"%' OR media_creator_username LIKE '%"+text+"%' OR description LIKE '%"+text+"%'");
+				if(text)
+				{
+					if(cqlFilters.length > 0)
+					{
+						var newCqlFilters = [];
+						var prevCqlFiltersString = cqlFilters.join(" AND ");
+						newCqlFilters.push(prevCqlFiltersString + " AND title LIKE '%"+text+"%' OR " + prevCqlFiltersString + " AND media_creator_username LIKE '%"+text+"%' OR " + prevCqlFiltersString + " AND description LIKE '%"+text+"%'");
+						
+						cqlFilters = newCqlFilters;
+					}
+					else
+					{
+						console.log("map search");
+						cqlFilters.push("title LIKE '%"+text+"%' OR media_creator_username LIKE '%"+text+"%' OR description LIKE '%"+text+"%'");
+					}
+				}
 			}
 			/*if( !_.isUndefined(search.tags) )
 			{
