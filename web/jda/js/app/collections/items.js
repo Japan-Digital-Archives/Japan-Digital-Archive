@@ -49,7 +49,7 @@
 		renderTags : function(tags)
 		{
 			$("#jda-related-tags button").remove();
-			if (tags.length > 0 && jda.app.currentView == 'list')
+			if (tags.length > 0 && jda.app.currentView != 'event')
 			{
 				_.each( _.toArray(tags), function(tag){
 
