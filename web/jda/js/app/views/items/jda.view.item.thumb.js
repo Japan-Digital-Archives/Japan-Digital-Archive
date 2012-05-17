@@ -110,7 +110,7 @@
 					'<i class="jdicon-small-drag" style="z-index:2"></i>'+
 					'<span class="label label-inverse" style="display:none;position: absolute;top: 57px;left: 50px;z-index:2" rel="tooltip" title="Go to Collection View">'+
 					'<i class="icon-folder-open icon-white"></i> <%= child_items_count%> items</span>'+
-					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:160px;height:120px;opacity:0.8">'+
+					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:160px;height:120px">'+
 					
 				'</a>';
 

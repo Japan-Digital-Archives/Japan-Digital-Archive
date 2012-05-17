@@ -91,7 +91,7 @@
 
 	position: relative;
 	top: 13px;
-	z-index: 1000;
+	z-index: 0;
 	left:0;
 }
 .zeega-results-count-event{
