@@ -234,6 +234,7 @@ this.jda = {
 		//$('#event-time-slider').hide();
 		$('#zeega-results-count').removeClass('zeega-results-count-event');
 		$('#zeega-results-count').css('left', 0);
+		$('#zeega-results-count').css('z-index', 0);
 
 		//loop through all facets to find the data & time one
 		_.each( VisualSearch.searchBox.facetViews, function( facet ){
@@ -251,6 +252,7 @@ this.jda = {
 	{
 		$('#zeega-results-count').removeClass('zeega-results-count-event');
 		$('#zeega-results-count').css('left', 0);
+		$('#zeega-results-count').css('z-index', 0);
 
 		//loop through all facets to find the data & time one
 		_.each( VisualSearch.searchBox.facetViews, function( facet ){
@@ -271,8 +273,8 @@ this.jda = {
 		//Time slider disabled for now
 		//$('#event-time-slider').show();
 		$('#zeega-results-count').addClass('zeega-results-count-event');
-		
 		$('#zeega-results-count').offset( { top:$('#zeega-results-count').offset().top, left:10 } );
+		$('#zeega-results-count').css('z-index', 1000);
 
 		
 		VisualSearch.searchBox.addFacet('data:time & place', ' ', 0);
@@ -557,9 +559,9 @@ this.jda = {
 		})
 	},
 
-
+	//disabling time slider for the moment
 	updateResultsCountForTimeSlider : function(sliderUI, map){
-		var searchView = this.itemViewCollection;
+		/*var searchView = this.itemViewCollection;
 		//$("#jda-related-tags, #jda-related-tags-title, #zeega-results-count").fadeTo(100,0);
 		searchView.collection.fetch({
 			success : function(model, response){ 
@@ -568,7 +570,7 @@ this.jda = {
 				$('#zeega-results-count-number').text(jda.app.addCommas(response["items_count"]));        
 				$('#zeega-results-count').fadeTo(100, 1);
 			}
-		});
+		});*/
  	},
 	updateMapForTimeSlider : function(map){
 		console.log("UP");

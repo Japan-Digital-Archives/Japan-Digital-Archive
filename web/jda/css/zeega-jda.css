@@ -39,7 +39,7 @@
 #zeega-right-column{
 	position: fixed;
 	left: 1105px;
-	top: 135px;
+	top: 262px;
 }
 #zeega-list-view td{
 	position:relative;
@@ -88,9 +88,11 @@
 }
 #zeega-results-count{
 	font-size: 18px;
+
 	position: relative;
 	top: 13px;
 	z-index: 1000;
+	left:0;
 }
 .zeega-results-count-event{
 
