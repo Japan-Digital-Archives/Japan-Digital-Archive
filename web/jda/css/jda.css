@@ -1,5 +1,12 @@
 @CHARSET "ISO-8859-1";
 
+/*************************************
+
+		THIS STYLESHEET HAS JDA-SPECIFIC STUFF. 
+		IT SERVES AS A CATCH-ALL FOR CSS THAT DOESN'T FIT ELSEWHERE AND PROBABLY
+		WON'T BE REUSED IN THE ZEEGA MAIN PROJECT.
+		
+**************************************/
 
 /*************************************
 
@@ -32,11 +39,13 @@
 .jdicon-tweet{background-position:-150px 0}
 .jdicon-facebook{background-position:-200px 0}
 .jdicon-map{background-position:-250px 0}
+.jdicon-collection{background-position:-200px -100px}
 .jdicon-document{background-position:-300px 0px}
 .jdicon-date{background-position:-0px -50px}
 .jdicon-video{background-position:-400px 0}
 .jdicon-article{background-position:-450px 0}
 .jdicon-pdf{background-position:-350px -50px}
+.jdicon-text{background-position:-200px -200px}
 .jdicon-testimonial{background-position:-200px -200px}
 .jdicon-layers{background-position:-250px -200px}
 .jdicon-drag{background-position:-300px -200px}
@@ -53,6 +62,9 @@
 	display:none;
 	background-color: rgba(255, 255, 255, 0.8);
 
+}
+.jda-centered-icon{
+	position: absolute;top: 35px;left: 55px;
 }
 
 
@@ -130,14 +142,14 @@ legend{
 .thumbnails > li {
 	position:relative;
 }
-.icon-share-alt{
+/*.icon-share-alt{
 	position: absolute;
 	top: 6px;
 	left: 150px;
 	background-color: whiteSmoke;
 	cursor:pointer;
 
-}
+}*/
 #logo{
 	width:110px;
 }

@@ -38,12 +38,9 @@ $(document).ready(function(){
 
     }
   });
-  $(".icon-share-alt").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
-
-  $("#zeega-view-buttons button").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
   
 
-  $('#zeega-search-help').popover({'title':'Searching','placement':'bottom'});
+  
   
 
   /* FROM HTML PAGE - NEED TO INTEGRATE BETTER AND REMOVE MOCKUP STUFF*/
@@ -51,6 +48,19 @@ $(document).ready(function(){
 
   
   $("#search-bar").fadeTo('slow',1);
+
+  //View buttons toggle
+  $("#zeega-view-buttons button").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
+  $('#zeega-view-buttons a').click(function(){
+    $('#zeega-view-buttons button').removeClass('active');
+    $(this).find('button').addClass('active');
+
+    jda.app.switchViewTo( $(this).data('goto-view') , true);
+    
+    return false;
+  });
+
+  $('#zeega-search-help').popover({'title':'Searching','placement':'bottom'});
 
   $('#content').change(function(){
     $('#select-wrap-text').text( $('#content option[value=\''+$('#content').val()+'\']').text() );
@@ -61,14 +71,8 @@ $(document).ready(function(){
   $(window).resize(function() {
     jda.app.resetMapSize();
   });
-  $('#zeega-view-buttons a').click(function(){
-    $('#zeega-view-buttons button').removeClass('active');
-    $(this).find('button').addClass('active');
 
-    jda.app.switchViewTo( $(this).data('goto-view') , true);
-    
-    return false;
-  });
+ 
   
   //Infinite Scroll
   jda.app.killScroll = false; 
@@ -94,7 +98,7 @@ $(document).ready(function(){
   
   
   $(".list-fancymedia,.map-fancymedia").fancybox({
-   
+
     openEffect : 'fade',
       closeEffect : 'fade',
       openSpeed : 'fast',
@@ -169,7 +173,7 @@ $(document).ready(function(){
 
         
             var elementID = $(this.element).attr('id');
-            var thisModel = jda.app.currentView == 'list' ? jda.app.itemViewCollection.collection.get(elementID) : jda.app.mapViewCollection.collection.get(elementID);
+            var thisModel = jda.app.currentView == 'list' || jda.app.currentView == 'thumb' ? jda.app.itemViewCollection.collection.get(elementID) : jda.app.mapViewCollection.collection.get(elementID);
       this.fancyView = null;
 
       switch(thisModel.get("media_type")){

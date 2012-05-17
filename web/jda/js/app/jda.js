@@ -193,7 +193,7 @@ this.jda = {
 					this.showEventView();
 					break;
 				case 'thumb':
-					this.showThumbView();
+					this.showThumbnailView();
 					break;
 				default:
 					console.log('view type not recognized')
