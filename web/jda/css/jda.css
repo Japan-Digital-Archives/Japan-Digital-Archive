@@ -170,14 +170,39 @@ legend{
 	background-color:rgba(0,0,0,0.75);
 	border-radius:6px;
 }
-/**************************************
-
-	event view
-
-**************************************/
+/* OVERRIDING STYLES FROM OPEN LAYERS */
+.olFramedCloudPopupContent {
+	padding: 0 !important;
+	overflow: auto;
+	width: 100% !important;
+	background-color: white;
+	left: 0px !important;
+	height: 99% !important;
+	top: inherit !important;
+	border: 1px #CCC solid;
+	border-radius: 6px;
+}
+.olPopupCloseBox {
+background: url("img/close.gif") no-repeat;
+cursor: pointer;
+top: 1px !important;
+right: 1px !important;
+-moz-border-radius-topleft: 0px;
+-moz-border-radius-topright: 4px;
+-moz-border-radius-bottomright: 0px;
+-moz-border-radius-bottomleft: 0px;
+-webkit-border-radius: 0px 4px 0px 0px;
+border-radius: 0px 4px 0px 0px;
+}
 .olControlZoomPanel div {
 	background-image: url(../images/zoom-control.png) !important;
 }
+/**************************************
+
+	event view & map popup
+
+**************************************/
+
 #map-popup{
 	padding:-65px;
 }
@@ -229,31 +254,35 @@ legend{
 	cursor : pointer;
 	z-index:200 !important;
 }
-/* OVERRIDING STYLES FROM OPEN LAYERS */
-.olFramedCloudPopupContent {
-	padding: 0 !important;
-	overflow: auto;
-	width: 92% !important;
-	background-color: white;
-	left: 0px !important;
-	height: 99% !important;
-	top: inherit !important;
-	border: 1px #CCC solid;
-	border-radius: 6px;
+
+.ui-tabs .ui-tabs-nav li a {
+	padding-top : 3px;
+	padding-bottom : 3px;
 }
-.olPopupCloseBox {
-background: url("img/close.gif") no-repeat;
-cursor: pointer;
-top: 0 !important;
-right: 22px !important;
--moz-border-radius-topleft: 0px;
--moz-border-radius-topright: 4px;
--moz-border-radius-bottomright: 0px;
--moz-border-radius-bottomleft: 0px;
--webkit-border-radius: 0px 4px 0px 0px;
-border-radius: 0px 4px 0px 0px;
+.map-popup-list-items{
+	min-width : 270px;
+	max-width:300px;
+	min-height:50px;
+	margin:0;
+	clear:both;
 }
 
-/* END OVERRIDING STYLES FROM OPEN LAYERS */
+.map-popup-list-items>div{
+	margin-left: 5px;
+}
+.discovery-map-list {
+	margin: 0;
+	list-style: none;
+	max-height: 100%;
+}
+.discovery-map-list li{
+	border-bottom:1px solid #ddd;
+	padding:5px;
+}
+.discovery-map-list img{
+
+	margin-right:5px;
+
+}
 
 

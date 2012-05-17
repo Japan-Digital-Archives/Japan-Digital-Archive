@@ -711,7 +711,7 @@ this.jda = {
 			
 			try
 			{
-				var data = eval('(' + response + ')');
+                            var data = eval('(' + response.responseText.substring(75) + ')');
 			}
 			catch(err)
 			{
