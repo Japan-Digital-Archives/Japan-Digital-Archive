@@ -212,6 +212,9 @@ this.jda = {
 			}
 		}
 	},
+	addCollectionFilter : function(){
+
+	},
 	addCommas : function(nStr)
 	{
 		nStr += '';
@@ -562,7 +565,8 @@ this.jda = {
 	//disabling time slider for the moment
 	updateResultsCountForTimeSlider : function(sliderUI, map){
 		/*var searchView = this.itemViewCollection;
-		//$("#jda-related-tags, #jda-related-tags-title, #zeega-results-count").fadeTo(100,0);
+		//$("#jda-related-tags, #jda-
+		-title, #zeega-results-count").fadeTo(100,0);
 		searchView.collection.fetch({
 			success : function(model, response){ 
 				searchView.renderTags(response.tags);

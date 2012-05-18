@@ -48,9 +48,10 @@
 
 		renderTags : function(tags)
 		{
-			$("#jda-related-tags button").remove();
+			
 			if (tags.length > 0 && jda.app.currentView != 'event')
 			{
+				$("#jda-related-tags button").remove();
 				_.each( _.toArray(tags), function(tag){
 
 					var tagHTML ='<button class="btn btn-mini btn-danger">'+tag.name+'</button> ';
