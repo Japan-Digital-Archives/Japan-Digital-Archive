@@ -12,7 +12,7 @@ this.jda = {
 		// Create a new module reference scaffold or load an existing module.
 		return function(name) 
 		{
-			// If this module has already been created, return it.
+			// If this module has already been created, return it
 			if (modules[name]) return modules[name];
 
 			// Create a module and save it under this name
@@ -78,6 +78,7 @@ this.jda = {
 					case 'tag':
 						tagQuery = (tagQuery.length > 4) ? tagQuery + ", " + facet.get('value') : tagQuery + facet.get('value');
 						break;
+					
 			    }
 			});
 			params.q = textQuery + (textQuery.length > 0 && tagQuery.length > 4 ? " " : "") + (tagQuery.length > 4 ? tagQuery : ""); 
@@ -212,7 +213,10 @@ this.jda = {
 			}
 		}
 	},
-	addCollectionFilter : function(){
+	addCollectionFilter : function(model){
+		this.clearSearchFilters();
+		this.collectionFilter = model;
+		this.search({'page':1, 'collection':model.id});
 
 	},
 	addCommas : function(nStr)

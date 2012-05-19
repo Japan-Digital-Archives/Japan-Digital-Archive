@@ -50,6 +50,11 @@
 			if (this.model.get('media_type') == 'Collection')
 			{
 				$(this.el).find('.label').show();
+				$(this.el).find('img').css('opacity','0.8');
+				$(this.el).find('.label').click(function(){
+					jda.app.addCollectionFilter(_this.model);
+					return false;
+				});
 				$(this.el).hover(
 					function(){
 						$(_this.el).find('img').css('opacity','1.0');

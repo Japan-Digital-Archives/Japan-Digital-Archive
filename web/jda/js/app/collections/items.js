@@ -45,7 +45,7 @@
 			jda.app.isLoading = false;
 			return this;
 		},
-
+		
 		renderTags : function(tags)
 		{
 			
@@ -109,7 +109,7 @@
 			this.collection.setSearch(obj,reset);
 			this.setURLHash();
 			
-			// fetch search collection for the list view
+			// fetch search collection for the list/thumb view
 			this.collection.fetch({
 				add : (obj.page) > 1 ? true : false,
 				success : function(model, response)
@@ -119,6 +119,14 @@
 					VisualSearch.searchBox.disableFacets();
 
 					$('#zeega-results-count-number').html( jda.app.addCommas(response["items_count"]));
+
+					//If this was a collection search then load the collection view which
+					//appears above search results
+					if (!_.isUndefined(jda.app.collectionFilter)){
+						_this.collectionView = new Items.Views.Collection({model:jda.app.collectionFilter});
+						_this.collectionView.render();
+					}
+					
 					
 					_this.renderTags(response.tags);
 					_this.render();
@@ -131,7 +139,7 @@
 				}
 			});
 			
-			//get the CQL response if event view is active
+			
 			
 		},
 		
@@ -160,6 +168,7 @@
 		 	var hash = '';      
 		 	if( !_.isUndefined(obj.viewType)) hash += 'view_type=' + obj.viewType + '&';
 		 	if( !_.isUndefined(obj.q) && obj.q.length > 0) hash += 'q=' + obj.q + '&';
+		 	if( !_.isUndefined(obj.collection) && obj.collection.length > 0) hash += 'collection=' + obj.collection + '&';
 		 	if( !_.isUndefined(obj.content) )  hash += 'content='+ obj.content + '&';
 		 	if( !_.isUndefined(obj.mapBounds) )  hash += 'map_bounds='+ encodeURIComponent(obj.mapBounds) + '&';
 		 	if( !_.isUndefined(obj.times) )
@@ -310,6 +319,7 @@
 			if( !_.isUndefined(this.search.q) && this.search.q.length > 0) url += '&q=' + this.search.q.toString();
 			if( !_.isUndefined(this.search.viewType) ) url += '&view_type=' + this.search.viewType;
 			if( !_.isUndefined(this.search.content) ) url += '&content=' + this.search.content;
+			if( !_.isUndefined(this.search.collection) ) url += '&collection=' + this.search.collection;
 			if( !_.isUndefined(this.search.page) ) url += '&page=' + this.search.page;
 			if( !_.isUndefined(this.search.r_items) ) url += '&r_items=' + this.search.r_items;
 			if( !_.isUndefined(this.search.r_tags)) url += '&r_tags=' + this.search.r_tags;

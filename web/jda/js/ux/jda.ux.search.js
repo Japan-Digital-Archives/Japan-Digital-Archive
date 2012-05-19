@@ -38,7 +38,7 @@ $(document).ready(function(){
 
     }
   });
-  $('.icon-plus-sign').popover({'title':'Description','placement':'bottom'});
+  
 
   
   

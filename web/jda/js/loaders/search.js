@@ -54,6 +54,7 @@ var loadFiles = [
 	'order!../app/collections/items',
 	
 	//views
+	'order!../app/views/items/jda.view.item.collection',
 	'order!../app/views/items/jda.view.item.list',
 	'order!../app/views/items/jda.view.item.thumb',
 	'order!../app/views/items/jda.view.item.map-popup',
