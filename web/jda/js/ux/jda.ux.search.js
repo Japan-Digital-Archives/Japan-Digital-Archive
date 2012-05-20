@@ -214,6 +214,10 @@ $(document).ready(function(){
                 this.fancyView = new FancyBoxPDFView({model:thisModel});
                 this.fancyView.render(this);
                 break;
+              case 'Collection':
+              this.fancyView = new FancyBoxCollectionView({model:thisModel});
+              this.fancyView.render(this);
+              break;
       }
         },
         

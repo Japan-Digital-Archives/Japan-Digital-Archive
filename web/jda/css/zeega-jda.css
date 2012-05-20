@@ -39,7 +39,10 @@
 #zeega-right-column{
 	position: fixed;
 	left: 1105px;
-	top: 262px;
+	top: 115px;
+}
+.zeega-right-column-low{
+	top: 262px !important;
 }
 #zeega-list-view td{
 	position:relative;

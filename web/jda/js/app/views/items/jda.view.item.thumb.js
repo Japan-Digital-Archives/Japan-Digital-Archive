@@ -95,7 +95,7 @@
 			      
 			});
 			$(this.el).find(".jdicon-small-drag").tooltip({'title':'Drag to add to your collection','placement':'bottom', delay: { show: 600, hide: 100 }});
-			$(this.el).find(".label").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
+			//$(this.el).find(".label").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
 			
 
 			//Replace broken thumbnail images with the media type icon

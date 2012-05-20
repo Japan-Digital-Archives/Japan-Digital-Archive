@@ -228,6 +228,9 @@ this.jda = {
 		//remove collectionFilter view which takes care of UI
 		this.itemViewCollection.collectionFilter.remove();
 
+		//set filter to null
+		this.itemViewCollection.collectionFilter = null;
+
 	},
 	addCommas : function(nStr)
 	{

@@ -120,16 +120,17 @@
 
 					$('#zeega-results-count-number').html( jda.app.addCommas(response["items_count"]));
 
+					
+					
+					_this.renderTags(response.tags);
+					_this.render();
+					
 					//If this was a collection search then load the collection view which
 					//appears above search results
 					if (!_.isUndefined(_this.collectionFilter) && _this.collectionFilter != null){
 						
 						_this.collectionFilter.render();
 					}
-					
-					
-					_this.renderTags(response.tags);
-					_this.render();
 					
 					
 					if(_this.collection.length<parseInt(response["items_count"])) jda.app.killScroll = false; //to activate infinite scroll again

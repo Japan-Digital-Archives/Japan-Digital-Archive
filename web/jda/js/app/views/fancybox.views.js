@@ -785,3 +785,69 @@ var FancyBoxTestimonialView = FancyBoxView.extend({
 	},
 
 });
+// For displaying Collections in FancyPants
+var FancyBoxCollectionView = FancyBoxView.extend({
+	
+	initialize: function(){
+
+		FancyBoxView.prototype.initialize.call(this); //This is like calling super()
+		
+	},
+	/* Pass in the element that the user clicked on from fancybox. */
+	render: function(obj)
+	{
+		
+		var _this = this;
+		//Call parent class to do captioning and metadata
+		FancyBoxView.prototype.render.call(this, obj); //This is like calling super()
+		
+	
+		
+		console.log(this.model);
+		//Fill in image-specific stuff
+		var blanks = this.model.attributes;
+		
+		//use template to clone the database items into
+		var template = _.template( this.getMediaTemplate() );
+		
+		//copy the cloned item into the el
+		var imageHTML =  template( blanks ) ;
+
+		$(this.el).find('.fancybox-media-item').html(imageHTML);
+		
+		$(this.el).find('#fancybox-go-to-collection-page').click(function(){
+			jQuery.fancybox.close();
+			jda.app.addCollectionFilter(_this.model);
+		});
+
+		//set fancybox content
+		obj.content = $(this.el);
+		
+		
+
+		
+		return this;
+	},
+	getMediaTemplate : function()
+	{
+		
+		var html =	
+						'<ul class="thumbnails" style="margin-top:40px">'+
+						'<li><a href="#" class="thumbnail"><img src="http://placehold.it/80x60" alt=""></a></li>'+
+						'<li><a href="#" class="thumbnail"><img src="http://placehold.it/80x60" alt=""></a></li>'+
+						'<li><a href="#" class="thumbnail"><img src="http://placehold.it/80x60" alt=""></a></li>'+
+						'<li><a href="#" class="thumbnail"><img src="http://placehold.it/80x60" alt=""></a></li>'+
+						'<li><a href="#" class="thumbnail"><img src="http://placehold.it/80x60" alt=""></a></li>'+
+						'<li><a href="#" class="thumbnail"><img src="http://placehold.it/80x60" alt=""></a></li>'+
+						'<li><a href="#" class="thumbnail"><img src="http://placehold.it/80x60" alt=""></a></li>'+
+						'<li><a href="#" class="thumbnail"><img src="http://placehold.it/80x60" alt=""></a></li>'+
+						'<li><a href="#" class="thumbnail"><img src="http://placehold.it/80x60" alt=""></a></li>'+
+						'<li><a href="#" class="thumbnail"><img src="http://placehold.it/80x60" alt=""></a></li>'+
+						'<li><a href="#" class="thumbnail"><img src="http://placehold.it/80x60" alt=""></a></li>'+
+						'</ul><a href="#" id="fancybox-go-to-collection-page"><h2>Go to Collection Page</h2></a>';
+					
+								
+		return html;
+	},
+
+});
