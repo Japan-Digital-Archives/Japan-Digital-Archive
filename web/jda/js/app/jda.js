@@ -214,8 +214,9 @@ this.jda = {
 		}
 	},
 	addCollectionFilter : function(model){
+		var Items = jda.module("items");
 		this.clearSearchFilters();
-		this.collectionFilter = model;
+		this.itemViewCollection.collectionFilter = new Items.Views.CollectionPage({model:model});
 		this.search({'page':1, 'collection':model.id});
 
 	},
@@ -642,14 +643,16 @@ this.jda = {
 	//NOTE - this does not search, it only clears out all the filters on the page
 	clearSearchFilters : function(){
 	
-    	//update the content filter
+		
+
+    	//clear out the content filter
     	$('#content').val("all");
     	$('#select-wrap-text').text( $('#content option[value=\''+$('#content').val()+'\']').text() );
 
     	//remove search box values
     	VisualSearch.searchBox.disableFacets();
 	    VisualSearch.searchBox.value('');
-	   VisualSearch.searchBox.flags.allSelected = false;
+	  	VisualSearch.searchBox.flags.allSelected = false;
 
         
 	},

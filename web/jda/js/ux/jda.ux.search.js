@@ -51,10 +51,11 @@ $(document).ready(function(){
 
   //View buttons toggle
   $("#zeega-view-buttons button").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
+  
   $('#zeega-view-buttons a').click(function(){
     $('#zeega-view-buttons button').removeClass('active');
     $(this).find('button').addClass('active');
-
+    
     jda.app.switchViewTo( $(this).data('goto-view') , true);
     
     return false;

@@ -122,9 +122,9 @@
 
 					//If this was a collection search then load the collection view which
 					//appears above search results
-					if (!_.isUndefined(jda.app.collectionFilter)){
-						_this.collectionView = new Items.Views.Collection({model:jda.app.collectionFilter});
-						_this.collectionView.render();
+					if (!_.isUndefined(_this.collectionFilter)){
+						
+						_this.collectionFilter.render();
 					}
 					
 					
