@@ -122,7 +122,7 @@
 
 					//If this was a collection search then load the collection view which
 					//appears above search results
-					if (!_.isUndefined(_this.collectionFilter)){
+					if (!_.isUndefined(_this.collectionFilter) && _this.collectionFilter != null){
 						
 						_this.collectionFilter.render();
 					}

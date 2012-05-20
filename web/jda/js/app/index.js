@@ -16,7 +16,7 @@ jQuery(function($)
 			facetMatches : function(callback)
 			{
 				callback([
-					'tag', 'keyword', 'text', 'data:time & place'
+					'tag', 'keyword', 'text', 'data:time & place','Collection'
 				]);
 			},
 			// These are the values that match specific categories, autocompleted

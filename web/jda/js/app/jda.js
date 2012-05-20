@@ -220,6 +220,15 @@ this.jda = {
 		this.search({'page':1, 'collection':model.id});
 
 	},
+	removeCollectionFilter : function(){
+		
+		//remove search parameter from JDA app
+		this.search({'collection':''});
+
+		//remove collectionFilter view which takes care of UI
+		this.itemViewCollection.collectionFilter.remove();
+
+	},
 	addCommas : function(nStr)
 	{
 		nStr += '';
