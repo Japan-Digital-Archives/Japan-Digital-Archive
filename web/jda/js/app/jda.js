@@ -42,7 +42,7 @@ this.jda = {
 	search : function(params, useValuesFromURL)
 	{
 		console.log('search');
-		console.log(params);
+		console.log("params top " + params);
 		console.log(useValuesFromURL);
 		console.log('search done');
 		
@@ -63,7 +63,7 @@ this.jda = {
 
 			//Parse searchbox values
 			var facets = VisualSearch.searchQuery.models;
-			console.log(facets)
+			console.log("facets " + facets)
 			
 			var tagQuery = "tag:";
 			var textQuery = "";
@@ -81,9 +81,10 @@ this.jda = {
 					
 			    }
 			});
-			params.q = textQuery + (textQuery.length > 0 && tagQuery.length > 4 ? " " : "") + (tagQuery.length > 4 ? tagQuery : ""); 
+			params.q = textQuery + (textQuery.length > 0 && tagQuery.length > 4 ? " " : "") + (tagQuery.length > 4 ? tagQuery : "");
+			params.text = textQuery;
 			params.viewType = this.currentView;
-			console.log(params)
+			console.log("PARAMS " + params)
 		
 		}
 		
@@ -98,6 +99,7 @@ this.jda = {
 		
 		if (this.currentView == 'event')
 		{
+		    console.log("Event yo");
 			if(!_.isUndefined( this.itemViewCollection.getCQLSearchString())&&this.mapLoaded)
 			{
 				this.map.layers[1].mergeNewParams({
@@ -736,7 +738,8 @@ this.jda = {
 			
 			try
 			{
-                            var data = eval('(' + response.responseText.substring(75) + ')');
+				//var data = eval('(' + response.responseText + ')');
+                                var data = eval('(' + response.responseText.substring(75) + ')');
 			}
 			catch(err)
 			{
