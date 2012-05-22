@@ -830,6 +830,7 @@
 	<field name="media_geo_longitude" type="float" indexed="true" stored="true" />
 	<field name="enabled" type="boolean" indexed="true" stored="true" />
 	<field name="published" type="boolean" indexed="true" stored="true" />
+    <field name="parent_item" type="string" indexed="true" stored="true" multiValued="true"/>        
 	
 	<!-- catchall field, containing all other searchable text fields (implemented
         via copyField further on in this schema  -->
