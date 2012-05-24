@@ -88,3 +88,6 @@ require(loadFiles, function () {
     });
 });
 
+function removeTagItem(item) {
+    $(this).button();
+}
