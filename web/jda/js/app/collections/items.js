@@ -197,12 +197,24 @@
 				_(tags).each(function(tag){
 					cqlFilters.push("tags='" + tag + "'");
 				});
-				
-				var texts = jda.app.getTextFromSearchQuery(search.q);
-				_(texts).each(function(text){
-					cqlFilters.push("(title LIKE '%"+text+"%' OR media_creator_username LIKE '%"+text+"%' OR description LIKE '%"+text+"%')");
-				});
 				*/
+				var text = search.q;
+				if(text)
+				{
+					if(cqlFilters.length > 0)
+					{
+						var newCqlFilters = [];
+						var prevCqlFiltersString = cqlFilters.join(" AND ");
+						newCqlFilters.push(prevCqlFiltersString + " AND title LIKE '%"+text+"%' OR " + prevCqlFiltersString + " AND media_creator_username LIKE '%"+text+"%' OR " + prevCqlFiltersString + " AND description LIKE '%"+text+"%'");
+						
+						cqlFilters = newCqlFilters;
+					}
+					else
+					{
+						console.log("map search");
+						cqlFilters.push("title LIKE '%"+text+"%' OR media_creator_username LIKE '%"+text+"%' OR description LIKE '%"+text+"%'");
+					}
+				}
 			}
 			/*if( !_.isUndefined(search.tags) )
 			{
@@ -221,7 +233,7 @@
 			{
 				cqlFilterString = null;
 			}
-			console.log(cqlFilterString);
+			console.log("CQL filter string " + cqlFilterString);
 			return cqlFilterString;
 		},
 	
