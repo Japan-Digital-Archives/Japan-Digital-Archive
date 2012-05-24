@@ -306,6 +306,11 @@
                 <source>jda.advsearch.endDate</source>
                 <target>End Date:</target>
             </trans-unit>
-			</body>
+            <trans-unit id="78">
+                <source>jda.advsearch.incCollections</source>
+                <target>Include Collections?:</target>
+            </trans-unit>
+            
+        </body>
     </file>
 </xliff>

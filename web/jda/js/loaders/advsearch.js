@@ -86,6 +86,7 @@ require(loadFiles, function () {
         $("#tagTxt").autocomplete({
             source: tagArr,
             select: function (event, ui) {
+                event.stopPropagation();
                 $("#tagListDiv").html($("#tagListDiv").html() + "<span> <a onclick='removeTagItem(this); return false;' href='#' id='tag" + ui.item.value + "'>" + ui.item.label + "</a></span>");
                 $("#tagTxt").val("");
                 if ($("#tagListDiv").html().substring(0, 8) == "<span> ") {
@@ -94,7 +95,7 @@ require(loadFiles, function () {
             }
         });
         $("#startDateTxt").datepicker();
-        $("endDateTxt").datepicker();
+        $("#endDateTxt").datepicker();
     });
 });
 
