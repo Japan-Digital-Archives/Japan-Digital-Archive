@@ -85,9 +85,9 @@ require(loadFiles, function () {
         $("#tagTxt").autocomplete({
             source: tagArr,
             select: function (event, ui) {
-                $("#tagListDiv").html($("#tagListDiv").html() + "<a href='javascript:removeTagItem(this);' id='tag" + ui.item.value + "'>" + ui.item.label + "</a>");
+                $("#tagListDiv").html($("#tagListDiv").html() + "<button id='tag" + ui.item.value + "'>" + ui.item.label + "</button>");
                 $("#tag" + ui.item.value).button();
-                $("#tag" + ui.item.value).click(function () { return false; });
+                //$("#tag" + ui.item.value).click(function () { return false; });
             }
         });
     });
