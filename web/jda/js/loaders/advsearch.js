@@ -67,6 +67,10 @@ var loadFiles = [
 
 var tagList = [{ "id": 1, "title": "test1" }, { "id": 2, "title": "test2" }, { "id": 3, "title": "test3" }, { "id": 4, "title": "test4" }, { "id": 5, "title": "test5"}];
 
+function removeTagItem(item) {
+    $(item).button();
+}
+
 require(loadFiles, function () {
     $(document).ready(function () {
         $.each(contentTypes, function (key, value) {
@@ -88,6 +92,3 @@ require(loadFiles, function () {
     });
 });
 
-function removeTagItem(item) {
-    $(this).button();
-}
