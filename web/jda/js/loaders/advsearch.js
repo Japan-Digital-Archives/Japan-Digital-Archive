@@ -70,7 +70,7 @@ var tagList = [{ "id": 1, "title": "test1" }, { "id": 2, "title": "test2" }, { "
 function removeTagItem(item) {
     $(item).button();
 }
-
+$(function () { $("#testbtn").button({ text: true }); });
 require(loadFiles, function () {
     $(document).ready(function () {
         $.each(contentTypes, function (key, value) {
@@ -82,7 +82,7 @@ require(loadFiles, function () {
         $.each(tagList, function (i) {
             tagArr[i] = { "label": this["title"], "value": this["id"] };
         });
-        $(function() { $("#testbtn").button({ text: true }); });
+        
         $("#tagTxt").autocomplete({
             source: tagArr,
             select: function (event, ui) {
