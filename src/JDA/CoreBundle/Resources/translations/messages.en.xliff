@@ -314,6 +314,18 @@
                 <source>jda.advsearch.incCollections</source>
                 <target>Include Collections?:</target>
             </trans-unit>
+            <trans-unit id="79">
+                <source>jda.advsearch.noCollections</source>
+                <target>No Collections</target>
+            </trans-unit>
+            <trans-unit id="80">
+                <source>jda.advsearch.onlyCollections</source>
+                <target>Only Collections</target>
+            </trans-unit>
+            <trans-unit id="81">
+                <source>jda.advsearch.both</source>
+                <target>Both</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
