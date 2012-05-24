@@ -87,6 +87,7 @@ require(loadFiles, function () {
             source: tagArr,
             select: function (event, ui) {
                 $("#tagListDiv").html($("#tagListDiv").html() + "<span> <a onclick='removeTagItem(this); return false;' href='#' id='tag" + ui.item.value + "'>" + ui.item.label + "</a></span>");
+                $("#tagTxt").val("");
                 if ($("#tagListDiv").html().substring(0, 8) == "<span> ") {
                     $("#tagListDiv").html($("#tagListDiv").html().substring(0, 6) + $("#tagListDiv").html().substring(7));
                 }

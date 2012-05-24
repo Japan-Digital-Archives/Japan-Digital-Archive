@@ -97,7 +97,24 @@
                     <div id="tagListDiv"></div>
                 </td>
                 <td colspan="2">
-                    date/time stuff here
+                    <table border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td class="advFormTitle">
+                                {% trans %}jda.advsearch.startDate{% endtrans %}
+                            </td>
+                            <td>
+                                <input type="text" id="startDateTxt" value="" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="advFormTitle">
+                                {% trans %}jda.advsearch.endDate{% endtrans %}
+                            </td>
+                            <td>
+                                <input type="text" id="endDateTxt" value="" />
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
             <tr>
