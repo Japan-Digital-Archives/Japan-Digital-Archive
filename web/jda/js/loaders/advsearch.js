@@ -87,6 +87,7 @@ require(loadFiles, function () {
             select: function (event, ui) {
                 $("#tagListDiv").html($("#tagListDiv").html() + "<a href='javascript:removeTagItem(this);' id='tag" + ui.item.value + "'>" + ui.item.label + "</a>");
                 $("#tag" + ui.item.value).button();
+                $("#tag" + ui.item.value).click(function () { return false; });
             }
         });
     });
