@@ -298,7 +298,7 @@
                 <source>jda.advsearch.onlyCurrentUser</source>
                 <target>Only My Items</target>
             </trans-unit>
-            <trans-unit id="74">
+            <trans-unit id="75">
                 <source>jda.advsearch.tags</source>
                 <target>Tags:</target>
             </trans-unit>
