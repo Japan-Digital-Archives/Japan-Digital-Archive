@@ -75,10 +75,8 @@ require(loadFiles, function () {
         });
         //jda.app.initAdvSearch();
         var tagArr = [];
-        var i = 0;
-        $.each(tagList, function (item) {
-            tagArr[i] = { "label": item["title"], "value": item["id"] };
-            i++;
+        $.each(tagList, function (i) {
+            tagArr[i] = { "label": this["title"], "value": this["id"] };
         });
         $("#tagTxt").autocomplete({
             source: tagArr
