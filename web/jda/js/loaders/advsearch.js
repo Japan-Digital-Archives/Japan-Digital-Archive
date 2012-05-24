@@ -82,12 +82,12 @@ require(loadFiles, function () {
         $.each(tagList, function (i) {
             tagArr[i] = { "label": this["title"], "value": this["id"] };
         });
-        $("#testbtn").button();
+        $("#testbtn").button({ text: true });
         $("#tagTxt").autocomplete({
             source: tagArr,
             select: function (event, ui) {
                 $("#tagListDiv").html($("#tagListDiv").html() + "<a href='javascript:removeTagItem(this);' id='tag" + ui.item.value + "'>" + ui.item.label + "</a>");
-                $("#tag" + ui.item.value).button();
+                $("#tag" + ui.item.value).button({ text: true });
             }
         });
     });
