@@ -86,7 +86,7 @@ require(loadFiles, function () {
         $("#tagTxt").autocomplete({
             source: tagArr,
             select: function (event, ui) {
-                $("#tagListDiv").html($("#tagListDiv").html() + ", <a href='javascript:removeTagItem(this);' id='tag" + ui.item.value + "'>" + ui.item.label + "</a>");
+                $("#tagListDiv").html($("#tagListDiv").html() + ", <a onclick='removeTagItem(this); return false;' href='#' id='tag" + ui.item.value + "'>" + ui.item.label + "</a>");
                 if ($("#tagListDiv").html().substring(0, 2) == ", ") {
                     $("#tagListDiv").html($("#tagListDiv").html().substring(2));
                 }
