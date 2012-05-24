@@ -65,7 +65,7 @@ var loadFiles = [
 	];
 
 
-
+var tagList = [{ "id": 1, "title": "test1" }, { "id": 2, "title": "test2" }, { "id": 3, "title": "test3" }, { "id": 4, "title": "test4" }, { "id": 5, "title": "test5"}];
 
 require(loadFiles, function () {
     $(document).ready(function () {
@@ -74,6 +74,15 @@ require(loadFiles, function () {
             $("#contentTypeDDL").html($("#contentTypeDDL").html() + temp);
         });
         //jda.app.initAdvSearch();
+        var tagArr = [];
+        var i = 0;
+        $.each(tagList, function (item) {
+            tagArr[i] = { "label": item["title"], "value": item["id"] };
+            i++;
+        });
+        $("#tagTxt").autocomplete({
+            source: tagArr
+        });
     });
 });
 
