@@ -73,7 +73,7 @@ require(loadFiles, function () {
             var temp = "<option value='" + value + "'>" + key + "</option>";
             $("#contentTypeDDL").html($("#contentTypeDDL").html() + temp);
         });
-        jda.app.initAdvSearch();
+        //jda.app.initAdvSearch();
     });
 });
 

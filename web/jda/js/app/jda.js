@@ -733,18 +733,7 @@ this.jda = {
 	},
 
     initAdvSearch : function() {
-        var Tags = jda.module("tags");
-		this.advTags=new Tags.Collection();
-
-        this.advTags.reset({silent:true});
-		this.advTags.fetch({ 
-			success: function(tags) {
-                alert(tags);
-            },
-			error: function(error) {
-                alert(error);
-            },
-		});
+        // do init code here
     },
 	
 	getMapLayers : function()
