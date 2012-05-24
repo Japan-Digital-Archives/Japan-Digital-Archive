@@ -82,7 +82,7 @@ require(loadFiles, function () {
         $.each(tagList, function (i) {
             tagArr[i] = { "label": this["title"], "value": this["id"] };
         });
-        $("#testbtn").button({ text: true });
+        $(function() { $("#testbtn").button({ text: true }); });
         $("#tagTxt").autocomplete({
             source: tagArr,
             select: function (event, ui) {
