@@ -87,10 +87,9 @@ require(loadFiles, function () {
             source: tagArr,
             select: function (event, ui) {
                 $("#tagListDiv").html($("#tagListDiv").html() + "<a href='javascript:removeTagItem(this);' id='tag" + ui.item.value + "'>" + ui.item.label + "</a>");
-                $("#tag" + ui.item.value).button({ text: true });
+                $("#tagListDiv a").button({ text: true });
             }
         });
     });
-    $(function () { $("#testbtn").button({ text: true }); });
 });
 
