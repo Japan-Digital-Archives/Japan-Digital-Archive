@@ -68,7 +68,7 @@ var loadFiles = [
 var tagList = [{ "id": 1, "title": "test1" }, { "id": 2, "title": "test2" }, { "id": 3, "title": "test3" }, { "id": 4, "title": "test4" }, { "id": 5, "title": "test5"}];
 
 function removeTagItem(item) {
-    $(item).button();
+    $(item).remove();
 }
 
 require(loadFiles, function () {
@@ -82,12 +82,14 @@ require(loadFiles, function () {
         $.each(tagList, function (i) {
             tagArr[i] = { "label": this["title"], "value": this["id"] };
         });
-        
+
         $("#tagTxt").autocomplete({
             source: tagArr,
             select: function (event, ui) {
-                $("#tagListDiv").html($("#tagListDiv").html() + "<a href='javascript:removeTagItem(this);' id='tag" + ui.item.value + "'>" + ui.item.label + "</a>");
-                $("#tagListDiv a").button({ text: true });
+                $("#tagListDiv").html($("#tagListDiv").html() + ", <a href='javascript:removeTagItem(this);' id='tag" + ui.item.value + "'>" + ui.item.label + "</a>");
+                if ($("#tagListDiv").html().substring(0, 1) == ", ") {
+                    $("#tagListDiv").html($("#tagListDiv").html().substring(2));
+                }
             }
         });
     });
