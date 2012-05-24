@@ -93,6 +93,8 @@ require(loadFiles, function () {
                 }
             }
         });
+        $("#startDateTxt").datepicker();
+        $("endDateTxt").datepicker();
     });
 });
 
