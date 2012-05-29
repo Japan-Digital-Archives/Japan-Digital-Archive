@@ -35,8 +35,11 @@ this.jda = {
 		// Include all modules
 
 		var Items = jda.module("items");
+
 		// make item collection
 		this.itemViewCollection = new Items.ViewCollection();
+		this.myCollectionsDrawer = new Items.MyCollectionsDrawer();
+		this.myCollectionsDrawer.getCollectionList();
 	},
 	
 	search : function(params, useValuesFromURL)

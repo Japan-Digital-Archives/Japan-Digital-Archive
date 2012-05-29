@@ -52,9 +52,12 @@ var loadFiles = [
 	
 	//collections
 	'order!../app/collections/items',
+	'order!../app/collections/items.list-and-thumb-view-collection',
+	'order!../app/collections/items.my-collections-drawer',
+	'order!../app/collections/items.map-popup-view-collection',
 	
 	//views
-	'order!../app/views/items/jda.view.item.collection',
+	'order!../app/views/items/jda.view.item.collection-page',
 	'order!../app/views/items/jda.view.item.list',
 	'order!../app/views/items/jda.view.item.thumb',
 	'order!../app/views/items/jda.view.item.map-popup',

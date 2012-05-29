@@ -38,7 +38,7 @@
 }
 #zeega-right-column{
 	position: fixed;
-	left: 1105px;
+	right: 100px;
 	top: 115px;
 }
 .zeega-right-column-low{
@@ -158,7 +158,7 @@
 	Code from CSS3Stacks here: http://inspectelement.com/demos/css3/stacks/
 */
 
-.zeega-collection { position: relative; z-index: 10; padding:0;border:0;width:160px;height:120px;}
+.zeega-collection { position: relative; z-index: 1; padding:0;border:0;width:160px;height:120px;margin:4px;}
  
 
 .zeega-collection img { max-width: 100%; height: auto; vertical-align: bottom; border: 10px solid #fff; border-radius: 3px;
