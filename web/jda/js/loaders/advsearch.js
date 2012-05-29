@@ -207,7 +207,7 @@ function initMap() {
                                  new com.modestmaps.TemplatedLayer('http://tile.openstreetmap.org/{Z}/{X}/{Y}.png'),
                                  new com.modestmaps.Point(container.offsetWidth, container.offsetHeight));
 
-    map.setCenterZoom(new com.modestmaps.Location(36, 138), 11);
+    map.setCenterZoom(new com.modestmaps.Location(36, 138), 5);
 
     boundingBox = new BoundingBox(map);
 
