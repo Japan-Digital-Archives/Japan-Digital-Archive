@@ -83,8 +83,8 @@
                 <td>
                     <!-- not sure how to get the current users ID, ask -->
                     <select id="userDDL">
-                        <option value="-1">{% trans %}jda.advsearch.allusers{% endtrans %}</option>
-                        <option value="0">{% trans %}jda.advsearch.onlyCurrentUser{% endtrans %}</option>
+                        <option value="0">{% trans %}jda.advsearch.allusers{% endtrans %}</option>
+                        <option value="-1">{% trans %}jda.advsearch.onlyCurrentUser{% endtrans %}</option>
                     </select>
                 </td>
             </tr>
@@ -134,7 +134,9 @@
             </tr>
             <tr>
                 <td colspan="4">
-                    <div id="test_print"></div>
+                    <center>
+                        <input type="button" id="submitBtn" value="Search" onclick="DoSearch();" />
+                    </center>
                 </td>
             </tr>
 		</table>

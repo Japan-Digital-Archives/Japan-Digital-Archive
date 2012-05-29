@@ -72,6 +72,8 @@ function removeTagItem(item) {
     $(item).parent().remove();
 }
 
+var north, east, south, west;
+
 function BoundingBox(map) {
     this.map = map;
 
@@ -178,6 +180,10 @@ function BoundingBox(map) {
             var northWest = new com.modestmaps.Location(Math.max(l1.lat, l2.lat), Math.min(l1.lon, l2.lon));
             var southEast = new com.modestmaps.Location(Math.min(l1.lat, l2.lat), Math.max(l1.lon, l2.lon));
             $("#info").html("N,W,S,E: <b>" + [northWest.lat.toFixed(6), northWest.lon.toFixed(6), southEast.lat.toFixed(6), southEast.lon.toFixed(6)].join(', ') + "</b>");
+            north = northWest.lat.toFixed(6);
+            east = southEast.lon.toFixed(6);
+            south = southEast.lat.toFixed(6);
+            west = northWest.lon.toFixed(6);
         }
     };
 
@@ -226,13 +232,51 @@ function initMap() {
 
 }
 
+function DoSearch() {
+    var baseURL = "http://108.171.163.81/ej/web/ja/api/search";
+    baseURL += "q=" + $("#searchTerms").val();
+    var contentType = $("#contentTypeDDL option:selected").val();
+    if (contentType != "0") {
+        baseURL += "&content=" + contentType;
+    }
+    var tagArr = new Array();
+    $("#tagListDiv > span > a").each(function (i) {
+        var temp = $(this).attr("id");
+        temp = temp.substring(3);
+        tagArr[i] = temp;
+    });
+    if (tagArr.length != 0) {
+        baseURL += "&tags=" + tagArr.join(",");
+    }
+    if (north != null) {
+        baseURL += ("&geo_n=" + north + "&geo_e=" + east + "&geo_s=" + south + "&geo_w=" + west);
+    }
+    var startDate = $("#startDateTxt").val();
+    var endDate = $("#endDateTxt").val();
+    if (startDate != "") {
+        var sDate = new Date(startDate);
+        baseURL += "&dtstart=" + sDate.getTime();
+    }
+    if (endDate != "") {
+        var eDate = new Date(endDate);
+        baseURL += "&dtend=" + eDate.getTime();
+    }
+    var usersVal = $("#userDDL option:selected").val();
+    if (usersVal == -1) {
+        baseURL += "&user=" + usersVal;
+    }
+
+    alert(baseURL);
+}
+
 require(loadFiles, function () {
     $(document).ready(function () {
+        // contentTypes is declares in the twig file so that things can be localized
         $.each(contentTypes, function (key, value) {
             var temp = "<option value='" + value + "'>" + key + "</option>";
             $("#contentTypeDDL").html($("#contentTypeDDL").html() + temp);
         });
-        //jda.app.initAdvSearch();
+
         var tagArr = [];
         $.each(tagList, function (i) {
             tagArr[i] = { "label": this["title"], "value": this["id"] };
