@@ -18,18 +18,57 @@
 				user : -1
 
 			};
-			//this.collection.on( 'reset', this.reset, this);
+			
 		},
 
 		render : function()
 		{
 			var _this = this;
 			_.each( _.toArray(this.collection), function(item){
-				var itemView = '<li><a href="#">'+item.get('title')+'</a></li>';
+				var itemView = '<li class="zeega-collection-list-item" id="'+item.id+'"><a href="#">'+item.get('title')+'</a></li>';
 				$(_this.el).find('.dropdown-menu').append(itemView);
 			});
-			
+			this.setActiveCollection();
 			return this;
+		},
+		setActiveCollection : function(){
+
+			/* 
+				If they don't have any collections then make a new one but
+				don't save it till they add to it
+			*/
+			if ($(this.el).find('.zeega-collection-list-item').length == 0){
+				//create new "my collection"
+				//don't save yet
+				//this.activeCollectionID = -1
+			} 
+			/* 
+				Otherwise make the first collection in the list the active one for the
+				my Collection drawer
+			*/
+			else {
+				var activeCollectionID = $(this.el).find('.zeega-collection-list-item').first().attr("id");
+				var theUrl = jda.app.apiLocation + 'api/items/'+ activeCollectionID;
+
+				this.activeCollection = new Items.Model({id:activeCollectionID});
+				this.activeCollection.url = theUrl;
+
+				console.log('Fetching active collection from ' + theUrl);
+				this.activeCollection.fetch(
+				{
+				
+					success : function(model, response)
+					{ 
+						var title = model.get('title');
+						$('#zeega-my-collections-active-collection').text(model.get('title'));
+					},
+					error : function(model, response)
+					{ 
+						console.log('Error getting active collection for collections drawer');
+
+					}
+				});
+			}
 		},
 		getCollectionList : function()
 		{
@@ -47,7 +86,7 @@
 				error : function(model, response)
 				{ 
 					console.log('Error getting collection list from server');
-					
+
 				}
 			}
 			);

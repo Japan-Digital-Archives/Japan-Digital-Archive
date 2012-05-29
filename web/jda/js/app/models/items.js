@@ -24,6 +24,13 @@
 				error:errorFunction,
 			});
 		},
+		parse : function(response)
+		{
+			if (response.items)
+				return response.items[0];
+			else 
+				return response;
+		},
 		
 	});
 
