@@ -100,6 +100,9 @@
 .zeega-results-count-event{
 
 }
+#zeega-results-count-text-with-date{
+	display:none;
+}
 /* SEARCH RELATED STYLES */
 #search-bar{
 	

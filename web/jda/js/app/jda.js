@@ -258,7 +258,8 @@ this.jda = {
 		$('#zeega-results-count').css('left', 0);
 		$('#zeega-results-count').css('z-index', 0);
 
-		
+		$('#zeega-results-count-text-with-date').hide();
+
 		if(this.itemViewCollection.updated)
 		{
 			console.log('render collection')
@@ -271,6 +272,8 @@ this.jda = {
 		$('#zeega-results-count').removeClass('zeega-results-count-event');
 		$('#zeega-results-count').css('left', 0);
 		$('#zeega-results-count').css('z-index', 0);
+
+		$('#zeega-results-count-text-with-date').hide();
 		
 		if(this.itemViewCollection.updated)
 		{
@@ -289,7 +292,7 @@ this.jda = {
 		$('#zeega-results-count').offset( { top:$('#zeega-results-count').offset().top, left:10 } );
 		$('#zeega-results-count').css('z-index', 1000);
 
-		
+		$('#zeega-results-count-text-with-date').show();
 		
 		_.each( VisualSearch.searchBox.facetViews, function( facet ){
 			if( facet.model.get('category') == 'tag' ) {
