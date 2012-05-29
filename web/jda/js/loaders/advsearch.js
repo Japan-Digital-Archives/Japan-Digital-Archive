@@ -233,8 +233,8 @@ function initMap() {
 }
 
 function DoSearch() {
-    var baseURL = "http://108.171.163.81/ej/web/ja/api/search";
-    baseURL += "q=" + $("#searchTerms").val();
+    var baseURL = "http://108.171.163.81/ej/web/ja/search";
+    baseURL += "#q=" + $("#searchTerms").val();
     var contentType = $("#contentTypeDDL option:selected").val();
     if (contentType != "0") {
         baseURL += "&content=" + contentType;
@@ -274,7 +274,7 @@ function DoSearch() {
         baseURL += "&r_itemswithcollections=1";
     }
 
-    alert(baseURL);
+    window.location.href = baseURL;
 }
 
 require(loadFiles, function () {
