@@ -270,8 +270,8 @@ function DoSearch() {
     if (collectionVal == 1) {
         baseURL += "&r_collections=1";
     }
-    if (r_itemswithcollections == 2) {
-        baseURL += "&r_collections=1";
+    if (collectionVal == 2) {
+        baseURL += "&r_itemswithcollections=1";
     }
 
     alert(baseURL);
