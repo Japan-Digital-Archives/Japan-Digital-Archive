@@ -258,10 +258,6 @@ this.jda = {
 		$('#zeega-results-count').css('left', 0);
 		$('#zeega-results-count').css('z-index', 0);
 
-		//loop through all facets to find the data & time one
-		_.each( VisualSearch.searchBox.facetViews, function( facet ){
-			if( facet.model.get('category') == 'data:time & place' ) facet.remove();
-		})
 		
 		if(this.itemViewCollection.updated)
 		{
@@ -275,11 +271,6 @@ this.jda = {
 		$('#zeega-results-count').removeClass('zeega-results-count-event');
 		$('#zeega-results-count').css('left', 0);
 		$('#zeega-results-count').css('z-index', 0);
-
-		//loop through all facets to find the data & time one
-		_.each( VisualSearch.searchBox.facetViews, function( facet ){
-			if( facet.model.get('category') == 'data:time & place' ) facet.remove();
-		})
 		
 		if(this.itemViewCollection.updated)
 		{
@@ -299,7 +290,7 @@ this.jda = {
 		$('#zeega-results-count').css('z-index', 1000);
 
 		
-		VisualSearch.searchBox.addFacet('data:time & place', ' ', 0);
+		
 		_.each( VisualSearch.searchBox.facetViews, function( facet ){
 			if( facet.model.get('category') == 'tag' ) {
 				var facetValue = facet.model.get('value');
@@ -311,11 +302,7 @@ this.jda = {
 				  $('#remove-tag-alert').hide('slow');
 				}, 3000);
 			}
-			if (facet.model.get("category")=="data:time & place") {
-    			$(facet.el).find('.VS-icon-cancel').click(function(){
-    				jda.app.switchViewTo('list');
-    			});
-    		}
+			
 		})
 		
 		$("#zeega-event-view").width($(window).width());
