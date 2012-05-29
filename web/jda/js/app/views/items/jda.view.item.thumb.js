@@ -52,18 +52,12 @@
 			if (this.model.get('media_type') == 'Collection')
 			{
 				$(this.el).find('.label').show();
-				$(this.el).find('img').css('opacity','0.8');
+				
 				$(this.el).find('.label').click(function(){
 					jda.app.addCollectionFilter(_this.model);
 					return false;
 				});
-				$(this.el).hover(
-					function(){
-						$(_this.el).find('img').css('opacity','1.0');
-					},function(){
-						$(_this.el).find('img').css('opacity','0.8');
-					}
-				);
+				
 			} else{
 				$(this.el).popover({'title':this.model.get('title'), 'content':this.model.get('description'), 'delay':{ show: 2000, hide: 100 },'placement':'bottom'});
 			
@@ -97,7 +91,7 @@
 			      
 			});
 			$(this.el).find(".jdicon-small-drag").tooltip({'title':'Drag to add to your collection','placement':'bottom', delay: { show: 600, hide: 100 }});
-			//$(this.el).find(".label").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
+			$(this.el).find(".label").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
 			
 
 			//Replace broken thumbnail images with the media type icon
@@ -114,8 +108,8 @@
 			
 				'<a href="#" class="thumbnail zeega-collection rotated-left">'+
 					'<i class="jdicon-small-drag" style="z-index:2"></i>'+
-					'<span class="label label-inverse" style="display:none;position: absolute;top: 57px;left: 50px;z-index:2" rel="tooltip" title="Go to Collection View">'+
-					'<i class="icon-folder-open icon-white"></i> <%= child_items_count%> items</span>'+
+					'<span class="label label-inverse" style="display:none;position: absolute;top: 91px;left:126px;z-index:2" rel="tooltip" title="Go to Collection View">'+
+					'<i class="icon-share-alt icon-white"></i></span>'+
 					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:160px;height:120px">'+
 					
 				'</a>';
