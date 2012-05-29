@@ -37,10 +37,12 @@
 		{
 			var _this = this;
 
-			var template = this.getDefaultTemplate();
+			var template = (this.model.get('media_type') == 'Collection' ? this.getCollectionTemplate() : this.getDefaultTemplate());
 			var blanks = this.model.attributes;
 			
 			$(this.el).html( _.template( template, blanks ) );
+
+			//if no thumbnail or if it's a tweet then just show the grey icon instead of thumb
 			if (this.model.get('media_type') == 'Tweet' || this.model.get('thumbnail_url').length ==0)
 			{
 
@@ -106,12 +108,11 @@
 			return this;
 		},
 		
-		
-		getDefaultTemplate : function()
+		getCollectionTemplate : function()
 		{
-			html = 
+			var html = 
 			
-				'<a href="#" class="thumbnail" style="width:160px;height:120px">'+
+				'<a href="#" class="thumbnail zeega-collection rotated-left">'+
 					'<i class="jdicon-small-drag" style="z-index:2"></i>'+
 					'<span class="label label-inverse" style="display:none;position: absolute;top: 57px;left: 50px;z-index:2" rel="tooltip" title="Go to Collection View">'+
 					'<i class="icon-folder-open icon-white"></i> <%= child_items_count%> items</span>'+
@@ -121,6 +122,20 @@
 
 			
 			return html;
+		},
+		getDefaultTemplate : function()
+		{
+
+			var html = 
+			
+				'<a href="#" class="thumbnail" style="width:160px;height:120px">'+
+					'<i class="jdicon-small-drag" style="z-index:2"></i>'+
+					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:160px;height:120px">'+	
+				'</a>';
+
+			
+			return html;
+			
 		}
 		
 	});
