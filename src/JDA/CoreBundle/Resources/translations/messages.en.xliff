@@ -326,6 +326,14 @@
                 <source>jda.advsearch.both</source>
                 <target>Both</target>
             </trans-unit>
+            <trans-unit id="82">
+                <source>jda.advsearch.mapInstructions</source>
+                <target>Instructions</target>
+            </trans-unit>
+            <trans-unit id="83">
+                <source>jda.advsearch.mapInstructionsTxt</source>
+                <target>Hold Shift and Drag in order to create a box around the area you would like to search</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

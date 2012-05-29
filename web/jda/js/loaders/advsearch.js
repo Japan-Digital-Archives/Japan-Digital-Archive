@@ -177,8 +177,7 @@ function BoundingBox(map) {
             //window.console.log(l1,l2);
             var northWest = new com.modestmaps.Location(Math.max(l1.lat, l2.lat), Math.min(l1.lon, l2.lon));
             var southEast = new com.modestmaps.Location(Math.min(l1.lat, l2.lat), Math.max(l1.lon, l2.lon));
-            $("#info").html("N,W,S,E: <tt>" + [northWest.lat.toFixed(6), northWest.lon.toFixed(6), southEast.lat.toFixed(6), southEast.lon.toFixed(6)].join(', ') + "</tt>");
-            $("#info").html($("#info").html() + "<br>S,W,N,E: <tt>" + [southEast.lat.toFixed(6), northWest.lon.toFixed(6), northWest.lat.toFixed(6), southEast.lon.toFixed(6)].join(', ') + "</tt>");
+            $("#info").html("N,W,S,E: <b>" + [northWest.lat.toFixed(6), northWest.lon.toFixed(6), southEast.lat.toFixed(6), southEast.lon.toFixed(6)].join(', ') + "</b>");
         }
     };
 
@@ -207,7 +206,7 @@ function initMap() {
                                  new com.modestmaps.TemplatedLayer('http://tile.openstreetmap.org/{Z}/{X}/{Y}.png'),
                                  new com.modestmaps.Point(container.offsetWidth, container.offsetHeight));
 
-    map.setCenterZoom(new com.modestmaps.Location(36, 138), 3);
+    map.setCenterZoom(new com.modestmaps.Location(36, 138), 4);
 
     boundingBox = new BoundingBox(map);
 
