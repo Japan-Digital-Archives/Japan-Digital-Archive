@@ -100,13 +100,14 @@ require(loadFiles, function () {
         // name of a div element:
         var parent = 'map';
 
-        // defaults to Google-style Mercator projection, so works
-        // out of the box with OpenStreetMap and friends:
         var template = 'http://tile.openstreetmap.org/{Z}/{X}/{Y}.png';
         var provider = new MM.TemplatedMapProvider(template);
 
-        // without a size, it will expand to fit the parent:
-        var map = new MM.Map(parent, provider);
+        // Just a way of saying 600px wide by 400px high
+        var dimensions = new MM.Point(600, 400);
+        var map = new MM.Map(parent, provider, dimensions);
+        map.setCenter(new MM.Location(37.7749295, -122.4194155));
+        map.setZoom(11);
     });
 });
 
