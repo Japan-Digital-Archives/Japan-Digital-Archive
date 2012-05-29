@@ -32,6 +32,7 @@ var loadFiles = [
 	'order!../lib/jeditable.min',
 	'order!../lib/dateformat/date.format',
     'order!../lib/visualsearch/visualsearch',
+    'order!../lib/modestmaps.min',
 	//mvc
 	'order!../app/jda',
 	
@@ -96,8 +97,10 @@ require(loadFiles, function () {
         });
         $("#startDateTxt").datepicker();
         $("#endDateTxt").datepicker();
-        mapView = new LocatorMapView();
-        $("#mapDiv").append(mapView.render());
+        var template = 'http://c.tiles.mapbox.com/v3/mapbox.mapbox-light/{Z}/{X}/{Y}.png';
+        var provider = new MM.TemplatedLayer(template);
+        var map = new MM.Map('mapDiv', provider);
+        map.setCenter({ lat: 51.55, lon: 0.1 }).setZoom(10);
     });
 });
 
