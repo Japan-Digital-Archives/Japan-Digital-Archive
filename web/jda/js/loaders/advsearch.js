@@ -96,6 +96,8 @@ require(loadFiles, function () {
         });
         $("#startDateTxt").datepicker();
         $("#endDateTxt").datepicker();
+        mapView = new LocatorMapView();
+        $("#mapDiv").append(mapView.render());
     });
 });
 
