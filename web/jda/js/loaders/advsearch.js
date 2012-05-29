@@ -97,10 +97,16 @@ require(loadFiles, function () {
         });
         $("#startDateTxt").datepicker();
         $("#endDateTxt").datepicker();
-        var template = 'http://c.tiles.mapbox.com/v3/mapbox.mapbox-light/{Z}/{X}/{Y}.png';
+        // name of a div element:
+        var parent = 'map';
+
+        // defaults to Google-style Mercator projection, so works
+        // out of the box with OpenStreetMap and friends:
+        var template = 'http://tile.openstreetmap.org/{Z}/{X}/{Y}.png';
         var provider = new MM.TemplatedMapProvider(template);
-        var map = new MM.Map('map', provider);
-        //map.setCenter({ lat: 51.55, lon: 0.1 }).setZoom(10);
+
+        // without a size, it will expand to fit the parent:
+        var map = new MM.Map(parent, provider);
     });
 });
 
