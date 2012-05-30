@@ -21,19 +21,27 @@
 
 			//show 3 thumbnails by default in collections drawer
 			this.showThumbnailCount = 3;
+
+			
 			
 		},
 
 		render : function()
 		{
 			var _this = this;
+
+			//Render collection list in drop-down menu
+			$(_this.el).find('.dropdown-menu').empty();
+
 			_.each( _.toArray(this.collection), function(item){
 				var itemView = '<li class="zeega-collection-list-item" id="'+item.id+'"><a href=".">'+item.get('title')+'</a></li>';
 				$(_this.el).find('.dropdown-menu').append(itemView);
 				
 				$(_this.el).find('#'+item.id).click( function(e){
-					_this.switchActiveCollection($(this).attr('id'));
-					e.preventDefault();
+					if ($(this).attr('id') != _this.activeCollectionID){
+						_this.switchActiveCollection($(this).attr('id'));
+						e.preventDefault();
+					}
 				});
 			});
 			/* 
@@ -65,12 +73,35 @@
 
 			    drop : function( event, ui )
 			    {
-
-			      var numItems = $(this).find('.thumbnail').length;
+			    	//Check whether user is logged in - if not then log them in before adding
+			      
+			      /*var numItems = $(this).find('.thumbnail').length;
 			      if (numItems ==0){
 			        $(this).find('i,#zeega-my-collections-drag-items-here').hide();
 			        $('#zeega-my-collections-create-account-modal').modal();
-			      } 
+			      } */
+			      //var kids = _this.activeCollection.get('child_items');
+
+console.log(_this.activeCollection.get('child_items'));
+console.log(jda.app.draggedItem.toJSON())
+			      var kids = _.toArray(_this.activeCollection.get('child_items'));
+			      kids.push(jda.app.draggedItem.toJSON());
+			      _this.activeCollection.set('child_items', kids);
+console.log(kids)
+			      _this.activeCollection.save(
+			      		{},
+				      	{success : function(model, response)
+						{ 
+							//_this.activeCollection = model;
+							_this.render();
+						},
+						error : function(model, response){
+
+						}}
+			      );
+			      
+			      /*var newItemView = new Items.Views.Thumb({model:new Items.Model(jda.app.draggedItem)});
+			       
 			      if (numItems < 3){
 			        $('<a href="#" class="thumbnail"><img src="http://placehold.it/120x80"/></a>').insertAfter('#zeega-my-collections-added');
 			      } else{
@@ -81,6 +112,7 @@
 			        $('#zeega-my-collections-added').fadeOut('slow');
 			      });
 			      $(this).find('#zeega-my-collections-share-and-organize').show();
+			      */
 			      ui.draggable.draggable('option','revert',false);
 
 			    }
@@ -96,7 +128,7 @@
 			
 			this.activeCollection.fetch(
 			{
-			
+				//Display the first x thumbnails in the collection
 				success : function(model, response)
 				{ 
 					var title = model.get('title');

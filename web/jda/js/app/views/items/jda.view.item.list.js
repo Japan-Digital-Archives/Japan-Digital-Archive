@@ -132,7 +132,7 @@
 			      //init the dragged item variable
 			      start : function(){
 			        $(this).draggable('option','revert',true);
-			        
+			        jda.app.draggedItem = _this.model;
 			      },
 
 			      stop : function(){
