@@ -10,40 +10,12 @@ $(document).ready(function(){
 
 
 
-  $('#zeega-my-collections-items').droppable({
-    accept : '.thumbnail,tr',
-    hoverClass : 'zeega-my-collections-items-dropping',
-    tolerance : 'pointer',
-
-
-    drop : function( event, ui )
-    {
-
-      var numItems = $(this).find('.thumbnail').length;
-      if (numItems ==0){
-        $(this).find('i,#zeega-my-collections-drag-items-here').hide();
-        $('#zeega-my-collections-create-account-modal').modal();
-      } 
-      if (numItems < 3){
-        $('<a href="#" class="thumbnail"><img src="http://placehold.it/120x80"/></a>').insertAfter('#zeega-my-collections-added');
-      } else{
-        $('#zeega-my-collections-count').text($('#zeega-my-collections-count').text()+1);
-        $('#zeega-my-collections-count-string').show();
-      }
-      $(this).find('#zeega-my-collections-added').fadeIn('fast', function(){
-        $('#zeega-my-collections-added').fadeOut('slow');
-      });
-      $(this).find('#zeega-my-collections-share-and-organize').show();
-      ui.draggable.draggable('option','revert',false);
-
-    }
-  });
   
 
   
   
 
-  /* FROM HTML PAGE - NEED TO INTEGRATE BETTER AND REMOVE MOCKUP STUFF*/
+  /* END FROM HTML PAGE */
 
 
   
@@ -63,8 +35,8 @@ $(document).ready(function(){
 
   $('#zeega-search-help').popover({'title':'Searching','placement':'bottom'});
 
-  $('#content').change(function(){
-    $('#select-wrap-text').text( $('#content option[value=\''+$('#content').val()+'\']').text() );
+  $('#zeega-content-type').change(function(){
+    $('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
     jda.app.search({ page:1});
     return false;
   });

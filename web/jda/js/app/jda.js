@@ -62,7 +62,7 @@ this.jda = {
 			//Use content value from format dropdown
 			console.log('new search')
 			console.log(params)
-			params.content = $('#content').val();
+			params.content = $('#zeega-content-type').val();
 
 			//Parse searchbox values
 			var facets = VisualSearch.searchQuery.models;
@@ -144,8 +144,8 @@ this.jda = {
 			
 		}
 		if (!_.isUndefined(obj.content)){
-			$('#content').val(obj.content);
-			$('#select-wrap-text').text( $('#content option[value=\''+$('#content').val()+'\']').text() );
+			$('#zeega-content-type').val(obj.content);
+			$('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
 		}
 		
 	},
@@ -653,8 +653,8 @@ this.jda = {
 		
 
     	//clear out the content filter
-    	$('#content').val("all");
-    	$('#select-wrap-text').text( $('#content option[value=\''+$('#content').val()+'\']').text() );
+    	$('#zeega-content-type').val("all");
+    	$('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
 
     	//remove search box values
     	VisualSearch.searchBox.disableFacets();

@@ -83,7 +83,7 @@ body {
 
                         <div id="search-bar">
             			<div class="visual_search pull-left"></div>
-      				<span id="select-wrap"><span id="select-wrap-text">{% trans %}jda.search.allformats{% endtrans %}</span><div class="arrow-down"></div><select id="content">
+      				<span id="select-wrap"><span id="select-wrap-text">{% trans %}jda.search.allformats{% endtrans %}</span><div class="arrow-down"></div><select id="zeega-content-type">
       				  <option value="all">{% trans %}jda.search.allformats{% endtrans %}</option>
       				  <option value="image">{% trans %}jda.search.image{% endtrans %}</option>
       				  <option value="video">{% trans %}jda.search.video{% endtrans %}</option>
@@ -235,7 +235,7 @@ body {
       			<div id="zeega-my-collections">
 
       				<div class="btn-group">
-      					<button id="zeega-my-collections-active-collection" class="btn btn-large btn-inverse" style="width: 165px;height:39px;font-weight: bold;font-size: 14px;border-radius:0">my collection</button>
+      					<button id="zeega-my-collections-active-collection" class="btn btn-large btn-inverse">my collection</button>
       					<button class="btn btn-large btn-inverse dropdown-toggle" data-toggle="dropdown" style="height:39px;border-radius:0">
       						<span class="caret"></span>
       					</button>
@@ -248,10 +248,11 @@ body {
       				<div id="zeega-my-collections-items">
       					<i class="jdicon-drag" style="float:none"></i> 
       					<p id="zeega-my-collections-drag-items-here">
-      						Drag items here to curate your own collection
+      						Drag items here to add to your collection
       					</p>
       					<span class="label label-success" id="zeega-my-collections-added">Added!</span>
-      					<span class="label label-info" id="zeega-my-collections-count-string" style="display:none"><span id="zeega-my-collections-count">3</span> items</span>
+                                    <ul id="zeega-my-collections-items-thumbs" class="unstyled"></ul>
+      					<span class="label label-info" id="zeega-my-collections-count-string" style="display:none">and <span id="zeega-my-collections-count"></span> more items</span>
       					<h4 id="zeega-my-collections-share-and-organize" style="display:none"><a href="#">Share & Organize</a>
       					</h4>
 

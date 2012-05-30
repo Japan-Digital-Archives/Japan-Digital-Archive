@@ -29,6 +29,11 @@
 	        
 	        this.el.id = this.model.id;
 
+	        //set default size for thumbnails
+	        if (!this.model.get('thumbnail_width')){
+	        	this.model.set({thumbnail_width:160, thumbnail_height:120});
+	        }
+
 	        //this is for fancy box to know to group these into a gallery
 	        $(this.el).attr("rel", "group");
 	        
@@ -43,7 +48,7 @@
 			$(this.el).html( _.template( template, blanks ) );
 
 			//if no thumbnail or if it's a tweet then just show the grey icon instead of thumb
-			if (this.model.get('media_type') == 'Tweet' || this.model.get('thumbnail_url').length ==0)
+			if (this.model.get('media_type') == 'Tweet' || this.model.get('thumbnail_url') == null || this.model.get('thumbnail_url').length ==0)
 			{
 
 				$(this.el).find('img').replaceWith(	'<i class="jdicon-'+ this.model.get('media_type').toLowerCase() +
@@ -110,7 +115,7 @@
 					'<i class="jdicon-small-drag" style="z-index:2"></i>'+
 					'<span class="label label-inverse" style="display:none;position: absolute;top: 91px;left:126px;z-index:2" rel="tooltip" title="Go to Collection View">'+
 					'<i class="icon-share-alt icon-white"></i></span>'+
-					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:160px;height:120px">'+
+					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px">'+
 					
 				'</a>';
 
@@ -122,9 +127,9 @@
 
 			var html = 
 			
-				'<a href="#" class="thumbnail" style="width:160px;height:120px">'+
+				'<a href="#" class="thumbnail" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
 					'<i class="jdicon-small-drag" style="z-index:2"></i>'+
-					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:160px;height:120px">'+	
+					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px">'+	
 				'</a>';
 
 			

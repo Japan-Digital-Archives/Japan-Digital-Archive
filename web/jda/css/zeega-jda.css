@@ -54,7 +54,9 @@
 	border-radius: 4px;
 	margin-bottom:30px;
 }
-
+#zeega-my-collections-active-collection{
+	width: 165px;height:39px;font-weight: bold;font-size: 14px;border-radius:0;
+}
 #zeega-my-collections-items{
 	clear:both;
 	border: 1px solid #AAA;
@@ -81,6 +83,10 @@
 	font-size:0.9em;
 	-webkit-margin-before: 0;
 	-webkit-margin-after: 0;
+}
+#zeega-my-collections-items-thumbs{
+	padding-top:5px;
+	padding-bottom:5px;
 }
 #zeega-my-collections-added{
 	display:none;
