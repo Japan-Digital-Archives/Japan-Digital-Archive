@@ -13,7 +13,7 @@
 	
 		url : function()
 		{
-			console.log(jda.app);
+			
 			//constructs the search URL
 			var url = this.base;
 			if( !_.isUndefined(this.search.q) && this.search.q.length > 0) url += '&q=' + this.search.q.toString();

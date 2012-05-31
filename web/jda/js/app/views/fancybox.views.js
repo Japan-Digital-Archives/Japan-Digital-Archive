@@ -818,6 +818,7 @@ var FancyBoxCollectionView = FancyBoxView.extend({
 		$(this.el).find('#fancybox-go-to-collection-page').click(function(){
 			jQuery.fancybox.close();
 			jda.app.addCollectionFilter(_this.model);
+			return false;
 		});
 
 		//set fancybox content

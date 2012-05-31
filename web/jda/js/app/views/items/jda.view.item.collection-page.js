@@ -24,8 +24,22 @@
 		{
 			var _this = this;
 
+			var facetExists = false;
+
+			//first remove other collection filters
+			_.each( VisualSearch.searchBox.facetViews, function( facet ){
+				if (facet.model.get("category")=="collection" && facet.model.get("value") != this.model.get('title')) {
+					facet.model.set({'value': null });
+					facet.remove();
+				} else if (facet.model.get("category")=="collection" && facet.model.get("value") == this.model.get('title')){
+					facetExists = true;
+				}
+			});
+			
 			//add collection filter to the VisualSearch box
-			VisualSearch.searchBox.addFacet('collection', this.model.get('title'), 0);
+			if (!facetExists){	
+				VisualSearch.searchBox.addFacet('collection', this.model.get('title'), 0);
+			}
 			
 			//collection close removes the filter from the DOM and sets the object to null
 			_.each( VisualSearch.searchBox.facetViews, function( facet ){
