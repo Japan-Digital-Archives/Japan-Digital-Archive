@@ -21,7 +21,7 @@
 
 			//show 3 thumbnails by default in collections drawer
 			this.showThumbnailCount = 3;
-
+			
 			
 			
 		},
@@ -78,7 +78,6 @@
 			      kids.push(jda.app.draggedItem.toJSON());
 			      _this.activeCollection.set('child_items', kids);
 
-console.log(_this.activeCollection.get('child_items'));
 			      _this.activeCollection.save(
 			      		{},
 				      	{success : function(model, response)

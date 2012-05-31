@@ -138,6 +138,9 @@ Items.ViewCollection = Backbone.View.extend({
 					else jda.app.killScroll = true;
 					
 					jda.app.isLoading = false;	//to activate infinite scroll again
+				},
+				error : function(model, response){
+					console.log('Search failed - model is ' + model);
 				}
 			});
 			

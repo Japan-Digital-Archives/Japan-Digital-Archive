@@ -1,21 +1,12 @@
 
 $(document).ready(function(){
 
-  /* FROM HTML PAGE - NEED TO INTEGRATE BETTER AND REMOVE MOCKUP STUFF*/
-
   
   $('.jda-play-collection').click(function () {
     alert('plays collection as slideshow in player');
   });
 
 
-
-  
-
-  
-  
-
-  /* END FROM HTML PAGE */
 
 
   
@@ -70,8 +61,6 @@ $(document).ready(function(){
   sessionStorage.setItem('moreFancy', false);
 
   //set up fancybox lightbox plugin
-  
-  
   $(".list-fancymedia,.map-fancymedia").fancybox({
 
     openEffect : 'fade',

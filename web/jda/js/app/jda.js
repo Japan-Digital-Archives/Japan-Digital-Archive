@@ -44,29 +44,22 @@ this.jda = {
 	
 	search : function(params, useValuesFromURL)
 	{
-		console.log('search');
-		console.log("params top " + params);
-		console.log(useValuesFromURL);
-		console.log('search done');
-		
+		var _this = this;
 		//Parse out search box values for putting them in the Search query
 		if (useValuesFromURL)
 		{
-			//get the search query from URL and put it in the search box
+			//get the search query from URL and put it in the search box			
 			this.updateSearchUI(params);
-			console.log('from url');
-			console.log(params)
 		}
 		else
 		{
 			//Use content value from format dropdown
-			console.log('new search')
-			console.log(params)
+			
 			params.content = $('#zeega-content-type').val();
 
 			//Parse searchbox values
 			var facets = VisualSearch.searchQuery.models;
-			console.log("facets " + facets)
+			
 			
 			var tagQuery = "tag:";
 			var textQuery = "";
@@ -87,7 +80,7 @@ this.jda = {
 			params.q = textQuery + (textQuery.length > 0 && tagQuery.length > 4 ? " " : "") + (tagQuery.length > 4 ? tagQuery : "");
 			params.text = textQuery;
 			params.viewType = this.currentView;
-			console.log("PARAMS " + params)
+			
 		
 		}
 		
@@ -102,7 +95,7 @@ this.jda = {
 		
 		if (this.currentView == 'event')
 		{
-		    console.log("Event yo");
+		    
 			if(!_.isUndefined( this.itemViewCollection.getCQLSearchString())&&this.mapLoaded)
 			{
 				this.map.layers[1].mergeNewParams({
@@ -147,10 +140,7 @@ this.jda = {
 			$('#zeega-content-type').val(obj.content);
 			$('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
 		}
-		if (!_.isUndefined(obj.collection))
-		{
-
-		}
+		
 		
 	},
 	
@@ -184,13 +174,13 @@ this.jda = {
 	
 	switchViewTo : function( view , refresh )
 	{
-		$('.tab-pane').removeClass('active');
-
+		
 		this.itemViewCollection.setView(view);
 		if( view != this.currentView )
 		{
 			//$('#'+this.currentView+'-view').hide();
 			this.currentView = view;
+			$('.tab-pane').removeClass('active');
 			$('#zeega-'+view+'-view').addClass('active');
 			
  	 		//$(this).hide();
@@ -230,9 +220,6 @@ this.jda = {
 
 	},
 	removeCollectionFilter : function(){
-		
-		
-
 		//remove collectionFilter view which takes care of UI
 		this.itemViewCollection.collectionFilter.remove();
 
