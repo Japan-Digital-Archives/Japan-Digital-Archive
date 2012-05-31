@@ -227,14 +227,16 @@ this.jda = {
 	},
 	removeCollectionFilter : function(){
 		
-		//remove search parameter from JDA app
-		this.search({'collection':''});
+		
 
 		//remove collectionFilter view which takes care of UI
 		this.itemViewCollection.collectionFilter.remove();
 
 		//set filter to null
 		this.itemViewCollection.collectionFilter = null;
+
+		//remove search parameter from JDA app
+		this.search({'collection':''});
 
 	},
 	addCommas : function(nStr)

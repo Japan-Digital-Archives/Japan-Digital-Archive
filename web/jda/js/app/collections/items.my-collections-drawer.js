@@ -61,8 +61,7 @@
 				var activeCollectionID = $(this.el).find('.zeega-collection-list-item').first().attr("id");
 				this.switchActiveCollection(activeCollectionID);
 
-				
-				
+			
 			}
 
 			$(this.el).find('#zeega-my-collections-items').droppable({
@@ -73,21 +72,13 @@
 
 			    drop : function( event, ui )
 			    {
-			    	//Check whether user is logged in - if not then log them in before adding
+			    	//TODO -- Check whether user is logged in - if not then log them in before adding
 			      
-			      /*var numItems = $(this).find('.thumbnail').length;
-			      if (numItems ==0){
-			        $(this).find('i,#zeega-my-collections-drag-items-here').hide();
-			        $('#zeega-my-collections-create-account-modal').modal();
-			      } */
-			      //var kids = _this.activeCollection.get('child_items');
-
-console.log(_this.activeCollection.get('child_items'));
-console.log(jda.app.draggedItem.toJSON())
 			      var kids = _.toArray(_this.activeCollection.get('child_items'));
 			      kids.push(jda.app.draggedItem.toJSON());
 			      _this.activeCollection.set('child_items', kids);
-console.log(kids)
+
+console.log(_this.activeCollection.get('child_items'));
 			      _this.activeCollection.save(
 			      		{},
 				      	{success : function(model, response)
@@ -100,19 +91,7 @@ console.log(kids)
 						}}
 			      );
 			      
-			      /*var newItemView = new Items.Views.Thumb({model:new Items.Model(jda.app.draggedItem)});
-			       
-			      if (numItems < 3){
-			        $('<a href="#" class="thumbnail"><img src="http://placehold.it/120x80"/></a>').insertAfter('#zeega-my-collections-added');
-			      } else{
-			        $('#zeega-my-collections-count').text($('#zeega-my-collections-count').text()+1);
-			        $('#zeega-my-collections-count-string').show();
-			      }
-			      $(this).find('#zeega-my-collections-added').fadeIn('fast', function(){
-			        $('#zeega-my-collections-added').fadeOut('slow');
-			      });
-			      $(this).find('#zeega-my-collections-share-and-organize').show();
-			      */
+			      
 			      ui.draggable.draggable('option','revert',false);
 
 			    }
@@ -149,6 +128,10 @@ console.log(kids)
 					} else {
 						$('#zeega-my-collections-count-string').hide();	
 					}
+					$('#zeega-my-collections-share-and-organize').click(function(){
+						jda.app.addCollectionFilter(_this.activeCollection);
+						return false;
+					});
 					$('#zeega-my-collections-share-and-organize').show();
 					
 					var kids = _.toArray(model.get('child_items'));

@@ -166,11 +166,11 @@ Items.ViewCollection = Backbone.View.extend({
 		
 		setURLHash : function()
 		{
-			obj = this.collection.search;
+			var obj = this.collection.search;
 		 	var hash = '';      
 		 	if( !_.isUndefined(obj.viewType)) hash += 'view_type=' + obj.viewType + '&';
 		 	if( !_.isUndefined(obj.q) && obj.q.length > 0) hash += 'q=' + obj.q + '&';
-		 	if( !_.isUndefined(obj.collection) && obj.collection.length > 0) hash += 'collection=' + obj.collection + '&';
+		 	if( !_.isUndefined(obj.collection) && obj.collection > 0) hash += 'collection=' + obj.collection + '&';
 		 	if( !_.isUndefined(obj.content) )  hash += 'content='+ obj.content + '&';
 		 	if( !_.isUndefined(obj.mapBounds) )  hash += 'map_bounds='+ encodeURIComponent(obj.mapBounds) + '&';
 		 	if( !_.isUndefined(obj.times) )

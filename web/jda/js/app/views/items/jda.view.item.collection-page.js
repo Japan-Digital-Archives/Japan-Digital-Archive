@@ -25,12 +25,12 @@
 			var _this = this;
 
 			//add collection filter to the VisualSearch box
-			VisualSearch.searchBox.addFacet('Collection', this.model.get('title'), 0);
+			VisualSearch.searchBox.addFacet('collection', this.model.get('title'), 0);
 			
 			//collection close removes the filter from the DOM and sets the object to null
 			_.each( VisualSearch.searchBox.facetViews, function( facet ){
 				
-				if (facet.model.get("category")=="Collection") {
+				if (facet.model.get("category")=="collection") {
 	    			$(facet.el).find('.VS-icon-cancel').click(function(){
 	    				jda.app.removeCollectionFilter();
 	    				
@@ -47,7 +47,9 @@
 			var blanks = this.model.attributes;
 			
 			$(this.el).html( _.template( template, blanks ) );
-			$('.icon-plus-sign').popover({'title':'Description','placement':'bottom'});
+			if (this.model.get('description').length > 255){
+				$(this.el).find('.icon-plus-sign').show();
+			}
 			return this;
 		},
 		remove:function(){
@@ -78,7 +80,7 @@
                   '</div>'+
                   '<div class="span6">'+
                         
-                        '<%=description%>...<i class="icon-plus-sign" data-content="Heres the full description. <br/><%=description%>"></i>'+
+                        '<%=description%><i class="icon-plus-sign" style="display:none"></i>'+
                         '<p><strong>Tokyo, Japan</strong></p>'+
                         
                         

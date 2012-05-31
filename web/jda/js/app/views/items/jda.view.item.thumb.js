@@ -60,6 +60,7 @@
 				
 				$(this.el).find('.label').click(function(){
 					jda.app.addCollectionFilter(_this.model);
+					$(this).tooltip('hide');
 					return false;
 				});
 				
