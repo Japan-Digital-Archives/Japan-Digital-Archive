@@ -183,6 +183,14 @@ legend{
 #jda-collection-filter{
 	position:fixed;top:75px;background:white;z-index:1;padding-bottom:9px;padding-top:30px
 }
+#jda-collection-editing-toolbar{
+	display:none;
+	clear:both;margin-bottom:8px;
+}
+.jda-item-checkbox{
+	position:absolute;top: 5px;position: absolute;right: 5px;
+	display:none;
+}
 /********************
 
 	OPEN LAYERS MAP

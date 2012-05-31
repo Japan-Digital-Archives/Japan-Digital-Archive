@@ -111,7 +111,7 @@ body {
       	
             <div id="jda-collection-filter" class="row"></div>
             <div class="row">
-      		<div class="span10">
+      		<div class="span10" id="zeega-left-column">
                         <div id="spinner"></div>
 
 
@@ -122,6 +122,7 @@ body {
       				<!-- Results & Sort Dropdown -->
 
       				<span id="zeega-results-count"><span id="zeega-results-count-number"></span> <span id="zeega-results-count-text">results</span><span id="zeega-results-count-text-with-date"> with time and place data</span></span>
+                              
       				<div class="btn-group pull-right" style="margin-bottom:8px">
       					<a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
       						Sort By
@@ -133,7 +134,22 @@ body {
       						<li><a href="#">Something else</a></li>
       					</ul>
       				</div>
-
+                              <div id="jda-collection-editing-toolbar" class="pull-left">
+                                    <button class="btn btn-info btn-small" type="button"><input id="jda-collection-editing-toolbar-select-all" type="checkbox"></button>
+                                    <button class="btn btn-info btn-small"><i class="icon-plus icon-white"></i> Create new collection</button>
+                                    <button class="btn btn-info btn-small" type="button"><i class="icon-trash icon-white"></i> Delete</button>
+                                    <div class="btn-group" style="display: inline-block; top:11px">
+                                      <a class="btn dropdown-toggle btn-info btn-small" data-toggle="dropdown" href="#">
+                                            <i class="icon-move icon-white"></i> Move to...
+                                            <span class="caret"></span>
+                                      </a>
+                                      <ul class="dropdown-menu">
+                                          <li><a href="#">My Collection 2</a></li>
+                                          <li><a href="#">My Collection 3</a></li>
+                                          <li><a href="#">My Collection 4</a></li>
+                                    </ul>
+                              </div>
+                        </div>
 
       				<!-- MAP VIEW -->
       				<div class="tab-pane" id="zeega-event-view">

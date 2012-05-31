@@ -52,27 +52,34 @@
 				}
 			});
 
-			//Push down main results content
+			/***************************************************************************
+				Overall Layout adjustments for Collection page view
+			***************************************************************************/
 			$('.tab-content').addClass('jda-low-top');
-			$('#zeega-right-column').addClass('zeega-right-column-low');
+			$('#zeega-right-column').hide();
+			$('#zeega-left-column').removeClass('span10');
+			$('#zeega-left-column').addClass('span12');
+			
 
-			//Assemble template
+			/***************************************************************************
+				Put template together
+			***************************************************************************/
 			var template = this.getTemplate();
 			var blanks = this.model.attributes;
 			
 			$(this.el).html( _.template( template, blanks ) );
 			
-			//if description is long
+			/***************************************************************************
+				"more" button for long descriptions (doesn't work yet)
+			***************************************************************************/
 			if (this.model.get('description').length > 255){
 				$(this.el).find('.icon-plus-sign').show();
 			}
 
-			//show in archive settings
-			if (this.model.get('show_in_archive') == true){
-				$('input[name=show_in_archive]').attr('checked','true');
-
-			}
-			//Link back to View all collections
+			
+			/***************************************************************************
+				View all collections link
+			***************************************************************************/
 			$('.jda-view-all-collections').click(function(){
 
 				_.each( VisualSearch.searchBox.facetViews, function( facet ){
@@ -90,14 +97,23 @@
 
 			});
 
-			//EDIT SHOW IN ARCHIVE
+			/***************************************************************************
+				Show in Archive setting
+			***************************************************************************/
+			
+			if (this.model.get('show_in_archive') == true){
+				$('input[name=show_in_archive]').attr('checked','true');
+
+			}
 			$(this.el).find('input[name=show_in_archive]').click(function(){
 				var checked = $('input[name=show_in_archive]').attr('checked');
 				
 				_this.model.save({ 	show_in_archive:checked});
 			});
 
-			//EDIT TITLE
+			/***************************************************************************
+				Edit title
+			***************************************************************************/
 			$(this.el).find('.jda-collection-filter-title').editable(
 				function(value, settings)
 				{ 
@@ -137,7 +153,11 @@
 					width : 250,
 					
 				});
-			//EDIT DESCRIPTION
+
+
+			/***************************************************************************
+				Edit Description
+			***************************************************************************/
 			$(this.el).find('.jda-collection-filter-description').editable(
 				function(value, settings)
 				{ 
@@ -168,6 +188,9 @@
 				});
 
 			
+			/***************************************************************************
+				Set cover image
+			***************************************************************************/
 			//Replace broken thumbnail images with option to drag new item
 			$(this.el).find('img').error(function() {
 			   $(_this.el).find('img').hide();
@@ -210,7 +233,10 @@
 			    }
 			});
 
-			//set up fancybox lightbox plugin
+			/***************************************************************************
+				FANCYBOX
+			***************************************************************************/
+			
 			$("button:contains(Edit)").fancybox({
 
 				openEffect : 'fade',
@@ -273,6 +299,26 @@
 			      },
 
 			  });
+			/***************************************************************************
+				Show editing toolbar - TODO - only show if user is owner
+			***************************************************************************/
+			
+
+			$('#jda-collection-editing-toolbar').show();
+			$('.jda-item-checkbox').show();
+			$('.jda-item-checkbox').click(function(e){
+				
+				//prevent fancybox from loading
+				e.stopPropagation();
+			});
+			$('#jda-collection-editing-toolbar-select-all').click(function(){
+				if($('#jda-collection-editing-toolbar-select-all').attr('checked')){
+					$('.jda-item-checkbox').attr('checked', true);
+				} else {
+					$('.jda-item-checkbox').attr('checked', false);
+				}
+			});
+
 			return this;
 		},
 		remove:function(){
@@ -280,10 +326,14 @@
 			//remove from DOM
 			$(this.el).empty();
 
+			$('#jda-collection-editing-toolbar').hide();
+			$('.jda-item-checkbox').hide();
 			
 			//reset height of main results content & my collections
 			$('.tab-content').removeClass('jda-low-top');
-			$('#zeega-right-column').removeClass('zeega-right-column-low');
+			$('#zeega-right-column').show();
+			$('#zeega-left-column').addClass('span10');
+			$('#zeega-left-column').removeClass('span12');
 			
 
 			

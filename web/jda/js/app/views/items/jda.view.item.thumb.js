@@ -65,7 +65,8 @@
 				});
 				
 			} else{
-				$(this.el).popover({'title':this.model.get('title'), 'content':this.model.get('description'), 'delay':{ show: 2000, hide: 100 },'placement':'bottom'});
+				//Turning this off because buggy
+				//$(this.el).popover({'title':this.model.get('title'), 'content':this.model.get('description'), 'delay':{ show: 2000, hide: 100 },'placement':'bottom'});
 			
 			}
 			$(this.el).draggable({
@@ -118,7 +119,7 @@
 					'<span class="label label-inverse" style="display:none;position: absolute;top: 91px;left:126px;z-index:2" rel="tooltip" title="Go to Collection View">'+
 					'<i class="icon-share-alt icon-white"></i></span>'+
 					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px">'+
-					
+					'<input class="jda-item-checkbox" type="checkbox">'+
 				'</a>';
 
 			
@@ -132,6 +133,7 @@
 				'<a href="#" class="thumbnail" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
 					'<i class="jdicon-small-drag" style="z-index:2"></i>'+
 					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px">'+	
+					'<input class="jda-item-checkbox" type="checkbox">'+
 				'</a>';
 
 			

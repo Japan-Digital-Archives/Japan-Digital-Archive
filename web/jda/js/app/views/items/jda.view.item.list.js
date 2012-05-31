@@ -173,7 +173,7 @@
 				'<i class="jdicon-small-drag"></i><img src="<%= thumbnail_url %>" height="100" width="100"/>'+
 			'</td>'+
 			'<td class="jda-item-description span9"><%= title %><br/><span class="jda-item-author">by <%= author %></span></td>'+
-			'<td class="jda-item-date"><%= media_date %></td>';
+			'<td class="jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
 			
 
 			
@@ -192,7 +192,7 @@
 				'<div class="jda-item-author">by <%= author %></div>'+
 			'</td>'+
 			'<td class="jda-item-date">'+
-				'<%= media_date %>'+
+				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 			'</td>';
 			
 			return html;
@@ -212,7 +212,7 @@
 				'<div><%= description %></div>'+
 			'</td>'+
 			'<td class="jda-item-date">'+
-				'<%= media_date %>'+
+				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 			'</td>';
 
 			
@@ -230,7 +230,7 @@
 				'<div class="jda-item-title"><%= title %></div>'+
 			'</td>'+
 			'<td class="jda-item-date">'+
-				'<%= media_date %>'+
+				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 			'</td>';
 			
 			return html;
@@ -247,7 +247,7 @@
 				'<%= text %>'+
 			'</td>'+
 			'<td class="jda-item-date">'+
-				'<%= media_date %>'+
+				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 			'</td>';
 			
 			return html;
@@ -265,7 +265,7 @@
 				'<div><%= description %></div>'+
 			'</td>'+
 			'<td class="jda-item-date">'+
-				'<%= media_date %>'+
+				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 			'</td>';
 			
 			return html;
@@ -284,7 +284,7 @@
 				'<div><%= description %></div>'+
 			'</td>'+
 			'<td class="jda-item-date">'+
-				'<%= media_date %>'+
+				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 			'</td>';
 			
 			return html;
@@ -304,7 +304,7 @@
 				'<div><%= description %></div>'+
 			'</td>'+
 			'<td class="jda-item-date">'+
-				'<%= media_date %>'+
+				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 			'</td>';
 			
 			return html;
@@ -321,7 +321,7 @@
 					'<div class="jda-item-title"><%= title %></div>'+
 					'<div><%= description %></div>'+
 				'</td>'+
-				'<td class="jda-item-date"><%= media_date %></td>';
+				'<td class="jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
 
 			
 			return html;
@@ -335,7 +335,7 @@
 					'<span class="jda-item-author"><%= author %></span></a>'+
 				'</td>'+
 				'<td class="jda-item-description"><%= title %><br/><%= description %></td>'+
-				'<td class="jda-item-date"><%= media_date %></td>';
+				'<td class="jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
 
 			
 			return html;
