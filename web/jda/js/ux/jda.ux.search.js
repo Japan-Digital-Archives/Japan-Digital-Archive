@@ -42,7 +42,9 @@ $(document).ready(function(){
   });
 
   $(window).resize(function() {
-    jda.app.resetMapSize();
+    if (jda.app.currentView == "event"){
+      jda.app.resetMapSize();
+    }
   });
 
  

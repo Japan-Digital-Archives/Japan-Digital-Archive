@@ -147,6 +147,10 @@ this.jda = {
 			$('#zeega-content-type').val(obj.content);
 			$('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
 		}
+		if (!_.isUndefined(obj.collection))
+		{
+
+		}
 		
 	},
 	

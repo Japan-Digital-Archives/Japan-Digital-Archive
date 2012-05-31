@@ -82,7 +82,8 @@ header .container{
 #jda-related-tags{
 	margin-top:20px;
 	height:300px;
-	line-height: 25px;float:right;
+	line-height: 25px;
+	float:left;
 	text-align:left;
 }
 #jda-related-tags h3{
@@ -180,7 +181,7 @@ legend{
 
 }
 #jda-collection-filter{
-	position:fixed;top:90px;background:white;z-index:1;padding-bottom:20px;padding-top:30px
+	position:fixed;top:90px;background:white;z-index:1;padding-bottom:12px;padding-top:30px
 }
 /********************
 

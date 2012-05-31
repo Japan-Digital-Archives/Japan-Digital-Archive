@@ -129,7 +129,7 @@ console.log(_this.activeCollection.get('child_items'));
 						$('#zeega-my-collections-count-string').hide();	
 					}
 					$('#zeega-my-collections-share-and-organize').click(function(){
-						jda.app.addCollectionFilter(_this.activeCollection);
+						
 						return false;
 					});
 					$('#zeega-my-collections-share-and-organize').show();

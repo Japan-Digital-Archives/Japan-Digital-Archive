@@ -86,8 +86,9 @@
 			
 				
                   '<div class="span4">'+
-                        '<img class="pull-left" src="<%=thumbnail_url%>" alt="" style="width:160px;height:120px;margin-right:12px">'+
-
+                  		'<div class="pull-left zeega-collection rotated-left" style="margin-right:12px">'+
+                        	'<img src="<%=thumbnail_url%>" alt="" style="width:160px;height:120px;">'+
+                        '</div>'+
                         '<h3><%=title%></h3>'+
                         '<p><br/><strong>by Lindsey Wagner</strong></p>'+
 
