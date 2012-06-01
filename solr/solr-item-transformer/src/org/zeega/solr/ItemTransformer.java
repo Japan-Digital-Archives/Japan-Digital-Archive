@@ -9,26 +9,36 @@ public class ItemTransformer
 {
 	public Object transformRow(Map<String, Object> row)     
 	{
-		String tags = (String)row.get("tags");
+	    // parse tags (php array)
+	    try
+	    {
+    		String tags = (String)row.get("tags");
 
-		if (tags != null)
-        {
-    		SerializedPhpParser serializedPhpParser = new SerializedPhpParser(tags);
-    		@SuppressWarnings("unchecked")
-			Map<Object, Object> res = (Map<Object, Object>) serializedPhpParser.parse();
-    		row.put("tags", res.values());
+    		if (tags != null)
+            {
+        		SerializedPhpParser serializedPhpParser = new SerializedPhpParser(tags);
+        		@SuppressWarnings("unchecked")
+    			Map<Object, Object> res = (Map<Object, Object>) serializedPhpParser.parse();
+        		row.put("tags", res.values());
+            }
         }
+        catch(Exception ex) { /* To-do: add logging - ok for now */}
+        
+        // parse attributes (php array)
+        try
+	    {
+    		String attributes = (String)row.get("attributes");
 
-		String attributes = (String)row.get("attributes");
-
-		if (attributes != null)
-        {
-    		SerializedPhpParser serializedPhpParser = new SerializedPhpParser(attributes);
-    		@SuppressWarnings("unchecked")
-			Map<Object, Object> res = (Map<Object, Object>) serializedPhpParser.parse();
-    		row.put("attributes", res);
+    		if (attributes != null)
+            {
+        		SerializedPhpParser serializedPhpParser = new SerializedPhpParser(attributes);
+        		@SuppressWarnings("unchecked")
+    			Map<Object, Object> res = (Map<Object, Object>) serializedPhpParser.parse();
+        		row.put("attributes", res);
+            }
         }
-
+        catch(Exception ex) { /* To-do: add logging - ok for now */ }
+        
         return row;
 	}
 }
