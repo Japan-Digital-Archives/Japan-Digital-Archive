@@ -424,7 +424,7 @@ this.jda = {
 					
 					//controls: [ new OpenLayers.Control.PanZoomBar()],
 					controls: [new OpenLayers.Control.ZoomPanel(),new OpenLayers.Control.Navigation()],
-					layers: [baseLayer,dataLayer],
+					layers: [baseLayer],
                     maxResolution: 1.3053327578125,
                     projection: "EPSG:900913",
                     units: 'm'
@@ -438,8 +438,7 @@ this.jda = {
 				}
 				
 				
-				_this.map.addLayers(_this.getMapLayers());
-			
+				
 				var proj = new OpenLayers.Projection("EPSG:4326");
 				_this.map.setCenter(new OpenLayers.LonLat(140.652466, 38.052417).transform(proj, _this.map.getProjectionObject()), 9);
 			
@@ -449,6 +448,9 @@ this.jda = {
 				_this.initLayerControl();
 				_this.mapLoaded = true;
 				$(".olControlPanZoomBar").css({"top":"65px"});
+				
+				_this.map.addLayers(_this.getMapLayers());
+				_this.map.addLayer(dataLayer);
 		
 			});
 	},
