@@ -8,6 +8,7 @@ Items.ViewCollection = Backbone.View.extend({
 			this.collection = new Items.Collection();
 			this.collection.on( 'reset', this.reset, this);
 			this._childViews = [];
+			this._collectionChildViews = [];
 			$('#spinner').spin('large');
 
 			jda.app.isLoading = true;
@@ -23,6 +24,29 @@ Items.ViewCollection = Backbone.View.extend({
 			} else {
 				this.el = '#zeega-items-list';
 			}
+			
+			//Display collections and items separately if this is not null
+			if (this.collection.collectionsCollection != null){
+
+				//this is getting ridiculous!!
+				_.each( _.toArray(this.collection.collectionsCollection), function(item){
+					var itemView;
+					if(jda.app.currentView == 'thumb'){
+						itemView = new Items.Views.Thumb({model:item});
+						$('.collection-thumbnails').append( itemView.render().el );
+					} else{
+						
+						itemView = new Items.Views.List({model:item});
+						$('#zeega-collections-list').append( itemView.render().el );
+					}
+					
+					_this._collectionChildViews.push( itemView );
+					
+				})
+				
+			}
+			
+			//Display regular old items
 			_.each( _.toArray(this.collection), function(item){
 				var itemView;
 				if(jda.app.currentView == 'thumb'){
@@ -50,7 +74,7 @@ Items.ViewCollection = Backbone.View.extend({
 		renderTags : function(tags)
 		{
 			
-			if (tags.length > 0 && jda.app.currentView != 'event')
+			if (!_.isUndefined(tags) && tags.length > 0 && jda.app.currentView != 'event')
 			{
 				$("#jda-related-tags button").remove();
 				_.each( _.toArray(tags), function(tag){
@@ -181,6 +205,7 @@ Items.ViewCollection = Backbone.View.extend({
 		 	if( !_.isUndefined(obj.q) && obj.q.length > 0) hash += 'q=' + obj.q + '&';
 		 	if( !_.isUndefined(obj.collection) && obj.collection > 0) hash += 'collection=' + obj.collection + '&';
 		 	if( !_.isUndefined(obj.user) && obj.user > 0) hash += 'user=' + obj.user + '&';
+		 	if( !_.isUndefined(obj.r_collections) ) hash += 'r_collections=' + obj.r_collections + '&';
 		 	if( !_.isUndefined(obj.content) )  hash += 'content='+ obj.content + '&';
 		 	if( !_.isUndefined(obj.mapBounds) )  hash += 'map_bounds='+ encodeURIComponent(obj.mapBounds) + '&';
 		 	if( !_.isUndefined(obj.times) )

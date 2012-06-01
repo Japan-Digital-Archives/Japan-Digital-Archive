@@ -47,6 +47,7 @@ var loadFiles = [
 	'order!../plugins/players/plyr',
 
 	//models
+	'order!../app/models/users',
 	'order!../app/models/items',
 	'order!../app/models/tag',
 	
@@ -58,13 +59,15 @@ var loadFiles = [
 	
 	//views
 	'order!../app/views/items/jda.view.item.collection-page',
-	'order!../app/views/items/jda.view.item.user-page',
 	'order!../app/views/items/jda.view.item.list',
 	'order!../app/views/items/jda.view.item.thumb',
 	'order!../app/views/items/jda.view.item.map-popup',
+
 	'order!../app/views/tag.view',
 	'order!../app/views/fancybox.views',
 	'order!../app/views/map.view',
+
+	'order!../app/views/users/jda.view.user.user-page',
 	
 	'order!../app/index',
 

@@ -91,6 +91,9 @@
 				blanks["text"] = this.linkifyTweet(excerpt);
 
 			}
+			if (this.model.get("description") == null){
+				blanks["description"] = " ";
+			}
 			if (this.model.get("description") != null && this.model.get("description").length > 255){
 				blanks["description"] = this.model.get("description").substring(0,255) + "...";
 			} 

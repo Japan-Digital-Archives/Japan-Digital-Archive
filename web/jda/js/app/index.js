@@ -88,25 +88,20 @@ jQuery(function($)
 					
 					} 
 					else if (obj.user != null && obj.user > 0){
-						var Items = jda.module("items");
-						var userModel = new Items.Model({id:obj.user, name:'Lindsey Vagner'});
-						JDA.itemViewCollection.userFilter = new Items.Views.UserPage({model:userModel});
-						JDA.search(obj, true);
-						/*
-						DO THIS ONCE USER API IS BUILT
-						userModel.fetch(
-						{
-							success : function(model, response)
-							{ 
-								JDA.itemViewCollection.userFilter = new Items.Views.UserPage({model:model});
+						var Users = jda.module("users");
+
+						//retrieve user object and then add user filter
+						var authorModel = new Users.Model({id:obj.user});
+						authorModel.fetch({
+							success : function(model, response){
+								JDA.itemViewCollection.userFilter = new Users.Views.UserPage({model:authorModel});
 								JDA.search(obj, true);
 							},
-							error : function(model, response)
-							{ 
-								console.log('index.js: Error getting collection specified in URL');
-							}
-						});*/
+							error : function(model, response){
+								console.log('index.js: Error getting user specified in URL');
+							},
 
+						});
 					}
 					else {
 						JDA.search(obj, true);

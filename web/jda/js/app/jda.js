@@ -232,11 +232,17 @@ this.jda = {
 		var Items = jda.module("items");
 		this.clearSearchFilters();
 		if (filterType == 'collection'){
+			
 			this.itemViewCollection.collectionFilter = new Items.Views.CollectionPage({model:model});
 			searchParams.collection = model.id;
 			this.search(searchParams);
+		
 		} else if (filterType == 'user'){
-			this.itemViewCollection.userFilter = new Items.Views.UserPage({model:model});
+			
+			var Users = jda.module("users");
+			//the r_collections parameter separates the items and collections in the search results
+			searchParams.r_collections=1;
+			this.itemViewCollection.userFilter = new Users.Views.UserPage({model:model});
 			searchParams.user = model.id;
 			this.search(searchParams);
 		}
@@ -279,6 +285,9 @@ this.jda = {
 
 			//set filter to null
 			this.itemViewCollection.userFilter = null;
+
+			//remove the item/collection separation
+			searchParams.r_collections=0;
 
 			//remove search parameter from JDA app
 			searchParams.user = '';

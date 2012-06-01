@@ -48,10 +48,10 @@
 			$(this.el).html( _.template( template, blanks ) );
 
 			//if no thumbnail or if it's a tweet then just show the grey icon instead of thumb
-			if (this.model.get('media_type') == 'Tweet' || this.model.get('thumbnail_url') == null || this.model.get('thumbnail_url').length ==0)
+			if (this.model.get('media_type') == 'Tweet' || this.model.get('thumbnail_url') == null || this.model.get('thumbnail_url').length ==0 && !_.isUndefined(this.model.get('media_type')))
 			{
 
-				$(this.el).find('img').replaceWith(	'<i class="jdicon-'+ this.model.get('media_type').toLowerCase() +
+				$(this.el).find('img').replaceWith(	'<i class="jdicon-'+ this.model.get('media_type') +
 													' jda-centered-icon"></i>');
 			}
 			if (this.model.get('media_type') == 'Collection')

@@ -91,7 +91,7 @@
 
 			});
 			/***************************************************************************
-				User name link into User profile page
+				User name link going to User profile page
 			***************************************************************************/
 			$('.jda-collection-filter-author').click(function(){
 
@@ -103,13 +103,24 @@
 					}
 				});
 				
+				//remove the collection filter but don't search yet
+				jda.app.removeFilter('collection',{}, false);
+
+				//retrieve user object and then add user filter
+				var Users = jda.module("users");
+				var userID = _this.model.get('user_id');
+				var authorModel = new Users.Model({id:userID});
+				authorModel.fetch({
+					success : function(model, response){
+						jda.app.addFilter(model,'user', {collection:''});
+					},
+					error : function(model, response){
+						console.log('Failed to fetch the user object.');
+						console.log(model);
+					},
+
+				});
 				
-				jda.app.removeFilter('collection',{});
-
-				//TO DO -- implement server call to retrieve & set user properly
-				//I suppose it should be a User object instead of an item
-				jda.app.addFilter(new Items.Model({name:'Lindsey Wagner', id:1234}),'user');
-
 			});
 
 
