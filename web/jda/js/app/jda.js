@@ -230,6 +230,24 @@ this.jda = {
 		this.search({'collection':''});
 
 	},
+	addUserFilter : function(model){
+		var Items = jda.module("items");
+		this.clearSearchFilters();
+		this.itemViewCollection.userFilter = new Items.Views.UserPage({model:model});
+		this.search({'page':1, 'user':model.id});
+
+	},
+	removeUserFilter : function(){
+		//remove collectionFilter view which takes care of UI
+		this.itemViewCollection.userFilter.remove();
+
+		//set filter to null
+		this.itemViewCollection.userFilter = null;
+
+		//remove search parameter from JDA app
+		this.search({'user':''});
+
+	},
 	addCommas : function(nStr)
 	{
 		nStr += '';
