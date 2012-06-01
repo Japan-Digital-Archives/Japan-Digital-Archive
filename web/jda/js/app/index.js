@@ -16,7 +16,7 @@ jQuery(function($)
 			facetMatches : function(callback)
 			{
 				callback([
-					'tag', 'keyword', 'text', 'data:time & place','Collection'
+					'tag', 'keyword', 'text', 'data:time & place','collection','user'
 				]);
 			},
 			// These are the values that match specific categories, autocompleted
@@ -65,7 +65,7 @@ jQuery(function($)
 					{
 						obj = QueryStringToHash(query);
 					}
-					console.log('hash SEARCH')
+					
 
 					//If URL specifies particular collection then we gotta look it up and set it in the app
 					//Only then can we update search UI with the title of the collection as a facet
@@ -86,6 +86,27 @@ jQuery(function($)
 							}
 						});
 					
+					} 
+					else if (obj.user != null && obj.user > 0){
+						var Items = jda.module("items");
+						var userModel = new Items.Model({id:obj.user, name:'Lindsey Vagner'});
+						JDA.itemViewCollection.userFilter = new Items.Views.UserPage({model:userModel});
+						JDA.search(obj, true);
+						/*
+						DO THIS ONCE USER API IS BUILT
+						userModel.fetch(
+						{
+							success : function(model, response)
+							{ 
+								JDA.itemViewCollection.userFilter = new Items.Views.UserPage({model:model});
+								JDA.search(obj, true);
+							},
+							error : function(model, response)
+							{ 
+								console.log('index.js: Error getting collection specified in URL');
+							}
+						});*/
+
 					}
 					else {
 						JDA.search(obj, true);

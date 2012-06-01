@@ -9,7 +9,7 @@
 					r_items:1,
 					r_tags:1
 
-							},
+				},
 	
 		url : function()
 		{
@@ -28,7 +28,7 @@
 				if( !_.isUndefined(this.search.times.start) ) url += '&min_date=' + this.search.times.start;
 				if( !_.isUndefined(this.search.times.end) ) url += '&max_date=' + this.search.times.end;
 	     	}
-	     	if( !_.isUndefined(this.search.user)) url += '&user=' + this.search.user;
+	     	if( !_.isUndefined(this.search.user) && this.search.user > 0) url += '&user=' + this.search.user;
 	     	if(jda.app.currentView=='event') url+='&geo_located=1';
 	    
 			console.log('search url: '+ url);

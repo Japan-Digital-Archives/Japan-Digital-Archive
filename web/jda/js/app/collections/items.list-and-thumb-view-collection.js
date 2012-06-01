@@ -132,6 +132,12 @@ Items.ViewCollection = Backbone.View.extend({
 						
 						_this.collectionFilter.render();
 					}
+					//If this was a collection search then load the collection view which
+					//appears above search results
+					if (!_.isUndefined(_this.userFilter) && _this.userFilter != null){
+						
+						_this.userFilter.render();
+					}
 					
 					
 					if(_this.collection.length<parseInt(response["items_count"])) jda.app.killScroll = false; //to activate infinite scroll again
@@ -174,6 +180,7 @@ Items.ViewCollection = Backbone.View.extend({
 		 	if( !_.isUndefined(obj.viewType)) hash += 'view_type=' + obj.viewType + '&';
 		 	if( !_.isUndefined(obj.q) && obj.q.length > 0) hash += 'q=' + obj.q + '&';
 		 	if( !_.isUndefined(obj.collection) && obj.collection > 0) hash += 'collection=' + obj.collection + '&';
+		 	if( !_.isUndefined(obj.user) && obj.user > 0) hash += 'user=' + obj.user + '&';
 		 	if( !_.isUndefined(obj.content) )  hash += 'content='+ obj.content + '&';
 		 	if( !_.isUndefined(obj.mapBounds) )  hash += 'map_bounds='+ encodeURIComponent(obj.mapBounds) + '&';
 		 	if( !_.isUndefined(obj.times) )

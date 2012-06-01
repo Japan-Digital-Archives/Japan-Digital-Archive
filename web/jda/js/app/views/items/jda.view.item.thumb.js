@@ -59,7 +59,7 @@
 				$(this.el).find('.label').show();
 				
 				$(this.el).find('.label').click(function(){
-					jda.app.addCollectionFilter(_this.model);
+					jda.app.addFilter(_this.model, 'collection');
 					$(this).tooltip('hide');
 					return false;
 				});

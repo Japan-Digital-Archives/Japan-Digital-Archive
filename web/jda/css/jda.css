@@ -50,6 +50,8 @@
 .jdicon-layers{background-position:-250px -200px}
 .jdicon-drag{background-position:-300px -200px}
 
+.jdicon-small-facebook{background-position:-100px 0}
+.jdicon-small-tweet{background-position:-75px 0}
 .jdicon-small-layers{background-position:-125px -100px}
 .jdicon-small-list{background-position:-125px -25px}
 .jdicon-small-world{background-position:-0px -50px}
@@ -109,11 +111,11 @@ header .navbar .btn-group {
 }
 .jda-high-top{
 	top:0;
-	position:relative
+	position:absolute
 }
 .jda-low-top{
 	top:147px;
-	position:relative
+	position:absolute
 }
 tr{
 	background-color:white;

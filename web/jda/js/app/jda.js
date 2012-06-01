@@ -212,42 +212,83 @@ this.jda = {
 			}
 		}
 	},
-	addCollectionFilter : function(model){
+	/***************************************************************************
+		- model: either collection or user
+		- filterType: Filters are type either "collection" or "user"
+		- searchParams: Optionally pass in searchParams to have it set other things on search
+	***************************************************************************/
+	addFilter : function(model, filterType, searchParams){
+
+		if (searchParams == null){
+			searchParams = new Object();
+		}
+		searchParams.page = 1;
+		
+		$('.tab-content').addClass('jda-low-top');
+		$('#zeega-right-column').hide();
+		$('#zeega-left-column').removeClass('span10');
+		$('#zeega-left-column').addClass('span12');
+
 		var Items = jda.module("items");
 		this.clearSearchFilters();
-		this.itemViewCollection.collectionFilter = new Items.Views.CollectionPage({model:model});
-		this.search({'page':1, 'collection':model.id});
+		if (filterType == 'collection'){
+			this.itemViewCollection.collectionFilter = new Items.Views.CollectionPage({model:model});
+			searchParams.collection = model.id;
+			this.search(searchParams);
+		} else if (filterType == 'user'){
+			this.itemViewCollection.userFilter = new Items.Views.UserPage({model:model});
+			searchParams.user = model.id;
+			this.search(searchParams);
+		}
 
 	},
-	removeCollectionFilter : function(){
-		//remove collectionFilter view which takes care of UI
-		this.itemViewCollection.collectionFilter.remove();
+	/***************************************************************************
+		- filterType: Filters are type either "collection" or "user"
+		- searchParams: Optionally pass in searchParams to have it set other things on search
+		- doSearch: Optionally make app request new items or not, default is TRUE
+	***************************************************************************/
+	removeFilter : function(filterType, searchParams, doSearch){
+		if (searchParams == null){
+			searchParams = new Object();
+		}
+		if (doSearch == null){
+			doSearch = true;
+		}
+		//reset height of main results content & my collections
+		$('.tab-content').removeClass('jda-low-top');
+		$('#zeega-right-column').show();
+		$('#zeega-left-column').addClass('span10');
+		$('#zeega-left-column').removeClass('span12');
 
-		//set filter to null
-		this.itemViewCollection.collectionFilter = null;
+		if (filterType == 'collection'){
+			//remove collectionFilter view which takes care of UI
+			this.itemViewCollection.collectionFilter.remove();
 
-		//remove search parameter from JDA app
-		this.search({'collection':''});
+			//set filter to null
+			this.itemViewCollection.collectionFilter = null;
+
+			//remove search parameter from JDA app
+			searchParams.collection = '';
+			if (doSearch){
+				this.search(searchParams);
+			}
+		} 
+		else if (filterType == 'user'){
+			//remove collectionFilter view which takes care of UI
+			this.itemViewCollection.userFilter.remove();
+
+			//set filter to null
+			this.itemViewCollection.userFilter = null;
+
+			//remove search parameter from JDA app
+			searchParams.user = '';
+			if (doSearch){
+				this.search(searchParams);
+			}
+		}
 
 	},
-	addUserFilter : function(model){
-		var Items = jda.module("items");
-		this.clearSearchFilters();
-		this.itemViewCollection.userFilter = new Items.Views.UserPage({model:model});
-		this.search({'page':1, 'user':model.id});
-
-	},
-	removeUserFilter : function(){
-		//remove collectionFilter view which takes care of UI
-		this.itemViewCollection.userFilter.remove();
-
-		//set filter to null
-		this.itemViewCollection.userFilter = null;
-
-		//remove search parameter from JDA app
-		this.search({'user':''});
-
-	},
+	
 	addCommas : function(nStr)
 	{
 		nStr += '';

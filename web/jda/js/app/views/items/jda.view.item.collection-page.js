@@ -46,19 +46,13 @@
 				
 				if (facet.model.get("category")=="collection") {
 					$(facet.el).find('.VS-icon-cancel').click(function(){
-						jda.app.removeCollectionFilter();
+						jda.app.removeFilter('collection');
 
 					});
 				}
 			});
 
-			/***************************************************************************
-				Overall Layout adjustments for Collection page view
-			***************************************************************************/
-			$('.tab-content').addClass('jda-low-top');
-			$('#zeega-right-column').hide();
-			$('#zeega-left-column').removeClass('span10');
-			$('#zeega-left-column').addClass('span12');
+			
 			
 
 			/***************************************************************************
@@ -93,10 +87,33 @@
 				$('#zeega-content-type').val("collection");
     			$('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
 
-				jda.app.removeCollectionFilter();
+				jda.app.removeFilter('collection');
+
+			});
+			/***************************************************************************
+				User name link into User profile page
+			***************************************************************************/
+			$('.jda-collection-filter-author').click(function(){
+
+				_.each( VisualSearch.searchBox.facetViews, function( facet ){
+				
+					if (facet.model.get("category")=="collection" && facet.model.get("value") == _this.model.get('title')) {
+						facet.model.set({'value': null });
+						facet.remove();
+					}
+				});
+				
+				
+				jda.app.removeFilter('collection',{});
+
+				//TO DO -- implement server call to retrieve & set user properly
+				//I suppose it should be a User object instead of an item
+				jda.app.addFilter(new Items.Model({name:'Lindsey Wagner', id:1234}),'user');
 
 			});
 
+
+			
 			/***************************************************************************
 				Show in Archive setting
 			***************************************************************************/
@@ -234,7 +251,7 @@
 			});
 
 			/***************************************************************************
-				FANCYBOX
+				FANCYBOX FOR THE EDIT BUTTON
 			***************************************************************************/
 			
 			$("button:contains(Edit)").fancybox({
@@ -329,14 +346,6 @@
 			$('#jda-collection-editing-toolbar').hide();
 			$('.jda-item-checkbox').hide();
 			
-			//reset height of main results content & my collections
-			$('.tab-content').removeClass('jda-low-top');
-			$('#zeega-right-column').show();
-			$('#zeega-left-column').addClass('span10');
-			$('#zeega-left-column').removeClass('span12');
-			
-
-			
 		},
 		
 		getTemplate : function()
@@ -353,7 +362,7 @@
 			'<img src="<%=thumbnail_url%>" alt="" style="width:160px;height:120px;">'+
 			'</div>'+
 			'<h3 class="jda-collection-filter-title"><%=title%></h3>'+
-			'<p><strong>by <span class="jda-collection-filter-author">Lindsey Wagner</span></strong></p>'+
+			'<p><strong>by <a href="#" class="jda-collection-filter-author"><%=media_creator_username%></a></strong></p>'+
 
 
 			'</div>'+
