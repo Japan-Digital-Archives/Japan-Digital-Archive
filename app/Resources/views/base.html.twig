@@ -65,7 +65,7 @@
 						<ul class="nav span4 pull-right">
 							<li><a href="{{path('about', { '_locale': locale})}}" class="about-english">{% trans %}jda.header.about{% endtrans %}</a></li>
 							<li class="divider-vertical"></li>
-							<li><a href="#about">Sign in</a></li>
+							<li><a href='{{ path('_security_logout')}}'>Sign out</a></li>
 							<li class="divider-vertical"></li>
 							<li>
 								<div class="btn-group">
