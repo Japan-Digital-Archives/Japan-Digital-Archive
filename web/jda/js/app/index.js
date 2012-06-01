@@ -16,7 +16,7 @@ jQuery(function($)
 			facetMatches : function(callback)
 			{
 				callback([
-					'tag', 'keyword', 'text', 'data:time & place'
+					'tag', 'keyword', 'text', 'data:time & place','collection','user'
 				]);
 			},
 			// These are the values that match specific categories, autocompleted
@@ -59,15 +59,53 @@ jQuery(function($)
 
 		search : function( query )
 				{
-					console.log('SEARCH')
+					
 					var obj = '{page:1}';
 					if (!_.isUndefined(query))
 					{
 						obj = QueryStringToHash(query);
 					}
-					console.log('hash SEARCH')
-					JDA.search(obj, true);
+					
 
+					//If URL specifies particular collection then we gotta look it up and set it in the app
+					//Only then can we update search UI with the title of the collection as a facet
+					if (obj.collection != null && obj.collection > 0){
+						var Items = jda.module("items");
+						var collectionModel = new Items.Model({id:obj.collection});
+
+						collectionModel.fetch(
+						{
+							success : function(model, response)
+							{ 
+								JDA.itemViewCollection.collectionFilter = new Items.Views.CollectionPage({model:model});
+								JDA.search(obj, true);
+							},
+							error : function(model, response)
+							{ 
+								console.log('index.js: Error getting collection specified in URL');
+							}
+						});
+					
+					} 
+					else if (obj.user != null && obj.user > 0){
+						var Users = jda.module("users");
+
+						//retrieve user object and then add user filter
+						var authorModel = new Users.Model({id:obj.user});
+						authorModel.fetch({
+							success : function(model, response){
+								JDA.itemViewCollection.userFilter = new Users.Views.UserPage({model:authorModel});
+								JDA.search(obj, true);
+							},
+							error : function(model, response){
+								console.log('index.js: Error getting user specified in URL');
+							},
+
+						});
+					}
+					else {
+						JDA.search(obj, true);
+					}
 				}
 
 

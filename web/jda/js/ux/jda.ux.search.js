@@ -1,24 +1,44 @@
 
 $(document).ready(function(){
+
+  
+  $('.jda-play-collection').click(function () {
+    alert('plays collection as slideshow in player');
+  });
+
+
+
+
   
   $("#search-bar").fadeTo('slow',1);
 
-  $('#content').change(function(){
-    $('#select-wrap-text').text( $('#content option[value=\''+$('#content').val()+'\']').text() );
+  //View buttons toggle
+  $("#zeega-view-buttons button").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
+  
+  $('#zeega-view-buttons a').click(function(){
+    $('#zeega-view-buttons button').removeClass('active');
+    $(this).find('button').addClass('active');
+    
+    jda.app.switchViewTo( $(this).data('goto-view') , true);
+    
+    return false;
+  });
+
+  $('#zeega-search-help').popover({'title':'Searching','placement':'bottom'});
+
+  $('#zeega-content-type').change(function(){
+    $('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
     jda.app.search({ page:1});
     return false;
   });
 
   $(window).resize(function() {
-    jda.app.resetMapSize();
+    if (jda.app.currentView == "event"){
+      jda.app.resetMapSize();
+    }
   });
-  $('#search-filters a').click(function(){
-    $(this).siblings().show();
-    $(this).hide();
-    jda.app.switchViewTo( $(this).data('goto-view') , true);
-    
-    return false;
-  });
+
+ 
   
   //Infinite Scroll
   jda.app.killScroll = false; 
@@ -41,9 +61,8 @@ $(document).ready(function(){
   sessionStorage.setItem('moreFancy', false);
 
   //set up fancybox lightbox plugin
-  
-  
   $(".list-fancymedia,.map-fancymedia").fancybox({
+
     openEffect : 'fade',
       closeEffect : 'fade',
       openSpeed : 'fast',
@@ -118,7 +137,7 @@ $(document).ready(function(){
 
         
             var elementID = $(this.element).attr('id');
-            var thisModel = jda.app.currentView == 'list' ? jda.app.itemViewCollection.collection.get(elementID) : jda.app.mapViewCollection.collection.get(elementID);
+            var thisModel = jda.app.currentView == 'list' || jda.app.currentView == 'thumb' ? jda.app.itemViewCollection.collection.get(elementID) : jda.app.mapViewCollection.collection.get(elementID);
       this.fancyView = null;
 
       switch(thisModel.get("media_type")){
@@ -158,6 +177,10 @@ $(document).ready(function(){
                 this.fancyView = new FancyBoxPDFView({model:thisModel});
                 this.fancyView.render(this);
                 break;
+              case 'Collection':
+              this.fancyView = new FancyBoxCollectionView({model:thisModel});
+              this.fancyView.render(this);
+              break;
       }
         },
         

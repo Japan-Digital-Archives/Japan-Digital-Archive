@@ -1,0 +1,323 @@
+@CHARSET "ISO-8859-1";
+
+/*************************************
+
+		THIS STYLESHEET HAS JDA-SPECIFIC STUFF. 
+		IT SERVES AS A CATCH-ALL FOR CSS THAT DOESN'T FIT ELSEWHERE AND PROBABLY
+		WON'T BE REUSED IN THE ZEEGA MAIN PROJECT.
+		
+**************************************/
+
+/*************************************
+
+		ICONS
+		
+**************************************/
+
+[class^="jdicon-"]
+{
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	vertical-align: text-top;
+	background-image: url(../images/jdicons-darkgrey-50.png);
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+	float:left;
+	margin-right:5px;
+}
+[class^="jdicon-small-"]
+{
+	width: 25px;
+	height: 25px;
+	background-size: 306px 164px;
+}
+.jdicon-image{background-position:0 0}
+.jdicon-email{background-position:-50px 0}
+.jdicon-website{background-position:-100px 0}
+.jdicon-audio{background-position:-350px -100px}
+.jdicon-tweet{background-position:-150px 0}
+.jdicon-facebook{background-position:-200px 0}
+.jdicon-map{background-position:-250px 0}
+.jdicon-collection{background-position:-200px -100px}
+.jdicon-document{background-position:-300px 0px}
+.jdicon-date{background-position:-0px -50px}
+.jdicon-video{background-position:-400px 0}
+.jdicon-article{background-position:-450px 0}
+.jdicon-pdf{background-position:-350px -50px}
+.jdicon-text{background-position:-200px -200px}
+.jdicon-testimonial{background-position:-200px -200px}
+.jdicon-layers{background-position:-250px -200px}
+.jdicon-drag{background-position:-300px -200px}
+
+.jdicon-small-facebook{background-position:-100px 0}
+.jdicon-small-tweet{background-position:-75px 0}
+.jdicon-small-layers{background-position:-125px -100px}
+.jdicon-small-list{background-position:-125px -25px}
+.jdicon-small-world{background-position:-0px -50px}
+.jdicon-small-document{background-position:-150px -0px}
+.jdicon-small-drag{
+	background-position:-150px -100px;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	display:none;
+	background-color: rgba(255, 255, 255, 0.8);
+
+}
+.jda-centered-icon{
+	position: absolute;top: 35px;left: 55px;
+}
+
+
+header .container{
+	width:98% !important;
+}
+.navbar .brand {
+	padding: 8px 30px 0 10px;
+	height:30px;
+
+}
+#jda-main-nav {
+	font-size:1.2em;
+}
+#jda-related-tags{
+	margin-top:20px;
+	height:300px;
+	line-height: 25px;
+	float:left;
+	text-align:left;
+}
+#jda-related-tags h3{
+	font-variant: small-caps;
+	border-bottom: solid 1px #999;
+	margin-bottom: 10px;
+
+}
+header .navbar .btn-group {
+	margin-top:10px;
+	margin-left:51px;
+}
+#jda-results-main-content {
+	position: relative;
+	top: 114px;
+}
+#jda-main-content{
+	margin-top:20px;
+}
+.jda-item-author,.jda-item-date{
+	font-size:11px;
+	
+}
+.jda-high-top{
+	top:0;
+	position:absolute
+}
+.jda-low-top{
+	top:147px;
+	position:absolute
+}
+tr{
+	background-color:white;
+	
+}
+#jda-create-account-results{
+	display:none;
+}
+#jda-create-account-results input{
+	height: 150px;
+	margin-left: 30px;
+	font-weight: bold;
+}
+#menu-thumbnails li{
+	position:relative;
+}
+#menu-thumbnails .btn-group{
+	position:absolute;
+	left: 137px;
+	top: 95px;
+}
+.thumbnail-selected{
+	border-color: #0088cc;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+  -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+  box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+legend{
+	font-size:16px;
+	font-weight:bold;
+}
+.jda-play-collection{
+	position: absolute; top: -142px;left: 6px; opacity: 0.7;
+}
+.thumbnails > li {
+	position:relative;
+}
+/*.icon-share-alt{
+	position: absolute;
+	top: 6px;
+	left: 150px;
+	background-color: whiteSmoke;
+	cursor:pointer;
+
+}*/
+#logo{
+	width:110px;
+}
+.VS-search .VS-search-box {
+	-webkit-border-radius:6px !important;
+	width:760px;
+	background-color:white !important;
+	border: 1px solid #CCC !important;
+	padding:4px;
+}
+.VS-search .VS-icon-search, .VS-search .VS-cancel-search-box {
+	top: 12px !important;
+}
+
+#spinner{
+	
+	position:absolute;
+	top:50px;
+	left:40%;
+
+}
+#jda-collection-filter{
+	position:fixed;top:75px;background:white;z-index:1;padding-bottom:9px;padding-top:30px
+}
+#jda-collection-editing-toolbar{
+	display:none;
+	clear:both;margin-bottom:8px;
+}
+.jda-item-checkbox{
+	position:absolute;top: 5px;position: absolute;right: 5px;
+	display:none;
+}
+/********************
+
+	OPEN LAYERS MAP
+	
+*********************/
+
+.olControlOverviewMapElement
+{
+	background-color:rgba(0,0,0,0.75);
+	border-radius:6px;
+}
+/* OVERRIDING STYLES FROM OPEN LAYERS */
+.olFramedCloudPopupContent {
+	padding: 0 !important;
+	overflow: auto;
+	width: 100% !important;
+	background-color: white;
+	left: 0px !important;
+	height: 99% !important;
+	top: inherit !important;
+	border: 1px #CCC solid;
+	border-radius: 6px;
+}
+.olPopupCloseBox {
+background: url("img/close.gif") no-repeat;
+cursor: pointer;
+top: 1px !important;
+right: 1px !important;
+-moz-border-radius-topleft: 0px;
+-moz-border-radius-topright: 4px;
+-moz-border-radius-bottomright: 0px;
+-moz-border-radius-bottomleft: 0px;
+-webkit-border-radius: 0px 4px 0px 0px;
+border-radius: 0px 4px 0px 0px;
+}
+.olControlZoomPanel div {
+	background-image: url(../images/zoom-control.png) !important;
+}
+/**************************************
+
+	event view & map popup
+
+**************************************/
+
+#map-popup{
+	padding:-65px;
+}
+#zeega-event-view{
+	position: fixed !important;
+	overflow: hidden;
+	left: 0;
+	top: 92px;
+}
+#layer-legend{
+	overflow: scroll;
+	height : 700px;
+}
+
+#layer-control-drawer{
+	display : inline-block;
+	z-index: 1004 !important;  
+	position : absolute;
+	right : -50px;
+	top : 100px;
+}
+
+.legend-entry{
+	border-bottom : 1px solid #999;
+}
+.legend-entry p{
+	padding-bottom: :0px;
+	padding-top: 10px;
+}
+
+#layer-control{
+	z-index:-1;
+	display : inline-block;
+	width : 200px;
+	height : 786px;
+	padding-right:50px;
+}
+
+#layer-control>ul{
+	margin-left : -55px;
+	padding-left : 55px;
+	margin-right : -50px;
+}
+
+#layer-control-drawer-tab{
+	display : inline-block;
+	vertical-align : top;
+	margin-top : 5px;
+	cursor : pointer;
+	z-index:200 !important;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+	padding-top : 3px;
+	padding-bottom : 3px;
+}
+.map-popup-list-items{
+	min-width : 270px;
+	max-width:300px;
+	min-height:50px;
+	margin:0;
+	clear:both;
+}
+
+.map-popup-list-items>div{
+	margin-left: 5px;
+}
+.discovery-map-list {
+	margin: 0;
+	list-style: none;
+	max-height: 100%;
+}
+.discovery-map-list li{
+	border-bottom:1px solid #ddd;
+	padding:5px;
+}
+.discovery-map-list img{
+
+	margin-right:5px;
+
+}
+
+
+

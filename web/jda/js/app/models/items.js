@@ -24,7 +24,18 @@
 				error:errorFunction,
 			});
 		},
-		
+		parse : function(response)
+		{
+			if (response.items)
+				return response.items[0];
+			else 
+				return response;
+		},
+		url : function(){ 
+			var url = jda.app.apiLocation + 'api/items/' + this.id;
+			console.log("Final url for getting item is: " + url);
+			return url;
+		},
 	});
 
 })(jda.module("items"));
