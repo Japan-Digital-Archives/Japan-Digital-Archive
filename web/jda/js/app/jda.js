@@ -266,7 +266,7 @@ this.jda = {
 
 		if (filterType == 'collection'){
 			//remove collectionFilter view which takes care of UI
-			this.itemViewCollection.collectionFilter.remove();
+			if(!_.isUndefined(this.itemViewCollection.collectionFilter))this.itemViewCollection.collectionFilter.remove();
 
 			//set filter to null
 			this.itemViewCollection.collectionFilter = null;
@@ -425,11 +425,7 @@ this.jda = {
 			
 				});
 				
-				if( _this.itemViewCollection.getCQLSearchString()!=null){
-					_this.map.layers[1].mergeNewParams({
-						'CQL_FILTER' : _this.itemViewCollection.getCQLSearchString()
-					});
-				}
+				
 				
 				
 				
@@ -445,6 +441,11 @@ this.jda = {
 				
 				_this.map.addLayers(_this.getMapLayers());
 				_this.map.addLayer(dataLayer); 
+				if( _this.itemViewCollection.getCQLSearchString()!=null){
+					_this.map.getLayersByName('cite:item - Tiled')[0].mergeNewParams({
+						'CQL_FILTER' : _this.itemViewCollection.getCQLSearchString()
+					});
+				}
 			
 			});
 	},
