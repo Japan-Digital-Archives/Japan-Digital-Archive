@@ -11,6 +11,11 @@
 
 var loadFiles = [
 	
+	//data 
+	
+	'order!../data/map-layers',
+	
+	
 	//libraries	
 	//'text!../app/views/items/templates.html',
 	
@@ -75,8 +80,7 @@ var loadFiles = [
 	'order!../helpers/utils',
 	'order!../ux/jda.ux.search',
 
-
-		
+	
 	//core
 	
 	//'order!search',

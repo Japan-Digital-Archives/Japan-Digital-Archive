@@ -30,8 +30,7 @@ this.jda = {
 	geoUrl : sessionStorage.getItem("geoServerUrl"),
 	resultsPerPage : 100,
 	
-	init : function()
-	{
+	init : function(){
 		// Include all modules
 
 		var Items = jda.module("items");
@@ -42,8 +41,7 @@ this.jda = {
 		this.myCollectionsDrawer.getCollectionList();
 	},
 	
-	search : function(params, useValuesFromURL)
-	{
+	search : function(params, useValuesFromURL){
 		var _this = this;
 		//Parse out search box values for putting them in the Search query
 		if (useValuesFromURL)
@@ -106,10 +104,7 @@ this.jda = {
 		
 	},
 	
-	
-	
-	updateSearchUI : function(obj)
-	{
+	updateSearchUI : function(obj){
 		var q = obj.q;
 		if (!_.isUndefined(q))
 		{
@@ -144,8 +139,7 @@ this.jda = {
 		
 	},
 	
-	 setEventViewTimePlace : function(obj)
-	{
+	setEventViewTimePlace : function(obj){
 		if (!_.isUndefined(obj.start))
 		{
 			oldValues =  $("#range-slider").slider( "option", "values" );
@@ -172,8 +166,7 @@ this.jda = {
 	},
 	
 	
-	switchViewTo : function( view , refresh )
-	{
+	switchViewTo : function( view , refresh ){
 		
 		this.itemViewCollection.setView(view);
 		if( view != this.currentView )
@@ -212,11 +205,13 @@ this.jda = {
 			}
 		}
 	},
+	
 	/***************************************************************************
 		- model: either collection or user
 		- filterType: Filters are type either "collection" or "user"
 		- searchParams: Optionally pass in searchParams to have it set other things on search
 	***************************************************************************/
+	
 	addFilter : function(model, filterType, searchParams){
 
 		if (searchParams == null){
@@ -248,11 +243,14 @@ this.jda = {
 		}
 
 	},
+	
+	
 	/***************************************************************************
 		- filterType: Filters are type either "collection" or "user"
 		- searchParams: Optionally pass in searchParams to have it set other things on search
 		- doSearch: Optionally make app request new items or not, default is TRUE
 	***************************************************************************/
+	
 	removeFilter : function(filterType, searchParams, doSearch){
 		if (searchParams == null){
 			searchParams = new Object();
@@ -298,8 +296,7 @@ this.jda = {
 
 	},
 	
-	addCommas : function(nStr)
-	{
+	addCommas : function(nStr){
 		nStr += '';
 		x = nStr.split('.');
 		x1 = x[0];
@@ -311,8 +308,7 @@ this.jda = {
 		return x1 + x2;
 	},
 	
-	showListView : function()
-	{
+	showListView : function(){
 		console.log('switch to List view');
 
 		
@@ -331,8 +327,8 @@ this.jda = {
 		}
 		
 	},
-	showThumbnailView : function()
-	{
+	
+	showThumbnailView : function(){
 		$('#zeega-results-count').removeClass('zeega-results-count-event');
 		$('#zeega-results-count').css('left', 0);
 		$('#zeega-results-count').css('z-index', 0);
@@ -345,10 +341,9 @@ this.jda = {
 			this.itemViewCollection.render();
 		}
 	},
-	showEventView : function()
-	{
+	
+	showEventView : function(){
 		console.log('switch to Event view');
-		//For some reason, the map collapses after a search to 0px width
 		
 		//Time slider disabled for now
 		//$('#event-time-slider').show();
@@ -385,8 +380,7 @@ this.jda = {
 		console.log('map loaded')
 	},
 	
-	initWorldMap : function()
-	{
+	initWorldMap : function(){
 		console.log("Initializing Map");
 
 		OpenLayers.IMAGE_RELOAD_ATTEMPTS = 5;
@@ -450,13 +444,12 @@ this.jda = {
 				$(".olControlPanZoomBar").css({"top":"65px"});
 				
 				_this.map.addLayers(_this.getMapLayers());
-				_this.map.addLayer(dataLayer);
-		
+				_this.map.addLayer(dataLayer); 
+			
 			});
 	},
 	
-	startMapListeners : function(map)
-	{
+	startMapListeners : function(map){
 		var _this = this;
 		this.map.events.register('click', map, function(e){
 			
@@ -490,10 +483,7 @@ this.jda = {
 			OpenLayers.Event.stop(e);
 		});
 		
-		$(".layer-checkbox").click(function(){
-			_this.toggleMapLayer($(this).attr("id"), map);
-			_this.toggleLegendEntry($(this).attr("id"), map);
-		});
+		
 		
 		//Adding DRAG back in -- wasn't working for some reason...
 		var dragcontrol = new OpenLayers.Control.DragPan({'map':this.map, 'panMapDone':function(xy){
@@ -527,14 +517,7 @@ this.jda = {
 
 	},
 	
-	showTagView : function()
-	{
-		console.log('switch to Tag view');
-		
-	},
-	
-	initTimeSlider : function(map)
-	{
+	initTimeSlider : function(map){
 	/*console.log("Initializing Time Slider");
 	_this = this;
 	if( !this.timesliderLoaded )
@@ -651,6 +634,7 @@ this.jda = {
 			}
 		});*/
  	},
+	
 	updateMapForTimeSlider : function(map){
 		console.log("UP");
 		 //Time filter string    
@@ -663,8 +647,7 @@ this.jda = {
 		 }
    	},
    	
-	setStartDateTimeSliderHandle : function()
-	{
+	setStartDateTimeSliderHandle : function(){
 		dateMillis = $("#start-date").datepicker('getDate').getTime();
 		timeStrings = $("#start-time").val().split(':');
 		h = timeStrings[0];
@@ -676,8 +659,7 @@ this.jda = {
 		jda.app.setStartDateTimeSliderBubble(seconds);
 	},
 	
-	setEndDateTimeSliderHandle : function()
-	{
+	setEndDateTimeSliderHandle : function(){
 		dateMillis = $("#end-date").datepicker('getDate').getTime();
 		timeStrings = $("#end-time").val().split(':');
 		h = timeStrings[0];
@@ -689,8 +671,7 @@ this.jda = {
 		jda.app.setEndDateTimeSliderBubble(seconds);
 	},
 	
-	setStartDateTimeSliderBubble : function(val)
-	{		
+	setStartDateTimeSliderBubble : function(val){		
 		centerX = $("#range-slider a").first().position()["left"];
 		dateTimeWidth = $("#date-time-start").outerWidth();
 		$("#date-time-start").css("left", centerX);
@@ -699,8 +680,7 @@ this.jda = {
 		$("#start-time").val(d.format("h:MM tt"));
 	},
 	
-	setEndDateTimeSliderBubble : function(val)
-	{
+	setEndDateTimeSliderBubble : function(val){
 		handleWidth =  $("#range-slider a").last().outerWidth();
 		centerX = $("#range-slider a").last().position()["left"];
 		dateTimeWidth = $("#date-time-end").width();
@@ -727,63 +707,7 @@ this.jda = {
         
 	},
 	
-	
-	toggleLegendEntry :  function(checkboxID, map)
-	{
-		switch(checkboxID)
-		{
-			case "municipal-layer":
-				layer = "geonode:Admin_Dissolve_Test2_JOB";
-				legendID = "municipal-legend";
-				break;
-			case "radiation-layer":			
-				layer = "geonode:rad_may11_contours_final_cgl";
-				legendID = "radiation-legend";
-				break;
-			case "casualties-layer":			
-				layer =  "geonode:Slct_Casualty2010Join1_Final_zDe";
-				legendID = "casualties-legend";
-				break;
-			case "flooding-layer":			
-				layer =  "geonode:japan8m_ezt";
-				legendID = "flooding-legend";
-				break;
-			case "shake-layer":
-				layer ="geonode:InstruIntensity_Clip_dOd";
-				legendID = "shake-legend";
-				break;
-			case "pop-density-layer":
-				layer ="geonode:_popcensus2_2id";
-				legendID = "pop-density-legend";
-				break;
-		}
-		
-		//If the image hasn't been loaded yet, do so
-		if ( $("#"+legendID).find("img").length == 0)
-		{
-			legendString = "http://worldmap.harvard.edu/geoserver/wms?TRANSPARENT=TRUE&EXCEPTIONS=application%2Fvnd.ogc.se_xml&VERSION=1.1.1&SERVICE=WMS&REQUEST=GetLegendGraphic&LLBBOX=133.65533295554525,34.24189997810896,143.33901303676075,42.22959346742014&URL=http%3A%2F%2Fworldmap.harvard.edu%2Fgeoserver%2Fwms&TILED=true&TILESORIGIN=14878443.604346,4061329.7164352&LAYER="+layer+"&FORMAT=image/gif&SCALE=1091958.1364361627";
-			$("#"+legendID).append("<img src='" + legendString + "'>");
-		}		
-		//toggle visibility of that legend item
-		$("#"+legendID).toggleClass("hidden");
-
-	},
-	
-	toggleMapLayer : function(checkboxID, map)
-	{
-		//map layer names are the same as checkbox id's
-		var isChecked = $('#'+checkboxID).is(':checked');
-		var layer = map.getLayersByName(checkboxID)[0];
-		layer.setVisibility(isChecked);
-	},
-	
-	onLegendLoad : function(response)
-	{
-		console.log(response);
-	},
-	
-	onMapClick : function(response)
-	{
+	onMapClick : function(response){
 		
 		//remove existing popups.
 		if(this.popup)this.popup.destroy();
@@ -838,152 +762,22 @@ this.jda = {
 		
 	},
 	
-	getMapLayers : function()
-	{
-		_this = this;
-		var layers = [];		
-		
-		if(true)
-		{
-			/*
-			layers.push(new OpenLayers.Layer.WMS(
-				"cite:item - tiled",
-				this.geoUrl + "cite/wms",
-				{
-					layers : 'cite:item',
-					tiled: true,
-					transparent : true,
-					format : 'image/png',
-					tiled: true
-				}
-			));
-			*/
-
-			
-			
-			
-			//JapanMap layers.  For more layers, it will make sense to load these only when needed.
-			layers.push( new OpenLayers.Layer.WMS(
-				"municipal-layer",
-				this.japanMapUrl + "wms",
-				{
-					layers : "geonode:Admin_Dissolve_Test2_JOB",
-					format : 'image/png',
-					transparent : true,
-					tiled : true
-				},
-				{
-					singleTile : false,
-					wrapDateLine : true,
-					visibility : false,
-					opacity : 0.3,
-					buffer: 0,
-								displayOutsideMaxExtent: true,
-								isBaseLayer: false,
-								yx : {'EPSG:900913' : false},
-								'sphericalMercator': true,
-								'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
-				})
-			);
-			
-			layers.push( new OpenLayers.Layer.WMS(
-				"radiation-layer",
-				this.japanMapUrl + "wms",
-				{
-					layers : "geonode:rad_may11_contours_final_cgl",
-					format : 'image/png',
-					transparent : true,
-					tiled : true,
-				},
-				{
-					singleTile : false,
-					wrapDateLine : true,
-					visibility : false,
-					buffer: 0,
-								displayOutsideMaxExtent: true,
-								isBaseLayer: false,
-								yx : {'EPSG:900913' : false},
-								'sphericalMercator': true,
-								'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
-				})
-			);
-		
-			layers.push(new OpenLayers.Layer.WMS(
-				"casualties-layer",
-				this.japanMapUrl + "wms",
-				{
-					layers : "geonode:Slct_Casualty2010Join1_Final_zDe",
-					format : 'image/png',
-					transparent : true,
-					tiled : true
-				},
-				{
-					singleTile : false,
-					wrapDateLine : true,
-					visibility : false,
-					opacity : 0.5,
-					buffer: 0,
-								displayOutsideMaxExtent: true,
-								isBaseLayer: false,
-								yx : {'EPSG:900913' : false},
-								'sphericalMercator': true,
-								'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
-				})
-			);
-		
+	getMapLayers : function(){
 	
-			
-			layers.push( new OpenLayers.Layer.WMS(
-				"shake-layer",
-				this.japanMapUrl + "wms",
-				{
-					layers : "geonode:InstruIntensity_Clip_dOd",
-					format : 'image/png',
-					transparent : true,
-					tiled : true
-				},
-				{
-					singleTile : false,
-					wrapDateLine : true,
-					visibility : false,
-					opacity : 0.3,
-					buffer: 0,
-								displayOutsideMaxExtent: true,
-								isBaseLayer: false,
-								yx : {'EPSG:900913' : false},
-								'sphericalMercator': true,
-								'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
-				})
-			);
+		//JapanMap layers from data/map-layers.js
 		
-			layers.push( new OpenLayers.Layer.WMS(
-				"flooding-layer",
-				this.japanMapUrl + "wms",
+		_this = this;
+		var layers = [];
+		_.each(jdaMapLayers.layers,function(layer){
+				 $('#layer-checkboxes').append('<label class="checkbox">'+layer.title+'<input type="checkbox" data-layer="'+layer.src+'" class="layer-checkbox" id="'+layer.id+'"/></label>');
+				 $('#layer-legend').append('<div class="legend-entry hidden" id="'+layer.id+'-legend"><p>"'+layer.title+'"</p></div>');
+		
+				layers.push( new OpenLayers.Layer.WMS(
+				layer.id,
+				_this.japanMapUrl + "wms",
 				{
-					layers : "geonode:japan8m_ezt",
-					format : 'image/png',
-					transparent : true,
-					tiled : true
-				},
-				{
-					singleTile : false,
-					wrapDateLine : true,
-					visibility : false,
-					buffer: 0,
-								displayOutsideMaxExtent: true,
-								isBaseLayer: false,
-								yx : {'EPSG:900913' : false},
-								'sphericalMercator': true,
-								'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
-				})
-			);
-
-			layers.push( new OpenLayers.Layer.WMS(
-				"pop-density-layer",
-				this.japanMapUrl + "wms",
-				{
-					layers : "geonode:_popcensus2_2id",
-					format : 'image/png',
+					layers : layer.src,
+					format : layer.format,
 					transparent : true,
 					tiled : true
 				},
@@ -1000,11 +794,28 @@ this.jda = {
 								'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
 				})
 			);
-			
-		}
+		});
+		
+		
+		$(".layer-checkbox").click(function(){
+			_this.toggleMapLayer($(this).attr("id"),$(this).data("layer"), _this.map);
+		});
 		
 		return layers;
-	}
+	},
+
+	toggleMapLayer : function(id,layerId, map){
+		 //set visibility of map layer
+		map.getLayersByName(id)[0].setVisibility( $('#'+id).is(':checked'));
+		if ( $("#"+id+"-legend").find("img").length == 0){
+			$("#"+id+"-legend").append("<img src='http://worldmap.harvard.edu/geoserver/wms?TRANSPARENT=TRUE&EXCEPTIONS=application%2Fvnd.ogc.se_xml&VERSION=1.1.1&SERVICE=WMS&REQUEST=GetLegendGraphic&LLBBOX=133.65533295554525,34.24189997810896,143.33901303676075,42.22959346742014&URL=http%3A%2F%2Fworldmap.harvard.edu%2Fgeoserver%2Fwms&TILED=true&TILESORIGIN=14878443.604346,4061329.7164352&LAYER="+layerId+"&FORMAT=image/gif&SCALE=1091958.1364361627'>");
+		}		
+		
+		//toggle visibility of that legend item
+		$("#"+id+"-legend").toggleClass("hidden");
+		 
+		 //set visibility of legend
+	},
 	
 }, Backbone.Events)
 
