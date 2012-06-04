@@ -246,6 +246,94 @@
                 <source>jda.login.login</source>
                 <target>Login</target>
             </trans-unit>
+            <trans-unit id="62">
+                <source>jda.advsearch.searchTerms</source>
+                <target>Search Terms:</target>
+            </trans-unit>
+            <trans-unit id="63">
+                <source>jda.advsearch.title</source>
+                <target>Advanced Search:</target>
+            </trans-unit>
+            <trans-unit id="64">
+                <source>jda.advsearch.video</source>
+                <target>Video</target>
+            </trans-unit>
+            <trans-unit id="65">
+                <source>jda.advsearch.audio</source>
+                <target>Audio</target>
+            </trans-unit>
+            <trans-unit id="66">
+                <source>jda.advsearch.image</source>
+                <target>Image</target>
+            </trans-unit>
+            <trans-unit id="67">
+                <source>jda.advsearch.website</source>
+                <target>Website</target>
+            </trans-unit>
+            <trans-unit id="68">
+                <source>jda.advsearch.tweet</source>
+                <target>Tweet</target>
+            </trans-unit>
+            <trans-unit id="69">
+                <source>jda.advsearch.document</source>
+                <target>Document</target>
+            </trans-unit>
+            <trans-unit id="70">
+                <source>jda.advsearch.all</source>
+                <target>All</target>
+            </trans-unit>
+            <trans-unit id="71">
+                <source>jda.advsearch.contentType</source>
+                <target>Content Type:</target>
+            </trans-unit>
+            <trans-unit id="72">
+                <source>jda.advsearch.user</source>
+                <target>User:</target>
+            </trans-unit>
+            <trans-unit id="73">
+                <source>jda.advsearch.allusers</source>
+                <target>All Users</target>
+            </trans-unit>
+            <trans-unit id="74">
+                <source>jda.advsearch.onlyCurrentUser</source>
+                <target>Only My Items</target>
+            </trans-unit>
+            <trans-unit id="75">
+                <source>jda.advsearch.tags</source>
+                <target>Tags:</target>
+            </trans-unit>
+            <trans-unit id="76">
+                <source>jda.advsearch.startDate</source>
+                <target>Start Date:</target>
+            </trans-unit>
+            <trans-unit id="77">
+                <source>jda.advsearch.endDate</source>
+                <target>End Date:</target>
+            </trans-unit>
+            <trans-unit id="78">
+                <source>jda.advsearch.incCollections</source>
+                <target>Include Collections?:</target>
+            </trans-unit>
+            <trans-unit id="79">
+                <source>jda.advsearch.noCollections</source>
+                <target>No Collections</target>
+            </trans-unit>
+            <trans-unit id="80">
+                <source>jda.advsearch.onlyCollections</source>
+                <target>Only Collections</target>
+            </trans-unit>
+            <trans-unit id="81">
+                <source>jda.advsearch.both</source>
+                <target>Both</target>
+            </trans-unit>
+            <trans-unit id="82">
+                <source>jda.advsearch.mapInstructions</source>
+                <target>Instructions</target>
+            </trans-unit>
+            <trans-unit id="83">
+                <source>jda.advsearch.mapInstructionsTxt</source>
+                <target>Hold Shift and Drag in order to create a box around the area you would like to search</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
