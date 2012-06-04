@@ -8,19 +8,10 @@
 		{
 			
 			this.collection = new Items.Collection();
-
-			this.collection.search = 	{		
-				page:1,
-				r_itemswithcollections: 0,
-				r_items:1,
-				r_tags:1,
-				content:'collection',
-				user : -1
-
-			};
+			this.collection.url=jda.app.apiLocation + 'api/search?r_collections=1&user=-1';
 
 			//show 3 thumbnails by default in collections drawer
-			this.showThumbnailCount = 4;
+			this.showThumbnailCount = 3;
 			
 			
 			
@@ -181,6 +172,8 @@
 			// fetch list of collections for drawer drop-down
 			// if user has no collections then make a new 'my collection'
 			// but don't save until they add something to it
+			
+			
 			this.collection.fetch({
 				
 				success : function(model, response)
