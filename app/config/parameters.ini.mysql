@@ -1,0 +1,27 @@
+; These parameters can be imported into other config files
+; by enclosing the key with % (like %database_user%)
+; Comments start with ';', as in php.ini
+[parameters]
+    database_driver   = pdo_mysql
+    database_host     = dev.zeega.org
+    database_name     = zeega_jda_api2
+    database_user     = map01
+    database_password = map3yecZ7u1
+    database_type     = mysql
+
+    mailer_transport  = smtp
+    mailer_host       = localhost
+    mailer_user       =
+    mailer_password   =
+    mailer_encryption = ssl
+    locale            = en
+
+    secret            = fa696c26f77d4222f04411dac6887e794f373709
+    hostname          = http://108.171.163.81/
+    directory           = kanarinka/web/
+
+    api_url           = http://108.171.163.81/zeega/web/
+    japan_map_url     = http://worldmap.harvard.edu/geoserver/
+    geoserver_url     =	http://geo.zeega.org:8080/geoserver/
+    
+

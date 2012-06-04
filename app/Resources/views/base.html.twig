@@ -1,136 +1,105 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-       	<meta name="robots" content="noindex,follow">
-		<meta name="description" content="">
-		<meta name="keywords" content="">
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        {% block title %}
-        {% endblock %}
-         <link href="{{ asset('jda/css/bootstrap.css')}}" rel="stylesheet" type="text/css">
-			<link href="{{ asset('jda/css/home.css')}}" rel="stylesheet" type="text/css">
-			<link href="{{ asset('jda/css/style.css')}}" rel="stylesheet" type="text/css">
-			<link rel="shortcut icon" type="image/x-icon" href="{{ asset('jda/images/jda.ico')}}"> 
-         
-         {% block stylesheets %}
+<head>
+	<meta name="robots" content="noindex,follow">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	{% block title %}
+	{% endblock %}
+	<link href="{{ asset('jda/js/lib/bootstrap-2.0.2/css/bootstrap.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{ asset('jda/js/lib/bootstrap-2.0.2/css/bootstrap-responsive.css')}}" rel="stylesheet">
+	<link href="{{ asset('jda/css/zeega-jda.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{ asset('jda/css/jda.css')}}" rel="stylesheet" type="text/css">
+
+	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('jda/images/jda.ico')}}"> 
+
+	{% block stylesheets %}
 	
-			
-			
-		{% endblock %}
-				
-		<script> 
-			sessionStorage.setItem('directory', '{{directory}}');
-			sessionStorage.setItem('hostname','{{hostname}}');
-			sessionStorage.setItem('apiUrl','{{api_url}}');
-			sessionStorage.setItem('japanMapUrl','{{japan_map_url}}');
-			sessionStorage.setItem('geoServerUrl','{{geoserver_url}}');
-		</script>
-		
-		
-		{% block scripts %}
-		{% endblock %}
-		
-		
-		
-    </head>
-    
-  <body>
-		{% set locale = app.session.locale  %}
 
-		{% block header %}
-		<div class="white-background"></div>
-			<div id="header-bar"><div id="header-english">
 
-		<header class="clearfix"> 
-		{% if locale == 'ja' %}
-			<a href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('jda/images/logo-jp.png')}}"></a>
-		{% else %}
-			<a href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('jda/images/logo.png')}}"></a>
-		{% endif %}
-		
-		<a href='#myModal' class='alpha-header' data-toggle='modal'>alpha</a>
-		
-		<div id="user-bar">
-			<ul id="header-menu" class="unstyled">
+	{% endblock %}
 
-				
-				{% if locale == 'ja' %}
-					<li>{% trans %}jda.header.japanese{% endtrans %}</li>
-					<li>
-						{% if page == 'home' %}
-							<a href="{{path('home', { '_locale': 'en' })}}">
-						{% elseif page == 'about' %}
-							<a href="{{path('about', { '_locale': 'en' })}}">
-						{% elseif page == 'search' %}
-							<a href="{{path('search', { '_locale': 'en' })}}">
-						{% else %}
-							<a href="{{path('user_registration', { '_locale': 'en' })}}">
-						{% endif %}
-						{% trans %}jda.header.english{% endtrans %}</a>
-					</li>
-				{% else %}
-					<li>
-						{% if page == 'home' %}
-							<a href="{{path('home', { '_locale': 'ja' })}}">
-						{% elseif page == 'about' %}
-							<a href="{{path('about', { '_locale': 'ja' })}}">
-						{% elseif page == 'search' %}
-							<a href="{{path('search', { '_locale': 'ja' })}}">
-						{% else %}
-							<a href="{{path('user_registration', { '_locale': 'ja' })}}">
-						{% endif %}
-						{% trans %}jda.header.japanese{% endtrans %}</a>
-					</li>
-					<li>{% trans %}jda.header.english{% endtrans %}</li>
-				{% endif %}
-				
-				<li>/</li>
-				
-				<li><a  href="{{path('about', { '_locale': locale})}}" class="about-english">{% trans %}jda.header.about{% endtrans %}</a></li>
-				<li><a href="mailto: feedback@jdarchive.org" target="_blank">{% trans %}jda.header.feedback{% endtrans %}</a></li>
-				{% if is_granted('ROLE_ADMIN') %}
-					<li><a href="{{ path('fos_user_registration_register') }}" class="dark">Register a new user</a></li>
-				{% endif %}
-				<li><a href='{{ path('_security_logout')}}'>Logout</a></li>
-				<!--
-				<li><a href='#' class='btn success small'>{% trans %}jda.home.add{% endtrans %}</a></li>
-				-->
-				<!--
-				<li><a href="#">login</a></li>
-				<li>/</li>
-				<li><a href="#">register</a></li>
-				-->
-			</ul>
+	<script> 
+	sessionStorage.setItem('directory', '{{directory}}');
+	sessionStorage.setItem('hostname','{{hostname}}');
+	sessionStorage.setItem('apiUrl','{{api_url}}');
+	sessionStorage.setItem('japanMapUrl','{{japan_map_url}}');
+	sessionStorage.setItem('geoServerUrl','{{geoserver_url}}');
+	</script>
+
+
+	{% block scripts %}
+	{% endblock %}
+
+
+
+</head>
+
+<body>
+	{% set locale = app.session.locale  %}
+
+	{% block header %}
+
+
+	<header>
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<div class="row">
+						<div class="span8">
+							{% if locale == 'ja' %}
+							<a class="brand" href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('jda/images/logo-jp.png')}}"></a>
+							{% else %}
+							<a class="brand" href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('jda/images/logo.png')}}"></a>
+							{% endif %}
+
+
+
+							<ul id="jda-main-nav" class="nav span4">
+								<li><a href="#">Explore</a></li>
+								<li><a href="#about">Collections</a></li>
+								<li><a href="#contact">Participate</a></li>
+							</ul>
+						</div>
+						<ul class="nav span4 pull-right">
+							<li><a href="{{path('about', { '_locale': locale})}}" class="about-english">{% trans %}jda.header.about{% endtrans %}</a></li>
+							<li class="divider-vertical"></li>
+							<li><a href="#about">Sign in</a></li>
+							<li class="divider-vertical"></li>
+							<li>
+								<div class="btn-group">
+									<button class="btn btn-mini btn-info active">English</button>
+									<button class="btn btn-mini btn-info">日本の</button>
+								</div>
+							</li>
+						</ul>
+					</div><!--/row -->
+				</div><!--/container -->
+			</div><!--/navbar-inner -->
+		</div><!--/navbar -->
+	</header>
+
+	<a href='#myModal' class='alpha-header' data-toggle='modal'>alpha</a>
+
+	{% endblock %}
+
+	{% block content %}
+	{% endblock %}
+
+	{% block footer %}
+	{% endblock %}
+
+	<div class="modal" id="myModal" style='display:none'>
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">×</a>
+			<h3>{% trans %}jda.header.aboutalpha{% endtrans %}</h3>
+		</div>
+		<div class="modal-body">
+			<p>{% trans %}jda.header.alphadescription{% endtrans %}</p>
 		</div>
 
-			</header>
-		</div></div>
+	</div>
 
-		
-  		{% endblock %}
-				
-		{% block content %}
-		{% endblock %}
-		   
-		{% block footer %}
-		{% endblock %}
-
-
-		
-			
-			<div class="modal" id="myModal" style='display:none'>
-				<div class="modal-header">
-					<a class="close" data-dismiss="modal">×</a>
-					<h3>{% trans %}jda.header.aboutalpha{% endtrans %}</h3>
-				</div>
-				<div class="modal-body">
-					<p>{% trans %}jda.header.alphadescription{% endtrans %}</p>
-				</div>
-
-			</div>
-			
-
-		
-         
-    </body>
+</body>
 </html>

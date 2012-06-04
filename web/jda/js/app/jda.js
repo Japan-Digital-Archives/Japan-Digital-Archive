@@ -12,7 +12,7 @@ this.jda = {
 		// Create a new module reference scaffold or load an existing module.
 		return function(name) 
 		{
-			// If this module has already been created, return it.
+			// If this module has already been created, return it
 			if (modules[name]) return modules[name];
 
 			// Create a module and save it under this name
@@ -35,35 +35,31 @@ this.jda = {
 		// Include all modules
 
 		var Items = jda.module("items");
+
 		// make item collection
 		this.itemViewCollection = new Items.ViewCollection();
+		this.myCollectionsDrawer = new Items.MyCollectionsDrawer();
+		this.myCollectionsDrawer.getCollectionList();
 	},
 	
 	search : function(params, useValuesFromURL)
 	{
-		console.log('search');
-		console.log("params top " + params);
-		console.log(useValuesFromURL);
-		console.log('search done');
-		
+		var _this = this;
 		//Parse out search box values for putting them in the Search query
 		if (useValuesFromURL)
 		{
-			//get the search query from URL and put it in the search box
+			//get the search query from URL and put it in the search box			
 			this.updateSearchUI(params);
-			console.log('from url');
-			console.log(params)
 		}
 		else
 		{
 			//Use content value from format dropdown
-			console.log('new search')
-			console.log(params)
-			params.content = $('#content').val();
+			
+			params.content = $('#zeega-content-type').val();
 
 			//Parse searchbox values
 			var facets = VisualSearch.searchQuery.models;
-			console.log("facets " + facets)
+			
 			
 			var tagQuery = "tag:";
 			var textQuery = "";
@@ -78,12 +74,13 @@ this.jda = {
 					case 'tag':
 						tagQuery = (tagQuery.length > 4) ? tagQuery + ", " + facet.get('value') : tagQuery + facet.get('value');
 						break;
+					
 			    }
 			});
 			params.q = textQuery + (textQuery.length > 0 && tagQuery.length > 4 ? " " : "") + (tagQuery.length > 4 ? tagQuery : "");
 			params.text = textQuery;
 			params.viewType = this.currentView;
-			console.log("PARAMS " + params)
+			
 		
 		}
 		
@@ -98,7 +95,7 @@ this.jda = {
 		
 		if (this.currentView == 'event')
 		{
-		    console.log("Event yo");
+		    
 			if(!_.isUndefined( this.itemViewCollection.getCQLSearchString())&&this.mapLoaded)
 			{
 				this.map.layers[1].mergeNewParams({
@@ -140,9 +137,10 @@ this.jda = {
 			
 		}
 		if (!_.isUndefined(obj.content)){
-			$('#content').val(obj.content);
-			$('#select-wrap-text').text( $('#content option[value=\''+$('#content').val()+'\']').text() );
+			$('#zeega-content-type').val(obj.content);
+			$('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
 		}
+		
 		
 	},
 	
@@ -167,10 +165,10 @@ this.jda = {
  	},
 	
 	resetMapSize :function(){
-		var h = Math.max($(window).height() - 139,400);
+		var h = Math.max($(window).height() - $('#zeega-event-view').offset().top,400);
 		$("#event-map").height(h +20);
-		$("#event-map").width($(window).width());
-		$('#results-count').offset( { top:$('#results-count').offset().top, left:10 } );
+		$("#event-map,#zeega-event-view").width($(window).width());
+		$('#zeega-results-count').offset( { top:$('#zeega-results-count').offset().top, left:10 } );
 	},
 	
 	
@@ -180,12 +178,12 @@ this.jda = {
 		this.itemViewCollection.setView(view);
 		if( view != this.currentView )
 		{
-			$('#'+this.currentView+'-view').hide();
+			//$('#'+this.currentView+'-view').hide();
 			this.currentView = view;
-			$('#'+view+'-view').show();
-			$("#"+view+"-view-button").hide();
-			$("#"+view+"-view-button").siblings().show();
- 	 		$(this).hide();
+			$('.tab-pane').removeClass('active');
+			$('#zeega-'+view+'-view').addClass('active');
+			
+ 	 		//$(this).hide();
 			switch( this.currentView )
 			{
 				case 'list':
@@ -194,26 +192,103 @@ this.jda = {
 				case 'event':
 					this.showEventView();
 					break;
-				case 'tag':
-					this.showTagView();
+				case 'thumb':
+					this.showThumbnailView();
 					break;
 				default:
 					console.log('view type not recognized')
 			}
 			if(refresh){
-				$('#results-count').fadeOut('fast');
+				$('#zeega-results-count').fadeOut('fast');
 				var searchView=this.itemViewCollection;
 				searchView.collection.fetch({
 					success : function(model, response){ 
 						searchView.renderTags(response.tags);
 						searchView.render();      
-						$('#results-count-number').text(jda.app.addCommas(response["items_count"]));        
-						$('#results-count').fadeTo(100, 1);
+						$('#zeega-results-count-number').text(jda.app.addCommas(response["items_count"]));        
+						$('#zeega-results-count').fadeTo(100, 1);
 					}
 				});
 			}
 		}
 	},
+	/***************************************************************************
+		- model: either collection or user
+		- filterType: Filters are type either "collection" or "user"
+		- searchParams: Optionally pass in searchParams to have it set other things on search
+	***************************************************************************/
+	addFilter : function(model, filterType, searchParams){
+
+		if (searchParams == null){
+			searchParams = new Object();
+		}
+		searchParams.page = 1;
+		
+		$('.tab-content').addClass('jda-low-top');
+		$('#zeega-right-column').hide();
+		$('#zeega-left-column').removeClass('span10');
+		$('#zeega-left-column').addClass('span12');
+
+		var Items = jda.module("items");
+		this.clearSearchFilters();
+		if (filterType == 'collection'){
+			this.itemViewCollection.collectionFilter = new Items.Views.CollectionPage({model:model});
+			searchParams.collection = model.id;
+			this.search(searchParams);
+		} else if (filterType == 'user'){
+			this.itemViewCollection.userFilter = new Items.Views.UserPage({model:model});
+			searchParams.user = model.id;
+			this.search(searchParams);
+		}
+
+	},
+	/***************************************************************************
+		- filterType: Filters are type either "collection" or "user"
+		- searchParams: Optionally pass in searchParams to have it set other things on search
+		- doSearch: Optionally make app request new items or not, default is TRUE
+	***************************************************************************/
+	removeFilter : function(filterType, searchParams, doSearch){
+		if (searchParams == null){
+			searchParams = new Object();
+		}
+		if (doSearch == null){
+			doSearch = true;
+		}
+		//reset height of main results content & my collections
+		$('.tab-content').removeClass('jda-low-top');
+		$('#zeega-right-column').show();
+		$('#zeega-left-column').addClass('span10');
+		$('#zeega-left-column').removeClass('span12');
+
+		if (filterType == 'collection'){
+			//remove collectionFilter view which takes care of UI
+			this.itemViewCollection.collectionFilter.remove();
+
+			//set filter to null
+			this.itemViewCollection.collectionFilter = null;
+
+			//remove search parameter from JDA app
+			searchParams.collection = '';
+			if (doSearch){
+				this.search(searchParams);
+			}
+		} 
+		else if (filterType == 'user'){
+			//remove collectionFilter view which takes care of UI
+			this.itemViewCollection.userFilter.remove();
+
+			//set filter to null
+			this.itemViewCollection.userFilter = null;
+
+			//remove search parameter from JDA app
+			searchParams.user = '';
+			if (doSearch){
+				this.search(searchParams);
+			}
+		}
+
+	},
+	
 	addCommas : function(nStr)
 	{
 		nStr += '';
@@ -231,16 +306,15 @@ this.jda = {
 	{
 		console.log('switch to List view');
 
-		$('#related-tags').show();
-		$('#event-time-slider').hide();
-		$('#results-count').removeClass('results-count-event');
-		$('#results-count').css('left', 0);
-
-		//loop through all facets to find the data & time one
-		_.each( VisualSearch.searchBox.facetViews, function( facet ){
-			if( facet.model.get('category') == 'data:time & place' ) facet.remove();
-		})
 		
+		//Time slider disabled for now
+		//$('#event-time-slider').hide();
+		$('#zeega-results-count').removeClass('zeega-results-count-event');
+		$('#zeega-results-count').css('left', 0);
+		$('#zeega-results-count').css('z-index', 0);
+
+		$('#zeega-results-count-text-with-date').hide();
+
 		if(this.itemViewCollection.updated)
 		{
 			console.log('render collection')
@@ -248,20 +322,33 @@ this.jda = {
 		}
 		
 	},
-	
+	showThumbnailView : function()
+	{
+		$('#zeega-results-count').removeClass('zeega-results-count-event');
+		$('#zeega-results-count').css('left', 0);
+		$('#zeega-results-count').css('z-index', 0);
+
+		$('#zeega-results-count-text-with-date').hide();
+		
+		if(this.itemViewCollection.updated)
+		{
+			console.log('render collection')
+			this.itemViewCollection.render();
+		}
+	},
 	showEventView : function()
 	{
 		console.log('switch to Event view');
 		//For some reason, the map collapses after a search to 0px width
 		
-		$('#related-tags').hide();
-		$('#event-time-slider').show();
-		$('#results-count').addClass('results-count-event');
-		
-		$('#results-count').offset( { top:$('#results-count').offset().top, left:10 } );
+		//Time slider disabled for now
+		//$('#event-time-slider').show();
+		$('#zeega-results-count').addClass('zeega-results-count-event');
+		$('#zeega-results-count').offset( { top:$('#zeega-results-count').offset().top, left:10 } );
+		$('#zeega-results-count').css('z-index', 1000);
 
+		$('#zeega-results-count-text-with-date').show();
 		
-		VisualSearch.searchBox.addFacet('data:time & place', ' ', 0);
 		_.each( VisualSearch.searchBox.facetViews, function( facet ){
 			if( facet.model.get('category') == 'tag' ) {
 				var facetValue = facet.model.get('value');
@@ -273,14 +360,10 @@ this.jda = {
 				  $('#remove-tag-alert').hide('slow');
 				}, 3000);
 			}
-			if (facet.model.get("category")=="data:time & place") {
-    			$(facet.el).find('.VS-icon-cancel').click(function(){
-    				jda.app.switchViewTo('list');
-    			});
-    		}
+			
 		})
 		
-		$("#event-view").width($(window).width());
+		$("#zeega-event-view").width($(window).width());
 		this.resetMapSize();
 
 		if( !this.mapLoaded ) this.initWorldMap();
@@ -441,7 +524,7 @@ this.jda = {
 	
 	initTimeSlider : function(map)
 	{
-	console.log("Initializing Time Slider");
+	/*console.log("Initializing Time Slider");
 	_this = this;
 	if( !this.timesliderLoaded )
 		{
@@ -513,6 +596,7 @@ this.jda = {
 			this.setStartDateTimeSliderBubble($( "#range-slider" ).slider( "values", 0 ));
 			this.setEndDateTimeSliderBubble($( "#range-slider" ).slider( "values", 1 ));
 		}
+		*/
 	}, 
 	
 	initLayerControl : function(){
@@ -542,18 +626,19 @@ this.jda = {
 		})
 	},
 
-
+	//disabling time slider for the moment
 	updateResultsCountForTimeSlider : function(sliderUI, map){
-		var searchView = this.itemViewCollection;
-		$("#related-tags, #related-tags-title, #results-count").fadeTo(100,0);
+		/*var searchView = this.itemViewCollection;
+		//$("#jda-related-tags, #jda-
+		-title, #zeega-results-count").fadeTo(100,0);
 		searchView.collection.fetch({
 			success : function(model, response){ 
 				searchView.renderTags(response.tags);
 				searchView.render();      
-				$('#results-count-number').text(jda.app.addCommas(response["items_count"]));        
-				$('#results-count').fadeTo(100, 1);
+				$('#zeega-results-count-number').text(jda.app.addCommas(response["items_count"]));        
+				$('#zeega-results-count').fadeTo(100, 1);
 			}
-		});
+		});*/
  	},
 	updateMapForTimeSlider : function(map){
 		console.log("UP");
@@ -617,14 +702,16 @@ this.jda = {
 	//NOTE - this does not search, it only clears out all the filters on the page
 	clearSearchFilters : function(){
 	
-    	//update the content filter
-    	$('#content').val("all");
-    	$('#select-wrap-text').text( $('#content option[value=\''+$('#content').val()+'\']').text() );
+		
+
+    	//clear out the content filter
+    	$('#zeega-content-type').val("all");
+    	$('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
 
     	//remove search box values
     	VisualSearch.searchBox.disableFacets();
 	    VisualSearch.searchBox.value('');
-	   VisualSearch.searchBox.flags.allSelected = false;
+	  	VisualSearch.searchBox.flags.allSelected = false;
 
         
 	},
@@ -653,6 +740,10 @@ this.jda = {
 			case "shake-layer":
 				layer ="geonode:InstruIntensity_Clip_dOd";
 				legendID = "shake-legend";
+				break;
+			case "pop-density-layer":
+				layer ="geonode:_popcensus2_2id";
+				legendID = "pop-density-legend";
 				break;
 		}
 		
@@ -697,7 +788,8 @@ this.jda = {
 			}
 			catch(err)
 			{
-			  	this.popup=false;
+			  	console.log(response);
+				this.popup=false;
 			  	console.log('failure to parse json');
 				return;
 			}
@@ -866,6 +958,29 @@ this.jda = {
 					singleTile : false,
 					wrapDateLine : true,
 					visibility : false,
+					buffer: 0,
+								displayOutsideMaxExtent: true,
+								isBaseLayer: false,
+								yx : {'EPSG:900913' : false},
+								'sphericalMercator': true,
+								'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
+				})
+			);
+
+			layers.push( new OpenLayers.Layer.WMS(
+				"pop-density-layer",
+				this.japanMapUrl + "wms",
+				{
+					layers : "geonode:_popcensus2_2id",
+					format : 'image/png',
+					transparent : true,
+					tiled : true
+				},
+				{
+					singleTile : false,
+					wrapDateLine : true,
+					visibility : false,
+					opacity : 0.3,
 					buffer: 0,
 								displayOutsideMaxExtent: true,
 								isBaseLayer: false,
