@@ -826,6 +826,10 @@ this.jda = {
 		else this.popup=false;
 		
 	},
+
+    initAdvSearch : function() {
+        // do init code here
+    },
 	
 	getMapLayers : function()
 	{

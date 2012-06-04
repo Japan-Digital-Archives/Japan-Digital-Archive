@@ -39,6 +39,7 @@ input[type="submit"] {
 	-khtml-opacity: 0.8;
 	-moz-opacity: 0.8;
 	opacity: 0.8;
+	z-index: 10000;
 }
 
 .login-modal {
