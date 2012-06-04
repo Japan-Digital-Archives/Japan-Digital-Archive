@@ -123,6 +123,7 @@
 				//Display the first x thumbnails in the collection
 				success : function(model, response)
 				{ 
+					
 					_this.renderCollectionPreview(model);
 					$('#zeega-my-collections-items').spin('false');
 				},
