@@ -33,36 +33,6 @@ var loadFiles = [
 	'order!../lib/dateformat/date.format',
     'order!../lib/visualsearch/visualsearch',
     'order!../lib/modestmaps.min',
-	//mvc
-	'order!../app/jda',
-	
-	//plugins
-
-	//models
-	'order!../app/models/items',
-	'order!../app/models/tag',
-	
-	//collections
-	'order!../app/collections/items',
-	
-	//views
-	'order!../app/views/items/jda.view.item.search-results',
-	'order!../app/views/items/jda.view.item.map-popup',
-	'order!../app/views/tag.view',
-	'order!../app/views/fancybox.views',
-	'order!../app/views/map.view',
-	'order!../app/index',
-
-	//custom
-	'order!../helpers/utils',
-
-
-		
-	//core
-	
-	//'order!search',
-
-	
 	];
 
 
@@ -233,7 +203,8 @@ function initMap() {
 }
 
 function DoSearch() {
-    var baseURL = "http://108.171.163.81/ej/web/ja/search";
+
+    var baseURL = sessionStorage.getItem('hostname') + sessionStorage.getItem('directory') + 'en/search?';
     baseURL += "#q=" + $("#searchTerms").val();
     var contentType = $("#contentTypeDDL option:selected").val();
     if (contentType != "0") {
