@@ -22,6 +22,7 @@ $(document).ready(function(){
   
   $("#jda-search-button-group,#search-bar").fadeTo('slow',1);
   $('#jda-go-button').click(function(){
+    VisualSearch.searchBox.addFacet('text', VisualSearch.searchBox.value(), 0);
     jda.app.search({ page:1});
   });
 
