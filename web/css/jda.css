@@ -26,6 +26,9 @@
 	float:left;
 	margin-right:5px;
 }
+.jdicon-lightgrey{
+	background-image: url(../images/jdicons-lightgrey-50.png);
+}
 [class^="jdicon-small-"]
 {
 	width: 25px;
@@ -74,7 +77,7 @@ header .container{
 	width:98% !important;
 }
 .navbar .brand {
-	padding: 8px 30px 0 10px;
+	padding: 8px 30px 6px 17px;
 	height:30px;
 
 }
@@ -198,6 +201,81 @@ legend{
 .jda-separate-collections-and-items{
 	margin-top:10px;
 }
+
+/********************
+
+	HOME PAGE STYLES
+	
+*********************/
+
+.jda-home-featured-collection-text-block{
+	padding: 10px;
+	margin: 0 auto;
+	width: 90%;
+	position: relative;
+	top: 60%;
+	background: 
+	rgba(255, 255, 255, 0.7);
+
+}
+.jda-home-featured-collection{
+	vertical-align:top;background-position:center;display:inline-block;
+	height:650px;width:33%;
+	border-right:2px solid white;
+}
+.jda-home-bottom-row{
+background-color:#444;position:relative;top:76px;color:whiteSmoke;padding-top:10px;
+}
+.jda-home-bottom-row a{
+	color:whiteSmoke;
+}
+.jda-home-bottom-row h3{
+	font-weight:normal;
+	font-size:22px;
+}
+.jda-home-bottom-row i{
+	margin-right:8px;
+}
+.jda-home-teaser-text{
+	color:#ccc;
+	font-weight:normal;
+	padding:10px;
+}
+footer {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	background: 
+	#ccc;
+	box-shadow: inset 0px 6px 6px 
+	#AAA;
+	margin-top:24px;
+	padding-top:20px;
+}
+footer ul, footer h3{
+	list-style:none;
+	margin:30px auto;
+	width:80%;
+}
+footer li{
+	float:left;
+	width:150px;
+	height:100px;
+	padding:10px;
+	opacity: 0.7;
+	text-align: center;
+}
+footer li:hover{
+	opacity: 1;
+	-moz-opacity: 1;
+	filter:alpha(opacity=1);
+}
+footer img{
+	max-width:150px;
+	max-height:100px;
+	margin:auto 0;
+}
+
 /********************
 
 	OPEN LAYERS MAP
