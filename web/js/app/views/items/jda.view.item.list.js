@@ -173,7 +173,8 @@
 			html =
 
 			'<td class="span2">'+
-				'<i class="jdicon-small-drag"></i><img src="<%= thumbnail_url %>" height="100" width="100"/>'+
+		//		'<i class="jdicon-small-drag"></i>'+
+			'<img src="<%= thumbnail_url %>" height="100" width="100"/>'+
 			'</td>'+
 			'<td class="jda-item-description span9"><%= title %><br/><span class="jda-item-author">by <%= author %></span></td>'+
 			'<td class="jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
@@ -187,7 +188,8 @@
 			html =
 
 			'<td class="span2">'+
-				'<i class="jdicon-small-drag"></i><img src="<%= thumbnail_url %>" height="100" width="100"/>'+
+		//		'<i class="jdicon-small-drag"></i>'+
+				'<img src="<%= thumbnail_url %>" height="100" width="100"/>'+
 			'</td>'+
 			'<td class="jda-item-description span9">'+
 				'<div class="jda-item-title"><%= title %></div>'+
@@ -206,7 +208,7 @@
 			
 
 			'<td class="span2">'+
-				'<i class="jdicon-small-drag"></i>'+
+			//	'<i class="jdicon-small-drag"></i>'+
 				'<i class="jdicon-document"></i>'+
 				'<div class="item-author item-author-left"><%= author %></div>'+
 			'</td>'+
@@ -226,7 +228,7 @@
 			html = 
 
 			'<td class="span2">'+
-				'<i class="jdicon-small-drag"></i>'+
+			//	'<i class="jdicon-small-drag"></i>'+
 				'<i class="jdicon-website"></i>'+
 			'</td>'+
 			'<td class="jda-item-description span9">'+
@@ -243,7 +245,7 @@
 			html = 
 
 			'<td class="span2">'+
-				'<i class="jdicon-small-drag"></i>'+
+			//	'<i class="jdicon-small-drag"></i>'+
 				'<i class="jdicon-tweet"></i>'+
 			'</td>'+
 			'<td class="jda-item-description span9">'+
@@ -260,7 +262,7 @@
 			html = 
 
 			'<td class="span2">'+
-				'<i class="jdicon-small-drag"></i>'+
+				//'<i class="jdicon-small-drag"></i>'+
 				'<i class="jdicon-testimonial"></i>'+
 				'<div class="item-author item-author-left"><%= author %></div>'+
 			'</td>'+
@@ -278,7 +280,7 @@
 			html = 
 
 			'<td class="span2">'+
-				'<i class="jdicon-small-drag"></i>'+
+				//'<i class="jdicon-small-drag"></i>'+
 				'<i class="jdicon-pdf"></i>'+
 				'<div class="item-author item-author-left"><%= author %></div>'+
 			'</td>'+
@@ -298,7 +300,7 @@
 			html = 
 
 			'<td class="span2">'+
-				'<i class="jdicon-small-drag"></i>'+
+				//'<i class="jdicon-small-drag"></i>'+
 				'<i class="jdicon-audio"></i>'+
 				'<div class="item-author item-author-left"><%= author %></div>'+
 			'</td>'+
@@ -317,7 +319,7 @@
 			html = 
 			
 				'<td><a id="<%= id %>" class="list-fancymedia" rel="group">'+
-					'<i class="jdicon-small-drag"></i><i class="jdicon-collection"></i> '+
+					//'<i class="jdicon-small-drag"></i><i class="jdicon-collection"></i> '+
 					'<span class="jda-item-author"><%= author %></span></a>'+
 				'</td>'+
 				'<td class="jda-item-description span9">'+
@@ -334,7 +336,7 @@
 			html = 
 			
 				'<td><a id="<%= id %>" class="list-fancymedia" rel="group">'+
-					'<i class="jdicon-small-drag"></i><i class="jdicon-document"></i> '+
+					//'<i class="jdicon-small-drag"></i><i class="jdicon-document"></i> '+
 					'<span class="jda-item-author"><%= author %></span></a>'+
 				'</td>'+
 				'<td class="jda-item-description"><%= title %><br/><%= description %></td>'+

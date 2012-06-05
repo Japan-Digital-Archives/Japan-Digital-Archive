@@ -115,7 +115,7 @@
 			var html = 
 			
 				'<a href="#" class="thumbnail zeega-collection rotated-left">'+
-					'<i class="jdicon-small-drag" style="z-index:2"></i>'+
+				//	'<i class="jdicon-small-drag" style="z-index:2"></i>'+
 					'<span class="label label-inverse" style="display:none;position: absolute;top: 91px;left:126px;z-index:2" rel="tooltip" title="Go to Collection View">'+
 					'<i class="icon-share-alt icon-white"></i></span>'+
 					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px">'+
@@ -131,7 +131,8 @@
 			var html = 
 			
 				'<a href="#" class="thumbnail" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
-					'<i class="jdicon-small-drag" style="z-index:2"></i>'+
+				
+				//	'<i class="jdicon-small-drag" style="z-index:2"></i>'+
 					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px">'+	
 					'<input class="jda-item-checkbox" type="checkbox">'+
 				'</a>';
