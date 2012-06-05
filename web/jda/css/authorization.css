@@ -72,7 +72,6 @@ input[type="submit"] {
 
 .login-modal-body {
 	padding: 10px 30px 20px 30px;
-	margin-left: 120px;
 }
 
 h1
@@ -92,24 +91,7 @@ h2
 	margin: 0px;
 	padding: 0px;
 	color: #000000;
-}
-
-#partner-login
-{
-	font-size: 14px;
-	margin: 0px;
-	padding: 0px;
-	color: #000000;
-	float: left;
-	font-weight: bold; 
-}
-
-#request-login
-{
-    float: left;
-    margin-left: 40px;
-    color: red;
-    text-decoration: underline;
+	text-transform:uppercase;
 }
 
 
@@ -128,6 +110,7 @@ h3
 	font-size: 11px;
 	background-color: #50B456;
 	color: white;
+	text-transform:uppercase;
 }
 
 #login-text
@@ -135,4 +118,9 @@ h3
 	font-size: 10pt;
 	padding-right: 20px;
 	
+}
+
+A:link 
+{
+    text-decoration: underline
 }

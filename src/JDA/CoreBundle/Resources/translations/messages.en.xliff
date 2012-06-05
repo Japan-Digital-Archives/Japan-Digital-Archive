@@ -218,13 +218,9 @@
                 <source>jda.login.requestalogin</source>
                 <target>Request a login</target>
             </trans-unit>
-            <trans-unit id="55">
-                <source>jda.login.description</source>
-                <target>This project is built on participation and collaboration. We welcome requests to join the growing community of partners working with this alpha version of the archive. For those already registered, we encourage you to share any feedback or ideas you may have, and to let us know about any issues you encounter. You will find a feedback link at the top right.</target>
-            </trans-unit>
             <trans-unit id="56">
                 <source>jda.login.header</source>
-                <target>Welcome to the Digital Archive of Japan's 2011 Disasters</target>
+                <target>Sign in or</target>
             </trans-unit>
             <trans-unit id="57">
                 <source>jda.login.subheader</source>
@@ -244,7 +240,7 @@
             </trans-unit>
             <trans-unit id="61">
                 <source>jda.login.login</source>
-                <target>Login</target>
+                <target>Sign in</target>
             </trans-unit>
             <trans-unit id="62">
                 <source>jda.advsearch.searchTerms</source>
@@ -334,6 +330,14 @@
                 <source>jda.advsearch.mapInstructionsTxt</source>
                 <target>Hold Shift and Drag in order to create a box around the area you would like to search</target>
             </trans-unit>
+			<trans-unit id="84">
+				<source>jda.login.register</source>
+				<target>Create an account</target>
+			</trans-unit>
+			<trans-unit id="85">
+				<source>jda.login.savecollection</source>
+				<target>To save your collection,</target>
+			</trans-unit>
         </body>
     </file>
 </xliff>

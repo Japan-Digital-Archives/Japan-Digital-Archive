@@ -23,11 +23,12 @@ class SecurityController extends Controller
         } else {
             $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
         }
-
+        
         return $this->render('ZeegaUserBundle:Security:login.html.twig', array(
             // last username entered by the user
             'last_username' => $session->get(SecurityContext::LAST_USERNAME),
             'error'         => $error,
+            'header' => $request->query->get('header')
         ));
     }
     
