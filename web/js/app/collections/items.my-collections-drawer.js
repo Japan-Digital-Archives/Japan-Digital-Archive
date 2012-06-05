@@ -8,19 +8,14 @@
 		{
 			
 			this.collection = new Items.Collection();
-
-			this.collection.search = 	{		
-				page:1,
-				r_itemswithcollections: 0,
-				r_items:1,
-				r_tags:1,
-				content:'collection',
-				user : -1
-
-			};
-
+			this.collection.url=jda.app.apiLocation + 'api/search?r_collections=1&user=-1';
+			this.collection.parse= function(data)
+				{
+					console.log(data.collections);
+					return data.collections;
+				}
 			//show 3 thumbnails by default in collections drawer
-			this.showThumbnailCount = 4;
+			this.showThumbnailCount = 3;
 			
 			
 			
@@ -31,7 +26,7 @@
 
 			//Render collection list in drop-down menu
 			$(_this.el).find('.dropdown-menu').empty();
-	
+			console.log(this.collection);
 			_.each( _.toArray(this.collection), function(item){
 				var itemView = '<li class="zeega-collection-list-item" id="'+item.id+'"><a href=".">'+item.get('title')+'</a></li>';
 				$(_this.el).find('.dropdown-menu').append(itemView);
@@ -49,8 +44,13 @@
 			*/
 			if ($(this.el).find('.zeega-collection-list-item').length == 0){
 				
-				this.activeCollection = new Items.Model();
+				this.activeCollection = new Items.Model({
+					title:$('#zeega-my-collections-active-collection').text(),
+					child_items:[],
+					id:-1,
+				});
 				this.activeCollection.set({title:$('#zeega-my-collections-active-collection').text()}); 
+				this.activeCollection.set({child_items:[]}); 
 				
 			} 
 			/* 
@@ -83,7 +83,7 @@
 						_this.activeCollection.attributes.child_items.push(jda.app.draggedItem.toJSON());
 						
 					
-						
+						console.log(_this.activeCollection);
 						_this.renderCollectionPreview(_this.activeCollection);
 						  
 						var itemId=jda.app.draggedItem.id;
@@ -99,6 +99,7 @@
 										_this.renderCollectionPreview(model);	
 									},
 									error : function(model, response){
+										console.log(response);
 		
 									}
 								}
@@ -163,7 +164,6 @@
 					$('#zeega-my-collections-share-and-organize').show();
 					
 					var kids = _.toArray(model.get('child_items'));
-					
 					for (var i=1;i<Math.min(this.showThumbnailCount, kids.length);i++){
 						var item = kids[kids.length-i];
 						
@@ -181,14 +181,18 @@
 			// fetch list of collections for drawer drop-down
 			// if user has no collections then make a new 'my collection'
 			// but don't save until they add something to it
+			
+			
 			this.collection.fetch({
 				
-				success : function(model, response)
+				success : function(collection, response)
 				{ 
+					console.log(response);
 					_this.render();
 				},
 				error : function(model, response)
 				{ 
+					console.log(response);
 					console.log('Error getting collection list from server');
 
 				}
