@@ -77,8 +77,7 @@ jQuery(function($)
 						{
 							success : function(model, response)
 							{ 
-								JDA.itemViewCollection.collectionFilter = new Items.Views.CollectionPage({model:model});
-								JDA.search(obj, true);
+								JDA.addFilter(model,'collection',obj);
 							},
 							error : function(model, response)
 							{ 
@@ -94,8 +93,7 @@ jQuery(function($)
 						var authorModel = new Users.Model({id:obj.user});
 						authorModel.fetch({
 							success : function(model, response){
-								JDA.itemViewCollection.userFilter = new Users.Views.UserPage({model:authorModel});
-								JDA.search(obj, true);
+								JDA.addFilter(model,'user',obj);
 							},
 							error : function(model, response){
 								console.log('index.js: Error getting user specified in URL');
