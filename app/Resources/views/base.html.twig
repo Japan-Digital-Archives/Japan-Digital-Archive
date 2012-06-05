@@ -57,9 +57,9 @@
 					<div class="row">
 						<div class="span8">
 							{% if locale == 'ja' %}
-							<a class="brand" href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('images/logo-jp.png')}}"></a>
+							<a class="brand" href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('images/jda_jp_logo_white.png')}}"></a>
 							{% else %}
-							<a class="brand" href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('images/logo.png')}}"></a>
+							<a class="brand" href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('images/jda_eng_logo_white.png')}}"></a>
 							{% endif %}
 
 
@@ -70,7 +70,7 @@
 								<!-- <li><a href="{{path('home', { '_locale': locale })}}">{% trans %}jda.header.participate{% endtrans %}</a></li> -->
 							</ul>
 						</div>
-						<ul class="nav span5 pull-right">
+						<ul class="nav pull-right">
 							<li><a href="{{path('about', { '_locale': locale})}}" class="about-english">{% trans %}jda.header.about{% endtrans %}</a></li>
 							<li class="divider-vertical"></li>
 							{% if is_granted('IS_AUTHENTICATED_FULLY') %}
@@ -81,8 +81,8 @@
 							<li class="divider-vertical"></li>
 							<li>
 								<div id='jda-language-toggle' class="btn-group">
-									<button data-language="en" class="btn btn-mini btn-info {% if locale == 'en' %} active {% endif %}">English</button>
-									<button data-language="ja" class="btn btn-mini btn-info {% if locale == 'ja' %} active {% endif %} ">日本の</button>
+									<button data-language="en" class="btn btn-mini {% if locale == 'en' %} active {% endif %}">English</button>
+									<button data-language="ja" class="btn btn-mini {% if locale == 'ja' %} active {% endif %} ">日本の</button>
 								</div>
 							</li>
 						</ul>

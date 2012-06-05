@@ -5,153 +5,111 @@
 {% block title %}<title>{% trans %}jda.home.title{% endtrans %}</title>{% endblock %}
 
 
-{% block scripts %}
-<script type="text/javascript" src="{{ asset('js/lib/jquery/jquery-1.7.1.min.js')}}"></script>
-<script type="text/javascript" src="{{ asset('js/lib/bootstrap.js')}}"></script>
-<script type="text/javascript" src="{{ asset('js/ux/jda.ux.home.js')}}"></script>
+{% block stylesheets %}
+<!-- Visual Search --> 
+<!--[if (!IE)|(gte IE 8)]><!-->
+<link href="{{ asset('js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+<!--[if lte IE 7]><!-->
+<link href="{{ asset('js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+ {% endblock %}
 
+{% block scripts %}
+
+<script data-main="{{ asset('js/loaders/home') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
 
 {% endblock %}
+
 
 
 {% block content %}
 
 {% block extra %}
 {% endblock %}
-<div id="content"><div id="home-content-english">
-		<div class="narrow-container">
 
-			<div id="banner-index" class="hero-unit">
-				
-				<a class='photo-credit' href='http://archive.shinsai.yahoo.co.jp/entry/65276/?sy=2011&sm=5&sd=4&ey=2011&em=5&ed=4&s=5' target='_blank'>{% trans %}jda.home.source{% endtrans %}</a>
-				
-				<div id="teaser-text">
-					<p class="en">
+ <div class="container" id="zeega-view-navigation" style="background-color:rgba(0,0,0,0.7)">
+  	
+  			
+ 					<div id="jda-home-search-div" class="pull-left" style="margin-right:17px;margin-top:17px;display:none">
+	                    <div id="search-bar" style="margin-right:10px">
+	        				<div class="visual_search pull-left"></div>
+	                    </div>
+	                    <a href="#" id="jda-go-button" class="btn btn-info btn-large">Go</a>
+                	</div>
+                    <h3 class="en jda-home-teaser-text pull-right" style="width:60%">
 						<strong>{% trans %}jda.home.about.intro{% endtrans %}</strong> {% trans %}jda.home.about{% endtrans %} <a href="{{path('about', { '_locale': locale })}}" class="about-english">{% trans %}jda.home.more{% endtrans %}
 							&gt;</a>
-					</p>
-				</div>
+					</h3>
 
-				<div id="intro-bar" class="en">
-					<div id="home-search-bar">
-						
-						<div >
-							
-							<input size="30" class="xlarge span8" type="text" id="home-search-text-field" name="q" placeholder="{% trans %}jda.home.search{% endtrans %}">
-							
-							<button id="go-button" class="btn info large">{% trans %}jda.home.go{% endtrans %} </button>
-						</div>
-						
-					
+  		
+  </div><!-- end container -->
 
-					</div>
-				</div>
-			</div>
-
-
-			<div id="content-row" class="rowx featured">
-
-				<div id="left-col" class="span-two-thirds">
-
-					<div id="collections-teaser" class="rowx">
-						<div class="span-two-thirds">
-							<h3>{% trans %}jda.home.featured{% endtrans %}</h3>
-							<ul class="media-grid">
-								<li><a href=" http://alpha.zeega.org/project/323/view" target="_blank"><img class="thumbnail" src="{{ asset('images/featured1.jpg')}}"width="180"></a></li>
-								<li><a href="http://alpha.zeega.org/project/422/view" target="_blank"><img class="thumbnail" src="{{ asset('images/featured2.jpg')}}"width="180"></a></li>
-								<li><a href="http://dev.zeega.org/japan/web/project/26/view" target="_blank"><img class="thumbnail" src="{{ asset('images/featured3.jpg')}}" width="180"></a></li>
-							</ul>
-						
-						</div>
-					</div>
-					<!-- #collections-teaser -->
-				</div>
-				<!-- #left-col span-two-thirds -->
-
-
-				<div id="right-col" class="span-one-third">
-					<h3>{% trans %}jda.home.archive{% endtrans %}</h3>
-							<strong> <small><a href="search#content=tweet">834,600
-										{% trans %}jda.search.tweet{% endtrans %}</a> / <a href="search#content=website">87,999 {% trans %}jda.search.website{% endtrans %}</a> / <a href="search#content=image">37,293
-										{% trans %}jda.search.image{% endtrans %}</a> / <a href="search#content=PDF">1,001 {% trans %}jda.search.pdf{% endtrans %}</a> / <a href="search#content=video">95 {% trans %}jda.search.video{% endtrans %}</a> / <a href="search#content=audio">13 {% trans %}jda.search.audio{% endtrans %}</a> / <a href="search#content=text">54
-										{% trans %}jda.search.testimonial{% endtrans %}</a></small>
-							</strong>
-					<br>
-					<h3>{% trans %}jda.home.tags{% endtrans %}</h3>
-
-					<strong> <small><a href="search#q=tag:jishin">jishin</a>
-							/ <a href="search#q=tag:anpi">anpi</a> / <a href="search#q=tag:jisin">jisin</a>
-							/ <a href="search#q=tag:hinan">hinan</a> / <a href="search#q=tag:311care">311care</a>
-							/ <a href="search#q=tag:sendai">sendai</a> / <a href="search#q=tag:jgsdf">jgsdf</a>
-						</small>
-							</strong>
-	
-						</div>
-
-					</div>
-				<!-- right-col -->
-
-			</div>
-			<!-- #content-row -->
-
-
-			<footer>
-			<div class="narrow-container footer-container">
-
-
-				<!--<div class='rowx'>
-
-					<div class="footer-nav span16">
-						<ul class='unstyled'>
-							<li><a href="#">Home</a></li>
-							<li><a href="#">About</a></li>
-							<li><a href="#">FAQ</a></li>
-							<li><a href="#">Contact</a></li>
-
-						</ul>
-					</div>
-				</div>
-				<div class='rowx'>-->
-				<div class="span16">
-
-					<h3>{% trans %}jda.home.partners{% endtrans %}</h3>
-<ul id="partner-logos" class="">
-					
-						<li><a href="http://warp.ndl.go.jp/WARP_disaster.html" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/nationalDietLibrary.png')}}"></a></li>
-						<li><a href="http://www.fas.harvard.edu/~rijs/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/reischauer.png')}}"></a></li>
-						<li><a href="http://311archives.jp/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/all311.png')}}"></a></li>
-						<li><a href="http://www.dcrc.tohoku.ac.jp/archive/index.html/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/tohoku311.png')}}"></a></li>						
-						<li><a href="http://311map.com/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/311Map.png')}}"></a></li>
-						<li><a href="http://recorder311.smt.jp/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/logo_cr.png')}}"></a></li>
-						<li><a href="http://savemlak.jp/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/saveMLAK.png')}}"></a></li>
-						<li><a href="http://recorder311.smt.jp/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/sendaiMedia.png')}}"></a></li>
-						
-						
-						<li><a href="http://www.yahoo.co.jp/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/YahooJapan.gif')}}"></a></li>
-						
-						
-						<li><a href="http://zeega.org" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/zeega.png')}}"></a></li>
-						<li><a href="http://metalab.harvard.edu" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/mlh.gif')}}"></a></li>
-						
-						
-						
-						<li><a href="http://www.archive-it.org/collections/2438" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/archiveIT.png')}}"></a></li>
-						<li><a href="http://worldmap.harvard.edu/japanmap/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/CGA.png')}}"></a></li>
-						<li><a href="http://archive.org" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/InternetArchive.png')}}"></a></li>
-						<li><a href="http://www.loc.gov/index.html" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/LibraryOfCongress.png')}}"></a></li>
-					</ul>
-				</div>
-
-				<div class="rowx">
-					<div class="span16 partnerimg" style="text-align: center;">
-						Site powered by <a href="http://www.zeega.org/about.php" target="_blank">Zeega.org</a><br> <br>
-					</div>
-				</div>
-
-			</div>
-		</footer></div>
+<div style="width:101%;position:relative;top:22px">
+	<div class="jda-home-featured-collection" style="background-image:url({{ asset('images/featured1_large.jpg') }})">
 		
-	</div></div>
+		<div class="jda-home-featured-collection-text-block">
+			<h3>Featured Collection</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+		</div>
+		
+	</div><div class="jda-home-featured-collection" style="background-image:url({{ asset('images/featured2_large.jpg') }})">
+			<div class="jda-home-featured-collection-text-block">
+			<h3>Featured Collection</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+		</div>
+	</div><div  class="jda-home-featured-collection" style="background-position:left;background-image:url({{ asset('images/featured3_large.jpg') }})">
+		<div class="jda-home-featured-collection-text-block">
+			<h3>Featured Collection</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+		</div>
+	</div>
+</div>
+<!-- HIDDEN FOR NOW ADD TO ARCHIVE grey bar-->
+<div class="row jda-home-bottom-row" style="display:none">
+	<div class="span3 offset2"><h3><a href="#">Add to the Archive</a></h3><p>Help us document the disaster with images, audio, video and text.</p></div>
+	<h3 class="span3"><i class="jdicon-image jdicon-lightgrey"></i> <i class="jdicon-audio jdicon-lightgrey"></i> <i class="jdicon-video jdicon-lightgrey"></i> <i class="jdicon-document jdicon-lightgrey"></i></h3>
+	<div class="span3"><h3><a href="#">Create a Collection</a></h3><p>Give the archive your unique perspective by grouping items within themes, topics and stories.</p></div>
+	<h3 class="span3"><a class="btn btn-info btn-large" href="#">Learn How</a></h3>
+
+</div>
+
+<footer>
+
+		
+			<h3>{% trans %}jda.home.partners{% endtrans %}</h3>
+			<ul>
+			
+				<li><a href="http://warp.ndl.go.jp/WARP_disaster.html" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/nationalDietLibrary.png')}}"></a></li>
+				<li><a href="http://www.fas.harvard.edu/~rijs/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/reischauer.png')}}"></a></li>
+				<li><a href="http://311archives.jp/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/all311.png')}}"></a></li>
+				<li><a href="http://www.dcrc.tohoku.ac.jp/archive/index.html/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/tohoku311.png')}}"></a></li>						
+				<li><a href="http://311map.com/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/311Map.png')}}"></a></li>
+				<li><a href="http://recorder311.smt.jp/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/logo_cr.png')}}"></a></li>
+				<li><a href="http://savemlak.jp/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/saveMLAK.png')}}"></a></li>
+				<li><a href="http://recorder311.smt.jp/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/sendaiMedia.png')}}"></a></li>
+				
+				
+				<li><a href="http://www.yahoo.co.jp/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/YahooJapan.gif')}}"></a></li>
+				
+				
+				<li><a href="http://zeega.org" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/zeega.png')}}"></a></li>
+				<li><a href="http://metalab.harvard.edu" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/mlh.gif')}}"></a></li>
+				
+				
+				
+				<li><a href="http://www.archive-it.org/collections/2438" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/archiveIT.png')}}"></a></li>
+				<li><a href="http://worldmap.harvard.edu/japanmap/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/CGA.png')}}"></a></li>
+				<li><a href="http://archive.org" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/InternetArchive.png')}}"></a></li>
+				<li><a href="http://www.loc.gov/index.html" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/LibraryOfCongress.png')}}"></a></li>
+			</ul>
+			<h4 style="text-align:center;clear:both; margin:30px 0">Site powered by <a href="http://www.zeega.org/about.php" target="_blank">Zeega.org</a><br> <br></h4>
+			
+		
+
+	
+</footer>
+
 
 
 

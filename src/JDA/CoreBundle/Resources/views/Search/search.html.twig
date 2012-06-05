@@ -80,8 +80,8 @@ body {
       				<a href="#zeega-thumb-view" data-goto-view='thumb'><button class="btn btn-inverse" rel="tooltip" title="Thumbnail View" style="border-radius:0"><i class="icon-th-large icon-white"></i></button></a>
       				<a href="#zeega-event-view" data-goto-view='event'><button class="btn btn-inverse" rel="tooltip" title="Map View" style="border-radius:0 4px 4px 0"><i class="icon-map-marker icon-white"></i></button></a>
       			</div>
-
-                        <div id="search-bar">
+                        <div id="jda-search-button-group" style="display:none">
+                        <div id="search-bar" style="margin-right:5px">
             			<div class="visual_search pull-left"></div>
       				<span id="select-wrap"><span id="select-wrap-text">{% trans %}jda.search.allformats{% endtrans %}</span><div class="arrow-down"></div><select id="zeega-content-type">
       				  <option value="all">{% trans %}jda.search.allformats{% endtrans %}</option>
@@ -96,7 +96,10 @@ body {
                                 <option value="collection">collection</option>
       				</select>
       				</span>
-            			<span class="badge badge-inverse" id="zeega-search-help" data-content="Here are some tips for searching.">?</span>
+                              
+                        </div>
+                        <a href="#" id="jda-go-button" class="btn btn-info btn-large">Go</a>
+                        <span class="badge badge-inverse" id="zeega-search-help" data-content="Here are some tips for searching.">?</span>
                         </div>
 
       		</div>	<!-- end span12 -->

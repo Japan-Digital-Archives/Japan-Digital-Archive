@@ -22,7 +22,11 @@ $(document).ready(function(){
 
 
   
-  $("#search-bar").fadeTo('slow',1);
+  $("#jda-search-button-group,#search-bar").fadeTo('slow',1);
+  $('#jda-go-button').click(function(){
+    VisualSearch.searchBox.addFacet('text', VisualSearch.searchBox.value(), 0);
+    jda.app.search({ page:1});
+  });
 
   //View buttons toggle
   $("#zeega-view-buttons button").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
