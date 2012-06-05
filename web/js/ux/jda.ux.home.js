@@ -2,6 +2,9 @@
 $(document).ready(function(){
 
 	$('.jda-home-featured-collection').height(Math.max($(window).height()-50, 600));
+	$(window).resize(function() {
+      $('.jda-home-featured-collection').height(Math.max($(window).height()-50, 600));
+  });
 	// Shorthand the application namespace
 	//http://documentcloud.github.com/visualsearch/
 	VisualSearch = VS.init({
@@ -10,11 +13,21 @@ $(document).ready(function(){
 		callbacks : {
 			
 			loaded	: function(){ 
-				$('.VS-search-box').css('width','500px');
-				$("#search-bar").fadeTo('slow',1); 
-				$('input').attr('placeholder', 'Explore the Archive	');
+				$('.VS-search-box').css('width','450px');
+				
+				$("#jda-home-search-div, #search-bar").fadeTo('slow',1); 
+				$('input').attr('placeholder', 'Explore the Archive');
 				$('input').css('width', '200px');
 				$('input').css('padding-top', '9px');
+				$('input').focus(function(){
+					$(this).attr('placeholder', '');
+					$(this).css('width', '3px');
+				});
+
+				$('#jda-go-button').click(function(){
+					var query = VisualSearch.searchBox.value();
+					window.location = 'search#q=' + query;
+				});
 			},
 
 			search : function(){ 
@@ -24,7 +37,7 @@ $(document).ready(function(){
 
 			},
 
-			clearSearch : function(){ alert('should clear search box');},
+			clearSearch : function(){ $('input').val('');},
 			// These are the facets that will be autocompleted in an empty input.
 			facetMatches : function(callback)
 			{

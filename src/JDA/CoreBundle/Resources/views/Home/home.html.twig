@@ -31,13 +31,13 @@
  <div class="container" id="zeega-view-navigation" style="background-color:rgba(0,0,0,0.7)">
   	
   			
-
-                    <div id="search-bar" style="margin-right:17px;margin-top:17px">
-        			<div class="visual_search pull-left"></div>
-  				
-        			
-                    </div>
-                    <h3 class="en jda-home-teaser-text">
+ 					<div id="jda-home-search-div" class="pull-left" style="margin-right:17px;margin-top:17px;display:none">
+	                    <div id="search-bar" style="margin-right:10px">
+	        				<div class="visual_search pull-left"></div>
+	                    </div>
+	                    <a href="#" id="jda-go-button" class="btn btn-info btn-large">Go</a>
+                	</div>
+                    <h3 class="en jda-home-teaser-text pull-right" style="width:60%">
 						<strong>{% trans %}jda.home.about.intro{% endtrans %}</strong> {% trans %}jda.home.about{% endtrans %} <a href="{{path('about', { '_locale': locale })}}" class="about-english">{% trans %}jda.home.more{% endtrans %}
 							&gt;</a>
 					</h3>
@@ -65,7 +65,7 @@
 		</div>
 	</div>
 </div>
-<!-- HIDDEN FOR NOW -- ADD TO ARCHIVE grey bar-->
+<!-- HIDDEN FOR NOW ADD TO ARCHIVE grey bar-->
 <div class="row jda-home-bottom-row" style="display:none">
 	<div class="span3 offset2"><h3><a href="#">Add to the Archive</a></h3><p>Help us document the disaster with images, audio, video and text.</p></div>
 	<h3 class="span3"><i class="jdicon-image jdicon-lightgrey"></i> <i class="jdicon-audio jdicon-lightgrey"></i> <i class="jdicon-video jdicon-lightgrey"></i> <i class="jdicon-document jdicon-lightgrey"></i></h3>

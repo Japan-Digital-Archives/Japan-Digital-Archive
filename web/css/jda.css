@@ -213,7 +213,7 @@ legend{
 	margin: 0 auto;
 	width: 90%;
 	position: relative;
-	top: 60%;
+	top: 80%;
 	background: 
 	rgba(255, 255, 255, 0.7);
 
@@ -222,6 +222,8 @@ legend{
 	vertical-align:top;background-position:center;display:inline-block;
 	height:650px;width:33%;
 	border-right:2px solid white;
+	background-repeat:no-repeat;
+	background-size:cover;
 }
 .jda-home-bottom-row{
 background-color:#444;position:relative;top:76px;color:whiteSmoke;padding-top:10px;
@@ -240,6 +242,7 @@ background-color:#444;position:relative;top:76px;color:whiteSmoke;padding-top:10
 	color:#ccc;
 	font-weight:normal;
 	padding:10px;
+	width:60%;
 }
 footer {
 	position: absolute;
