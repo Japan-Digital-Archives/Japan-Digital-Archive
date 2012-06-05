@@ -13,7 +13,7 @@ $(document).ready(function(){
 	});
 
 
-
+	$('#sign-in').click(function(){$('#login-modal').modal('show'); return false;});
 
   
   $('.jda-play-collection').click(function () {

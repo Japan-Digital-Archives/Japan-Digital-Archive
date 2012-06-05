@@ -203,6 +203,15 @@ legend{
 	display:none;
 
 }
+
+.login {
+
+	height:400px;
+	width: 500px;
+	border: none;
+	overflow: hidden;
+
+}
 /********************
 
 	OPEN LAYERS MAP

@@ -1,5 +1,46 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="robots" content="noindex,follow">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="{{ asset('css/authorization.css')}}" rel="stylesheet" type="text/css">
+</head>
 
+{% set locale = app.session.locale  %}
+
+{% set page = 'login'%}
+
+<body>
+<div class="login-modal-header">
+			<div style="text-align:right; width:96%;" >
+			{% if locale == 'ja' %}
+				<a href="{{path('_security_login', { '_locale': 'en' })}}">
+					{% trans %}jda.header.english{% endtrans %}
+				</a>
+			{% else %}
+				<a href="{{path('_security_login', { '_locale': 'ja' })}}">
+				{% trans %}jda.header.japanese{% endtrans %}
+				</a>
+			{% endif %}
+			</div>
+			<h2>
+				{% if header is defined %}
+					{% if header == "collection"%}
+						{% trans %}jda.login.savecollection{% endtrans %} 
+					{% endif %} 
+				{% endif %} 
+				{% trans %}jda.login.header{% endtrans %} 
+				<a href="{{path('fos_user_registration_register', { '_locale': locale })}}">{% trans %}jda.login.register{% endtrans %}</a>
+			</h2>
+		</div>
+		<div class="login-modal-body">
 {% block fos_user_content %}
 {% include "FOSUserBundle:Registration:register_content.html.twig" %}
 {% endblock fos_user_content %}
+</div>
+</div>
+</body>
+
+</html>

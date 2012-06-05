@@ -72,25 +72,31 @@
 			    drop : function( event, ui ){
 			    
 			    	//TODO -- Check whether user is logged in - if not then log them in before adding
-					if(_.difference([jda.app.draggedItem.id],_.pluck(_this.activeCollection.attributes.child_items,"id")).length==0){
+					if(sessionStorage.getItem('user')!=1){
+						$(_this.el).find('#zeega-my-collections-items').addClass('zeega-my-collections-items-dropping');
+					
+						_this.activeCollection.attributes.child_items.push(jda.app.draggedItem.toJSON());
+						_this.renderCollectionPreview(_this.activeCollection);
+						_.delay(function(){$(_this.el).find('#zeega-my-collections-items').removeClass('zeega-my-collections-items-dropping');},1000);
+					}
+					else if(_.difference([jda.app.draggedItem.id],_.pluck(_this.activeCollection.attributes.child_items,"id")).length==0){
+						
 						console.log('duplicate');
 						
 					}
+				
 					else {
 						
 						$(_this.el).find('#zeega-my-collections-items').addClass('zeega-my-collections-items-dropping');
 					
 						_this.activeCollection.attributes.child_items.push(jda.app.draggedItem.toJSON());
-						
-					
-						console.log(_this.activeCollection);
 						_this.renderCollectionPreview(_this.activeCollection);
 						  
 						var itemId=jda.app.draggedItem.id;
 						
 						_this.activeCollection.url=jda.app.apiLocation + 'api/collections/' + _this.activeCollection.id+'/items';
 				
-						console.log(_this.activeCollection);
+						
 						_this.activeCollection.save({newItemIDS:[itemId ]},
 								{
 									success : function(model, response){ 
@@ -118,26 +124,39 @@
 			var _this = this;
 			
 			$('#zeega-my-collections-items').spin();
-			this.activeCollection = new Items.Model({id:activeCollectionID});
-			this.activeCollection.fetch(
-			{
-				//Display the first x thumbnails in the collection
-				success : function(model, response)
-				{ 
-					
-					_this.renderCollectionPreview(model);
-					$('#zeega-my-collections-items').spin('false');
-				},
-				error : function(model, response)
-				{ 
-					console.log('Error getting active collection for collections drawer');
-
-				}
-			});
+			if(activeCollectionID!=-1) 
 			
+			{
+				this.activeCollection = new Items.Model({id:activeCollectionID});
+				
+				this.activeCollection.fetch(
+				{
+					//Display the first x thumbnails in the collection
+					success : function(model, response)
+					{ 
+						
+						_this.renderCollectionPreview(model);
+						$('#zeega-my-collections-items').spin('false');
+					},
+					error : function(model, response)
+					{ 
+						console.log('Error getting active collection for collections drawer');
+	
+					}
+				});
+			}
+			else{
+				this.activeCollection = new Items.Model({
+					title:$('#zeega-my-collections-active-collection').text(),
+					child_items:[],
+					id:-1,
+				});
+				$('#zeega-my-collections-items').spin(false );
+			}
 		},
 		
 		renderCollectionPreview: function(model){
+					console.log(model);
 					var title = model.get('title');
 					var remainingItems = model.get('child_items').length - this.showThumbnailCount;
 					var _this=this;
@@ -157,14 +176,21 @@
 					} else {
 						$('#zeega-my-collections-count-string').hide();	
 					}
+					
+					if(sessionStorage.getItem('user')!=1){
+						$('#zeega-my-collections-share-and-organize').html("<a href='#' >Save Collection</a>").click(function(){
+							$('#login-modal').modal('show'); 
+						}).show();
+					}
+					else{
 					$('#zeega-my-collections-share-and-organize').click(function(){
 						jda.app.addFilter(_this.activeCollection, 'collection');
 						return false;
-					});
-					$('#zeega-my-collections-share-and-organize').show();
+						}).show();
+					}
 					
 					var kids = _.toArray(model.get('child_items'));
-					for (var i=1;i<Math.min(this.showThumbnailCount, kids.length);i++){
+					for (var i=1;i<=Math.min(this.showThumbnailCount, kids.length);i++){
 						var item = kids[kids.length-i];
 						
 						var itemView = new Items.Views.Thumb({model:new Items.Model(item)});
@@ -182,22 +208,35 @@
 			// if user has no collections then make a new 'my collection'
 			// but don't save until they add something to it
 			
-			
-			this.collection.fetch({
-				
-				success : function(collection, response)
-				{ 
-					console.log(response);
-					_this.render();
-				},
-				error : function(model, response)
-				{ 
-					console.log(response);
-					console.log('Error getting collection list from server');
-
+			if(sessionStorage.getItem('user')==1){
+				this.collection.fetch({
+					
+					success : function(collection, response)
+					{ 
+						console.log(response);
+						_this.render();
+					},
+					error : function(model, response)
+					{ 
+						console.log(response);
+						console.log('Error getting collection list from server');
+	
+					}
 				}
+				);
 			}
-			);
+			else{
+			
+				this.collection.add(
+					new Items.Model({
+						title:$('#zeega-my-collections-active-collection').text(),
+						child_items:[],
+						id:-1,
+					}));
+				console.log(this.collection);
+				this.render();			
+			}
+			
 			
 			
 			

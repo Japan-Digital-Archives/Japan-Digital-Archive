@@ -22,7 +22,7 @@ security:
                 login_path: /login 
             logout:
                 path:   /logout
-                target: /ja/login
+                target: /ja/home
             anonymous:    true
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
@@ -36,5 +36,5 @@ security:
         - { path: ^/about role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/en/about role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/ja/about role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: ROLE_ADMIN }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin, role: ROLE_ADMIN }

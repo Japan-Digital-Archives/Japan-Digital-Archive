@@ -11,7 +11,7 @@
 	<link href="{{ asset('js/lib/bootstrap-2.0.2/css/bootstrap-responsive.css')}}" rel="stylesheet">
 	<link href="{{ asset('css/zeega-jda.css')}}" rel="stylesheet" type="text/css">
 	<link href="{{ asset('css/jda.css')}}" rel="stylesheet" type="text/css">
-
+<link href="{{ asset('css/authorization.css')}}" rel="stylesheet" type="text/css">
 	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/jda.ico')}}"> 
 
 	{% block stylesheets %}
@@ -27,6 +27,12 @@
 		sessionStorage.setItem('japanMapUrl','{{japan_map_url}}');
 		sessionStorage.setItem('geoServerUrl','{{geoserver_url}}');
 		sessionStorage.setItem('locale','{{app.session.locale}}');
+		
+		{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+				sessionStorage.setItem('user','1');
+		{% else %}
+				sessionStorage.setItem('user','0');
+		{% endif %}		
 	
 	</script>
 
@@ -70,7 +76,7 @@
 							{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 								<li><a href='{{ path('_security_logout')}}'>Sign out</a></li>
 							{% else %}
-								<li><a href='{{ path('_security_login')}}'>Sign in</a></li>
+								<li ><a  id="sign-in" href="#">Sign in</a></li>
 							{% endif %}
 							<li class="divider-vertical"></li>
 							<li>
@@ -96,6 +102,17 @@
 	{% block footer %}
 	{% endblock %}
 
+
+	<div class="modal" id="login-modal">
+
+			<a class="close" style="padding-right:5px;" data-dismiss="modal">×</a>
+
+		<div class="login-modal-body">
+			<iframe class="login" src="{{path('fos_user_security_login', { '_locale': locale})}}" />
+		</div>
+	</div>
+
+<--
 	<div class="modal" id="myModal" style='display:none'>
 		<div class="modal-header">
 			<a class="close" data-dismiss="modal">×</a>
@@ -106,6 +123,6 @@
 		</div>
 
 	</div>
-
+-->
 </body>
 </html>

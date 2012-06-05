@@ -41,6 +41,7 @@ class RegistrationController extends ContainerAware
                 $this->container->get('session')->set('fos_user_send_confirmation_email/email', $user->getEmail());
                 $route = 'fos_user_registration_check_email';
             } else {
+				$this->authenticateUser($user);
                 $route = 'fos_user_registration_confirmed';
             }
 
@@ -89,7 +90,8 @@ class RegistrationController extends ContainerAware
         $user->setEnabled(true);
 
         $this->container->get('fos_user.user_manager')->updateUser($user);
-
+		$this->authenticateUser($user);
+		
         return new RedirectResponse($this->container->get('router')->generate('fos_user_registration_confirmed'));
     }
 

@@ -1,9 +1,21 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="robots" content="noindex,follow">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="{{ asset('css/authorization.css')}}" rel="stylesheet" type="text/css">
+</head>
 
-{% block fos_user_content %}
-    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}</p>
-    {% if app.session is not empty %}
-        {% set targetUrl = app.session.get('_security.target_path') %}
-        {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans({}, 'FOSUserBundle') }}</a></p>{% endif %}
-    {% endif %}
-{% endblock fos_user_content %}
+{% set locale = app.session.locale  %}
+
+{% set page = 'login'%}
+
+<body>
+	<div class="login-modal-header">
+		<h2>Congratulations! {{user.username}}</h2>
+		<h5>has been registered</h5>
+	</div>
+</body>
+</html>

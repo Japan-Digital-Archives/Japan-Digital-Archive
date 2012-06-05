@@ -1,20 +1,18 @@
-{# src/Zeega/CoreBundle/Resources/views/Home/home.html.twig #}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="robots" content="noindex,follow">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="{{ asset('css/authorization.css')}}" rel="stylesheet" type="text/css">
+</head>
 
-{% extends 'JDACoreBundle:Home:home.html.twig' %}
-
-{% block scripts %}
-<script type="text/javascript" src="{{ asset('jda/js/lib/jquery/jquery-1.7.1.min.js')}}"></script>
-<script type="text/javascript" src="{{ asset('jda/js/ux/jda.ux.login.js')}}"></script>
-{% endblock %}
-
-{% block stylesheets %}
-	<link href="{{ asset('jda/css/authorization.css')}}" rel="stylesheet" type="text/css">
-{% endblock %}
+{% set locale = app.session.locale  %}
 
 {% set page = 'login'%}
-{% block extra %}
-	<div class="login-modal-background"></div>
-	<div class="login-modal">
+
+<body>
 		<div class="login-modal-header">
 			<div style="text-align:right; width:96%;" >
 			{% if locale == 'ja' %}
@@ -34,7 +32,7 @@
 					{% endif %} 
 				{% endif %} 
 				{% trans %}jda.login.header{% endtrans %} 
-				<a href="{{path('fos_user_registration_register', { '_locale': 'ja' })}}">{% trans %}jda.login.register{% endtrans %}</a>
+				<a href="{{path('fos_user_registration_register', { '_locale': locale })}}">{% trans %}jda.login.register{% endtrans %}</a>
 			</h2>
 		</div>
 		<div class="login-modal-body">
@@ -53,6 +51,5 @@
 					</div>
 				</form>
 		</div>
-	</div>
-
-{% endblock %}
+</body>
+</html>
