@@ -10,7 +10,7 @@
 		events: {
 			'click button:contains(Play)' : function(){alert('Plays slideshow');},
 			'click button:contains(Share)' : function(){alert('Opens publish process modal window');},
-			
+			'click .jda-collection-filter-title':function(){console.log('clicked'); return false;},
 			
 
 
@@ -39,6 +39,7 @@
 			//add collection filter to the VisualSearch box
 			if (!facetExists){	
 				VisualSearch.searchBox.addFacet('collection', this.model.get('title'), 0);
+				_.delay(function(){	$('input').blur();},500);
 			}
 			
 			//collection close removes the filter from the DOM and sets the object to null
@@ -49,7 +50,11 @@
 						jda.app.removeFilter('collection');
 
 					});
+					
+					
 				}
+				
+		
 			});
 
 			
@@ -142,6 +147,7 @@
 			/***************************************************************************
 				Edit title
 			***************************************************************************/
+			
 			$(this.el).find('.jda-collection-filter-title').editable(
 				function(value, settings)
 				{ 
@@ -150,19 +156,20 @@
 					{				
 						success: function(model, response) { 
 							console.log("Updated item title for item " + model.id);
+						
 							_.each( VisualSearch.searchBox.facetViews, function( facet ){
 								if( facet.model.get('category') == 'collection' && facet.model.get('value') == oldTitle) {
-									facet.model.set({'value': null });
-									facet.remove();
 									
+									console.log(facet);
+									facet.model.set({'value': model.get('title') });
+									facet.render();
 								}
 								
 							})
-							VisualSearch.searchBox.addFacet('collection', model.get('title'), 0);
 
 							//Reset the collections drawer because there's also a collection view there
-							jda.app.myCollectionsDrawer.getCollectionList();
-
+							//jda.app.myCollectionsDrawer.getCollectionList();
+						
 		 				},
 		 				error: function(model, response){
 		 					
@@ -182,7 +189,7 @@
 					
 				});
 
-
+			
 			/***************************************************************************
 				Edit Description
 			***************************************************************************/
@@ -346,6 +353,9 @@
 					$('.jda-item-checkbox').attr('checked', false);
 				}
 			});
+			
+			
+			
 
 			return this;
 		},
