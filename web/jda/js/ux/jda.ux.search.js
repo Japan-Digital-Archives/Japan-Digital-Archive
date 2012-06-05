@@ -1,12 +1,22 @@
 
 $(document).ready(function(){
 
+
+
+	$('#jda-language-toggle').find('.btn').click(function(){
+		if(!$(this).hasClass('active')){
+			if($(this).data('language')=='en') window.location =  window.location.href.replace('ja/search','en/search');
+			else window.location =  window.location.href.replace('en/search','ja/search');
+		}
+	});
+
+
+
+
   
   $('.jda-play-collection').click(function () {
     alert('plays collection as slideshow in player');
   });
-
-
 
 
   

@@ -13,5 +13,13 @@ $(document).ready(function(){
 		var query = $('#home-search-text-field').val();
 		window.location = 'search#q=' + query;
 	});
+	
+	
+	$('#jda-language-toggle').find('.btn').click(function(){
+		if(!$(this).hasClass('active')){
+			if($(this).data('language')=='en') window.location =  window.location.href.replace('ja/search','en/search');
+			else window.location =  window.location.href.replace('en/search','ja/search');
+		}
+	});
 
 });

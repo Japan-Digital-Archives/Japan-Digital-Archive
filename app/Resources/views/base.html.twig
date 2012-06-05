@@ -21,11 +21,13 @@
 	{% endblock %}
 
 	<script> 
-	sessionStorage.setItem('directory', '{{directory}}');
-	sessionStorage.setItem('hostname','{{hostname}}');
-	sessionStorage.setItem('apiUrl','{{api_url}}');
-	sessionStorage.setItem('japanMapUrl','{{japan_map_url}}');
-	sessionStorage.setItem('geoServerUrl','{{geoserver_url}}');
+		sessionStorage.setItem('directory', '{{directory}}');
+		sessionStorage.setItem('hostname','{{hostname}}');
+		sessionStorage.setItem('apiUrl','{{api_url}}');
+		sessionStorage.setItem('japanMapUrl','{{japan_map_url}}');
+		sessionStorage.setItem('geoServerUrl','{{geoserver_url}}');
+		sessionStorage.setItem('locale','{{app.session.locale}}');
+	
 	</script>
 
 
@@ -62,7 +64,7 @@
 								<li><a href="#contact">Participate</a></li>
 							</ul>
 						</div>
-						<ul class="nav span4 pull-right">
+						<ul class="nav span5 pull-right">
 							<li><a href="{{path('about', { '_locale': locale})}}" class="about-english">{% trans %}jda.header.about{% endtrans %}</a></li>
 							<li class="divider-vertical"></li>
 							{% if is_granted('IS_AUTHENTICATED_FULLY') %}
@@ -72,9 +74,9 @@
 							{% endif %}
 							<li class="divider-vertical"></li>
 							<li>
-								<div class="btn-group">
-									<button class="btn btn-mini btn-info active">English</button>
-									<button class="btn btn-mini btn-info">日本の</button>
+								<div id='jda-language-toggle' class="btn-group">
+									<button data-language="en" class="btn btn-mini btn-info {% if locale == 'en' %} active {% endif %}">English</button>
+									<button data-language="ja" class="btn btn-mini btn-info {% if locale == 'ja' %} active {% endif %} ">日本の</button>
 								</div>
 							</li>
 						</ul>
