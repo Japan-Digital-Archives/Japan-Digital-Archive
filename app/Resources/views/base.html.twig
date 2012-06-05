@@ -7,12 +7,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	{% block title %}
 	{% endblock %}
-	<link href="{{ asset('jda/js/lib/bootstrap-2.0.2/css/bootstrap.css')}}" rel="stylesheet" type="text/css">
-	<link href="{{ asset('jda/js/lib/bootstrap-2.0.2/css/bootstrap-responsive.css')}}" rel="stylesheet">
-	<link href="{{ asset('jda/css/zeega-jda.css')}}" rel="stylesheet" type="text/css">
-	<link href="{{ asset('jda/css/jda.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{ asset('js/lib/bootstrap-2.0.2/css/bootstrap.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{ asset('js/lib/bootstrap-2.0.2/css/bootstrap-responsive.css')}}" rel="stylesheet">
+	<link href="{{ asset('css/zeega-jda.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{ asset('css/jda.css')}}" rel="stylesheet" type="text/css">
 
-	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('jda/images/jda.ico')}}"> 
+	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/jda.ico')}}"> 
 
 	{% block stylesheets %}
 	
@@ -21,11 +21,13 @@
 	{% endblock %}
 
 	<script> 
-	sessionStorage.setItem('directory', '{{directory}}');
-	sessionStorage.setItem('hostname','{{hostname}}');
-	sessionStorage.setItem('apiUrl','{{api_url}}');
-	sessionStorage.setItem('japanMapUrl','{{japan_map_url}}');
-	sessionStorage.setItem('geoServerUrl','{{geoserver_url}}');
+		sessionStorage.setItem('directory', '{{directory}}');
+		sessionStorage.setItem('hostname','{{hostname}}');
+		sessionStorage.setItem('apiUrl','{{api_url}}');
+		sessionStorage.setItem('japanMapUrl','{{japan_map_url}}');
+		sessionStorage.setItem('geoServerUrl','{{geoserver_url}}');
+		sessionStorage.setItem('locale','{{app.session.locale}}');
+	
 	</script>
 
 
@@ -49,9 +51,9 @@
 					<div class="row">
 						<div class="span8">
 							{% if locale == 'ja' %}
-							<a class="brand" href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('jda/images/logo-jp.png')}}"></a>
+							<a class="brand" href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('images/logo-jp.png')}}"></a>
 							{% else %}
-							<a class="brand" href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('jda/images/logo.png')}}"></a>
+							<a class="brand" href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('images/logo.png')}}"></a>
 							{% endif %}
 
 
@@ -62,15 +64,19 @@
 								<li><a href="#contact">Participate</a></li>
 							</ul>
 						</div>
-						<ul class="nav span4 pull-right">
+						<ul class="nav span5 pull-right">
 							<li><a href="{{path('about', { '_locale': locale})}}" class="about-english">{% trans %}jda.header.about{% endtrans %}</a></li>
 							<li class="divider-vertical"></li>
-							<li><a href="#about">Sign in</a></li>
+							{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+								<li><a href='{{ path('_security_logout')}}'>Sign out</a></li>
+							{% else %}
+								<li><a href='{{ path('_security_login')}}'>Sign in</a></li>
+							{% endif %}
 							<li class="divider-vertical"></li>
 							<li>
-								<div class="btn-group">
-									<button class="btn btn-mini btn-info active">English</button>
-									<button class="btn btn-mini btn-info">日本の</button>
+								<div id='jda-language-toggle' class="btn-group">
+									<button data-language="en" class="btn btn-mini btn-info {% if locale == 'en' %} active {% endif %}">English</button>
+									<button data-language="ja" class="btn btn-mini btn-info {% if locale == 'ja' %} active {% endif %} ">日本の</button>
 								</div>
 							</li>
 						</ul>

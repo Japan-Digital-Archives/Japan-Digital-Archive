@@ -7,6 +7,11 @@ search:
     defaults:  { _controller: JDACoreBundle:Search:index, _locale: ja }
     requirements:
         _locale: en|ja
+advsearch:
+    pattern:   /{_locale}/advsearch
+    defaults:  { _controller: JDACoreBundle:AdvSearch:index, _locale: ja }
+    requirements:
+        _locale: en|ja
 home:
     pattern:   /{_locale}/home
     defaults:  { _controller: JDACoreBundle:Home:index, _locale: ja }

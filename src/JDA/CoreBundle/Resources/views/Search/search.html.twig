@@ -10,33 +10,33 @@
 
 
 
-<link type="text/css" href="{{ asset('jda/js/lib/jquery-ui-1.8.18.custom/css/smoothness/jquery-ui-1.8.18.custom.css')}}" rel="Stylesheet" />
+<link type="text/css" href="{{ asset('js/lib/jquery-ui-1.8.18.custom/css/smoothness/jquery-ui-1.8.18.custom.css')}}" rel="Stylesheet" />
 
-<link href="{{ asset('jda/js/lib/jquerySVG/jquery.svg.css')}}" rel="stylesheet" type="text/css">
+<link href="{{ asset('js/lib/jquerySVG/jquery.svg.css')}}" rel="stylesheet" type="text/css">
 
 <!-- Leaflet CSS --> 
-<link rel="stylesheet" href="{{ asset('jda/js/lib/leaflet/leaflet.css')}}" />
-<!--[if lte IE 8]><link rel="stylesheet" href="{{ asset('jda/js/lib/leaflet/leaflet.ie.css')}}" /><![endif]-->
+<link rel="stylesheet" href="{{ asset('js/lib/leaflet/leaflet.css')}}" />
+<!--[if lte IE 8]><link rel="stylesheet" href="{{ asset('js/lib/leaflet/leaflet.ie.css')}}" /><![endif]-->
 
 
 <!-- Tags --> 
-<link rel="stylesheet" type="text/css" href="{{ asset('jda/js/lib/jquery.tagsinput.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('js/lib/jquery.tagsinput.css')}}" />
 
 <!-- Visual Search --> 
 <!--[if (!IE)|(gte IE 8)]><!-->
-<link href="{{ asset('jda/js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<link href="{{ asset('js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
 <!--<![endif]-->
 <!--[if lte IE 7]><!-->
-<link href="{{ asset('jda/js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<link href="{{ asset('js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
 <!--<![endif]-->
 
 <!-- FANCYBOX -->
 
 
 <!-- Add fancyBox -->
-<link rel="stylesheet" href="{{ asset('jda/css/zeega.fancybox.css')}}" type="text/css" media="screen" />
-<link rel="stylesheet" href="{{ asset('jda/js/lib/fancybox/jquery.fancybox.css')}}" type="text/css" media="screen" />
-<link rel="stylesheet" href="{{ asset('jda/js/lib/fancybox/helpers/jquery.fancybox-buttons.css')}}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{{ asset('css/zeega.fancybox.css')}}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{{ asset('js/lib/fancybox/jquery.fancybox.css')}}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{{ asset('js/lib/fancybox/helpers/jquery.fancybox-buttons.css')}}" type="text/css" media="screen" />
 <style>
 body {
 	padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -55,7 +55,7 @@ body {
 
 
       <script type="text/javascript" src="http://s3.documentcloud.org/viewer/loader.js"></script>
-      <script data-main="{{ asset('jda/js/loaders/search') }}" src="{{ asset('jda/js/lib/require/require-1.0.5.js') }}"></script>
+      <script data-main="{{ asset('js/loaders/search') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
 
 
 
@@ -163,52 +163,11 @@ body {
                                                       <li><a href="#layer-legend">{% trans %}jda.search.legend{% endtrans %}</a></li>
                                                 </ul>
                                                 <div id='layer-checkboxes'>
-                                                      <label class="checkbox">
-                                                            {% trans %}jda.search.muncipaldistricts{% endtrans %}
-                                                            <input type='checkbox' class="layer-checkbox" id='municipal-layer'/>
-                                                      </label>
-                                                      <label class="checkbox">
-                                                            {% trans %}jda.search.radiation{% endtrans %}
-                                                            <input type='checkbox' class="layer-checkbox" id='radiation-layer'/>
-                                                      </label>
-                                                      <label class="checkbox">
-                                                            {% trans %}jda.search.casualties{% endtrans %}
-                                                            <input type='checkbox' class="layer-checkbox" id='casualties-layer'/>
-                                                      </label>
-                                                      <label class="checkbox">
-                                                            {% trans %}jda.search.flooding{% endtrans %}
-                                                            <input type='checkbox' class="layer-checkbox" id='flooding-layer'/>
-                                                      </label>
-                                                      <label class="checkbox">
-                                                            {% trans %}jda.search.shake{% endtrans %}
-                                                            <input type='checkbox' class="layer-checkbox" id='shake-layer'/>
-                                                      </label>
-                                                      <label class="checkbox">
-                                                            Population Density
-                                                            <input type='checkbox' class="layer-checkbox" id='pop-density-layer'/>
-                                                      </label>
-                                                      <br><br>
+                                                     
+                                      
                                                 </div>
 
                                                 <div id='layer-legend'>
-                                                      <div class="legend-entry hidden" id="municipal-legend">
-                                                            <p>{% trans %}jda.search.muncipaldistricts{% endtrans %}</p>
-                                                      </div>
-                                                      <div class="legend-entry hidden" id="radiation-legend">
-                                                            <p>{% trans %}jda.search.radiation{% endtrans %}</p>
-                                                      </div>
-                                                      <div class="legend-entry hidden" id="casualties-legend">
-                                                            <p>{% trans %}jda.search.casualties{% endtrans %}</p>
-                                                      </div>
-                                                      <div class="legend-entry hidden" id="flooding-legend">
-                                                            <p>{% trans %}jda.search.flooding{% endtrans %}</p>
-                                                      </div>
-                                                      <div class="legend-entry hidden" id="shake-legend">
-                                                            <p>{% trans %}jda.search.shake{% endtrans %}</p>
-                                                      </div>
-                                                      <div class="legend-entry hidden" id="pop-density-legend">
-                                                            <p>Population Density</p>
-                                                      </div>
                                                 </div>
                                           </div> <!-- layer control -->
                                     </div> <!--layer-control-drawer -->

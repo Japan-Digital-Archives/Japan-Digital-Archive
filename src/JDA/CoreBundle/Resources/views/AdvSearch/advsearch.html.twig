@@ -1,0 +1,134 @@
+{# src/Zeega/CoreBundle/Resources/views/Home/home.html.twig #}
+
+{% extends '::base.html.twig' %}
+
+{% block title %}<title>{% trans %}jda.home.title{% endtrans %}</title>{% endblock %}
+
+
+
+{% block stylesheets %}
+<link type="text/css" href="{{ asset('jda/js/lib/jquery-ui-1.8.20.custom/css/smoothness/jquery-ui-1.8.20.custom.css')}}" rel="Stylesheet" />
+
+
+
+
+<link href="{{ asset('jda/js/lib/jquerySVG/jquery.svg.css')}}" rel="stylesheet" type="text/css">
+
+<!-- Leaflet CSS --> 
+<link rel="stylesheet" href="{{ asset('jda/js/lib/leaflet/leaflet.css')}}" />
+<!--[if lte IE 8]><link rel="stylesheet" href="{{ asset('jda/js/lib/leaflet/leaflet.ie.css')}}" /><![endif]-->
+
+
+<!-- Tags --> 
+<link rel="stylesheet" type="text/css" href="{{ asset('jda/js/lib/jquery.tagsinput.css')}}" />
+
+<!-- Visual Search --> 
+<!--[if (!IE)|(gte IE 8)]><!-->
+  <link href="{{ asset('jda/js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+<!--[if lte IE 7]><!-->
+  <link href="{{ asset('jda/js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+	
+{% endblock %}	
+
+{% block scripts %}
+
+<script type="text/javascript">
+    var contentTypes = {'{% trans %}jda.advsearch.video {% endtrans %}':'Video', '{% trans %}jda.advsearch.audio {% endtrans %}':'Audio',
+        '{% trans %}jda.advsearch.image {% endtrans %}':'Image', '{% trans %}jda.advsearch.website {% endtrans %}':'Website',
+        '{% trans %}jda.advsearch.tweet {% endtrans %}': 'Tweet', '{% trans %}jda.advsearch.document {% endtrans %}': 'Document'
+    };
+</script>
+<script data-main="{{ asset('jda/js/loaders/advsearch') }}" src="{{ asset('jda/js/lib/require/require-1.0.5.js') }}"></script>
+
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+<div class='container' id='zeega-main-content'>
+	<div class="mainContPadding">
+		<table cellpadding="5" cellspacing="0">
+			<tr>
+				<td class="advFormTitle">{% trans %}jda.advsearch.searchTerms{% endtrans %}</td>
+				<td colspan="3"><input type="text" id="searchTerms" class="searchTermsField" /></td>
+			</tr>
+            <tr>
+                <td class="advFormTitle">
+                    {% trans %}jda.advsearch.contentType {% endtrans %}
+                </td>
+                <td>
+                    <select id="contentTypeDDL">
+                        <option value="0">{% trans %}jda.advsearch.all{% endtrans %}</option>
+                    </select>
+                </td>
+                <td class="advFormTitle">
+                    {% trans %}jda.advsearch.user{% endtrans %}
+                </td>
+                <td>
+                    <!-- not sure how to get the current users ID, ask -->
+                    <select id="userDDL">
+                        <option value="0">{% trans %}jda.advsearch.allusers{% endtrans %}</option>
+                        <option value="-1">{% trans %}jda.advsearch.onlyCurrentUser{% endtrans %}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="advFormTitle">
+                    {% trans %}jda.advsearch.tags{% endtrans %}
+                </td>
+                <td>
+                    <input id="tagTxt" /><br />
+                    <div id="tagListDiv">
+                    </div>
+                </td>
+                <td class="advFormTitle">
+                    {% trans %}jda.advsearch.startDate{% endtrans %}
+                </td>
+                <td>
+                    <input type="text" id="startDateTxt" value="" />
+                </td>
+            </tr>
+            <tr>
+                <td class="advFormTitle">
+                    {% trans %}jda.advsearch.incCollections{% endtrans %}
+                </td>
+                <td>
+                    <input type="radio" name="collRbl" value="0" /> {% trans %}jda.advsearch.noCollections{% endtrans %}
+                    <input type="radio" name="collRbl" value="1" /> {% trans %}jda.advsearch.onlyCollections{% endtrans %}
+                    <input type="radio" name="collRbl" value="2" /> {% trans %}jda.advsearch.both{% endtrans %}
+                </td>
+                <td class="advFormTitle">
+                    {% trans %}jda.advsearch.endDate{% endtrans %}
+                </td>
+                <td>
+                    <input type="text" id="endDateTxt" value="" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div id='container' style="width:400px; height:400px;">
+                        <div id="map">
+                        </div>
+                    </div>
+                </td>
+                <td colspan="2">
+                    <b>{% trans %}jda.advsearch.mapInstructions{% endtrans %}:</b>{% trans %}jda.advsearch.mapInstructionsTxt{% endtrans %}
+                    <div id="info"></div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <center>
+                        <input type="button" id="submitBtn" value="Search" onclick="DoSearch();" />
+                    </center>
+                </td>
+            </tr>
+		</table>
+	</div>
+</div>
+{% endblock %}

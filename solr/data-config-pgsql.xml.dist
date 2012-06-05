@@ -1,7 +1,7 @@
 <dataConfig>
 <dataSource driver="org.postgresql.Driver" url="jdbc:postgresql://host/database?characterEncoding=UTF-8" user="" password="" readOnly="true" autoCommit="false" transactionIsolation="TRANSACTION_READ_COMMITTED" holdability="CLOSE_CURSORS_AT_COMMIT"/>
     <document>
-        <entity name="item" transformer="org.zeega.solr.ItemTransformer" query="select id,
+        <entity name="item" transformer="org.zeega.solr.ItemTransformer" query="select item.id,
 									      title as title_i,
 										  description as description_i,
 										  text as text_i,
@@ -22,8 +22,9 @@
 										  media_date_created_end,
 										  enabled,
 										  published,
-										  tags
-									from item">
+										  tags,
+                                                                                  collection.id as parent_item
+									from item inner join collection on item.id = collection.child_item_id">
 		</entity>	
     </document>
 </dataConfig>
