@@ -1,4 +1,4 @@
-(function(Items) {
+	(function(Items) {
 
 	//This is for the description/title info of a collection that shows up at the top of the page
 	Items.Views.CollectionPage = Backbone.View.extend({
@@ -10,21 +10,13 @@
 		events: {
 			'click button:contains(Play)' : function(){alert('Plays slideshow');},
 			'click button:contains(Share)' : function(){alert('Opens publish process modal window');},
-			
+			'click .jda-collection-filter-title':function(){console.log('clicked'); return false;},
 			
 
 
 		},
 		initialize: function () {
-	      //  this.model.bind('remove', this.remove);
-
-
-	  },
-	  render: function(done)
-	  {
-	  	var _this = this;
-
-	  	var facetExists = false;
+	      var facetExists = false;
 
 			//first remove other collection filters
 			_.each( VisualSearch.searchBox.facetViews, function( facet ){
@@ -39,6 +31,7 @@
 			//add collection filter to the VisualSearch box
 			if (!facetExists){	
 				VisualSearch.searchBox.addFacet('collection', this.model.get('title'), 0);
+				_.delay(function(){	$('input').blur();},500);
 			}
 			
 			//collection close removes the filter from the DOM and sets the object to null
@@ -49,8 +42,20 @@
 						jda.app.removeFilter('collection');
 
 					});
+					
+					
 				}
+				
+		
 			});
+
+
+	  },
+	  render: function(done)
+	  {
+	  	var _this = this;
+
+	  	
 
 			
 			
@@ -142,6 +147,7 @@
 			/***************************************************************************
 				Edit title
 			***************************************************************************/
+			
 			$(this.el).find('.jda-collection-filter-title').editable(
 				function(value, settings)
 				{ 
@@ -150,19 +156,20 @@
 					{				
 						success: function(model, response) { 
 							console.log("Updated item title for item " + model.id);
+						
 							_.each( VisualSearch.searchBox.facetViews, function( facet ){
 								if( facet.model.get('category') == 'collection' && facet.model.get('value') == oldTitle) {
-									facet.model.set({'value': null });
-									facet.remove();
 									
+									console.log(facet);
+									facet.model.set({'value': model.get('title') });
+									facet.render();
 								}
 								
 							})
-							VisualSearch.searchBox.addFacet('collection', model.get('title'), 0);
 
 							//Reset the collections drawer because there's also a collection view there
-							jda.app.myCollectionsDrawer.getCollectionList();
-
+							//jda.app.myCollectionsDrawer.getCollectionList();
+						
 		 				},
 		 				error: function(model, response){
 		 					
@@ -182,7 +189,7 @@
 					
 				});
 
-
+			
 			/***************************************************************************
 				Edit Description
 			***************************************************************************/
@@ -211,7 +218,7 @@
 					indicator : '<img src="images/loading.gif">',
 					select : false,
 					onblur : 'submit',
-					width : 250,
+					width : 300,
 					
 				});
 
@@ -332,8 +339,8 @@
 			***************************************************************************/
 			
 
-			$('#jda-collection-editing-toolbar').show();
-			$('.jda-item-checkbox').show();
+			$('.jda-edit-btn').show();
+			$('.tab-content').find('.jda-item-checkbox').show();
 			$('.jda-item-checkbox').click(function(e){
 				
 				//prevent fancybox from loading
@@ -341,11 +348,14 @@
 			});
 			$('#jda-collection-editing-toolbar-select-all').click(function(){
 				if($('#jda-collection-editing-toolbar-select-all').attr('checked')){
-					$('.jda-item-checkbox').attr('checked', true);
+					$('.tab-content').find('.jda-item-checkbox').attr('checked', true);
 				} else {
-					$('.jda-item-checkbox').attr('checked', false);
+					$('.tab-content').find('.jda-item-checkbox').attr('checked', false);
 				}
 			});
+			
+			
+			
 
 			return this;
 		},
@@ -354,8 +364,8 @@
 			//remove from DOM
 			$(this.el).empty();
 
-			$('#jda-collection-editing-toolbar').hide();
-			$('.jda-item-checkbox').hide();
+			$('.jda-edit-btn').hide();
+			$('.tab-content').find('.jda-item-checkbox').hide();
 			
 		},
 		
@@ -364,7 +374,7 @@
 			html = 
 			
 
-			'<div class="span12">'+
+			'<div class="span10">'+
 				'<a href="#" class="jda-view-all-collections">< View All Collections</a>'+
 			'</div>'+
 			'<div class="span4">'+
@@ -377,7 +387,7 @@
 
 
 			'</div>'+
-			'<div class="span6">'+
+			'<div class="span4">'+
 
 			'<span class="jda-collection-filter-description"><%=description%></span><i class="icon-plus-sign" style="display:none"></i>'+
 			'<p><strong>Tokyo, Japan</strong></p>'+
@@ -385,15 +395,15 @@
 
 			'</div>'+
 			'<div class="span2">'+
-
-				'<button class="btn btn-info btn-mini" type="button" style="width:65px;margin-bottom:5px"><i class="icon-play icon-white pull-left"></i> Play'+
-				'</button><br/>'+
-				'<button class="btn btn-info btn-mini" type="button" style="width:65px;margin-bottom:5px;clear:both"><i class="icon-share icon-white pull-left"></i> Share'+
-				'</button><br/>'+
-				'<button class="btn btn-info btn-mini" type="button" style="width:65px;margin-bottom:5px;clear:both"><i class="icon-edit pull-left icon-white"></i> Edit'+
-				'</button>'+
-				'<label class="checkbox" style="font-weight:bold"><input type="checkbox" name="show_in_archive"> Show in Archive?</label>'+
-
+				'<div class="pull-right">'+
+					'<button class="btn btn-info btn-mini" type="button" style="width:65px;margin-bottom:5px"><i class="icon-play icon-white pull-left"></i> Play'+
+					'</button><br/>'+
+					'<button class="btn btn-info btn-mini" type="button" style="width:65px;margin-bottom:5px;clear:both"><i class="icon-share icon-white pull-left"></i> Share'+
+					'</button><br/>'+
+				'</div>'+
+				'<div class="pull-right">'+
+					'<label class="checkbox" style="font-weight:bold"><input type="checkbox" name="show_in_archive"> Show in Archive?</label>'+
+				'</div>'+
 			'</div>';
 
 			

@@ -12,14 +12,6 @@
 
 		},
 		initialize: function () {
-
-
-
-		},
-		render: function(done)
-		{
-			var _this = this;
-
 			var facetExists = false;
 
 			$('.jda-separate-collections-and-items').show();
@@ -48,6 +40,14 @@
 					});
 				}
 			});
+
+
+		},
+		render: function(done)
+		{
+			var _this = this;
+
+			
 
 			/***************************************************************************
 			Put template together

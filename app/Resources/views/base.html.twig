@@ -59,9 +59,9 @@
 
 
 							<ul id="jda-main-nav" class="nav span4">
-								<li><a href="#">Explore</a></li>
-								<li><a href="#about">Collections</a></li>
-								<li><a href="#contact">Participate</a></li>
+								<li><a href="{{path('search', { '_locale': locale })}}">{% trans %}jda.header.explore{% endtrans %}</a></li>
+								<li><a href="{{path('home', { '_locale': locale })}}">{% trans %}jda.header.collections{% endtrans %}</a></li>
+								<!-- <li><a href="{{path('home', { '_locale': locale })}}">{% trans %}jda.header.participate{% endtrans %}</a></li> -->
 							</ul>
 						</div>
 						<ul class="nav span5 pull-right">
