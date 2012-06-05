@@ -193,6 +193,9 @@ legend{
 	position:absolute;top: 5px;position: absolute;right: 5px;
 	display:none;
 }
+.jda-separate-collections-and-items{
+	margin-top:10px;
+}
 /********************
 
 	OPEN LAYERS MAP

@@ -33,7 +33,7 @@ this.jda = {
 	init : function()
 	{
 		// Include all modules
-
+ 
 		var Items = jda.module("items");
 
 		// make item collection
