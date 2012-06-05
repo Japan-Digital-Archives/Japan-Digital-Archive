@@ -16,15 +16,7 @@
 
 		},
 		initialize: function () {
-	      //  this.model.bind('remove', this.remove);
-
-
-	  },
-	  render: function(done)
-	  {
-	  	var _this = this;
-
-	  	var facetExists = false;
+	      var facetExists = false;
 
 			//first remove other collection filters
 			_.each( VisualSearch.searchBox.facetViews, function( facet ){
@@ -51,6 +43,14 @@
 					});
 				}
 			});
+
+
+	  },
+	  render: function(done)
+	  {
+	  	var _this = this;
+
+	  	
 
 			
 			
