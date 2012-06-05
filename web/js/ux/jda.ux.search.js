@@ -5,6 +5,8 @@ $(document).ready(function(){
 
 	$('#jda-language-toggle').find('.btn').click(function(){
 		if(!$(this).hasClass('active')){
+			$('#jda-language-toggle').find('.btn').removeClass('active');
+			$(this).addClass('active');
 			if($(this).data('language')=='en') window.location =  window.location.href.replace('ja/search','en/search');
 			else window.location =  window.location.href.replace('en/search','ja/search');
 		}

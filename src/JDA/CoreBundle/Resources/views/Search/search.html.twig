@@ -119,35 +119,35 @@ body {
 
       				<!-- Results & Sort Dropdown -->
 
-      				<span id="zeega-results-count"><span id="zeega-results-count-number"></span> <span id="zeega-results-count-text">results</span><span id="zeega-results-count-text-with-date"> with time and place data</span></span>
+      				<span id="zeega-results-count"><span id="zeega-results-count-number"></span> <span id="zeega-results-count-text">{% trans %}jda.search.items{% endtrans %}</span><span id="zeega-results-count-text-with-date"> with time and place data</span></span>
                               
-      				<div class="btn-group pull-right" style="margin-bottom:8px">
+      				<div class="pull-right" style="margin-bottom:8px">
+      					<div class="btn-group" style="display: inline-block; top:11px">
+      						<a class="btn dropdown-toggle btn-small jda-edit-btn" data-toggle="dropdown" href="#">
+                                            <i class="icon-move icon-white"></i> Move to...
+                                            <span class="caret"></span>
+                            </a>
+							<ul class="dropdown-menu">
+								  <li><a href="#">My Collection 2</a></li>
+								  <li><a href="#">My Collection 3</a></li>
+								  <li><a href="#">My Collection 4</a></li>
+								</ul>
+							</div>
+      				
+                        <button class="btn btn-small jda-edit-btn" type="button"><i class="icon-trash icon-white"></i> Delete</button>
       					<a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
       						Sort By
       						<span class="caret"></span>
       					</a>
+      					
       					<ul class="dropdown-menu">
       						<li><a href="#">A-Z</a></li>
       						<li><a href="#">Date</a></li>
       						<li><a href="#">Something else</a></li>
       					</ul>
+      					<button class="btn btn-small jda-edit-btn" type="button"><input id="jda-collection-editing-toolbar-select-all" type="checkbox"></button>
       				</div>
-                              <div id="jda-collection-editing-toolbar" class="pull-left">
-                                    <button class="btn btn-info btn-small" type="button"><input id="jda-collection-editing-toolbar-select-all" type="checkbox"></button>
-                                    <button class="btn btn-info btn-small"><i class="icon-plus icon-white"></i> Create new collection</button>
-                                    <button class="btn btn-info btn-small" type="button"><i class="icon-trash icon-white"></i> Delete</button>
-                                    <div class="btn-group" style="display: inline-block; top:11px">
-                                      <a class="btn dropdown-toggle btn-info btn-small" data-toggle="dropdown" href="#">
-                                            <i class="icon-move icon-white"></i> Move to...
-                                            <span class="caret"></span>
-                                      </a>
-                                      <ul class="dropdown-menu">
-                                          <li><a href="#">My Collection 2</a></li>
-                                          <li><a href="#">My Collection 3</a></li>
-                                          <li><a href="#">My Collection 4</a></li>
-                                    </ul>
-                              </div>
-                        </div>
+                      	
 
       				<!-- MAP VIEW -->
       				<div class="tab-pane" id="zeega-event-view">
@@ -229,8 +229,8 @@ body {
       					</p>
       					<span class="label label-success" id="zeega-my-collections-added">Added!</span>
                                     <ul id="zeega-my-collections-items-thumbs" class="unstyled"></ul>
-      					<span id="zeega-my-collections-count-string" style="display:none;font-weight:bold;font-size:12px">(and <span id="zeega-my-collections-count"></span> more items)</span>
-      					<h4 id="zeega-my-collections-share-and-organize" style="display:none"><a href="#" class="btn btn-info">Share & Organize</a>
+      					<span class="label label-info" id="zeega-my-collections-count-string" style="display:none">and <span id="zeega-my-collections-count"></span> more items</span>
+      					<h4 id="zeega-my-collections-share-and-organize" style="display:none"><a href="#">Share & Organize</a>
       					</h4>
 
       				</div>

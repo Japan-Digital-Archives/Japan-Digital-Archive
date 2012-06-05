@@ -1,4 +1,4 @@
-(function(Items) {
+	(function(Items) {
 
 	//This is for the description/title info of a collection that shows up at the top of the page
 	Items.Views.CollectionPage = Backbone.View.extend({
@@ -218,7 +218,7 @@
 					indicator : '<img src="images/loading.gif">',
 					select : false,
 					onblur : 'submit',
-					width : 250,
+					width : 300,
 					
 				});
 
@@ -339,8 +339,8 @@
 			***************************************************************************/
 			
 
-			$('#jda-collection-editing-toolbar').show();
-			$('.jda-item-checkbox').show();
+			$('.jda-edit-btn').show();
+			$('.tab-content').find('.jda-item-checkbox').show();
 			$('.jda-item-checkbox').click(function(e){
 				
 				//prevent fancybox from loading
@@ -348,9 +348,9 @@
 			});
 			$('#jda-collection-editing-toolbar-select-all').click(function(){
 				if($('#jda-collection-editing-toolbar-select-all').attr('checked')){
-					$('.jda-item-checkbox').attr('checked', true);
+					$('.tab-content').find('.jda-item-checkbox').attr('checked', true);
 				} else {
-					$('.jda-item-checkbox').attr('checked', false);
+					$('.tab-content').find('.jda-item-checkbox').attr('checked', false);
 				}
 			});
 			
@@ -364,8 +364,8 @@
 			//remove from DOM
 			$(this.el).empty();
 
-			$('#jda-collection-editing-toolbar').hide();
-			$('.jda-item-checkbox').hide();
+			$('.jda-edit-btn').hide();
+			$('.tab-content').find('.jda-item-checkbox').hide();
 			
 		},
 		
@@ -395,15 +395,15 @@
 
 			'</div>'+
 			'<div class="span2">'+
-
-				'<button class="btn btn-info btn-mini" type="button" style="width:65px;margin-bottom:5px"><i class="icon-play icon-white pull-left"></i> Play'+
-				'</button><br/>'+
-				'<button class="btn btn-info btn-mini" type="button" style="width:65px;margin-bottom:5px;clear:both"><i class="icon-share icon-white pull-left"></i> Share'+
-				'</button><br/>'+
-				'<button class="btn btn-info btn-mini" type="button" style="width:65px;margin-bottom:5px;clear:both"><i class="icon-edit pull-left icon-white"></i> Edit'+
-				'</button>'+
-				'<label class="checkbox" style="font-weight:bold"><input type="checkbox" name="show_in_archive"> Show in Archive?</label>'+
-
+				'<div class="pull-right">'+
+					'<button class="btn btn-info btn-mini" type="button" style="width:65px;margin-bottom:5px"><i class="icon-play icon-white pull-left"></i> Play'+
+					'</button><br/>'+
+					'<button class="btn btn-info btn-mini" type="button" style="width:65px;margin-bottom:5px;clear:both"><i class="icon-share icon-white pull-left"></i> Share'+
+					'</button><br/>'+
+				'</div>'+
+				'<div class="pull-right">'+
+					'<label class="checkbox" style="font-weight:bold"><input type="checkbox" name="show_in_archive"> Show in Archive?</label>'+
+				'</div>'+
 			'</div>';
 
 			
