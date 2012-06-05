@@ -7,12 +7,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	{% block title %}
 	{% endblock %}
-	<link href="{{ asset('jda/js/lib/bootstrap-2.0.2/css/bootstrap.css')}}" rel="stylesheet" type="text/css">
-	<link href="{{ asset('jda/js/lib/bootstrap-2.0.2/css/bootstrap-responsive.css')}}" rel="stylesheet">
-	<link href="{{ asset('jda/css/zeega-jda.css')}}" rel="stylesheet" type="text/css">
-	<link href="{{ asset('jda/css/jda.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{ asset('js/lib/bootstrap-2.0.2/css/bootstrap.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{ asset('js/lib/bootstrap-2.0.2/css/bootstrap-responsive.css')}}" rel="stylesheet">
+	<link href="{{ asset('css/zeega-jda.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{ asset('css/jda.css')}}" rel="stylesheet" type="text/css">
 
-	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('jda/images/jda.ico')}}"> 
+	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/jda.ico')}}"> 
 
 	{% block stylesheets %}
 	
@@ -51,9 +51,9 @@
 					<div class="row">
 						<div class="span8">
 							{% if locale == 'ja' %}
-							<a class="brand" href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('jda/images/logo-jp.png')}}"></a>
+							<a class="brand" href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('images/logo-jp.png')}}"></a>
 							{% else %}
-							<a class="brand" href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('jda/images/logo.png')}}"></a>
+							<a class="brand" href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('images/logo.png')}}"></a>
 							{% endif %}
 
 
