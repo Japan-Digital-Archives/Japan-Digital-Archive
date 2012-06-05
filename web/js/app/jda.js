@@ -219,10 +219,12 @@ this.jda = {
 		}
 		searchParams.page = 1;
 		
-		$('.tab-content').addClass('jda-low-top');
-		$('#zeega-right-column').hide();
-		$('#zeega-left-column').removeClass('span10');
-		$('#zeega-left-column').addClass('span12');
+		if (!$('.tab-content').offset().top == '147'){
+			$('.tab-content').addClass('jda-low-top');
+		}
+		//$('#zeega-right-column').hide();
+		//$('#zeega-left-column').removeClass('span10');
+		//$('#zeega-left-column').addClass('span12');
 
 		var Items = jda.module("items");
 		this.clearSearchFilters();

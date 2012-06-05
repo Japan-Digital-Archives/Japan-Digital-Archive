@@ -115,7 +115,8 @@ header .navbar .btn-group {
 }
 .jda-low-top{
 	top:147px;
-	position:absolute
+	position:relative;
+	width:auto;
 }
 tr{
 	background-color:white;
@@ -183,7 +184,8 @@ legend{
 
 }
 #jda-collection-filter{
-	position:fixed;top:75px;background:white;z-index:1;padding-bottom:9px;padding-top:30px
+	position:fixed;top:75px;background:white;z-index:1;padding-bottom:9px;padding-top:30px;
+	width:1000px;
 }
 #jda-collection-editing-toolbar{
 	display:none;
@@ -192,6 +194,9 @@ legend{
 .jda-item-checkbox{
 	position:absolute;top: 5px;position: absolute;right: 5px;
 	display:none;
+}
+.jda-separate-collections-and-items{
+	margin-top:10px;
 }
 /********************
 

@@ -16,15 +16,7 @@
 
 		},
 		initialize: function () {
-	      //  this.model.bind('remove', this.remove);
-
-
-	  },
-	  render: function(done)
-	  {
-	  	var _this = this;
-
-	  	var facetExists = false;
+	      var facetExists = false;
 
 			//first remove other collection filters
 			_.each( VisualSearch.searchBox.facetViews, function( facet ){
@@ -56,6 +48,14 @@
 				
 		
 			});
+
+
+	  },
+	  render: function(done)
+	  {
+	  	var _this = this;
+
+	  	
 
 			
 			
@@ -374,7 +374,7 @@
 			html = 
 			
 
-			'<div class="span12">'+
+			'<div class="span10">'+
 				'<a href="#" class="jda-view-all-collections">< View All Collections</a>'+
 			'</div>'+
 			'<div class="span4">'+
@@ -387,7 +387,7 @@
 
 
 			'</div>'+
-			'<div class="span6">'+
+			'<div class="span4">'+
 
 			'<span class="jda-collection-filter-description"><%=description%></span><i class="icon-plus-sign" style="display:none"></i>'+
 			'<p><strong>Tokyo, Japan</strong></p>'+
