@@ -26,7 +26,7 @@
 
 			//Render collection list in drop-down menu
 			$(_this.el).find('.dropdown-menu').empty();
-			console.log(this.collection);
+			
 			_.each( _.toArray(this.collection), function(item){
 			
 				if(!_.isUndefined(item.id)) var id =item.id;
@@ -166,7 +166,7 @@
 		},
 		
 		renderCollectionPreview: function(model){
-					console.log(model);
+					console.log('RENDERING COLLECTION PREVIEW',model);
 					var title = model.get('title');
 					var remainingItems = model.get('child_items').length - this.showThumbnailCount;
 					var _this=this;
@@ -193,7 +193,7 @@
 						}).show();
 					}
 					else{
-					$('#zeega-my-collections-share-and-organize').click(function(){
+					$('#zeega-my-collections-share-and-organize').html("<a href='#' >Share and Organize</a>").unbind().click(function(){
 						jda.app.addFilter(_this.activeCollection, 'collection');
 						return false;
 						}).show();
@@ -224,10 +224,10 @@
 					
 					success : function(collection, response)
 					{ 
-						console.log(response);
+						console.log('SUCCESSFULLY LOADED COLLECTIONS',collection);
 						_this.render();
 					},
-					error : function(model, response)
+					error : function(collection, response)
 					{ 
 						console.log(response);
 						console.log('Error getting collection list from server');

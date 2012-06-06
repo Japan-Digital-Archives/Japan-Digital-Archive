@@ -6,7 +6,7 @@ jQuery(function($)
 		container : $('.visual_search'),
 		query     : '',
 		callbacks : {
-			
+
 			loaded	: function(){},
 
 			search : function(){ jda.app.search( {page:1} ) },
@@ -26,7 +26,7 @@ jQuery(function($)
 			{
 				switch (facet)
 				{
-				
+
 					case 'tag':
 						callback([]);
 						break;
@@ -43,29 +43,29 @@ jQuery(function($)
 			}
 		} //callbacks
 	});
-	
+
 	var JDA = jda.app;
 	JDA.init();
 	//jda.app.init();
-	
+
 	// Defining the application router, you can attach sub routers here.
 	var Router = Backbone.Router.extend({
-		
+
 		routes: {
 			""				: 'search',
 			":query"		: "search",
-			
+
 		},
 
 		search : function( query )
 				{
-					
+
 					var obj = '{page:1}';
 					if (!_.isUndefined(query))
 					{
 						obj = QueryStringToHash(query);
 					}
-					
+
 
 					//If URL specifies particular collection then we gotta look it up and set it in the app
 					//Only then can we update search UI with the title of the collection as a facet
@@ -84,7 +84,7 @@ jQuery(function($)
 								console.log('index.js: Error getting collection specified in URL');
 							}
 						});
-					
+
 					} 
 					else if (obj.user != null && obj.user > 0){
 						var Users = jda.module("users");

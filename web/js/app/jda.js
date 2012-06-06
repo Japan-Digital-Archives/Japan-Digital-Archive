@@ -97,7 +97,7 @@ this.jda = {
 		    
 			if(!_.isUndefined( this.itemViewCollection.getCQLSearchString())&&this.mapLoaded)
 			{
-				this.map.layers[1].mergeNewParams({
+				_this.map.getLayersByName('cite:item - Tiled')[0].mergeNewParams({
 					'CQL_FILTER' : this.itemViewCollection.getCQLSearchString()
 				});
 			}
@@ -838,11 +838,18 @@ this.jda = {
 		console.log("you're logged in now!");
 		
 		sessionStorage.setItem('user','1');
-		
+		$('#zeega-my-collections-share-and-organize').html('Saving collection...');
+		var _this=this;
 		console.log(this.myCollectionsDrawer.activeCollection);
-		
-		this.myCollectionsDrawer.activeCollection.save();
-		//this.initCollectionsDrawer();
+		if(this.myCollectionsDrawer.activeCollection.get('newItemIDS').length>0){
+			this.myCollectionsDrawer.activeCollection.save({},{
+				success:function(model,response){
+					console.log('saved collection');
+					_this.initCollectionsDrawer();
+				}
+			});
+		}
+		else this.initCollectionsDrawer();
 	}
 	
 	

@@ -6,10 +6,21 @@ $(document).ready(function(){
 	
 	$('#jda-sign-in').click(function(){$('#login-modal').modal('show'); return false;});
 	$("#login-modal").bind('authenticated',function(){
-		$('#jda-sign-in').hide();
-		$('#jda-sign-out').html("Sign Out");
+		$('#jda-sign-in').html("Sign Out").unbind().click(function(){});
 	});
 	$("#login-modal").bind('close',function(){$("#login-modal-close").trigger('click');});
+	
+	/*************** LANGUAGE TOGGLE ************************/
+	$('#jda-language-toggle').find('.btn').click(function(){
+		if(!$(this).hasClass('active')){
+			console.log('switching languages');
+			$('#jda-language-toggle').find('.btn').removeClass('active');
+			$(this).addClass('active');
+			if($(this).data('language')=='en') window.location =  window.location.href.replace('ja/home','en/home');
+			else window.location =  window.location.href.replace('en/home','ja/home');
+		}
+		
+	});
 	
 	
 	$('.jda-home-featured-collection').height(Math.max($(window).height()-50, 600));
@@ -24,7 +35,7 @@ $(document).ready(function(){
 		callbacks : {
 			
 			loaded	: function(){ 
-				$('.VS-search-box').css('width','450px');
+				$('.VS-search-box').css('width','270px');
 				
 				$("#jda-home-search-div, #search-bar").fadeTo('slow',1); 
 				$('input').attr('placeholder', 'Explore the Archive');

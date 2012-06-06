@@ -11,7 +11,6 @@
 	<link href="{{ asset('js/lib/bootstrap-2.0.2/css/bootstrap-responsive.css')}}" rel="stylesheet">
 	<link href="{{ asset('css/zeega-jda.css')}}" rel="stylesheet" type="text/css">
 	<link href="{{ asset('css/jda.css')}}" rel="stylesheet" type="text/css">
-<link href="{{ asset('css/authorization.css')}}" rel="stylesheet" type="text/css">
 	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/jda.ico')}}"> 
 
 	{% block stylesheets %}
@@ -55,7 +54,7 @@
 			<div class="navbar-inner">
 				<div class="container">
 					<div class="row">
-						<div class="span8">
+						<div class="span7">
 							{% if locale == 'ja' %}
 							<a class="brand" href="{{path('home', { '_locale': locale })}}"><img id="logo" class="home-english" src="{{ asset('images/jda_jp_logo_white')}}"></a>
 							{% else %}
@@ -70,19 +69,19 @@
 								<!-- <li><a href="{{path('home', { '_locale': locale })}}">{% trans %}jda.header.participate{% endtrans %}</a></li> -->
 							</ul>
 						</div>
-						<ul class="nav span5 pull-right">
+						<ul class="nav pull-right">
 							<li><a href="{{path('about', { '_locale': locale})}}" class="about-english">{% trans %}jda.header.about{% endtrans %}</a></li>
 							<li class="divider-vertical"></li>
 							{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 								<li><a href='{{ path('_security_logout',{ '_locale': locale })}}'>Sign out</a></li>
 							{% else %}
-								<li><a id="jda-sign-in" href="#">Sign in</a><a id="jda-sign-out" href='{{ path('_security_logout',{ '_locale': locale })}}'></a></li>
+								<li><a id="jda-sign-in" href="{{ path('_security_logout',{ '_locale': locale })}}">Sign in</a></li>
 							{% endif %}
 							<li class="divider-vertical"></li>
 							<li>
 								<div id='jda-language-toggle' class="btn-group">
-									<button data-language="en" class="btn btn-mini btn-info {% if locale == 'en' %} active {% endif %}">English</button>
-									<button data-language="ja" class="btn btn-mini btn-info {% if locale == 'ja' %} active {% endif %} ">日本の</button>
+									<button data-language="en" class="btn btn-mini {% if locale == 'en' %} active {% endif %}">English</button>
+									<button data-language="ja" class="btn btn-mini {% if locale == 'ja' %} active {% endif %} ">日本の</button>
 								</div>
 							</li>
 						</ul>

@@ -172,11 +172,13 @@
 		{
 			html =
 
+
 			'<td class="span2">'+
 		//		'<i class="jdicon-small-drag"></i>'+
 			'<img src="<%= thumbnail_url %>" height="100" width="100"/>'+
+
 			'</td>'+
-			'<td class="jda-item-description span9"><%= title %><br/><span class="jda-item-author">by <%= author %></span></td>'+
+			'<td class="jda-item-description"><%= title %><br/><span class="jda-item-author">by <%= author %></span></td>'+
 			'<td class="jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
 			
 
@@ -187,11 +189,13 @@
 		{
 			html =
 
+
 			'<td class="span2">'+
 		//		'<i class="jdicon-small-drag"></i>'+
 				'<img src="<%= thumbnail_url %>" height="100" width="100"/>'+
+
 			'</td>'+
-			'<td class="jda-item-description span9">'+
+			'<td class="jda-item-description">'+
 				'<div class="jda-item-title"><%= title %></div>'+
 				'<div class="jda-item-source"><%= layer_type %></div>'+
 				'<div class="jda-item-author">by <%= author %></div>'+
@@ -207,12 +211,14 @@
 			html = 
 			
 
+
 			'<td class="span2">'+
 			//	'<i class="jdicon-small-drag"></i>'+
+
 				'<i class="jdicon-document"></i>'+
 				'<div class="item-author item-author-left"><%= author %></div>'+
 			'</td>'+
-			'<td class="jda-item-description span9">'+
+			'<td class="jda-item-description">'+
 				'<div class="jda-item-title"><%= title %></div>'+
 				'<div><%= description %></div>'+
 			'</td>'+
@@ -227,11 +233,13 @@
 		{
 			html = 
 
+
 			'<td class="span2">'+
 			//	'<i class="jdicon-small-drag"></i>'+
+
 				'<i class="jdicon-website"></i>'+
 			'</td>'+
-			'<td class="jda-item-description span9">'+
+			'<td class="jda-item-description">'+
 				'<div class="jda-item-title"><%= title %></div>'+
 			'</td>'+
 			'<td class="jda-item-date">'+
@@ -244,11 +252,13 @@
 		{
 			html = 
 
+
 			'<td class="span2">'+
 			//	'<i class="jdicon-small-drag"></i>'+
+
 				'<i class="jdicon-tweet"></i>'+
 			'</td>'+
-			'<td class="jda-item-description span9">'+
+			'<td class="jda-item-description">'+
 				'<%= text %>'+
 			'</td>'+
 			'<td class="jda-item-date">'+
@@ -261,12 +271,14 @@
 		{
 			html = 
 
+
 			'<td class="span2">'+
 				//'<i class="jdicon-small-drag"></i>'+
+
 				'<i class="jdicon-testimonial"></i>'+
 				'<div class="item-author item-author-left"><%= author %></div>'+
 			'</td>'+
-			'<td class="jda-item-description span9">'+
+			'<td class="jda-item-description">'+
 				'<div><%= description %></div>'+
 			'</td>'+
 			'<td class="jda-item-date">'+
@@ -279,12 +291,14 @@
 		{
 			html = 
 
+D
 			'<td class="span2">'+
 				//'<i class="jdicon-small-drag"></i>'+
+
 				'<i class="jdicon-pdf"></i>'+
 				'<div class="item-author item-author-left"><%= author %></div>'+
 			'</td>'+
-			'<td class="jda-item-description span9">'+
+			'<td class="jda-item-description">'+
 				'<div class="jda-item-title"><%= title %></div>'+
 				'<div><%= description %></div>'+
 			'</td>'+
@@ -299,12 +313,14 @@
 		{
 			html = 
 
+
 			'<td class="span2">'+
 				//'<i class="jdicon-small-drag"></i>'+
+
 				'<i class="jdicon-audio"></i>'+
 				'<div class="item-author item-author-left"><%= author %></div>'+
 			'</td>'+
-			'<td class="jda-item-description span9">'+
+			'<td class="jda-item-description">'+
 				'<div class="jda-item-title"><%= title %></div>'+
 				'<div><%= description %></div>'+
 			'</td>'+
@@ -317,12 +333,13 @@
 		getCollectionTemplate : function()
 		{
 			html = 
-			
+
 				'<td><a id="<%= id %>" class="list-fancymedia" rel="group">'+
 					//'<i class="jdicon-small-drag"></i><i class="jdicon-collection"></i> '+
+
 					'<span class="jda-item-author"><%= author %></span></a>'+
 				'</td>'+
-				'<td class="jda-item-description span9">'+
+				'<td class="jda-item-description">'+
 					'<div class="jda-item-title"><%= title %></div>'+
 					'<div><%= description %></div>'+
 				'</td>'+
@@ -335,8 +352,10 @@
 		{
 			html = 
 			
+
 				'<td><a id="<%= id %>" class="list-fancymedia" rel="group">'+
 					//'<i class="jdicon-small-drag"></i><i class="jdicon-document"></i> '+
+
 					'<span class="jda-item-author"><%= author %></span></a>'+
 				'</td>'+
 				'<td class="jda-item-description"><%= title %><br/><%= description %></td>'+

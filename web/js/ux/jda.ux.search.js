@@ -1,8 +1,26 @@
 
 $(document).ready(function(){
 
+  console.log($(window).width())
+  console.log($('#zeega-right-column').width())
+  console.log($('#zeega-right-column').offset().right)
 
+  
+  	$('#zeega-left-column').css("width", ($(window).width() - $('#zeega-right-column').width() - 120) );
 
+	
+	/*************** USER LOGIN ************************/
+	
+  
+  	$('#jda-sign-in').click(function(){$('#login-modal').modal('show'); return false;});
+		$("#login-modal").bind('authenticated',function(){
+			$('#jda-sign-in').html("Sign Out").unbind().click(function(){});
+			jda.app.userAuthenticated();
+		});
+	$("#login-modal").bind('close',function(){$("#login-modal-close").trigger('click');});
+	
+	/*************** LANGUAGE TOGGLE ************************/
+		
 	$('#jda-language-toggle').find('.btn').click(function(){
 		if(!$(this).hasClass('active')){
 			$('#jda-language-toggle').find('.btn').removeClass('active');
@@ -14,23 +32,15 @@ $(document).ready(function(){
 
 
 
-  
-  $('#jda-sign-in').click(function(){$('#login-modal').modal('show'); return false;});
-	$("#login-modal").bind('authenticated',function(){
-		$('#jda-sign-in').hide();
-		$('#jda-sign-out').html("Sign Out");
-		jda.app.userAuthenticated();
-	});
-	$("#login-modal").bind('close',function(){$("#login-modal-close").trigger('click');});
 	
   
-  $('.jda-play-collection').click(function () {
-    alert('plays collection as slideshow in player');
-  });
+	$('.jda-play-collection').click(function () {
+		alert('plays collection as slideshow in player');
+	});
 
 
   
- $("#jda-search-button-group,#search-bar").fadeTo('slow',1);
+ 	$("#jda-search-button-group,#search-bar").fadeTo('slow',1);
 
   //View buttons toggle
   $("#zeega-view-buttons button").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
@@ -56,6 +66,7 @@ $(document).ready(function(){
     if (jda.app.currentView == "event"){
       jda.app.resetMapSize();
     }
+    $('#zeega-left-column').css("width", ($(window).width() - $('#zeega-right-column').width() - 120) );
   });
 
  

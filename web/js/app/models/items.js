@@ -33,7 +33,7 @@
 		},
 		url : function(){ 
 			
-			if(_.isUndefined(this.id)) var url = jda.app.apiLocation + 'api/collections';
+			if(_.isUndefined(this.id)) var url = jda.app.apiLocation + 'api/collections/items';
 			else var url = jda.app.apiLocation + 'api/items/' + this.id;
 			console.log(this.id);
 			console.log("Final url for getting item is: " + url);

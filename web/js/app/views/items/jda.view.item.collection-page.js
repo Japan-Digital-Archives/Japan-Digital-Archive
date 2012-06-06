@@ -375,7 +375,7 @@
 			
 
 			'<div class="span10">'+
-				'<a href="#" class="jda-view-all-collections">< View All Collections</a>'+
+		
 			'</div>'+
 			'<div class="span4">'+
 			'<div class="pull-left zeega-collection rotated-left" style="margin-right:12px">'+

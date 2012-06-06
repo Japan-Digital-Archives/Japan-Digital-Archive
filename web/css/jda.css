@@ -156,8 +156,11 @@ legend{
 }
 .thumbnails > li {
 	position:relative;
+	margin-left:20px;
 }
-
+.thumbnails {
+margin-left: -20px;
+}
 #logo{
 	width:110px;
 }
@@ -195,6 +198,7 @@ legend{
 	margin-top:10px;
 }
 
+
 .jda-edit-btn {
 	display:none;
 
@@ -207,6 +211,19 @@ legend{
 	border: none;
 	overflow: hidden;
 
+}
+
+
+
+
+.jda-item-date{
+	min-width:150px;
+}
+.jda-item-icon{
+	min-width:60px;
+}
+.jda-item-image{
+	min-width:100px;
 }
 
 /********************
