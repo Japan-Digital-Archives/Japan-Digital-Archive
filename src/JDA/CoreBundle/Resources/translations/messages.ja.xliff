@@ -219,7 +219,7 @@
                 <target>このアーカイブ・プロジェクトは皆様のご参加とご協力なくしては成立し得ません。共に試作モデル・アルファ版の改良にあたって下さるパートナーの輪は広がり続けており、そこに是非加わって頂ければと願っております。既に登録がお済みでしたら、どのようなご意見・ご感想、不具合のご指摘でも結構ですので、私どもと共有して下されば幸いです。トップページ右上部のリンクを通じて承っております。</target>
             </trans-unit>
             <trans-unit id="56">
-                <source>jda.login.header</source>
+                <source>jda.header.signin</source>
                 <target>2011年東日本大震災デジタルアーカイブへようこそ</target>
             </trans-unit>
             <trans-unit id="57">
@@ -239,7 +239,7 @@
                 <target>Alpha版について</target>
             </trans-unit>
             <trans-unit id="61">
-                <source>jda.login.login</source>
+                <source>jda.header.signout</source>
                 <target>Login</target>
             </trans-unit>
             <trans-unit id="62">

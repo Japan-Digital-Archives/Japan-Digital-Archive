@@ -24,7 +24,7 @@ $(document).ready(function(){
 		callbacks : {
 			
 			loaded	: function(){ 
-				$('.VS-search-box').css('width','350px');
+				$('.VS-search-box').css('width','450px');
 				
 				$("#jda-home-search-div, #search-bar").fadeTo('slow',1); 
 				$('input').attr('placeholder', 'Explore the Archive');

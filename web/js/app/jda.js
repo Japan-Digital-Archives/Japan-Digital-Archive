@@ -31,12 +31,13 @@ this.jda = {
 	resultsPerPage : 100,
 	
 	init : function(){
-		// Include all modules
-
-		var Items = jda.module("items");
-
 		// make item collection
-		this.itemViewCollection = new Items.ViewCollection();
+		var Items = jda.module("items");
+		this.itemViewCollection =new Items.ViewCollection();
+		this.initCollectionsDrawer();
+	},
+	initCollectionsDrawer: function(){
+		var Items = jda.module("items");
 		this.myCollectionsDrawer = new Items.MyCollectionsDrawer();
 		this.myCollectionsDrawer.getCollectionList();
 	},
@@ -834,7 +835,14 @@ this.jda = {
 	***************************************************************************/
 	userAuthenticated: function(){
 	
-	console.log("you're logged in now!");
+		console.log("you're logged in now!");
+		
+		sessionStorage.setItem('user','1');
+		
+		console.log(this.myCollectionsDrawer.activeCollection);
+		
+		this.myCollectionsDrawer.activeCollection.save();
+		//this.initCollectionsDrawer();
 	}
 	
 	

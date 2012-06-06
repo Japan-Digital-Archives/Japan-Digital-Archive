@@ -32,7 +32,10 @@
 				return response;
 		},
 		url : function(){ 
-			var url = jda.app.apiLocation + 'api/items/' + this.id;
+			
+			if(_.isUndefined(this.id)) var url = jda.app.apiLocation + 'api/collections';
+			else var url = jda.app.apiLocation + 'api/items/' + this.id;
+			console.log(this.id);
 			console.log("Final url for getting item is: " + url);
 			return url;
 		},

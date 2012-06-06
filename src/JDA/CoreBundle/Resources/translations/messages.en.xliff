@@ -219,8 +219,8 @@
                 <target>Request a login</target>
             </trans-unit>
             <trans-unit id="56">
-                <source>jda.login.header</source>
-                <target>Sign in or</target>
+                <source>jda.header.signin</source>
+                <target>Sign in</target>
             </trans-unit>
             <trans-unit id="57">
                 <source>jda.login.subheader</source>
@@ -239,8 +239,8 @@
                 <target>About Alpha</target>
             </trans-unit>
             <trans-unit id="61">
-                <source>jda.login.login</source>
-                <target>Sign in</target>
+                <source>jda.header.signout</source>
+                <target>Sign Out</target>
             </trans-unit>
             <trans-unit id="62">
                 <source>jda.advsearch.searchTerms</source>
