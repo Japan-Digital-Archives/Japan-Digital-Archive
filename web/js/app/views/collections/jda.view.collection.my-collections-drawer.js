@@ -141,7 +141,7 @@
 			if(activeCollectionID!=-1) 
 			
 			{
-				this.activeCollection = new Items.Model({id:activeCollectionID});
+				this.activeCollection = new Browser.Items.Model({id:activeCollectionID});
 				
 				this.activeCollection.fetch(
 				{
@@ -208,7 +208,7 @@
 					for (var i=1;i<=Math.min(this.showThumbnailCount, kids.length);i++){
 						var item = kids[kids.length-i];
 						
-						var itemView = new Items.Views.Thumb({model:new Items.Model(item)});
+						var itemView = new Browser.Items.Views.Thumb({model:new Browser.Items.Model(item)});
 						itemView.model.set({thumbnail_width:120, thumbnail_height:80});
 						itemView.render();
 						$('#zeega-my-collections-items-thumbs').append(itemView.el);
