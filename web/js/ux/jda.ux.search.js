@@ -170,7 +170,7 @@ $(document).ready(function(){
 	
 			
 		var elementID = $(this.element).attr('id');
-		var thisModel = jda.app.currentView == 'list' || jda.app.currentView == 'thumb' ? jda.app.resultsView.collection.get(elementID) : jda.app.mapViewCollection.collection.get(elementID);
+		var thisModel = jda.app.currentView == 'list' || jda.app.currentView == 'thumb' ? jda.app.resultsView.collection.get(elementID) : jda.app.eventMap.mapViewCollection.collection.get(elementID);
      	console.log(thisModel);
      	this.fancyView = null;
 

@@ -73,6 +73,7 @@ var loadFiles = [
 
 	'order!../app/views/jda.view.editable-tags',
 	'order!../app/views/jda.view.locator-map',
+	'order!../app/views/jda.view.event-map',
 
 	'order!../app/views/users/jda.view.user.user-page',
 	
