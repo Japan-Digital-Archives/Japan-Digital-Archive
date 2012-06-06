@@ -33,12 +33,12 @@ this.jda = {
 	init : function(){
 		// make item collection
 		var Items = jda.module("items");
-		this.itemViewCollection =new Items.ViewCollection();
+		this.resultsView =new Items.ResultsView();
 		this.initCollectionsDrawer();
 	},
 	initCollectionsDrawer: function(){
 		var Items = jda.module("items");
-		this.myCollectionsDrawer = new Items.MyCollectionsDrawer();
+		this.myCollectionsDrawer = new Items.MyCollectionsDrawerView();
 		this.myCollectionsDrawer.getCollectionList();
 	},
 	
@@ -89,16 +89,16 @@ this.jda = {
 		{
 			this.setEventViewTimePlace(params);
 		}
-		this.itemViewCollection.search( params );
+		this.resultsView.search( params );
 		
 		
 		if (this.currentView == 'event')
 		{
 		    
-			if(!_.isUndefined( this.itemViewCollection.getCQLSearchString())&&this.mapLoaded)
+			if(!_.isUndefined( this.resultsView.getCQLSearchString())&&this.mapLoaded)
 			{
 				_this.map.getLayersByName('cite:item - Tiled')[0].mergeNewParams({
-					'CQL_FILTER' : this.itemViewCollection.getCQLSearchString()
+					'CQL_FILTER' : this.resultsView.getCQLSearchString()
 				});
 			}
 		}
@@ -169,7 +169,7 @@ this.jda = {
 	
 	switchViewTo : function( view , refresh ){
 		
-		this.itemViewCollection.setView(view);
+		this.resultsView.setView(view);
 		if( view != this.currentView )
 		{
 			//$('#'+this.currentView+'-view').hide();
@@ -194,7 +194,7 @@ this.jda = {
 			}
 			if(refresh){
 				$('#zeega-results-count').fadeOut('fast');
-				var searchView=this.itemViewCollection;
+				var searchView=this.resultsView;
 				searchView.collection.fetch({
 					success : function(model, response){ 
 						searchView.renderTags(response.tags);
@@ -233,7 +233,7 @@ this.jda = {
 		this.clearSearchFilters();
 		if (filterType == 'collection'){
 			
-			this.itemViewCollection.collectionFilter = new Items.Views.CollectionPage({model:model});
+			this.resultsView.collectionFilter = new Items.Views.CollectionPage({model:model});
 			searchParams.collection = model.id;
 			this.search(searchParams);
 		
@@ -242,7 +242,7 @@ this.jda = {
 			var Users = jda.module("users");
 			//the r_collections parameter separates the items and collections in the search results
 			searchParams.r_collections=1;
-			this.itemViewCollection.userFilter = new Users.Views.UserPage({model:model});
+			this.resultsView.userFilter = new Users.Views.UserPage({model:model});
 			searchParams.user = model.id;
 			this.search(searchParams);
 		}
@@ -271,10 +271,10 @@ this.jda = {
 
 		if (filterType == 'collection'){
 			//remove collectionFilter view which takes care of UI
-			if(!_.isUndefined(this.itemViewCollection.collectionFilter))this.itemViewCollection.collectionFilter.remove();
+			if(!_.isUndefined(this.resultsView.collectionFilter))this.resultsView.collectionFilter.remove();
 
 			//set filter to null
-			this.itemViewCollection.collectionFilter = null;
+			this.resultsView.collectionFilter = null;
 
 			//remove search parameter from JDA app
 			searchParams.collection = '';
@@ -284,10 +284,10 @@ this.jda = {
 		} 
 		else if (filterType == 'user'){
 			//remove collectionFilter view which takes care of UI
-			this.itemViewCollection.userFilter.remove();
+			this.resultsView.userFilter.remove();
 
 			//set filter to null
-			this.itemViewCollection.userFilter = null;
+			this.resultsView.userFilter = null;
 
 			//remove the item/collection separation
 			searchParams.r_collections=0;
@@ -325,10 +325,10 @@ this.jda = {
 
 		$('#zeega-results-count-text-with-date').hide();
 
-		if(this.itemViewCollection.updated)
+		if(this.resultsView.updated)
 		{
 			console.log('render collection')
-			this.itemViewCollection.render();
+			this.resultsView.render();
 		}
 		
 	},
@@ -340,10 +340,10 @@ this.jda = {
 
 		$('#zeega-results-count-text-with-date').hide();
 		
-		if(this.itemViewCollection.updated)
+		if(this.resultsView.updated)
 		{
 			console.log('render collection')
-			this.itemViewCollection.render();
+			this.resultsView.render();
 		}
 	},
 	
@@ -376,10 +376,10 @@ this.jda = {
 		this.resetMapSize();
 
 		if( !this.mapLoaded ) this.initWorldMap();
-		else if( this.itemViewCollection.getCQLSearchString()!=null){
+		else if( this.resultsView.getCQLSearchString()!=null){
 				
 				this.map.layers[1].mergeNewParams({
-						'CQL_FILTER' : this.itemViewCollection.getCQLSearchString()
+						'CQL_FILTER' : this.resultsView.getCQLSearchString()
 					});
 		 }
 		console.log('map loaded')
@@ -403,7 +403,7 @@ this.jda = {
 							layers : 'cite:item',
 							transparent : true,
 							format : 'image/png',
-							//'CQL_FILTER' : function(){ return this.itemViewCollection.getCQLSearchString() },
+							//'CQL_FILTER' : function(){ return this.resultsView.getCQLSearchString() },
 							tiled: true,
 							
 						},
@@ -446,9 +446,9 @@ this.jda = {
 				
 				_this.map.addLayers(_this.getMapLayers());
 				_this.map.addLayer(dataLayer); 
-				if( _this.itemViewCollection.getCQLSearchString()!=null){
+				if( _this.resultsView.getCQLSearchString()!=null){
 					_this.map.getLayersByName('cite:item - Tiled')[0].mergeNewParams({
-						'CQL_FILTER' : _this.itemViewCollection.getCQLSearchString()
+						'CQL_FILTER' : _this.resultsView.getCQLSearchString()
 					});
 				}
 			
@@ -583,7 +583,7 @@ this.jda = {
 				{	
 					_this.setStartDateTimeSliderBubble(ui.values[0]);
 					_this.setEndDateTimeSliderBubble(ui.values[1]);
-					_this.itemViewCollection.setStartAndEndTimes(ui.values[0], ui.values[1]);
+					_this.resultsView.setStartAndEndTimes(ui.values[0], ui.values[1]);
  	 				_this.updateMapForTimeSlider(map);
  	 				_this.updateResultsCountForTimeSlider();
 				 }
@@ -628,7 +628,7 @@ this.jda = {
 
 	//disabling time slider for the moment
 	updateResultsCountForTimeSlider : function(sliderUI, map){
-		/*var searchView = this.itemViewCollection;
+		/*var searchView = this.resultsView;
 		//$("#jda-related-tags, #jda-
 		-title, #zeega-results-count").fadeTo(100,0);
 		searchView.collection.fetch({
@@ -644,7 +644,7 @@ this.jda = {
 	updateMapForTimeSlider : function(map){
 		console.log("UP");
 		 //Time filter string    
-		 cqlFilterString = this.itemViewCollection.getCQLSearchString();
+		 cqlFilterString = this.resultsView.getCQLSearchString();
 		 if(!_.isUndefined(cqlFilterString))
 		 {
 		 	map.layers[1].mergeNewParams({
@@ -738,7 +738,7 @@ this.jda = {
 			features = data["features"];
 			features.shift();  //removes first item which is empty
 	
-			jda.app.mapViewCollection = new Items.MapPoppupViewCollection({ collection : new Items.Collection(features)});
+			jda.app.mapViewCollection = new Items.MapPoppupCollectionView({ collection : new Items.Collection(features)});
 			
 			//Fix model ids (remove prepended "item.id")
 			_.each(_.toArray(jda.app.mapViewCollection.collection),function(model){

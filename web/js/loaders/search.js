@@ -58,19 +58,21 @@ var loadFiles = [
 	
 	//collections
 	'order!../app/collections/items',
-	'order!../app/collections/items.list-and-thumb-view-collection',
-	'order!../app/collections/items.my-collections-drawer',
-	'order!../app/collections/items.map-popup-view-collection',
+
 	
 	//views
 	'order!../app/views/items/jda.view.item.collection-page',
 	'order!../app/views/items/jda.view.item.list',
 	'order!../app/views/items/jda.view.item.thumb',
 	'order!../app/views/items/jda.view.item.map-popup',
+	
+	'order!../app/views/jda.view.results',
+	'order!../app/views/jda.view.my-collections-drawer',
+	'order!../app/views/jda.view.map-popup-collection',
 
-	'order!../app/views/tag.view',
-	'order!../app/views/fancybox.views',
-	'order!../app/views/map.view',
+	'order!../app/views/jda.view.tag',
+	'order!../app/views/jda.view.fancybox',
+	'order!../app/views/jda.view.map',
 
 	'order!../app/views/users/jda.view.user.user-page',
 	
