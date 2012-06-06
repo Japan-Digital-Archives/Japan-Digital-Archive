@@ -1,7 +1,11 @@
-(function(Users) {
+(function(Browser) {
 
-	//This is for the description/title info of a collection that shows up at the top of the page
-	Users.Views.UserPage = Backbone.View.extend({
+	Browser.Users = Browser.Users || {};
+	Browser.Users.Views = Browser.Users || {};
+	
+	
+	
+	Browser.Users.Views.UserPage = Backbone.View.extend({
 		
 		el : $('#jda-user-filter'),
 		
@@ -107,4 +111,4 @@
 
 	});
 
-})(jda.module("users"));
+})(jda.module("browser"));

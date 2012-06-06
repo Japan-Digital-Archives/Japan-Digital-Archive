@@ -1,6 +1,7 @@
-(function(Items) {
-
-	Items.Model = Backbone.Model.extend({
+(function(Browser) {
+	Browser.Items = Browser.Items||{};
+	
+	Browser.Items.Model = Backbone.Model.extend({
 
 		type:'item',
 
@@ -10,9 +11,7 @@
 		},
 		initialize : function()
 		{
-			
-			var Tags = jda.module("tags");
-			this.tags=new Tags.Collection();
+			this.tags=new Browser.Tags.Collection();
 		},
 
 		loadTags : function(successFunction, errorFunction)
@@ -41,4 +40,4 @@
 		},
 	});
 
-})(jda.module("items"));
+})(jda.module("browser"));

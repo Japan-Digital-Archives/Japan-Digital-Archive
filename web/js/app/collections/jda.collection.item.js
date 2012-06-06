@@ -1,8 +1,8 @@
-(function(Items) {
-			
-	Items.Collection = Backbone.Collection.extend({
+(function(Browser) {
+	Browser.Items = Browser.Items ||{};	
+	Browser.Items.Collection = Backbone.Collection.extend({
 		
-		model:Items.Model,
+		model:Browser.Items.Model,
 		base : jda.app.apiLocation + 'api/search?',
 		search : {	page:1,
 					r_itemswithcollections: 0,
@@ -62,7 +62,7 @@
 	
 	});
 
-	Items.Router = Backbone.Router.extend({ /* ... */ });
+	Browser.Router = Backbone.Router.extend({ /* ... */ });
 
 
-})(jda.module("items"));
+})(jda.module("browser"));

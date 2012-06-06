@@ -1,7 +1,9 @@
-(function(Items) {
+(function(Browser) {
 
-	// This will fetch the tutorial template and render it.
-	Items.Views.MapPopup = Backbone.View.extend({
+	Browser.Items = Browser.Items || {};
+	Browser.Items.Views = Browser.Items || {};
+	
+	Browser.Items.Views.MapPopup = Backbone.View.extend({
 		
 		tagName : 'li',
 		className : 'map-popup-list-items',
@@ -86,4 +88,4 @@
 		}		
 	});
 
-})(jda.module("items"));
+})(jda.module("browser"));

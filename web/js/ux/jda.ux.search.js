@@ -156,63 +156,61 @@ $(document).ready(function(){
 
     /* This is where we decide which kind of content to put in the fancybox */    
       beforeLoad : function() {
+	
+		  //deactivate keyboard controls for OL map so arrow scrolling doesn't scroll map too
+		  /*
+		  if (!_.isUndefined(jda.app.map)){
+			var keyboardControls = jda.app.map.getControlsByClass('OpenLayers.Control.KeyboardDefaults');
+			keyboardControls[0].deactivate();
+		  } 
+		  */
+		  
+		var Browser = jda.module("browser");
+		$('#fancybox-document-cloud').remove();
+	
+			
+		var elementID = $(this.element).attr('id');
+		var thisModel = jda.app.currentView == 'list' || jda.app.currentView == 'thumb' ? jda.app.resultsView.collection.get(elementID) : jda.app.mapViewCollection.collection.get(elementID);
+     	console.log(thisModel);
+     	this.fancyView = null;
 
-      //deactivate keyboard controls for OL map so arrow scrolling doesn't scroll map too
-      /*
-      if (!_.isUndefined(jda.app.map)){
-        var keyboardControls = jda.app.map.getControlsByClass('OpenLayers.Control.KeyboardDefaults');
-        keyboardControls[0].deactivate();
-      } 
-      */
-        $('#fancybox-document-cloud').remove();
-
+		switch(thisModel.get("media_type")){
+			case 'Image':
+				this.fancyView = new Browser.Views.FancyBox.Image({model:thisModel});
+				break;
+			case 'Video':
+				this.fancyView = new Browser.Views.FancyBox.Video({model:thisModel});
+				break;
+			case 'Audio':
+				this.fancyView = new Browser.Views.FancyBox.Audio({model:thisModel});
+				break;
+			case 'Youtube':
+				this.fancyView = new Browser.Views.FancyBox.Youtube({model:thisModel});
+				break;
+			case 'Tweet':
+				this.fancyView = new Browser.Views.FancyBox.Tweet({model:thisModel});
+				break;
+			case 'Text':
+				this.fancyView = new Browser.Views.FancyBox.Text({model:thisModel});
+				break;
+			case 'Document':
+				this.fancyView = new Browser.Views.FancyBox.Document({model:thisModel});
+				break;
+				 /*
+			case 'Website':
+				this.fancyView = new Browser.Views.FancyBox.Website({model:thisModel});
+				break;
+			
+				 case 'PDF':
+					this.fancyView = new Browser.Views.FancyBox.Pdf({model:thisModel});
+					break;
+				  case 'Collection':
+					this.fancyView = new Browser.Views.FancyBox.Collection({model:thisModel});
+					break
+				  */
+			}
         
-            var elementID = $(this.element).attr('id');
-            var thisModel = jda.app.currentView == 'list' || jda.app.currentView == 'thumb' ? jda.app.itemViewCollection.collection.get(elementID) : jda.app.mapViewCollection.collection.get(elementID);
-      this.fancyView = null;
-
-      switch(thisModel.get("media_type")){
-        case 'Image':
-          this.fancyView = new FancyBoxImageView({model:thisModel});
-                this.fancyView.render(this);
-                break;
-              case 'Video':
-                this.fancyView = new FancyBoxVideoView({model:thisModel});
-                this.fancyView.render(this);
-                break;
-              case 'Audio':
-                this.fancyView = new FancyBoxAudioView({model:thisModel});
-                this.fancyView.render(this);
-                break;
-              case 'Youtube':
-                this.fancyView = new FancyBoxYouTubeView({model:thisModel});
-                this.fancyView.render(this);
-                break;
-              case 'Tweet':
-                this.fancyView = new FancyBoxTweetView({model:thisModel});
-                this.fancyView.render(this);
-                break;
-            case 'Text':
-              this.fancyView = new FancyBoxTestimonialView({model:thisModel});
-              this.fancyView.render(this);
-              break;
-              case 'Document':
-                this.fancyView = new FancyBoxDocCloudView({model:thisModel});
-                this.fancyView.render(this);
-                break;
-              case 'Website':
-                this.fancyView = new FancyBoxWebsiteView({model:thisModel});
-                this.fancyView.render(this);
-                break;
-              case 'PDF':
-                this.fancyView = new FancyBoxPDFView({model:thisModel});
-                this.fancyView.render(this);
-                break;
-              case 'Collection':
-              this.fancyView = new FancyBoxCollectionView({model:thisModel});
-              this.fancyView.render(this);
-              break;
-      }
+        	this.fancyView.render(this);
         },
         
   });

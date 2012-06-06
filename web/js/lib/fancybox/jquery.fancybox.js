@@ -660,12 +660,13 @@
 		_setContent: function () {
 			var content, loadingBay, current = F.current,
 				type = current.type;
-
+			
 			switch (type) {
 			case 'inline':
 			case 'ajax':
 			case 'html':
 				if (type === 'inline') {
+					console.log(current);
 					content = current.content.show().detach();
 
 					if (content.parent().hasClass('fancybox-inner')) {

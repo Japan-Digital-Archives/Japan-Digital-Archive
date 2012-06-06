@@ -32,13 +32,13 @@ this.jda = {
 	
 	init : function(){
 		// make item collection
-		var Items = jda.module("items");
-		this.resultsView =new Items.ResultsView();
+		var Browser = jda.module("browser");
+		this.resultsView =new Browser.Items.Collections.Views.Results();
 		this.initCollectionsDrawer();
 	},
 	initCollectionsDrawer: function(){
-		var Items = jda.module("items");
-		this.myCollectionsDrawer = new Items.MyCollectionsDrawerView();
+		var Browser = jda.module("browser");
+		this.myCollectionsDrawer = new Browser.Items.Collections.Views.MyCollectionsDrawer();
 		this.myCollectionsDrawer.getCollectionList();
 	},
 	
@@ -229,11 +229,11 @@ this.jda = {
 		//$('#zeega-left-column').removeClass('span10');
 		//$('#zeega-left-column').addClass('span12');
 
-		var Items = jda.module("items");
+		var Browser = jda.module("browser");
 		this.clearSearchFilters();
 		if (filterType == 'collection'){
 			
-			this.resultsView.collectionFilter = new Items.Views.CollectionPage({model:model});
+			this.resultsView.collectionFilter = new Browser.Items.Views.CollectionPage({model:model});
 			searchParams.collection = model.id;
 			this.search(searchParams);
 		
@@ -720,12 +720,13 @@ this.jda = {
 		
 		if (response.responseText != "")
 		{
-			var Items = jda.module("items");
+			var Browser = jda.module("browser");
 			
 			try
 			{
-				//var data = eval('(' + response.responseText + ')');
-                                var data = eval('(' + response.responseText.substring(75) + ')');
+				//UGLY – remove header string
+                
+                var data = eval('(' + response.responseText.substring(75) + ')');
 			}
 			catch(err)
 			{
@@ -737,8 +738,8 @@ this.jda = {
 			
 			features = data["features"];
 			features.shift();  //removes first item which is empty
-	
-			jda.app.mapViewCollection = new Items.Views.MapPopupCollection({ collection : new Items.Collection(features)});
+			console.log(Browser);
+			jda.app.mapViewCollection = new Browser.Items.Collections.Views.MapPopup({ collection : new Browser.Items.Collection(features)});
 			
 			//Fix model ids (remove prepended "item.id")
 			_.each(_.toArray(jda.app.mapViewCollection.collection),function(model){

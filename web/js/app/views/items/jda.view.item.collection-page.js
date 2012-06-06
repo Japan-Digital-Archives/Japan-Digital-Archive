@@ -1,7 +1,9 @@
-	(function(Items) {
+	(function(Browser) {
 
-	//This is for the description/title info of a collection that shows up at the top of the page
-	Items.Views.CollectionPage = Backbone.View.extend({
+	Browser.Items = Browser.Items || {};
+	Browser.Items.Views = Browser.Items || {};
+	
+	Browser.Items.Views.CollectionPage = Backbone.View.extend({
 		
 		el : $('#jda-collection-filter'),
 		
@@ -413,4 +415,4 @@
 
 });
 
-})(jda.module("items"));
+})(jda.module("browser"));

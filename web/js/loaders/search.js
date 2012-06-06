@@ -52,12 +52,13 @@ var loadFiles = [
 	'order!../plugins/players/plyr',
 
 	//models
-	'order!../app/models/users',
-	'order!../app/models/items',
-	'order!../app/models/tag',
+	
+	'order!../app/models/jda.model.user',
+	'order!../app/models/jda.model.item',
+	'order!../app/models/jda.model.tag',
 	
 	//collections
-	'order!../app/collections/items',
+	'order!../app/collections/jda.collection.item',
 
 	
 	//views
@@ -66,15 +67,33 @@ var loadFiles = [
 	'order!../app/views/items/jda.view.item.thumb',
 	'order!../app/views/items/jda.view.item.map-popup',
 	
-	'order!../app/views/jda.view.results',
-	'order!../app/views/jda.view.my-collections-drawer',
-	'order!../app/views/jda.view.map-popup-collection',
+	'order!../app/views/collections/jda.view.collection.results',
+	'order!../app/views/collections/jda.view.collection.my-collections-drawer',
+	'order!../app/views/collections/jda.view.collection.map-popup',
 
-	'order!../app/views/jda.view.tag',
-	'order!../app/views/jda.view.fancybox',
-	'order!../app/views/jda.view.map',
+	'order!../app/views/jda.view.editable-tags',
+	'order!../app/views/jda.view.locator-map',
 
 	'order!../app/views/users/jda.view.user.user-page',
+	
+	
+	
+	//fancybox
+	
+	'order!../app/views/fancybox/jda.view.fancybox._fancybox',
+	'order!../app/views/fancybox/jda.view.fancybox.audio',
+	'order!../app/views/fancybox/jda.view.fancybox.document-cloud',
+	'order!../app/views/fancybox/jda.view.fancybox.image',
+	'order!../app/views/fancybox/jda.view.fancybox.default',
+	'order!../app/views/fancybox/jda.view.fancybox.tweet',
+	'order!../app/views/fancybox/jda.view.fancybox.soundcloud',
+	'order!../app/views/fancybox/jda.view.fancybox.video',
+	'order!../app/views/fancybox/jda.view.fancybox.mapbox',
+	'order!../app/views/fancybox/jda.view.fancybox.youtube',
+
+	
+	
+	
 	
 	'order!../app/index',
 

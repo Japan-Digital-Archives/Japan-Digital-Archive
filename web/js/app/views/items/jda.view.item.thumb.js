@@ -1,7 +1,9 @@
-(function(Items) {
+(function(Browser) {
 
-	// This will fetch the tutorial template and render it.
-	Items.Views.Thumb = Backbone.View.extend({
+	Browser.Items = Browser.Items || {};
+	Browser.Items.Views = Browser.Items || {};
+
+	Browser.Items.Views.Thumb = Backbone.View.extend({
 		
 		tagName : 'li',
 		
@@ -144,4 +146,4 @@
 		
 	});
 	
-})(jda.module("items"));
+})(jda.module("browser"));

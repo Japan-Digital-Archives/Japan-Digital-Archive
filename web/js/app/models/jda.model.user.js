@@ -1,6 +1,7 @@
-(function(Users) {
-
-	Users.Model = Backbone.Model.extend({
+(function(Browser) {
+	
+	Browser.Users= Browser.Users || {};
+	Browser.Users.Model = Backbone.Model.extend({
 
 		type:'user',
 
@@ -22,4 +23,4 @@
 		},
 	});
 
-})(jda.module("users"));
+})(jda.module("browser"));

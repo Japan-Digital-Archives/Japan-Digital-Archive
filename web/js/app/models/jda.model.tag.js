@@ -1,6 +1,7 @@
-(function(Tags) {
-		type: 'tag',
-		Tags.Model =  Backbone.Model.extend({
+(function(Browser) {
+	
+		Browser.Tags=Browser.Tags||{};
+		Browser.Tags.Model =  Backbone.Model.extend({
 
 		url : function(){ 
 			var url = sessionStorage.getItem('hostname')+sessionStorage.getItem('directory') + "api/items/"
@@ -45,8 +46,8 @@
 
 	});
 
-	Tags.Collection = Backbone.Collection.extend({
-		model : Tags.Model,
+	Browser.Tags.Collection = Backbone.Collection.extend({
+		model : Browser.Tags.Model,
 		url : function(){ 
 			return sessionStorage.getItem('hostname')+sessionStorage.getItem('directory') + "api/items/"
 							+ this.item_id + "/tags";
@@ -64,4 +65,4 @@
 			
 	});
 
-})(jda.module("tags"));
+})(jda.module("browser"));
