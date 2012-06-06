@@ -157,20 +157,13 @@ legend{
 .thumbnails > li {
 	position:relative;
 }
-/*.icon-share-alt{
-	position: absolute;
-	top: 6px;
-	left: 150px;
-	background-color: whiteSmoke;
-	cursor:pointer;
 
-}*/
 #logo{
 	width:110px;
 }
 .VS-search .VS-search-box {
 	-webkit-border-radius:6px !important;
-	width:760px;
+	width:660px;
 	background-color:white !important;
 	border: 1px solid #CCC !important;
 	padding:4px;
@@ -243,6 +236,7 @@ background-color:#444;position:relative;top:76px;color:whiteSmoke;padding-top:10
 	font-weight:normal;
 	padding:10px;
 	width:60%;
+	margin-right:30px;
 }
 footer {
 	position: absolute;
