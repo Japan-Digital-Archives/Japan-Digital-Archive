@@ -1,7 +1,12 @@
 
 $(document).ready(function(){
 
+  console.log($(window).width())
+  console.log($('#zeega-right-column').width())
+  console.log($('#zeega-right-column').offset().right)
 
+  
+  $('#zeega-left-column').css("width", ($(window).width() - $('#zeega-right-column').width() - 120) );
 
 	$('#jda-language-toggle').find('.btn').click(function(){
 		if(!$(this).hasClass('active')){
@@ -50,6 +55,7 @@ $(document).ready(function(){
     if (jda.app.currentView == "event"){
       jda.app.resetMapSize();
     }
+    $('#zeega-left-column').css("width", ($(window).width() - $('#zeega-right-column').width() - 120) );
   });
 
  

@@ -156,8 +156,11 @@ legend{
 }
 .thumbnails > li {
 	position:relative;
+	margin-left:20px;
 }
-
+.thumbnails {
+margin-left: -20px;
+}
 #logo{
 	width:110px;
 }
@@ -194,7 +197,15 @@ legend{
 .jda-separate-collections-and-items{
 	margin-top:10px;
 }
-
+.jda-item-date{
+	min-width:150px;
+}
+.jda-item-icon{
+	min-width:60px;
+}
+.jda-item-image{
+	min-width:100px;
+}
 /********************
 
 	HOME PAGE STYLES
