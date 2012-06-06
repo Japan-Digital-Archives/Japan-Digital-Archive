@@ -738,7 +738,7 @@ this.jda = {
 			features = data["features"];
 			features.shift();  //removes first item which is empty
 	
-			jda.app.mapViewCollection = new Items.MapPoppupCollectionView({ collection : new Items.Collection(features)});
+			jda.app.mapViewCollection = new Items.Views.MapPopupCollection({ collection : new Items.Collection(features)});
 			
 			//Fix model ids (remove prepended "item.id")
 			_.each(_.toArray(jda.app.mapViewCollection.collection),function(model){
