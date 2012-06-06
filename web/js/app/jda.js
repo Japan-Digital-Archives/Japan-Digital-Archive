@@ -829,6 +829,17 @@ this.jda = {
 		 //set visibility of legend
 	},
 	
+	/***************************************************************************
+		- called when user authentication has occured
+	***************************************************************************/
+	userAuthenticated: function(){
+	
+	console.log("you're logged in now!");
+	}
+	
+	
+	
+	
 }, Backbone.Events)
 
 

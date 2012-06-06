@@ -1,6 +1,17 @@
 
 $(document).ready(function(){
-
+	
+	
+	/*************** USER LOGIN ************************/
+	
+	$('#jda-sign-in').click(function(){$('#login-modal').modal('show'); return false;});
+	$("#login-modal").bind('authenticated',function(){
+		$('#jda-sign-in').hide();
+		$('#jda-sign-out').html("Sign Out");
+	});
+	$("#login-modal").bind('close',function(){$("#login-modal-close").trigger('click');});
+	
+	
 	$('.jda-home-featured-collection').height(Math.max($(window).height()-50, 600));
 	$(window).resize(function() {
       $('.jda-home-featured-collection').height(Math.max($(window).height()-50, 600));

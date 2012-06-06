@@ -17,3 +17,10 @@ user_registration:
     defaults: { _controller:  FOSUserBundle:Registration:register, _locale: ja }
     requirements:
         _locale: en|ja
+
+login_success:
+    pattern:  /{_locale}/success
+    defaults: { _controller:  FOSUserBundle:Security:success, _locale: ja }
+    requirements:
+        _locale: en|ja
+

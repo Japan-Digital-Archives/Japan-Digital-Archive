@@ -18,11 +18,11 @@ security:
         secured_area:
             form_login:
                 provider: fos_userbundle
-                default_target_path: /ja/home
+                default_target_path: /en/success
                 login_path: /login 
             logout:
                 path:   /logout
-                target: /ja/home
+                target: /en/home
             anonymous:    true
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }

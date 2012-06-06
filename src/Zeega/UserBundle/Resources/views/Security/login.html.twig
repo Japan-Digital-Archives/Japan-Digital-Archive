@@ -5,7 +5,8 @@
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link href="{{ asset('css/authorization.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{ asset('js/lib/bootstrap-2.0.2/css/bootstrap.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{ asset('js/lib/bootstrap-2.0.2/css/bootstrap-responsive.css')}}" rel="stylesheet">
 </head>
 
 {% set locale = app.session.locale  %}
@@ -14,18 +15,8 @@
 
 <body>
 		<div class="login-modal-header">
-			<div style="text-align:right; width:96%;" >
-			{% if locale == 'ja' %}
-				<a href="{{path('_security_login', { '_locale': 'en' })}}">
-					{% trans %}jda.header.english{% endtrans %}
-				</a>
-			{% else %}
-				<a href="{{path('_security_login', { '_locale': 'ja' })}}">
-				{% trans %}jda.header.japanese{% endtrans %}
-				</a>
-			{% endif %}
-			</div>
-			<h2>
+
+			<h2 style="padding-top:20px;padding-bottom:30px;">
 				{% if header is defined %}
 					{% if header == "collection"%}
 						{% trans %}jda.login.savecollection{% endtrans %} 
@@ -40,11 +31,11 @@
 		
 				<form action="{{ path("fos_user_security_check") }}" method="post">
 					<div class="box">
-				    	<label for="username">{% trans %}jda.login.username{% endtrans %}</label>
-					    <input type="text" id="username" name="_username" value="{{ last_username }}" class="input_text" />
-					    <label for="password">{% trans %}jda.login.password{% endtrans %}</label>
-					    <input type="password" id="password" name="_password" class="input_text" />
-				    	<input style="text-transform:uppercase;" type="submit" id="_submit" name="_submit" value="{% trans %}jda.login.login{% endtrans %}" class="login-button"/>
+				    	<label for="username">{% trans %}jda.login.username{% endtrans %}
+					    <input type="text" id="username" name="_username" value="{{ last_username }}" class="input_text" /></label>
+					    <label for="password">{% trans %}jda.login.password{% endtrans %}
+					    <input type="password" id="password" name="_password" class="input_text" /></label>
+				    	<input class="btn" type="submit" id="_submit" name="_submit" value="{% trans %}jda.login.login{% endtrans %}" class="login-button"/>
 						<br>	{% if error %}
 	       		<div class="error" style="width:200px; text-align:right; color:red; font-weight:bold">{{ error.message }}</div>
 	    	{% endif %}<br>

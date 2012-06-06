@@ -13,8 +13,13 @@ $(document).ready(function(){
 	});
 
 
-	$('#sign-in').click(function(){$('#login-modal').modal('show'); return false;});
-
+	$('#jda-sign-in').click(function(){$('#login-modal').modal('show'); return false;});
+	$("#login-modal").bind('authenticated',function(){
+		$('#jda-sign-in').hide();
+		$('#jda-sign-out').html("Sign Out");
+		jda.app.userAuthenticated();
+		_.delay(function(){ $("#login-modal-close").trigger('click');},1000)
+	});
   
   $('.jda-play-collection').click(function () {
     alert('plays collection as slideshow in player');
@@ -22,11 +27,7 @@ $(document).ready(function(){
 
 
   
-  $("#jda-search-button-group,#search-bar").fadeTo('slow',1);
-  $('#jda-go-button').click(function(){
-    VisualSearch.searchBox.addFacet('text', VisualSearch.searchBox.value(), 0);
-    jda.app.search({ page:1});
-  });
+  $("#search-bar").fadeTo('slow',1);
 
   //View buttons toggle
   $("#zeega-view-buttons button").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});

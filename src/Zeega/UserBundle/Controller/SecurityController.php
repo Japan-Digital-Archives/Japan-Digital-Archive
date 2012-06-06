@@ -31,6 +31,10 @@ class SecurityController extends Controller
             'header' => $request->query->get('header')
         ));
     }
-    
+	
+	public function successAction()
+    {
+    	 return $this->render('ZeegaUserBundle:Security:confirmed.html.twig');
+    }
 
 }
