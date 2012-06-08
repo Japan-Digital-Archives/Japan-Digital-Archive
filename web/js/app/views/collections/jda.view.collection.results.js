@@ -156,8 +156,8 @@
 					VisualSearch.searchBox.disableFacets();
 
 					$('#zeega-results-count-number').html( jda.app.addCommas(response["items_count"]));
-					$('#jda-results-collections-count').html( jda.app.addCommas(response["returned_collections_count"]));
-					$('#jda-results-items-count').html( jda.app.addCommas(response["returned_items_count"]));
+					$('.jda-results-collections-count').html( jda.app.addCommas(response["returned_collections_count"]));
+					$('.jda-results-items-count').html( jda.app.addCommas(response["returned_items_count"]));
 
 					
 					
