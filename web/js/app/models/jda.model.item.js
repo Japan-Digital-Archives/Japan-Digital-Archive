@@ -8,6 +8,11 @@
 		defaults : {
 			'media_creator_realname' : 'unknown',
 			'media_creator_username' : 'unknown',
+                        'attribution_uri': 'default',
+                        'uri': 'default',
+                        'archive': 'default',
+                        'media_type': 'Collection',
+                        'layer_type': 'Collection'
 		},
 		initialize : function()
 		{
@@ -32,10 +37,8 @@
 		},
 		url : function(){ 
 			
-			if(_.isUndefined(this.id)) var url = jda.app.apiLocation + 'api/collections/items';
+			if(_.isUndefined(this.id)) var url = jda.app.apiLocation + 'api/items';
 			else var url = jda.app.apiLocation + 'api/items/' + this.id;
-			console.log(this.id);
-			console.log("Final url for getting item is: " + url);
 			return url;
 		},
 	});
