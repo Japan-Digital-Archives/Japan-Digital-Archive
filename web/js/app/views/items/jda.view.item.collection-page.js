@@ -73,7 +73,9 @@
 			/***************************************************************************
 				"more" button for long descriptions (doesn't work yet)
 			***************************************************************************/
-			if (this.model.get('description').length > 255){
+			if (this.model.get('description').length > 200){
+				var newDesc = $(this.el).find('.jda-collection-filter-description').text().substring(0,200);
+				$(this.el).find('.jda-collection-filter-description').text( newDesc + "...");
 				$(this.el).find('.icon-plus-sign').show();
 			}
 
@@ -356,7 +358,7 @@
 				}
 			});
 			
-			
+			$(this.el).width(jda.app.getLeftColumnWidth());
 			
 
 			return this;
@@ -376,34 +378,31 @@
 			html = 
 			
 
-			'<div class="span10">'+
-		
+			'<div class="pull-left" style="width: 172px;">'+
+				'<div class="pull-left zeega-collection rotated-left" style="margin-right:12px">'+
+				'<p class="jda-collection-filter-drag-item-here" style="display:none;color: grey;position: relative;font-size: 12px;top: 41px;text-align:center">Drag item here <br>to set cover image</p>'+
+				'<img src="<%=thumbnail_url%>" alt="" style="width:160px;height:120px;">'+
+				'</div>'+
 			'</div>'+
-			'<div class="span4">'+
-			'<div class="pull-left zeega-collection rotated-left" style="margin-right:12px">'+
-			'<p class="jda-collection-filter-drag-item-here" style="display:none;color: grey;position: relative;font-size: 12px;top: 41px;text-align:center">Drag item here <br>to set cover image</p>'+
-			'<img src="<%=thumbnail_url%>" alt="" style="width:160px;height:120px;">'+
+			'<div class="pull-left" style="width:25%;margin-right:10px;">'+
+				'<h3 class="jda-collection-filter-title"><%=title%></h3>'+
+				'<p><strong>by <a href="#" class="jda-collection-filter-author"><%=media_creator_username%></a></strong></p>'+
 			'</div>'+
-			'<h3 class="jda-collection-filter-title"><%=title%></h3>'+
-			'<p><strong>by <a href="#" class="jda-collection-filter-author"><%=media_creator_username%></a></strong></p>'+
-
-
-			'</div>'+
-			'<div class="span4">'+
+			'<div class="pull-left" style="width: 40%;">'+
 
 			'<span class="jda-collection-filter-description"><%=description%></span><i class="icon-plus-sign" style="display:none"></i>'+
 			'<p><strong>Tokyo, Japan</strong></p>'+
 
 
 			'</div>'+
-			'<div class="span2">'+
-				'<div class="pull-right">'+
+			'<div class="pull-right" style="width: 13%;">'+
+				'<div>'+
 					'<button class="btn btn-info btn-mini" type="button" style="width:65px;margin-bottom:5px"><i class="icon-play icon-white pull-left"></i> Play'+
 					'</button><br/>'+
 					'<button class="btn btn-info btn-mini" type="button" style="width:65px;margin-bottom:5px;clear:both"><i class="icon-share icon-white pull-left"></i> Share'+
 					'</button><br/>'+
 				'</div>'+
-				'<div class="pull-right">'+
+				'<div>'+
 					'<label class="checkbox" style="font-weight:bold"><input type="checkbox" name="show_in_archive"> Show in Archive?</label>'+
 				'</div>'+
 			'</div>';

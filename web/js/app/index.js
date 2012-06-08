@@ -70,8 +70,8 @@ jQuery(function($)
 					//If URL specifies particular collection then we gotta look it up and set it in the app
 					//Only then can we update search UI with the title of the collection as a facet
 					if (obj.collection != null && obj.collection > 0){
-						var Items = jda.module("items");
-						var collectionModel = new Items.Model({id:obj.collection});
+						var Browser = jda.module("browser");
+						var collectionModel = new Browser.Items.Model({id:obj.collection});
 
 						collectionModel.fetch(
 						{
@@ -87,10 +87,10 @@ jQuery(function($)
 
 					} 
 					else if (obj.user != null && obj.user > 0){
-						var Users = jda.module("users");
+						var Browser = jda.module("browser");
 
 						//retrieve user object and then add user filter
-						var authorModel = new Users.Model({id:obj.user});
+						var authorModel = new Browser.Users.Model({id:obj.user});
 						authorModel.fetch({
 							success : function(model, response){
 								JDA.addFilter(model,'user',obj);

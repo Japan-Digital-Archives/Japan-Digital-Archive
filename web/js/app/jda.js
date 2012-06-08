@@ -1,5 +1,4 @@
 
-
 // This contains the module definition factory function, application state,
 // events, and the router.
 this.jda = {
@@ -387,7 +386,10 @@ this.jda = {
     initAdvSearch : function() {
         // do init code here
     },
-	
+	getLeftColumnWidth : function(){
+		var width = ($(window).width() - $('#zeega-right-column').width() - 0.1 * $(window).width()) - 30;
+		return width;
+	},
 
 	
 	/***************************************************************************

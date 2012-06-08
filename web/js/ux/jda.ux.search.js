@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
 
   console.log($(window).width())
@@ -6,41 +5,41 @@ $(document).ready(function(){
   console.log($('#zeega-right-column').offset().right)
 
   
-  	$('#zeega-left-column').css("width", ($(window).width() - $('#zeega-right-column').width() - 120) );
+    $('#zeega-left-column').css("width", jda.app.getLeftColumnWidth() );
 
-	
-	/*************** USER LOGIN ************************/
-	
   
-  	$('#jda-sign-in').click(function(){$('#login-modal').modal('show'); return false;});
-		$("#login-modal").bind('authenticated',function(){
-			$('#jda-sign-in').html("Sign Out").unbind().click(function(){});
-			jda.app.userAuthenticated();
-		});
-	$("#login-modal").bind('close',function(){$("#login-modal-close").trigger('click');});
-	
-	/*************** LANGUAGE TOGGLE ************************/
-		
-	$('#jda-language-toggle').find('.btn').click(function(){
-		if(!$(this).hasClass('active')){
-			$('#jda-language-toggle').find('.btn').removeClass('active');
-			$(this).addClass('active');
-			if($(this).data('language')=='en') window.location =  window.location.href.replace('ja/search','en/search');
-			else window.location =  window.location.href.replace('en/search','ja/search');
-		}
-	});
-
-
-
-	
+  /*************** USER LOGIN ************************/
   
-	$('.jda-play-collection').click(function () {
-		alert('plays collection as slideshow in player');
-	});
+  
+    $('#jda-sign-in').click(function(){$('#login-modal').modal('show'); return false;});
+    $("#login-modal").bind('authenticated',function(){
+      $('#jda-sign-in').html("Sign Out").unbind().click(function(){});
+      jda.app.userAuthenticated();
+    });
+  $("#login-modal").bind('close',function(){$("#login-modal-close").trigger('click');});
+  
+  /*************** LANGUAGE TOGGLE ************************/
+    
+  $('#jda-language-toggle').find('.btn').click(function(){
+    if(!$(this).hasClass('active')){
+      $('#jda-language-toggle').find('.btn').removeClass('active');
+      $(this).addClass('active');
+      if($(this).data('language')=='en') window.location =  window.location.href.replace('ja/search','en/search');
+      else window.location =  window.location.href.replace('en/search','ja/search');
+    }
+  });
+
 
 
   
- 	$("#jda-search-button-group,#search-bar").fadeTo('slow',1);
+  
+  $('.jda-play-collection').click(function () {
+    alert('plays collection as slideshow in player');
+  });
+
+
+  
+  $("#jda-search-button-group,#search-bar").fadeTo('slow',1);
 
   //View buttons toggle
   $("#zeega-view-buttons button").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
@@ -66,7 +65,9 @@ $(document).ready(function(){
     if (jda.app.currentView == "event"){
       jda.app.resetMapSize();
     }
-    $('#zeega-left-column').css("width", ($(window).width() - $('#zeega-right-column').width() - 120) );
+    $('#zeega-left-column').css("width", jda.app.getLeftColumnWidth() );
+    $('#jda-collection-filter').css("width", jda.app.getLeftColumnWidth() );
+    $('#jda-user-filter').css("width", jda.app.getLeftColumnWidth() );
   });
 
  
@@ -146,8 +147,8 @@ $(document).ready(function(){
           keyboardControls[0].activate();
         }
 
-		*/
-		
+    */
+    
       },
       afterShow : function(){
         this.fancyView.afterShow();
@@ -156,61 +157,61 @@ $(document).ready(function(){
 
     /* This is where we decide which kind of content to put in the fancybox */    
       beforeLoad : function() {
-	
-		  //deactivate keyboard controls for OL map so arrow scrolling doesn't scroll map too
-		  /*
-		  if (!_.isUndefined(jda.app.map)){
-			var keyboardControls = jda.app.map.getControlsByClass('OpenLayers.Control.KeyboardDefaults');
-			keyboardControls[0].deactivate();
-		  } 
-		  */
-		  
-		var Browser = jda.module("browser");
-		$('#fancybox-document-cloud').remove();
-	
-			
-		var elementID = $(this.element).attr('id');
-		var thisModel = jda.app.currentView == 'list' || jda.app.currentView == 'thumb' ? jda.app.resultsView.collection.get(elementID) : jda.app.eventMap.mapViewCollection.collection.get(elementID);
-     	console.log(thisModel);
-     	this.fancyView = null;
+  
+      //deactivate keyboard controls for OL map so arrow scrolling doesn't scroll map too
+      /*
+      if (!_.isUndefined(jda.app.map)){
+      var keyboardControls = jda.app.map.getControlsByClass('OpenLayers.Control.KeyboardDefaults');
+      keyboardControls[0].deactivate();
+      } 
+      */
+      
+    var Browser = jda.module("browser");
+    $('#fancybox-document-cloud').remove();
+  
+      
+    var elementID = $(this.element).attr('id');
+    var thisModel = jda.app.currentView == 'list' || jda.app.currentView == 'thumb' ? jda.app.resultsView.collection.get(elementID) : jda.app.eventMap.mapViewCollection.collection.get(elementID);
+      console.log(thisModel);
+      this.fancyView = null;
 
-		switch(thisModel.get("media_type")){
-			case 'Image':
-				this.fancyView = new Browser.Views.FancyBox.Image({model:thisModel});
-				break;
-			case 'Video':
-				this.fancyView = new Browser.Views.FancyBox.Video({model:thisModel});
-				break;
-			case 'Audio':
-				this.fancyView = new Browser.Views.FancyBox.Audio({model:thisModel});
-				break;
-			case 'Youtube':
-				this.fancyView = new Browser.Views.FancyBox.Youtube({model:thisModel});
-				break;
-			case 'Tweet':
-				this.fancyView = new Browser.Views.FancyBox.Tweet({model:thisModel});
-				break;
-			case 'Text':
-				this.fancyView = new Browser.Views.FancyBox.Text({model:thisModel});
-				break;
-			case 'Document':
-				this.fancyView = new Browser.Views.FancyBox.Document({model:thisModel});
-				break;
-				 /*
-			case 'Website':
-				this.fancyView = new Browser.Views.FancyBox.Website({model:thisModel});
-				break;
-			
-				 case 'PDF':
-					this.fancyView = new Browser.Views.FancyBox.Pdf({model:thisModel});
-					break;
-				  case 'Collection':
-					this.fancyView = new Browser.Views.FancyBox.Collection({model:thisModel});
-					break
-				  */
-			}
+    switch(thisModel.get("media_type")){
+      case 'Image':
+        this.fancyView = new Browser.Views.FancyBox.Image({model:thisModel});
+        break;
+      case 'Video':
+        this.fancyView = new Browser.Views.FancyBox.Video({model:thisModel});
+        break;
+      case 'Audio':
+        this.fancyView = new Browser.Views.FancyBox.Audio({model:thisModel});
+        break;
+      case 'Youtube':
+        this.fancyView = new Browser.Views.FancyBox.Youtube({model:thisModel});
+        break;
+      case 'Tweet':
+        this.fancyView = new Browser.Views.FancyBox.Tweet({model:thisModel});
+        break;
+      case 'Text':
+        this.fancyView = new Browser.Views.FancyBox.Text({model:thisModel});
+        break;
+      case 'Document':
+        this.fancyView = new Browser.Views.FancyBox.Document({model:thisModel});
+        break;
+         /*
+      case 'Website':
+        this.fancyView = new Browser.Views.FancyBox.Website({model:thisModel});
+        break;
+      
+         case 'PDF':
+          this.fancyView = new Browser.Views.FancyBox.Pdf({model:thisModel});
+          break;
+          case 'Collection':
+          this.fancyView = new Browser.Views.FancyBox.Collection({model:thisModel});
+          break
+          */
+      }
         
-        	this.fancyView.render(this);
+          this.fancyView.render(this);
         },
         
   });
