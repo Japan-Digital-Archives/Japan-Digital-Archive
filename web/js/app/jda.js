@@ -209,6 +209,15 @@ this.jda = {
 		}
 		searchParams.page = 1;
 		
+		if ($('.tab-content').offset().top != '147'){
+			
+			$('.tab-content').addClass('jda-low-top');
+		}
+		
+		//$('#zeega-right-column').hide();
+		//$('#zeega-left-column').removeClass('span10');
+		//$('#zeega-left-column').addClass('span12');
+
 		var Browser = jda.module("browser");
 		this.clearSearchFilters();
 		if (filterType == 'collection'){
