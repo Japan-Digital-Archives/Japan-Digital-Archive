@@ -13,8 +13,8 @@
 		{
 			
 			this.collection = new Browser.Items.Collection();
-			this.collection.url=jda.app.apiLocation + 'api/search?r_collections=1&user=-1';
-			this.collection.parse= function(data)
+                        this.collection.url=jda.app.apiLocation + 'api/search?r_collections=1&user=-1';			
+                        this.collection.parse= function(data)
 				{
 					console.log(data.collections);
 					return data.collections;
