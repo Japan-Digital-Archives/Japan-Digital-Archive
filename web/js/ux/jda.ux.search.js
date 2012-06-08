@@ -1,12 +1,7 @@
 $(document).ready(function(){
-
-  console.log($(window).width())
-  console.log($('#zeega-right-column').width())
-  console.log($('#zeega-right-column').offset().right)
-
   
-    $('#zeega-left-column').css("width", jda.app.getLeftColumnWidth() );
-
+  $('#zeega-left-column').css("width", jda.app.getLeftColumnWidth() );
+  $('#zeega-right-column').css("left", jda.app.getRightColumnPosition());
   
   /*************** USER LOGIN ************************/
   
@@ -65,9 +60,11 @@ $(document).ready(function(){
     if (jda.app.currentView == "event"){
       jda.app.resetMapSize();
     }
-    $('#zeega-left-column').css("width", Math.max(jda.app.getLeftColumnWidth(), 900));
-    $('#jda-collection-filter').css("width", Math.max(jda.app.getLeftColumnWidth(),900) );
-    $('#jda-user-filter').css("width", Math.max(jda.app.getLeftColumnWidth(),900) );
+    $('#zeega-left-column').css("width", jda.app.getLeftColumnWidth());
+    $('#jda-collection-filter').css("width", jda.app.getLeftColumnWidth() );
+    $('#jda-user-filter').css("width", jda.app.getLeftColumnWidth() );
+
+    $('#zeega-right-column').css("left", jda.app.getRightColumnPosition());
   });
 
  

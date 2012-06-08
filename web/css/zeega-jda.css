@@ -9,6 +9,7 @@
 	position: fixed;
 	top: 40px;
 	width:100%;
+	min-width:900px;
 }
 #zeega-view-buttons{
 	width: 108px;
@@ -34,15 +35,16 @@
 #zeega-main-content{
 	position:relative;
 	top:36px;
-	left:5%;
+	margin: 0 55px;
 }
 #zeega-left-column{
-	/*this width gets set programmatically in search.ux.js file margin-left:55px;*/
-	
+	/*this width gets set programmatically in search.ux.js file */
+	min-width:640px;
 }
 #zeega-right-column{
+	/*this position gets set programmatically in search.ux.js file */
 	position: fixed;
-	right: 5%;
+	left: -webkit-calc(95% - 200px);
 	top: 115px;
 
 }

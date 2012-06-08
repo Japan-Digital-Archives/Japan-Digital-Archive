@@ -75,6 +75,7 @@
 
 header .container{
 	width:98% !important;
+	min-width:900px;
 }
 .navbar .brand {
 	padding: 8px 30px 6px 17px;

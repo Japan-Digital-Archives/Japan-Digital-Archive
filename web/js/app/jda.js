@@ -388,7 +388,13 @@ this.jda = {
     },
 	getLeftColumnWidth : function(){
 		var width = ($(window).width() - $('#zeega-right-column').width() - 0.1 * $(window).width()) - 30;
-		return width;
+		var minwidth = parseInt($('#zeega-left-column').css('min-width'), 10);
+		
+		return Math.max(width, minwidth);
+	},
+	getRightColumnPosition: function(){
+		var left = this.getLeftColumnWidth() + $('#zeega-left-column').offset().left + 30;
+		return left;	
 	},
 
 	
