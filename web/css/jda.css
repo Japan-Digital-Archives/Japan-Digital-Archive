@@ -75,6 +75,7 @@
 
 header .container{
 	width:98% !important;
+	min-width:900px;
 }
 .navbar .brand {
 	padding: 8px 30px 6px 17px;
@@ -184,7 +185,9 @@ margin-left: -20px;
 }
 #jda-collection-filter{
 	position:fixed;top:75px;background:white;z-index:1;padding-bottom:9px;padding-top:30px;
-	width:1000px;
+	min-width:850px;
+	left:inherit;
+	overflow: hidden;
 }
 #jda-collection-editing-toolbar{
 	display:none;
@@ -421,15 +424,4 @@ border-radius: 0px 4px 0px 0px;
 	list-style: none;
 	max-height: 100%;
 }
-.discovery-map-list li{
-	border-bottom:1px solid #ddd;
-	padding:5px;
-}
-.discovery-map-list img{
-
-	margin-right:5px;
-
-}
-
-
-
+.d
