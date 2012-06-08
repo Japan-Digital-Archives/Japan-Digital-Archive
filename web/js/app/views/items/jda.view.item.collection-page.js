@@ -18,6 +18,8 @@
 
 		},
 		initialize: function () {
+
+			$('.tab-content').addClass('jda-low-top');
 	      var facetExists = false;
 
 			//first remove other collection filters
@@ -371,6 +373,8 @@
 
 			$('.jda-edit-btn').hide();
 			$('.tab-content').find('.jda-item-checkbox').hide();
+			$('.tab-content').removeClass('jda-low-top');
+			$('.tab-content').css('top','auto');
 			
 		},
 		

@@ -209,14 +209,7 @@ this.jda = {
 		}
 		searchParams.page = 1;
 		
-		if ($('.tab-content').offset().top != '147'){
-			
-			$('.tab-content').addClass('jda-low-top');
-		}
 		
-		//$('#zeega-right-column').hide();
-		//$('#zeega-left-column').removeClass('span10');
-		//$('#zeega-left-column').addClass('span12');
 
 		var Browser = jda.module("browser");
 		this.clearSearchFilters();
@@ -254,9 +247,7 @@ this.jda = {
 		}
 		//reset height of main results content & my collections
 		$('.tab-content').removeClass('jda-low-top');
-		$('#zeega-right-column').show();
-		$('#zeega-left-column').addClass('span10');
-		$('#zeega-left-column').removeClass('span12');
+		
 
 		if (filterType == 'collection'){
 			//remove collectionFilter view which takes care of UI
