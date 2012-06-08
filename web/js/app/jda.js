@@ -209,6 +209,8 @@ this.jda = {
 		}
 		searchParams.page = 1;
 		
+		
+
 		var Browser = jda.module("browser");
 		this.clearSearchFilters();
 		if (filterType == 'collection'){
@@ -245,9 +247,7 @@ this.jda = {
 		}
 		//reset height of main results content & my collections
 		$('.tab-content').removeClass('jda-low-top');
-		$('#zeega-right-column').show();
-		$('#zeega-left-column').addClass('span10');
-		$('#zeega-left-column').removeClass('span12');
+		
 
 		if (filterType == 'collection'){
 			//remove collectionFilter view which takes care of UI

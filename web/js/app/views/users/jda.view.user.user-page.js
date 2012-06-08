@@ -17,6 +17,10 @@
 		},
 		initialize: function () {
 			var facetExists = false;
+			
+
+			//$('.tab-content').addClass('jda-low-top');
+			
 
 			$('.jda-separate-collections-and-items').show();
 			//first remove other user filters
@@ -73,6 +77,8 @@
 			//remove from DOM
 			$(this.el).empty();
 			$('.jda-separate-collections-and-items').hide();
+			$('.tab-content').removeClass('jda-low-top');
+			
 
 		},
 		
@@ -80,27 +86,20 @@
 		{
 			html = 
 			
-
-			
-			'<div class="span4">'+
-			'<img class="pull-left" src="<%=thumbnail_url%>" alt="" style="width:160px;height:120px;margin-right:10px;border: 1px solid grey;">'+
-			'<a href="#" class="jda-user-filter-edit-profile-image"><i class="icon-cog icon-white" style="left: 142px;top: 5px;position: absolute;"></i></a>'+
-			'<h3 class="jda-user-filter-name"><%=display_name%></h3>'+
-			'<p><strong>Tokyo, Japan</strong></p>'+
-			'<i class="jdicon-small-facebook"></i> <i class="jdicon-small-tweet"></i>'+
-
-
+			'<div class="pull-left" style="width: 172px;">'+
+				'<img class="pull-left" src="<%=thumbnail_url%>" alt="" style="width:160px;height:120px;margin-right:10px;border: 1px solid grey;">'+
+				'<a href="#" class="jda-user-filter-edit-profile-image"><i class="icon-cog icon-white" style="left: 142px;top: 5px;position: absolute;"></i></a>'+
 			'</div>'+
-			'<div class="span6">'+
+			'<div class="pull-left" style="width:15%;margin-right:10px;">'+
+				'<h3 class="jda-user-filter-name"><%=display_name%></h3>'+
+				'<p><strong>Tokyo, Japan</strong></p>'+
+				'<i class="jdicon-small-facebook"></i> <i class="jdicon-small-tweet"></i>'+
+			'</div>'+
+			'<div class="pull-left" style="width: 60%;">'+
 
-			'<span class="jda-user-filter-description"><%=bio%></span><i class="icon-plus-sign" style="display:none"></i>'+
+				'<span class="jda-user-filter-description"><%=bio%></span><i class="icon-plus-sign" style="display:none"></i>'+
 			
 
-
-			'</div>'+
-			'<div class="span2">'+
-
-			'&nbsp;'+
 
 			'</div>';
 

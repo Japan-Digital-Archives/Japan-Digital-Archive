@@ -24,20 +24,28 @@
 
 			_this._isRendered = true;
 			if(jda.app.currentView == 'thumb'){
-				this.el = '.thumbnails';
+				this.el = '#zeega-items-thumbnails';
 			} else {
 				this.el = '#zeega-items-list';
 			}
 			
 			//Display collections and items separately if this is not null
 			if (this.collection.collectionsCollection != null){
+				
 
+				if(jda.app.currentView == 'thumb'){
+					$('.collections-thumbnails').empty();
+					
+				}else if(jda.app.currentView == 'list'){
+					$('#zeega-collections-list').empty();
+				}
 				//this is getting ridiculous!!
 				_.each( _.toArray(this.collection.collectionsCollection), function(item){
 					var itemView;
 					if(jda.app.currentView == 'thumb'){
 						itemView = new Browser.Items.Views.Thumb({model:item});
-						$('.collection-thumbnails').append( itemView.render().el );
+						$('.collections-thumbnails').append( itemView.render().el );
+						
 					} else{
 						
 						itemView = new Browser.Items.Views.List({model:item});
@@ -148,6 +156,8 @@
 					VisualSearch.searchBox.disableFacets();
 
 					$('#zeega-results-count-number').html( jda.app.addCommas(response["items_count"]));
+					$('#jda-results-collections-count').html( jda.app.addCommas(response["returned_collections_count"]));
+					$('#jda-results-items-count').html( jda.app.addCommas(response["returned_items_count"]));
 
 					
 					
@@ -209,7 +219,6 @@
 		 	if( !_.isUndefined(obj.q) && obj.q.length > 0) hash += 'q=' + obj.q + '&';
 		 	if( !_.isUndefined(obj.collection) && obj.collection > 0) hash += 'collection=' + obj.collection + '&';
 		 	if( !_.isUndefined(obj.user) && obj.user > 0) hash += 'user=' + obj.user + '&';
-		 	if( !_.isUndefined(obj.r_collections) ) hash += 'r_collections=' + obj.r_collections + '&';
 		 	if( !_.isUndefined(obj.content) )  hash += 'content='+ obj.content + '&';
 		 	if( !_.isUndefined(obj.mapBounds) )  hash += 'map_bounds='+ encodeURIComponent(obj.mapBounds) + '&';
 		 	if( !_.isUndefined(obj.times) )
