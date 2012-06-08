@@ -32,12 +32,18 @@
 			//Display collections and items separately if this is not null
 			if (this.collection.collectionsCollection != null){
 				
+				$("#zeega-results-count").hide();
+
+				var collectionsCount = this.collection.collectionsCollection.length;
+				var itemsCount = this.collection.length;
+				$('.jda-results-collections-count').text( jda.app.addCommas(collectionsCount));
+				$('.jda-results-items-count').text( jda.app.addCommas(itemsCount));
 
 				if(jda.app.currentView == 'thumb'){
 					$('.collections-thumbnails').empty();
-					
 				}else if(jda.app.currentView == 'list'){
 					$('#zeega-collections-list').empty();
+					
 				}
 				//this is getting ridiculous!!
 				_.each( _.toArray(this.collection.collectionsCollection), function(item){
@@ -56,6 +62,9 @@
 					
 				})
 				
+			} else {
+				
+				$("#zeega-results-count").fadeTo(100,1);
 			}
 			
 			//Display regular old items
@@ -73,8 +82,7 @@
 			})
 
 			
-			//$(this.el).fadeTo(100,1);
-			$("#zeega-results-count").fadeTo(100,1);
+			
 
 			$('#spinner').spin(false);
 			
@@ -156,9 +164,7 @@
 					VisualSearch.searchBox.disableFacets();
 
 					$('#zeega-results-count-number').html( jda.app.addCommas(response["items_count"]));
-					$('#jda-results-collections-count').html( jda.app.addCommas(response["returned_collections_count"]));
-					$('#jda-results-items-count').html( jda.app.addCommas(response["returned_items_count"]));
-
+					
 					
 					
 					_this.renderTags(response.tags);
