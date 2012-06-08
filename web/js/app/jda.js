@@ -209,15 +209,6 @@ this.jda = {
 		}
 		searchParams.page = 1;
 		
-		if ($('.tab-content').offset().top != '147'){
-			
-			$('.tab-content').addClass('jda-low-top');
-		}
-		
-		//$('#zeega-right-column').hide();
-		//$('#zeega-left-column').removeClass('span10');
-		//$('#zeega-left-column').addClass('span12');
-
 		var Browser = jda.module("browser");
 		this.clearSearchFilters();
 		if (filterType == 'collection'){
@@ -228,10 +219,10 @@ this.jda = {
 		
 		} else if (filterType == 'user'){
 			
-			var Users = jda.module("users");
+			var Browser = jda.module("browser");
 			//the r_collections parameter separates the items and collections in the search results
 			searchParams.r_collections=1;
-			this.resultsView.userFilter = new Users.Views.UserPage({model:model});
+			this.resultsView.userFilter = new Browser.Users.Views.UserPage({model:model});
 			searchParams.user = model.id;
 			this.search(searchParams);
 		}
@@ -395,6 +386,17 @@ this.jda = {
 	getRightColumnPosition: function(){
 		var left = this.getLeftColumnWidth() + $('#zeega-left-column').offset().left + 30;
 		return left;	
+	},
+	/***************************************************************************
+		- called from ux.search and then anytime window is resized
+	***************************************************************************/
+	redrawLayout:function(){
+		$('#zeega-left-column').css("width", jda.app.getLeftColumnWidth());
+	    $('#jda-collection-filter').css("width", jda.app.getLeftColumnWidth() );
+	    $('#jda-user-filter').css("width", jda.app.getLeftColumnWidth() );
+	    $('.jda-separate-collections-and-items').css("width", jda.app.getLeftColumnWidth() );
+
+	    $('#zeega-right-column').css("left", jda.app.getRightColumnPosition());
 	},
 
 	

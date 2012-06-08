@@ -36,11 +36,11 @@
 				_.each( _.toArray(this.collection.collectionsCollection), function(item){
 					var itemView;
 					if(jda.app.currentView == 'thumb'){
-						itemView = new Items.Views.Thumb({model:item});
+						itemView = new Browser.Items.Views.Thumb({model:item});
 						$('.collection-thumbnails').append( itemView.render().el );
 					} else{
 						
-						itemView = new Items.Views.List({model:item});
+						itemView = new Browser.Items.Views.List({model:item});
 						$('#zeega-collections-list').append( itemView.render().el );
 					}
 					

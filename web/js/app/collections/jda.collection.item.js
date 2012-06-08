@@ -51,7 +51,7 @@
 		parse : function(response)
 		{
 			if (this.search.r_collections && response.collections){
-				this.collectionsCollection = new Items.Collection(response.collections);
+				this.collectionsCollection = new Browser.Items.Collection(response.collections);
 			}else{
 				this.collectionsCollection = null;
 			}

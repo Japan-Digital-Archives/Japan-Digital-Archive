@@ -116,9 +116,10 @@
 				jda.app.removeFilter('collection',{}, false);
 
 				//retrieve user object and then add user filter
-				var Users = jda.module("users");
+				var Browser = jda.module("browser");
+				
 				var userID = _this.model.get('user_id');
-				var authorModel = new Users.Model({id:userID});
+				var authorModel = new Browser.Users.Model({id:userID});
 				authorModel.fetch({
 					success : function(model, response){
 						jda.app.addFilter(model,'user', {collection:''});

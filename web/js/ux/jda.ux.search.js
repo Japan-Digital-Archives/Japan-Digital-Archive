@@ -1,7 +1,6 @@
 $(document).ready(function(){
   
-  $('#zeega-left-column').css("width", jda.app.getLeftColumnWidth() );
-  $('#zeega-right-column').css("left", jda.app.getRightColumnPosition());
+   jda.app.redrawLayout();
   
   /*************** USER LOGIN ************************/
   
@@ -60,11 +59,7 @@ $(document).ready(function(){
     if (jda.app.currentView == "event"){
       jda.app.resetMapSize();
     }
-    $('#zeega-left-column').css("width", jda.app.getLeftColumnWidth());
-    $('#jda-collection-filter').css("width", jda.app.getLeftColumnWidth() );
-    $('#jda-user-filter').css("width", jda.app.getLeftColumnWidth() );
-
-    $('#zeega-right-column').css("left", jda.app.getRightColumnPosition());
+    jda.app.redrawLayout();
   });
 
  

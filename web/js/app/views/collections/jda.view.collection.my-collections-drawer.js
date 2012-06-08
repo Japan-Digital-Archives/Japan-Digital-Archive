@@ -171,7 +171,7 @@
 		},
 		
 		renderCollectionPreview: function(model){
-					console.log('RENDERING COLLECTION PREVIEW',model);
+					//console.log('RENDERING COLLECTION PREVIEW',model);
 					var title = model.get('title');
 					var remainingItems = model.get('child_items').length - this.showThumbnailCount;
 					var _this=this;
