@@ -216,7 +216,7 @@ this.jda = {
 			
 			//clear out user filter - you can't have both
 			if (this.resultsView.userFilter != null){
-				this.removeFilter('user','searchParams',false);
+				this.removeFilter('user',searchParams,false);
 			}
 			this.resultsView.collectionFilter = new Browser.Items.Views.CollectionPage({model:model});
 			searchParams.collection = model.id;
@@ -226,7 +226,7 @@ this.jda = {
 
 			//clear out collection filter - you can't have both
 			if (this.resultsView.collectionFilter != null){
-				this.removeFilter('collection','searchParams',false);
+				this.removeFilter('collection',searchParams,false);
 			}
 			
 			var Browser = jda.module("browser");
