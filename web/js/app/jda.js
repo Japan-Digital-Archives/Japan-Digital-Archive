@@ -400,7 +400,7 @@ this.jda = {
 	***************************************************************************/
 	redrawLayout:function(){
 		$('#zeega-left-column').css("width", jda.app.getLeftColumnWidth());
-	    $('#jda-collection-filter').css("width", jda.app.getLeftColumnWidth() );
+	    $('#jda-collection-filter').css("width", $('#zeega-main-content').width() );
 	    $('#jda-user-filter').css("width", jda.app.getLeftColumnWidth() );
 	    $('.jda-separate-collections-and-items').css("width", jda.app.getLeftColumnWidth() );
 

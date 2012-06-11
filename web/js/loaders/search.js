@@ -71,7 +71,7 @@ var loadFiles = [
 	'order!../app/views/collections/jda.view.collection.my-collections-drawer',
 	'order!../app/views/collections/jda.view.collection.map-popup',
 
-	'order!../app/views/jda.view.editable-tags',
+
 	'order!../app/views/jda.view.locator-map',
 	'order!../app/views/jda.view.event-map',
 

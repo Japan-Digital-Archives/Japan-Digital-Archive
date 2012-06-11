@@ -254,7 +254,7 @@
 							'<div class="fancybox-media-wrapper">'+
 							'<div class="fancybox-left-column">' +
 								'<div class="fancybox-media-item media-item"></div>'+
-								'<p class="more subheader" style="clear:both">Tags</p><div class="more tags">'+
+								'<p class="more subheader" style="clear:both">Tags</p><div id="zeega-tag-container" class="more zeega-tags">'+
 								'<input name="tags" class="fancybox-editable tagsedit" id="<%=randId%>" value="<%=tags%>" />'+
 								'</div>'+
 							'</div>'+

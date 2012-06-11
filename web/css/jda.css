@@ -242,6 +242,12 @@ margin-left: -20px;
 	min-width:100px;
 }
 
+.jda-editable{
+	border:1px dotted #ccc;
+}
+.jda-more{
+	display:none;
+}
 /********************
 
 	HOME PAGE STYLES
