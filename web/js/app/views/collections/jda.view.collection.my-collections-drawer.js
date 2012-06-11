@@ -13,8 +13,8 @@
 		{
 			
 			this.collection = new Browser.Items.Collection();
-			this.collection.url=jda.app.apiLocation + 'api/search?r_collections=1&user=-1';
-			this.collection.parse= function(data)
+                        this.collection.url=jda.app.apiLocation + 'api/search?r_collections=1&user=-1';			
+                        this.collection.parse= function(data)
 				{
 					console.log(data.collections);
 					return data.collections;
@@ -55,11 +55,11 @@
 				this.activeCollection = new Items.Model({
 					title:$('#zeega-my-collections-active-collection').text(),
 					child_items:[],
-					newItemIDS:[],
+					new_items:[],
 				});
 				this.activeCollection.set({title:$('#zeega-my-collections-active-collection').text()}); 
 				this.activeCollection.set({child_items:[]}); 
-				this.activeCollection.set({newItemIDS:[]}); 
+				this.activeCollection.set({new_items:[]}); 
 				
 			} 
 			/* 
@@ -87,7 +87,7 @@
 						_this.activeCollection.attributes.child_items.push(jda.app.draggedItem.toJSON());
 						_this.renderCollectionPreview(_this.activeCollection);
 	
-						var newItems = _this.activeCollection.attributes.newItemIDS.push(jda.app.draggedItem.id);
+						var newItems = _this.activeCollection.attributes.new_items.push(jda.app.draggedItem.id);
 						
 						
 						_.delay(function(){$(_this.el).find('#zeega-my-collections-items').removeClass('zeega-my-collections-items-dropping');},1000);
@@ -108,10 +108,10 @@
 						  
 						var itemId=jda.app.draggedItem.id;
 						
-						_this.activeCollection.url=jda.app.apiLocation + 'api/collections/' + _this.activeCollection.id+'/items';
+						_this.activeCollection.url=jda.app.apiLocation + 'api/items/' + _this.activeCollection.id+'/items';
 				
 						
-						_this.activeCollection.save({newItemIDS:[itemId ]},
+						_this.activeCollection.save({new_items:[itemId ]},
 								{
 									success : function(model, response){ 
 										
@@ -163,7 +163,7 @@
 				this.activeCollection = new Browser.Items.Model({
 					title:$('#zeega-my-collections-active-collection').text(),
 					child_items:[],
-					newItemIDS:[],
+					new_items:[],
 					
 				});
 				$('#zeega-my-collections-items').spin(false );
