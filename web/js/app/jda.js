@@ -208,18 +208,26 @@ this.jda = {
 			searchParams = new Object();
 		}
 		searchParams.page = 1;
-		
-		
 
 		var Browser = jda.module("browser");
 		this.clearSearchFilters();
+		
 		if (filterType == 'collection'){
 			
+			//clear out user filter - you can't have both
+			if (this.resultsView.userFilter != null){
+				this.removeFilter('user','searchParams',false);
+			}
 			this.resultsView.collectionFilter = new Browser.Items.Views.CollectionPage({model:model});
 			searchParams.collection = model.id;
 			this.search(searchParams);
 		
 		} else if (filterType == 'user'){
+
+			//clear out collection filter - you can't have both
+			if (this.resultsView.collectionFilter != null){
+				this.removeFilter('collection','searchParams',false);
+			}
 			
 			var Browser = jda.module("browser");
 			//the r_collections parameter separates the items and collections in the search results
@@ -357,7 +365,7 @@ this.jda = {
 	},
 	
 
-	//NOTE - this does not search, it only clears out all the filters on the page
+	//NOTE - this does not search, it only clears out all the filters in the search box UI
 	clearSearchFilters : function(){
 	
 		
@@ -411,7 +419,7 @@ this.jda = {
 		$('#zeega-my-collections-share-and-organize').html('Saving collection...');
 		var _this=this;
 		console.log(this.myCollectionsDrawer.activeCollection);
-		if(this.myCollectionsDrawer.activeCollection.get('new_items').length>0){
+		if(this.myCollectionsDrawer.activeCollection.get('newItemIDS').length>0){
 			this.myCollectionsDrawer.activeCollection.save({},{
 				success:function(model,response){
 					console.log('saved collection');

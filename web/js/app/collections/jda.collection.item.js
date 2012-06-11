@@ -20,6 +20,7 @@
 			if( !_.isUndefined(this.search.viewType) ) url += '&view_type=' + this.search.viewType;
 			if( !_.isUndefined(this.search.content) ) url += '&content=' + this.search.content;
 			if( !_.isUndefined(this.search.collection) && this.search.collection > 0) url += '&collection=' + this.search.collection;
+			if( !_.isUndefined(this.search.user) && this.search.user > 0) url += '&user=' + this.search.user;
 			if( !_.isUndefined(this.search.page) ) url += '&page=' + this.search.page;
 			if( !_.isUndefined(this.search.r_items) ) url += '&r_items=' + this.search.r_items;
 			if( !_.isUndefined(this.search.r_tags)) url += '&r_tags=' + this.search.r_tags;

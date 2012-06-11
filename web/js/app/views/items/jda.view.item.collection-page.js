@@ -115,7 +115,7 @@
 				});
 				
 				//remove the collection filter but don't search yet
-				jda.app.removeFilter('collection',{}, false);
+				//jda.app.removeFilter('collection',{}, false);
 
 				//retrieve user object and then add user filter
 				var Browser = jda.module("browser");
