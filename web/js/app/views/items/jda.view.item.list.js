@@ -79,8 +79,8 @@
 		
 			var blanks = this.model.attributes;
 				
-			if (this.model.get("media_date_created") != null && this.model.get("media_date_created") != "0000-00-00 00:00:00"){
-				blanks["media_date"] = new Date(this.model.get("media_date_created").replace(" ", "T"));
+			if (this.model.get("media_date_created") != null && this.model.get("media_date_created").date != null && this.model.get("media_date_created").date != "0000-00-00 00:00:00"){
+				blanks["media_date"] = new Date(this.model.get("media_date_created").date.replace(" ", "T"));
 				blanks["media_date"]=blanks["media_date"].format("ddd, mmm dS, yyyy<br/>h:MM:ss TT Z");
 			} else {
 				blanks["media_date"] = "n/a";
@@ -240,6 +240,7 @@
 			'</td>'+
 			'<td class="jda-item-description">'+
 				'<div class="jda-item-title"><%= title %></div>'+
+				'<div><%= description %></div>'+
 			'</td>'+
 			'<td class="jda-item-date">'+
 				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
