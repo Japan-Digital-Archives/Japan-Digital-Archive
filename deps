@@ -1,3 +1,6 @@
+; symfony core bundles - frequently replaced 
+; ---------------------------------------------
+
 [symfony]
     git=http://github.com/symfony/symfony.git
     version=v2.0.12
@@ -35,7 +38,7 @@
 
 [metadata]
     git=http://github.com/schmittjoh/metadata.git
-    version=1.1.0
+    version=1.0.0
 
 [SensioFrameworkExtraBundle]
     git=http://github.com/sensio/SensioFrameworkExtraBundle.git
@@ -62,27 +65,25 @@
     target=/bundles/Symfony/Bundle/AsseticBundle
     version=v1.0.1
 
-
-[JMSSerializerBundle]
-    git=git://github.com/schmittjoh/JMSSerializerBundle.git
-    target=bundles/JMS/SerializerBundle
-[FOSUserBundle]
-    git=git://github.com/FriendsOfSymfony/FOSUserBundle.git
-    target=bundles/FOS/UserBundle
-    version=1.2.0
+; ---------------------------------------------
+; sonata admin bundle
+; ---------------------------------------------
 
 [SonataAdminBundle]
-    git=http://github.com/sonata-project/SonataAdminBundle.git
+    git=git://github.com/sonata-project/SonataAdminBundle.git
     target=/bundles/Sonata/AdminBundle
     version=origin/2.0
+
 [SonataBlockBundle]
-    git=http://github.com/sonata-project/SonataBlockBundle.git
+    git=git://github.com/sonata-project/SonataBlockBundle.git
     target=/bundles/Sonata/BlockBundle
     version=origin/2.0
+
 [SonataCacheBundle]
-    git=http://github.com/sonata-project/SonataCacheBundle.git
+    git=git://github.com/sonata-project/SonataCacheBundle.git
     target=/bundles/Sonata/CacheBundle
     version=origin/2.0
+
 [SonatajQueryBundle]
     git=http://github.com/sonata-project/SonatajQueryBundle.git
     target=/bundles/Sonata/jQueryBundle
@@ -90,11 +91,10 @@
 [KnpMenuBundle]
     git=http://github.com/KnpLabs/KnpMenuBundle.git
     target=/bundles/Knp/Bundle/MenuBundle
-    version=v1.1.0
+
 [KnpMenu]
     git=http://github.com/KnpLabs/KnpMenu.git
     target=/knp/menu
-    version=v1.1.1
 
 [Exporter]
     git=http://github.com/sonata-project/exporter.git
@@ -103,4 +103,31 @@
 [SonataDoctrineORMAdminBundle]
     git=http://github.com/sonata-project/SonataDoctrineORMAdminBundle.git
     target=/bundles/Sonata/DoctrineORMAdminBundle
+    version=origin/2.0
+
+; ---------------------------------------------
+; FOSRestBundle
+; ---------------------------------------------
+
+[JMSSerializerBundle]
+    git=git://github.com/schmittjoh/JMSSerializerBundle.git
+    target=bundles/JMS/SerializerBundle
+
+[FOSRest]
+    git=git://github.com/FriendsOfSymfony/FOSRest.git
+    target=fos/FOS/Rest
+
+[FOSRestBundle]
+    git=git://github.com/FriendsOfSymfony/FOSRestBundle.git
+    target=bundles/FOS/RestBundle
+
+
+; ---------------------------------------------
+; other bundles
+; ---------------------------------------------
+
+[FOSUserBundle]
+    git=git://github.com/FriendsOfSymfony/FOSUserBundle.git
+    target=bundles/FOS/UserBundle
+    version=1.2.0
 
