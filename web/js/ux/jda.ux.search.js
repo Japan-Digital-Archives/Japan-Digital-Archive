@@ -6,7 +6,6 @@ $(document).ready(function(){
 	/*************** USER LOGIN ************************/
 	
 	$('#sign-in').click(function(){
-		console.log('fucj');
 		$('#user-modal-body').empty().append('<iframe class="login" src="/'+sessionStorage.getItem('directory')+'login?_locale='+sessionStorage.getItem('locale')+'"></iframe>');
 		$('#user-modal').modal('show'); 
 		return false;
@@ -16,6 +15,7 @@ $(document).ready(function(){
 	$('#user-modal').bind('authenticated',function(){
 		$('#sign-in').hide(); 
 		$('#user-dropdown').show();
+		$('#jda-header-me').show();
 		jda.app.userAuthenticated();
 		return false;
 	});

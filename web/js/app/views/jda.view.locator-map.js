@@ -50,6 +50,7 @@
 	
 		addMap:function()
 		{
+			console.log('addingmap');
 			$(this.el).find('.item-lat-lng').fadeIn();
 			$(this.el).find('.locator-map').fadeIn();
 			this.mapRendered=true;

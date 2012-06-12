@@ -418,6 +418,10 @@
 				<source>jda.login.confirm</source>
 				<target>you've successfully logged in!</target>
 			</trans-unit>
+			<trans-unit id="106">
+                <source>jda.header.me</source>
+                <target>Me</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

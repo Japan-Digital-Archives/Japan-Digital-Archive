@@ -15,6 +15,7 @@ $(document).ready(function(){
 	$('#user-modal').bind('authenticated',function(){
 		$('#sign-in').hide(); 
 		$('#user-dropdown').show();
+		$('#jda-header-me').show();
 		return false;
 	});
 	$('#user-modal').bind('close',function(){$("#user-modal-close").trigger('click');});
