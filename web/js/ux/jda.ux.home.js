@@ -4,12 +4,40 @@ $(document).ready(function(){
 	
 	/*************** USER LOGIN ************************/
 	
-	$('#jda-sign-in').click(function(){$('#login-modal').modal('show'); return false;});
-	$("#login-modal").bind('authenticated',function(){
-		$('#jda-sign-in').html("Sign Out").unbind().click(function(){});
+	$('#sign-in').click(function(){
+		console.log('fucj');
+		$('#user-modal-body').empty().append('<iframe class="login" src="/'+sessionStorage.getItem('directory')+'login?_locale='+sessionStorage.getItem('locale')+'"></iframe>');
+		$('#user-modal').modal('show'); 
+		return false;
 	});
-	$("#login-modal").bind('close',function(){$("#login-modal-close").trigger('click');});
 	
+	
+	$('#user-modal').bind('authenticated',function(){
+		$('#sign-in').hide(); 
+		$('#user-dropdown').show();
+		return false;
+	});
+	$('#user-modal').bind('close',function(){$("#user-modal-close").trigger('click');});
+	
+
+	
+	/*************** ACCOUNT SETTINGS ************************/
+	
+	$('#account-settings').click(function(){
+		$('#user-modal-body').empty().append('<iframe class="login" src="/'+sessionStorage.getItem('directory')+'profile/change-password?_locale='+sessionStorage.getItem('locale')+'"></iframe>');
+		$('#user-modal').modal('show'); 
+		return false;
+		
+	});
+	
+	
+	
+
+
+
+
+
+
 	/*************** LANGUAGE TOGGLE ************************/
 	$('#jda-language-toggle').find('.btn').click(function(){
 		if(!$(this).hasClass('active')){

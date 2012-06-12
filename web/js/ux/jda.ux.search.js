@@ -2,16 +2,37 @@ $(document).ready(function(){
   
    jda.app.redrawLayout();
   
-  /*************** USER LOGIN ************************/
-  
-  
-    $('#jda-sign-in').click(function(){$('#login-modal').modal('show'); return false;});
-    $("#login-modal").bind('authenticated',function(){
-      $('#jda-sign-in').html("Sign Out").unbind().click(function(){});
-      jda.app.userAuthenticated();
-    });
-  $("#login-modal").bind('close',function(){$("#login-modal-close").trigger('click');});
-  
+
+	/*************** USER LOGIN ************************/
+	
+	$('#sign-in').click(function(){
+		console.log('fucj');
+		$('#user-modal-body').empty().append('<iframe class="login" src="/'+sessionStorage.getItem('directory')+'login?_locale='+sessionStorage.getItem('locale')+'"></iframe>');
+		$('#user-modal').modal('show'); 
+		return false;
+	});
+	
+	
+	$('#user-modal').bind('authenticated',function(){
+		$('#sign-in').hide(); 
+		$('#user-dropdown').show();
+		jda.app.userAuthenticated();
+		return false;
+	});
+	$('#user-modal').bind('close',function(){$("#user-modal-close").trigger('click');});
+	
+
+	
+	/*************** ACCOUNT SETTINGS ************************/
+	
+	$('#account-settings').click(function(){
+		$('#user-modal-body').empty().append('<iframe class="login" src="/'+sessionStorage.getItem('directory')+'profile/change-password?_locale='+sessionStorage.getItem('locale')+'"></iframe>');
+		$('#user-modal').modal('show'); 
+		return false;
+		
+	});
+	
+
   /*************** LANGUAGE TOGGLE ************************/
     
   $('#jda-language-toggle').find('.btn').click(function(){
@@ -73,7 +94,7 @@ $(document).ready(function(){
       if (jda.app.killScroll == false) // Keeps the loader from fetching more than once.
       {
         jda.app.killScroll = true; // IMPORTANT - Set killScroll to true, to make sure we do not trigger this code again before it's done running.
-        jda.app.search({ page: jda.app.itemViewCollection.collection.search.page+1 });
+        jda.app.search({ page: jda.app.resultsView.collection.search.page+1 });
       }
     }
   });
