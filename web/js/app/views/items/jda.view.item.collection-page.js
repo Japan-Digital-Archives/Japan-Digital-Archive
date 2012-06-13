@@ -91,13 +91,25 @@
 			/***************************************************************************
 				MORE vs LESS view
 			***************************************************************************/
+			//Don't show more/less option in edit view
 			if (this.isMoreView){
-				$('#jda-less-about-this-collection').show();
-				$('#jda-more-about-this-collection').hide();
+				if (this.isEditView){
+					$('#jda-less-about-this-collection').hide();
+					$('#jda-more-about-this-collection').hide();
+				} else{
+					$('#jda-less-about-this-collection').show();
+					$('#jda-more-about-this-collection').hide();
+				}
+				
+				$('#zeega-left-column').addClass('zeega-left-column-really-low');
+				$('#zeega-right-column').addClass('zeega-right-column-really-low');
 			}else{
 				$('#jda-more-about-this-collection').show();
 				$('#jda-less-about-this-collection').hide();
+				$('#zeega-left-column').removeClass('zeega-left-column-really-low');
+				$('#zeega-right-column').removeClass('zeega-right-column-really-low');
 			}
+			
 
 			$('#jda-less-about-this-collection').click(function(){
 				
@@ -279,13 +291,11 @@
 
 			}
 			/***************************************************************************
-				Take away location when map is showing 
+				Take away location when map is showing ?
 			***************************************************************************/
-			if (this.isMoreView){
+			/*if (this.isMoreView){
 				$(this.el).find('.jda-collection-filter-location').hide();
-				
-
-			}
+			}*/
 			/***************************************************************************
 				Look up location with reverse geocode
 			***************************************************************************/
@@ -453,7 +463,7 @@
 				'</div>'+
 
 				//DESCRIPTION, LOCATION, MORE/LESS  BUTTON
-				'<div class="pull-left" style="width:-webkit-calc(100% - 395px);min-height:120px;position:relative">'+
+				'<div class="pull-left" style="width:-webkit-calc(100% - 395px);padding-bottom:18px;position:relative">'+
 
 					'<span class="jda-collection-filter-description"><%=description%></span><i class="icon-plus-sign" style="display:none"></i>'+
 					'<p class="jda-collection-filter-location" style="margin-top:10px;font-weight:bold"></p>'+
@@ -462,7 +472,7 @@
 				'</div>'+
 
 				//ARCHIVE SETTINGS
-				'<div class="pull-right" style="width: 200px;font-size:11px;min-height:120px;position:relative">'+
+				'<div class="pull-right" style="width: 200px;font-size:11px;position:relative">'+
 					
 					'<p style="font-size: 15px;margin-bottom: 0;font-weight: bold;font-variant: small-caps;">archive settings - <a href="#">edit</a></p>'+
 					'<p class="show_in_archive_true" style="display:none;font-size:11px;color:#666">Public: Anyone can view this collection.</p>'+

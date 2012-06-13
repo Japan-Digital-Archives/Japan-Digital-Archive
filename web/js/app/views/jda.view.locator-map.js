@@ -135,7 +135,8 @@
 						that.model.save({'media_geo_latitude':that.latlng.lat,'media_geo_longitude':that.latlng.lng,},{success: function(){
 							$(that.el).find('.locator-search-bar').fadeOut('fast',
 									function(){
-										$(that.el).find('.edit-geo-location a').text('Edit item location (' + placeText + ")");
+										$(that.el).find('.item-address-text').text( placeText );
+										$(that.el).find('.item-address-text').show();
 										$(that.el).find('.edit-geo-location').fadeIn();
 
 									});

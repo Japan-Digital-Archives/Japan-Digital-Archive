@@ -40,6 +40,7 @@
 #zeega-left-column{
 	/*this width gets set programmatically in search.ux.js file */
 	min-width:640px;
+	position: relative;
 }
 #zeega-right-column{
 	/* this position gets set programmatically in search.ux.js file and thereafter
@@ -49,9 +50,14 @@
 	top: 115px;
 
 }
-
+.zeega-left-column-really-low{
+	top:222px !important;
+}
 .zeega-right-column-low{
 	top: 272px !important;
+}
+.zeega-right-column-really-low{
+	top: 483px !important;
 }
 #zeega-list-view td{
 	position:relative;
