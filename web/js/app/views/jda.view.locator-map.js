@@ -10,8 +10,9 @@
 	
 		initialize : function()
 		{
+			this.geocoder = new google.maps.Geocoder();
 			this.mapRendered=false;
-			
+			this.isEditable = !_.isUndefined(this.options.isEditable) ? this.options.isEditable : true;
 			
 			
 			
@@ -29,8 +30,19 @@
 			};
 			//use template to clone the database items into
 			var template = _.template( this.getTemplate() );
+
+			
+
 			//copy the cloned item into the el
 			$(this.el).append( template( values ) );
+
+			if (!this.isEditable){
+				$(this.el).find('.edit').hide();
+				
+			}	
+			if (!this.geoLocated){
+				$(this.el).find('.no-geo-data').show();
+			}
 		},
 	
 		events : {
@@ -42,6 +54,7 @@
 	
 		render : function( )
 		{
+			
 			return this.el;
 		},
 	
@@ -50,10 +63,21 @@
 	
 		addMap:function()
 		{
-			console.log('addingmap');
+
 			$(this.el).find('.item-lat-lng').fadeIn();
 			$(this.el).find('.locator-map').fadeIn();
 			this.mapRendered=true;
+
+			var _this = this;
+			this.geocoder.geocode( { 'latLng' : new google.maps.LatLng(this.latlng.lat,this.latlng.lng) }, function(results, status) {	
+				if (status == google.maps.GeocoderStatus.OK) {
+					if (results[0].formatted_address){
+						$(_this.el).find('.item-address-text').text( results[0].formatted_address );
+						$(_this.el).find('.item-address-text').show();
+					}
+				}
+			});
+
 			var div = $(this.el).find('.locator-map').get(0);
 
 			this.map = new L.Map(div);
@@ -93,7 +117,7 @@
 		displaySearch : function(){
 			var that=this;
 			$(this.el).find('.edit-geo-location').fadeOut('fast',function(){$(that.el).find('.locator-search-bar').fadeIn();});
-			this.geocoder = new google.maps.Geocoder();
+			
 		},
 		runSearch : function(e){
 			if(e.keyCode==13){
@@ -108,7 +132,7 @@
 						if(that.mapRendered) that.updateMap();
 						else that.addMap();
 						that.model.set({'media_geo_latitude':that.latlng.lat,'media_geo_longitude':that.latlng.lng,});
-						that.model.save({},{success: function(){
+						that.model.save({'media_geo_latitude':that.latlng.lat,'media_geo_longitude':that.latlng.lng,},{success: function(){
 							$(that.el).find('.locator-search-bar').fadeOut('fast',
 									function(){
 										$(that.el).find('.edit-geo-location a').text('Edit item location (' + placeText + ")");
@@ -129,6 +153,8 @@
 		getTemplate : function()
 		{
 			var html =	'<p class="map-title">Map</p><div class="locator-map"></div><span class="edit edit-geo-location"><a>Edit item location</a></span>'+
+				'<span class="no-geo-data" style="display:none;font-size:11px">No location information</span>'+
+				'<span class="item-address-text" style="display:none;font-size:11px"></span>'+
 				'<div class="item-lat-lng"><span class="item-latitude"><%= latitude %></span><span class="item-longitude"><%= longitude %></span></div>'+
 				'<div class="locator-search-bar"><input class="locator-search-input" type="text" value="Search a Location"  ></div>';
 			return html;
