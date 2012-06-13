@@ -19,6 +19,10 @@ $(document).ready(function(){
 		jda.app.userAuthenticated();
 		return false;
 	});
+	
+
+
+	
 	$('#user-modal').bind('close',function(){$("#user-modal-close").trigger('click');});
 	
 

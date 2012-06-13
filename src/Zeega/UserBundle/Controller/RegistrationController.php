@@ -107,6 +107,7 @@ class RegistrationController extends ContainerAware
 
         return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:confirmed.html.'.$this->getEngine(), array(
             'user' => $user,
+            'displayname' => $user->getDisplayName(),
         ));
     }
 
