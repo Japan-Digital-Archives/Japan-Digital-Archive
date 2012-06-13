@@ -29,12 +29,18 @@
 			var _this = this;
 
 			//Render collection list in drop-down menu
-			$(_this.el).find('.dropdown-menu').empty().append('<li class="zeega-collection-list-item" ><a href=".">Create A New Collection</a></li><li class="divider"></li>');
+			$(_this.el).find('.dropdown-menu').empty();
+			
+			if(sessionStorage.getItem('user')==1)$(_this.el).find('.dropdown-menu').append('<li class="zeega-collection-list-item" ><a href=".">Create A New Collection</a></li><li class="divider"></li>');
 			_.each( _.toArray(this.collection), function(item){
 			
 				if(!_.isUndefined(item.id)) var id =item.id;
 				else id = -1;
-				var itemView = '<li class="zeega-collection-list-item" id="'+id+'"><a href=".">'+item.get('title')+'</a></li>';
+				
+				if(item.get('title').length>25) var title = item.get('title').substr(0,23)+'...';
+				else var title = item.get('title');
+				
+				var itemView = '<li class="zeega-collection-list-item" id="'+id+'"><a href=".">'+title+'</a></li>';
 				$(_this.el).find('.dropdown-menu').append(itemView);
 				
 				$(_this.el).find('#'+id).click( function(e){
@@ -263,6 +269,14 @@
 			
 			
 		},
+		
+		createNewCollection : function(){
+		
+		
+		
+		
+		
+		}
 
 	});
 })(jda.module("browser"));
