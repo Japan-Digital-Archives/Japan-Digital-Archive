@@ -9,11 +9,10 @@
 		
 		el : $('#zeega-my-collections'),
 		
-		initialize : function()
-		{
+		initialize : function(){
 			
 			this.collection = new Browser.Items.Collection();
-                        this.collection.url=jda.app.apiLocation + 'api/search?r_collections=1&user=-1';			
+            this.collection.url=jda.app.apiLocation + 'api/search?r_collections=1&user=-1';			
                         this.collection.parse= function(data)
 				{
 					console.log(data.collections);
@@ -30,7 +29,7 @@
 			var _this = this;
 
 			//Render collection list in drop-down menu
-			$(_this.el).find('.dropdown-menu').empty().append('<li class="zeega-collection-list-item" ><a href=".">Create A New Collection</a></li>');
+			$(_this.el).find('.dropdown-menu').empty().append('<li class="zeega-collection-list-item" ><a href=".">Create A New Collection</a></li><li class="divider"></li>');
 			_.each( _.toArray(this.collection), function(item){
 			
 				if(!_.isUndefined(item.id)) var id =item.id;
@@ -60,13 +59,16 @@
 				this.activeCollection.set({child_items:[]}); 
 				this.activeCollection.set({new_items:[]}); 
 				
-			} 
+			}
+			
 			/* 
 				Otherwise make the first collection in the list the active one for the
 				my Collection drawer
 			*/
+			
 			else {
-				var activeCollectionID = $(this.el).find('.zeega-collection-list-item').first().attr("id");
+				var activeCollectionID = this.collection.at(0).id;
+				console.log('active collection id:',activeCollectionID);
 				this.switchActiveCollection(activeCollectionID);
 			}
 			
@@ -137,7 +139,7 @@
 			var _this = this;
 			
 			$('#zeega-my-collections-items').spin();
-			if(activeCollectionID!=-1) 
+			if(!_.isUndefined(activeCollectionID)) 
 			
 			{
 				this.activeCollection = new Browser.Items.Model({id:activeCollectionID});
@@ -170,7 +172,10 @@
 		},
 		
 		renderCollectionPreview: function(model){
-					//console.log('RENDERING COLLECTION PREVIEW',model);
+					
+					
+					
+					console.log('RENDERING COLLECTION PREVIEW',model);
 					var title = model.get('title');
 					var remainingItems = model.get('child_items').length - this.showThumbnailCount;
 					var _this=this;
@@ -193,7 +198,7 @@
 					
 					if(sessionStorage.getItem('user')!=1){
 						$('#zeega-my-collections-share-and-organize').html("<a href='#' >Save Collection</a>").click(function(){
-							$('#login-modal').modal('show'); 
+							$('#sign-in').trigger('click'); 
 						}).show();
 					}
 					else{
@@ -224,6 +229,8 @@
 			
 			
 			if(sessionStorage.getItem('user')==1){
+				
+				console.log('user authenticated: fetching user collections');
 				this.collection.fetch({
 					
 					success : function(collection, response)
@@ -241,11 +248,12 @@
 				);
 			}
 			else{
-				console.log(Browser);
+				console.log('user not authenticated: creating empty collection');
 				this.collection.add(
 					new Browser.Items.Model({
 						title:$('#zeega-my-collections-active-collection').text(),
 						child_items:[],
+						new_items:[],
 					}));
 				console.log(this.collection);
 				this.render();			

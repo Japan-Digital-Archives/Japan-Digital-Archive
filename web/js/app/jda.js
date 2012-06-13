@@ -419,7 +419,7 @@ this.jda = {
 		$('#zeega-my-collections-share-and-organize').html('Saving collection...');
 		var _this=this;
 		console.log(this.myCollectionsDrawer.activeCollection);
-		if(this.myCollectionsDrawer.activeCollection.get('newItemIDS').length>0){
+		if(this.myCollectionsDrawer.activeCollection.get('new_items').length>0){
 			this.myCollectionsDrawer.activeCollection.save({},{
 				success:function(model,response){
 					console.log('saved collection');
