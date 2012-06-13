@@ -72,7 +72,9 @@
 	position: absolute;top: 35px;left: 55px;
 }
 
-
+li{
+	list-style:none;
+}
 header .container{
 	width:98% !important;
 	min-width:900px;
@@ -109,10 +111,10 @@ header .navbar .btn-group {
 #jda-main-content{
 	margin-top:20px;
 }
-.jda-item-author,.jda-item-date{
-	font-size:11px;
-	
+.jda-item-date{
+	font-size:11px;	
 }
+
 .jda-high-top{
 	top:0;
 	position:absolute
@@ -222,31 +224,13 @@ margin-left: -20px;
 
 .login {
 
-	height:380px;
-	width: 480px;
+	height:400px;
+	width: 500px;
 	border: none;
 	overflow: hidden;
 
 }
 
-#jda-header-me {
-
-display:none;
-
-}
-
-#jda-user-modal{
-
-	width:500px;
-	height:400px;
-
-}
-
-
-
-.jda-item-date{
-	min-width:150px;
-}
 .jda-item-icon{
 	min-width:60px;
 }

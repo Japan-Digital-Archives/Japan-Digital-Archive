@@ -30,11 +30,14 @@
 		 initialize: function () {
 	        
 	        this.el.id = this.model.id;
-
-	        //set default size for thumbnails
-	        if (!this.model.get('thumbnail_width')){
-	        	this.model.set({thumbnail_width:160, thumbnail_height:120});
+	        if (_.isUndefined(this.options.thumbnail_height)){
+	        	this.options.thumbnail_height = 120;
 	        }
+	        if (_.isUndefined(this.options.thumbnail_width)){
+	        	this.options.thumbnail_width = 160;
+	        }
+
+	        this.model.set({thumbnail_width:this.options.thumbnail_width, thumbnail_height:this.options.thumbnail_height});
 
 	        //this is for fancy box to know to group these into a gallery
 	        $(this.el).attr("rel", "group");

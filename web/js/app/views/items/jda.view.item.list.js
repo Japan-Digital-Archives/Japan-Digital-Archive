@@ -34,6 +34,9 @@
 
 	        //this is for fancy box to know to group these into a gallery
 	        $(this.el).attr("rel", "group");
+
+	        //list item has a thumbnail item with same model as a subview
+	        this.thumbnailView = new Browser.Items.Views.Thumb({model:this.model,thumbnail_width:100,thumbnail_height:80});
 	        
     	},
 		render: function(done)
@@ -47,7 +50,7 @@
 					template = this.getImageTemplate();
 					break;
 				case 'Document':
-					template = this.getDocumentTemplate();
+					template = this.getDefaultTemplate();
 					break;
 				case 'Website':
 					template = this.getWebsiteTemplate();
@@ -59,13 +62,13 @@
 					template = this.getTestimonialTemplate();
 					break;
 				case 'Video':
-					template = this.getVideoTemplate();
+					template = this.getDefaultTemplate();
 					break;
 				case 'Audio':
-					template = this.getAudioTemplate();
+					template = this.getDefaultTemplate();
 					break;
 				case 'PDF':
-					template = this.getPDFTemplate();
+					template = this.getDefaultTemplate();
 					break;
 				case 'Collection':
 					template = this.getCollectionTemplate();
@@ -79,9 +82,9 @@
 		
 			var blanks = this.model.attributes;
 				
-			if (this.model.get("media_date_created") != null && this.model.get("media_date_created").date != null && this.model.get("media_date_created").date != "0000-00-00 00:00:00"){
-				blanks["media_date"] = new Date(this.model.get("media_date_created").date.replace(" ", "T"));
-				blanks["media_date"]=blanks["media_date"].format("ddd, mmm dS, yyyy<br/>h:MM:ss TT Z");
+			if (this.model.get("media_date_created") != null){
+				blanks["media_date"] = new Date(this.model.get("media_date_created").replace(" ", "T"));
+				blanks["media_date"]=blanks["media_date"].format("mmmm dS, yyyy<br/>h:MM TT");
 			} else {
 				blanks["media_date"] = "n/a";
 			}
@@ -97,7 +100,7 @@
 				blanks["description"] = this.model.get("description").substring(0,255) + "...";
 			} 
 			if (this.model.get("title") == null || this.model.get("title") == "none" || this.model.get("title") == ""){
-				blanks["title"] = "&nbsp;";
+				blanks["title"] = "Untitled";
 			}
 			if (this.model.get("media_type") == "PDF" && (this.model.get('title') == "none" || this.model.get('title') == "Untitled" || this.model.get('title') == ""  || this.model.get('title') == "&nbsp;" || this.model.get('title') == null)){
 				blanks["title"] = "Untitled";
@@ -109,6 +112,8 @@
 			}
 
 			$(this.el).html( _.template( template, blanks ) );
+			
+			$(this.el).find('.zeega-item-thumbnail').append(this.thumbnailView.render().el);
 
 			if (blanks["author"] == ""){
 				$(this.el).find('.jda-item-author').hide();
@@ -172,36 +177,34 @@
 			html =
 
 
-			'<td class="span2">'+
-		//		'<i class="jdicon-small-drag"></i>'+
-			'<img src="<%= thumbnail_url %>" height="100" width="100"/>'+
-
+			'<td class="zeega-list-left-column">'+
+				'<div class="zeega-item-thumbnail"></div>'+
 			'</td>'+
-			'<td class="jda-item-description"><%= title %><br/><span class="jda-item-author">by <%= author %></span></td>'+
-			'<td class="jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
+			'<td class="zeega-list-middle-column">'+
+				'<h3><%= title %></h3><p class="jda-item-author">by: <%= author %> via <a><%= archive %></a></p>'+
+				'<p class="jda-item-description"><%= description %></p>'+
+			'</td>'+
+			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
 			
 
 			
 			return html;
 		},
-		getVideoTemplate : function()
+		getDefaultTemplate : function()
 		{
 			html =
 
 
-			'<td class="span2">'+
-		//		'<i class="jdicon-small-drag"></i>'+
-				'<img src="<%= thumbnail_url %>" height="100" width="100"/>'+
+			'<td class="zeega-list-left-column">'+
+				'<div class="zeega-item-thumbnail"></div>'+
+			'</td>'+
+			'<td class="zeega-list-middle-column">'+
+				'<h3><%= title %></h3><p class="jda-item-author">by: <%= author %></p>'+
+				'<p class="jda-item-description"><%= description %></p>'+
+			'</td>'+
+			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
+			
 
-			'</td>'+
-			'<td class="jda-item-description">'+
-				'<div class="jda-item-title"><%= title %></div>'+
-				'<div class="jda-item-source"><%= layer_type %></div>'+
-				'<div class="jda-item-author">by <%= author %></div>'+
-			'</td>'+
-			'<td class="jda-item-date">'+
-				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
-			'</td>';
 			
 			return html;
 		},
@@ -233,18 +236,15 @@
 			html = 
 
 
-			'<td class="span2">'+
-			//	'<i class="jdicon-small-drag"></i>'+
-
-				'<i class="jdicon-website"></i>'+
+			'<td class="zeega-list-left-column">'+
+				'<div class="zeega-item-thumbnail"></div>'+
 			'</td>'+
-			'<td class="jda-item-description">'+
-				'<div class="jda-item-title"><%= title %></div>'+
-				'<div><%= description %></div>'+
+			'<td class="zeega-list-middle-column">'+
+				'<h3><%= title %></h3><p class="jda-item-author"><a href="<%= attribution_uri %>" target="_blank"><%= attribution_uri %></a></p>'+
+				'<p class="jda-item-description"><%= description %></p>'+
 			'</td>'+
-			'<td class="jda-item-date">'+
-				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
-			'</td>';
+			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
+			
 			
 			return html;
 		},
@@ -252,98 +252,48 @@
 		{
 			html = 
 
-
-			'<td class="span2">'+
-			//	'<i class="jdicon-small-drag"></i>'+
-
-				'<i class="jdicon-tweet"></i>'+
+			'<td class="zeega-list-left-column">'+
+				'<div class="zeega-item-thumbnail"></div>'+
 			'</td>'+
-			'<td class="jda-item-description">'+
-				'<%= text %>'+
+			'<td class="zeega-list-middle-column">'+
+				'<p class="jda-item-description"><%= text %></p>'+
 			'</td>'+
-			'<td class="jda-item-date">'+
-				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
-			'</td>';
+			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
 			
 			return html;
 		},
 		getTestimonialTemplate : function()
 		{
 			html = 
-
-
-			'<td class="span2">'+
-				//'<i class="jdicon-small-drag"></i>'+
-
-				'<i class="jdicon-testimonial"></i>'+
-				'<div class="item-author item-author-left"><%= author %></div>'+
+			'<td class="zeega-list-left-column">'+
+				'<div class="zeega-item-thumbnail"></div>'+
 			'</td>'+
-			'<td class="jda-item-description">'+
-				'<div><%= description %></div>'+
+			'<td class="zeega-list-middle-column">'+
+				'<h3><%= title %></h3><p class="jda-item-author">Testimonial by: <%= author %></p>'+
+				'<p class="jda-item-description"><%= description %></p>'+
 			'</td>'+
-			'<td class="jda-item-date">'+
-				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
-			'</td>';
+			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
+
 			
 			return html;
 		},
-		getPDFTemplate : function()
-		{
-			html = 
-
-D
-			'<td class="span2">'+
-				//'<i class="jdicon-small-drag"></i>'+
-
-				'<i class="jdicon-pdf"></i>'+
-				'<div class="item-author item-author-left"><%= author %></div>'+
-			'</td>'+
-			'<td class="jda-item-description">'+
-				'<div class="jda-item-title"><%= title %></div>'+
-				'<div><%= description %></div>'+
-			'</td>'+
-			'<td class="jda-item-date">'+
-				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
-			'</td>';
-			
-			return html;
-		},
+		
 	
-		getAudioTemplate : function()
-		{
-			html = 
-
-
-			'<td class="span2">'+
-				//'<i class="jdicon-small-drag"></i>'+
-
-				'<i class="jdicon-audio"></i>'+
-				'<div class="item-author item-author-left"><%= author %></div>'+
-			'</td>'+
-			'<td class="jda-item-description">'+
-				'<div class="jda-item-title"><%= title %></div>'+
-				'<div><%= description %></div>'+
-			'</td>'+
-			'<td class="jda-item-date">'+
-				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
-			'</td>';
-			
-			return html;
-		},
+		
 		getCollectionTemplate : function()
 		{
 			html = 
 
-				'<td><a id="<%= id %>" class="list-fancymedia" rel="group">'+
-					//'<i class="jdicon-small-drag"></i><i class="jdicon-collection"></i> '+
+				'<td class="zeega-list-left-column">'+
+				'<div class="zeega-item-thumbnail"></div>'+
+				'</td>'+
+				'<td class="zeega-list-middle-column">'+
+					'<h3><%= title %></h3><p class="jda-item-author">by: <a><%= author %></a></p>'+
+					'<p class="jda-item-description"><%= description %></p>'+
+				'</td>'+
+				'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
+				
 
-					'<span class="jda-item-author"><%= author %></span></a>'+
-				'</td>'+
-				'<td class="jda-item-description">'+
-					'<div class="jda-item-title"><%= title %></div>'+
-					'<div><%= description %></div>'+
-				'</td>'+
-				'<td class="jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
 
 			
 			return html;
@@ -353,13 +303,15 @@ D
 			html = 
 			
 
-				'<td><a id="<%= id %>" class="list-fancymedia" rel="group">'+
-					//'<i class="jdicon-small-drag"></i><i class="jdicon-document"></i> '+
-
-					'<span class="jda-item-author"><%= author %></span></a>'+
+				'<td class="zeega-list-left-column">'+
+					'<div class="zeega-item-thumbnail"></div>'+
 				'</td>'+
-				'<td class="jda-item-description"><%= title %><br/><%= description %></td>'+
-				'<td class="jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
+				'<td class="zeega-list-middle-column">'+
+					'<h3><%= title %></h3><p class="jda-item-author">by: <%= author %></p>'+
+					'<p class="jda-item-description"><%= description %></p>'+
+				'</td>'+
+				'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
+				
 
 			
 			return html;
