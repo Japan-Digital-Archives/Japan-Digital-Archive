@@ -317,3 +317,21 @@
 /*******************************************************
 	end TAGS
 *******************************************************/
+
+.bug-report
+{
+	padding:5px;
+	width:400px;
+}
+
+.bug-report input,
+.bug-report textarea
+{
+	width:390px;
+}
+
+.bug-submitted
+{
+	display:none;
+}
+

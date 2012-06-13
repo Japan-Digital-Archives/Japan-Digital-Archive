@@ -4,7 +4,8 @@
 					{{displayname}}, {% trans %}jda.login.confirm{% endtrans %} 
 					<script>
 							parent.$("#user-displayname").html('<i class="zicon-user"></i>{{displayname}}<b class="caret"></b>');
-							parent.$("#user-modal").trigger("authenticated");	
+							parent.$("#user-modal").trigger("authenticated");
+							parent.$("#user-modal-close").trigger("click");
 					</script>			
 {% endblock header %}
 
