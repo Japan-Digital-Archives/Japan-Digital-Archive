@@ -16,7 +16,7 @@ $(document).ready(function(){
 		$('#sign-in').hide(); 
 		$('#user-dropdown').show();
 		$('#jda-header-me').show();
-		jda.app.userAuthenticated();
+		if(!_.isUndefined(window.jda))jda.app.userAuthenticated();
 		return false;
 	});
 	
@@ -36,7 +36,44 @@ $(document).ready(function(){
 		
 	});
 	
-
+		
+	
+	/************  BUG REPORT **********************/
+	
+	
+	$('.bug-report').click(function(e){e.stopPropagation();});
+	$('.bug-report').parent().click(function(){
+		$('.bug-unsubmitted').show();
+		$('.bug-submitted').hide();
+	});
+	
+	$('.close-bug').click(function(){
+		$('.bug-report').parent().trigger('click');
+	});
+	
+	
+	$('.submit-bug').click(function(){
+		
+		var bug = new Backbone.Model({
+		
+			url:window.location.href,
+			hash: window.location.hash.substr(1),
+			description: $('.bug-description').val(),
+			email: $('.bug-email').val(),
+		
+		});
+		
+		bug.url="http://dev.jdarchive.org/bugs/report.php";
+		bug.save();
+		$('.bug-description').attr('value','');
+		$('.bug-unsubmitted').fadeOut('fast',function(){
+				$('.bug-submitted').fadeIn();
+		});
+		
+		
+	
+	
+	});
   /*************** LANGUAGE TOGGLE ************************/
     
   $('#jda-language-toggle').find('.btn').click(function(){

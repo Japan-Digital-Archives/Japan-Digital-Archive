@@ -1,7 +1,15 @@
 
 $(document).ready(function(){
 	
-	
+
+
+
+
+	/***************************************************/
+	/*************** HEADER ****************************/
+	/***************************************************/
+
+
 	/*************** USER LOGIN ************************/
 	
 	$('#sign-in').click(function(){
@@ -15,6 +23,7 @@ $(document).ready(function(){
 		$('#sign-in').hide(); 
 		$('#user-dropdown').show();
 		$('#jda-header-me').show();
+		if(!_.isUndefined(window.jda))jda.app.userAuthenticated();
 		return false;
 	});
 	
@@ -34,11 +43,42 @@ $(document).ready(function(){
 	
 	
 	
-
-
-
-
-
+	/************  BUG REPORT **********************/
+	
+	
+	$('.bug-report').click(function(e){e.stopPropagation();});
+	
+	$('.bug-report').parent().click(function(){
+		$('.bug-unsubmitted').show();
+		$('.bug-submitted').hide();
+	});
+	
+	$('.close-bug').click(function(){
+		$('.bug-report').parent().trigger('click');
+	});
+	
+	
+	$('.submit-bug').click(function(){
+		
+		var bug = new Backbone.Model({
+		
+			url:window.location.href,
+			hash: window.location.hash.substr(1),
+			description: $('.bug-description').val(),
+			email: $('.bug-email').val(),
+		
+		});
+		
+		bug.url="http://dev.jdarchive.org/bugs/report.php";
+		bug.save();
+		$('.bug-description').attr('value','');
+		$('.bug-unsubmitted').fadeOut('fast',function(){
+				$('.bug-submitted').fadeIn();
+		});
+	
+	});
+	
+	
 
 	/*************** LANGUAGE TOGGLE ************************/
 	$('#jda-language-toggle').find('.btn').click(function(){
@@ -51,6 +91,12 @@ $(document).ready(function(){
 		}
 		
 	});
+	
+	
+	
+	
+	
+	
 	
 	
 	$('.jda-home-featured-collection').height(Math.max($(window).height()-50, 600));
@@ -68,10 +114,10 @@ $(document).ready(function(){
 				$('.VS-search-box').css('width','270px');
 				
 				$("#jda-home-search-div, #search-bar").fadeTo('slow',1); 
-				$('input').attr('placeholder', 'Explore the Archive');
-				$('input').css('width', '200px');
-				$('input').css('padding-top', '9px');
-				$('input').focus(function(){
+				$('#VS-search input').attr('placeholder', 'Explore the Archive');
+				$('#VS-search input').css('width', '200px');
+				$('#VS-search input').css('padding-top', '9px');
+				$('#VS-search input').focus(function(){
 					$(this).attr('placeholder', '');
 					$(this).css('width', '3px');
 				});

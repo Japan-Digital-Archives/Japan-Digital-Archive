@@ -218,3 +218,21 @@
     -moz-transform: rotate(-6deg);
     transform: rotate(-6deg);
 }
+
+
+.bug-report
+{
+	padding:5px;
+	width:400px;
+}
+
+.bug-report input,
+.bug-report textarea
+{
+	width:390px;
+}
+
+.bug-submitted
+{
+	display:none;
+}
