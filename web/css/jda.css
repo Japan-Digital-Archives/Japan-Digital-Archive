@@ -222,13 +222,25 @@ margin-left: -20px;
 
 .login {
 
-	height:400px;
-	width: 500px;
+	height:380px;
+	width: 480px;
 	border: none;
 	overflow: hidden;
 
 }
 
+#jda-header-me {
+
+display:none;
+
+}
+
+#jda-user-modal{
+
+	width:500px;
+	height:400px;
+
+}
 
 
 

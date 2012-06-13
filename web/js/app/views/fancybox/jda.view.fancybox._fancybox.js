@@ -57,7 +57,7 @@
 			$(this.el).find('.less').hide();
 			$(this.el).find('.more').fadeIn('fast',function(){
 				if(_this.locatorMapView.geoLocated&& $(this).attr('id')=='fancybox-map')_this.locatorMapView.addMap();
-				else _this.locatorMapView.addMap();
+				//else _this.locatorMapView.addMap();
 			});
 			
 			$(this.el).find('.plyr-video').css({'height':'200px'});

@@ -30,8 +30,7 @@
 			var _this = this;
 
 			//Render collection list in drop-down menu
-			$(_this.el).find('.dropdown-menu').empty();
-			
+			$(_this.el).find('.dropdown-menu').empty().append('<li class="zeega-collection-list-item" ><a href=".">Create A New Collection</a></li>');
 			_.each( _.toArray(this.collection), function(item){
 			
 				if(!_.isUndefined(item.id)) var id =item.id;
