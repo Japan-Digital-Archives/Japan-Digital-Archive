@@ -40,6 +40,7 @@
 	        	this.options.show_caption = true;
 	        }
 
+
 	        this.model.set({thumbnail_width:this.options.thumbnail_width, thumbnail_height:this.options.thumbnail_height});
 
 	        //this is for fancy box to know to group these into a gallery
@@ -54,29 +55,12 @@
 				
 			switch( this.model.get('media_type') )
 			{
-				case 'Image':
-					template = this.getDefaultTemplate();
-					break;
-				case 'Document':
-					template = this.getDefaultTemplate();
-					break;
-				case 'Website':
-					template = this.getDefaultTemplate();
-					break;
+				
 				case 'Tweet':
 					template = this.getTweetTemplate();
 					break;
 				case 'Text':
 					template = this.getTestimonialTemplate();
-					break;
-				case 'Video':
-					template = this.getDefaultTemplate();
-					break;
-				case 'Audio':
-					template = this.getDefaultTemplate();
-					break;
-				case 'PDF':
-					template = this.getDefaultTemplate();
 					break;
 				case 'Collection':
 					template = this.getCollectionTemplate();
@@ -190,7 +174,7 @@
 					'<span class="label label-inverse" style="display:none;position: absolute;top: 91px;left:126px;z-index:2" rel="tooltip" title="Go to Collection View">'+
 					'<i class="icon-share-alt icon-white"></i></span>'+
 					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px">'+
-					'<input class="jda-item-checkbox" type="checkbox">'+
+					//'<input class="jda-item-checkbox" type="checkbox">'+
 				'</a>';
 
 			
@@ -204,7 +188,7 @@
 			
 				'<a href="#" class="thumbnail" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
 					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px">'+	
-					'<input class="jda-item-checkbox" type="checkbox">'+
+					//'<input class="jda-item-checkbox" type="checkbox">'+
 				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px;"><%=title%></p>';
 
 			
@@ -218,7 +202,7 @@
 			
 				'<a href="#" class="thumbnail" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
 					'<img src="../images/jdicons-testimonial-large.png" alt="<%=title%>" style="max-width:90px;max-height:66px;position:relative;top:20%">'+	
-					'<input class="jda-item-checkbox" type="checkbox">'+
+					//'<input class="jda-item-checkbox" type="checkbox">'+
 				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px"><%=short_text%></p>';
 
 			
@@ -233,7 +217,7 @@
 				'<a href="#" class="thumbnail" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
 					'<img src="../images/jdicons-tweet-large.png" alt="<%=title%>" style="max-width:53px;max-height:54px;position:absolute;top:15%;left:15%">'+	
 					'<span style="position:absolute;top:<%=position_tweet_handle%>;right:15%;color:#444;font-size:12px">@<%=media_creator_username%></span>'+
-					'<input class="jda-item-checkbox" type="checkbox">'+
+					//'<input class="jda-item-checkbox" type="checkbox">'+
 				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px"><%=short_text%></p>';
 
 			

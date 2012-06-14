@@ -122,33 +122,36 @@ body {
 
                               <span id="zeega-results-count"><span id="zeega-results-count-number"></span> <span id="zeega-results-count-text">{% trans %}jda.search.items{% endtrans %}</span><span id="zeega-results-count-text-with-date"> with time and place data</span></span>
 
-                              <div class="pull-right" style="margin-bottom:8px">
-                                    <div class="btn-group" style="display: inline-block; top:11px">
-                                          <a class="btn dropdown-toggle btn-small jda-edit-btn" data-toggle="dropdown" href="#">
-                                            <i class="icon-move icon-white"></i> Move to...
-                                            <span class="caret"></span>
-                            </a>
-                                          <ul class="dropdown-menu">
-                                                  <li><a href="#">My Collection 2</a></li>
-                                                  <li><a href="#">My Collection 3</a></li>
-                                                  <li><a href="#">My Collection 4</a></li>
-                                                </ul>
-                                          </div>
-                              
-                        <button class="btn btn-small jda-edit-btn" type="button"><i class="icon-trash icon-white"></i> Delete</button>
 
+
+
+                              <div class="btn-group pull-right" style="margin-bottom:8px;margin-right:30px">
                                     <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
                                           Sort By
                                           <span class="caret"></span>
                                     </a>
-                                    
                                     <ul class="dropdown-menu">
                                           <li><a href="#">A-Z</a></li>
                                           <li><a href="#">Date</a></li>
                                           <li><a href="#">Something else</a></li>
                                     </ul>
-                                    <button class="btn btn-small jda-edit-btn" type="button"><input id="jda-collection-editing-toolbar-select-all" type="checkbox"></button>
                               </div>
+                              <div id="jda-collection-editing-toolbar" class="pull-left">
+                                    <button class="btn btn-info btn-small" type="button"><input id="jda-collection-editing-toolbar-select-all" type="checkbox"></button>
+                                    <button class="btn btn-info btn-small"><i class="icon-plus icon-white"></i> Create new collection</button>
+                                    <button class="btn btn-info btn-small" type="button"><i class="icon-trash icon-white"></i> Delete</button>
+                                    <div class="btn-group" style="display: inline-block; top:11px">
+                                      <a class="btn dropdown-toggle btn-info btn-small" data-toggle="dropdown" href="#">
+                                            <i class="icon-move icon-white"></i> Move to...
+                                            <span class="caret"></span>
+                                      </a>
+                                      <ul class="dropdown-menu">
+                                          <li><a href="#">My Collection 2</a></li>
+                                          <li><a href="#">My Collection 3</a></li>
+                                          <li><a href="#">My Collection 4</a></li>
+                                    </ul>
+                              </div>
+                        </div>
                         
 
                               <!-- MAP VIEW -->

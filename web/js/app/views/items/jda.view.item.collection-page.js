@@ -215,6 +215,7 @@
 				Edit title
 			***************************************************************************/
 			if (canEdit && this.isEditView){
+
 				$(this.el).find('.jda-collection-filter-title').addClass('jda-editable');
 				$(this.el).find('.jda-collection-filter-title').editable(
 					function(value, settings)
@@ -326,8 +327,12 @@
 				 	$(_this.el).find('.jda-collection-filter-drag-item-here').show();
 				}
 			}
-			
+			if (!canEdit || !this.isEditView){
+				$('#jda-collection-editing-toolbar').hide();
+			}
 			if (canEdit && this.isEditView){
+				$('#jda-collection-editing-toolbar').fadeIn();
+
 				$(this.el).find('img, .jda-collection-filter-drag-item-here').droppable({
 				    accept : '.list-fancymedia',
 				    
@@ -382,12 +387,12 @@
 			}
 			if (canEdit && this.isEditView){
 				
-				$('.tab-content').find('.jda-item-checkbox').show();
+				/*$('.tab-content').find('.jda-item-checkbox').show();
 				$('.jda-item-checkbox').click(function(e){
 					
 					//prevent fancybox from loading
 					e.stopPropagation();
-				});
+				});*/
 				$('#jda-collection-editing-toolbar-select-all').click(function(){
 					if($('#jda-collection-editing-toolbar-select-all').attr('checked')){
 						$('.tab-content').find('.jda-item-checkbox').attr('checked', true);
