@@ -13,25 +13,24 @@
 			
 			this.collection = new Browser.Items.Collection();
             this.collection.url=jda.app.apiLocation + 'api/search?r_collections=1&user=-1';			
-                        this.collection.parse= function(data)
-				{
-					console.log(data.collections);
-					return data.collections;
-				}
+            this.collection.parse= function(data){ return data.collections;}
+			
 			//show 3 thumbnails by default in collections drawer
 			this.showThumbnailCount = 3;
-			
-			
-			
 		},
 
 		render : function(){
+			console.log('render my collections drawer');
+			console.log(this.collection);
+			
 			var _this = this;
 
 			//Render collection list in drop-down menu
-			$(_this.el).find('.dropdown-menu').empty();
+			$(this.el).find('.dropdown-menu').empty();
 			
-			if(sessionStorage.getItem('user')==1)$(_this.el).find('.dropdown-menu').append('<li class="zeega-collection-list-item" ><a href=".">Create A New Collection</a></li><li class="divider"></li>');
+			if(sessionStorage.getItem('user')==1)$(this.el).find('.dropdown-menu').append('<li class="zeega-collection-list-item" ><a class="new-collection" href="#">Create A New Collection</a></li><li class="divider"></li>');
+			
+			
 			_.each( _.toArray(this.collection), function(item){
 			
 				if(!_.isUndefined(item.id)) var id =item.id;
@@ -60,17 +59,16 @@
 				If they don't have any collections then make a new one but
 				don't save it till they add to it
 			*/
-			if ($(this.el).find('.zeega-collection-list-item').length == 0){
-				
-				this.activeCollection = new Items.Model({
+			
+			$(this.el).find('.new-collection').click(function(){ _this.createNewCollection(); return false; });
+			
+			if (this.collection.length==0){
+				console.log('User has no collections');
+				this.activeCollection = new Browser.Items.Model({
 					title:$('#zeega-my-collections-active-collection').text(),
 					child_items:[],
 					new_items:[],
 				});
-				this.activeCollection.set({title:$('#zeega-my-collections-active-collection').text()}); 
-				this.activeCollection.set({child_items:[]}); 
-				this.activeCollection.set({new_items:[]}); 
-				
 			}
 			
 			/* 
@@ -129,7 +127,6 @@
 									success : function(model, response){ 
 										
 										$(_this.el).find('#zeega-my-collections-items').removeClass('zeega-my-collections-items-dropping');
-										_this.renderCollectionPreview(model);	
 									},
 									error : function(model, response){
 										console.log(response);
@@ -218,11 +215,16 @@
 							$('#sign-in').trigger('click'); 
 						}).show();
 					}
-					else{
+					else if( model.get('child_items').length >0){
+					
+					console.log('###############################################');
 					$('#zeega-my-collections-share-and-organize').html("<a href='#' >Share and Organize</a>").unbind().click(function(){
 						jda.app.addFilter(_this.activeCollection, 'collection');
 						return false;
 						}).show();
+					}
+					else{
+						$('#zeega-my-collections-share-and-organize').html();
 					}
 					
 					var kids = _.toArray(model.get('child_items'));
@@ -282,11 +284,25 @@
 		},
 		
 		createNewCollection : function(){
-		
-		
-		
-		
-		
+			$('#zeega-my-collections-items-thumbs li').fadeTo(100,.2);
+			$('#zeega-my-collections-items-thumbs').spin();
+			$('#zeega-my-collections-share-and-organize a').empty();
+			$('#zeega-my-collections').find('.dropdown-toggle').trigger('click');
+			var _this=this;
+			this.activeCollection = new Browser.Items.Model({
+				title:"new collection "+Math.floor(Math.random()*1000),
+				child_items:[],
+				new_items:[],
+			});
+			this.activeCollection.save({},{
+				success:function(model,response){
+					console.log('new collection created');
+					_this.collection.add(model);
+					_this.switchActiveCollection(model.id);
+				}
+			});
+			
+			return false;	
 		}
 
 	});
