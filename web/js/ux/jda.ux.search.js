@@ -383,7 +383,7 @@ $(document).ready(function(){
         this.fancyView = new Browser.Views.FancyBox.Text({model:thisModel});
         break;
       case 'Document':
-        this.fancyView = new Browser.Views.FancyBox.Document({model:thisModel});
+        this.fancyView = new Browser.Views.FancyBox.DocumentCloud({model:thisModel});
         break;
          /*
       case 'Website':

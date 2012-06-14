@@ -47,10 +47,52 @@
 		{
 			var _this = this;
 
-			var template = (this.model.get('media_type') == 'Collection' ? this.getCollectionTemplate() : this.getDefaultTemplate());
+			var template = this.getDefaultTemplate();
+				
+			switch( this.model.get('media_type') )
+			{
+				case 'Image':
+					template = this.getDefaultTemplate();
+					break;
+				case 'Document':
+					template = this.getDefaultTemplate();
+					break;
+				case 'Website':
+					template = this.getDefaultTemplate();
+					break;
+				case 'Tweet':
+					template = this.getTweetTemplate();
+					break;
+				case 'Text':
+					template = this.getTestimonialTemplate();
+					break;
+				case 'Video':
+					template = this.getDefaultTemplate();
+					break;
+				case 'Audio':
+					template = this.getDefaultTemplate();
+					break;
+				case 'PDF':
+					template = this.getDefaultTemplate();
+					break;
+				case 'Collection':
+					template = this.getCollectionTemplate();
+					break;
+				
+				default:
+					template = this.getDefaultTemplate();
+			}
+
+
+
 			var blanks = this.model.attributes;
 			
 			$(this.el).html( _.template( template, blanks ) );
+
+			//Insert play icon if it's a video
+			if (this.model.get('media_type') == "Video"){
+				$('<i class="jdicon-small-play jdicon-lightgrey" style="opacity:0.8;position:absolute;top:50%;left:50%;margin-top:-13px;margin-left:-7px"></i>').insertBefore($(this.el).find('img'));
+			}
 
 			//if no thumbnail or if it's a tweet then just show the grey icon instead of thumb
 			if (this.model.get('media_type') == 'Tweet' || this.model.get('thumbnail_url') == null || this.model.get('thumbnail_url').length ==0 && !_.isUndefined(this.model.get('media_type')))
@@ -58,6 +100,11 @@
 
 				$(this.el).find('img').replaceWith(	'<i class="jdicon-'+ this.model.get('media_type') +
 													' jda-centered-icon"></i>');
+			}
+			if (this.model.get('media_type') == 'Document'){
+
+				$(this.el).find('img').addClass('jda-document-thumbnail');
+
 			}
 			if (this.model.get('media_type') == 'Collection')
 			{
@@ -136,11 +183,9 @@
 			var html = 
 			
 				'<a href="#" class="thumbnail" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
-				
-				//	'<i class="jdicon-small-drag" style="z-index:2"></i>'+
 					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px">'+	
 					'<input class="jda-item-checkbox" type="checkbox">'+
-				'</a>';
+				'</a><span style="padding-top:3px;max-width=<%=thumbnail_width%>;"><%=title%></span>';
 
 			
 			return html;
