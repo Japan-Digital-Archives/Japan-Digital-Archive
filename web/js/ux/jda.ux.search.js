@@ -380,7 +380,7 @@ $(document).ready(function(){
         this.fancyView = new Browser.Views.FancyBox.Tweet({model:thisModel});
         break;
       case 'Text':
-        this.fancyView = new Browser.Views.FancyBox.Text({model:thisModel});
+        this.fancyView = new Browser.Views.FancyBox.Testimonial({model:thisModel});
         break;
       case 'Document':
         this.fancyView = new Browser.Views.FancyBox.DocumentCloud({model:thisModel});

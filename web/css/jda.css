@@ -241,7 +241,9 @@ margin-left: -20px;
 .jda-item-image{
 	min-width:100px;
 }
-
+.jda-thumbnail-caption{
+	padding-top:3px;
+}
 .jda-editable{
 	border:1px dotted #ccc;
 }

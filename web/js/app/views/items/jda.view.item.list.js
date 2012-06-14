@@ -36,7 +36,7 @@
 	        $(this.el).attr("rel", "group");
 
 	        //list item has a thumbnail item with same model as a subview
-	        this.thumbnailView = new Browser.Items.Views.Thumb({model:this.model,thumbnail_width:100,thumbnail_height:80});
+	        this.thumbnailView = new Browser.Items.Views.Thumb({model:this.model,thumbnail_width:100,thumbnail_height:80,show_caption:false});
 	        
     	},
 		render: function(done)
@@ -110,7 +110,9 @@
 			} else {
 				blanks["author"] = this.model.get("media_creator_realname");	
 			}
-
+			if (this.model.get("media_type") == "Text" && this.model.get('description').length < this.model.get('text').length){
+				blanks["description"] = this.model.get('description') + '...';
+			}
 			$(this.el).html( _.template( template, blanks ) );
 			
 			$(this.el).find('.zeega-item-thumbnail').append(this.thumbnailView.render().el);

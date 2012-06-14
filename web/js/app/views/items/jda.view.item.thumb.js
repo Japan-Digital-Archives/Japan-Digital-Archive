@@ -36,6 +36,9 @@
 	        if (_.isUndefined(this.options.thumbnail_width)){
 	        	this.options.thumbnail_width = 160;
 	        }
+	        if (_.isUndefined(this.options.show_caption)){
+	        	this.options.show_caption = true;
+	        }
 
 	        this.model.set({thumbnail_width:this.options.thumbnail_width, thumbnail_height:this.options.thumbnail_height});
 
@@ -86,8 +89,24 @@
 
 
 			var blanks = this.model.attributes;
+
+
+			if (this.model.get('media_type') == "Text" || this.model.get('media_type') == "Tweet"){
+				blanks['short_text'] = this.model.get('description').substring(0,20) + "...";
+			}
+			if (this.model.get('media_type') == "Tweet" && this.options.show_caption){
+				blanks['position_tweet_handle'] = '50%';
+			} else if (this.model.get('media_type') == "Tweet" && !this.options.show_caption){
+				blanks['position_tweet_handle'] = '75%';
+			}
 			
 			$(this.el).html( _.template( template, blanks ) );
+
+			//Turn off captions if we don't want them
+			if (!this.options.show_caption){
+				$(this.el).find('.jda-thumbnail-caption').hide();
+			}
+
 
 			//Insert play icon if it's a video
 			if (this.model.get('media_type') == "Video"){
@@ -95,12 +114,12 @@
 			}
 
 			//if no thumbnail or if it's a tweet then just show the grey icon instead of thumb
-			if (this.model.get('media_type') == 'Tweet' || this.model.get('thumbnail_url') == null || this.model.get('thumbnail_url').length ==0 && !_.isUndefined(this.model.get('media_type')))
+			/*if (this.model.get('media_type') == 'Tweet' || this.model.get('thumbnail_url') == null || this.model.get('thumbnail_url').length ==0 && !_.isUndefined(this.model.get('media_type')))
 			{
 
 				$(this.el).find('img').replaceWith(	'<i class="jdicon-'+ this.model.get('media_type') +
 													' jda-centered-icon"></i>');
-			}
+			}*/
 			if (this.model.get('media_type') == 'Document'){
 
 				$(this.el).find('img').addClass('jda-document-thumbnail');
@@ -155,10 +174,10 @@
 			
 
 			//Replace broken thumbnail images with the media type icon
-			$(this.el).find('img').error(function() {
+			/*$(this.el).find('img').error(function() {
 			  $(_this.el).find('img').replaceWith(	'<i class="jdicon-'+ _this.model.get('media_type').toLowerCase() +
 													'" style="position: relative;top: 35px;left: 55px;"></i>');
-			});
+			});*/
 			return this;
 		},
 		
@@ -177,6 +196,7 @@
 			
 			return html;
 		},
+		
 		getDefaultTemplate : function()
 		{
 
@@ -185,7 +205,36 @@
 				'<a href="#" class="thumbnail" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
 					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px">'+	
 					'<input class="jda-item-checkbox" type="checkbox">'+
-				'</a><span style="padding-top:3px;max-width=<%=thumbnail_width%>;"><%=title%></span>';
+				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px;"><%=title%></p>';
+
+			
+			return html;
+			
+		},
+		getTestimonialTemplate : function()
+		{
+
+			var html = 
+			
+				'<a href="#" class="thumbnail" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
+					'<img src="../images/jdicons-testimonial-large.png" alt="<%=title%>" style="max-width:90px;max-height:66px;position:relative;top:20%">'+	
+					'<input class="jda-item-checkbox" type="checkbox">'+
+				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px"><%=short_text%></p>';
+
+			
+			return html;
+			
+		},
+		getTweetTemplate : function()
+		{
+
+			var html = 
+			
+				'<a href="#" class="thumbnail" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
+					'<img src="../images/jdicons-tweet-large.png" alt="<%=title%>" style="max-width:53px;max-height:54px;position:absolute;top:15%;left:15%">'+	
+					'<span style="position:absolute;top:<%=position_tweet_handle%>;right:15%;color:#444;font-size:12px">@<%=media_creator_username%></span>'+
+					'<input class="jda-item-checkbox" type="checkbox">'+
+				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px"><%=short_text%></p>';
 
 			
 			return html;
