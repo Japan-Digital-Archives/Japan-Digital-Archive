@@ -45,6 +45,12 @@
 				
 				$(_this.el).find('#'+id).click( function(e){
 					if ($(this).attr('id') != _this.activeCollectionID){
+						
+						var title =$(this).find('a').html();
+						if(title.length>20) title=title.substr(0,15)+"...";
+						$('#zeega-my-collections-active-collection').text(title);
+						$('#zeega-my-collections-items-thumbs li').fadeTo(100,.2);
+						$('#zeega-my-collections-items-thumbs').spin();
 						_this.switchActiveCollection($(this).attr('id'));
 						e.preventDefault();
 					}
@@ -144,7 +150,7 @@
 		switchActiveCollection :function(activeCollectionID){
 			var _this = this;
 			
-			$('#zeega-my-collections-items').spin();
+			
 			if(!_.isUndefined(activeCollectionID)) 
 			
 			{
@@ -157,7 +163,7 @@
 					{ 
 						
 						_this.renderCollectionPreview(model);
-						$('#zeega-my-collections-items').spin('false');
+						
 					},
 					error : function(model, response)
 					{ 
@@ -187,7 +193,12 @@
 					var _this=this;
 					
 					$('#zeega-my-collections-items-thumbs').empty();
-					$('#zeega-my-collections-active-collection').text(model.get('title'));
+					
+						var title =model.get('title');
+						if(title.length>20) title=title.substr(0,15)+"...";
+						
+						
+					$('#zeega-my-collections-active-collection').text(title);
 					$('#zeega-my-collections-count').text(remainingItems);
 
 					if (model.get('child_items').length == 0){
