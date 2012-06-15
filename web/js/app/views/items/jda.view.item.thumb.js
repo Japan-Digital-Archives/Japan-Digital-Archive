@@ -36,7 +36,7 @@
 	        	this.options.fancybox = true;
 	        }
 	        if(this.options.fancybox){
-	        	this.el.addClass('list-fancymedia');
+	        	$(this.el).addClass('list-fancymedia');
 	        }
 	        if (_.isUndefined(this.options.thumbnail_width)){
 	        	this.options.thumbnail_width = 160;
