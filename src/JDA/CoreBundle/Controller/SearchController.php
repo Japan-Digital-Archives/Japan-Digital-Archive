@@ -18,7 +18,7 @@ class SearchController extends Controller
     	$user = $this->get('security.context')->getToken()->getUser();
     	if(is_object($user))$displayName = $user->getDisplayName();
     	else $displayName='none';
-    	
+    	//return new Response($query);
     	return $this->render('JDACoreBundle:Search:search.html.twig', array(
 					// last displayname entered by the user
 					'page'=> 'search',
