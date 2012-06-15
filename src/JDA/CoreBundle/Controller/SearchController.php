@@ -14,10 +14,16 @@ class SearchController extends Controller
     	$locale=$this->get('session')->getLocale();
     	$request = $this->getRequest();
 	 	$query=$request->query->get('query');
+    	
+    	$user = $this->get('security.context')->getToken()->getUser();
+    	if(is_object($user))$displayName = $user->getDisplayName();
+    	else $displayName='none';
+    	
     	return $this->render('JDACoreBundle:Search:search.html.twig', array(
 					// last displayname entered by the user
 					'page'=> 'search',
-					'query'=>$query
+					'query'=>$query,
+					'displayname'=>$displayName
 					
 				));
     }

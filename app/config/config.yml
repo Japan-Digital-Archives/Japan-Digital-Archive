@@ -100,7 +100,10 @@ fos_user:
     resetting:
         email:
             template: ZeegaUserBundle:Email:resetting.email.twig
-        
+    registration:
+        form:
+            type: zeega_user_registration
+                
 # Swiftmailer Configuration
 swiftmailer:
     transport: %mailer_transport%

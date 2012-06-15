@@ -52,6 +52,7 @@
 .jdicon-testimonial{background-position:-200px -200px}
 .jdicon-layers{background-position:-250px -200px}
 .jdicon-drag{background-position:-300px -200px}
+.jdicon-play{background-position:-350px -200px}
 
 .jdicon-small-facebook{background-position:-100px 0}
 .jdicon-small-tweet{background-position:-75px 0}
@@ -59,6 +60,7 @@
 .jdicon-small-list{background-position:-125px -25px}
 .jdicon-small-world{background-position:-0px -50px}
 .jdicon-small-document{background-position:-150px -0px}
+.jdicon-small-play{background-position:-175px -100px}
 .jdicon-small-drag{
 	background-position:-150px -100px;
 	position: absolute;
@@ -68,11 +70,15 @@
 	background-color: rgba(255, 255, 255, 0.8);
 
 }
+
+
 .jda-centered-icon{
 	position: absolute;top: 35px;left: 55px;
 }
 
-
+li{
+	list-style:none;
+}
 header .container{
 	width:98% !important;
 	min-width:900px;
@@ -109,10 +115,10 @@ header .navbar .btn-group {
 #jda-main-content{
 	margin-top:20px;
 }
-.jda-item-author,.jda-item-date{
-	font-size:11px;
-	
+.jda-item-date{
+	font-size:11px;	
 }
+
 .jda-high-top{
 	top:0;
 	position:absolute
@@ -175,6 +181,19 @@ margin-left: -20px;
 .VS-search .VS-icon-search, .VS-search .VS-cancel-search-box {
 	top: 12px !important;
 }
+.arrow-down {
+	width: 0;
+	height: 0;
+	border-left: 5px solid 
+	transparent;
+	border-right: 5px solid 
+	transparent;
+	border-top: 5px solid 
+	#999;
+	position: absolute;
+	top: 14px;
+	left: 117px;
+}
 
 #spinner{
 	
@@ -216,19 +235,41 @@ margin-left: -20px;
 
 }
 
-
-
-
-.jda-item-date{
-	min-width:150px;
-}
 .jda-item-icon{
 	min-width:60px;
 }
 .jda-item-image{
 	min-width:100px;
 }
+.jda-thumbnail-caption{
+	padding-top:3px;
+}
+.jda-editable{
+	border:1px dotted #ccc;
+}
+.jda-more{
+	display:none;
+}
+.jda-document-thumbnail{
+	-webkit-box-shadow: 1px 1px 5px 1px #AAA;
+	box-shadow: 1px 1px 5px 1px #AAA;
 
+	padding: 1px;
+	border: 1px #444 solid;
+	width: 60% !important;
+	height: 95% !important;
+}
+.jda-video-playbutton{
+	
+	border-color:transparent transparent transparent #FFFFFF;
+	border-style:solid;
+	border-width:8px 0 8px 12px;
+	float:left;
+	height:0;
+	text-indent:-9999px;
+	width:0;
+
+}
 /********************
 
 	HOME PAGE STYLES
@@ -272,6 +313,7 @@ background-color:#444;position:relative;top:76px;color:whiteSmoke;padding-top:10
 	width:60%;
 	margin-right:30px;
 }
+
 footer {
 	position: absolute;
 	left: 0;

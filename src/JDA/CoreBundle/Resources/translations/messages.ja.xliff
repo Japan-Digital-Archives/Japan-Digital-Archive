@@ -362,6 +362,66 @@
                 <source>jda.register.login</source>
                 <target>You've successfully logged in!</target>
             </trans-unit>
+            <trans-unit id="92">
+                <source>jda.about.mission</source>
+                <target>Mission</target>
+            </trans-unit>
+            <trans-unit id="93">
+                <source>jda.about.team</source>
+                <target>Team</target>
+            </trans-unit>
+            <trans-unit id="94">
+                <source>jda.about.news</source>
+                <target>News</target>
+            </trans-unit>
+            <trans-unit id="95">
+                <source>jda.about.faq</source>
+                <target>FAQ</target>
+            </trans-unit>
+        	<trans-unit id="96">
+                <source>jda.about.terms</source>
+                <target>Terms</target>
+            </trans-unit>
+            <trans-unit id="97">
+                <source>jda.user.settings</source>
+                <target>Account Settings</target>
+            </trans-unit>
+            <trans-unit id="98">
+                <source>jda.user.profile</source>
+                <target>Profile Page</target>
+            </trans-unit>
+        	<trans-unit id="99">
+                <source>jda.user.logout</source>
+                <target>Logout</target>
+            </trans-unit>
+            <trans-unit id="100">
+                <source>jda.header.signin</source>
+                <target>Sign In</target>
+            </trans-unit>
+            <trans-unit id="101">
+                <source>jda.login.header</source>
+                <target>Sign in or</target>
+            </trans-unit>
+            <trans-unit id="102">
+                <source>jda.login.forgot</source>
+                <target>forgot password?</target>
+            </trans-unit>
+            <trans-unit id="103">
+                <source>jda.login.back</source>
+                <target>Back</target>
+            </trans-unit>
+            <trans-unit id="104">
+                <source>jda.login.return</source>
+                <target>Return to login</target>
+            </trans-unit>
+			<trans-unit id="105">
+				<source>jda.login.confirm</source>
+				<target>you've successfully logged in!</target>
+			</trans-unit>
+			<trans-unit id="106">
+                <source>jda.header.me</source>
+                <target>Me</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

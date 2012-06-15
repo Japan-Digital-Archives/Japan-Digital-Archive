@@ -1,34 +1,14 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta name="robots" content="noindex,follow">
-	<meta name="description" content="">
-	<meta name="keywords" content="">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link href="{{ asset('js/lib/bootstrap-2.0.2/css/bootstrap.css')}}" rel="stylesheet" type="text/css">
-	<link href="{{ asset('js/lib/bootstrap-2.0.2/css/bootstrap-responsive.css')}}" rel="stylesheet">
-	
-	
+{% extends "ZeegaUserBundle::layout.html.twig" %}
 
-</head>
+{% block header %}
+					{{displayname}}, {% trans %}jda.login.confirm{% endtrans %} 
+					<script>
+							parent.$("#user-displayname").html('<i class="zicon-user"></i>{{displayname}}<b class="caret"></b>');
+							parent.$("#user-modal").trigger("authenticated");
+							parent.$("#user-modal-close").trigger("click");
+					</script>			
+{% endblock header %}
 
-{% set locale = app.session.locale  %}
-
-{% set page = 'login'%}
-
-<body>
-	<div class="login-modal-header">
-			<br>
-			<h2 style="padding-top:20px;padding-bottom:15px;">
-				{% trans %}jda.login.confirm{% endtrans %} 
-			</h2>
-			<a id="close-button" class="btn" href="#" onclick="javascript: parent.$('#login-modal').trigger('close');">Close</a>	
-	</div>
-
-	<script>
-			parent.$("#login-modal").trigger("authenticated");	
-			
-	</script>
-</body>
-
-</html>
+{% block fos_user_content %}
+	<a id="close-button" class="btn" href="#" onclick="javascript: parent.$('#user-modal').trigger('close');">Close</a>	
+{% endblock fos_user_content %}

@@ -65,18 +65,76 @@
 
 							<ul id="jda-main-nav" class="nav">
 								<li><a href="{{path('search', { '_locale': locale })}}">{% trans %}jda.header.explore{% endtrans %}</a></li>
-								<li><a href="{{path('home', { '_locale': locale })}}">{% trans %}jda.header.collections{% endtrans %}</a></li>
-								<!-- <li><a href="{{path('home', { '_locale': locale })}}">{% trans %}jda.header.participate{% endtrans %}</a></li> -->
+								<li><a href="{{path('search', { '_locale': locale })}}">{% trans %}jda.header.collections{% endtrans %}</a></li>
+								
+								<li {% if is_granted('IS_AUTHENTICATED_FULLY') %} {% else %}id="jda-header-me"{% endif %} ><a href="{{path('home', { '_locale': locale })}}">{% trans %}jda.header.me{% endtrans %}</a></li> 
+									
+									
 							</ul>
 						</div>
 						<ul class="nav pull-right">
-							<li><a href="{{path('about', { '_locale': locale})}}" class="about-english">{% trans %}jda.header.about{% endtrans %}</a></li>
+							<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class='zicon-warning'></i> Report a Bug<b class="caret"></b></a>
+									<ul class="dropdown-menu bug-report">
+										<li class='bug-unsubmitted'>
+											<div><label>You can help us track down problems by sending us a brief description of what's wrong:</label></div>
+											<textarea class='bug-description' rows='3'></textarea>
+											<p><i class='icon-ok-sign'></i> a link to the current view will be included automatically</p>
+										</li>
+										<li class='bug-unsubmitted' >
+											<label>Your email (optional):</label>
+											<input class='bug-email' type='text'></input>
+										</li>
+										<li class='bug-unsubmitted'>
+											<button class='btn btn-success submit-bug'>submit</button>
+										</li>
+										<li class='bug-submitted'>
+											<h2>Thanks for your feedback!!</h2>
+											<h3 style='padding-left:80px'>-- the jda team</h3>
+											<br>
+										</li>
+										<li class='bug-submitted'>
+											<button class='btn btn-success close-bug '>close</button>
+										</li>
+										
+									</ul>
+							</li>
+							<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans %}jda.header.about{% endtrans %}<b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">{% trans %}jda.about.mission{% endtrans %}</a></li>
+											<li><a href="#">{% trans %}jda.about.team{% endtrans %}</a></li>
+											<li><a href="#">{% trans %}jda.about.news{% endtrans %}</a></li>
+											<li><a href="#">{% trans %}jda.about.faq{% endtrans %}</a></li>
+											<li><a href="#">{% trans %}jda.about.terms{% endtrans %}</a></li>
+										</ul>
+							</li>
+							
+							
 							<li class="divider-vertical"></li>
 							{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-								<li><a href='{{ path('_security_logout',{ '_locale': locale })}}'>Sign out</a></li>
+								<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="zicon-user"></i> {% if displayname is defined %} {{displayname}}{% endif %}<b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a id="account-settings" href ="#">{% trans %}jda.user.settings{% endtrans %}</a></li>
+											<li><a href="#">{% trans %}jda.user.profile{% endtrans %}</a></li>
+											<li><a href='{{ path('_security_logout',{ '_locale': locale })}}' >{% trans %}jda.user.logout{% endtrans %}</a></li>
+										</ul>
+								</li>
 							{% else %}
-								<li><a id="jda-sign-in" href="{{ path('_security_logout',{ '_locale': locale })}}">Sign in</a></li>
+							<li id="user-dropdown" class="dropdown" style="display:none;">
+										<a id="user-displayname" href="#" class="dropdown-toggle" data-toggle="dropdown"></a>
+										<ul class="dropdown-menu">
+											<li><a id="account-settings" href ="#">{% trans %}jda.user.settings{% endtrans %}</a></li>
+											<li><a href="#">{% trans %}jda.user.profile{% endtrans %}</a></li>
+											<li><a href='{{ path('_security_logout',{ '_locale': locale })}}' >{% trans %}jda.user.logout{% endtrans %}</a></li>
+										</ul>
+								</li>
+								<li><a id="sign-in" href="#">{% trans %}jda.header.signin{% endtrans %}</a></li>
 							{% endif %}
+							
+							
+							
 							<li class="divider-vertical"></li>
 							<li>
 								<div id='jda-language-toggle' class="btn-group">
@@ -101,14 +159,12 @@
 	{% endblock %}
 
 
-	<div class="modal" id="login-modal">
-
-			<a id="login-modal-close" class="close" style="padding-right:5px;" data-dismiss="modal">×</a>
-
-		<div class="login-modal-body">
-			<iframe class="login" src="{{path('fos_user_security_login', { '_locale': locale})}}" />
-		</div>
+	<div class="modal" id="user-modal" >
+		<a id="user-modal-close" class="close" style="padding-right:5px;" data-dismiss="modal">×</a>
+		<div id="user-modal-body" class="user-modal-body"></div>
 	</div>
+	
+
 
 	<div class="modal" id="myModal" style='display:none'>
 		<div class="modal-header">

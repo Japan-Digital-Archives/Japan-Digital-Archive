@@ -22,6 +22,9 @@ class HomeController extends Controller
     
     	$locale=$this->get('session')->getLocale();
     	//If search query posted, redirect to search page and pass search query as url hash
+    	$user = $this->get('security.context')->getToken()->getUser();
+    	if(is_object($user))$displayName = $user->getDisplayName();
+    	else $displayName='none';
     	
     	$request = $this->getRequest();
     	if($request->request->get('search-text')) return $this->redirect(sprintf('%s#%s', $this->generateUrl('search',array('_locale'=>$locale)), 'text='.$request->request->get('search-text')));
@@ -29,6 +32,8 @@ class HomeController extends Controller
     	return $this->render('JDACoreBundle:Home:home.html.twig', array(
 					// last displayname entered by the user
 					'page'=> 'home',
+					'displayname'=>$displayName
+					
 				));
     
     }

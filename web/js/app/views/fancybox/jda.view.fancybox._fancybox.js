@@ -57,7 +57,7 @@
 			$(this.el).find('.less').hide();
 			$(this.el).find('.more').fadeIn('fast',function(){
 				if(_this.locatorMapView.geoLocated&& $(this).attr('id')=='fancybox-map')_this.locatorMapView.addMap();
-				else _this.locatorMapView.addMap();
+				//else _this.locatorMapView.addMap();
 			});
 			
 			$(this.el).find('.plyr-video').css({'height':'200px'});
@@ -254,7 +254,7 @@
 							'<div class="fancybox-media-wrapper">'+
 							'<div class="fancybox-left-column">' +
 								'<div class="fancybox-media-item media-item"></div>'+
-								'<p class="more subheader" style="clear:both">Tags</p><div class="more tags">'+
+								'<p class="more subheader" style="clear:both">Tags</p><div id="zeega-tag-container" class="more zeega-tags">'+
 								'<input name="tags" class="fancybox-editable tagsedit" id="<%=randId%>" value="<%=tags%>" />'+
 								'</div>'+
 							'</div>'+
