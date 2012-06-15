@@ -22,3 +22,9 @@ about:
     defaults:  { _controller: JDACoreBundle:About:index, _locale: ja }
     requirements:
         _locale: en|ja
+
+collections:
+    pattern:   /{_locale}/collections
+    defaults:  { _controller: JDACoreBundle:Collections:index, _locale: ja }
+    requirements:
+        _locale: en|ja
