@@ -124,14 +124,18 @@
 			$(this.el).draggable({
 
 			    cursor : 'move',
+			    cursorAt : { 
+				top : -5,
+				left : -5
+				},
 			    appendTo : 'body',
 			    opacity : .8,
 
 			    helper : function(){
-			      var drag = $(this)
+			      var drag = $(this).find('.thumbnail')
 			      .clone()
 			      .css({
-			      	'width':'940px',
+			      	
 			        'z-index':'3',
 
 			      });

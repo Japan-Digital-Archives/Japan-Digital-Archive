@@ -74,10 +74,9 @@
 
 			var blanks = this.model.attributes;
 
+			
 
-			if (this.model.get('media_type') == "Text" || this.model.get('media_type') == "Tweet"){
-				blanks['short_text'] = this.model.get('description').substring(0,20) + "...";
-			}
+			
 			if (this.model.get('media_type') == "Tweet" && this.options.show_caption){
 				blanks['position_tweet_handle'] = '50%';
 			} else if (this.model.get('media_type') == "Tweet" && !this.options.show_caption){
@@ -86,8 +85,8 @@
 			
 			$(this.el).html( _.template( template, blanks ) );
 
-			//Turn off captions if we don't want them
-			if (!this.options.show_caption){
+			//Turn off captions if we don't want them OR if it's an image
+			if (!this.options.show_caption || this.model.get('media_type') == "Image"){
 				$(this.el).find('.jda-thumbnail-caption').hide();
 			}
 
@@ -127,6 +126,10 @@
 			$(this.el).draggable({
 
 			    cursor : 'move',
+			    cursorAt : { 
+					top : -5,
+					left : -5
+				},
 			    appendTo : 'body',
 			    opacity : .8,
 
@@ -134,7 +137,7 @@
 			      var drag = $(this)
 			      .clone()
 			      .css({
-			      	'width':'940px',
+			      	
 			        'z-index':'3',
 
 			      });
@@ -159,9 +162,12 @@
 
 			//Replace broken thumbnail images with the media type icon
 			$(this.el).find('img').error(function() {
-			  $(_this.el).find('img').replaceWith(	'<i class="jdicon-'+ _this.model.get('layer_type').toLowerCase() +
-													'" style="position: relative;top: 35px;left: 55px;"></i>');
+			  $(_this.el).find('img').replaceWith(	'<i class="jdicon-'+ _this.model.get('media_type').toLowerCase() +
+													'" style="position: absolute;top: 10%;left: 10%;"></i>');
 			});
+
+
+
 			return this;
 		},
 		
@@ -186,7 +192,7 @@
 
 			var html = 
 			
-				'<a href="#" class="thumbnail" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
+				'<a href="#" class="thumbnail" style="position:relative;width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
 					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px">'+	
 					//'<input class="jda-item-checkbox" type="checkbox">'+
 				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px;"><%=title%></p>';
@@ -200,10 +206,10 @@
 
 			var html = 
 			
-				'<a href="#" class="thumbnail" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
+				'<a href="#" class="thumbnail" style="position:relative;width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
 					'<img src="../images/jdicons-testimonial-large.png" alt="<%=title%>" style="max-width:90px;max-height:66px;position:relative;top:20%">'+	
 					//'<input class="jda-item-checkbox" type="checkbox">'+
-				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px"><%=short_text%></p>';
+				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px"><%=description%></p>';
 
 			
 			return html;
@@ -216,9 +222,9 @@
 			
 				'<a href="#" class="thumbnail" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
 					'<img src="../images/jdicons-tweet-large.png" alt="<%=title%>" style="max-width:53px;max-height:54px;position:absolute;top:15%;left:15%">'+	
-					'<span style="position:absolute;top:<%=position_tweet_handle%>;right:15%;color:#444;font-size:12px">@<%=media_creator_username%></span>'+
+					'<span style="position:absolute;top:<%=position_tweet_handle%>;right:9%;color:#444;font-size:12px">@<%=media_creator_username%></span>'+
 					//'<input class="jda-item-checkbox" type="checkbox">'+
-				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px"><%=short_text%></p>';
+				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px"><%=description%></p>';
 
 			
 			return html;

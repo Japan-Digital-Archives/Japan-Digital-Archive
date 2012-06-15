@@ -100,9 +100,11 @@
 
 }
 #zeega-my-collections-items a.thumbnail{
-	width: 120px;
+	margin:0 auto;
+	position:relative;
+	/*width: 120px;
 	position: relative;
-	left: 30px;
+	left: 30px;*/
 }
 #zeega-my-collections-items p:hover{
 	outline: 1px dotted #08C;
@@ -188,7 +190,9 @@
 	left: 20px;
 }
 
-
+#zeega-items-thumbnails > li{
+	overflow: hidden;
+}
 /* 	
 	zeega-collection
 

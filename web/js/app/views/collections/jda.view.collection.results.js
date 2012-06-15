@@ -86,6 +86,12 @@
 
 			$('#spinner').spin(false);
 			
+			//this is kind of a hack - give all thumbnails same height
+			//to fix floaty issues
+			if(jda.app.currentView == 'thumb'){
+				$(this.el).find('li').css('height','170px');
+			} 
+
 			$(this.el).show();
 			jda.app.isLoading = false;
 			return this;
