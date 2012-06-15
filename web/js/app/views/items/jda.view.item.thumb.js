@@ -158,10 +158,10 @@
 			
 
 			//Replace broken thumbnail images with the media type icon
-			/*$(this.el).find('img').error(function() {
-			  $(_this.el).find('img').replaceWith(	'<i class="jdicon-'+ _this.model.get('media_type').toLowerCase() +
+			$(this.el).find('img').error(function() {
+			  $(_this.el).find('img').replaceWith(	'<i class="jdicon-'+ _this.model.get('layer_type').toLowerCase() +
 													'" style="position: relative;top: 35px;left: 55px;"></i>');
-			});*/
+			});
 			return this;
 		},
 		
