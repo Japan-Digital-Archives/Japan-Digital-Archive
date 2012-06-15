@@ -7,6 +7,7 @@
 		initialize: function()
 		{
 			Browser.Views._Fancybox.prototype.initialize.call(this); //This is like calling super()
+			
 		},
 		/* Pass in the element that the user clicked on from fancybox.  */
 	/* Pass in the element that the user clicked on from fancybox. */
@@ -16,7 +17,7 @@
 		sessionStorage.setItem('currentItemId', this.model.id);
 		
 		//Call parent class to do captioning and metadata
-		Fancybox.Views._Fancybox.prototype.render.call(this, obj); //This is like calling super()
+		Browser.Views._Fancybox.prototype.render.call(this, obj); //This is like calling super()
 		
 		
 		this.unique =Math.floor(Math.random() *10000)
@@ -30,7 +31,7 @@
 	},
 	afterShow:function(){
 
-		Fancybox.Views._Fancybox.prototype.afterShow.call(this); //This is like calling super()
+		Browser.Views._Fancybox.prototype.afterShow.call(this); //This is like calling super()
 		var source = this.model.get('uri');
 		this.plyr = new Plyr('fancybox-video-'+this.unique,{url:source});
 

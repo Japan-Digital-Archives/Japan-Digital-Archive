@@ -9,15 +9,18 @@
 		
 		initialize: function(){
 			console.log('initialize fancybox');
+			
 		
 		},
 
 		events : {
 			'click .fancybox-more-button' : 'more',
 			'click .fancybox-less-button' : 'less',
-			'click .close':function(){jQuery.fancybox.close();}
+			
 		},
+		
 		beforeClose: function(){
+
 		},
 		afterShow:function()
 		{
@@ -37,6 +40,8 @@
 				'maxChars' : 0,
 				'placeholderColor' : '#C0C0C0',
 			});
+
+
 		},
 		updateTags:function(name, _this)
 		{
@@ -245,12 +250,16 @@
 			 	e.preventDefault();
 			});
 
+			$(this.el).find('.close').click(function(){
+				jQuery.fancybox.close();
+			});
+
 			return this;
 		},
 		getTemplate : function()
 		{
 
-			var html =		'<div class="fancybox-close-button"><a title="Close" href="#""><a class="close">&times;</a></a></div>'+
+			var html =		'<div class="fancybox-close-button"><a class="close">&times;</a></div>'+
 							'<div class="fancybox-media-wrapper">'+
 							'<div class="fancybox-left-column">' +
 								'<div class="fancybox-media-item media-item"></div>'+

@@ -230,7 +230,7 @@
 					for (var i=1;i<=Math.min(this.showThumbnailCount, kids.length);i++){
 						var item = kids[kids.length-i];
 						
-						var itemView = new Browser.Items.Views.Thumb({model:new Browser.Items.Model(item),thumbnail_width:100,thumbnail_height:80,show_caption:false});
+						var itemView = new Browser.Items.Views.Thumb({model:new Browser.Items.Model(item),thumbnail_width:100,thumbnail_height:80,show_caption:false,fancybox:false});
 						itemView.model.set({thumbnail_width:100, thumbnail_height:80});
 						itemView.render();
 						$('#zeega-my-collections-items-thumbs').append(itemView.el);

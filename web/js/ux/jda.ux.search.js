@@ -374,7 +374,7 @@ $(document).ready(function(){
         this.fancyView = new Browser.Views.FancyBox.Audio({model:thisModel});
         break;
       case 'Youtube':
-        this.fancyView = new Browser.Views.FancyBox.Youtube({model:thisModel});
+        this.fancyView = new Browser.Views.FancyBox.Video({model:thisModel});
         break;
       case 'Tweet':
         this.fancyView = new Browser.Views.FancyBox.Tweet({model:thisModel});
@@ -385,11 +385,11 @@ $(document).ready(function(){
       case 'Document':
         this.fancyView = new Browser.Views.FancyBox.DocumentCloud({model:thisModel});
         break;
-         /*
+         
       case 'Website':
         this.fancyView = new Browser.Views.FancyBox.Website({model:thisModel});
         break;
-      
+      /*
          case 'PDF':
           this.fancyView = new Browser.Views.FancyBox.Pdf({model:thisModel});
           break;

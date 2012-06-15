@@ -31,8 +31,8 @@
 		{
 			//call parent LESS method to lay out metadata
 			Browser.Views._Fancybox.prototype.less.call(this);
-
-			this.fillInTemplate(this.getMediaTemplate(630,400));
+			var width = 750;//$(this.el).width();
+			this.fillInTemplate(this.getMediaTemplate(width,400));
 
 			return false;
 		},

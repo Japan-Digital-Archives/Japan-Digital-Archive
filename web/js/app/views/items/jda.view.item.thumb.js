@@ -7,8 +7,7 @@
 		
 		tagName : 'li',
 		
-		className:'list-fancymedia',
-
+		
 		events: {
 
 		    //'click': function(){alert('hi');},
@@ -32,6 +31,12 @@
 	        this.el.id = this.model.id;
 	        if (_.isUndefined(this.options.thumbnail_height)){
 	        	this.options.thumbnail_height = 120;
+	        }
+	        if (_.isUndefined(this.options.fancybox)){
+	        	this.options.fancybox = true;
+	        }
+	        if(this.options.fancybox){
+	        	this.el.addClass('list-fancymedia');
 	        }
 	        if (_.isUndefined(this.options.thumbnail_width)){
 	        	this.options.thumbnail_width = 160;
