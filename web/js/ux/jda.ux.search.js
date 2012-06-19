@@ -253,7 +253,7 @@ $(document).ready(function(){
 
   $(window).resize(function() {
     if (jda.app.currentView == "event"){
-      jda.app.resetMapSize();
+      jda.app.eventMap.resetMapSize();
     }
     jda.app.redrawLayout();
   });

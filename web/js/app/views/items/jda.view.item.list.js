@@ -36,7 +36,7 @@
 	        $(this.el).attr("rel", "group");
 
 	        //list item has a thumbnail item with same model as a subview
-	        this.thumbnailView = new Browser.Items.Views.Thumb({model:this.model,thumbnail_width:100,thumbnail_height:80,show_caption:false,fancybox:false});
+	        this.thumbnailView = new Browser.Items.Views.Thumb({model:this.model,thumbnail_width:100,thumbnail_height:80,show_caption:false,fancybox:false,listview:1});
 	        
     	},
 		render: function(done)
@@ -125,8 +125,8 @@
 
 			    cursor : 'move',
 			    cursorAt : { 
-				top : -5,
-				left : -5
+				top : 50,
+				left : 50
 				},
 			    appendTo : 'body',
 			    opacity : .8,

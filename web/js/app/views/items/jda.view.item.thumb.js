@@ -28,6 +28,7 @@
 		 },
 		 initialize: function () {
 	        
+	        console.log(this.options);
 	        this.el.id = this.model.id;
 	        if (_.isUndefined(this.options.thumbnail_height)){
 	        	this.options.thumbnail_height = 120;
@@ -45,7 +46,11 @@
 	        	this.options.show_caption = true;
 	        }
 
-
+			if (_.isUndefined(this.options.listview)){
+				this.listview=this.options.listview;
+				console.log("this is a list view");
+			}
+		
 	        this.model.set({thumbnail_width:this.options.thumbnail_width, thumbnail_height:this.options.thumbnail_height});
 
 	        //this is for fancy box to know to group these into a gallery
@@ -128,7 +133,11 @@
 				//$(this.el).popover({'title':this.model.get('title'), 'content':this.model.get('description'), 'delay':{ show: 2000, hide: 100 },'placement':'bottom'});
 			
 			}
-			$(this.el).draggable({
+			
+			
+			if(this.listview=0){
+				console.log('making shit draggable');
+				$(this.el).draggable({
 
 			    cursor : 'move',
 			    cursorAt : { 
@@ -161,9 +170,9 @@
 			      }
 			      
 			});
-			$(this.el).find(".jdicon-small-drag").tooltip({'title':'Drag to add to your collection','placement':'bottom', delay: { show: 600, hide: 100 }});
-			$(this.el).find(".label").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
-			
+				$(this.el).find(".jdicon-small-drag").tooltip({'title':'Drag to add to your collection','placement':'bottom', delay: { show: 600, hide: 100 }});
+				$(this.el).find(".label").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
+			}
 
 			//Replace broken thumbnail images with the media type icon
 			$(this.el).find('img').error(function() {
