@@ -4,54 +4,44 @@
 
 {% block title %}<title>{% trans %}jda.home.title{% endtrans %}</title>{% endblock %}
 
-
-
 {% block stylesheets %}
-<link type="text/css" href="{{ asset('jda/js/lib/jquery-ui-1.8.20.custom/css/smoothness/jquery-ui-1.8.20.custom.css')}}" rel="Stylesheet" />
+	<link type="text/css" href="{{ asset('js/lib/jquery-ui-1.8.18.custom/css/smoothness/jquery-ui-1.8.18.custom.css')}}" rel="Stylesheet" />
+	<link href="{{ asset('js/lib/jquerySVG/jquery.svg.css')}}" rel="stylesheet" type="text/css">
 
+	<!-- Leaflet CSS --> 
+	<link rel="stylesheet" href="{{ asset('js/lib/leaflet/leaflet.css')}}" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="{{ asset('js/lib/leaflet/leaflet.ie.css')}}" /><![endif]-->
 
+	<!-- Tags --> 
+	<link rel="stylesheet" type="text/css" href="{{ asset('js/lib/jquery.tagsinput.css')}}" />
 
-
-<link href="{{ asset('jda/js/lib/jquerySVG/jquery.svg.css')}}" rel="stylesheet" type="text/css">
-
-<!-- Leaflet CSS --> 
-<link rel="stylesheet" href="{{ asset('jda/js/lib/leaflet/leaflet.css')}}" />
-<!--[if lte IE 8]><link rel="stylesheet" href="{{ asset('jda/js/lib/leaflet/leaflet.ie.css')}}" /><![endif]-->
-
-
-<!-- Tags --> 
-<link rel="stylesheet" type="text/css" href="{{ asset('jda/js/lib/jquery.tagsinput.css')}}" />
-
-<!-- Visual Search --> 
-<!--[if (!IE)|(gte IE 8)]><!-->
-  <link href="{{ asset('jda/js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
-<!--<![endif]-->
-<!--[if lte IE 7]><!-->
-  <link href="{{ asset('jda/js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
-<!--<![endif]-->
-	
+	<!-- Visual Search --> 
+	<!--[if (!IE)|(gte IE 8)]><!-->
+	<link href="{{ asset('js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
+	<!--<![endif]-->
+	<!--[if lte IE 7]><!-->
+	<link href="{{ asset('js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
+	<!--<![endif]-->
 {% endblock %}	
 
 {% block scripts %}
 
-<script type="text/javascript">
-    var contentTypes = {'{% trans %}jda.advsearch.video {% endtrans %}':'Video', '{% trans %}jda.advsearch.audio {% endtrans %}':'Audio',
-        '{% trans %}jda.advsearch.image {% endtrans %}':'Image', '{% trans %}jda.advsearch.website {% endtrans %}':'Website',
-        '{% trans %}jda.advsearch.tweet {% endtrans %}': 'Tweet', '{% trans %}jda.advsearch.document {% endtrans %}': 'Document'
-    };
-</script>
-<script data-main="{{ asset('jda/js/loaders/advsearch') }}" src="{{ asset('jda/js/lib/require/require-1.0.5.js') }}"></script>
+	<script type="text/javascript">
+	    var contentTypes = {'{% trans %}jda.advsearch.video {% endtrans %}':'Video', '{% trans %}jda.advsearch.audio {% endtrans %}':'Audio',
+	        '{% trans %}jda.advsearch.image {% endtrans %}':'Image', '{% trans %}jda.advsearch.website {% endtrans %}':'Website',
+	        '{% trans %}jda.advsearch.tweet {% endtrans %}': 'Tweet', '{% trans %}jda.advsearch.document {% endtrans %}': 'Document'
+	    };
+	</script>
+
+	<script data-main="{{ asset('js/loaders/advsearch') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
 
 {% endblock %}
-
-
-
-
 
 {% block content %}
 
 <div class='container' id='zeega-main-content'>
 	<div class="mainContPadding">
+		<h3>Advanced Search</h3>
 		<table cellpadding="5" cellspacing="0">
 			<tr>
 				<td class="advFormTitle">{% trans %}jda.advsearch.searchTerms{% endtrans %}</td>

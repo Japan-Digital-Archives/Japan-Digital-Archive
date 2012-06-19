@@ -10,11 +10,6 @@
 *********************************************/
 
 var loadFiles = [
-	
-	//libraries	
-	//'text!../app/views/items/templates.html',
-	
-	
 	'order!../lib/jquery/jquery-1.7.1.min',
 	'order!../lib/underscore/underscore-min',
 	'order!../lib/backbone/backbone-0.9.1',
@@ -25,7 +20,7 @@ var loadFiles = [
 	'order!../lib/spin-jquery',
 	'order!../lib/date.format',
 
-	'order!../lib/bootstrap',
+	'order!../lib/bootstrap-2.0.2/js/bootstrap.min',
 	'order!../lib/leaflet/leaflet',
 	
 	'order!../lib/jquery.tagsinput.min',
