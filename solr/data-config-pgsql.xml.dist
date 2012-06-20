@@ -1,30 +1,33 @@
 <dataConfig>
 <dataSource driver="org.postgresql.Driver" url="jdbc:postgresql://host/database?characterEncoding=UTF-8" user="" password="" readOnly="true" autoCommit="false" transactionIsolation="TRANSACTION_READ_COMMITTED" holdability="CLOSE_CURSORS_AT_COMMIT"/>
     <document>
-        <entity name="item" transformer="org.zeega.solr.ItemTransformer" query="select item.id,
-									      title as title_i,
-										  description as description_i,
-										  text as text_i,
-										  user_id,
-										  site_id,
-										  date_created,
-										  uri,
-										  attribution_uri,
-										  media_type,
-										  layer_type,
-										  thumbnail_url,
-										  child_items_count,
-										  media_creator_username,
-										  archive,
-										  media_date_created,
-										  media_geo_latitude,
-										  media_geo_longitude,
-										  media_date_created_end,
-										  enabled,
-										  published,
-										  tags,
-                                                                                  collection.id as parent_item
-									from item inner join collection on item.id = collection.child_item_id">
-		</entity>	
+   		 <entity name="item" transformer="org.zeega.solr.ItemTransformer" query="select item.id,
+										      title as title_i,
+											  description as description_i,
+											  text as text_i,
+											  user_id,
+											  site_id,
+											  date_created,
+											  uri,
+											  attribution_uri,
+											  media_type,
+											  layer_type,
+											  thumbnail_url,
+											  child_items_count,
+											  media_creator_username,
+											  media_creator_realname,
+											  archive,
+											  media_date_created,
+											  media_geo_latitude,
+											  media_geo_longitude,
+											  media_date_created_end,
+											  item.enabled as enabled,
+											  published,
+											  tags as tags_i,
+											  collection.id as parent_item,
+										      zuser.username as username_i
+										      from item left outer join collection on item.id = collection.child_item_id inner join zuser on item.user_id = zuser.id
+										      ">
+		 </entity>	
     </document>
 </dataConfig>
