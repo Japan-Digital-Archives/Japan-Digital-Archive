@@ -32,7 +32,8 @@
 	background-color:#000;
 }
 
-#zeega-main-content{
+#zeega-main-content
+{
 	position:relative;
 	top:36px;
 	margin: 0 55px;
@@ -48,13 +49,12 @@
 	position: fixed;
 	left: -webkit-calc(95% - 200px);
 	top: 115px;
-
 }
 .zeega-left-column-really-low{
 	top:222px !important;
 }
 .zeega-right-column-low{
-	top: 272px !important;
+	top: 435px !important;
 }
 .zeega-right-column-really-low{
 	top: 483px !important;
@@ -339,3 +339,55 @@
 	display:none;
 }
 
+
+.jda-collection-head .cover-image
+{
+	background: no-repeat center center;
+	background-color: #ccc; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height:200px;
+	position:relative;
+	margin-bottom:10px;
+}
+.jda-collection-head .cover-overlay
+{
+	background-color:rgba(255,255,255,0.75);
+	position:absolute;
+	bottom:0;
+	width:100%;
+	padding:10px;
+}
+.jda-collection-head .cover-overlay h4
+{
+	font-weight:400;
+}
+.jda-collection-description
+{
+	margin:10px 0;
+	font-weight:400;
+}
+.jda-collection-head .right-col
+{
+	font-size:10px;
+	width:200px
+}
+.jda-collection-map
+{
+	width:200px;
+	height:100px;
+}
+
+.left-col{float:left;}
+.right-col{float:right;}
+
+.jda-collection-description
+{
+	min-height:20px;
+}
+.editing
+{
+	border: 1px dotted #aaa;
+}

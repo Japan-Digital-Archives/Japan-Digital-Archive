@@ -1,4 +1,4 @@
-	(function(Browser) {
+(function(Browser) {
 
 	Browser.Items = Browser.Items || {};
 	Browser.Items.Views = Browser.Items || {};
@@ -8,13 +8,20 @@
 		el : $('#jda-collection-filter'),
 
 		events: {
-			'click button:contains(Play)' : function(){alert('Plays slideshow');},
-			'click button:contains(Share)' : function(){alert('Opens publish process modal window');},
+			'click button.play' : function(){alert('Plays slideshow');},
+			'click button.share' : function(){alert('Opens publish process modal window');},
+			'click button.edit' : 'editMetadata',
+			'click button.save' : 'saveMetadata',
+			'click button.cancel' : 'cancelEdits'
 		},
+		
 		initialize: function () {
 
 			//for looking up address from lat/lon
 			this.geocoder = new google.maps.Geocoder();
+
+			this.isGeoLocated = !_.isNull( this.model.get('media_geo_latitude') );
+
 
 			this.isEditView = false;
 			this.isMoreView = false;
@@ -57,6 +64,8 @@
 				
 		
 			});
+			
+			console.log('collection view', this)
 
 
 	  },
@@ -406,8 +415,148 @@
 			//$(this.el).width(jda.app.getLeftColumnWidth());
 			$(this.el).width($('#zeega-main-content').width());
 
+
+			/***********
+			MAP
+			***********/
+			
+			//this.geocoder = new google.maps.Geocoder();
+			//this.mapRendered=false;
+			//this.isEditable = !_.isUndefined(this.options.isEditable) ? this.options.isEditable : true;
+			
+
+			
+			this.cloudmadeUrl = 'http://{s}.tiles.mapbox.com/v2/mapbox.mapbox-streets/{z}/{x}/{y}.png',
+	    	this.cloudmadeAttrib = '',
+	   		this.cloudmade = new L.TileLayer(this.cloudmadeUrl, {maxZoom: 18, attribution: this.cloudmadeAttrib});
+		
+		
+			
+			if( this.isGeoLocated )
+			{
+				var values = {
+					latitude : this.model.get('media_geo_latitude'),
+					longitude : this.model.get('media_geo_longitude'),
+				};
+				this.latlng = new L.LatLng( values.latitude,values.latitude);
+
+				var div = $(this.el).find('.jda-collection-map').get(0);
+
+				this.map = new L.Map(div);
+		    	this.map.setView(this.latlng, 8).addLayer(this.cloudmade);
+			}
+			
+			
+			$(this.el).find('.cover-image').droppable({
+				drop : function(e,ui)
+				{
+					console.log('dropped', jda.app.draggedItem)
+					var item = jda.app.draggedItem;
+					if( item.get('layer_type') == 'Image' )
+						$(_this.el).find('.cover-image').css('background-image','url('+item.get('uri')+')');
+					else $(_this.el).find('.cover-image').css('background-image','url('+item.get('thumbnail_url')+')')
+				}
+			})
+
+
+			jda.app.redrawLayout();
+
 			return this;
 		},
+		
+		editMetadata : function()
+		{
+			console.log('edit the metadata!')
+			var _this  = this;
+			this.loadMap();
+			
+			$(this.el).find('.save-data button').show();
+			$(this.el).find('button.edit').addClass('active');
+			$(this.el).find('.jda-collection-description').addClass('editing').attr('contenteditable', true);
+			$(this.el).find('.jda-collection-map-location').addClass('editing').attr('contenteditable', true).keypress(function(e){
+				if(e.which==13)
+				{
+					_this.geocodeString();
+					return false;
+				}
+			});
+		},
+		
+		saveMetadata : function()
+		{
+			$(this.el).find('.save-data button').hide();
+			$(this.el).find('button.edit').removeClass('active');
+			$(this.el).find('.jda-collection-description').removeClass('editing').attr('contenteditable', false);
+			$(this.el).find('.jda-collection-map-location').removeClass('editing').attr('contenteditable', false);
+			
+			this.model.save({ 'description' : $(this.el).find('.jda-collection-description').text() })
+		},
+		
+		cancelEdits : function()
+		{
+			$(this.el).find('.save-data button').hide();
+			$(this.el).find('button.edit').removeClass('active');
+			$(this.el).find('.jda-collection-description').removeClass('editing').attr('contenteditable', false);
+			$(this.el).find('.jda-collection-map-location').removeClass('editing').attr('contenteditable', false);
+			
+		},
+		
+		loadMap : function()
+		{
+			if( !this.isGeoLocated )
+			{
+				this.latlng = new L.LatLng( 38.266667,140.866667 );
+				var div = $(this.el).find('.jda-collection-map').get(0);
+				this.map = new L.Map(div);
+				this.map.setView(this.latlng, 8).addLayer(this.cloudmade);
+				this.marker = new L.Marker(this.latlng,{draggable:true});
+				this.marker.addEventListener( 'drag', this.updateLatLng, this );
+				this.marker.addEventListener( 'dragend', this.updateLocation, this );
+				this.map.addLayer(this.marker);
+			}
+		},
+		
+		updateLatLng : function(e)
+		{
+			var latLng = e.target.getLatLng();
+			$(this.el).find('.jda-collection-map-location').html( Math.floor(latLng.lat*1000)/1000 +','+ Math.floor(latLng.lng*1000)/1000)
+		},
+		
+		updateLocation : function(e)
+		{
+			var _this = this;
+			var latlng = e.target.getLatLng();
+			this.model.save({'media_geo_latitude':latlng.lat,'media_geo_longitude':latlng.lng,});
+			
+			this.geocoder.geocode( { 'latLng' : new google.maps.LatLng(latlng.lat,latlng.lng) }, function(results, status) {	
+				if (status == google.maps.GeocoderStatus.OK) {
+					if (results[0].formatted_address)
+					{
+						console.log(results)
+						$(_this.el).find('.jda-collection-map-location').html( results[ results.length-3 ].formatted_address );
+					}
+				}
+			});
+		},
+		
+		geocodeString : function()
+		{
+			var _this = this;
+			var placeText = $(this.el).find('.jda-collection-map-location').text();
+			this.geocoder.geocode( { 'address': placeText}, function(results, status) {
+			
+				if (status == google.maps.GeocoderStatus.OK)
+				{
+					console.log(results)
+					_this.latlng=new L.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng());
+					
+					_this.map.setView( _this.latlng,8);
+					_this.marker.setLatLng(_this.latlng);
+				}
+				else console.log("Geocoder failed at address look for "+$(that.el).find('.locator-search-input').val()+": " + status);
+			});
+		},
+		
 		updateTags:function(name, _this)
 		{
 		    model = _this.model;
@@ -436,6 +585,39 @@
 		getTemplate : function()
 		{
 			html = 
+			
+			'<div class="jda-collection-head">'+
+				'<div class="cover-image">'+
+					'<div class="cover-overlay">'+
+						'<h1><%=title%></h1><h4>by: <a href="#"><%=media_creator_username%></a> on <%= date_created %></h4>'+
+					'</div>'+
+				'</div>'+
+
+					'<div class="left-col">'+
+						'<div class="btn-toolbar">'+
+							'<div class="btn-group">'+
+								'<button class="btn btn-info btn-mini play"><i class="icon-play icon-white"></i></button>'+
+								'<button class="btn btn-info btn-mini share"><i class="icon-share icon-white"></i></button>'+
+								'<button class="btn btn-info btn-mini edit"><i class="icon-pencil icon-white"></i></button>'+
+							'</div>'+
+							'<div class="btn-group save-data">'+
+								'<button class="btn btn-success btn-mini save hide">save</button>'+
+								'<button class="btn btn-mini cancel hide">cancel</button>'+
+							'</div>'+
+						'</div>'+
+						'<div class="jda-collection-description">Cras vitae accumsan dolor. Maecenas hendrerit euismod justo, nec volutpat velit tincidunt a. Ut nec elit leo. Donec pharetra eleifend consequat. Nam nec auctor mi. Proin vitae mauris accumsan mauris molestie elementum id eu elit. Proin iaculis consectetur velit nec pellentesque.</div>'+
+						'<div class="jda-collection-tags"><a href="#">add tags</a></div>'+
+						
+					'</div>'+
+					'<div class="right-col">'+
+						'<div class="jda-collection-map"></div>'+
+						'<div class="jda-collection-map-location"></div>'+
+					'</div>'+
+					
+			'</div>';
+			
+			
+/*			
 			
 			//IMAGE
 			'<div class="pull-left" style="width: 172px;height:100%">'+
@@ -486,12 +668,12 @@
 				'</div>'+
 
 			'</div>'+
-
+*/
 
 
 			/* JDA MORE VIEW */
 			
-			
+/*			
 			'<div class="pull-left jda-more" style="width:98%;margin-left:327px;">'+
 
 				'<div class="geo pull-left" style="min-width:252px;margin-right:30px"></div>'+
@@ -503,7 +685,7 @@
 				'</div>'+
 
 			'</div>';
-			
+*/			
 			return html;
 		},
 		
