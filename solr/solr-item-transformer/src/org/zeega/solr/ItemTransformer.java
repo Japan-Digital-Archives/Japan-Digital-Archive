@@ -24,6 +24,20 @@ public class ItemTransformer
         }
         catch(Exception ex) { /* To-do: add logging - ok for now */}
         
+        try
+	    {
+    		String tags = (String)row.get("tags_i");
+
+    		if (tags != null)
+            {
+        		SerializedPhpParser serializedPhpParser = new SerializedPhpParser(tags);
+        		@SuppressWarnings("unchecked")
+    			Map<Object, Object> res = (Map<Object, Object>) serializedPhpParser.parse();
+        		row.put("tags_i", res.values());
+            }
+        }
+        catch(Exception ex) { /* To-do: add logging - ok for now */}
+	    
         // parse attributes (php array)
         try
 	    {
