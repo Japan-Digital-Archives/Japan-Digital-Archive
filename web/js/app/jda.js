@@ -59,9 +59,10 @@ this.jda = {
 			
 			var tagQuery = "tag:";
 			var textQuery = "";
+			var usernameQuery = "";
 
 			_.each(facets, function(facet){
-				
+				console.log(facet.get('category'));
 				switch ( facet.get('category') )
 				{
 					case 'text':
@@ -70,14 +71,17 @@ this.jda = {
 					case 'tag':
 						tagQuery = (tagQuery.length > 4) ? tagQuery + ", " + facet.get('value') : tagQuery + facet.get('value');
 						break;
+					case 'user':
+						usernameQuery = facet.get('value');
+						break;
 					
 			    }
 			});
+			
 			params.q = textQuery + (textQuery.length > 0 && tagQuery.length > 4 ? " " : "") + (tagQuery.length > 4 ? tagQuery : "");
 			params.text = textQuery;
 			params.viewType = this.currentView;
-			
-		
+			params.username = usernameQuery;
 		}
 		
 		if (!_.isUndefined(params.view_type))  this.switchViewTo(params.view_type,false) ;
@@ -429,56 +433,6 @@ this.jda = {
 		}
 		else this.initCollectionsDrawer();
 	},
-	
-	advancedSearch: function(){
-
-        var baseURL = sessionStorage.getItem('hostname') + sessionStorage.getItem('directory') + 'en/search?';
-        baseURL += "#q=" + $("#searchTerms").val();
-        var contentType = $("#contentTypeDDL option:selected").val();
-        if (contentType != "0") {
-            baseURL += "&content=" + contentType;
-        }
-        var tagArr = new Array();
-        $("#tagListDiv > span > a").each(function (i) {
-            var temp = $(this).attr("id");
-            temp = temp.substring(3);
-            tagArr[i] = temp;
-        });
-        if (tagArr.length != 0) {
-            baseURL += "&tags=" + tagArr.join(",");
-        }
-        if (north != null) {
-            baseURL += ("&geo_n=" + north + "&geo_e=" + east + "&geo_s=" + south + "&geo_w=" + west);
-        }
-        var startDate = $("#startDateTxt").val();
-        var endDate = $("#endDateTxt").val();
-        if (startDate != "") {
-            var sDate = new Date(startDate);
-            baseURL += "&dtstart=" + sDate.getTime();
-        }
-        if (endDate != "") {
-            var eDate = new Date(endDate);
-            baseURL += "&dtend=" + eDate.getTime();
-        }
-        var usersVal = $("#userDDL option:selected").val();
-        if (usersVal == -1) {
-            baseURL += "&user=" + usersVal;
-        }
-
-        var collectionVal = $("input[name='collRbl']:checked").val();
-        if (collectionVal == 1) {
-            baseURL += "&r_collections=1";
-        }
-        if (collectionVal == 2) {
-            baseURL += "&r_itemswithcollections=1";
-        }
-
-        window.location.href = baseURL;
-    }
-	
-	
-	
-	
 }, Backbone.Events)
 
 

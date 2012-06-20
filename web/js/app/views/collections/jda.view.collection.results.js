@@ -233,6 +233,7 @@
 		 	if( !_.isUndefined(obj.user) && obj.user > 0) hash += 'user=' + obj.user + '&';
 		 	if( !_.isUndefined(obj.content) )  hash += 'content='+ obj.content + '&';
 		 	if( !_.isUndefined(obj.mapBounds) )  hash += 'map_bounds='+ encodeURIComponent(obj.mapBounds) + '&';
+		 	if( !_.isUndefined(obj.username) )  hash += 'username='+ encodeURIComponent(obj.username) + '&';
 		 	if( !_.isUndefined(obj.times) )
 			{
 		 		if( !_.isUndefined(obj.times.start) ) hash += 'start='+ obj.times.start + '&';

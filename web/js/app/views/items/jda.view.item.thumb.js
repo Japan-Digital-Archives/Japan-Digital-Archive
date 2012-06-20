@@ -28,7 +28,6 @@
 		 },
 		 initialize: function () {
 	        
-	        console.log(this.options);
 	        this.el.id = this.model.id;
 	        if (_.isUndefined(this.options.thumbnail_height)){
 	        	this.options.thumbnail_height = 120;

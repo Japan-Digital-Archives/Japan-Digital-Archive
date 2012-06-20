@@ -13,7 +13,8 @@
 	
 		url : function()
 		{
-			
+			console.log(this.search);
+			console.log(this.search.username);
 			//constructs the search URL
 			var url = this.base;
 			if( !_.isUndefined(this.search.q) && this.search.q.length > 0) url += '&q=' + this.search.q.toString();
@@ -26,10 +27,11 @@
 			if( !_.isUndefined(this.search.r_itemswithcollections) ) url += '&r_itemswithcollections=' + this.search.r_itemswithcollections;
 			if( !_.isUndefined(this.search.r_collections) ) url += '&r_collections=' + this.search.r_collections;
 			if( !_.isUndefined(this.search.times) ){
-				if( !_.isUndefined(this.search.times.start) ) url += '&min_date=' + this.search.times.start;
-				if( !_.isUndefined(this.search.times.end) ) url += '&max_date=' + this.search.times.end;
-	     	}
+			    if( !_.isUndefined(this.search.times.start) ) url += '&min_date=' + this.search.times.start;
+			    if( !_.isUndefined(this.search.times.end) ) url += '&max_date=' + this.search.times.end;
+	     	};
 	     	if( !_.isUndefined(this.search.user) && this.search.user > 0) url += '&user=' + this.search.user;
+	     	if( !_.isUndefined(this.search.username) ) url += '&username=' + this.search.username;
 	     	if(jda.app.currentView=='event') url+='&geo_located=1';
 	    
 			console.log('search url: '+ url);

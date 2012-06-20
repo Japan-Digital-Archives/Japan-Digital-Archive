@@ -8,11 +8,11 @@
 		defaults : {
 			'media_creator_realname' : 'unknown',
 			'media_creator_username' : 'unknown',
-                        'attribution_uri': 'default',
-                        'uri': 'default',
-                        'archive': 'default',
-                        'media_type': 'Collection',
-                        'layer_type': 'Collection'
+            'attribution_uri': 'default',
+            'uri': 'default',
+            'archive': 'default',
+            'media_type': 'Collection',
+            'layer_type': 'Collection'
 		},
 		initialize : function()
 		{

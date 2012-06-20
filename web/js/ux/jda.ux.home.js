@@ -255,8 +255,8 @@ $(document).ready(function(){
 			search : function(){ 
 				var query = VisualSearch.searchBox.value();
 				window.location = 'search#q=' + query;
-				
-
+				console.log(this);
+				console.log(VisualSearch.searchBox.value());
 			},
 
 			clearSearch : function(){ $('input').val('');},
@@ -274,7 +274,9 @@ $(document).ready(function(){
 			{
 				switch (facet)
 				{
-				
+					case 'user':
+						callback([]);
+						break;				
 					case 'tag':
 						callback([]);
 						break;

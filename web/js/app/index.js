@@ -26,7 +26,9 @@ jQuery(function($)
 			{
 				switch (facet)
 				{
-
+					case 'user':
+						callback([]);
+						break;
 					case 'tag':
 						callback([]);
 						break;
