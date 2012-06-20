@@ -158,15 +158,13 @@
 			    },
 
 			      //init the dragged item variable
-			      start : function(){
+			      start : function()
+				{
 			        $(this).draggable('option','revert',true);
 			        jda.app.draggedItem = _this.model;
-			        
 			      },
 
-			      stop : function(){
-
-			      }
+			      stop : function(){}
 			      
 			});
 				$(this.el).find(".jdicon-small-drag").tooltip({'title':'Drag to add to your collection','placement':'bottom', delay: { show: 600, hide: 100 }});
