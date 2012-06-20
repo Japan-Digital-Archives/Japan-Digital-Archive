@@ -127,8 +127,8 @@
 				WIDTH : map.size.w,
 				HEIGHT : map.size.h,
 				// format : format,
-				styles : map.layers[1].params.STYLES,
-				srs : map.layers[1].params.SRS,
+				styles : map.layers[map.layers.length-1].params.STYLES,
+				srs : map.layers[map.layers.length-1].params.SRS,
 				TILED : true
 			};
 			// merge filters
@@ -208,12 +208,11 @@
 				try
 				{
 					//UGLY – remove header string
-					
-					var data = eval('(' + response.responseText.substring(75) + ')');
+					var data = jQuery.parseJSON(response.responseText.substring(75));
 				}
 				catch(err)
 				{
-					console.log(response);
+                                        console.log(err);
 					this.popup=false;
 					console.log('failure to parse json');
 					return;
