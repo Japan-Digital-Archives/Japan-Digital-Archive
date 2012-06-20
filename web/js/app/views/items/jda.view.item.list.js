@@ -100,8 +100,9 @@
 				blanks["description"] = this.model.get("description").substring(0,255) + "...";
 			} 
 			if (this.model.get("title") == null || this.model.get("title") == "none" || this.model.get("title") == ""){
-				blanks["title"] = "Untitled";
+				blanks["title"] = "";
 			}
+			
 			if (this.model.get("media_type") == "PDF" && (this.model.get('title') == "none" || this.model.get('title') == "Untitled" || this.model.get('title') == ""  || this.model.get('title') == "&nbsp;" || this.model.get('title') == null)){
 				blanks["title"] = "Untitled";
 			}
