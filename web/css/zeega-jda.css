@@ -391,3 +391,14 @@
 {
 	border: 1px dotted #aaa;
 }
+
+.drag-to
+{
+	padding: 10px;
+	border:1px dashed #666;
+	border-radius:10px;
+	display: inline;
+	position: absolute;
+	margin-left: 45%;
+	margin-top: 20%;
+}

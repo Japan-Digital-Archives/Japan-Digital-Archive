@@ -12,7 +12,8 @@
 			'click button.share' : function(){alert('Opens publish process modal window');},
 			'click button.edit' : 'editMetadata',
 			'click button.save' : 'saveMetadata',
-			'click button.cancel' : 'cancelEdits'
+			'click button.cancel' : 'cancelEdits',
+			'click .jda-collection-filter-author' : 'goToAuthorPage'
 		},
 		
 		initialize: function () {
@@ -69,6 +70,36 @@
 
 
 	  },
+	
+	goToAuthorPage : function()
+	{
+		var _this = this;
+		_.each( VisualSearch.searchBox.facetViews, function( facet ){
+		
+			if (facet.model.get("category")=="collection" && facet.model.get("value") == _this.model.get('title')) {
+				facet.model.set({'value': null });
+				facet.remove();
+			}
+		});
+
+		//retrieve user object and then add user filter
+		var Browser = jda.module("browser");
+		
+		var userID = _this.model.get('user_id');
+		var authorModel = new Browser.Users.Model({id:userID});
+		authorModel.fetch({
+			success : function(model, response){
+				jda.app.addFilter(model,'user', {collection:''});
+			},
+			error : function(model, response){
+				console.log('Failed to fetch the user object.');
+				console.log(model);
+			},
+
+		});
+		
+	},
+	
 	  render: function(done)
 	  {
 	  	var _this = this;
@@ -176,6 +207,7 @@
 			/***************************************************************************
 				User name link going to User profile page
 			***************************************************************************/
+			/*
 			$('.jda-collection-filter-author').click(function(){
 
 				_.each( VisualSearch.searchBox.facetViews, function( facet ){
@@ -203,7 +235,7 @@
 				});
 				
 			});
-
+*/
 
 			
 			/***************************************************************************
@@ -457,6 +489,7 @@
 					var t = ( item.get('layer_type') == 'Image' ) ? item.get('uri') : item.get('thumbnail_url');
 					_this.model.save({'thumbnail_url':t});
 					$(_this.el).find('.cover-image').css('background-image','url('+t+')');
+					$(_this.el).find('.drop-to').remove();
 				}
 			})
 
@@ -615,9 +648,9 @@
 			
 			'<div class="jda-collection-head">'+
 				'<div class="cover-image" style="background-image:url(<%= thumbnail_url %>)">';
-		if(this.model.get('thumbnail_url')=='') html += '<span class="drag-to"><i class="icon-camera"></i>drag cover image here</span>';
+		if(_.isNull(this.model.get('thumbnail_url')) || this.model.get('thumbnail_url') == '' ) html += '<div class="drag-to"><i class="icon-camera"></i> drag cover image here</div>';
 		html+=			'<div class="cover-overlay">'+
-						'<h1><%=title%></h1><h4>by: <a href="#"><%=media_creator_username%></a> on <%= date_created %></h4>'+
+						'<h1><%=title%></h1><h4>by: <a href="#" class="jda-collection-filter-author"><%=media_creator_username%></a> on <%= date_created %></h4>'+
 					'</div>'+
 				'</div>'+
 
@@ -644,76 +677,6 @@
 					
 			'</div>';
 			
-			
-/*			
-			
-			//IMAGE
-			'<div class="pull-left" style="width: 172px;height:100%">'+
-				'<div class="pull-left zeega-collection rotated-left" style="margin-right:12px">'+
-				'<p class="jda-collection-filter-drag-item-here" style="display:none;color: grey;position: relative;font-size: 12px;top: 41px;text-align:center">Drag item here <br>to set cover image</p>'+
-				'<img src="<%=thumbnail_url%>" alt="" style="width:160px;height:120px;">'+
-				'</div>'+
-			'</div>'+
-
-			//TITLE
-			'<div class="pull-left" style="width:-webkit-calc(98% - 172px);margin-right:10px;">'+
-				'<h3 class="jda-collection-filter-title"><%=title%></h3>'+
-				
-			'</div>'+
-
-			//ROW FOR BUTTONS, DESCRIPTION AND ARCHIVE SETTINGS
-			'<div class="pull-left" style="width:-webkit-calc(100% - 172px);">'+
-
-				//BUTTONS & AUTHOR
-				'<div class="pull-left" style="width:155px;position:relative">'+
-					'<p><strong>by <a href="#" class="jda-collection-filter-author"><%=media_creator_username%></a></strong></p>'+
-					'<div class="btn-group" style="margin-bottom:2px">'+
-						'<button class="btn btn-info btn-mini" type="button"><i class="icon-play icon-white pull-left"></i> Slideshow'+
-						'</button>'+
-						'<button class="btn btn-info btn-mini" type="button"><i class="icon-share icon-white pull-left"></i> Share'+
-						'</button>'+
-					'</div>'+
-					'<button class="btn btn-inverse btn-mini jda-edit-btn" type="button"><i class="icon-share icon-white pull-left"></i> Edit</button>'+
-					'<button class="btn btn-inverse btn-mini jda-done-btn" type="button" style="display:none"><i class="icon-share icon-white pull-left"></i> Done</button>'+
-				'</div>'+
-
-				//DESCRIPTION, LOCATION, MORE/LESS  BUTTON
-				'<div class="pull-left" style="width:-webkit-calc(100% - 395px);padding-bottom:18px;position:relative">'+
-
-					'<span class="jda-collection-filter-description"><%=description%></span><i class="icon-plus-sign" style="display:none"></i>'+
-					'<p class="jda-collection-filter-location" style="margin-top:10px;font-weight:bold"></p>'+
-					'<p id="jda-more-about-this-collection" style="position: absolute;left:0;bottom: 0;font-size:11px"><a href="#">(more about this collection)</a></p>'+
-					'<p id="jda-less-about-this-collection" style="position: absolute;left:0;bottom: 0;font-size:11px"><a href="#">(less about this collection)</a></p>'+
-				'</div>'+
-
-				//ARCHIVE SETTINGS
-				'<div class="pull-right" style="width: 200px;font-size:11px;position:relative">'+
-					
-					'<p style="font-size: 15px;margin-bottom: 0;font-weight: bold;font-variant: small-caps;">archive settings - <a href="#">edit</a></p>'+
-					'<p class="show_in_archive_true" style="display:none;font-size:11px;color:#666">Public: Anyone can view this collection.</p>'+
-					'<p class="show_in_archive_false" style="display:none;font-size:11px;color:#666">Private: Only you can view this collection.</p>'+
-					
-				'</div>'+
-
-			'</div>'+
-*/
-
-
-			/* JDA MORE VIEW */
-			
-/*			
-			'<div class="pull-left jda-more" style="width:98%;margin-left:327px;">'+
-
-				'<div class="geo pull-left" style="min-width:252px;margin-right:30px"></div>'+
-				'<div class="pull-left">'+
-					'<p style="font-weight:bold;clear:both;">Tags</p>'+
-					'<div class="zeega-tags" id="zeega-tag-container">'+
-						'<input name="tags" class="tagsedit" id="<%=randId%>" value="<%=tags%>" />'+
-					'</div>'+
-				'</div>'+
-
-			'</div>';
-*/			
 			return html;
 		},
 		
