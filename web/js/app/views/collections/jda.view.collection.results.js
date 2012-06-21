@@ -61,6 +61,11 @@
 					_this._collectionChildViews.push( itemView );
 					
 				})
+
+				$('.jda-separate-collections-and-items').show();
+				if (this.collection.collectionsCollection.length ==0){
+					$('.jda-separate-collections-and-items').find('.jda-results-collections-text').hide();
+				}
 				
 			} else {
 				
@@ -91,6 +96,8 @@
 			if(jda.app.currentView == 'thumb'){
 				$(this.el).find('li').css('height','170px');
 			} 
+
+
 
 			$(this.el).show();
 			jda.app.isLoading = false;

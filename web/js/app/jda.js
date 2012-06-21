@@ -1,4 +1,3 @@
-
 // This contains the module definition factory function, application state,
 // events, and the router.
 this.jda = {
@@ -401,8 +400,8 @@ this.jda = {
 	***************************************************************************/
 	redrawLayout:function(){
 		$('#zeega-left-column').css("width", jda.app.getLeftColumnWidth());
-	    $('#jda-collection-filter').css("width", $('#zeega-main-content').width() );
-	    $('#jda-user-filter').css("width", jda.app.getLeftColumnWidth() );
+	    $('#jda-collection-filter,#jda-user-filter').css("width", $('#zeega-main-content').width() );
+	    //$('#jda-user-filter').css("width", jda.app.getLeftColumnWidth() );
 	    $('.jda-separate-collections-and-items').css("width", jda.app.getLeftColumnWidth() );
 	    $('.left-col').css("width", jda.app.getLeftColumnWidth() );
 

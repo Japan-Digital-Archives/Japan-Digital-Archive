@@ -53,6 +53,9 @@
 .zeega-left-column-really-low{
 	top:222px !important;
 }
+.zeega-right-column-user-page{
+	top:277px !important;
+}
 .zeega-right-column-low{
 	top: 435px !important;
 }
@@ -374,7 +377,7 @@
 	font-size:10px;
 	width:200px
 }
-.jda-collection-map
+.jda-collection-map,.jda-user-map
 {
 	width:200px;
 	height:100px;
