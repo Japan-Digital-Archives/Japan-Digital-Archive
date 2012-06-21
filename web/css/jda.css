@@ -124,7 +124,7 @@ header .navbar .btn-group {
 	position:absolute
 }
 .jda-low-top{
-	top:335px;
+	top:147px;
 	position:relative;
 	width:auto;
 }
@@ -203,12 +203,7 @@ margin-left: -20px;
 
 }
 #jda-collection-filter{
-	position:fixed;
-	top:64px;
-	background:white;
-	z-index:1;
-	padding-bottom:9px;
-	padding-top:30px;
+	position:fixed;top:75px;background:white;z-index:1;padding-bottom:9px;padding-top:30px;
 	min-width:850px;
 	left:inherit;
 	overflow: hidden;
@@ -353,8 +348,26 @@ footer img{
 	max-height:100px;
 	margin:auto 0;
 }
+/********************
 
+	ABOUT PAGE STYLES
+	
+*********************/
+#jda-about-container{
+	line-height:25px;
+	text-align:justify;
+}
+#jda-about-mission{
+	width:65%;
+	margin-right:100px;
+	float:left;
 
+	
+}
+#jda-about-mission div{
+	height:50px;
+	clear:both;
+}
 /********************
 
 	OPEN LAYERS MAP
@@ -471,13 +484,4 @@ border-radius: 0px 4px 0px 0px;
 	list-style: none;
 	max-height: 100%;
 }
-
-#jda-search-advancedoptions {
-    width: 120px;
-    position:absolute;
-    margin-left: 50px;
-    margin-top: 16px;
-    overflow: hidden;
-    color:#999;
-    text-decoration: underline;
-}
+.d

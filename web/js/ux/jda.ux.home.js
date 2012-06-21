@@ -235,11 +235,17 @@ $(document).ready(function(){
 		callbacks : {
 			
 			loaded	: function(){ 
-				$('.VS-search-box').css('width','270px');
-				
+
+				if($(location).attr('href').indexOf('home')>=0){
+					$('.VS-search-box').css('width','270px');
+					$('#VS-search input').css('width', '200px');
+				} else{
+					$('.VS-search-box').css('width','500px');
+					$('#VS-search input').css('width', '430px');
+				}
 				$("#jda-home-search-div, #search-bar").fadeTo('slow',1); 
 				$('#VS-search input').attr('placeholder', 'Explore the Archive');
-				$('#VS-search input').css('width', '200px');
+				
 				$('#VS-search input').css('padding-top', '9px');
 				$('#VS-search input').focus(function(){
 					$(this).attr('placeholder', '');

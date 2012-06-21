@@ -3,164 +3,137 @@
 {% extends '::base.html.twig' %}
 
 {% block title %}<title>{% trans %}jda.home.title{% endtrans %}</title>{% endblock %}
+{% block stylesheets %}
+<!-- Visual Search --> 
+<!--[if (!IE)|(gte IE 8)]><!-->
+<link href="{{ asset('js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+<!--[if lte IE 7]><!-->
+<link href="{{ asset('js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+{% endblock %}
 {% block scripts %}
-<script type="text/javascript" src="{{ asset('js/lib/jquery/jquery-1.7.1.min.js')}}"></script>
-
-<script type="text/javascript" src="{{ asset('js/ux/jda.ux.home.js')}}"></script>
-<script type="text/javascript" src="{{ asset('js/lib/bootstrap.js')}}"></script>
+<script data-main="{{ asset('js/loaders/about') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
 {% endblock %}
 
 {% block content %}
-<div id="content"><div id="about-content-english">
-		<div class="narrow-container" >
-			
+
+<div class="container" id="zeega-view-navigation" style="background-color:rgba(0,0,0,0.7)">
 
 
-			<div id="content-row" class="rowx" style="margin-top:10px">
-
-				<div id="left-col" class="span-two-thirds">
-					<div span="rowx">
-
-						<h3>{% trans %}jda.about.mission{% endtrans %}</h3>
-					</div>
-					<div id="core-missions" class="rowx">
-
-						<div class="span-two-thirds">
-							<div class="rowx">
-								<div class="span05">
-									<h1>1</h1>
-								</div>
-								<div class="span05l">
-									<p>{% trans %}jda.about.one{% endtrans %}</p>
-								</div>
-							</div>
-						</div>
-
-						<div class="span-two-thirds">
-							<div class="rowx">
-								<div class="span05">
-									<h1>2</h1>
-								</div>
-								<div class="span05l">
-									<p>{% trans %}jda.about.two{% endtrans %}</p>
-								</div>
-							</div>
-						</div>
-
-						<div class="span-two-thirds">
-							<div class="rowx">
-								<div class="span05">
-									<h1>3</h1>
-								</div>
-								<div class="span05l">
-									<p>{% trans %}jda.about.three{% endtrans %}</p>
-								</div>
-							</div>
-							
-							{% trans %}jda.about.paragraph{% endtrans %}
-						</div>
-
-
-
-					</div>
-				</div>
-				<div id="right-col" class="span-one-third">
-					<h3>{% trans %}jda.about.participate{% endtrans %}</h3>
-					
-					<ul >
-						<li style="color:black">{% trans %}jda.about.participateone{% endtrans %}</li>
-						<li style="color:black">{% trans %}jda.about.participatethree{% endtrans %}</li>
-						<li style="color:black">{% trans %}jda.about.participatetwo{% endtrans %}</li>
-						<li style="color:black">{% trans %}jda.about.participatefour{% endtrans %}</li>
-					</ul>
-<!--
-				<h3>{% trans %}jda.home.archive{% endtrans %}</h3>
-							<strong> <small><a href="search#content=tweet">666,552
-										Tweets</a> / <a href="search#content=website">7,640 Websites</a> / <a href="search#content=image">32,975
-										Images</a> / <a href="search#content=video">99 Videos</a> / <a href="search#content=text">48
-										Testimonials</a></small>
-							</strong>
-					<br>
-					<h3>{% trans %}jda.home.tags{% endtrans %}</h3>
-
-					<strong> <small><a href="search#q=tag:jishin">jishin</a>
-							/ <a href="search#q=tag:anpi">anpi</a> / <a href="search#q=tag:jisin">jisin</a>
-							/ <a href="search#q=tag:hinan">hinan</a> / <a href="search#q=tag:311care">311care</a>
-							/ <a href="search#q=tag:sendai">sendai</a> / <a href="search#q=tag:jgsdf">jgsdf</a>
-						</small>
-							</strong>
-							
-							-->
-
-					<h3>{% trans %}jda.about.connect{% endtrans %}</h3>
-					<p>{% trans %}jda.about.connectbody{% endtrans %}</p>
-
-					
-
-				</div>
-			</div>
-			
-
+	<div id="jda-home-search-div" class="pull-left" style="margin-right:17px;margin-top:5px;margin-left:148px;display:none">
+		<div id="search-bar" style="margin-right:10px">
+			<div class="visual_search pull-left"></div>
 		</div>
-		<footer>
-			<div class="narrow-container footer-container">
+		<a href="#" id="jda-go-button" class="btn btn-info btn-large">Go</a>
+	</div>
 
-				<!--<div class='rowx'>
 
-					<div class="footer-nav span16">
-						<ul class='unstyled'>
 
-							<li><a href="#">Home</a></li>
-							<li><a href="#">About</a></li>
-							<li><a href="#">FAQ</a></li>
-							<li><a href="#">Contact</a></li>
+</div><!-- end container -->
+<div id="jda-about-container" style="margin:0 5%;position:relative;top:100px">
 
-						</ul>
-					</div>
-				</div>-->
-				<div class="rowx">
-					<div class="span16">
+	<h2 style="color:#666;letter-spacing:1px">ABOUT THE JAPAN 2011 DISASTER ARCHIVE</h2>
+	<ul class="nav nav-pills" style="padding-bottom: 10px;border-bottom: 1px solid #DDD;">
+		<li class="active"><a href="#mission"  data-toggle="tab">{% trans %}jda.about.mission{% endtrans %}</a></li>
+		<li><a href="#team" data-toggle="tab">{% trans %}jda.about.team{% endtrans %}</a></li>
+		<li><a href="#news" data-toggle="tab">{% trans %}jda.about.news{% endtrans %}</a></li>
+		<li><a href="#faq" data-toggle="tab">{% trans %}jda.about.faq{% endtrans %}</a></li>
+		<li><a href="#terms" data-toggle="tab">{% trans %}jda.about.terms{% endtrans %}</a></li>
 
-						<h3>Partners</h3>
-		<ul id="partner-logos" class="">
-					
-						<li><a href="http://warp.ndl.go.jp/WARP_disaster.html" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/nationalDietLibrary.png')}}"></a></li>
-						<li><a href="http://www.fas.harvard.edu/~rijs/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/reischauer.png')}}"></a></li>
-						<li><a href="http://311archives.jp/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/all311.png')}}"></a></li>
-						<li><a href="http://www.dcrc.tohoku.ac.jp/archive/index.html/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/tohoku311.png')}}"></a></li>						
-						<li><a href="http://311map.com/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/311Map.png')}}"></a></li>
-						<li><a href="http://recorder311.smt.jp/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/logo_cr.png')}}"></a></li>
-						<li><a href="http://savemlak.jp/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/saveMLAK.png')}}"></a></li>
-						<li><a href="http://recorder311.smt.jp/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/sendaiMedia.png')}}"></a></li>
-						
-						
-						<li><a href="http://www.yahoo.co.jp/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/YahooJapan.gif')}}"></a></li>
-						
-						
-						<li><a href="http://zeega.org" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/zeega.png')}}"></a></li>
-						<li><a href="http://metalab.harvard.edu" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/mlh.gif')}}"></a></li>
-						
-						
-						
-						<li><a href="http://www.archive-it.org/collections/2438" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/archiveIT.png')}}"></a></li>
-						<li><a href="http://worldmap.harvard.edu/japanmap/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/CGA.png')}}"></a></li>
-						<li><a href="http://archive.org" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/InternetArchive.png')}}"></a></li>
-						<li><a href="http://www.loc.gov/index.html" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/LibraryOfCongress.png')}}"></a></li>
-					</ul>
-					</div>
+	</ul>
+	<div class="tab-content">
+	<div id="mission" class="tab-pane active">
+	<div id="jda-about-mission">
 
-				</div>
+		<h3 style="margin-bottom:20px">{% trans %}jda.about.mission{% endtrans %}</h3>
 
-				<div class="rowx">
-					<div class="span16 partnerimg" style="text-align: center;">
-						Site powered by <a href="http://www.zeega.org/about.php" target="_blank">Zeega.org</a><br> <br>
-					</div>
-				</div>
+		<div>
+			<h1 class="pull-left" style="margin-right:30px">1</h1>
+			<p style="padding-top:3px">{% trans %}jda.about.one{% endtrans %}</p>
+		</div>
+		
+		<div>
 
-			</div>
+			<h1 class="pull-left" style="margin-right:30px">2</h1>
 
-			</footer>
-	</div></div>
+			<p style="padding-top:3px">{% trans %}jda.about.two{% endtrans %}</p>
+		</div>
+		<div>
+
+			<h1 class="pull-left" style="margin-right:30px">3</h1>
+
+			<p style="padding-top:3px">{% trans %}jda.about.three{% endtrans %}</p>
+		</div>
+
+		<p>{% trans %}jda.about.paragraph{% endtrans %}</p>
+
+	</div>
+	<div>
+		<h3>{% trans %}jda.about.participate{% endtrans %}</h3>
+
+		<ul style="position:relative;left:18px">
+			<li style="list-style:disc">{% trans %}jda.about.participateone{% endtrans %}</li>
+			<li style="list-style:disc">{% trans %}jda.about.participatethree{% endtrans %}</li>
+			<li style="list-style:disc">{% trans %}jda.about.participatetwo{% endtrans %}</li>
+			<li style="list-style:disc">{% trans %}jda.about.participatefour{% endtrans %}</li>
+		</ul>
+
+
+		<h3>{% trans %}jda.about.connect{% endtrans %}</h3>
+		<p>{% trans %}jda.about.connectbody{% endtrans %}</p>
+	</div>
+</div>
+<div id="team" class="tab-pane">
+	<h3>{% trans %}jda.about.team{% endtrans %}</h3>
+</div>
+<div id="news" class="tab-pane">
+	<h3>{% trans %}jda.about.news{% endtrans %}</h3>
+</div>
+<div id="faq" class="tab-pane">
+	<h3>{% trans %}jda.about.faq{% endtrans %}</h3>
+</div>
+<div id="terms" class="tab-pane">
+	<h3>{% trans %}jda.about.terms{% endtrans %}</h3>
+</div>
+</div>
+</div><!-- end tab content -->
+<footer style="position:relative;top:150px">
+
+
+	<h3>{% trans %}jda.home.partners{% endtrans %}</h3>
+	<ul>
+
+		<li><a href="http://warp.ndl.go.jp/WARP_disaster.html" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/nationalDietLibrary.png')}}"></a></li>
+		<li><a href="http://www.fas.harvard.edu/~rijs/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/reischauer.png')}}"></a></li>
+		<li><a href="http://311archives.jp/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/all311.png')}}"></a></li>
+		<li><a href="http://www.dcrc.tohoku.ac.jp/archive/index.html/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/tohoku311.png')}}"></a></li>						
+		<li><a href="http://311map.com/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/311Map.png')}}"></a></li>
+		<li><a href="http://recorder311.smt.jp/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/logo_cr.png')}}"></a></li>
+		<li><a href="http://savemlak.jp/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/saveMLAK.png')}}"></a></li>
+		<li><a href="http://recorder311.smt.jp/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/sendaiMedia.png')}}"></a></li>
+
+
+		<li><a href="http://www.yahoo.co.jp/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/YahooJapan.gif')}}"></a></li>
+
+
+		<li><a href="http://zeega.org" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/zeega.png')}}"></a></li>
+		<li><a href="http://metalab.harvard.edu" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/mlh.gif')}}"></a></li>
+
+
+
+		<li><a href="http://www.archive-it.org/collections/2438" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/archiveIT.png')}}"></a></li>
+		<li><a href="http://worldmap.harvard.edu/japanmap/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/CGA.png')}}"></a></li>
+		<li><a href="http://archive.org" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/InternetArchive.png')}}"></a></li>
+		<li><a href="http://www.loc.gov/index.html" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/LibraryOfCongress.png')}}"></a></li>
+	</ul>
+	<h4 style="text-align:center;clear:both; margin:30px 0">Site powered by <a href="http://www.zeega.org/about.php" target="_blank">Zeega.org</a><br> <br></h4>
+
+
+
+	
+</footer>
+
 
 
 
