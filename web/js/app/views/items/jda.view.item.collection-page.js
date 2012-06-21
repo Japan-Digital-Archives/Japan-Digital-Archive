@@ -438,12 +438,14 @@
 					latitude : this.model.get('media_geo_latitude'),
 					longitude : this.model.get('media_geo_longitude'),
 				};
-				this.latlng = new L.LatLng( values.latitude,values.latitude);
-
+				this.latlng = new L.LatLng( values.latitude,values.longitude);
 				var div = $(this.el).find('.jda-collection-map').get(0);
-
 				this.map = new L.Map(div);
-		    	this.map.setView(this.latlng, 8).addLayer(this.cloudmade);
+				this.map.setView(this.latlng, 8).addLayer(this.cloudmade);
+				this.marker = new L.Marker(this.latlng,{draggable:true});
+				this.marker.addEventListener( 'drag', this.updateLatLng, this );
+				this.marker.addEventListener( 'dragend', this.updateLocation, this );
+				this.map.addLayer(this.marker);
 			}
 			
 			
@@ -452,12 +454,11 @@
 				{
 					console.log('dropped', jda.app.draggedItem)
 					var item = jda.app.draggedItem;
-					if( item.get('layer_type') == 'Image' )
-						$(_this.el).find('.cover-image').css('background-image','url('+item.get('uri')+')');
-					else $(_this.el).find('.cover-image').css('background-image','url('+item.get('thumbnail_url')+')')
+					var t = ( item.get('layer_type') == 'Image' ) ? item.get('uri') : item.get('thumbnail_url');
+					_this.model.save({'thumbnail_url':t});
+					$(_this.el).find('.cover-image').css('background-image','url('+t+')');
 				}
 			})
-
 
 			jda.app.redrawLayout();
 
@@ -472,6 +473,14 @@
 			
 			$(this.el).find('.save-data button').show();
 			$(this.el).find('button.edit').addClass('active');
+			$(this.el).find('.cover-overlay h1').addClass('editing').attr('contenteditable', true).keypress(function(e){
+				if(e.which==13)
+				{
+					_this.saveFields();
+					$(this).blur();
+					return false;
+				}
+			});
 			$(this.el).find('.jda-collection-description').addClass('editing').attr('contenteditable', true);
 			$(this.el).find('.jda-collection-map-location').addClass('editing').attr('contenteditable', true).keypress(function(e){
 				if(e.which==13)
@@ -484,21 +493,28 @@
 		
 		saveMetadata : function()
 		{
-			$(this.el).find('.save-data button').hide();
-			$(this.el).find('button.edit').removeClass('active');
-			$(this.el).find('.jda-collection-description').removeClass('editing').attr('contenteditable', false);
-			$(this.el).find('.jda-collection-map-location').removeClass('editing').attr('contenteditable', false);
-			
-			this.model.save({ 'description' : $(this.el).find('.jda-collection-description').text() })
+			this.turnOffEditMode();
+			this.saveFields();
+		},
+		
+		saveFields : function()
+		{
+			this.model.save({
+				'title' : $(this.el).find('.cover-overlay h1').text(),
+				'description' : $(this.el).find('.jda-collection-description').text()
+			})
 		},
 		
 		cancelEdits : function()
 		{
+			this.turnOffEditMode();
+		},
+		
+		turnOffEditMode : function()
+		{
 			$(this.el).find('.save-data button').hide();
 			$(this.el).find('button.edit').removeClass('active');
-			$(this.el).find('.jda-collection-description').removeClass('editing').attr('contenteditable', false);
-			$(this.el).find('.jda-collection-map-location').removeClass('editing').attr('contenteditable', false);
-			
+			$(this.el).find('.editing').removeClass('editing').attr('contenteditable', false);
 		},
 		
 		loadMap : function()
@@ -514,6 +530,8 @@
 				this.marker.addEventListener( 'dragend', this.updateLocation, this );
 				this.map.addLayer(this.marker);
 			}
+			
+			
 		},
 		
 		updateLatLng : function(e)
@@ -526,7 +544,11 @@
 		{
 			var _this = this;
 			var latlng = e.target.getLatLng();
-			this.model.save({'media_geo_latitude':latlng.lat,'media_geo_longitude':latlng.lng,});
+			console.log(this,latlng)
+			this.model.save({
+				'media_geo_latitude':latlng.lat,
+				'media_geo_longitude':latlng.lng
+			});
 			
 			this.geocoder.geocode( { 'latLng' : new google.maps.LatLng(latlng.lat,latlng.lng) }, function(results, status) {	
 				if (status == google.maps.GeocoderStatus.OK) {
@@ -552,6 +574,11 @@
 					
 					_this.map.setView( _this.latlng,8);
 					_this.marker.setLatLng(_this.latlng);
+					console.log(results[0].geometry.location.lat(),results[0].geometry.location.lng())
+					_this.model.save({
+						'media_geo_latitude': results[0].geometry.location.lat(),
+						'media_geo_longitude': results[0].geometry.location.lng()
+					})
 				}
 				else console.log("Geocoder failed at address look for "+$(that.el).find('.locator-search-input').val()+": " + status);
 			});
@@ -587,8 +614,9 @@
 			html = 
 			
 			'<div class="jda-collection-head">'+
-				'<div class="cover-image">'+
-					'<div class="cover-overlay">'+
+				'<div class="cover-image" style="background-image:url(<%= thumbnail_url %>)">';
+		if(this.model.get('thumbnail_url')=='') html += '<span class="drag-to"><i class="icon-camera"></i>drag cover image here</span>';
+		html+=			'<div class="cover-overlay">'+
 						'<h1><%=title%></h1><h4>by: <a href="#"><%=media_creator_username%></a> on <%= date_created %></h4>'+
 					'</div>'+
 				'</div>'+
@@ -597,7 +625,7 @@
 						'<div class="btn-toolbar">'+
 							'<div class="btn-group">'+
 								'<button class="btn btn-info btn-mini play"><i class="icon-play icon-white"></i></button>'+
-								'<button class="btn btn-info btn-mini share"><i class="icon-share icon-white"></i></button>'+
+								'<button class="btn btn-info btn-mini share"><i class="icon-share-alt icon-white"></i></button>'+
 								'<button class="btn btn-info btn-mini edit"><i class="icon-pencil icon-white"></i></button>'+
 							'</div>'+
 							'<div class="btn-group save-data">'+
@@ -605,7 +633,7 @@
 								'<button class="btn btn-mini cancel hide">cancel</button>'+
 							'</div>'+
 						'</div>'+
-						'<div class="jda-collection-description">Cras vitae accumsan dolor. Maecenas hendrerit euismod justo, nec volutpat velit tincidunt a. Ut nec elit leo. Donec pharetra eleifend consequat. Nam nec auctor mi. Proin vitae mauris accumsan mauris molestie elementum id eu elit. Proin iaculis consectetur velit nec pellentesque.</div>'+
+						'<div class="jda-collection-description"><%= description %></div>'+
 						'<div class="jda-collection-tags"><a href="#">add tags</a></div>'+
 						
 					'</div>'+
