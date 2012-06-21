@@ -407,6 +407,8 @@ this.jda = {
 	    $('.left-col').css("width", jda.app.getLeftColumnWidth() );
 
 	    $('#zeega-right-column').css("left", jda.app.getRightColumnPosition());
+
+		$('.container').css('width', $(window).width() - 110 );
 	},
 
 	
