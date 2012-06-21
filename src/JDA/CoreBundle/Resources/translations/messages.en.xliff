@@ -422,6 +422,44 @@
                 <source>jda.header.me</source>
                 <target>Me</target>
             </trans-unit>
+            <trans-unit id="107">
+                <source>jda.home.collection1</source>
+                <target>Minami Sanriku Fisheries</target>
+            </trans-unit>
+            <trans-unit id="108">
+                <source>jda.home.collection1text</source>
+                <target>The March 11, 2011 disasters dealt a crushing blow to the seafood and mariculture
+industries that have long been a mainstay of the Tohoku economy. This public
+collection assembles visual and textual records documenting the impacts of the
+disasters on Minami Sanriku-chō, one of the worst-hit communities, as well as nearby
+Kesennuma. Some records indicate early signs of recovery and the road ahead.</target>
+            </trans-unit>
+            <trans-unit id="109">
+                <source>jda.home.collection2</source>
+                <target>Rebuilding and Relocating</target>
+            </trans-unit>
+            <trans-unit id="110">
+                <source>jda.home.collection2text</source>
+                <target>Tohoku residents in the disaster-stricken areas are now deeply engaged in a protracted
+rebuilding effort, but they disagree over how to rebuild and agonize over the future
+of their region. Will they rebuild as before? Will they alter construction plans to
+accommodate better the natural conditions of their region? Or will they opt to relocate
+altogether? This public collection assembles articles, plans, and images related to such
+pivotal discussions.</target>
+            </trans-unit>
+             <trans-unit id="111">
+                <source>jda.home.collection3</source>
+                <target>Fukushima and the Food Supply</target>
+            </trans-unit>
+            <trans-unit id="112">
+                <source>jda.home.collection3text</source>
+                <target>Because radiation is invisible and can cause unknown long-term harm, the
+consequences of the 2011 catastrophe at Fukushima Daiichi Nuclear Power Plant
+have unnerved many inside and outside Tohoku. Of particular concern has been the
+contamination of the food supply. This public collection assembles a variety of records
+related to public opinion discussions about food sourcing and the future of agriculture in
+Fukushima.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

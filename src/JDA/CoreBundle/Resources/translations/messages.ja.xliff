@@ -422,6 +422,42 @@
                 <source>jda.header.me</source>
                 <target>Me</target>
             </trans-unit>
+            <trans-unit id="107">
+                <source>jda.home.collection1</source>
+                <target>南三陸の漁業</target>
+            </trans-unit>
+            <trans-unit id="108">
+                <source>jda.home.collection1text</source>
+                <target>平成23年3月1日の震災は、それまで長く東北経済の主柱であった水産養殖業に痛烈な
+打撃を与えました。この公開コレクションでは、最も被害の深刻な地域の一つである南
+三陸町とその付近にある気仙沼が被った震災の影響に関して、映像と文書による記録が
+集められています。その中には、復興の兆しや今後の道のりが示されている記録も見つ
+けることができるでしょう。</target>
+            </trans-unit>
+            <trans-unit id="109">
+                <source>jda.home.collection2</source>
+                <target>再建と移転</target>
+            </trans-unit>
+            <trans-unit id="110">
+                <source>jda.home.collection2text</source>
+                <target>震災が襲った東北地方の住民たちは現在、長期化する再建過程への取り組みのまっただ
+中にいます。しかし再建の方法には意義が唱えられ、地域の未来についての苦悶は終わ
+っていません。震災前の様子を再現するのか？再建計画を見直し、地域がおかれている
+自然環境により適したものとするのか？それともそっくり地域ごと移転することを選ぶ
+のか？この公開コレクションでは、そのような極めて重要な議論に関連した記事、計
+画、映像を集めています。</target>
+            </trans-unit>
+             <trans-unit id="111">
+                <source>jda.home.collection3</source>
+                <target>福島と食糧</target>
+            </trans-unit>
+            <trans-unit id="112">
+                <source>jda.home.collection3text</source>
+                <target>放射能は目に見えぬまま人知れず長期的な害悪をもたらしうることから、福島第一原子
+力発電所が引き起こした大惨事は、東北地方とその他の地域に住む人々を動揺させてい
+ます。食糧の汚染はそのような不安の一つです。この公開コレクションでは、食糧と福
+島の農業の未来を巡る様々な議論に関する記録を集めています。</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

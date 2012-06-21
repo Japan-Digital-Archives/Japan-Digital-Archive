@@ -248,7 +248,7 @@ $(document).ready(function(){
 				
 				$('#VS-search input').css('padding-top', '9px');
 				$('#VS-search input').focus(function(){
-					$(this).attr('placeholder', '');
+					//$(this).attr('placeholder', '');
 					$(this).css('width', '3px');
 				});
 
