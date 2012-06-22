@@ -460,6 +460,10 @@ contamination of the food supply. This public collection assembles a variety of 
 related to public opinion discussions about food sourcing and the future of agriculture in
 Fukushima.</target>
             </trans-unit>
+             <trans-unit id="113">
+                <source>jda.accountsettings.header</source>
+                <target>Change your password</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

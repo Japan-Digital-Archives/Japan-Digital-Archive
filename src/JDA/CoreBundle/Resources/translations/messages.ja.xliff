@@ -458,6 +458,10 @@
 ます。食糧の汚染はそのような不安の一つです。この公開コレクションでは、食糧と福
 島の農業の未来を巡る様々な議論に関する記録を集めています。</target>
             </trans-unit>
+            <trans-unit id="113">
+                <source>jda.accountsettings.header</source>
+                <target>Change your password</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
