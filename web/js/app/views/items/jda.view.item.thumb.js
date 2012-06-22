@@ -45,10 +45,10 @@
 	        	this.options.show_caption = true;
 	        }
 
-			if (_.isUndefined(this.options.listview)){
-				this.listview=this.options.listview;
-				console.log("this is a list view");
+			if (!_.isUndefined(this.options.draggable)){
+				this.draggable=this.options.draggable;
 			}
+			else this.draggable=true;
 		
 	        this.model.set({thumbnail_width:this.options.thumbnail_width, thumbnail_height:this.options.thumbnail_height});
 
@@ -134,7 +134,7 @@
 			}
 			
 			
-			if(!this.listview){
+			if(this.draggable){
 				$(this.el).draggable({
 
 			    cursor : 'move',
