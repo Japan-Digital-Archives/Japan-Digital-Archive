@@ -13,7 +13,9 @@
 
 		events: {
 			
-			//'click button.edit' : 'editMetadata',
+			'click button.edit' : 'editMetadata',
+			'click button.save' : 'saveMetadata',
+			'click button.cancel' : 'cancelEdits',
 		},
 		initialize: function () {
 
@@ -112,40 +114,111 @@
 				Edit button
 			***************************************************************************/
 			if (this.model.get('editable')){
-				$(this.el).find('button.edit').show().css('display','block');
-				$(this.el).find('.edit').click(function()
-					{
-						_this.editMetadata();
-					});
+				$(this.el).find('button.edit').show();
+				
 			}
 
 			return this;
+		},
+		saveMetadata : function()
+		{
+			this.turnOffEditMode();
+			this.saveFields();
+		},
+		
+		saveFields : function()
+		{
+			//TODO - WTH  -why isn't setting proper values?
+
+			
+			this.model.save({
+				
+				'bio' : $(this.el).find('.jda-user-filter-description').text(),
+				'thumbnail_url' : $(this.el).find('.jda-user-filter-profile-image').attr('src'),
+				//TODO SAVE GEO COORDINATES
+			})
+		},
+		
+		cancelEdits : function()
+		{
+			this.turnOffEditMode();
+		},
+		
+		turnOffEditMode : function()
+		{
+			$(this.el).find('.jda-user-edit-profile-image').hide();
+			$(this.el).find('button.edit').removeClass('active');
+			$(this.el).find('.editing').removeClass('editing').attr('contenteditable', false);
+			$(this.el).find('.jda-user-map-location').removeClass('editing').attr('contenteditable', false);
+			$(this.el).find('.save-data button').hide();
 		},
 		editMetadata : function()
 		{
 			console.log('edit the metadata!')
 			var _this  = this;
 			
-			
+			$(this.el).find('.jda-user-edit-profile-image').show();
 			$(this.el).find('.save-data button').show();
 			$(this.el).find('button.edit').addClass('active');
-			/*
-			$(this.el).find('.cover-overlay h1').addClass('editing').attr('contenteditable', true).keypress(function(e){
-				if(e.which==13)
-				{
-					_this.saveFields();
-					$(this).blur();
-					return false;
-				}
-			});
-			$(this.el).find('.jda-collection-description').addClass('editing').attr('contenteditable', true);
-			$(this.el).find('.jda-collection-map-location').addClass('editing').attr('contenteditable', true).keypress(function(e){
+			$(this.el).find('.jda-user-filter-description').addClass('editing').attr('contenteditable', true);
+			
+			
+			$(this.el).find('.jda-user-map-location').addClass('editing').attr('contenteditable', true).keypress(function(e){
 				if(e.which==13)
 				{
 					_this.geocodeString();
 					return false;
 				}
-			});*/
+			});
+
+			$(this.el).find('.jda-user-edit-profile-image').droppable({
+			    accept : '.list-fancymedia',
+			    
+			    tolerance : 'pointer',
+			    over: function(event, ui) { 
+			    	var newCover = jda.app.draggedItem.get('thumbnail_url');
+			      	$(_this.el).find('.jda-user-filter-profile-image').attr('src', newCover).show();
+				 	$(_this.el).find('.jda-user-edit-profile-image').hide();
+			    },
+			    out: function(){
+
+			      	$(_this.el).find('.jda-user-filter-profile-image').hide();
+				 	$(_this.el).find('.jda-user-edit-profile-image').show();
+			    },
+			    drop : function( event, ui )
+			    {
+			    	
+			      	var newCover = jda.app.draggedItem.get('thumbnail_url');
+			      	$(_this.el).find('.jda-user-filter-profile-image').attr('src', newCover).show();
+				 	$(_this.el).find('.jda-user-edit-profile-image').hide();
+
+			      
+			      ui.draggable.draggable('option','revert',false);
+
+			    }
+			});
+		},
+		geocodeString : function()
+		{
+			var _this = this;
+			var placeText = $(this.el).find('.jda-user-map-location').text();
+			this.geocoder.geocode( { 'address': placeText}, function(results, status) {
+			
+				if (status == google.maps.GeocoderStatus.OK)
+				{
+					console.log(results)
+					_this.latlng=new L.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng());
+					
+					_this.map.setView( _this.latlng,8);
+					_this.marker.setLatLng(_this.latlng);
+					console.log(results[0].geometry.location.lat(),results[0].geometry.location.lng())
+					/*_this.model.save({
+						'media_geo_latitude': results[0].geometry.location.lat(),
+						'media_geo_longitude': results[0].geometry.location.lng()
+					})*/
+				}
+				else console.log("Geocoder failed at address look for "+$(that.el).find('.locator-search-input').val()+": " + status);
+			});
 		},
 		remove:function(){
 
@@ -165,22 +238,25 @@
 			html = 
 			
 			'<div class="pull-left" style="width: 172px;">'+
-				'<img class="pull-left" src="<%=thumbnail_url%>" alt="" style="width:160px;height:160px;margin-right:10px;border: 1px solid grey;">'+
-				'<a href="#" class="jda-user-filter-edit-profile-image"><i class="icon-cog icon-white" style="left: 142px;top: 5px;position: absolute;"></i></a>'+
+				'<img class="pull-left jda-user-filter-profile-image" src="<%=thumbnail_url%>" alt="" style="width:160px;height:160px;margin-right:10px;border: 1px solid grey;">'+
+				'<div class="jda-user-edit-profile-image" style="display:none;border: 1px solid #666;background: #CCC;width: 160px;position: absolute;opacity: 0.9;height: 160px;text-align:center">'+
+					'<i class="jdicon-drag" style="float:none;position:relative;top:30px"></i> '+
+					'<p style="font-weight: bolder;color: #333;text-align: center;padding: 30px;">Drag a new image here</p>'+
+				'</div>'+
 			'</div>'+
-			'<div style="width:-webkit-calc(95%-400px);margin-right:10px;">'+
+			'<div style="margin-right:10px;">'+
 				'<h1 class="jda-user-filter-name"><%=display_name%></h1>'+
 				
 				'<div style="width:60%;float:left;margin-right:30px">'+
 					'<p style="font-weight:bold">Joined on March 20th, 2012</p>'+
 					'<span class="jda-user-filter-description"><%=bio%></span><i class="icon-plus-sign" style="display:none"></i>'+
-					'<button class="btn btn-info btn-mini edit" style="display:none"><i class="icon-pencil icon-white"></i></button>'+
+					'<p><button class="btn btn-info btn-mini edit" style="display:none"><i class="icon-pencil icon-white"></i></button></p>'+
 					'<div class="btn-group save-data">'+
 						'<button class="btn btn-success btn-mini save hide">save</button>'+
 						'<button class="btn btn-mini cancel hide">cancel</button>'+
 					'</div>'+
 				'</div>'+
-				'<div>'+
+				'<div class="pull-right">'+
 					'<div class="jda-user-map" style="border:1px solid #aaa"></div>'+
 					'<div class="jda-user-map-location"></div>'+
 				'</div>'+

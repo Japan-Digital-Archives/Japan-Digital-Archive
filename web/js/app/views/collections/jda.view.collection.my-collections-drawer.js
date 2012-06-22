@@ -204,10 +204,10 @@
 					$('#zeega-my-collections-count').text(remainingItems);
 
 					if (model.get('child_items').length == 0){
-						$('#zeega-my-collections-drag-items-here,.jdicon-drag').show();
+						$(this.el).find('#zeega-my-collections-drag-items-here,.jdicon-drag').show();
 						$('#zeega-my-collections-share-and-organize').empty();
 					} else{
-						$('#zeega-my-collections-drag-items-here,.jdicon-drag').hide();
+						$(this.el).find('#zeega-my-collections-drag-items-here,.jdicon-drag').hide();
 					}
 
 					if (remainingItems > 0) $('#zeega-my-collections-count-string').show();

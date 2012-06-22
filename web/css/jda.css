@@ -208,6 +208,9 @@ margin-left: -20px;
 	left:inherit;
 	overflow: hidden;
 }
+#jda-user-filter{
+	overflow: hidden;
+}
 #jda-collection-editing-toolbar{
 	display:none;
 	clear:both;margin-bottom:8px;
@@ -484,4 +487,12 @@ border-radius: 0px 4px 0px 0px;
 	list-style: none;
 	max-height: 100%;
 }
-.d
+#jda-search-advancedoptions {
+    width: 120px;
+    position:absolute;
+    margin-left: 50px;
+    margin-top: 16px;
+    overflow: hidden;
+    color:#999;
+    text-decoration: underline;
+}
