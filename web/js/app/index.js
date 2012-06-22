@@ -68,6 +68,15 @@ jQuery(function($)
 						obj = QueryStringToHash(query);
 					}
 
+					//parse time slider properties
+					obj.times = {};
+					if (obj.min_date != null){
+						obj.times.start = obj.min_date;
+					}
+					if (obj.max_date != null){
+						obj.times.end = obj.max_date;
+					}
+
 
 					//If URL specifies particular collection then we gotta look it up and set it in the app
 					//Only then can we update search UI with the title of the collection as a facet

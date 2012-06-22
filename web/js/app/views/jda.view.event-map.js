@@ -91,7 +91,7 @@
 					_this.map.setCenter(new OpenLayers.LonLat(140.652466, 38.052417).transform(proj, _this.map.getProjectionObject()), 9);
 					_this.startMapListeners( _this.map );
 				
-					//_this.initTimeSlider(_this.map);
+					_this.initTimeSlider(_this.map);
 					
 					_this.initLayerControl();
 					_this.mapLoaded = true;
@@ -312,7 +312,7 @@
 		/********** TIME SLIDER CODE ***********************/
 		
 		
-		/****************
+	
 		
 		initTimeSlider : function(map){
 			console.log("Initializing Time Slider");
@@ -324,11 +324,11 @@
 			
 				//Put HTML into the div
 				timesliderHTML = 
-					"<div id='date-time-start' class='date-time-block'>" +
+					"<div id='date-time-start' class='date-time-block pull-left'>" +
 						"<input type='text' name='start-date' id='start-date' value='' class='date-picker'>" + 
 						"<input type='text' name='start-time' id='start-time' value='' class='time-picker'>" +
 					"</div>" +  
-					"<div id='date-time-end' class='date-time-block'>" +
+					"<div id='date-time-end' class='date-time-block pull-right'>" +
 						"<input type='text' name='end-date' id='end-date' value='' class='date-picker'>" +
 						"<input type='text' name='end-time' id='end-time' value='' class='time-picker'>" +
 					"</div>" +
@@ -374,7 +374,7 @@
 					{	
 						_this.setStartDateTimeSliderBubble(ui.values[0]);
 						_this.setEndDateTimeSliderBubble(ui.values[1]);
-						_this.resultsView.setStartAndEndTimes(ui.values[0], ui.values[1]);
+						jda.app.resultsView.setStartAndEndTimes(ui.values[0], ui.values[1]);
 						_this.updateMapForTimeSlider(map);
 						_this.updateResultsCountForTimeSlider();
 					 }
@@ -386,13 +386,33 @@
 				//Set the dateTime pickers to the starting slider condition
 				this.setStartDateTimeSliderBubble($( "#range-slider" ).slider( "values", 0 ));
 				this.setEndDateTimeSliderBubble($( "#range-slider" ).slider( "values", 1 ));
+
+				
+
 			}
 		
 		}, 
+		setEventViewTimePlace : function(obj){
+			if (!_.isUndefined(obj.times) && !_.isUndefined(obj.times.start))
+			{
 
-		//disabling time slider for the moment
+				var oldValues =  $("#range-slider").slider( "option", "values" );
+				$( "#range-slider" ).slider( "option", "values", [obj.times.start, oldValues[1]] );
+			}
+			if ( !_.isUndefined(obj.times) && !_.isUndefined(obj.times.end) ){
+				var oldValues =  $("#range-slider").slider( "option", "values" );
+				$( "#range-slider" ).slider( "option", "values", [oldValues[0], obj.times.end]);
+			}
+			if (!_.isUndefined(obj.map_bounds))
+			{
+				coords = (obj.map_bounds).split(',');
+				bounds = new OpenLayers.Bounds(coords[0], coords[1], coords[2], coords[3]);
+				this.eventMap.map.zoomToExtent(bounds);
+			}
+ 		},
+		
 		updateResultsCountForTimeSlider : function(sliderUI, map){
-			var searchView = this.resultsView;
+			var searchView = jda.app.resultsView;
 			$("#jda-related-tags, #jda-title, #zeega-results-count").fadeTo(100,0);
 			searchView.collection.fetch({
 				success : function(model, response){ 
@@ -405,15 +425,19 @@
 		},
 		
 		updateMapForTimeSlider : function(map){
-			console.log("UP");
-			 //Time filter string    
-			 cqlFilterString = this.resultsView.getCQLSearchString();
-			 if(!_.isUndefined(cqlFilterString))
+			    
+			 cqlFilterString = jda.app.resultsView.getCQLSearchString();
+			 if( jda.app.resultsView.getCQLSearchString()!=null){
+					map.getLayersByName('cite:item - Tiled')[0].mergeNewParams({
+						'CQL_FILTER' : jda.app.resultsView.getCQLSearchString()
+					});
+				}
+			 /*if(!_.isUndefined(cqlFilterString))
 			 {
 				map.layers[1].mergeNewParams({
 					'CQL_FILTER' : cqlFilterString
 				});
-			 }
+			 }*/
 		},
 		
 		setStartDateTimeSliderHandle : function(){
@@ -441,25 +465,25 @@
 		},
 		
 		setStartDateTimeSliderBubble : function(val){		
-			centerX = $("#range-slider a").first().position()["left"];
-			dateTimeWidth = $("#date-time-start").outerWidth();
-			$("#date-time-start").css("left", centerX);
+			//centerX = $("#range-slider a").first().position()["left"];
+			//dateTimeWidth = $("#date-time-start").outerWidth();
+			//$("#date-time-start").css("left", centerX);
 			var d = new Date(val*1000);
 			$("#start-date").val(d.format('mmmm d, yy'));
 			$("#start-time").val(d.format("h:MM tt"));
 		},
 		
 		setEndDateTimeSliderBubble : function(val){
-			handleWidth =  $("#range-slider a").last().outerWidth();
-			centerX = $("#range-slider a").last().position()["left"];
-			dateTimeWidth = $("#date-time-end").width();
-			$("#date-time-end").css("left", centerX + dateTimeWidth + handleWidth/2);
+			//handleWidth =  $("#range-slider a").last().outerWidth();
+			//centerX = $("#range-slider a").last().position()["left"];
+			//dateTimeWidth = $("#date-time-end").width();
+			//$("#date-time-end").css("left", centerX + dateTimeWidth + handleWidth/2);
 			var d = new Date(val*1000);
 			$("#end-date").val(d.format('mmmm d, yy'));
 			$("#end-time").val(d.format("h:MM tt"));
 		},
 	
-	**************/	
+	
 	
 	
 	});

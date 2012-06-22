@@ -140,8 +140,13 @@
 	z-index: 0;
 	left:0;
 }
-.zeega-results-count-event{
-
+.zeega-results-count-event {
+	font-size: 12px !important;
+	width: 160px !important;
+	position: absolute !important;
+	color: whiteSmoke !important;
+	top: -15px !important;
+	z-index:2001 !important;
 }
 #zeega-results-count-text-with-date{
 	display:none;

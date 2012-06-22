@@ -487,6 +487,55 @@ border-radius: 0px 4px 0px 0px;
 	list-style: none;
 	max-height: 100%;
 }
+/**********************************
+ 	TIME SLIDER
+***********************************/
+#range-slider{
+	
+	top: 6px;
+	margin-left: 183px !important;
+	width: 300px;
+	background-color: rgba(0, 0, 0, 0.5) !important;
+	background-image: none !important;
+}
+
+.date-time-block{
+	
+}
+
+.date-time-block>input{
+	font-size: 12px;
+	margin : 1px;
+	text-align: center;
+	padding : 1px;
+	border : 1px solid #CCC;
+}
+
+#start-time, #end-time{
+	width : 55px;
+}
+
+#start-date, #end-date{
+	width : 95px;
+}
+
+#event-time-slider{
+	left: 192px;
+	z-index: 2000;
+	position: absolute;
+	
+	width: 672px;
+	top:10px;
+
+}
+#event-time-slider input{
+	border: none;
+	color: whiteSmoke;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+/**********************************
+	END TIME SLIDER
+***********************************/
 #jda-search-advancedoptions {
     width: 120px;
     position:absolute;

@@ -189,12 +189,14 @@
 						
 						_this.collectionFilter.render();
 					}
-					//If this was a collection search then load the collection view which
+					//If this was a user search then load the user view which
 					//appears above search results
 					if (!_.isUndefined(_this.userFilter) && _this.userFilter != null){
 						
 						_this.userFilter.render();
 					}
+
+					
 					
 					
 					if(_this.collection.length<parseInt(response["items_count"])) jda.app.killScroll = false; //to activate infinite scroll again
@@ -243,8 +245,8 @@
 		 	if( !_.isUndefined(obj.username) && obj.username.length > 0)  hash += 'username='+ encodeURIComponent(obj.username) + '&';
 		 	if( !_.isUndefined(obj.times) )
 			{
-		 		if( !_.isUndefined(obj.times.start) ) hash += 'start='+ obj.times.start + '&';
-		 		if( !_.isUndefined(obj.times.end) ) hash += 'end='+ obj.times.end + '&';
+		 		if( !_.isUndefined(obj.times.start) ) hash += 'min_date='+ obj.times.start + '&';
+		 		if( !_.isUndefined(obj.times.end) ) hash += 'max_date='+ obj.times.end + '&';
 			}  
 	
 	 		jda.app.router.navigate(hash,{trigger:false});
