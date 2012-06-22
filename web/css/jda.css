@@ -490,6 +490,10 @@ border-radius: 0px 4px 0px 0px;
 /**********************************
  	TIME SLIDER
 ***********************************/
+
+.time-slider-wrapper{z-index:1001;position:absolute;width:100%;height:46px;background:rgba(0,0,0,0.4);}
+
+
 #range-slider{
 	
 	top: 6px;
