@@ -1,3 +1,4 @@
+
 // This contains the module definition factory function, application state,
 // events, and the router.
 this.jda = {
@@ -85,10 +86,10 @@ this.jda = {
 		
 		if (!_.isUndefined(params.view_type))  this.switchViewTo(params.view_type,false) ;
 		
-		/*if (params.view_type == 'event' && !this.eventMap.timeSliderLoaded)
+		if (params.view_type == 'event')
 		{
-			this.eventMap.searchPsetEventViewTimePlace(params);
-		} */
+			this.setEventViewTimePlace(params);
+		}
 		this.resultsView.search( params );
 		
 		
@@ -140,16 +141,16 @@ this.jda = {
 		
 	},
 	
-	/*setEventViewTimePlace : function(obj){
-		if (!_.isUndefined(obj.times) && !_.isUndefined(obj.times.start))
+	setEventViewTimePlace : function(obj){
+		if (!_.isUndefined(obj.start))
 		{
-
-			var oldValues =  $("#range-slider").slider( "option", "values" );
-			$( "#range-slider" ).slider( "option", "values", [obj.times.start, oldValues[1]] );
+			oldValues =  $("#range-slider").slider( "option", "values" );
+			$( "#range-slider" ).slider( "option", "values", [obj.start, oldValues[1]] );
 		}
-		if ( !_.isUndefined(obj.times) && !_.isUndefined(obj.times.end) ){
-			var oldValues =  $("#range-slider").slider( "option", "values" );
-			$( "#range-slider" ).slider( "option", "values", [oldValues[0], obj.times.end]);
+		if (!_.isUndefined(obj.end))
+		{
+			oldValues =  $("#range-slider").slider( "option", "values" );
+			$( "#range-slider" ).slider( "option", "values", [oldValues[0], obj.end]);
 		}
 		if (!_.isUndefined(obj.map_bounds))
 		{
@@ -157,7 +158,7 @@ this.jda = {
 			bounds = new OpenLayers.Bounds(coords[0], coords[1], coords[2], coords[3]);
 			this.eventMap.map.zoomToExtent(bounds);
 		}
- 	},*/
+ 	},
 
 	switchViewTo : function( view , refresh ){
 		
@@ -308,8 +309,11 @@ this.jda = {
 		console.log('switch to List view');
 
 		
+		$('#zeega-view-buttons .btn').removeClass('active');
+		$('#list-button').addClass('active');
 		
-		$('#event-time-slider').hide();
+		//Time slider disabled for now
+		//$('#event-time-slider').hide();
 		$('#zeega-results-count').removeClass('zeega-results-count-event');
 		$('#zeega-results-count').css('left', 0);
 		$('#zeega-results-count').css('z-index', 0);
@@ -325,8 +329,10 @@ this.jda = {
 	},
 	
 	showThumbnailView : function(){
-		$('#event-time-slider').hide();
-
+	
+		$('#zeega-view-buttons .btn').removeClass('active');
+		$('#thumb-button').addClass('active');
+		
 		$('#zeega-results-count').removeClass('zeega-results-count-event');
 		$('#zeega-results-count').css('left', 0);
 		$('#zeega-results-count').css('z-index', 0);
@@ -342,9 +348,11 @@ this.jda = {
 	
 	showEventView : function(){
 		console.log('switch to Event view');
+		$('#zeega-view-buttons .btn').removeClass('active');
+		$('#event-button').addClass('active');
 		
 		//Time slider disabled for now
-		$('#event-time-slider').show();
+		//$('#event-time-slider').show();
 		$('#zeega-results-count').addClass('zeega-results-count-event');
 		$('#zeega-results-count').offset( { top:$('#zeega-results-count').offset().top, left:10 } );
 		$('#zeega-results-count').css('z-index', 1000);
@@ -402,14 +410,12 @@ this.jda = {
 	***************************************************************************/
 	redrawLayout:function(){
 		$('#zeega-left-column').css("width", jda.app.getLeftColumnWidth());
-	    $('#jda-collection-filter,#jda-user-filter').css("width", $('#zeega-main-content').width() );
-	    //$('#jda-user-filter').css("width", jda.app.getLeftColumnWidth() );
+	    $('#jda-collection-filter').css("width", $('#zeega-main-content').width() );
+	    $('#jda-user-filter').css("width", jda.app.getLeftColumnWidth() );
 	    $('.jda-separate-collections-and-items').css("width", jda.app.getLeftColumnWidth() );
 	    $('.left-col').css("width", jda.app.getLeftColumnWidth() );
 
 	    $('#zeega-right-column').css("left", jda.app.getRightColumnPosition());
-
-		$('.container').css('width', $(window).width() - 110 );
 	},
 
 	
