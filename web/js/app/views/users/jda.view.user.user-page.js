@@ -72,6 +72,9 @@
 			var template = this.getTemplate();
 			var blanks = this.model.attributes;
 
+			if (blanks["created_at"] == null){
+				blanks["created_at"] = "March 20th, 2011";
+			}
 			$(this.el).html( _.template( template, blanks ) );
 
 			$(this.el).find('.jda-user-filter-edit-profile-image').click(function(){
@@ -88,8 +91,8 @@
 		
 			
 			var values = {
-				latitude : 38.266667,//this.model.get('media_geo_latitude'),
-				longitude : 140.866667,
+				latitude : this.model.get('location_latitude') == null ? 38.266667 : this.model.get('location_latitude'),//this.model.get('media_geo_latitude'),
+				longitude : this.model.get('location_longitude') == null ? 140.866667 : this.model.get('location_longitude'),
 			};
 			this.latlng = new L.LatLng( values.latitude,values.longitude);
 			var div = $(this.el).find('.jda-user-map').get(0);
@@ -128,14 +131,12 @@
 		
 		saveFields : function()
 		{
-			//TODO - WTH  -why isn't setting proper values?
-
 			
 			this.model.save({
 				
 				'bio' : $(this.el).find('.jda-user-filter-description').text(),
 				'thumbnail_url' : $(this.el).find('.jda-user-filter-profile-image').attr('src'),
-				//TODO SAVE GEO COORDINATES
+				
 			})
 		},
 		
@@ -212,10 +213,10 @@
 					_this.map.setView( _this.latlng,8);
 					_this.marker.setLatLng(_this.latlng);
 					console.log(results[0].geometry.location.lat(),results[0].geometry.location.lng())
-					/*_this.model.save({
-						'media_geo_latitude': results[0].geometry.location.lat(),
-						'media_geo_longitude': results[0].geometry.location.lng()
-					})*/
+					_this.model.save({
+						'location_latitude': results[0].geometry.location.lat(),
+						'location_longitude': results[0].geometry.location.lng()
+					})
 				}
 				else console.log("Geocoder failed at address look for "+$(that.el).find('.locator-search-input').val()+": " + status);
 			});
@@ -248,7 +249,7 @@
 				'<h1 class="jda-user-filter-name"><%=display_name%></h1>'+
 				
 				'<div style="width:60%;float:left;margin-right:30px">'+
-					'<p style="font-weight:bold">Joined on March 20th, 2012</p>'+
+					'<p style="font-weight:bold">Joined on <%= created_at%></p>'+
 					'<span class="jda-user-filter-description"><%=bio%></span><i class="icon-plus-sign" style="display:none"></i>'+
 					'<p><button class="btn btn-info btn-mini edit" style="display:none"><i class="icon-pencil icon-white"></i></button></p>'+
 					'<div class="btn-group save-data">'+
