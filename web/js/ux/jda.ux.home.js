@@ -210,8 +210,9 @@ $(document).ready(function(){
 			console.log('switching languages');
 			$('#jda-language-toggle').find('.btn').removeClass('active');
 			$(this).addClass('active');
-			if($(this).data('language')=='en') window.location =  window.location.href.replace('ja/home','en/home');
-			else window.location =  window.location.href.replace('en/home','ja/home');
+			console.log($(this).data('language'));
+			if($(this).data('language')=='en') window.location =  window.location.href.replace('/ja/','/en/');
+			else window.location =  window.location.href.replace('/en/','/ja/');
 		}
 		
 	});
