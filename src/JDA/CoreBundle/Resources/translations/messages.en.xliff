@@ -61,7 +61,7 @@
              <trans-unit id="15">
                 <source>jda.about.participate</source>
                 <target>Participate</target>
-            </trans-unit>	
+            </trans-unit>   
              <trans-unit id="16">
                 <source>jda.about.connect</source>
                 <target>Connect &amp; Explore</target>
@@ -162,27 +162,27 @@
                 <source>jda.search.shake</source>
                 <target>Shake</target>
             </trans-unit>
- 		    <trans-unit id="41">
+            <trans-unit id="41">
                 <source>jda.header.about</source>
                 <target>About</target>
             </trans-unit>
-    		<trans-unit id="42">
+            <trans-unit id="42">
                 <source>jda.header.feedback</source>
                 <target>Feedback</target>
             </trans-unit>           
-			<trans-unit id="43">
+            <trans-unit id="43">
                 <source>jda.header.japanese</source>
                 <target>日本語</target>
-            </trans-unit>				
-			<trans-unit id="44">
+            </trans-unit>               
+            <trans-unit id="44">
                 <source>jda.header.english</source>
                 <target>English</target>
-            </trans-unit>			            
-			<trans-unit id="45">
+            </trans-unit>                       
+            <trans-unit id="45">
                 <source>jda.home.partners</source>
                 <target>Partners</target>
-            </trans-unit>			            
-			<trans-unit id="46">
+            </trans-unit>                       
+            <trans-unit id="46">
                 <source>jda.home.go</source>
                 <target>go</target>
             </trans-unit>
@@ -354,7 +354,7 @@
                 <source>jda.register.header</source>
                 <target>Create an Account!</target>
             </trans-unit>
-        	<trans-unit id="90">
+            <trans-unit id="90">
                 <source>jda.register.confirm</source>
                 <target>You've successfully registered!</target>
             </trans-unit>
@@ -378,7 +378,7 @@
                 <source>jda.about.faq</source>
                 <target>FAQ</target>
             </trans-unit>
-        	<trans-unit id="96">
+            <trans-unit id="96">
                 <source>jda.about.terms</source>
                 <target>Terms</target>
             </trans-unit>
@@ -390,7 +390,7 @@
                 <source>jda.user.profile</source>
                 <target>Profile Page</target>
             </trans-unit>
-        	<trans-unit id="99">
+            <trans-unit id="99">
                 <source>jda.user.logout</source>
                 <target>Logout</target>
             </trans-unit>
@@ -414,10 +414,10 @@
                 <source>jda.login.return</source>
                 <target>Return to login</target>
             </trans-unit>
-			<trans-unit id="105">
-				<source>jda.login.confirm</source>
-				<target>you've successfully logged in!</target>
-			</trans-unit>
+            <trans-unit id="105">
+                <source>jda.login.confirm</source>
+                <target>you've successfully logged in!</target>
+            </trans-unit>
             <trans-unit id="106">
                 <source>jda.header.me</source>
                 <target>Me</target>
@@ -428,11 +428,9 @@
             </trans-unit>
             <trans-unit id="108">
                 <source>jda.home.collection1text</source>
-                <target>The March 11, 2011 disasters dealt a crushing blow to the seafood and mariculture
-industries that have long been a mainstay of the Tohoku economy. This public
-collection assembles visual and textual records documenting the impacts of the
-disasters on Minami Sanriku-chō, one of the worst-hit communities, as well as nearby
-Kesennuma. Some records indicate early signs of recovery and the road ahead.</target>
+                <target>This public collection assembles visual and textual records documenting the impacts of
+the March 11, 2011 disasters on fisheries and mariculture in Minami Sanriku-chō and
+nearby Kesennuma.</target>
             </trans-unit>
             <trans-unit id="109">
                 <source>jda.home.collection2</source>
@@ -440,12 +438,9 @@ Kesennuma. Some records indicate early signs of recovery and the road ahead.</ta
             </trans-unit>
             <trans-unit id="110">
                 <source>jda.home.collection2text</source>
-                <target>Tohoku residents in the disaster-stricken areas are now deeply engaged in a protracted
-rebuilding effort, but they disagree over how to rebuild and agonize over the future
-of their region. Will they rebuild as before? Will they alter construction plans to
-accommodate better the natural conditions of their region? Or will they opt to relocate
-altogether? This public collection assembles articles, plans, and images related to such
-pivotal discussions.</target>
+                <target>This public collection features articles, plans, and images related to the pivotal
+discussions taking place among residents of disaster-stricken areas over their economic
+future and how to rebuild.</target>
             </trans-unit>
              <trans-unit id="111">
                 <source>jda.home.collection3</source>
@@ -453,12 +448,13 @@ pivotal discussions.</target>
             </trans-unit>
             <trans-unit id="112">
                 <source>jda.home.collection3text</source>
-                <target>Because radiation is invisible and can cause unknown long-term harm, the
-consequences of the 2011 catastrophe at Fukushima Daiichi Nuclear Power Plant
-have unnerved many inside and outside Tohoku. Of particular concern has been the
-contamination of the food supply. This public collection assembles a variety of records
-related to public opinion discussions about food sourcing and the future of agriculture in
-Fukushima.</target>
+                <target>This public collection assembles records related to public concerns over radioactive
+food contamination and the future of regional agriculture since the 2011 Fukushima
+nuclear catastrophe.</target>
+            </trans-unit>
+             <trans-unit id="113">
+                <source>jda.accountsettings.header</source>
+                <target>Change your password</target>
             </trans-unit>
         </body>
     </file>

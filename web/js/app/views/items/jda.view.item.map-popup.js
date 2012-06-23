@@ -47,7 +47,7 @@
 			html =
 			'<a  class="map-fancymedia" id="<%= id %>" rel="group">'+
 			'<div style="float:left;">'+
-				'<i class="jdicon-<%=media_type%>"></i>'+
+			'<div class="map-popup-tweet-icon"></div>'+
 			'</div>'+
 			'<div>'+
 				'<%= text %>'+
