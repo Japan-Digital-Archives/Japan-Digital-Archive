@@ -332,15 +332,15 @@
             </trans-unit>
             <trans-unit id="84">
                 <source>jda.header.explore</source>
-                <target>ExploJA</target>
+                <target>Explore</target>
             </trans-unit>
             <trans-unit id="85">
                 <source>jda.header.collections</source>
-                <target>CollectiJA</target>
+                <target>Collections</target>
             </trans-unit>
             <trans-unit id="86">
                 <source>jda.header.participate</source>
-                <target>ParticipJA</target>
+                <target>Participate</target>
             </trans-unit>
             <trans-unit id="87">
                 <source>jda.login.register</source>

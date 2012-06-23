@@ -470,7 +470,7 @@ nuclear catastrophe.</target>
             </trans-unit>
              <trans-unit id="117">
                 <source>jda.report.bugemail</source>
-                <target>Your email (optional):</target>
+                <target>Your email</target>
             </trans-unit>
             <trans-unit id="118">
                 <source>jda.sort.by</source>
