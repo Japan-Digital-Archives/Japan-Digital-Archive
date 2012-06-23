@@ -453,6 +453,76 @@
                 <source>jda.accountsettings.header</source>
                 <target>Change your password</target>
             </trans-unit>
+            <trans-unit id="114">
+                <source>jda.report.bug</source>
+                <target>Report a bug</target>
+            </trans-unit>
+            <trans-unit id="115">
+                <source>jda.report.bugintro</source>
+                <target>The website is still in beta! We need your help to make it better! Let us know if something is misbehaving by sending us a brief description of what's wrong:</target>
+            </trans-unit>
+             <trans-unit id="116">
+                <source>jda.report.buglinknote</source>
+                <target>a link to the current view will be included automatically</target>
+            </trans-unit>
+            <trans-unit id="117">
+                <source>jda.report.bugemail</source>
+                <target>Your email (optional):</target>
+            </trans-unit>            
+  			<trans-unit id="118">
+                <source>jda.sort.by</source>
+                <target>Sort By</target>
+            </trans-unit>
+            <trans-unit id="119">
+                <source>jda.sort.recent</source>
+                <target>Recent</target>
+            </trans-unit>
+            <trans-unit id="120">
+                <source>jda.sort.oldest</source>
+                <target>Oldest</target>
+            </trans-unit>
+            <trans-unit id="121">
+                <source>jda.search.collection</source>
+                <target>collection</target>
+            </trans-unit>
+             <trans-unit id="122">
+                <source>jda.search.collections</source>
+                <target>collections</target>
+            </trans-unit>
+            
+       		<trans-unit id="123">
+                <source>jda.my.collection</source>
+                <target>my collection</target>
+            </trans-unit>
+     		 <trans-unit id="124">
+                <source>jda.drag.items</source>
+                <target>Drag items here to add to your collection</target>
+            </trans-unit>      
+               <trans-unit id="125">
+                <source>jda.drag.added</source>
+                <target>Added!</target>
+            </trans-unit>     
+              <trans-unit id="126">
+                <source>jda.drag.shareorganize</source>
+                <target>Share and Organize</target>
+            </trans-unit>
+			 <trans-unit id="127">
+                <source>jda.drag.and</source>
+                <target>and</target>
+            </trans-unit>  
+            <trans-unit id="128">
+                <source>jda.drag.moreitems</source>
+                <target>more items</target>
+            </trans-unit>   
+            <trans-unit id="129">
+                <source>jda.drag.createnewcollection</source>
+                <target>Create A New Collection</target>
+            </trans-unit>   
+         	<trans-unit id="130">
+                <source>jda.advanced.search</source>
+                <target>Advanced Search</target>
+            </trans-unit>             
+            
         </body>
     </file>
 </xliff>

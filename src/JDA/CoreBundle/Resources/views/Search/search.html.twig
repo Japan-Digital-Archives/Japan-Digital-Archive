@@ -90,13 +90,13 @@ body {
 							<option value="document">{% trans %}jda.search.document{% endtrans %}</option>
 							<option value="website">{% trans %}jda.search.website{% endtrans %}</option>
 							<option value="text">{% trans %}jda.search.testimonial{% endtrans %}</option>
-							<option value="collection">collection</option>
+							<option value="collection">{% trans %}jda.search.collection{% endtrans %}</option>
 						</select>
 					</span>
 				</div>
-				<a href="#" id="jda-go-button" class="btn btn-info btn-large">Go</a>
+				<a href="#" id="jda-go-button" class="btn btn-info btn-large">{% trans %}jda.home.go{% endtrans %}</a>
 				<span class="badge badge-inverse" id="zeega-search-help" data-content="Here are some tips for searching.">?</span>
-				<a href="{{path('advsearch', { '_locale': locale })}}" id="jda-search-advancedoptions" >Advanced Options</a>
+				<a href="{{path('advsearch', { '_locale': locale })}}" id="jda-search-advancedoptions" >{% trans %}jda.advanced.search{% endtrans %}</a>
 			</div>
 
 		</div>
@@ -125,18 +125,17 @@ body {
 
                               <div class="btn-group pull-right" style="margin-bottom:8px;margin-right:30px">
                                     <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
-                                          Sort By
+                                          {% trans %}jda.sort.by{% endtrans %}
                                           <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                          <li><a href="#">A-Z</a></li>
-                                          <li><a href="#">Date</a></li>
-                                          <li><a href="#">Something else</a></li>
+                                          <li><a href="#">{% trans %}jda.sort.recent{% endtrans %}</a></li>
+                                          <li><a href="#">{% trans %}jda.sort.oldest{% endtrans %}</a></li>
                                     </ul>
                               </div>
                               <div id="jda-collection-editing-toolbar" class="pull-left">
                                     <button class="btn btn-info btn-small" type="button"><input id="jda-collection-editing-toolbar-select-all" type="checkbox"></button>
-                                    <button class="btn btn-info btn-small"><i class="icon-plus icon-white"></i> Create new collection</button>
+                                    <button class="btn btn-info btn-small"><i class="icon-plus icon-white"></i>Create new collection</button>
                                     <button class="btn btn-info btn-small" type="button"><i class="icon-trash icon-white"></i> Delete</button>
                                     <div class="btn-group" style="display: inline-block; top:11px">
                                       <a class="btn dropdown-toggle btn-info btn-small" data-toggle="dropdown" href="#">
@@ -181,13 +180,13 @@ body {
                               <!-- LIST VIEW -->
                               <div class="tab-pane active" id="zeega-list-view">
                                     <div class="jda-separate-collections-and-items" style="display:none">
-                                          <h3 class="jda-results-collections-text">Collections(<span class="jda-results-collections-count"></span>)</h3>
+                                          <h3 class="jda-results-collections-text">{% trans %}jda.search.collections{% endtrans %}(<span class="jda-results-collections-count"></span>)</h3>
                                           <table class="table" id='zeega-collections-list'>
                                                 <tbody>
                                                       
                                                 </tbody>
                                           </table>
-                                         <h3>Items(<span class="jda-results-items-count"></span>)</h3>
+                                         <h3>{% trans %}jda.search.items{% endtrans %}(<span class="jda-results-items-count"></span>)</h3>
                                     </div>
                                     <table class="table" id='zeega-items-list'>
                                           <tbody>
@@ -217,12 +216,12 @@ body {
                         <div id="zeega-my-collections">
 
                               <div class="btn-group">
-                                    <button id="zeega-my-collections-active-collection" class="btn btn-large btn-inverse">my collection</button>
+                                    <button id="zeega-my-collections-active-collection" class="btn btn-large btn-inverse">{% trans %}jda.my.collection{% endtrans %}</button>
                                     <button class="btn btn-large btn-inverse dropdown-toggle" data-toggle="dropdown" style="height:39px;border-radius:0">
                                           <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" style="width:100%;text-align:left">
-                                          <li><a href="#"><i class="icon-plus"></i> Create New Collection</a></li>
+                                          <li><a href="#"><i class="icon-plus"></i>{% trans %}jda.drag.createnewcollection{% endtrans %}</a></li>
                                           
                                     </ul>
                               </div>
@@ -230,12 +229,12 @@ body {
                               <div id="zeega-my-collections-items">
                                     <i class="jdicon-drag" style="float:none"></i> 
                                     <p id="zeega-my-collections-drag-items-here">
-                                          Drag items here to add to your collection
+                                         {% trans %}jda.drag.items{% endtrans %}
                                     </p>
-                                    <span class="label label-success" id="zeega-my-collections-added">Added!</span>
+                                    <span class="label label-success" id="zeega-my-collections-added">{% trans %}jda.drag.added{% endtrans %}</span>
                                     <ul id="zeega-my-collections-items-thumbs" class="unstyled"></ul>
-                                    <span class="label label-info" id="zeega-my-collections-count-string" style="display:none">and <span id="zeega-my-collections-count"></span> more items</span>
-                                    <h4 id="zeega-my-collections-share-and-organize" style="display:none"><a href="#">Share & Organize</a>
+                                    <span class="label label-info" id="zeega-my-collections-count-string" style="display:none">{% trans %}jda.drag.and{% endtrans %} <span id="zeega-my-collections-count"></span> {% trans %}jda.drag.moreitems{% endtrans %}</span>
+                                    <h4 id="zeega-my-collections-share-and-organize" style="display:none"><a href="#">{% trans %}jda.drag.shareorganize{% endtrans %}</a>
                                     </h4>
 
                               </div>

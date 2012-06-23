@@ -70,19 +70,19 @@
 						</div>
 						<ul class="nav pull-right">
 							<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class='zicon-warning'></i> Report a Bug<b class="caret"></b></a>
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class='zicon-warning'></i>{% trans %}jda.report.bug{% endtrans %}<b class="caret"></b></a>
 									<ul class="dropdown-menu bug-report">
 										<li class='bug-unsubmitted'>
-											<div><label>You can help us track down problems by sending us a brief description of what's wrong:</label></div>
+											<div><label>{% trans %}jda.report.bugintro{% endtrans %}</label></div>
 											<textarea class='bug-description' rows='3'></textarea>
-											<p><i class='icon-ok-sign'></i> a link to the current view will be included automatically</p>
+											<p><i class='icon-ok-sign'></i>{% trans %}jda.report.buglinknote{% endtrans %}</p>
 										</li>
 										<li class='bug-unsubmitted' >
-											<label>Your email (optional):</label>
+											<label>{% trans %}jda.report.bugemail{% endtrans %}</label>
 											<input class='bug-email' type='text'></input>
 										</li>
 										<li class='bug-unsubmitted'>
-											<button class='btn btn-success submit-bug'>submit</button>
+											<button class='btn btn-success submit-bug'>{% trans %}jda.login.button{% endtrans %}</button>
 										</li>
 										<li class='bug-submitted'>
 											<h2>Thanks for your feedback!!</h2>
@@ -121,7 +121,7 @@
 							<li id="user-dropdown" class="dropdown" style="display:none;">
 										<a id="user-displayname" href="#" class="dropdown-toggle" data-toggle="dropdown"></a>
 										<ul class="dropdown-menu">
-											<li><a id="account-settings" href ="#">{% trans %}jda.user.settings{% endtrans %}</a></li>
+											<!--<li><a id="account-settings" href ="#">{% trans %}jda.user.settings{% endtrans %}</a></li>-->
 											<li><a href="#">{% trans %}jda.user.profile{% endtrans %}</a></li>
 											<li><a href='{{ path('_security_logout',{ '_locale': locale })}}' >{% trans %}jda.user.logout{% endtrans %}</a></li>
 										</ul>
@@ -134,8 +134,8 @@
 							<li class="divider-vertical"></li>
 							<li>
 								<div id='jda-language-toggle' class="btn-group">
-									<button data-language="en" class="btn btn-mini {% if locale == 'en' %} active {% endif %}">English</button>
 									<button data-language="ja" class="btn btn-mini {% if locale == 'ja' %} active {% endif %} ">日本語</button>
+									<button data-language="en" class="btn btn-mini {% if locale == 'en' %} active {% endif %}">English</button>
 								</div>
 							</li>
 						</ul>
