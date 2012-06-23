@@ -16,14 +16,12 @@
 		    'mouseenter':function () {
 		    				
 						    $(this.el).css('color','#08c');
-						    $(this.el).css('cursor','move');
 						    $(this.el).find('.jdicon-small-drag').show();
 						    
 						  },
 			'mouseleave':function () {
 							
 						    $(this.el).css('color','inherit');
-						    $(this.el).css('cursor','auto');
 						    $(this.el).find('.jdicon-small-drag').hide();
 						   
 						  },
