@@ -122,7 +122,7 @@
 
 			$(this.el).draggable({
 
-			    cursor : 'move',
+			    cursor : 'crosshair',
 			    cursorAt : { 
 				top : 50,
 				left : 50
