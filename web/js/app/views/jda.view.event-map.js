@@ -43,7 +43,6 @@
 		
 		},
 		
-		
 		initMap : function(){
 			console.log("Initializing Map");
 
@@ -104,9 +103,12 @@
 							'CQL_FILTER' : jda.app.resultsView.getCQLSearchString()
 						});
 					}
+					
+					_this.initTimeSlider(_this.map);
 				}
 			);
 		},
+		
 		startMapListeners : function(map){
 			var _this = this;
 			this.map.events.register('click', map, function(e){
@@ -174,6 +176,7 @@
 		
 
 	},
+		
 		initLayerControl : function(){
 			console.log("Initializing Layer Controls");
 			_this=this;
@@ -314,7 +317,7 @@
 		/********** TIME SLIDER CODE ***********************/
 		
 		
-		/****************
+		
 		
 		initTimeSlider : function(map){
 			console.log("Initializing Time Slider");
@@ -326,11 +329,11 @@
 			
 				//Put HTML into the div
 				timesliderHTML = 
-					"<div id='date-time-start' class='date-time-block'>" +
+					"<div id='date-time-start' class='date-time-block pull-left'>" +
 						"<input type='text' name='start-date' id='start-date' value='' class='date-picker'>" + 
 						"<input type='text' name='start-time' id='start-time' value='' class='time-picker'>" +
 					"</div>" +  
-					"<div id='date-time-end' class='date-time-block'>" +
+					"<div id='date-time-end' class='date-time-block pull-right'>" +
 						"<input type='text' name='end-date' id='end-date' value='' class='date-picker'>" +
 						"<input type='text' name='end-time' id='end-time' value='' class='time-picker'>" +
 					"</div>" +
@@ -376,7 +379,7 @@
 					{	
 						_this.setStartDateTimeSliderBubble(ui.values[0]);
 						_this.setEndDateTimeSliderBubble(ui.values[1]);
-						_this.resultsView.setStartAndEndTimes(ui.values[0], ui.values[1]);
+						 jda.app.resultsView.setStartAndEndTimes(ui.values[0], ui.values[1]);
 						_this.updateMapForTimeSlider(map);
 						_this.updateResultsCountForTimeSlider();
 					 }
@@ -394,7 +397,7 @@
 
 		//disabling time slider for the moment
 		updateResultsCountForTimeSlider : function(sliderUI, map){
-			var searchView = this.resultsView;
+			var searchView = jda.app.resultsView;
 			$("#jda-related-tags, #jda-title, #zeega-results-count").fadeTo(100,0);
 			searchView.collection.fetch({
 				success : function(model, response){ 
@@ -407,15 +410,12 @@
 		},
 		
 		updateMapForTimeSlider : function(map){
-			console.log("UP");
-			 //Time filter string    
-			 cqlFilterString = this.resultsView.getCQLSearchString();
-			 if(!_.isUndefined(cqlFilterString))
-			 {
-				map.getLayersByName('cite:item - Tiled')[0].mergeNewParams({
-					'CQL_FILTER' : cqlFilterString
-				});
-			 }
+			 cqlFilterString = jda.app.resultsView.getCQLSearchString();
+ 	 			if( jda.app.resultsView.getCQLSearchString()!=null){
+ 					map.getLayersByName('cite:item - Tiled')[0].mergeNewParams({
+ 					'CQL_FILTER' : jda.app.resultsView.getCQLSearchString()
+			     });
+				 }
 		},
 		
 		setStartDateTimeSliderHandle : function(){
@@ -443,25 +443,25 @@
 		},
 		
 		setStartDateTimeSliderBubble : function(val){		
-			centerX = $("#range-slider a").first().position()["left"];
-			dateTimeWidth = $("#date-time-start").outerWidth();
-			$("#date-time-start").css("left", centerX);
+			//centerX = $("#range-slider a").first().position()["left"];
+			//dateTimeWidth = $("#date-time-start").outerWidth();
+			//$("#date-time-start").css("left", centerX);
 			var d = new Date(val*1000);
 			$("#start-date").val(d.format('mmmm d, yy'));
 			$("#start-time").val(d.format("h:MM tt"));
 		},
 		
 		setEndDateTimeSliderBubble : function(val){
-			handleWidth =  $("#range-slider a").last().outerWidth();
-			centerX = $("#range-slider a").last().position()["left"];
-			dateTimeWidth = $("#date-time-end").width();
-			$("#date-time-end").css("left", centerX + dateTimeWidth + handleWidth/2);
+			//handleWidth =  $("#range-slider a").last().outerWidth();
+			//centerX = $("#range-slider a").last().position()["left"];
+			//dateTimeWidth = $("#date-time-end").width();
+			//$("#date-time-end").css("left", centerX + dateTimeWidth + handleWidth/2);
 			var d = new Date(val*1000);
 			$("#end-date").val(d.format('mmmm d, yy'));
 			$("#end-time").val(d.format("h:MM tt"));
 		},
 	
-	**************/	
+
 	
 	
 	});

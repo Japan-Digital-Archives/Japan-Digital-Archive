@@ -86,7 +86,7 @@ this.jda = {
 		
 		if (!_.isUndefined(params.view_type))  this.switchViewTo(params.view_type,false) ;
 		
-		if (params.view_type == 'event')
+		if (params.view_type == 'event' && !this.eventMap.timeSliderLoaded)
 		{
 			this.setEventViewTimePlace(params);
 		}
@@ -308,7 +308,7 @@ this.jda = {
 	showListView : function(){
 		console.log('switch to List view');
 
-		
+		 $('#event-time-slider').hide();
 		$('#zeega-view-buttons .btn').removeClass('active');
 		$('#list-button').addClass('active');
 		
@@ -332,7 +332,7 @@ this.jda = {
 	
 		$('#zeega-view-buttons .btn').removeClass('active');
 		$('#thumb-button').addClass('active');
-		
+		 $('#event-time-slider').hide();
 		$('#zeega-results-count').removeClass('zeega-results-count-event');
 		$('#zeega-results-count').css('left', 0);
 		$('#zeega-results-count').css('z-index', 0);
@@ -350,9 +350,7 @@ this.jda = {
 		console.log('switch to Event view');
 		$('#zeega-view-buttons .btn').removeClass('active');
 		$('#event-button').addClass('active');
-		
-		//Time slider disabled for now
-		//$('#event-time-slider').show();
+		$('#event-time-slider').show();
 		$('#zeega-results-count').addClass('zeega-results-count-event');
 		$('#zeega-results-count').offset( { top:$('#zeega-results-count').offset().top, left:10 } );
 		$('#zeega-results-count').css('z-index', 1000);
