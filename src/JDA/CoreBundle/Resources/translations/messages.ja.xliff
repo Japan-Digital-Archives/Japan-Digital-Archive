@@ -522,7 +522,10 @@
                 <source>jda.advanced.search</source>
                 <target>Advanced Search</target>
             </trans-unit>             
-            
+             <trans-unit id="131">
+                <source>jda.search.withtimeplace</source>
+                <target>with time and place data</target>
+            </trans-unit> 
         </body>
     </file>
 </xliff>
