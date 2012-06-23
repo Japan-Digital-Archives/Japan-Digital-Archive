@@ -40,6 +40,8 @@ this.jda = {
 	},
 	
 	search : function(params, useValuesFromURL){
+	
+		console.log('searchingn ow');
 		var _this = this;
 		//Parse out search box values for putting them in the Search query
 		if (useValuesFromURL)
@@ -208,6 +210,7 @@ this.jda = {
 	
 	addFilter : function(model, filterType, searchParams){
 		
+		console.log('adding filter');
 		if (searchParams == null){
 			searchParams = new Object();
 		}
@@ -251,6 +254,8 @@ this.jda = {
 	***************************************************************************/
 	
 	removeFilter : function(filterType, searchParams, doSearch){
+		
+		console.log('removing filter');
 		if (searchParams == null){
 			searchParams = new Object();
 		}
@@ -376,10 +381,12 @@ this.jda = {
 	},
 	
 
-	//NOTE - this does not search, it only clears out all the filters in the search box UI
-	clearSearchFilters : function()
+	
+	clearSearchFilters : function(doSearch)
 	{
-    	//clear out the content filter
+		console.log('clearSearchFilters called');
+    	if (doSearch == null) doSearch = true;
+		
     	$('#zeega-content-type').val("all");
     	$('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
 
@@ -387,6 +394,7 @@ this.jda = {
     	VisualSearch.searchBox.disableFacets();
 	    VisualSearch.searchBox.value('');
 	  	VisualSearch.searchBox.flags.allSelected = false;
+	  	if(doSearch) this.search({ page:1,});
 	},
 
 	initAdvSearch : function()
