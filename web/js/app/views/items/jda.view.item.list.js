@@ -10,22 +10,7 @@
 		className:'list-fancymedia',
 		//className : 'row',
 
-		events: {
-
-		    //'click': function(){alert('hi');},
-		    'mouseenter':function () {
-		    				
-						    $(this.el).css('color','#08c');
-						    $(this.el).find('.jdicon-small-drag').show();
-						    
-						  },
-			'mouseleave':function () {
-							
-						    $(this.el).css('color','inherit');
-						    $(this.el).find('.jdicon-small-drag').hide();
-						   
-						  },
-		 },
+		
 		 initialize: function () {
 	        
 	        this.el.id = this.model.id;
@@ -69,6 +54,8 @@
 					template = this.getDefaultTemplate();
 					break;
 				case 'Collection':
+					$(this.el).removeClass('list-fancymedia');
+					$(this.el).click(function(){jda.app.addFilter(_this.model, 'collection'); return false;});
 					template = this.getCollectionTemplate();
 					break;
 				

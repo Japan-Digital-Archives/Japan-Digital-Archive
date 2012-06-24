@@ -83,40 +83,13 @@
 	},
 	
 	
+	goToAuthorPage :function(){
 	
-	
-	
-	goToAuthorPage : function()
-	{
-		var _this = this;
-		_.each( VisualSearch.searchBox.facetViews, function( facet ){
-		
-			if (facet.model.get("category")=="collection" && facet.model.get("value") == _this.model.get('title')) {
-				facet.model.set({'value': null });
-				facet.remove();
-			}
-		});
-
-		//retrieve user object and then add user filter
-		var Browser = jda.module("browser");
-		
-		var userID = _this.model.get('user_id');
-	
-		var authorModel = new Browser.Users.Model({id:userID});
-		authorModel.fetch({
-			success : function(model, response){
-				jda.app.addFilter(model,'user', {collection:''});
-			},
-			error : function(model, response){
-				console.log('Failed to fetch the user object.');
-				console.log(model);
-			},
-
-		});
-		
+		jda.app.goToAuthorPage(this.model.get('user_id'));
 	},
 	
-	  render: function(done)
+	
+	render: function(done)
 	  {
 	  	var _this = this;
 	  	var canEdit = true;//this.model.get('can_edit');
@@ -514,7 +487,7 @@
 			return this;
 		},
 		
-		editMetadata : function()
+	editMetadata : function()
 		{
 			console.log('edit the metadata!')
 			var _this  = this;

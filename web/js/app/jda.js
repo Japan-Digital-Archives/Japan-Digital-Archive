@@ -453,6 +453,45 @@ this.jda = {
 		}
 		else this.initCollectionsDrawer();
 	},
+	
+	
+	
+	
+	
+	goToAuthorPage : function(userId){
+		var _this = this;
+		this.clearSearchFilters(false);
+
+		//retrieve user object and then add user filter
+		var Browser = jda.module("browser");
+		var authorModel = new Browser.Users.Model({id:userId});
+		authorModel.fetch({
+			success : function(model, response){
+				jda.app.addFilter(model,'user', {collection:''});
+			},
+			error : function(model, response){
+				console.log('Failed to fetch the user object.');
+				console.log(model);
+			},
+
+		});
+		
+	},
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }, Backbone.Events)
 
 

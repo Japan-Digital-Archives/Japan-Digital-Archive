@@ -6,26 +6,6 @@
 	Browser.Items.Views.Thumb = Backbone.View.extend({
 		
 		tagName : 'li',
-		
-		
-		events: {
-
-		    //'click': function(){alert('hi');},
-		    'mouseenter':function () {
-		    				
-						    $(this.el).css('color','#08c');
-						    $(this.el).css('cursor','move');
-						    $(this.el).find('.jdicon-small-drag').show();
-						    
-						  },
-			'mouseleave':function () {
-							
-						    $(this.el).css('color','inherit');
-						    $(this.el).css('cursor','auto');
-						    $(this.el).find('.jdicon-small-drag').hide();
-						   
-						  },
-		 },
 		 initialize: function () {
 	        
 	        this.el.id = this.model.id;
@@ -119,13 +99,7 @@
 			}
 			if (this.model.get('media_type') == 'Collection')
 			{
-				$(this.el).find('.label').show();
-				
-				$(this.el).find('.label').click(function(){
-					jda.app.addFilter(_this.model, 'collection');
-					$(this).tooltip('hide');
-					return false;
-				});
+				$(this.el).click(function(){ jda.app.addFilter(_this.model, 'collection'); return false;});
 				
 			} else{
 				//Turning this off because buggy
@@ -188,8 +162,8 @@
 			
 				'<a href="#" class="thumbnail zeega-collection rotated-left">'+
 				//	'<i class="jdicon-small-drag" style="z-index:2"></i>'+
-					'<span class="label label-inverse" style="display:none;position: absolute;top: 91px;left:126px;z-index:2" rel="tooltip" title="Go to Collection View">'+
-					'<i class="icon-share-alt icon-white"></i></span>'+
+				//	'<span class="label label-inverse" style="display:none;position: absolute;top: 91px;left:126px;z-index:2" rel="tooltip" title="Go to Collection View">'+
+				//	'<i class="icon-share-alt icon-white"></i></span>'+
 					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px">'+
 					//'<input class="jda-item-checkbox" type="checkbox">'+
 				'</a>';
