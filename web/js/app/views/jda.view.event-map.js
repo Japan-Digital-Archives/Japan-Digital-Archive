@@ -266,7 +266,7 @@
 				 if(sessionStorage.getItem('locale') == 'en') var title = layer.title; else var title = layer.titleJa;
 				
 				 $('#layer-checkboxes').append('<label class="checkbox">'+title+'<input type="checkbox" data-layer="'+layer.src+'" class="layer-checkbox" id="'+layer.id+'"/></label>');
-				 $('#layer-legend').append('<div class="legend-entry hidden" id="'+layer.id+'-legend"><p>"'+title+'"</p></div>');
+				 $('#layer-legend').append('<div class="legend-entry hidden" id="'+layer.id+'-legend"><p>'+title+'</p></div>');
 		
 				layers.push( new OpenLayers.Layer.WMS(
 					layer.id,
