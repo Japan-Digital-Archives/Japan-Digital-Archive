@@ -4,10 +4,10 @@
 #zeega-view-navigation{
 	
 	background-color: #444;
-	padding:8px 0;
+	padding:4px 0;
 	z-index:2;
 	position: fixed;
-	top: 40px;
+	top: 44px;
 	width:100%;
 	min-width:900px;
 }
@@ -181,7 +181,7 @@
 
 	height: 36px;
 	position: absolute;
-	top: 10px;
+	top: 6px;
 	left: 630px;
 	font-size: 1.2em;
 	font-weight: bold;

@@ -221,6 +221,14 @@ $(document).ready(function(){
 	
 	
 	
+	
+	
+	/*********** SEARCH SPECIFIC GO TO PROFILE PAGE ****************/
+	
+	
+		$('#jda-user-profile').click(function(){ jda.app.goToAuthorPage(-1);});
+	
+	
 
   
   

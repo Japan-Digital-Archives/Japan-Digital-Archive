@@ -113,7 +113,7 @@
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="zicon-user"></i> {% if displayname is defined %} {{displayname}}{% endif %}<b class="caret"></b></a>
 										<ul class="dropdown-menu">
 											<li><a id="account-settings" href ="#">{% trans %}jda.user.settings{% endtrans %}</a></li>
-											<li><a href="#">{% trans %}jda.user.profile{% endtrans %}</a></li>
+											<li><a id="jda-user-profile" href="#">{% trans %}jda.user.profile{% endtrans %}</a></li>
 											<li><a href='{{ path('_security_logout',{ '_locale': locale })}}' >{% trans %}jda.user.logout{% endtrans %}</a></li>
 										</ul>
 								</li>
