@@ -101,6 +101,7 @@
 		var Browser = jda.module("browser");
 		
 		var userID = _this.model.get('user_id');
+		userID = 338;
 		var authorModel = new Browser.Users.Model({id:userID});
 		authorModel.fetch({
 			success : function(model, response){

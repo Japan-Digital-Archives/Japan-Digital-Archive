@@ -1,7 +1,6 @@
 default:
     pattern:   /
     defaults:  { _controller: JDACoreBundle:Home:redirect, _locale: ja }
-
 search:
     pattern:   /{_locale}/search
     defaults:  { _controller: JDACoreBundle:Search:index, _locale: ja }
@@ -26,5 +25,10 @@ about:
 collections:
     pattern:   /{_locale}/collections
     defaults:  { _controller: JDACoreBundle:Collections:index, _locale: ja }
+    requirements:
+        _locale: en|ja
+item:
+    pattern:   /{_locale}/item/{item_id}
+    defaults:  { _controller: JDACoreBundle:Item:index, _locale: ja }
     requirements:
         _locale: en|ja

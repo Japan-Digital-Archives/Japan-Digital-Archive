@@ -1,0 +1,94 @@
+{# src/Zeega/CoreBundle/Resources/views/Item/item.html.twig #}
+
+{% extends '::base.html.twig' %}
+
+{% block title %}<title>{% trans %}jda.home.title{% endtrans %}</title>{% endblock %}
+
+
+
+{% block stylesheets %}
+
+
+
+	<link type="text/css" href="{{ asset('js/lib/jquery-ui-1.8.18.custom/css/smoothness/jquery-ui-1.8.18.custom.css')}}" rel="Stylesheet" />
+	
+	<link href="{{ asset('js/lib/jquerySVG/jquery.svg.css')}}" rel="stylesheet" type="text/css">
+	
+	<!-- Leaflet CSS --> 
+	<link rel="stylesheet" href="{{ asset('js/lib/leaflet/leaflet.css')}}" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="{{ asset('js/lib/leaflet/leaflet.ie.css')}}" /><![endif]-->
+	
+	
+	<!-- Tags --> 
+	<link rel="stylesheet" type="text/css" href="{{ asset('js/lib/jquery.tagsinput.css')}}" />
+	
+	<!-- Visual Search --> 
+	<!--[if (!IE)|(gte IE 8)]><!-->
+	<link href="{{ asset('js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
+	<!--<![endif]-->
+	<!--[if lte IE 7]><!-->
+	<link href="{{ asset('js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
+	<!--<![endif]-->
+	
+	<!-- FANCYBOX -->
+	
+	
+	<!-- Add fancyBox -->
+	<link rel="stylesheet" href="{{ asset('css/zeega.fancybox.css')}}" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{ asset('js/lib/fancybox/jquery.fancybox.css')}}" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{ asset('js/lib/fancybox/helpers/jquery.fancybox-buttons.css')}}" type="text/css" media="screen" />
+	<style>
+	body {
+		  padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+	}
+	</style>
+	
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		  <![endif]-->
+
+{% endblock %}    
+
+
+
+{% block scripts %}
+	 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	 <script type="text/javascript" src="http://s3.documentcloud.org/viewer/loader.js"></script>
+	 <script data-main="{{ asset('js/loaders/item') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+
+	 <div id="jda-main-content" class="container">
+      	<h2>An item's title is a titled item</h2>
+        <h4>by Gus D'Igmond</h4>
+        <p><a href="#">View on Yahoo Japan</a></p>
+        <div class="btn-group">
+          <button class="btn btn-small btn-info active">Published</button>
+          <button class="btn btn-small btn-info">Unpublish</button>
+          
+        </div>
+        <div style="position:relative;top:30px">
+          <img src="http://placehold.it/640x480" alt="" class="thumbnail pull-left" style="margin-right:20px"><img id="jda-resize-smaller" src="resize_small.png" style="position: absolute;top: 425px;opacity: 0.4;left: 585px;"><img id="jda-resize-bigger" src="resize_full.png" style="position: absolute;top: 95px;opacity: 0.4;left: 135px;display: block;width: 25px;display:none"><p>Sed ut perspiciatis unde omnisiste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? <i class="icon-plus-sign"></i></p>
+          <p class="added" style="display:none">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+          <p class="added" style="display:none">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. <i class="icon-minus-sign"></i></p>
+          <h3>Map</h3>
+          <img src="map-screenshot.png" style="margin-bottom:12px"/>
+          <h3>Tags</h3>
+          <button class="btn btn-mini btn-danger">Sendai</button>
+          <button class="btn btn-mini btn-danger">earthquake</button>
+          <button class="btn btn-mini btn-danger">crisis</button>
+          <button class="btn btn-mini btn-danger">Japan</button>
+              
+             
+        </div>
+  	
+    </div> <!-- /container -->
+
+{% endblock %}
