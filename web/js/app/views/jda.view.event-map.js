@@ -103,7 +103,8 @@
 							'CQL_FILTER' : jda.app.resultsView.getCQLSearchString()
 						});
 					}
-					
+					_this.map.getLayersByName('cite:item - Tiled')[0].events.register('loadstart','ok',function(){$('.jda-map-loader').show();});
+					_this.map.getLayersByName('cite:item - Tiled')[0].events.register('loadend','ok',function(){$('.jda-map-loader').fadeOut('fast');});
 					_this.initTimeSlider(_this.map);
 				}
 			);
