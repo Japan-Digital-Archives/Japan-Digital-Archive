@@ -5,7 +5,7 @@
 	
 	Browser.Items.Views.CollectionPage = Backbone.View.extend({
 		
-		el : $('#jda-collection-filter'),
+		el : $('#jda-collection-filter-new'),
 
 		events: {
 			'click button.play' : 'playCollection',
@@ -28,10 +28,7 @@
 			this.isMoreView = false;
 			this.elemId = Math.floor(Math.random()*10000);
 
-			/* Adjust layout for filter */
-			$('.tab-content').addClass('jda-low-top');
-			$('#zeega-right-column').addClass('zeega-right-column-low');
-
+			
 			/* Adjust Visual Search box with proper filters */
 	      var facetExists = false;
 
@@ -434,7 +431,7 @@
 
 			//Make sure layout is ok
 			//$(this.el).width(jda.app.getLeftColumnWidth());
-			$(this.el).width($('#zeega-main-content').width());
+			//$(this.el).width($('#zeega-main-content').width());
 
 
 			/***********

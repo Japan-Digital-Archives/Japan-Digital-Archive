@@ -203,10 +203,20 @@ margin-left: -20px;
 
 }
 #jda-collection-filter{
-	position:fixed;top:75px;background:white;z-index:1;padding-bottom:9px;padding-top:30px;
+	position:fixed;
+	top:105px;
+	background:white;
+	z-index:1;
 	min-width:850px;
 	left:inherit;
 	overflow: hidden;
+}
+
+
+#jda-collection-filter-new{
+
+	padding-bottom: 10px;
+
 }
 #jda-user-filter{
 	overflow: hidden;
