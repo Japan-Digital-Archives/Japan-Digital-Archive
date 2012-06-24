@@ -140,7 +140,7 @@
             </trans-unit>
              <trans-unit id="35">
                 <source>jda.search.legend</source>
-                <target>Legend</target>
+                <target>凡例</target>
             </trans-unit>
              <trans-unit id="36">
                 <source>jda.search.muncipaldistricts</source>
@@ -200,11 +200,11 @@
             </trans-unit>
             <trans-unit id="51">
                 <source>jda.login.username</source>
-                <target>Email</target>
+                <target>Eメール</target>
             </trans-unit>
             <trans-unit id="52">
                 <source>jda.login.password</source>
-                <target>Password</target>
+                <target>パスワード</target>
             </trans-unit>
             <trans-unit id="53">
                 <source>jda.login.partnerlogin</source>
@@ -228,7 +228,7 @@
             </trans-unit>
             <trans-unit id="58">
                 <source>jda.login.button</source>
-                <target>Submit</target>
+                <target>送信</target>
             </trans-unit>
             <trans-unit id="59">
                 <source>jda.header.alphadescription</source>
@@ -240,15 +240,15 @@
             </trans-unit>
             <trans-unit id="61">
                 <source>jda.header.signout</source>
-                <target>Login</target>
+                <target>ログイン</target>
             </trans-unit>
             <trans-unit id="62">
                 <source>jda.advsearch.searchTerms</source>
-                <target>Search Terms:</target>
+                <target>検索語 :</target>
             </trans-unit>
             <trans-unit id="63">
                 <source>jda.advsearch.title</source>
-                <target>Advanced Search:</target>
+                <target>詳細検索 :</target>
             </trans-unit>
             <trans-unit id="64">
                 <source>jda.advsearch.video</source>
@@ -280,143 +280,143 @@
             </trans-unit>
             <trans-unit id="71">
                 <source>jda.advsearch.contentType</source>
-                <target>Content Type:</target>
+                <target>情報の種類 :</target>
             </trans-unit>
             <trans-unit id="72">
                 <source>jda.advsearch.user</source>
-                <target>User:</target>
+                <target>ユーザ：</target>
             </trans-unit>
             <trans-unit id="73">
                 <source>jda.advsearch.allusers</source>
-                <target>All Users</target>
+                <target>すべてのユーザ</target>
             </trans-unit>
             <trans-unit id="74">
                 <source>jda.advsearch.onlyCurrentUser</source>
-                <target>Only My Items</target>
+                <target>自分のアーカイブのみ</target>
             </trans-unit>
             <trans-unit id="75">
                 <source>jda.advsearch.tags</source>
-                <target>Tags:</target>
+                <target>タグ：</target>
             </trans-unit>
             <trans-unit id="76">
                 <source>jda.advsearch.startDate</source>
-                <target>Start Date:</target>
+                <target>〜日から :</target>
             </trans-unit>
             <trans-unit id="77">
                 <source>jda.advsearch.endDate</source>
-                <target>End Date:</target>
+                <target>〜日まで :</target>
             </trans-unit>
             <trans-unit id="78">
                 <source>jda.advsearch.incCollections</source>
-                <target>Include Collections?:</target>
+                <target>コレクションを含めますか？</target>
             </trans-unit>
             <trans-unit id="79">
                 <source>jda.advsearch.noCollections</source>
-                <target>No Collections</target>
+                <target>コレクションは含めない</target>
             </trans-unit>
             <trans-unit id="80">
                 <source>jda.advsearch.onlyCollections</source>
-                <target>Only Collections</target>
+                <target>コレクションのみ</target>
             </trans-unit>
             <trans-unit id="81">
                 <source>jda.advsearch.both</source>
-                <target>Both</target>
+                <target>両方</target>
             </trans-unit>
             <trans-unit id="82">
                 <source>jda.advsearch.mapInstructions</source>
-                <target>Instructions</target>
+                <target>使い方</target>
             </trans-unit>
             <trans-unit id="83">
                 <source>jda.advsearch.mapInstructionsTxt</source>
-                <target>Hold Shift and Drag in order to create a box around the area you would like to search</target>
+                <target>シフト・キーを押したままドラッグすることで、検索したい地域を指定できます。</target>
             </trans-unit>
             <trans-unit id="84">
                 <source>jda.header.explore</source>
-                <target>Explore</target>
+                <target>検索</target>
             </trans-unit>
             <trans-unit id="85">
                 <source>jda.header.collections</source>
-                <target>Collections</target>
+                <target>コレクション</target>
             </trans-unit>
             <trans-unit id="86">
                 <source>jda.header.participate</source>
-                <target>Participate</target>
+                <target>参加する</target>
             </trans-unit>
             <trans-unit id="87">
                 <source>jda.login.register</source>
-                <target>Create an account</target>
+                <target>アカウントを新規作成</target>
             </trans-unit>
             <trans-unit id="88">
                 <source>jda.login.savecollection</source>
-                <target>To save your collectioJA</target>
+                <target>あなたのコレクションを保存する</target>
             </trans-unit>
             <trans-unit id="89">
                 <source>jda.register.header</source>
-                <target>Create an Account!</target>
+                <target>アカウントを新規作成する！</target>
             </trans-unit>
              <trans-unit id="90">
                 <source>jda.register.confirm</source>
-                <target>You've successfully registered!</target>
+                <target>さんの登録が完了しました！</target>
             </trans-unit>
             <trans-unit id="91">
                 <source>jda.register.login</source>
-                <target>You've successfully logged in!</target>
+                <target>ログインが完了しました！</target>
             </trans-unit>
             <trans-unit id="92">
                 <source>jda.about.mission</source>
-                <target>Mission</target>
+                <target>使命</target>
             </trans-unit>
             <trans-unit id="93">
                 <source>jda.about.team</source>
-                <target>Team</target>
+                <target>チーム</target>
             </trans-unit>
             <trans-unit id="94">
                 <source>jda.about.news</source>
-                <target>News</target>
+                <target>ニュース</target>
             </trans-unit>
             <trans-unit id="95">
                 <source>jda.about.faq</source>
-                <target>FAQ</target>
+                <target>よくあるご質問</target>
             </trans-unit>
             <trans-unit id="96">
                 <source>jda.about.terms</source>
-                <target>Terms</target>
+                <target>ご利用規約</target>
             </trans-unit>
             <trans-unit id="97">
                 <source>jda.user.settings</source>
-                <target>Account Settings</target>
+                <target>アカウント設定</target>
             </trans-unit>
             <trans-unit id="98">
                 <source>jda.user.profile</source>
-                <target>Profile Page</target>
+                <target>プロフィール</target>
             </trans-unit>
             <trans-unit id="99">
                 <source>jda.user.logout</source>
-                <target>Logout</target>
+                <target>ログアウト</target>
             </trans-unit>
             <trans-unit id="100">
                 <source>jda.header.signin</source>
-                <target>Sign In</target>
+                <target>サインイン</target>
             </trans-unit>
             <trans-unit id="101">
                 <source>jda.login.header</source>
-                <target>Sign in or</target>
+                <target>サインイン</target>
             </trans-unit>
             <trans-unit id="102">
                 <source>jda.login.forgot</source>
-                <target>forgot password?</target>
+                <target>パスワードをお忘れですか？</target>
             </trans-unit>
             <trans-unit id="103">
                 <source>jda.login.back</source>
-                <target>Back</target>
+                <target>戻る</target>
             </trans-unit>
             <trans-unit id="104">
                 <source>jda.login.return</source>
-                <target>Return to login</target>
+                <target>ログイン画面に戻る</target>
             </trans-unit>
             <trans-unit id="105">
                 <source>jda.login.confirm</source>
-                <target>you've successfully logged in!</target>
+                <target>ログインが完了しました！</target>
             </trans-unit>
             <trans-unit id="106">
                 <source>jda.header.me</source>
@@ -428,8 +428,7 @@
             </trans-unit>
             <trans-unit id="108">
                 <source>jda.home.collection1text</source>
-                <target>この公開コレクションでは、南三陸町と気仙沼の漁業・水産養殖業が2011年3月11日の
-震災によって受けた被害の様子を記録した映像と文書が集められています。</target>
+                <target>この公開コレクションでは、2011年3月11日の震災によって被害を受けた南三陸町と気仙沼の漁業・水産養殖業の様子を記録した映像と文書が集められています。</target>
             </trans-unit>
             <trans-unit id="109">
                 <source>jda.home.collection2</source>
@@ -455,39 +454,39 @@
             </trans-unit>
             <trans-unit id="114">
                 <source>jda.report.bug</source>
-                <target>Report a bug</target>
+                <target>不具合の報告</target>
             </trans-unit>
             <trans-unit id="115">
                 <source>jda.report.bugintro</source>
-                <target>The website is still in beta. We need your help to make it better! Let us know if something is misbehaving by sending us a brief description of what's wrong:</target>
+                <target>このウェブサイトは開発中のベータ版です。質の向上のため、ご協力頂けるようお願い申し上げます。どのような不具合が起きたのかを簡単にご説明下さい。</target>
             </trans-unit>
              <trans-unit id="116">
                 <source>jda.report.buglinknote</source>
-                <target>a link to the current view will be included automatically</target>
+                <target>現在ご覧のページは自動的に添付されます</target>
             </trans-unit>
             <trans-unit id="117">
                 <source>jda.report.bugemail</source>
-                <target>Your email (optional):</target>
+                <target>Eメールアドレス（任意）</target>
             </trans-unit>            
   			<trans-unit id="118">
                 <source>jda.sort.by</source>
-                <target>Sort By</target>
+                <target>並べ替え</target>
             </trans-unit>
             <trans-unit id="119">
                 <source>jda.sort.recent</source>
-                <target>Recent</target>
+                <target>新しい順</target>
             </trans-unit>
             <trans-unit id="120">
                 <source>jda.sort.oldest</source>
-                <target>Oldest</target>
+                <target>古い順</target>
             </trans-unit>
             <trans-unit id="121">
                 <source>jda.search.collection</source>
-                <target>collection</target>
+                <target>コレクション</target>
             </trans-unit>
              <trans-unit id="122">
                 <source>jda.search.collections</source>
-                <target>collections</target>
+                <target>コレクション</target>
             </trans-unit>
             
        		<trans-unit id="123">
@@ -496,15 +495,15 @@
             </trans-unit>
      		 <trans-unit id="124">
                 <source>jda.drag.items</source>
-                <target>Drag items here to add to your collection</target>
+                <target>ここにドラッグした情報はあなたのコレクションに加わります</target>
             </trans-unit>      
                <trans-unit id="125">
                 <source>jda.drag.added</source>
-                <target>Added!</target>
+                <target>追加されました！</target>
             </trans-unit>     
               <trans-unit id="126">
                 <source>jda.drag.shareorganize</source>
-                <target>Share and Organize</target>
+                <target>共有設定</target>
             </trans-unit>
 			 <trans-unit id="127">
                 <source>jda.drag.and</source>
@@ -516,15 +515,15 @@
             </trans-unit>   
             <trans-unit id="129">
                 <source>jda.drag.createnewcollection</source>
-                <target>Create A New Collection</target>
+                <target>コレクションを新規作成</target>
             </trans-unit>   
          	<trans-unit id="130">
                 <source>jda.advanced.search</source>
-                <target>Advanced Search</target>
+                <target>詳細検索</target>
             </trans-unit>             
              <trans-unit id="131">
                 <source>jda.search.withtimeplace</source>
-                <target>with time and place data</target>
+                <target>（時間／地図データ）</target>
             </trans-unit> 
 			 <trans-unit id="132">
                 <source>jda.search.gotocollection</source>
