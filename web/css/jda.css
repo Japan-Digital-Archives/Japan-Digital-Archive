@@ -544,6 +544,18 @@ border-radius: 0px 4px 0px 0px;
 	color: whiteSmoke;
 	background-color: rgba(0, 0, 0, 0.5);
 }
+
+
+.jda-map-loader {
+	width: 80px;
+	height: 16px;
+	background-size: 80px 16px;
+	background-image: url("../images/map-loader.gif");
+	background-repeat:no-repeat;
+	margin-top:15px;
+	padding-right:15px;
+}
+
 /**********************************
 	END TIME SLIDER
 ***********************************/

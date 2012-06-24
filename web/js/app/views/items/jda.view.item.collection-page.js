@@ -8,7 +8,7 @@
 		el : $('#jda-collection-filter'),
 
 		events: {
-			'click button.play' : function(){alert('Plays slideshow');},
+			'click button.play' : 'playCollection',
 			'click button.share' : function(){alert('Opens publish process modal window');},
 			'click button.edit' : 'editMetadata',
 			'click button.save' : 'saveMetadata',
@@ -16,7 +16,7 @@
 			'click .jda-collection-filter-author' : 'goToAuthorPage'
 		},
 		
-		initialize: function () {
+	initialize: function () {
 
 			//for looking up address from lat/lon
 			this.geocoder = new google.maps.Geocoder();
@@ -70,6 +70,21 @@
 
 
 	  },
+	
+	
+	
+	playCollection: function(){
+	
+	
+		window.open(sessionStorage.getItem('apiUrl')+'collection/'+this.model.id+'/view');
+	
+	
+	
+	},
+	
+	
+	
+	
 	
 	goToAuthorPage : function()
 	{
@@ -658,7 +673,7 @@
 						'<div class="btn-toolbar">'+
 							'<div class="btn-group">'+
 								'<button class="btn btn-info btn-mini play"><i class="icon-play icon-white"></i></button>'+
-								'<button class="btn btn-info btn-mini share"><i class="icon-share-alt icon-white"></i></button>'+
+								//'<button class="btn btn-info btn-mini share"><i class="icon-share-alt icon-white"></i></button>'+
 								'<button class="btn btn-info btn-mini edit"><i class="icon-pencil icon-white"></i></button>'+
 							'</div>'+
 							'<div class="btn-group save-data">'+
