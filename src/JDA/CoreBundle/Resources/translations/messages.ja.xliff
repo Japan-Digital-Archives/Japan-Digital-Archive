@@ -491,7 +491,7 @@
             
        		<trans-unit id="123">
                 <source>jda.my.collection</source>
-                <target>my collection</target>
+                <target>マイ・コレクション</target>
             </trans-unit>
      		 <trans-unit id="124">
                 <source>jda.drag.items</source>
@@ -528,7 +528,11 @@
 			 <trans-unit id="132">
                 <source>jda.search.gotocollection</source>
                 <target>Go to Collection</target>
-            </trans-unit>                 
+            </trans-unit>     
+            <trans-unit id="133">
+                <source>jda.search.savecollection</source>
+                <target>Save Collection</target>
+            </trans-unit>     
             
         </body>
     </file>
