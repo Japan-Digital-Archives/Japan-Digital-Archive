@@ -344,7 +344,7 @@
             </trans-unit>
             <trans-unit id="87">
                 <source>jda.login.register</source>
-                <target>Create an accouJA</target>
+                <target>Create an account</target>
             </trans-unit>
             <trans-unit id="88">
                 <source>jda.login.savecollection</source>
@@ -459,7 +459,7 @@
             </trans-unit>
             <trans-unit id="115">
                 <source>jda.report.bugintro</source>
-                <target>The website is still in beta! We need your help to make it better! Let us know if something is misbehaving by sending us a brief description of what's wrong:</target>
+                <target>The website is still in beta. We need your help to make it better! Let us know if something is misbehaving by sending us a brief description of what's wrong:</target>
             </trans-unit>
              <trans-unit id="116">
                 <source>jda.report.buglinknote</source>
