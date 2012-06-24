@@ -101,7 +101,7 @@
 		var Browser = jda.module("browser");
 		
 		var userID = _this.model.get('user_id');
-		userID = 338;
+	
 		var authorModel = new Browser.Users.Model({id:userID});
 		authorModel.fetch({
 			success : function(model, response){
@@ -666,7 +666,7 @@
 				'<div class="cover-image" style="background-image:url(<%= thumbnail_url %>)">';
 		if(_.isNull(this.model.get('thumbnail_url')) || this.model.get('thumbnail_url') == '' ) html += '<div class="drag-to"><i class="icon-camera"></i> drag cover image here</div>';
 		html+=			'<div class="cover-overlay">'+
-						'<h1><%=title%></h1><h4>by: <a href="#" class="jda-collection-filter-author"><%=media_creator_username%></a> on <%= date_created %></h4>'+
+						'<h1><%=title%></h1><h4>by: <a href="#" class="jda-collection-filter-author"><%=media_creator_realname%></a> on <%= date_created %></h4>'+
 					'</div>'+
 				'</div>'+
 

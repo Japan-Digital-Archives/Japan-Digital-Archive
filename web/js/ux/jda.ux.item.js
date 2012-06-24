@@ -219,6 +219,29 @@ $(document).ready(function(){
 	
 	
 	
+	/************ Item Page *************************/
+	
+	if($('#map').data('lat')!=""){
+		$('.map-wrapper').show();
+		var baseLayer= new L.TileLayer('http://{s}.tiles.mapbox.com/v2/mapbox.mapbox-streets/{z}/{x}/{y}.png', {maxZoom: 18, attribution:""});
+		var div = $('.jda-item-map-container').get(0);
+		var map = new L.Map(div);
+		var latLng= new L.LatLng(parseFloat($('#map').data('lat')),parseFloat($('#map').data('lng')));
+		var marker = new L.Marker(latLng,{draggable:false});
+		map.setView( latLng, 13).addLayer(baseLayer).addLayer(marker);
+		$('.leaflet-control-attribution').hide();
+    }
+
+	if($('#item').data('media_type')=="Image"){
+		
+		$('#item').append('<img src="'+$('#item').data('uri')+'" class="jda-item-image"/>');
+	
+	}
+	
+	
+	
+	
+	
 
 
 });

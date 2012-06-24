@@ -6,8 +6,6 @@
 		type:'item',
 
 		defaults : {
-			'media_creator_realname' : 'unknown',
-			'media_creator_username' : 'unknown',
             'attribution_uri': 'default',
             'uri': 'default',
             'archive': 'default',

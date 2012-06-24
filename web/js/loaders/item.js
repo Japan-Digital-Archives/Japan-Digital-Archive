@@ -25,6 +25,7 @@ var loadFiles = [
 	'order!../lib/jquery-ui-1.8.18.custom/js/jquery-ui-1.8.18.custom.min',
 	
 	'order!../lib/bootstrap-2.0.2/js/bootstrap.min',
+		'order!../lib/leaflet/leaflet',
 	
 	'order!../lib/visualsearch/visualsearch',
 	

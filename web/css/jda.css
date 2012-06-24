@@ -573,3 +573,33 @@ border-radius: 0px 4px 0px 0px;
 	cursor:pointer;
 
 }
+
+
+/**********************************
+	ITEM PAGE
+***********************************/
+
+.jda-item-map-container{
+
+	width:250px;
+	height:150px;
+	background-color:gray;
+
+}
+
+
+.jda-item-container{
+
+	width:600px;
+
+	background-color:rgba(0,0,0,.2);
+	text-align:center;
+	padding:5px;
+
+}
+
+
+
+/**********************************
+	END ITEM PAGE
+***********************************/
