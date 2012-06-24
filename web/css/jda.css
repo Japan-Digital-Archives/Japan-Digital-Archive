@@ -211,6 +211,13 @@ margin-left: -20px;
 	left:inherit;
 	overflow: hidden;
 }
+
+
+#jda-collection-filter-new{
+
+	padding-bottom: 10px;
+
+}
 #jda-user-filter{
 	overflow: hidden;
 }

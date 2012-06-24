@@ -408,6 +408,8 @@ this.jda = {
 	{
 		// do init code here
     },
+    
+    /*
 	getLeftColumnWidth : function(){
 		var width = ($(window).width() - $('#zeega-right-column').width() - 0.1 * $(window).width()) - 30;
 		var minwidth = parseInt($('#zeega-left-column').css('min-width'), 10);
@@ -418,17 +420,19 @@ this.jda = {
 		var left = this.getLeftColumnWidth() + $('#zeega-left-column').offset().left + 105;
 		return left;	
 	},
+	
+	*/
 	/***************************************************************************
 		- called from ux.search and then anytime window is resized
 	***************************************************************************/
 	redrawLayout:function(){
-		$('#zeega-left-column').css("width", jda.app.getLeftColumnWidth());
-	    $('#jda-collection-filter').css("width", $('#zeega-main-content').width() );
-	    $('#jda-user-filter').css("width", jda.app.getLeftColumnWidth() );
-	    $('.jda-separate-collections-and-items').css("width", jda.app.getLeftColumnWidth() );
-	    $('.left-col').css("width", jda.app.getLeftColumnWidth() );
+		//$('#zeega-left-column').css("width", jda.app.getLeftColumnWidth());
+	    //$('#jda-collection-filter').css("width", $('#zeega-main-content').width() );
+	    //$('#jda-user-filter').css("width", jda.app.getLeftColumnWidth() );
+	    //$('.jda-separate-collections-and-items').css("width", jda.app.getLeftColumnWidth() );
+	   // $('.left-col').css("width", jda.app.getLeftColumnWidth() );
 
-	    $('#zeega-right-column').css("left", jda.app.getRightColumnPosition());
+	    //$('#zeega-right-column').css("left", jda.app.getRightColumnPosition());
 	},
 
 	

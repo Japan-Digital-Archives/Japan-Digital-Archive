@@ -108,149 +108,156 @@ body {
       <!-- ZEEGA MAIN CONTENT -->
       <div id="zeega-main-content">
             
-            <div id="jda-collection-filter"></div>
-            <div id="jda-user-filter"></div>
+            <div class="row-fluid">
+            	
+					<div id="jda-collection-filter-new" class="span12"></div>
+           			 <div id="jda-user-filter" class="span12"></div>
+				
+            </div>
             
-                  <div id="zeega-left-column">
-                        <div id="spinner"></div>
+            <div class="row-fluid">	
+				
+				
+				<div class="span9">
+				<div id="spinner"></div>
 
-                        <div class="tab-content">
+				<div class="tab-content">
 
-                              <!-- Results & Sort Dropdown -->
+					  <!-- Results & Sort Dropdown -->
 
-                              <span id="zeega-results-count"><span id="zeega-results-count-number"></span> <span id="zeega-results-count-text">{% trans %}jda.search.items{% endtrans %}</span><span id="zeega-results-count-text-with-date"> {% trans %}jda.search.withtimeplace{% endtrans %}</span></span>
-
-
-
-
-                              <div class="btn-group pull-right" style="margin-bottom:8px;margin-right:30px">
-                                    <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
-                                          {% trans %}jda.sort.by{% endtrans %}
-                                          <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                          <li><a href="#">{% trans %}jda.sort.recent{% endtrans %}</a></li>
-                                          <li><a href="#">{% trans %}jda.sort.oldest{% endtrans %}</a></li>
-                                    </ul>
-                              </div>
-                              <div id="jda-collection-editing-toolbar" class="pull-left">
-                                    <button class="btn btn-info btn-small" type="button"><input id="jda-collection-editing-toolbar-select-all" type="checkbox"></button>
-                                    <button class="btn btn-info btn-small"><i class="icon-plus icon-white"></i>Create new collection</button>
-                                    <button class="btn btn-info btn-small" type="button"><i class="icon-trash icon-white"></i> Delete</button>
-                                    <div class="btn-group" style="display: inline-block; top:11px">
-                                      <a class="btn dropdown-toggle btn-info btn-small" data-toggle="dropdown" href="#">
-                                            <i class="icon-move icon-white"></i> Move to...
-                                            <span class="caret"></span>
-                                      </a>
-                                      <ul class="dropdown-menu">
-                                          <li><a href="#">My Collection 2</a></li>
-                                          <li><a href="#">My Collection 3</a></li>
-                                          <li><a href="#">My Collection 4</a></li>
-                                    </ul>
-                              </div>
-                        </div>
-                        
-
-                              <!-- MAP VIEW -->
-                              <div class="tab-pane" id="zeega-event-view">
-                                     <div class="time-slider-wrapper">
-                                      
-		                              <div id="event-time-slider"></div>
-		                              <div class="jda-map-loader pull-right"></div>
-                                    </div>
-                                    <div id='event-map'></div>
-                                    <div id="layer-control-drawer">
-                                          <div id ="layer-control-drawer-tab">
-                                                <p><span id="layer-control-drawer-arrows">&laquo;</span><i class="jdicon-small-layers"></i></p>
-                                          </div>
-                                          <div id="layer-control">
-                                                <ul>
-                                                      <li><a href="#layer-checkboxes">{% trans %}jda.search.data{% endtrans %}</a></li>
-                                                      <li><a href="#layer-legend">{% trans %}jda.search.legend{% endtrans %}</a></li>
-                                                </ul>
-                                                <div id='layer-checkboxes'>
-                                                     
-                                      
-                                                </div>
-
-                                                <div id='layer-legend'>
-                                                </div>
-                                          </div> <!-- layer control -->
-                                    </div> <!--layer-control-drawer -->
-                              </div>
-
-                              <!-- LIST VIEW -->
-                              <div class="tab-pane active" id="zeega-list-view">
-                                    <div class="jda-separate-collections-and-items" style="display:none">
-                                          <h3 class="jda-results-collections-text">{% trans %}jda.search.collections{% endtrans %}(<span class="jda-results-collections-count"></span>)</h3>
-                                          <table class="table" id='zeega-collections-list'>
-                                                <tbody>
-                                                      
-                                                </tbody>
-                                          </table>
-                                         <h3>{% trans %}jda.search.items{% endtrans %}(<span class="jda-results-items-count"></span>)</h3>
-                                    </div>
-                                    <table class="table" id='zeega-items-list'>
-                                          <tbody>
-                                                
-                                          </tbody>
-                                    </table>
-                              </div>
-
-                              <!-- THUMBNAIL VIEW -->
-                              <div class="tab-pane" id="zeega-thumb-view" style="clear:both">
-                                    <div class="jda-separate-collections-and-items" style="display:none">
-                                          <h3>Collections(<span class="jda-results-collections-count"></span>)</h3>
-                                          <ul class="collections-thumbnails thumbnails unstyled" >
-                                          </ul>
-                                          <h3>Items(<span class="jda-results-items-count"></span>)</h3>
-                                    </div>
-                                    <ul id="zeega-items-thumbnails" class="thumbnails">
-                                    </ul>
-                              </div>
-                        </div> <!--/tab-->
-                  </div><!--/span10-->
-
-                  <!-- RIGHT-HAND COLUMN -->
-                  <div id="zeega-right-column">
-
-                        <!-- MY COLLECTIONS -->
-                        <div id="zeega-my-collections">
-
-                              <div class="btn-group">
-                                    <button id="zeega-my-collections-active-collection" class="btn btn-large btn-inverse">{% trans %}jda.my.collection{% endtrans %}</button>
-                                    <button class="btn btn-large btn-inverse dropdown-toggle" data-toggle="dropdown" style="height:39px;border-radius:0">
-                                          <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu" style="width:100%;text-align:left">
-                                          <li><a href="#"><i class="icon-plus"></i>{% trans %}jda.drag.createnewcollection{% endtrans %}</a></li>
-                                          
-                                    </ul>
-                              </div>
-
-                              <div id="zeega-my-collections-items">
-                                    <i class="jdicon-drag" style="float:none"></i> 
-                                    <p id="zeega-my-collections-drag-items-here">
-                                         {% trans %}jda.drag.items{% endtrans %}
-                                    </p>
-                                    <span class="label label-success" id="zeega-my-collections-added">{% trans %}jda.drag.added{% endtrans %}</span>
-                                    <ul id="zeega-my-collections-items-thumbs" class="unstyled"></ul>
-                                    <span class="label label-info" id="zeega-my-collections-count-string" style="display:none">{% trans %}jda.drag.and{% endtrans %} <span id="zeega-my-collections-count"></span> {% trans %}jda.drag.moreitems{% endtrans %}</span>
-                                    <h4 id="zeega-my-collections-share-and-organize" style="display:none"><a href="#">{% trans %}jda.drag.gotocollection{% endtrans %}</a>
-                                    </h4>
-
-                              </div>
-
-                              <!-- RELATED TAGS -->
-                              <div id="jda-related-tags">
-                                    <h3 id="jda-related-tags-title">{% trans %}jda.search.relatedtags{% endtrans %}</h3>
-                              </div>
-                        </div><!-- /span12 -->
-                  <!--</div> /row  -->
+					  <span id="zeega-results-count"><span id="zeega-results-count-number"></span> <span id="zeega-results-count-text">{% trans %}jda.search.items{% endtrans %}</span><span id="zeega-results-count-text-with-date"> {% trans %}jda.search.withtimeplace{% endtrans %}</span></span>
 
 
-            </div> <!-- /container -->
 
+
+					  <div class="btn-group pull-right" style="margin-bottom:8px;margin-right:30px">
+							<a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+								  {% trans %}jda.sort.by{% endtrans %}
+								  <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								  <li><a href="#">{% trans %}jda.sort.recent{% endtrans %}</a></li>
+								  <li><a href="#">{% trans %}jda.sort.oldest{% endtrans %}</a></li>
+							</ul>
+					  </div>
+					  <div id="jda-collection-editing-toolbar" class="pull-left">
+							<button class="btn btn-info btn-small" type="button"><input id="jda-collection-editing-toolbar-select-all" type="checkbox"></button>
+							<button class="btn btn-info btn-small"><i class="icon-plus icon-white"></i>Create new collection</button>
+							<button class="btn btn-info btn-small" type="button"><i class="icon-trash icon-white"></i> Delete</button>
+							<div class="btn-group" style="display: inline-block; top:11px">
+							  <a class="btn dropdown-toggle btn-info btn-small" data-toggle="dropdown" href="#">
+									<i class="icon-move icon-white"></i> Move to...
+									<span class="caret"></span>
+							  </a>
+							  <ul class="dropdown-menu">
+								  <li><a href="#">My Collection 2</a></li>
+								  <li><a href="#">My Collection 3</a></li>
+								  <li><a href="#">My Collection 4</a></li>
+							</ul>
+					  </div>
+				</div>
+				
+
+					  <!-- MAP VIEW -->
+					  <div class="tab-pane" id="zeega-event-view">
+							 <div class="time-slider-wrapper">
+							  
+							  <div id="event-time-slider"></div>
+							  <div class="jda-map-loader pull-right"></div>
+							</div>
+							<div id='event-map'></div>
+							<div id="layer-control-drawer">
+								  <div id ="layer-control-drawer-tab">
+										<p><span id="layer-control-drawer-arrows">&laquo;</span><i class="jdicon-small-layers"></i></p>
+								  </div>
+								  <div id="layer-control">
+										<ul>
+											  <li><a href="#layer-checkboxes">{% trans %}jda.search.data{% endtrans %}</a></li>
+											  <li><a href="#layer-legend">{% trans %}jda.search.legend{% endtrans %}</a></li>
+										</ul>
+										<div id='layer-checkboxes'>
+											 
+							  
+										</div>
+
+										<div id='layer-legend'>
+										</div>
+								  </div> <!-- layer control -->
+							</div> <!--layer-control-drawer -->
+					  </div>
+
+					  <!-- LIST VIEW -->
+					  <div class="tab-pane active" id="zeega-list-view">
+							<div class="jda-separate-collections-and-items" style="display:none">
+								  <h3 class="jda-results-collections-text">{% trans %}jda.search.collections{% endtrans %}(<span class="jda-results-collections-count"></span>)</h3>
+								  <table class="table" id='zeega-collections-list'>
+										<tbody>
+											  
+										</tbody>
+								  </table>
+								 <h3>{% trans %}jda.search.items{% endtrans %}(<span class="jda-results-items-count"></span>)</h3>
+							</div>
+							<table class="table" id='zeega-items-list'>
+								  <tbody>
+										
+								  </tbody>
+							</table>
+					  </div>
+
+					  <!-- THUMBNAIL VIEW -->
+					  <div class="tab-pane" id="zeega-thumb-view" style="clear:both">
+							<div class="jda-separate-collections-and-items" style="display:none">
+								  <h3>Collections(<span class="jda-results-collections-count"></span>)</h3>
+								  <ul class="collections-thumbnails thumbnails unstyled" >
+								  </ul>
+								  <h3>Items(<span class="jda-results-items-count"></span>)</h3>
+							</div>
+							<ul id="zeega-items-thumbnails" class="thumbnails">
+							</ul>
+					  </div>
+				</div> <!--/tab-->
+		  </div><!--/span10-->
+
+				<!-- RIGHT-HAND COLUMN -->
+				<div class="span3">
+
+				<!-- MY COLLECTIONS -->
+				<div id="zeega-my-collections" class="pull-right">
+
+					  <div class="btn-group">
+							<button id="zeega-my-collections-active-collection" class="btn btn-large btn-inverse">{% trans %}jda.my.collection{% endtrans %}</button>
+							<button class="btn btn-large btn-inverse dropdown-toggle" data-toggle="dropdown" style="height:39px;border-radius:0">
+								  <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" style="width:100%;text-align:left">
+								  <li><a href="#"><i class="icon-plus"></i>{% trans %}jda.drag.createnewcollection{% endtrans %}</a></li>
+								  
+							</ul>
+					  </div>
+
+					  <div id="zeega-my-collections-items">
+							<i class="jdicon-drag" style="float:none"></i> 
+							<p id="zeega-my-collections-drag-items-here">
+								 {% trans %}jda.drag.items{% endtrans %}
+							</p>
+							<span class="label label-success" id="zeega-my-collections-added">{% trans %}jda.drag.added{% endtrans %}</span>
+							<ul id="zeega-my-collections-items-thumbs" class="unstyled"></ul>
+							<span class="label label-info" id="zeega-my-collections-count-string" style="display:none">{% trans %}jda.drag.and{% endtrans %} <span id="zeega-my-collections-count"></span> {% trans %}jda.drag.moreitems{% endtrans %}</span>
+							<h4 id="zeega-my-collections-share-and-organize" style="display:none"><a href="#">{% trans %}jda.drag.gotocollection{% endtrans %}</a>
+							</h4>
+
+					  </div>
+
+					  <!-- RELATED TAGS -->
+					  <div id="jda-related-tags">
+							<h3 id="jda-related-tags-title">{% trans %}jda.search.relatedtags{% endtrans %}</h3>
+					  </div>
+				</div><!-- /span12 -->
+		  <!--</div> /row  -->
+
+
+	</div> <!-- /container -->
+			</div>
            
             <!-- MODAL WINDOW -->
             <div class="modal fade" id="zeega-my-collections-create-account-modal">
