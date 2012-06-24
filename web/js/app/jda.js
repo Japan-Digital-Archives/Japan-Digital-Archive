@@ -217,7 +217,7 @@ this.jda = {
 		searchParams.page = 1;
 
 		var Browser = jda.module("browser");
-		this.clearSearchFilters();
+		this.clearSearchFilters(false);
 		
 		if (filterType == 'collection'){
 			
@@ -389,7 +389,9 @@ this.jda = {
 	
 	clearSearchFilters : function(doSearch)
 	{
-		console.log('clearSearchFilters called');
+	
+		console.log('clearSearchFilters called with doSearch',doSearch);
+    
     	if (doSearch == null) doSearch = true;
 		
     	$('#zeega-content-type').val("all");
