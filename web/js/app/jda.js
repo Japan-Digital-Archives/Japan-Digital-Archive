@@ -318,7 +318,7 @@ this.jda = {
 		$('#list-button').addClass('active');
 		
 
-		$('#zeega-right-column').show();
+		$('#jda-right').show();
 		$('#event-time-slider').hide();
 		$('#zeega-results-count').removeClass('zeega-results-count-event');
 		$('#zeega-results-count').css('left', 0);
@@ -339,7 +339,7 @@ this.jda = {
 		$('#zeega-view-buttons .btn').removeClass('active');
 		$('#thumb-button').addClass('active');
 		
-		$('#zeega-right-column').show();
+		$('#jda-right').show();
 		$('#event-time-slider').hide();
 		$('#zeega-results-count').removeClass('zeega-results-count-event');
 		$('#zeega-results-count').css('left', 0);
@@ -359,7 +359,7 @@ this.jda = {
 		$('#zeega-view-buttons .btn').removeClass('active');
 		$('#event-button').addClass('active');
 		
-		$('#zeega-right-column').hide();
+		$('#jda-right').hide();
 		$('#event-time-slider').show();
 		$('#zeega-results-count').addClass('zeega-results-count-event');
 		$('#zeega-results-count').offset( { top:$('#zeega-results-count').offset().top, left:10 } );
