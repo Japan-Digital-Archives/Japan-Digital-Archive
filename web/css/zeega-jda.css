@@ -350,12 +350,8 @@
 
 .jda-collection-head .cover-image
 {
-	background: no-repeat center center;
+	background: repeat;
 	background-color: #ccc; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
 	height:200px;
 	position:relative;
 	margin-bottom:10px;

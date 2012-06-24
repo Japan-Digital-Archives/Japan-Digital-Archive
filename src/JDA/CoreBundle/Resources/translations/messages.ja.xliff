@@ -526,6 +526,11 @@
                 <source>jda.search.withtimeplace</source>
                 <target>with time and place data</target>
             </trans-unit> 
+			 <trans-unit id="132">
+                <source>jda.search.gotocollection</source>
+                <target>Go to Collection</target>
+            </trans-unit>                 
+            
         </body>
     </file>
 </xliff>
