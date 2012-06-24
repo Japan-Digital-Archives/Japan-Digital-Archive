@@ -119,7 +119,6 @@ $(document).ready(function(){
 
 	};
 		BrowserDetect.init();
-		console.log(BrowserDetect);
 
 
 
@@ -257,7 +256,6 @@ $(document).ready(function(){
     if (jda.app.currentView == "event"){
       jda.app.eventMap.resetMapSize();
     }
-    jda.app.redrawLayout();
   });
 
  

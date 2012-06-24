@@ -24,6 +24,7 @@ security:
                 path:   /logout
                 target: /en/home
             anonymous:    true
+
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
