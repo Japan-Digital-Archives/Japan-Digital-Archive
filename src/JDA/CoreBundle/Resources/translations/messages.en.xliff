@@ -535,7 +535,11 @@ nuclear catastrophe.</target>
             <trans-unit id="133">
                 <source>jda.search.savecollection</source>
                 <target>Save Collection</target>
-            </trans-unit>                 
+            </trans-unit>
+         	 <trans-unit id="134">
+                <source>jda.search.dragcover</source>
+                <target>Drag cover image here</target>
+            </trans-unit>               
         </body>
     </file>
 </xliff>
