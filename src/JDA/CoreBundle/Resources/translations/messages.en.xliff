@@ -76,7 +76,7 @@
             </trans-unit>
             <trans-unit id="19">
                 <source>jda.about.participatetwo</source>
-                <target>Build and share collections (in development)</target>
+                <target>Build and share collections</target>
             </trans-unit>
             <trans-unit id="20">
                 <source>jda.about.participatethree</source>
@@ -187,8 +187,8 @@
                 <target>go</target>
             </trans-unit>
             <trans-unit id="47">
-                <source>jda.about.paragraph</source>
-                <target>This alpha version of the Digital Archive of Japan's 2011 Disasters is the result of an ongoing global collaborative effort. Its ever-expanding content represents the contributions of an array of individuals and organizations variously affected by the unprecedented events of March 2011 and their aftermath. The development of the archive interface has been led by the Edwin O. Reischauer Institute at Harvard University in collaboration with metaLAB (at) Harvard, Harvard's Center for Geographic Analysis and Zeega.org, a non-profit creative technology company. This current version lays the groundwork for an ever-evolving and ultimately participatory archive. The interface is built using Zeega, an open-source platform that supports initaitives in crisis archiving, enabling anyone to create participatory projects that combine original content with photos, videos, text, audio, data feeds and maps via APIs from across the web.</target>
+                <source>jda.about.paragraph1</source>
+                <target>Over the remainder of 2012 and into 2013 we will be introducing improvements in this beta version, with particular attention to the mapping feature and collection building, to enable users to create a range of presentations based on materials in their collections.  We very much welcome your suggestions and feedback.</target>
             </trans-unit>
             <trans-unit id="48">
                 <source>jda.search.items</source>
@@ -232,7 +232,7 @@
             </trans-unit>
             <trans-unit id="59">
                 <source>jda.header.alphadescription</source>
-                <target>This 'alpha' version of the Digital Archive of Japan's 2011 Disasters is still a work in progress. We invite you to look around and see what's going on, but there will be a few bumps in the road. We're working every day to expand the functionality of the site and fix bugs. We hope you you are able to make use of the site and keep checking back!</target>
+                <target>This 'beta' version of the Digital Archive of Japan's 2011 Disasters is still a work in progress. We invite you to look around and see what's going on, but there will be a few bumps in the road. We're working every day to expand the functionality of the site and fix bugs. We hope you you are able to make use of the site and keep checking back!</target>
             </trans-unit>
              <trans-unit id="60">
                 <source>jda.header.aboutalpha</source>
@@ -539,7 +539,28 @@ nuclear catastrophe.</target>
          	 <trans-unit id="134">
                 <source>jda.search.dragcover</source>
                 <target>Drag cover image here</target>
-            </trans-unit>               
+            </trans-unit>    
+            <trans-unit id="135">
+                <source>jda.search.tips1</source>
+                <target>Enter your keyword search in the box to the left.
+                </target>
+            </trans-unit>
+             <trans-unit id="136">
+                <source>jda.search.tips2</source>
+                <target>
+                To search only tags, begin your search with "t" and select "tag:"
+                </target>
+            </trans-unit>    
+             <trans-unit id="137">
+                <source>jda.search.tips3</source>
+                <target>
+                To search by user, begin your search with "u" and select "user:"
+                </target>
+            </trans-unit>  
+              <trans-unit id="138">
+                <source>jda.about.paragraph2</source>
+                <target>This beta version of the Digital Archive of Japan's 2011 Disasters is the result of an ongoing global collaborative effort. Its ever-expanding content represents the contributions of an array of individuals and organizations variously affected by the unprecedented events of March 2011 and their aftermath. The development of the archive interface has been led by the Edwin O. Reischauer Institute at Harvard University in collaboration with metaLAB (at) Harvard, Harvard's Center for Geographic Analysis and Zeega.org, a non-profit creative technology company. This current version lays the groundwork for an ever-evolving and ultimately participatory archive. The interface is built using Zeega, an open-source platform that supports initaitives in crisis archiving, enabling anyone to create participatory projects that combine original content with photos, videos, text, audio, data feeds and maps via APIs from across the web.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

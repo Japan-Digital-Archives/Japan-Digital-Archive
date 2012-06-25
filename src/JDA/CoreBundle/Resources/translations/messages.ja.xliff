@@ -64,19 +64,19 @@
             </trans-unit>
             <trans-unit id="16">
                 <source>jda.about.connect</source>
-                <target>つながり</target>
+                <target>発見</target>
             </trans-unit>   
             <trans-unit id="17">
                 <source>jda.about.connectbody</source>
-                <target>このアーカイブが目指すのは、収蔵された情報同士の、そしてユーザ同士の新たなつながりを促進することです。ユーザがデジタルアーカイブ内の収蔵情報やコレクションの間を行き来するとき、他のアーキビストたちの拡大し続けるネットワークに出会うことでしょう。それは、位置情報や説明がタグ付けされた何千枚の写真をアーカイブに提供した大きな団体である場合もあれば、自分の家族の経験を綴ったユーザや、そして救援活動に携わる公共・民間団体の関係を研究する歴史家であるかもしれません</target>
+                <target>このアーカイブが目指すのは、収蔵された情報同士の、そしてユーザ同士の新たな発見を促進することです。ユーザがデジタルアーカイブ内の収蔵情報やコレクションの間を行き来するとき、他のアーキビストたちの拡大し続けるネットワークに出会うことでしょう。それは、位置情報や説明がタグ付けされた何千枚の写真をアーカイブに提供した大きな団体である場合もあれば、自分の家族の経験を綴ったユーザや、そして救援活動に携わる公共・民間団体の関係を研究する歴史家であるかもしれません</target>
             </trans-unit>
                     <trans-unit id="18">
                 <source>jda.about.participateone</source>
-                <target>デジタル情報を閲覧し、説明を加え、可視化する</target>
+                <target>デジタル情報を閲覧、説明、可視化する</target>
             </trans-unit>
             <trans-unit id="19">
                 <source>jda.about.participatetwo</source>
-                <target>自分だけのコレクションをつくり、他のユーザに公開する(開発中)</target>
+                <target>文書や写真、動画、リンクなどをアーカイブする</target>
             </trans-unit>
             <trans-unit id="20">
                 <source>jda.about.participatethree</source>
@@ -187,8 +187,8 @@
                 <target>検索</target>
             </trans-unit>           
              <trans-unit id="47">
-                <source>jda.about.paragraph</source>
-                <target>2011年東日本大震災デジタルアーカイブ・試作モデルalphaは、国際的な協力関係の下で進められている取り組みの結果生まれたものです。そこに収蔵されているコンテンツは拡大を続けており、2011年3月とその後の未曾有の出来事によって様々に影響を受けた個人や団体からの投稿で構成されています。このアーカイブのインターフェースは、ハーバード大学エドウィン・O・ライシャワー日本研究所を中心としながら、ハーバード大学メタ・ラボ（metaLAB(at)Harvard）や地理学分析センター（Harvard's Center for Geographic Analysis）、そして非営利のクリエイティブ・テクノロジスト集団であるジーガ（Zeega.org）と密接に連携しながら開発されています。alpha版は進化し続ける参加型のアーカイブにその基礎を置いています。このインターフェースはジーガ（Zeega）というオープンソース・プラットフォームの上に構築されております。ジーガは危機的状況の際のアーカイブ作業において先導的な役割を果たしており、これを利用することで、どなたでも参加型のプロジェクトを作り、そこで写真・動画・文書・音声・データフィード・地図などの素材をウェブ上のAPIを通じて編集することが可能です。</target>
+                <source>jda.about.paragraph1</source>
+                <target>2012 年の後半から2013年にかけて、このベータ版は継続的に改良されてまいります。特に地理空間上での操作やコレクション作成機能の充実を優先的な課題とし、ユーザは自らのコレクションに収めたアーカイブ資料を活用して幅広いプレゼンテーションを行うことが可能になるでしょう。皆様のご提案・ご感想を、ぜひお聞かせ下さい。</target>
             </trans-unit>
             <trans-unit id="48">
                 <source>jda.search.items</source>
@@ -537,6 +537,27 @@
                 <source>jda.search.dragcover</source>
                 <target>ここにドラッグした画像がカバーになります</target>
             </trans-unit>   
+             <trans-unit id="135">
+                <source>jda.search.tips1</source>
+                <target>左にある検索スペースに調べたい言葉を入力して下さい。
+                </target>
+            </trans-unit>  
+             <trans-unit id="136">
+                <source>jda.search.tips2</source>
+                <target>
+                タグだけを検索したい場合は、キーボードの"t"キーを押し、次に"タグ"をお選び下さい。
+                </target>
+            </trans-unit>
+             <trans-unit id="137">
+                <source>jda.search.tips3</source>
+                <target>
+                ユーザ別に検索したい場合は、キーボードの"u"キーを押し、次に"ユーザ"をお選び下さい。
+                </target>
+            </trans-unit>  
+            <trans-unit id="138">
+                <source>jda.about.paragraph2</source>
+                <target>2011年東日本大震災デジタルアーカイブ・試作モデル・ベータ版は、国際的な協力関係の下で進められている取り組みの結果生まれたものです。そこに収蔵されているコンテンツは拡大を続けており、2011年3月とその後の未曾有の出来事によって様々に影響を受けた個人や団体からの投稿で構成されています。このアーカイブのインターフェースは、ハーバード大学エドウィン・O・ライシャワー日本研究所を中心としながら、ハーバード大学メタ・ラボ （metaLAB(at)Harvard）や地理学分析センター（Harvard's Center for Geographic Analysis）、そして非営利のクリエイティブ・テクノロジスト集団であるジーガ（Zeega.org）と密接に連携しながら開発されています。ベータ版は進化し続ける参加型のアーカイブにその基礎を置いています。このインターフェースはジーガ（Zeega）というオープンソース・プラットフォームの上に構築されております。ジーガは危機的状況の際のアーカイブ作業において先導的な役割を果たしており、これを利用することで、どなたでも参加型のプロジェクトを作り、そこで写真・動画・文書・音声・データフィード・地図などの素材をウェブ上のAPIを通じて編集することが可能です。</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
