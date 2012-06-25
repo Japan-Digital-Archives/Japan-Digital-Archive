@@ -130,11 +130,11 @@
 					});
 				})
 				
-				$("#jda-related-tags, #jda-related-tags-title").fadeTo(100,1);
+				$("#jda-related-tags-title").fadeTo(100,1);
 			}
 			else
 			{
-				$("#jda-related-tags, #jda-related-tags-title").fadeTo(1000,0);
+				$("#jda-related-tags-title").fadeTo(1000,0);
 			}
 		},
 		
@@ -157,7 +157,7 @@
 			
 			$("#zeega-results-count").fadeTo(1000,0.5);
 
-			$("#related-tags:visible, #related-tags-title:visible").fadeTo(1000,0.5);
+			$("#related-tags-title:visible").fadeTo(1000,0.5);
 			//$(this.el).fadeTo(1000,0.5);
 			jda.app.isLoading = true;
 			if (obj.page == 1) $(this.el).hide();

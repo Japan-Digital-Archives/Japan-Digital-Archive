@@ -210,6 +210,17 @@ this.jda = {
 	
 	addFilter : function(model, filterType, searchParams){
 		
+		
+		/*******  UX ***/
+		
+		$('.tab-content').find('.btn-group').hide();
+		$('#jda-related-tags').hide();
+		
+		/****** END UX **********/
+		
+		
+		
+		
 		console.log('adding filter');
 		if (searchParams == null){
 			searchParams = new Object();
@@ -220,7 +231,7 @@ this.jda = {
 		this.clearSearchFilters(false);
 		
 		if (filterType == 'collection'){
-			
+			$('#jda-left').css("margin-top","325px");
 			//clear out user filter - you can't have both
 			if (this.resultsView.userFilter != null){
 				this.removeFilter('user',searchParams,false);
@@ -231,6 +242,7 @@ this.jda = {
 		
 		} else if (filterType == 'user'){
 
+			$('#jda-left').css("margin-top","165px");
 			//clear out collection filter - you can't have both
 			if (this.resultsView.collectionFilter != null){
 				this.removeFilter('collection',searchParams,false);
@@ -254,6 +266,16 @@ this.jda = {
 	***************************************************************************/
 	
 	removeFilter : function(filterType, searchParams, doSearch){
+		
+		
+		if(doSearch){
+			/*******  UX ***/
+			console.log('clearing filters and searching');
+			$('.tab-content').find('.btn-group').show();
+			$('#jda-left').css("margin-top", "0px");
+			$('#jda-related-tags').fadeIn('fast');
+			/****** END UX **********/
+		}
 		
 		console.log('removing filter');
 		if (searchParams == null){
@@ -428,7 +450,7 @@ this.jda = {
 	redrawLayout:function(){
 		//$('#zeega-left-column').css("width", jda.app.getLeftColumnWidth());
 	    //$('#jda-collection-filter').css("width", $('#zeega-main-content').width() );
-	    //$('#jda-user-filter').css("width", jda.app.getLeftColumnWidth() );
+	    //$('#jda- -filter').css("width", jda.app.getLeftColumnWidth() );
 	    //$('.jda-separate-collections-and-items').css("width", jda.app.getLeftColumnWidth() );
 	   // $('.left-col').css("width", jda.app.getLeftColumnWidth() );
 
