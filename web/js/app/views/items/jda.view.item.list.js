@@ -10,6 +10,16 @@
 		className:'list-fancymedia',
 		//className : 'row',
 
+		events: {
+		
+		'.jda-item-author click':'loadAuthorPage'
+		
+		},
+		
+		loadAuthorPage:function(){
+			jda.app.goToAuthorPage(this.model.get('user_id'));
+			return false;
+		},
 		
 		 initialize: function () {
 	        
@@ -67,7 +77,7 @@
 		
 			var blanks = this.model.attributes;
 				
-			if (!_.isUndefined(this.model.get("media_date_created"))){
+			if (!_.isUndefined(this.model.get("media_date_created"))&&!_.isNull(this.model.get("media_date_created"))){
 				blanks["media_date"] = new Date(this.model.get("media_date_created").replace(" ", "T"));
 				blanks["media_date"]=blanks["media_date"].format("mmmm dS, yyyy<br/>h:MM TT");
 			} else {

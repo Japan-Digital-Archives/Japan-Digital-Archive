@@ -75,7 +75,7 @@
 			//Show delete button in More view if user added this item
 			console.log(sessionStorage.getItem("userid") + ' is session nid');
 			console.log(this.model.get("user_id") + ' is mode; nid');
-			if(sessionStorage.getItem("userid") == this.model.get("user_id")){
+			if(this.model.get("editable")){
 				$(this.el).find('.fancybox-delete-button').show();
 			} else{
 				$(this.el).find('.fancybox-delete-button').hide();
@@ -109,6 +109,10 @@
 				tags : this.model.get('tags'),
 				randId: this.elemId
 			};
+			
+			
+			console.log('thees area aerkjlekjralkjer',blanks);
+			
 			if(this.model.get('attribution_uri').indexOf('flickr')>-1) blanks.sourceText = 'View on Flickr';
 			else 	if(this.model.get('attribution_uri').indexOf('youtube')>-1) blanks.sourceText = 'View on Youtube';
 			else 	if(this.model.get('attribution_uri').indexOf('soundcloud')>-1) blanks.sourceText = 'Listen on Soundcloud';

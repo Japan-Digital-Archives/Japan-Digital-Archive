@@ -290,6 +290,7 @@ margin-left: -20px;
 *********************/
 
 .jda-home-featured-collection-text-block{
+	cursor:pointer;
 	padding: 10px;
 	margin: 0 auto;
 	width: 90%;

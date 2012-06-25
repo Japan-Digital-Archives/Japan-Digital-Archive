@@ -373,9 +373,6 @@ $(document).ready(function(){
       case 'Audio':
         this.fancyView = new Browser.Views.FancyBox.Audio({model:thisModel});
         break;
-      case 'Youtube':
-        this.fancyView = new Browser.Views.FancyBox.Video({model:thisModel});
-        break;
       case 'Tweet':
         this.fancyView = new Browser.Views.FancyBox.Tweet({model:thisModel});
         break;

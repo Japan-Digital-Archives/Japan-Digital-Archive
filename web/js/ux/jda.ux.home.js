@@ -225,10 +225,17 @@ $(document).ready(function(){
 	
 	
 	
-	$('.jda-home-featured-collection').height(Math.max($(window).height()-50, 600));
+	$('.jda-home-featured-collection-text-block').height(Math.max($(window).height()-50, 600)).click(function(){
+	
+		window.open(sessionStorage.getItem('hostname')+sessionStorage.getItem('directory')+sessionStorage.getItem('locale')+"/search?#view_type=thumb&collection="+$(this).data('id')+"&content=all&","_self");
+	
+	});
 	$(window).resize(function() {
       $('.jda-home-featured-collection').height(Math.max($(window).height()-50, 600));
   });
+  
+  
+  
 	// Shorthand the application namespace
 	//http://documentcloud.github.com/visualsearch/
 	VisualSearch = VS.init({

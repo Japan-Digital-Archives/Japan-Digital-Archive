@@ -91,7 +91,6 @@ var loadFiles = [
 	'order!../app/views/fancybox/jda.view.fancybox.soundcloud',
 	'order!../app/views/fancybox/jda.view.fancybox.video',
 	'order!../app/views/fancybox/jda.view.fancybox.mapbox',
-	'order!../app/views/fancybox/jda.view.fancybox.youtube',
 	'order!../app/views/fancybox/jda.view.fancybox.website',
 
 	
