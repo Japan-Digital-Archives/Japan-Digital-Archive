@@ -78,8 +78,8 @@
 		
 		render: function(done){
 			var _this = this;
-			var canEdit = true;//this.model.get('can_edit');
-			
+			var canEdit = this.model.get('editable');
+			console.log("THe ability to edit is:",canEdit);
 			if (this.isEditView){
 				this.isMoreView=true;
 			}
@@ -613,7 +613,7 @@
 				
 				'<div class="jda-collection-head">'+
 					'<div class="cover-image" style="background-image:url(<%= thumbnail_url %>)">';
-			if(_.isNull(this.model.get('thumbnail_url')) || this.model.get('thumbnail_url') == '' ) html += '<div class="drag-to"><i class="icon-camera"></i> drag cover image here</div>';
+			if(_.isNull(this.model.get('thumbnail_url')) || this.model.get('thumbnail_url') == '' ) html += '<div class="drag-to"><i class="icon-camera"></i>'+$('#drag-cover-text').html()+'</div>';
 			html+=			'<div class="cover-overlay">'+
 							'<h1><%=title%></h1><h4>by: <a href="#" class="jda-collection-filter-author"><%=media_creator_realname%></a> on <%= date_created %></h4>'+
 						'</div>'+

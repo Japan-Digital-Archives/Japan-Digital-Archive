@@ -87,9 +87,15 @@
 	    	var that=this;
     
 			//this.circle = new L.CircleMarker(this.latlng, 100, this.circleOptions);
-			this.marker = new L.Marker(this.latlng,{draggable:true});
-			this.marker.addEventListener( 'drag', that.updateLatLng, that );
-			this.marker.addEventListener( 'dragend', that.updateItem, that );
+			if(this.model.get('editable')){
+				this.marker = new L.Marker(this.latlng,{draggable:true});
+				this.marker.addEventListener( 'drag', that.updateLatLng, that );
+				this.marker.addEventListener( 'dragend', that.updateItem, that );
+				
+			}
+			else{
+				this.marker = new L.Marker(this.latlng,{draggable:false});
+			}
 			this.map.addLayer(this.marker);
 		},
 		updateMap:function(){

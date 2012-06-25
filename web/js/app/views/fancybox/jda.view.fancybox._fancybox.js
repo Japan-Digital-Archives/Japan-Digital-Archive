@@ -58,11 +58,8 @@
 			var _this=this;
 			sessionStorage.setItem('moreFancy', true);
 			$(this.el).find('.less').hide();
-			$(this.el).find('.more').fadeIn('fast',function(){
-				if(_this.locatorMapView.geoLocated&& $(this).attr('id')=='fancybox-map')_this.locatorMapView.addMap();
-				//else _this.locatorMapView.addMap();
-			});
-			
+			$(this.el).find('.more').fadeIn('fast');
+			this.locatorMapView.addMap();
 			$(this.el).find('.plyr-video').css({'height':'200px'});
 			$(this.el).find(".fancybox-shrinkable").addClass("fancybox-media-wrapper-more");
 			$(this.el).find(".fancybox-media-wrapper").addClass("fancybox-media-wrapper-more");
@@ -132,9 +129,7 @@
 
 		
 			if(this.model.get('editable')){
-				
-				console.log(this.model);
-				console.log('EDDEDDEDDEDDEDDEDDEDDEDDEDDEDDEDD');
+
 				var _this=this;
 				//EDIT TITLE
 				$(this.el).find('.title').editable(
