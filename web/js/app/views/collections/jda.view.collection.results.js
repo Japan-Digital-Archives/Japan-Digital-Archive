@@ -288,12 +288,6 @@
 			//Tags and Texts are stored in the q property
 			if( !_.isUndefined(search.q) )
 			{
-				/*
-				var tags = jda.app.getTagNamesFromSearchQuery(search.q);
-				_(tags).each(function(tag){
-					cqlFilters.push("tags='" + tag + "'");
-				});
-				*/
 				var text = search.q;
 				if(text)
 				{
@@ -301,7 +295,7 @@
 					{
 						var newCqlFilters = [];
 						var prevCqlFiltersString = cqlFilters.join(" AND ");
-						newCqlFilters.push(prevCqlFiltersString + " AND title LIKE '%"+text+"%' OR " + prevCqlFiltersString + " AND media_creator_username LIKE '%"+text+"%' OR " + prevCqlFiltersString + " AND description LIKE '%"+text+"%'");
+						newCqlFilters.push(prevCqlFiltersString + " AND (title LIKE '%"+text+"%' OR " + prevCqlFiltersString + " AND media_creator_username LIKE '%"+text+"%' OR " + prevCqlFiltersString + " AND description LIKE '%"+text+"%')");
 						
 						cqlFilters = newCqlFilters;
 					}
@@ -312,10 +306,6 @@
 					}
 				}
 			}
-			/*if( !_.isUndefined(search.tags) )
-			{
-				cqlFilters.push("tags='" + search.tags + "'");
-			}*/
 			if( !_.isUndefined(search.content)&&search.content!="all" )
 			{  
 				var capitalizedContent =  search.content.charAt(0).toUpperCase() + search.content.slice(1);
