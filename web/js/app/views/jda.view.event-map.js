@@ -214,7 +214,9 @@
 					//UGLY – remove header string
 					//var data = jQuery.parseJSON(response.responseText.substring(75));
 					//console.log(response.responseText);
-					var data = jQuery.parseJSON(response.responseText);
+					var d = response.responseText.replace(/(\r\n|\n|\r|\t)/gm," ");
+					console.log(d);
+					var data = jQuery.parseJSON(d);
 				}
 				catch(err)
 				{
