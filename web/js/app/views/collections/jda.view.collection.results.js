@@ -130,15 +130,14 @@
 					});
 				})
 				
-				$("#jda-related-tags, #jda-related-tags-title").fadeTo(100,1);
+				$("#jda-related-tags-title").fadeTo(100,1);
 			}
 			else
 			{
-				$("#jda-related-tags, #jda-related-tags-title").fadeTo(1000,0);
+				$("#jda-related-tags-title").fadeTo(1000,0);
 			}
 		},
 		
-
 		reset : function()
 		{
 			if ( this._isRendered )
@@ -157,7 +156,7 @@
 			
 			$("#zeega-results-count").fadeTo(1000,0.5);
 
-			$("#related-tags:visible, #related-tags-title:visible").fadeTo(1000,0.5);
+			$("#related-tags-title:visible").fadeTo(1000,0.5);
 			//$(this.el).fadeTo(1000,0.5);
 			jda.app.isLoading = true;
 			if (obj.page == 1) $(this.el).hide();
@@ -288,12 +287,6 @@
 			//Tags and Texts are stored in the q property
 			if( !_.isUndefined(search.q) )
 			{
-				/*
-				var tags = jda.app.getTagNamesFromSearchQuery(search.q);
-				_(tags).each(function(tag){
-					cqlFilters.push("tags='" + tag + "'");
-				});
-				*/
 				var text = search.q;
 				if(text)
 				{
@@ -301,21 +294,17 @@
 					{
 						var newCqlFilters = [];
 						var prevCqlFiltersString = cqlFilters.join(" AND ");
-						newCqlFilters.push(prevCqlFiltersString + " AND title LIKE '%"+text+"%' OR " + prevCqlFiltersString + " AND media_creator_username LIKE '%"+text+"%' OR " + prevCqlFiltersString + " AND description LIKE '%"+text+"%'");
+						newCqlFilters.push(prevCqlFiltersString + " AND (title LIKE '%"+text+"%' OR " + prevCqlFiltersString + " AND media_creator_username LIKE '%"+text+"%' OR " + prevCqlFiltersString + " AND description LIKE '%"+text+"%')");
 						
 						cqlFilters = newCqlFilters;
 					}
 					else
 					{
 						console.log("map search");
-						cqlFilters.push("title LIKE '%"+text+"%' OR media_creator_username LIKE '%"+text+"%' OR description LIKE '%"+text+"%'");
+						cqlFilters.push("(title LIKE '%"+text+"%' OR media_creator_username LIKE '%"+text+"%' OR description LIKE '%"+text+"%')");
 					}
 				}
 			}
-			/*if( !_.isUndefined(search.tags) )
-			{
-				cqlFilters.push("tags='" + search.tags + "'");
-			}*/
 			if( !_.isUndefined(search.content)&&search.content!="all" )
 			{  
 				var capitalizedContent =  search.content.charAt(0).toUpperCase() + search.content.slice(1);

@@ -6,20 +6,7 @@
 	Browser.Items.Views.List = Backbone.View.extend({
 		
 		tagName : 'tr',
-		
-		className:'list-fancymedia',
-		//className : 'row',
-
-		events: {
-		
-		'.jda-item-author click':'loadAuthorPage'
-		
-		},
-		
-		loadAuthorPage:function(){
-			jda.app.goToAuthorPage(this.model.get('user_id'));
-			return false;
-		},
+		className : 'list-media',
 		
 		 initialize: function () {
 	        
@@ -97,10 +84,7 @@
 			if (this.model.get("title") == null || this.model.get("title") == "none" || this.model.get("title") == ""){
 				blanks["title"] = "";
 			}
-			
-			if (this.model.get("media_type") == "PDF" && (this.model.get('title') == "none" || this.model.get('title') == "Untitled" || this.model.get('title') == ""  || this.model.get('title') == "&nbsp;" || this.model.get('title') == null)){
-				blanks["title"] = "Untitled";
-			}
+
 			if (this.model.get("media_creator_realname") == null || this.model.get("media_creator_realname") == "" || this.model.get("media_creator_realname") == "Unknown" || this.model.get("media_creator_realname") == "unknown"){
 				blanks["author"] = this.model.get("media_creator_username");
 			} else {
@@ -109,6 +93,13 @@
 			if (this.model.get("media_type") == "Text" && this.model.get('description').length < this.model.get('text').length){
 				blanks["description"] = this.model.get('description') + '...';
 			}
+			
+			if (this.model.get("media_type") == "Website"){
+				var parts = this.model.get('attribution_uri').split('http');
+				blanks["original_url"] = "http"+parts[2];
+			}
+			
+			
 			$(this.el).html( _.template( template, blanks ) );
 			
 			$(this.el).find('.zeega-item-thumbnail').append(this.thumbnailView.render().el);
@@ -132,7 +123,7 @@
 			      .clone()
 			      .css({
 			      	
-			        'z-index':'3',
+			        'z-index':'60',
 
 			      });
 			      return drag;
@@ -149,7 +140,7 @@
 			      
 			});
 			$(this.el).find(".jdicon-small-drag").tooltip({'title':'Drag to add to your collection','placement':'bottom', delay: { show: 600, hide: 100 }});
-
+			$(this.el).find(".jda-user-link").click(function(){jda.app.goToAuthorPage(_this.model.get('user_id')); return false;});
 			return this;
 		},
 		
@@ -182,10 +173,12 @@
 				'<div class="zeega-item-thumbnail"></div>'+
 			'</td>'+
 			'<td class="zeega-list-middle-column">'+
-				'<h3><%= title %></h3><p class="jda-item-author">by: <%= author %> via <a><%= archive %></a></p>'+
+				'<h3><%= title %></h3><p >by: <%= author %>'+
 				'<p class="jda-item-description"><%= description %></p>'+
 			'</td>'+
-			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
+			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
+				'<p class="jda-user-link bottom" >via <a href="#" ><%= archive %></a></p>'+
+			'</td>';
 			
 
 			
@@ -203,7 +196,9 @@
 				'<h3><%= title %></h3><p class="jda-item-author">by: <%= author %></p>'+
 				'<p class="jda-item-description"><%= description %></p>'+
 			'</td>'+
-			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
+			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
+			'<p class="jda-user-link bottom" >via <a href="#" ><%= archive %></a></p>'+
+			'</td>';
 			
 
 			
@@ -216,8 +211,6 @@
 
 
 			'<td class="span2">'+
-			//	'<i class="jdicon-small-drag"></i>'+
-
 				'<i class="jdicon-document"></i>'+
 				'<div class="item-author item-author-left"><%= author %></div>'+
 			'</td>'+
@@ -227,6 +220,7 @@
 			'</td>'+
 			'<td class="jda-item-date">'+
 				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
+				'<p class="jda-user-link bottom" >via <a href="#" ><%= archive %></a></p>'+
 			'</td>';
 
 			
@@ -236,15 +230,18 @@
 		{
 			html = 
 
-
 			'<td class="zeega-list-left-column">'+
 				'<div class="zeega-item-thumbnail"></div>'+
 			'</td>'+
 			'<td class="zeega-list-middle-column">'+
-				'<h3><%= title %></h3><p class="jda-item-author"><a href="<%= attribution_uri %>" target="_blank"><%= attribution_uri %></a></p>'+
+				'<h3><%= title %></h3>'+
+				'<p><%= original_url %></p>'+
 				'<p class="jda-item-description"><%= description %></p>'+
 			'</td>'+
-			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
+			'<td class="zeega-list-right-column jda-item-date">'+
+				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
+				'<p class="jda-user-link bottom" >via <a href="#" ><%= archive %></a></p>'+
+			'</td>';
 			
 			
 			return html;
@@ -259,7 +256,9 @@
 			'<td class="zeega-list-middle-column">'+
 				'<p class="jda-item-description"><%= text %></p>'+
 			'</td>'+
-			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
+			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
+				'<p class="jda-user-link bottom">via <a href="#" ><%= archive %></a></p>'+
+			'</td>';
 			
 			return html;
 		},
@@ -273,9 +272,9 @@
 				'<h3><%= title %></h3><p class="jda-item-author">Testimonial by: <%= author %></p>'+
 				'<p class="jda-item-description"><%= description %></p>'+
 			'</td>'+
-			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
-
-			
+			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
+				'<p class="jda-user-link bottom">via <a href="#" ><%= archive %></a></p>'+			
+			'</td>';
 			return html;
 		},
 		
@@ -289,10 +288,12 @@
 				'<div class="zeega-item-thumbnail"></div>'+
 				'</td>'+
 				'<td class="zeega-list-middle-column">'+
-					'<h3><%= title %></h3><p class="jda-item-author">by: <a><%= author %></a></p>'+
+					'<h3><%= title %></h3><p>by <a href="#" class="jda-user-link"><%= archive %></a></p>'+
 					'<p class="jda-item-description"><%= description %></p>'+
 				'</td>'+
-				'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
+				'<td class="zeega-list-right-column jda-item-date"><%= media_date %>'+
+					'<input class="jda-item-checkbox" type="checkbox">'+
+				'</td>';
 				
 
 
@@ -311,7 +312,10 @@
 					'<h3><%= title %></h3><p class="jda-item-author">by: <%= author %></p>'+
 					'<p class="jda-item-description"><%= description %></p>'+
 				'</td>'+
-				'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox"></td>';
+				'<td class="zeega-list-right-column jda-item-date">'+
+					'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
+					'<p class="jda-user-link bottom">via <a href="#" ><%= archive %></a></p>'+	
+				'</td>';
 				
 
 			

@@ -9,7 +9,10 @@ jQuery(function($)
 
 			loaded	: function(){},
 
-			search : function(){ jda.app.search( {page:1} ) },
+			search : function(){ 
+					jda.app.search( {page:1} ) 
+				
+			},
 
 			clearSearch : jda.app.clearSearchFilters,
 			// These are the facets that will be autocompleted in an empty input.
@@ -97,7 +100,7 @@ jQuery(function($)
 						});
 
 					} 
-					else if (obj.user != null && obj.user > 0){
+					else if (obj.user != null && obj.user >= -1){
 						var Browser = jda.module("browser");
 
 						//retrieve user object and then add user filter

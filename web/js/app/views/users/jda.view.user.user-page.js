@@ -238,7 +238,7 @@
 		{
 			html = 
 			
-			'<div class="pull-left" style="width: 172px;">'+
+			'<div class="pull-left user-image-container">'+
 				'<img class="pull-left jda-user-filter-profile-image" src="<%=thumbnail_url%>" alt="" style="width:160px;height:160px;margin-right:10px;border: 1px solid grey;">'+
 				'<div class="jda-user-edit-profile-image" style="display:none;border: 1px solid #666;background: #CCC;width: 160px;position: absolute;opacity: 0.9;height: 160px;text-align:center">'+
 					'<i class="jdicon-drag" style="float:none;position:relative;top:30px"></i> '+

@@ -66,6 +66,7 @@
 	color:#F15A29;
 }
 .fancybox-media-wrapper{
+	height:100%;
 	/*height:469px;*/
 	text-align:center !important;
 }
@@ -218,6 +219,7 @@
 	margin-right: 20px;
 	text-align:left;
 	padding:0;
+	height:93%;
 	
 }
 .fancybox-left-column-more{
