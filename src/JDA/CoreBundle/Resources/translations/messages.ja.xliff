@@ -320,7 +320,7 @@
             </trans-unit>
             <trans-unit id="81">
                 <source>jda.advsearch.both</source>
-                <target>両方</target>
+                <target>コレクションも含める</target>
             </trans-unit>
             <trans-unit id="82">
                 <source>jda.advsearch.mapInstructions</source>
@@ -474,11 +474,11 @@
             </trans-unit>
             <trans-unit id="119">
                 <source>jda.sort.recent</source>
-                <target>新しい順</target>
+                <target>最新</target>
             </trans-unit>
             <trans-unit id="120">
                 <source>jda.sort.oldest</source>
-                <target>古い順</target>
+                <target>最古</target>
             </trans-unit>
             <trans-unit id="121">
                 <source>jda.search.collection</source>
@@ -507,11 +507,11 @@
             </trans-unit>
 			 <trans-unit id="127">
                 <source>jda.drag.and</source>
-                <target>and</target>
+                <target>＋</target>
             </trans-unit>  
             <trans-unit id="128">
                 <source>jda.drag.moreitems</source>
-                <target>more items</target>
+                <target>個のアーカイブ情報</target>
             </trans-unit>   
             <trans-unit id="129">
                 <source>jda.drag.createnewcollection</source>
@@ -527,11 +527,11 @@
             </trans-unit> 
 			 <trans-unit id="132">
                 <source>jda.search.gotocollection</source>
-                <target>Go to Collection</target>
+                <target>コレクションに移動する</target>
             </trans-unit>     
             <trans-unit id="133">
                 <source>jda.search.savecollection</source>
-                <target>Save Collection</target>
+                <target>コレクションを保存する</target>
             </trans-unit>     
         </body>
     </file>
