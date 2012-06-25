@@ -134,7 +134,7 @@
 			}
 			else
 			{
-				if ($("#jda-related-tags-title").is(":visible")){$("#jda-related-tags-title").fadeTo(1000,0);}
+				$("#jda-related-tags, #jda-related-tags-title").fadeTo(1000,0);
 			}
 		},
 		
