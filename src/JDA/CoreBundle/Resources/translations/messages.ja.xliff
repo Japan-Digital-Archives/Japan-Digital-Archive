@@ -532,7 +532,11 @@
             <trans-unit id="133">
                 <source>jda.search.savecollection</source>
                 <target>コレクションを保存する</target>
-            </trans-unit>     
+            </trans-unit>   
+             <trans-unit id="134">
+                <source>jda.search.dragcover</source>
+                <target>ここにドラッグした画像がカバーになります</target>
+            </trans-unit>   
         </body>
     </file>
 </xliff>
