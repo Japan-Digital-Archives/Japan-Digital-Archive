@@ -632,7 +632,7 @@
 								'</div>'+
 							'</div>'+
 							'<div class="jda-collection-description"><%= description %></div>'+
-							'<div class="jda-collection-tags"><a href="#">add tags</a></div>'+
+							//'<div class="jda-collection-tags"><a href="#">add tags</a></div>'+
 							
 						'</div>'+
 						'<div class="right-col">'+
