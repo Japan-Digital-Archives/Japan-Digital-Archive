@@ -67,12 +67,12 @@
 		
 			var blanks = this.model.attributes;
 				
-			/*if (!_.isUndefined(this.model.get("media_date_created"))){
+			if (!_.isUndefined(this.model.get("media_date_created"))){
 				blanks["media_date"] = new Date(this.model.get("media_date_created").replace(" ", "T"));
 				blanks["media_date"]=blanks["media_date"].format("mmmm dS, yyyy<br/>h:MM TT");
-			} else {*/
+			} else {
 				blanks["media_date"] = "n/a";
-			/*}*/
+			}
 			if (this.model.get("text") != null){
 				var excerpt = this.model.get("text").replace(/\r\n/gi, '<br/>');;
 				blanks["text"] = this.linkifyTweet(excerpt);
