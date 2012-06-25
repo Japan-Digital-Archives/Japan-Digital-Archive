@@ -9,7 +9,10 @@ jQuery(function($)
 
 			loaded	: function(){},
 
-			search : function(){ jda.app.search( {page:1} ) },
+			search : function(){ 
+					jda.app.search( {page:1} ) 
+				
+			},
 
 			clearSearch : jda.app.clearSearchFilters,
 			// These are the facets that will be autocompleted in an empty input.

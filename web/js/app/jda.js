@@ -40,8 +40,7 @@ this.jda = {
 	},
 	
 	search : function(params, useValuesFromURL){
-	
-		console.log('searchingn ow');
+		console.log("Function: jda.app.search",params,useValuesFromURL);		
 		var _this = this;
 		//Parse out search box values for putting them in the Search query
 		if (useValuesFromURL)
@@ -92,7 +91,7 @@ this.jda = {
 		{
 			this.setEventViewTimePlace(params);
 		}
-		this.resultsView.search( params );
+		this.resultsView.search( params,true );
 		
 		
 		if (this.currentView == 'event')
@@ -211,6 +210,8 @@ this.jda = {
 	addFilter : function(model, filterType, searchParams){
 		
 		
+		
+		
 		/*******  UX ***/
 		
 		$('.tab-content').find('.btn-group').hide();
@@ -266,24 +267,27 @@ this.jda = {
 	***************************************************************************/
 	
 	removeFilter : function(filterType, searchParams, doSearch){
+		console.log("Function: jda.app.removeFilter",doSearch);		
 		
 		
-		if(doSearch){
-			/*******  UX ***/
-			console.log('clearing filters and searching');
-			$('.tab-content').find('.btn-group').show();
-			$('#jda-left').css("margin-top", "0px");
-			$('#jda-related-tags').fadeIn('fast');
-			/****** END UX **********/
-		}
-		
-		console.log('removing filter');
 		if (searchParams == null){
 			searchParams = new Object();
 		}
 		if (doSearch == null){
 			doSearch = true;
 		}
+		
+		
+		if(doSearch){
+		
+			$('.tab-content').find('.btn-group').show();
+			$('#jda-left').css("margin-top", "0px");
+			$('#jda-related-tags').fadeIn('fast');
+			
+		}
+		
+
+		
 		//reset height of main results content & my collections
 		$('.tab-content').removeClass('jda-low-top');
 		
@@ -298,7 +302,7 @@ this.jda = {
 			//remove search parameter from JDA app
 			searchParams.collection = '';
 			if (doSearch){
-				this.search(searchParams);
+				//this.search(searchParams);
 			}
 		} 
 		else if (filterType == 'user'){
@@ -314,9 +318,10 @@ this.jda = {
 			//remove search parameter from JDA app
 			searchParams.user = '';
 			if (doSearch){
-				this.search(searchParams);
+				//this.search(searchParams);
 			}
 		}
+		
 
 	},
 	
