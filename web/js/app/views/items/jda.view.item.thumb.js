@@ -15,7 +15,7 @@
 	        if (_.isUndefined(this.options.fancybox)){
 	        	this.options.fancybox = true;
 	        }
-	        if(this.options.fancybox){
+	        if(this.options.fancybox||true){
 	        	$(this.el).addClass('list-fancymedia');
 	        }
 	        if (_.isUndefined(this.options.thumbnail_width)){

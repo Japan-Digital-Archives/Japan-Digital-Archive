@@ -40,8 +40,14 @@
 	
 		setSearch : function(obj, reset)
 		{
-			if(reset) this.search = obj;
-			else _.extend(this.search,obj)
+		
+			if(reset) this.search = {	page:1,
+					r_itemswithcollections: 0,
+					r_items:1,
+					r_tags:1
+
+				};
+			_.extend(this.search,obj)
 			console.log('set search: ',obj)
 		},
 		

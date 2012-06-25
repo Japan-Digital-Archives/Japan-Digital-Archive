@@ -83,10 +83,6 @@ header .container{
 	/*width:98% !important;*/
 	min-width:900px;
 }
-/* overriding bootstrap z-index for fancybox */
-.navbar-fixed-top, .navbar-fixed-bottom {
-	z-index:1001;
-}
 .navbar .brand {
 	padding: 8px 30px 6px 17px;
 	height:30px;
@@ -238,6 +234,14 @@ margin-left: -20px;
 width: 172px;
 padding: 5px 0px;
 }
+
+
+.jda-user-link.bottom{
+	position:absolute;
+	bottom:0px;
+
+}
+
 
 #jda-collection-editing-toolbar{
 	display:none;
