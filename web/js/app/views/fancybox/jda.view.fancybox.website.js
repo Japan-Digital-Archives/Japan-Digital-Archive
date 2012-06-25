@@ -38,10 +38,12 @@
 		Browser.Views._Fancybox.prototype.render.call(this, obj); //This is like calling super()
 
 		
+		var parts=this.model.get("attribution_uri").split('http');
 		
 		//Fill in media-specific stuff
 		var blanks = {
-			src : this.model.get("attribution_uri"),
+			original_src :"http"+parts[parts.length-1],
+			src: this.model.get("attribution_uri"),
 			type : this.model.get("type"),
 		};
 		
@@ -61,7 +63,7 @@
 	getMediaTemplate : function()
 	{
 		
-		var html =	'<div class="website-caption"><%=type%>: <a href="<%=src%>" target="_blank"><%=src%></a></div>'+
+		var html =	'<div class="website-caption"><%=type%>: <a href="<%=original_src%>" target="_blank"><%=original_src%></a></div>'+
 					'<div id="fancybox-website">'+
 					'<iframe type="text/html" width="100%" height="400px" src="<%=src%>" frameborder="0">'+
 					'</iframe>'+

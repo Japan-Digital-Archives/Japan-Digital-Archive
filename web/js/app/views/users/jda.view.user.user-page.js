@@ -28,7 +28,7 @@
 
 			/* Adjust layout for filter */
 			//$('.tab-content').addClass('jda-low-top');
-			$('#zeega-right-column').addClass('zeega-right-column-user-page');
+			//$('#zeega-right-column').addClass('zeega-right-column-user-page');
 			
 
 			
