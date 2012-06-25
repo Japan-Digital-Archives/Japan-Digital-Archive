@@ -30,7 +30,7 @@
 			    if( !_.isUndefined(this.search.times.start) ) url += '&min_date=' + this.search.times.start;
 			    if( !_.isUndefined(this.search.times.end) ) url += '&max_date=' + this.search.times.end;
 	     	};
-	     	//if( !_.isUndefined(this.search.user) ) url += '&user=' + this.search.user;
+	     	if( !_.isUndefined(this.search.user) && this.search.user>=-1) url += '&user=' + this.search.user;
 	     	if( !_.isUndefined(this.search.username) && this.search.username.length > 0) url += '&username=' + this.search.username;
 	     	if(jda.app.currentView=='event') url+='&geo_located=1';
 	    

@@ -138,7 +138,6 @@
 			}
 		},
 		
-
 		reset : function()
 		{
 			if ( this._isRendered )

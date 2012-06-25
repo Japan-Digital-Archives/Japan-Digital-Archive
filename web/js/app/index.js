@@ -97,7 +97,7 @@ jQuery(function($)
 						});
 
 					} 
-					else if (obj.user != null && obj.user > 0){
+					else if (obj.user != null && obj.user >= -1){
 						var Browser = jda.module("browser");
 
 						//retrieve user object and then add user filter
