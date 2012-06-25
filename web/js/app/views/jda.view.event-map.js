@@ -291,6 +291,12 @@
 					})
 				);
 			});
+			
+			//Quick fix to allow last layer to be clickable
+			
+			$('#layer-checkboxes').append("<br><br>");
+			
+			
 			$(".layer-checkbox").click(function(){
 				_this.toggleMapLayer($(this).attr("id"),$(this).data("layer"));
 			});
