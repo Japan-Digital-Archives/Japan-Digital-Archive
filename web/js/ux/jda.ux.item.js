@@ -299,9 +299,14 @@ $(document).ready(function(){
         break;
          
       case 'Website':
-      	$('#item').append('<div class="website-caption"><a href="'+$('#item').data('attribution_uri')+'" target="_blank">'+$('#item').data('attribution_uri')+'</a></div>'+
+      
+	    var parts=$('#item').data('attribution_uri').split('http');
+	    var original_src = "http"+parts[parts.length-1];
+		var src= $('#item').data('attribution_uri');
+
+      	$('#item').append('<div class="website-caption"><a href="'+original_src+'" target="_blank">'+original_src+'</a></div>'+
 					'<div id="jda-item-website">'+
-					'<iframe type="text/html" width="100%" height="400px" src="'+$('#item').data('attribution_uri')+'" frameborder="0">'+
+					'<iframe type="text/html" width="100%" height="400px" src="'+src+'" frameborder="0">'+
 					'</iframe>'+
 					'</div>');
        
