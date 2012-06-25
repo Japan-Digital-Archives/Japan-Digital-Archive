@@ -36,7 +36,7 @@
 			//copy the cloned item into the el
 			$(this.el).append( template( values ) );
 
-			if (!this.isEditable){
+			if (!this.model.get('editable')){
 				$(this.el).find('.edit').hide();
 				
 			}	

@@ -8,7 +8,6 @@
 		id:'fancybox-media-container',
 		
 		initialize: function(){
-			console.log('initialize fancybox');
 			
 		
 		},
@@ -24,8 +23,7 @@
 		},
 		afterShow:function()
 		{
-			
-			console.log("I'm rendering after show",sessionStorage.getItem('moreFancy'));
+
 			if(this.locatorMapView.geoLocated&&sessionStorage.getItem('moreFancy')) this.locatorMapView.addMap();
 
 			var _this = this;
@@ -111,8 +109,6 @@
 			};
 			
 			
-			console.log('thees area aerkjlekjralkjer',blanks);
-			
 			if(this.model.get('attribution_uri').indexOf('flickr')>-1) blanks.sourceText = 'View on Flickr';
 			else 	if(this.model.get('attribution_uri').indexOf('youtube')>-1) blanks.sourceText = 'View on Youtube';
 			else 	if(this.model.get('attribution_uri').indexOf('soundcloud')>-1) blanks.sourceText = 'Listen on Soundcloud';
@@ -134,125 +130,132 @@
 			if (sessionStorage.getItem('moreFancy') == "true") this.more(this.el);
 			else this.less(this.el);
 
-			var _this=this;
-			
-			//EDIT TITLE
-			$(this.el).find('.title').editable(
-				function(value, settings)
-				{ 
-					_this.model.save({ title:value }, 
-							{
-								success: function(model, response) { 
-									console.log("Updated item title for item " + model.id);
-				 				},
-				 				error: function(model, response){
+		
+			if(this.model.get('editable')){
+				
+				console.log(this.model);
+				console.log('EDDEDDEDDEDDEDDEDDEDDEDDEDDEDDEDD');
+				var _this=this;
+				//EDIT TITLE
+				$(this.el).find('.title').editable(
+					function(value, settings)
+					{ 
+						_this.model.save({ title:value }, 
+								{
+									success: function(model, response) { 
+										console.log("Updated item title for item " + model.id);
+									},
+									error: function(model, response){
+	
+										console.log("Error updating item title.");
+										console.log(response);
+									}
+								});
+						return value; //must return the value
+					},
+					{
+						indicator : 'Saving...',
+						tooltip   : 'Click to edit...',
+						indicator : '<img src="images/loading.gif">',
+						select : false,
+						onblur : 'submit',
+						width : 250,
+						cssclass : 'fancybox-form'
+				});
+				//EDIT DESCRIPTION
+				$(this.el).find('.description').editable(
+					function(value, settings)
+					{ 
+						_this.model.save({ description:value }, 
+								{
+									success: function(model, response) { 
+										$(_this.el).find('.description').text(_this.model.get("description"));
+										console.log("Updated item description for item " + _this.model.id);
+									},
+									error: function(model, response){
+	
+										console.log("Error updating item description.");
+										console.log(response);
+									}
+								});
+						return value; //must return the value
+					},
+					{
+						type 	: 'textarea',
+						indicator : 'Saving...',
+						tooltip   : 'Click to edit description...',
+						indicator : '<img src="images/loading.gif">',
+						select : false,
+						onblur : 'submit',
+						width : 250,
+						cssclass : 'fancybox-form'
+				});
+				//EDIT CREATOR
+				$(this.el).find('.creator').editable(
+					function(value, settings)
+					{ 
+						_this.model.save({ "media_creator_username":value }, 
+								{
+									success: function(model, response) { 
+										console.log("Updated item creator for item " + _this.model.id);
+									},
+									error: function(model, response){
+	
+										console.log("Error updating item creator.");
+										console.log(response);
+									}
+								});
+						return value; //must return the value
+					},
+					{
+						indicator : 'Saving...',
+						tooltip   : 'Click to edit...',
+						indicator : '<img src="images/loading.gif">',
+						select : false,
+						onblur : 'submit',
+						width : 150,
+						cssclass : 'fancybox-form'
+				});
+	
+				$(this.el).find('.no-do-not-delete').click(function(e){
+					$('.fancybox-delete-button').show();
+					$('.fancybox-confirm-delete-button').hide();
+					e.preventDefault();
+				});
+				$(this.el).find('.yes-confirm-delete').click(function(e){
+	
+					var deleteURL = sessionStorage.getItem('hostname')+sessionStorage.getItem('directory') + "api/items/"
+								+ _this.model.id;
+	
+					//DESTROYYYYYYYY
+					_this.model.destroy({	
+										url : deleteURL,
+										success: function(model, response)
+										{ 
+											console.log("Deleted item " + _this.model.id);	
+	
+											//close fancy box window
+											jQuery.fancybox.close();
+	
+										},
+										error: function(model, response)
+										{
+											console.log("Error deleting item " + _this.model.id);		
+											console.log(response);
+										}
+									});
+					e.preventDefault();
+				});
+				
+				//DELETE button
+				$(this.el).find('.fancybox-delete-button').click(function(e){
+					$(this).hide();
+					$('.fancybox-confirm-delete-button').show();
+					e.preventDefault();
+				});
 
-				 					console.log("Error updating item title.");
-				 					console.log(response);
-				 				}
-				 			});
-					return value; //must return the value
-				},
-				{
-					indicator : 'Saving...',
-					tooltip   : 'Click to edit...',
-					indicator : '<img src="images/loading.gif">',
-					select : false,
-					onblur : 'submit',
-					width : 250,
-					cssclass : 'fancybox-form'
-			});
-			//EDIT DESCRIPTION
-			$(this.el).find('.description').editable(
-				function(value, settings)
-				{ 
-					_this.model.save({ description:value }, 
-							{
-								success: function(model, response) { 
-									theElement.find('.description').text(_this.model.get("description"));
-									console.log("Updated item description for item " + _this.model.id);
-				 				},
-				 				error: function(model, response){
+			}
 
-				 					console.log("Error updating item description.");
-				 					console.log(response);
-				 				}
-				 			});
-					return value; //must return the value
-				},
-				{
-					type 	: 'textarea',
-					indicator : 'Saving...',
-					tooltip   : 'Click to edit description...',
-					indicator : '<img src="images/loading.gif">',
-					select : false,
-					onblur : 'submit',
-					width : 250,
-					cssclass : 'fancybox-form'
-			});
-			//EDIT CREATOR
-			$(this.el).find('.creator').editable(
-				function(value, settings)
-				{ 
-					_this.model.save({ "media_creator_username":value }, 
-							{
-								success: function(model, response) { 
-									console.log("Updated item creator for item " + _this.model.id);
-				 				},
-				 				error: function(model, response){
-
-				 					console.log("Error updating item creator.");
-				 					console.log(response);
-				 				}
-				 			});
-					return value; //must return the value
-				},
-				{
-					indicator : 'Saving...',
-					tooltip   : 'Click to edit...',
-					indicator : '<img src="images/loading.gif">',
-					select : false,
-					onblur : 'submit',
-					width : 150,
-					cssclass : 'fancybox-form'
-			});
-
-			$(this.el).find('.no-do-not-delete').click(function(e){
-				$('.fancybox-delete-button').show();
-				$('.fancybox-confirm-delete-button').hide();
-				e.preventDefault();
-			});
-			$(this.el).find('.yes-confirm-delete').click(function(e){
-
-				var deleteURL = sessionStorage.getItem('hostname')+sessionStorage.getItem('directory') + "api/items/"
-							+ _this.model.id;
-
-				//DESTROYYYYYYYY
-				_this.model.destroy({	
-					 				url : deleteURL,
-									success: function(model, response)
-									{ 
-										console.log("Deleted item " + _this.model.id);	
-
-										//close fancy box window
-										jQuery.fancybox.close();
-
-					 				},
-					 				error: function(model, response)
-									{
-					 					console.log("Error deleting item " + _this.model.id);		
-					 					console.log(response);
-					 				}
-			 					});
-				e.preventDefault();
-			});
-			
-			//DELETE button
-			$(this.el).find('.fancybox-delete-button').click(function(e){
-				$(this).hide();
-				$('.fancybox-confirm-delete-button').show();
-			 	e.preventDefault();
-			});
 
 			$(this.el).find('.close').click(function(){
 				jQuery.fancybox.close();
