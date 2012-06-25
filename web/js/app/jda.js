@@ -27,6 +27,7 @@ this.jda = {
 	
 	init : function(){
 		// make item collection
+		this.currentFilter=null;
 		var Browser = jda.module("browser");
 		this.resultsView = new Browser.Items.Collections.Views.Results();
 		this.eventMap = new Browser.Views.EventMap();
@@ -209,7 +210,7 @@ this.jda = {
 	
 	addFilter : function(model, filterType, searchParams){
 		
-		
+		console.log("adding filter", filterType);
 		
 		
 		/*******  UX ***/
@@ -218,11 +219,7 @@ this.jda = {
 		$('#jda-related-tags').hide();
 		
 		/****** END UX **********/
-		
-		
-		
-		
-		console.log('adding filter');
+
 		if (searchParams == null){
 			searchParams = new Object();
 		}
@@ -232,22 +229,26 @@ this.jda = {
 		this.clearSearchFilters(false);
 		
 		if (filterType == 'collection'){
-			$('#jda-left').css("margin-top","325px");
 			//clear out user filter - you can't have both
-			if (this.resultsView.userFilter != null){
-				this.removeFilter('user',searchParams,false);
-			}
+			if (this.resultsView.userFilter != null) this.removeFilter('user',searchParams,false);
+			
+			
+			$('#jda-left').css("margin-top","325px");
+			this.currentFilterType ="collection";
+			
 			this.resultsView.collectionFilter = new Browser.Items.Views.CollectionPage({model:model});
 			searchParams.collection = model.id;
 			this.search(searchParams);
 		
 		} else if (filterType == 'user'){
-
-			$('#jda-left').css("margin-top","165px");
+			
+			
+			
 			//clear out collection filter - you can't have both
-			if (this.resultsView.collectionFilter != null){
-				this.removeFilter('collection',searchParams,false);
-			}
+			if (this.resultsView.collectionFilter != null) this.removeFilter('collection',searchParams,false);
+			
+			this.currentFilterType ="user";
+			$('#jda-left').css("margin-top","165px");
 			
 			var Browser = jda.module("browser");
 			//the r_collections parameter separates the items and collections in the search results
@@ -266,33 +267,32 @@ this.jda = {
 		- doSearch: Optionally make app request new items or not, default is TRUE
 	***************************************************************************/
 	
-	removeFilter : function(filterType, searchParams, doSearch){
-		console.log("Function: jda.app.removeFilter",doSearch);		
-		
-		
+	removeFilter : function(filterType, searchParams, clearAll){
+		console.log("removeFilter",this.currentFilterType);		
 		if (searchParams == null){
 			searchParams = new Object();
 		}
-		if (doSearch == null){
-			doSearch = true;
+		if (clearAll == null){
+			clearAll = true;
 		}
 		
-		
-		if(doSearch){
+		if(filterType == 'current') filterType=this.currentFilterType;
+			
+		if(clearAll){
 		
 			$('.tab-content').find('.btn-group').show();
 			$('#jda-left').css("margin-top", "0px");
 			$('#jda-related-tags').fadeIn('fast');
+			this.currenFilterType=null;
 			
 		}
 		
 
-		
-		//reset height of main results content & my collections
-		$('.tab-content').removeClass('jda-low-top');
-		
-
+	
+	
 		if (filterType == 'collection'){
+		
+			console.log("removing collection filter");
 			//remove collectionFilter view which takes care of UI
 			if(!_.isUndefined(this.resultsView.collectionFilter))this.resultsView.collectionFilter.remove();
 
@@ -301,11 +301,11 @@ this.jda = {
 
 			//remove search parameter from JDA app
 			searchParams.collection = '';
-			if (doSearch){
-				//this.search(searchParams);
-			}
 		} 
 		else if (filterType == 'user'){
+		
+			console.log("removing user filter");
+			
 			//remove collectionFilter view which takes care of UI
 			this.resultsView.userFilter.remove();
 
@@ -317,9 +317,6 @@ this.jda = {
 
 			//remove search parameter from JDA app
 			searchParams.user = '';
-			if (doSearch){
-				//this.search(searchParams);
-			}
 		}
 		
 
@@ -412,10 +409,9 @@ this.jda = {
 		this.eventMap.load();
 	},
 	
-
 	
-	clearSearchFilters : function(doSearch)
-	{
+	
+	clearSearchFilters : function(doSearch){
 	
 		console.log('clearSearchFilters called with doSearch',doSearch);
     
@@ -431,38 +427,13 @@ this.jda = {
 	  	if(doSearch) this.search({ page:1,});
 	},
 
-	initAdvSearch : function()
-	{
+	initAdvSearch : function(){
 		// do init code here
     },
-    
-    /*
-	getLeftColumnWidth : function(){
-		var width = ($(window).width() - $('#zeega-right-column').width() - 0.1 * $(window).width()) - 30;
-		var minwidth = parseInt($('#zeega-left-column').css('min-width'), 10);
-		
-		return Math.max(width, minwidth);
-	},
-	getRightColumnPosition: function(){
-		var left = this.getLeftColumnWidth() + $('#zeega-left-column').offset().left + 105;
-		return left;	
-	},
-	
-	*/
-	/***************************************************************************
-		- called from ux.search and then anytime window is resized
-	***************************************************************************/
-	redrawLayout:function(){
-		//$('#zeega-left-column').css("width", jda.app.getLeftColumnWidth());
-	    //$('#jda-collection-filter').css("width", $('#zeega-main-content').width() );
-	    //$('#jda- -filter').css("width", jda.app.getLeftColumnWidth() );
-	    //$('.jda-separate-collections-and-items').css("width", jda.app.getLeftColumnWidth() );
-	   // $('.left-col').css("width", jda.app.getLeftColumnWidth() );
 
-	    //$('#zeega-right-column').css("left", jda.app.getRightColumnPosition());
-	},
 
-	
+
+
 	/***************************************************************************
 		- called when user authentication has occured
 	***************************************************************************/
@@ -484,10 +455,10 @@ this.jda = {
 		}
 		else this.initCollectionsDrawer();
 	},
-	
-	
-	
-	
+
+
+
+
 	
 	goToAuthorPage : function(userId){
 		var _this = this;
@@ -509,8 +480,10 @@ this.jda = {
 		
 	},
 	
-	
-	
+	goToCollectionsPage : function(){ 
+		this.removeFilter("current",null,true);
+	}
+		
 	
 	
 	

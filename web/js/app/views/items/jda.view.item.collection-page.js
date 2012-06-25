@@ -469,7 +469,6 @@
 					}
 				})
 	
-				jda.app.redrawLayout();
 	
 				return this;
 			},

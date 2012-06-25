@@ -1,6 +1,5 @@
 $(document).ready(function(){
-  
-   jda.app.redrawLayout();
+
   
 	var BrowserDetect = {
 	init: function () {
@@ -225,8 +224,8 @@ $(document).ready(function(){
 	/*********** SEARCH SPECIFIC GO TO PROFILE PAGE ****************/
 	
 	
-		$('#jda-user-profile').click(function(){ jda.app.goToAuthorPage(-1);});
-	
+	$('#jda-user-profile').click(function(){ jda.app.goToAuthorPage(-1);});
+	$('.go-to-collections').click(function(){jda.app.goToCollectionsPage();});
 	
 
   
