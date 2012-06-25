@@ -539,7 +539,24 @@ nuclear catastrophe.</target>
          	 <trans-unit id="134">
                 <source>jda.search.dragcover</source>
                 <target>Drag cover image here</target>
-            </trans-unit>               
+            </trans-unit>    
+            <trans-unit id="135">
+                <source>jda.search.tips1</source>
+                <target>Enter your keyword search in the box to the left.
+                </target>
+            </trans-unit>
+             <trans-unit id="136">
+                <source>jda.search.tips2</source>
+                <target>
+                To search only tags, begin your search with "t" and select "tag:"
+                </target>
+            </trans-unit>    
+             <trans-unit id="137">
+                <source>jda.search.tips3</source>
+                <target>
+                To search by user, begin your search with "u" and select "user:"
+                </target>
+            </trans-unit>    
         </body>
     </file>
 </xliff>

@@ -537,6 +537,23 @@
                 <source>jda.search.dragcover</source>
                 <target>ここにドラッグした画像がカバーになります</target>
             </trans-unit>   
+             <trans-unit id="135">
+                <source>jda.search.tips1</source>
+                <target>左にある検索スペースに調べたい言葉を入力して下さい。
+                </target>
+            </trans-unit>  
+             <trans-unit id="136">
+                <source>jda.search.tips2</source>
+                <target>
+                タグだけを検索したい場合は、キーボードの"t"キーを押し、次に"タグ"をお選び下さい。
+                </target>
+            </trans-unit>
+             <trans-unit id="137">
+                <source>jda.search.tips3</source>
+                <target>
+                ユーザ別に検索したい場合は、キーボードの"u"キーを押し、次に"ユーザ"をお選び下さい。
+                </target>
+            </trans-unit>  
         </body>
     </file>
 </xliff>
