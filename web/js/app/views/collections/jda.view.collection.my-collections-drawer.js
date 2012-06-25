@@ -16,7 +16,7 @@
             this.collection.parse= function(data){ return data.collections;}
 			
 			//show 3 thumbnails by default in collections drawer
-			this.showThumbnailCount = 1;
+			this.showThumbnailCount = 3;
 		},
 
 		render : function(){
