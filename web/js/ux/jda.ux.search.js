@@ -281,7 +281,7 @@ $(document).ready(function(){
   sessionStorage.setItem('moreFancy', false);
 
   //set up fancybox lightbox plugin
-  $(".list-fancymedia,.map-fancymedia").fancybox({
+  $(".thumb-fancymedia,.map-fancymedia").fancybox({
 
     openEffect : 'fade',
       closeEffect : 'fade',
