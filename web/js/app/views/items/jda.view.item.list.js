@@ -6,6 +6,7 @@
 	Browser.Items.Views.List = Backbone.View.extend({
 		
 		tagName : 'tr',
+		className : 'list-media',
 		
 		 initialize: function () {
 	        

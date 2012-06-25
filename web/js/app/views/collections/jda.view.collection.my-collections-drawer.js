@@ -88,7 +88,7 @@
 			
 
 			$(this.el).find('#zeega-my-collections-items').droppable({
-			    accept : '.list-fancymedia',
+			    accept : '.thumb-fancymedia, .list-media',
 			    hoverClass : 'zeega-my-collections-items-dropping',
 			    tolerance : 'pointer',
 

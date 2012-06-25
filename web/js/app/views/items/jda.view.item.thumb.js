@@ -16,7 +16,7 @@
 	        	this.options.fancybox = true;
 	        }
 	        if(this.options.fancybox||true){
-	        	$(this.el).addClass('list-fancymedia');
+	        	$(this.el).addClass('thumb-fancymedia');
 	        }
 	        if (_.isUndefined(this.options.thumbnail_width)){
 	        	this.options.thumbnail_width = 160;
@@ -120,7 +120,7 @@
 			    opacity : .8,
 
 			    helper : function(){
-			      var drag = $(this)
+			      var drag = $(this).find('a')
 			      .clone()
 			      .css({
 			      	
