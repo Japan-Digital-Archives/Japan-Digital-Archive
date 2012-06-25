@@ -532,10 +532,10 @@ nuclear catastrophe.</target>
                 <source>jda.search.gotocollection</source>
                 <target>Go to Collection</target>
             </trans-unit>  
-             <trans-unit id="133">
+            <trans-unit id="133">
                 <source>jda.search.savecollection</source>
                 <target>Save Collection</target>
-            </trans-unit>  
+            </trans-unit>                 
         </body>
     </file>
 </xliff>
