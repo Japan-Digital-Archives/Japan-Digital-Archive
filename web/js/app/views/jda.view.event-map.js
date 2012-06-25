@@ -252,6 +252,7 @@
 				this.popup.events.register("click", this.popup, function(event){ $(event.target).trigger('click') });
 			
 				this.map.addPopup(this.popup);
+				$('.map-popup-list-items').css("margin-right","-40px");
 				$('#map-popup').height($('#map-popup').height() - 50);	
 			}
 			else this.popup=false;

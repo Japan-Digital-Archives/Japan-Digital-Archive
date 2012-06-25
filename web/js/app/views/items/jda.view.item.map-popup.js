@@ -46,7 +46,7 @@
 		{
 			html =
 			'<a  class="map-fancymedia" id="<%= id %>" rel="group">'+
-			'<div style="float:left;">'+
+			'<div class="map-popup-icon-container" style="float:left;">'+
 			'<div class="map-popup-tweet-icon"></div>'+
 			'</div>'+
 			'<div>'+
@@ -60,7 +60,7 @@
 		{
 			html =
 			'<a  class="map-fancymedia" id="<%= id %>" rel="group">'+
-			'<div style="float:left;">'+
+			'<div class="map-popup-icon-container" style="float:left;">'+
 				'<img  src="<%= thumbnail_url %>" height="50" width="50"/>'+
 			'</div>'+
 			'<div>'+
@@ -75,7 +75,7 @@
 		{
 			html =
 			'<a  class="map-fancymedia" id="<%= id %>" rel="group">'+
-			'<div style="float:left;">'+
+			'<div class="map-popup-icon-container" style="float:left;">'+
 				'<i class="jdicon-<%=media_type%>"></i>'+
 			'</div>'+
 			'<div>'+
