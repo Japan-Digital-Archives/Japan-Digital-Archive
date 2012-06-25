@@ -79,6 +79,7 @@
 		render: function(done){
 			var _this = this;
 			var canEdit = this.model.get('editable');
+			console.log(this.model);
 			console.log("THe ability to edit is:",canEdit);
 			if (this.isEditView){
 				this.isMoreView=true;
@@ -350,7 +351,7 @@
 					$('#jda-collection-editing-toolbar').fadeIn();
 	
 					$(this.el).find('img, .jda-collection-filter-drag-item-here').droppable({
-						accept : '.list-fancymedia',
+						accept : '.thumb-fancymedia',
 						
 						tolerance : 'pointer',
 						over: function(event, ui) { 

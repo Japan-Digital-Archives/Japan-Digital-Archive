@@ -207,25 +207,27 @@ margin-left: -20px;
 	left:40%;
 
 }
-#jda-collection-filter{
-	position:fixed;
-	top:105px;
-	background:white;
-	z-index:1;
-	min-width:850px;
-	left:inherit;
-	overflow: hidden;
-}
-
-
 #jda-collection-filter-new{
 
-	padding-bottom: 10px;
+	position: fixed;
+	z-index:50;
+	top:90px;
+	background:white;
 
 }
 #jda-user-filter{
+	position: fixed;
+	top:90px;
+	z-index:50;
 	overflow: hidden;
+	background:white;
 }
+
+.jda-user-link.bottom{  	
+	position:absolute;
+	bottom:0px;
+}
+
 #jda-collection-editing-toolbar{
 	display:none;
 	clear:both;margin-bottom:8px;
