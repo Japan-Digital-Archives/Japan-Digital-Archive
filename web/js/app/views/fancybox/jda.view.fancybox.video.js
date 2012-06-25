@@ -32,7 +32,7 @@
 	},
 	afterShow:function(){
 		
-		
+		Browser.Views._Fancybox.prototype.afterShow.call(this);
 		switch( this.model.get("layer_type") )
 			{
 
