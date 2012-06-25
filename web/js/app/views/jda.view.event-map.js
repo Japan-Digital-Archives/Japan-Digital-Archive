@@ -211,10 +211,10 @@
 			if (response.responseText != ""){			
 				try
 				{
-					console.log(response.responseText);
 					//UGLY – remove header string
-					var data = jQuery.parseJSON(response.responseText.substring(75));
-					//var data = jQuery.parseJSON(response.responseText);
+					//var data = jQuery.parseJSON(response.responseText.substring(75));
+					//console.log(response.responseText);
+					var data = jQuery.parseJSON(response.responseText);
 				}
 				catch(err)
 				{
