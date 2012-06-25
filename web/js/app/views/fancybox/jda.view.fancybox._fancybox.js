@@ -8,6 +8,12 @@
 		id:'fancybox-media-container',
 		
 		initialize: function(){
+
+			var _this = this;
+
+			this.collection = jda.app.myCollectionsDrawer.collection;
+           
+            
 			
 		
 		},
@@ -15,7 +21,7 @@
 		events : {
 			'click .fancybox-more-button' : 'more',
 			'click .fancybox-less-button' : 'less',
-			
+			'click .jda-show-share-link' : 'shareLink'
 		},
 		
 		beforeClose: function(){
@@ -38,6 +44,83 @@
 				'maxChars' : 0,
 				'placeholderColor' : '#C0C0C0',
 			});
+
+			/***********************************
+				ADD TO COLLECTION LINK
+				Only show if they are logged in and not looking at a collection page already
+			***********************************/
+			if(sessionStorage.getItem('user')==0 || jda.app.resultsView.collectionFilter != null){
+				$('.jda-add-to-menu').hide();
+
+			} else{
+
+				 
+					var myCollections = $(_this.el).find('.fancybox-my-collections-list');
+
+					_.each( _.toArray(this.collection), function(item){
+					
+						if(!_.isUndefined(item.id)) var id =item.id;
+						else id = -1;
+						
+						if(item.get('title').length>25) var title = item.get('title').substr(0,23)+'...';
+						else var title = item.get('title');
+						
+						var itemView = '<li class="zeega-collection-list-item" id="'+id+'"><a href=".">'+title+'</a></li>';
+						myCollections.append(itemView);
+
+					});
+
+					//Save collection with new item
+					$(_this.el).find('.zeega-collection-list-item').click(function(){
+
+						$(_this.el).find('.jda-add-to-menu').removeClass('open');
+						$(_this.el).find('.jda-saving').show()
+
+						var collectionID = $(this).attr("id");
+						var itemID = _this.model.id;
+
+						var collection = _this.collection.get(collectionID);
+
+						var itemExists = false;
+						var kids =_.toArray( collection.get('child_items'));
+						for (var i=0;i<kids.length;i++){
+							if(kids[i].id == itemID){
+								itemExists=true;
+								break;
+							}
+						}
+						if (!itemExists){
+
+							collection.save({new_items:[itemID ]},
+									{
+										success : function(model, response){ 
+											//_this.collection.reset();
+											$(_this.el).find('.jda-saving').hide();
+											$(_this.el).find('.jda-added').show().delay(800).fadeOut(400);
+											
+											//update my collection drawer preview
+											if (collection.id == jda.app.myCollectionsDrawer.activeCollectionID){
+												jda.app.myCollectionsDrawer.renderCollectionPreview(collection);
+											}
+											
+										},
+										error : function(model, response){
+											console.log(response);
+			
+										}
+									}
+								);
+						} else{
+							$(_this.el).find('.jda-saving').hide();
+							$(_this.el).find('.jda-duplicate-item').show().delay(800).fadeOut(400);
+
+						}
+						return false;
+					});
+					
+				
+			} 
+
 
 
 		},
@@ -91,7 +174,10 @@
 			$(this.el).removeClass("fancybox-media-container-more");	
 			return false;
 		},
-		
+		shareLink : function(){
+			$('.jda-share-link').toggle();			
+			$('.jda-show-share-link').toggleClass('active');
+		},
 		render: function(obj)
 		{
             this.elemId = Math.floor(Math.random()*10000);
@@ -111,6 +197,8 @@
 			else 	if(this.model.get('attribution_uri').indexOf('soundcloud')>-1) blanks.sourceText = 'Listen on Soundcloud';
 			else blanks.sourceText ='View Source';
 
+			blanks.itemShareLink = sessionStorage.getItem("hostname") + sessionStorage.getItem("directory") + sessionStorage.getItem("locale") + '/item/'+ this.model.id;
+			
 			//use template to clone the database items into
 			var template = _.template( this.getTemplate() );
 
@@ -122,6 +210,7 @@
 			this.locatorMapView = new Browser.Views.LocatorMap({ model : this.model });
 			$(this.el).find('.geo').append(this.locatorMapView.render());
 
+			
 
 			//Fancybox will remember if user was in MORE or LESS view
 			if (sessionStorage.getItem('moreFancy') == "true") this.more(this.el);
@@ -264,7 +353,27 @@
 			var html =		'<div class="fancybox-close-button"><a class="close">&times;</a></div>'+
 							'<div class="fancybox-media-wrapper">'+
 							'<div class="fancybox-left-column">' +
-								'<div class="fancybox-media-item media-item"></div>'+
+								/* Share & Add to collection buttons */
+								'<div style="margin-bottom:3px">'+
+									'<button class="btn btn-mini btn-inverse pull-left jda-show-share-link" style="margin-right:5px;margin-bottom:3px"><i  class="icon-share-alt icon-white"></i> Link</button> '+
+									'<div class="btn-group jda-add-to-menu pull-left">'+
+									  '<a class="btn btn-mini btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">'+
+									    'Add to '+
+									    '<span class="caret"></span>'+
+									  '</a>'+
+									  '<ul class="dropdown-menu fancybox-my-collections-list">'+
+									    
+									  '</ul>'+
+									'</div><span class="label label-info jda-saving" style="display:none;margin-left:3px">Saving...</span><span class="label label-success jda-added" style="display:none;margin-left:3px">Added</span><span  style="display:none;margin-left:3px" class="label label-warning jda-duplicate-item">Duplicate</span>'+
+								'</div>'+
+								'<div class="jda-share-link" style="display:none;float:none;clear:both;margin-top:3px">'+
+									'<input type="text" value="<%= itemShareLink %>">'+
+								'</div>'+
+
+								/* Media Item */
+								'<div class="fancybox-media-item media-item" style="clear:both"></div>'+
+
+								/* Tags */
 								'<p class="more subheader" style="clear:both">Tags</p><div id="zeega-tag-container" class="more zeega-tags">'+
 								'<input name="tags" class="fancybox-editable tagsedit" id="<%=randId%>" value="<%=tags%>" />'+
 								'</div>'+
