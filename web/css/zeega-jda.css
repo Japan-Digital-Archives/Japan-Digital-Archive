@@ -36,7 +36,7 @@
 {
 	position:relative;
 	top:36px;
-	margin: 0 55px;
+	margin: 0 20px;
 }
 #zeega-left-column{
 	/*this width gets set programmatically in search.ux.js file */
@@ -80,6 +80,9 @@
 }
 #zeega-my-collections{
 	
+	position: fixed;
+	top: 95px;
+	right:20px;
 	width: 200px;
 	text-align: center;
 	border-radius: 4px;
@@ -136,7 +139,7 @@
 }
 #zeega-results-count{
 	font-size: 18px;
-
+	margin-bottom:20px;
 	position: relative;
 	top: 13px;
 	z-index: 0;

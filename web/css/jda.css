@@ -215,12 +215,26 @@ margin-left: -20px;
 
 #jda-collection-filter-new{
 
-	padding-bottom: 10px;
+	position: fixed;
+	z-index:50;
+	top:90px;
+	background:white;
 
 }
 #jda-user-filter{
+	position: fixed;
+	top:90px;
+	z-index:50;
 	overflow: hidden;
+	background:white;
 }
+
+.user-image-container{
+
+width: 172px;
+padding: 5px 0px;
+}
+
 #jda-collection-editing-toolbar{
 	display:none;
 	clear:both;margin-bottom:8px;
