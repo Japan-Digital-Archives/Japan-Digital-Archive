@@ -527,9 +527,12 @@
             </trans-unit> 
 			 <trans-unit id="132">
                 <source>jda.search.gotocollection</source>
-                <target>Go to Collection</target>
-            </trans-unit>                 
-            
+                <target>Go to CollectionJA</target>
+            </trans-unit> 
+             <trans-unit id="133">
+                <source>jda.search.saveCollection</source>
+                <target>Save CollectionJA</target>
+            </trans-unit> 
         </body>
     </file>
 </xliff>
