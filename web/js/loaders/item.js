@@ -27,13 +27,17 @@ var loadFiles = [
 	'order!../lib/bootstrap-2.0.2/js/bootstrap.min',
 		'order!../lib/leaflet/leaflet',
 	
-	'order!../lib/visualsearch/visualsearch',
 	
+	'order!../lib/popcorn_flash',
+	
+	//plugins
+	'order!../plugins/players/plyr',
 	
 	
 
 	//custom
 	
+	'order!../helpers/utils',
 	'order!../ux/jda.ux.item',
 
 	

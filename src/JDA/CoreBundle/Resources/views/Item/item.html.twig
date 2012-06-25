@@ -80,18 +80,20 @@
         
         <div class="row-fluid">
           <div class="span8">
-         	 <div id="item" class='jda-item-container' data-media_type="{{item.media_type}}" data-uri="{{item.uri}}" ></div>
+         	 <div id="item" class='jda-item-container' data-layer_type="{{item.layer_type}}" data-attribution_uri="{{item.attribution_uri}}" data-text="{{item.text}}" data-media_type="{{item.media_type}}" data-uri="{{item.uri}}" ></div>
           </div>
           <div class="span4">
           	<h3>Description</h3>
           	<p>{{item.description}}</p>
           	
-          	<div class="map-wrapper">
+          	<div class="map-wrapper" style="margin-top:15px;position:relative">
           		<h3>Map</h3>
-          		<div id ="map" class="jda-item-map-container" data-lat="{{item.media_geo_latitude}}" data-lng="{{item.media_geo_longitude}}"></div>
+          		<div id ="map" class="jda-item-map-container" data-lat="{{item.media_geo_latitude}}" data-lng="{{item.media_geo_longitude}}"><h3 class="jda-no-geo-location-message" style="position: relative;
+top: 56px;display:none;color:#666">No location information</h3></div>
+          		
           	</div>
          	
-         	<div class="tags-wrapper">
+         	<div class="tags-wrapper" style="margin-top:15px">
 				<h3>Tags</h3>
 			  
 				  {% for tag in item.tags %}

@@ -66,6 +66,25 @@ var mmsToString = function(dateMms) {
 	return year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds;
 };
 
+/* Turns tweet text into proper links */
+var linkifyTweet = function(tweet){
+
+	//linkify urls
+	var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+	tweet = tweet.replace(exp,"<a href='$1' target='_blank'>$1</a>"); 
+
+	//linkify users
+	 tweet = tweet.replace(/(^|)@(\w+)/gi, function (s) {
+    	return '<a target="_blank" href="http://twitter.com/' + s + '">' + s + '</a>';
+	});
+
+	//linkify tags
+	tweet = tweet.replace(/(^|)#(\w+)/gi, function (s) {
+    	return '<a target="_blank" href="http://search.twitter.com/search?q=' + s.replace(/#/,'%23') + '">' + s + '</a>';
+ 	});
+
+	return tweet;
+};
 var stringToFormatted = function(dateString) {
 	// takes a string in the form "yyyy-mm-dd hh:mm:ss" and returns a string in
 	// the form "Monday, December 19, 2011 at 7:00pm"

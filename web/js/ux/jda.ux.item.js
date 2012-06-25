@@ -230,18 +230,83 @@ $(document).ready(function(){
 		var marker = new L.Marker(latLng,{draggable:false});
 		map.setView( latLng, 13).addLayer(baseLayer).addLayer(marker);
 		$('.leaflet-control-attribution').hide();
+    } else{
+    	//greyed out map image
+    	$('#map').addClass('jda-no-geo-info');
+    	$('.jda-no-geo-location-message').show();
     }
-
-	if($('#item').data('media_type')=="Image"){
+    switch($('#item').data('media_type')){
+      case 'Image':
+        $('#item').append('<img src="'+$('#item').data('uri')+'" class="jda-item-image"/>');
+        break;
+      case 'Video':
+      	this.unique =Math.floor(Math.random() *10000)
+		$('#item').append($('<div>').attr({id:'item-video-'+this.unique}));
 		
-		$('#item').append('<img src="'+$('#item').data('uri')+'" class="jda-item-image"/>');
-	
-	}
-	
-	
-	
-	
-	
+      	switch( $('#item').data("layer_type") )
+		{
 
+			case 'Video':
+				var source = $('#item').data('uri');
+				this.plyr = new Plyr('item-video-'+this.unique,{url:source,controls:1});
+				break;
+			case 'Youtube':
+				var source = "http://www.youtube.com/watch?v="+$('#item').data('uri');
+				this.plyr = new Plyr('item-video-'+this.unique,{url:source,controls:1});
+				break;
+			case 'Vimeo':
+				var source = "http://vimeo.com/"+$('#item').data('uri');
+				this.plyr = new Plyr('item-video-'+this.unique,{url:source,controls:0});
+				break;
+		
+		}
+		$(window).unload(function() {
+		  	this.plyr.destroy();
+		});
+        
+        break;
+      
+      case 'Audio':
+      	this.unique =Math.floor(Math.random() *10000)
+		$('#item').append($('<div">').attr({id:'item-video-'+this.unique}));
+		
+		var source = $('#item').data('uri');
+		this.plyr = new Plyr('item-video-'+this.unique,{url:source,controls:1});
+				
+		$('#item video').css({'height':'0','margin-top':'31px'});
+
+		$(window).unload(function() {
+		  	this.plyr.destroy();
+		});
+        
+        break;
+      case 'Tweet':
+      	$('#item').append('<p class="fancybox-tweet">'+linkifyTweet($('#item').data('text'))+'</p>');
+        break;
+      case 'Text':
+        $('#item').append('<p class="fancybox-testimonial">'+linkifyTweet($('#item').data('text'))+'</p>');
+        break;
+      case 'Document':
+
+      	$('#item').append('<div id="fancybox-document-cloud" class="DV-container"></div>'+
+						'<script>'+
+						"DV.load('http://www.documentcloud.org/documents/"+$('#item').data('uri') +".js', {"+
+						'sidebar: false, width:600,height:439,'+
+						'container: "#fancybox-document-cloud"'+
+						'      });'+
+						'</script>');
+        
+        break;
+         
+      case 'Website':
+      	$('#item').append('<div class="website-caption"><a href="'+$('#item').data('attribution_uri')+'" target="_blank">'+$('#item').data('attribution_uri')+'</a></div>'+
+					'<div id="jda-item-website">'+
+					'<iframe type="text/html" width="100%" height="400px" src="'+$('#item').data('attribution_uri')+'" frameborder="0">'+
+					'</iframe>'+
+					'</div>');
+       
+        break;
+      
+      }
 
 });
