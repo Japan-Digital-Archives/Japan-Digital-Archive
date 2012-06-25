@@ -21,7 +21,11 @@
 		events : {
 			'click .fancybox-more-button' : 'more',
 			'click .fancybox-less-button' : 'less',
-			'click .jda-show-share-link' : 'shareLink'
+			'click .jda-show-share-link' : 'shareLink',
+			'click .jda-share-link input' : function(){ 
+				$('.jda-share-link input').select();
+				
+			},
 		},
 		
 		beforeClose: function(){
@@ -180,6 +184,7 @@
 		},
 		render: function(obj)
 		{
+			
             this.elemId = Math.floor(Math.random()*10000);
 			/** Temp Fix **/
 			var blanks = {

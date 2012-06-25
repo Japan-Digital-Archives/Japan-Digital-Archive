@@ -77,7 +77,7 @@
 		
 		getMediaTemplate : function(width, height)
 		{
-			var html =	'<div id="fancybox-document-cloud" class="DV-container"></div>'+
+			var html =	'<div id="fancybox-document-cloud" class="DV-container" style="z-index:1"></div>'+
 						'<script>'+
 						"DV.load('http://www.documentcloud.org/documents/<%= uri %>.js', {"+
 						'sidebar: false, width:'+width+',height:'+height+','+

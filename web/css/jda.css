@@ -258,6 +258,7 @@ margin-left: -20px;
 }
 .jda-item-image{
 	min-width:100px;
+	width:100%;
 }
 .jda-thumbnail-caption{
 	padding-top:3px;
@@ -600,15 +601,25 @@ border-radius: 0px 4px 0px 0px;
 	width:250px;
 	height:150px;
 	background-color:gray;
+	text-align:center;
+
 
 }
-
-
+#jda-item-website iframe{
+	width: 181%;
+	height : 1000px;
+	border:1px solid #ccc;
+	zoom: 0.55;
+ 	-moz-transform: scale(0.55);
+	-moz-transform-origin: 0 0;
+	-o-transform: scale(0.55);
+	-o-transform-origin: 0 0;
+	-webkit-transform: scale(0.55);
+	-webkit-transform-origin: 0 0;
+}
 .jda-item-container{
 
 	width:600px;
-
-	background-color:rgba(0,0,0,.2);
 	text-align:center;
 	padding:5px;
 
@@ -623,6 +634,9 @@ border-radius: 0px 4px 0px 0px;
 .zeega-list-middle-column li:hover{
 
 	color:#08c;
+}
+.jda-no-geo-info{
+	background-image:url(../images/nogeomap.gif);
 }
 
 /**********************************

@@ -10,25 +10,7 @@
 			Browser.Views._Fancybox.prototype.initialize.call(this); //This is like calling super()
 		},
 		
-		/* Turns tweet text into proper links */
-		linkifyTweet : function(tweet)
-		{
-			//linkify urls
-			var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-	    	tweet = tweet.replace(exp,"<a href='$1' target='_blank'>$1</a>"); 
-
-	    	//linkify users
-	    	 tweet = tweet.replace(/(^|)@(\w+)/gi, function (s) {
-	        	return '<a target="_blank" href="http://twitter.com/' + s + '">' + s + '</a>';
-	    	});
-
-	    	//linkify tags
-	    	tweet = tweet.replace(/(^|)#(\w+)/gi, function (s) {
-	        	return '<a target="_blank" href="http://search.twitter.com/search?q=' + s.replace(/#/,'%23') + '">' + s + '</a>';
-	     	});
-
-	    	return tweet;
-		},
+		
 		
 		/* Pass in the element that the user clicked on from fancybox. */
 		render: function(obj)
@@ -39,7 +21,7 @@
 
 			//Fill in tweet-specific stuff
 			var blanks = {
-				tweet : this.linkifyTweet(tweet),
+				tweet : linkifyTweet(tweet),
 			};
 
 			//use template to clone the database items into
