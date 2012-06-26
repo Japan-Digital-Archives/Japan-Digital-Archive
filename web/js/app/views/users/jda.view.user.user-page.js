@@ -107,7 +107,6 @@
 				if (status == google.maps.GeocoderStatus.OK) {
 					if (results[0].formatted_address)
 					{
-						console.log(results)
 						$(_this.el).find('.jda-collection-map-location').html( results[ results.length-3 ].formatted_address );
 					}
 				}
@@ -207,12 +206,11 @@
 			
 				if (status == google.maps.GeocoderStatus.OK)
 				{
-					console.log(results)
 					_this.latlng=new L.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng());
 					
 					_this.map.setView( _this.latlng,8);
 					_this.marker.setLatLng(_this.latlng);
-					console.log(results[0].geometry.location.lat(),results[0].geometry.location.lng())
+					
 					_this.model.save({
 						'location_latitude': results[0].geometry.location.lat(),
 						'location_longitude': results[0].geometry.location.lng()
@@ -223,6 +221,7 @@
 		},
 		remove:function(){
 
+			console.log("Users.UserPage.remove");
 			//remove from DOM
 			$(this.el).empty();
 			$('.jda-separate-collections-and-items').hide();

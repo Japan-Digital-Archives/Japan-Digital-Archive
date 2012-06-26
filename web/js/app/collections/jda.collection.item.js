@@ -12,7 +12,7 @@
 	
 		url : function()
 		{
-			console.log(this.search);
+			//console.log(this.search);
 			//constructs the search URL
 			var url = this.base;
 			if( !_.isUndefined(this.search.q) && this.search.q.length > 0) url += '&q=' + this.search.q.toString();
@@ -38,14 +38,14 @@
 	
 		setSearch : function(obj, reset)
 		{
-		
+			console.log('items.collection.setSearch',obj)
 			if(reset) this.search = {	page:1,
 					r_itemswithcollections: 1,
 					r_tags:1
 
 				};
 			_.extend(this.search,obj)
-			console.log('set search: ',obj)
+			
 		},
 		
 		getSearch : function()
@@ -56,7 +56,7 @@
 		parse : function(response)
 		{
 		
-			console.log(response);
+			
 			this.tags=response.tags;
 			
 			if (this.search.r_collections && response.collections){
