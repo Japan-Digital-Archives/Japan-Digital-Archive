@@ -9,10 +9,8 @@
 
 *********************************************/
 
-var loadFiles = [
-	
-	
-	
+require (
+	[
 	
 	//libraries	
 	//'text!../app/views/items/templates.html',
@@ -45,10 +43,5 @@ var loadFiles = [
 	
 	//'order!search',
 
-	
-	];
-
-require(loadFiles, function(){
-
-});
+	],function(){});
 

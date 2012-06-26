@@ -5,7 +5,7 @@ var Path = require('path'),
     {
         for(var ci in config.convert)
         {
-            configFile = config.convert[ci].input.replace(/\_min.js/g,".js");
+            configFile = config.convert[ci].input;
             
             var data = fs.readFileSync(Path.join(__dirname,"/../",configFile), 'ascii');
             data = data.replace(/order\!\.\./g,"web/js");
@@ -13,7 +13,7 @@ var Path = require('path'),
             data = data.replace(/\',/g,".js',");
     
             newConfigFile = configFile.replace(/\.js/g,"_min.js");
-
+            config.convert[ci].input =  newConfigFile;
             fs.writeFileSync(Path.join(__dirname,"/../",newConfigFile), data);
         };
     },

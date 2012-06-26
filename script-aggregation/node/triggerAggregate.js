@@ -2,7 +2,6 @@ var Path = require('path'),
 	requirejs = require(__dirname + '/node_modules/requirejs'),
 	watcher = require('./watcher'),
 	aggregate = function(config){
-	    console.log(config);
 		var uglify = (config.uglify)?"uglify":"none";
 		for(var ci in config.convert){
 			var convertProfile = {
@@ -11,7 +10,6 @@ var Path = require('path'),
 			};
 			convertProfile.baseUrl  = '.';
 			convertProfile.optimize = uglify;
-            console.log(convertProfile);
 
 			var startTime = Date.now();
 			console.log("Starting", (config.uglify)?"compressed (slow)":"loose (fast)" ,"aggregation ", parseInt(ci)+1, "of", config.convert.length)
