@@ -149,7 +149,7 @@
 					$("#jda-related-tags button").filter(":last").click(function(){
 						
 						//clear all current search filters
-						jda.app.clearSearchFilters();
+						jda.app.clearSearchFilters(false);
 
 						//add only tag filter
 						VisualSearch.searchBox.addFacet('tag', tag.name, 0);
