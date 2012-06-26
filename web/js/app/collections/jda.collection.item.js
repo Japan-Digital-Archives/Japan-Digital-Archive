@@ -29,7 +29,7 @@
 			    if( !_.isUndefined(this.search.times.end) ) url += '&max_date=' + this.search.times.end;
 	     	};
 	     	if( !_.isUndefined(this.search.user) && this.search.user>=-1&& this.search.user!="") url += '&user=' + this.search.user;
-	     	if( !_.isUndefined(this.search.username) && this.search.username.length > 0) url += '&username=' + this.search.username;
+	     	//if( !_.isUndefined(this.search.username) &&  !_.isNull(this.search.username) &this.search.username.length > 0) url += '&username=' + this.search.username;
 	     	if(jda.app.currentView=='event') url+='&geo_located=1';
 	    
 			console.log('search url: '+ url);
@@ -39,13 +39,18 @@
 		setSearch : function(obj, reset)
 		{
 			console.log('items.collection.setSearch',obj)
-			if(reset) this.search = {	page:1,
-					r_itemswithcollections: 1,
-					r_tags:1
-
-				};
-			_.extend(this.search,obj)
+			if(reset){
+				this.search = { r_tags:1,page:1, r_items:1 };
+				if(_.isNumber(obj.collection)||_.isNumber(obj.user))this.search.r_itemswithcollections=0;
+				else this.search.r_itemswithcollections=1;
+				if(_.isNumber(obj.user)) this.search.r_collections=1;
+			}
 			
+			
+			
+			
+			_.extend(this.search,obj)
+			console.log("final search",this.search);
 		},
 		
 		getSearch : function()

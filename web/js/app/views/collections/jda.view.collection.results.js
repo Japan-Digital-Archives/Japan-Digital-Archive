@@ -188,6 +188,7 @@
 		
 		search : function(obj,reset)
 		{
+			console.log("jda.app.resultsView.search",obj);
 			var _this = this;
 			
 			this.updated = true;
@@ -282,7 +283,7 @@
 		 	if( !_.isUndefined(obj.user) && obj.user > 0) hash += 'user=' + obj.user + '&';
 		 	if( !_.isUndefined(obj.content) )  hash += 'content='+ obj.content + '&';
 		 	if( !_.isUndefined(obj.mapBounds) )  hash += 'map_bounds='+ encodeURIComponent(obj.mapBounds) + '&';
-		 	if( !_.isUndefined(obj.username) && obj.username.length > 0)  hash += 'username='+ encodeURIComponent(obj.username) + '&';
+		 	if( !_.isUndefined(obj.username) && !_.isNull(obj.username) &&  obj.username.length > 0)  hash += 'username='+ encodeURIComponent(obj.username) + '&';
 		 	if( !_.isUndefined(obj.times) )
 			{
 		 		if( !_.isUndefined(obj.times.start) ) hash += 'min_date='+ obj.times.start + '&';

@@ -43,19 +43,22 @@ this.jda = {
 	search : function(params, useValuesFromURL){
 	
 		console.log("jda.app.search",params,useValuesFromURL);
-		
-		if(_.isUndefined(params.collection)&&this.currentFilterType=="collection")this.removeFilter("collection");
-		if(_.isUndefined(params.user)&&this.currentFilterType=="user")this.removeFilter("user");
 	
+		
+		//if(_.isUndefined(params.username)&&this.currentFilterType=="user")this.removeFilter("user");
+		
+		//if(_.isObject(this.resultsView.userFilter)) params.user=this.resultsView.userFilter.model.id;
+		
+		
 		var _this = this;
+		
 		//Parse out search box values for putting them in the Search query
-		if (useValuesFromURL)
-		{
+		if (useValuesFromURL){
 			//get the search query from URL and put it in the search box			
 			this.updateSearchUI(params);
 		}
-		else
-		{
+		
+		else{
 			//Use content value from format dropdown
 			
 			params.content = $('#zeega-content-type').val();
@@ -66,7 +69,8 @@ this.jda = {
 			
 			var tagQuery = "tag:";
 			var textQuery = "";
-			var usernameQuery = "";
+			var usernameQuery = null;
+			var collectionQuery = null;
 
 			_.each(facets, function(facet){
 				switch ( facet.get('category') )
@@ -80,27 +84,27 @@ this.jda = {
 					case 'user':
 						usernameQuery = facet.get('value');
 						break;
+					case 'collection':
+						collectionQuery = facet.get('value');
+						break;
 					
 			    }
 			});
 			
 			params.q = textQuery + (textQuery.length > 0 && tagQuery.length > 4 ? " " : "") + (tagQuery.length > 4 ? tagQuery : "");
 			params.text = textQuery;
-			params.viewType = this.currentView;
+			params.view_type = this.currentView;
 			params.username = usernameQuery;
+			params.collection_name = collectionQuery;
 		}
 		
 		if (!_.isUndefined(params.view_type))  this.switchViewTo(params.view_type,false) ;
 		
-		if (params.view_type == 'event' && !this.eventMap.timeSliderLoaded)
-		{
+		if (!_.isUndefined(params.view_type) && params.view_type == 'event' && !this.eventMap.timeSliderLoaded) {
 			this.setEventViewTimePlace(params);
 		}
-		this.resultsView.search( params,true );
 		
-		
-		if (this.currentView == 'event')
-		{
+		if (this.currentView == 'event'){
 		    
 			if(!_.isUndefined( this.resultsView.getCQLSearchString())&&this.eventMap.mapLoaded)
 			{
@@ -109,6 +113,18 @@ this.jda = {
 				});
 			}
 		}
+		
+	
+		if(_.isNull(params.collection_name)&&_.isObject(this.resultsView.collectionFilter)) this.removeFilter("collection");
+		else if(_.isObject(this.resultsView.collectionFilter))params.collection=this.resultsView.collectionFilter.model.id;
+		
+		
+		if(_.isNull(params.user_name)&&_.isObject(this.resultsView.userFilter)) this.removeFilter("user");
+		else if(_.isObject(this.resultsView.userFilter))params.user=this.resultsView.userFilter.model.id;
+		
+		//if(_.isNumber(params.collection)&&this.currentFilterType=="collection")this.removeFilter("collection");
+		
+		this.resultsView.search( params,true );
 		
 	},
 	
