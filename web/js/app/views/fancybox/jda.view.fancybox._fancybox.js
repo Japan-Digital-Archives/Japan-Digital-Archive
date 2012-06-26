@@ -192,6 +192,8 @@
 			
 			$('.jda-share-link').toggle();			
 			$('.jda-show-share-link').toggleClass('active');
+			$('.jda-share-link').find('input').select();
+			
 		},
 		render: function(obj)
 		{
