@@ -245,7 +245,10 @@ margin-left: -20px;
 	margin-top:10px;
 }
 
-
+.jda-no-geo-location-message{
+	position: relative;
+	top: 56px;display:none;color:#666
+}
 .jda-edit-btn {
 	display:none;
 
@@ -613,12 +616,13 @@ border-radius: 0px 4px 0px 0px;
 	ITEM PAGE
 ***********************************/
 
-.jda-item-map-container{
+.jda-item-map-container,{
 
 	width:250px;
 	height:150px;
 	background-color:gray;
 	text-align:center;
+	background-image: url(../images/nogeomap.gif);
 
 
 }

@@ -34,6 +34,7 @@
 				$(this.el).find(removed[0].el).remove();
 
 				this.updateResultsCounts();
+				this.updated = true;
 			}
 
 		},

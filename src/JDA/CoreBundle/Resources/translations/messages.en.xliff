@@ -569,6 +569,10 @@ nuclear catastrophe.</target>
                 <source>jda.search.itemscontributed</source>
                 <target>Items Contributed to the Archive</target>
             </trans-unit>
+             <trans-unit id="141">
+                <source>jda.search.confirmdeletecollection</source>
+                <target>Are you sure you want to remove this item from the collection?</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
