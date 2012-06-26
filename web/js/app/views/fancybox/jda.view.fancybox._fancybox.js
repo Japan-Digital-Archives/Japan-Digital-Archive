@@ -41,13 +41,17 @@
 			$(this.el).find('.tagsedit').empty().tagsInput({
 				'interactive':true,
 				'defaultText':'add a tag',
-				'onAddTag':function(){_this.updateTags('',_this)},
-				'onRemoveTag':function(){_this.updateTags('',_this)},
+				'onAddTag':function(){_this.addTag('',_this)},
+				'onRemoveTag':function(){_this.removeTag('',_this)},
 				'removeWithBackspace' : false,
 				'minChars' : 1,
 				'maxChars' : 0,
 				'placeholderColor' : '#C0C0C0',
 			});
+			
+			console.log(this.model);
+			
+			if(!this.model.get('editable')){$('.tag').find('a').hide();}
 
 			/***********************************
 				ADD TO COLLECTION LINK
@@ -130,6 +134,7 @@
 		},
 		updateTags:function(name, _this)
 		{
+			
 		    model = _this.model;
 			var $t = $("#"+_this.elemId+"_tagsinput").children(".tag");
 			var tags = [];
@@ -138,7 +143,9 @@
 				tags.push($($t[i]).text().substring(0, $($t[i]).text().length -  1).trim());  
 			}
 			_this.model.save({tags : tags});
-		},		
+		},
+		
+		
 		
 		more : function(){
 			console.log('calling more');
@@ -157,6 +164,7 @@
 			//Show delete button in More view if user added this item
 			console.log(sessionStorage.getItem("userid") + ' is session nid');
 			console.log(this.model.get("user_id") + ' is mode; nid');
+			
 			if(this.model.get("editable")){
 				$(this.el).find('.fancybox-delete-button').show();
 			} else{
