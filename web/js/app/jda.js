@@ -237,7 +237,7 @@ this.jda = {
 		- searchParams: Optionally pass in searchParams to have it set other things on search
 	***************************************************************************/
 	
-	addFilter : function(model, filterType, searchParams){
+	addFilter : function(model, filterType, searchParams,useValuesFromURL){
 		console.log("jda.app.addFilter",model,filterType,searchParams);
 		
 		/*******  UX ***/
@@ -247,14 +247,15 @@ this.jda = {
 		
 		/****** END UX **********/
 
-		if (searchParams == null){
+		if (_.isNull(searchParams)){
+			console.log("check this out;;;;;;;",searchParams.q);
 			searchParams = new Object();
 		}
 		searchParams.page = 1;
 
 		var Browser = jda.module("browser");
 		this.clearSearchFilters(false);
-		
+
 		if (filterType == 'collection'){
 			//clear out user filter - you can't have both
 			if (this.resultsView.userFilter != null) this.removeFilter('user',searchParams,false);
@@ -287,7 +288,7 @@ this.jda = {
 			searchParams.r_itemswithcollections=0;
 			this.resultsView.userFilter = new Browser.Users.Views.UserPage({model:model});
 			searchParams.user = model.id;
-			this.search(searchParams);
+			this.search(searchParams,useValuesFromURL);
 		}
 
 	},

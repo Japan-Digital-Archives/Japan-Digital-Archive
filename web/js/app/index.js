@@ -91,7 +91,7 @@ jQuery(function($)
 						{
 							success : function(model, response)
 							{ 
-								JDA.addFilter(model,'collection',obj);
+								JDA.addFilter(model,'collection',obj,true);
 							},
 							error : function(model, response)
 							{ 
@@ -107,7 +107,8 @@ jQuery(function($)
 						var authorModel = new Browser.Users.Model({id:obj.user});
 						authorModel.fetch({
 							success : function(model, response){
-								JDA.addFilter(model,'user',obj);
+								console.log(obj.q);
+								JDA.addFilter(model,'user',obj,true);
 							},
 							error : function(model, response){
 								console.log('index.js: Error getting user specified in URL');
