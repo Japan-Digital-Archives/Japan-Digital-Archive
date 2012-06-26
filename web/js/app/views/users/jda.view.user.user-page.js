@@ -3,17 +3,13 @@
 	Browser.Users = Browser.Users || {};
 	Browser.Users.Views = Browser.Users || {};
 	
-	
-	
 	Browser.Users.Views.UserPage = Backbone.View.extend({
 		
 		el : $('#jda-user-filter'),
 		
-		
-
 		events: {
 			
-			'click button.edit' : 'editMetadata',
+			'click a.edit' : 'editMetadata',
 			'click button.save' : 'saveMetadata',
 			'click button.cancel' : 'cancelEdits',
 		},
@@ -57,6 +53,8 @@
 					});
 				}
 			});
+			
+			console.log('user info', this.model)
 
 
 		},
@@ -91,8 +89,8 @@
 		
 			
 			var values = {
-				latitude : this.model.get('location_latitude') == null ? 38.266667 : this.model.get('location_latitude'),//this.model.get('media_geo_latitude'),
-				longitude : this.model.get('location_longitude') == null ? 140.866667 : this.model.get('location_longitude'),
+				latitude : this.model.get('locationLatitude') == null ? 38.266667 : this.model.get('locationLatitude'),//this.model.get('media_geo_latitude'),
+				longitude : this.model.get('locationLongitude') == null ? 140.866667 : this.model.get('locationLongitude'),
 			};
 			this.latlng = new L.LatLng( values.latitude,values.longitude);
 			var div = $(this.el).find('.jda-user-map').get(0);
@@ -130,10 +128,10 @@
 		
 		saveFields : function()
 		{
-			
+			$(this.el).find('.jda-user-filter-description').text($(this.el).find('.jda-user-filter-description').text().substring(0,250));
 			this.model.save({
 				
-				'bio' : $(this.el).find('.jda-user-filter-description').text(),
+				'bio' : $(this.el).find('.jda-user-filter-description').text().substring(0,250),
 				'thumbnail_url' : $(this.el).find('.jda-user-filter-profile-image').attr('src'),
 				
 			})
@@ -146,19 +144,21 @@
 		
 		turnOffEditMode : function()
 		{
-			$(this.el).find('.jda-user-edit-profile-image').hide();
+			this.$el.find('.user-image-upload , .save-data button').hide();
+			this.$el.find('.edit').show();
+
 			$(this.el).find('button.edit').removeClass('active');
 			$(this.el).find('.editing').removeClass('editing').attr('contenteditable', false);
 			$(this.el).find('.jda-user-map-location').removeClass('editing').attr('contenteditable', false);
-			$(this.el).find('.save-data button').hide();
 		},
 		editMetadata : function()
 		{
 			console.log('edit the metadata!')
 			var _this  = this;
 			
-			$(this.el).find('.jda-user-edit-profile-image').show();
-			$(this.el).find('.save-data button').show();
+			this.$el.find('.user-image-upload, .save-data button').show();
+			this.$el.find('.edit').hide();
+			
 			$(this.el).find('button.edit').addClass('active');
 			$(this.el).find('.jda-user-filter-description').addClass('editing').attr('contenteditable', true);
 			
@@ -170,34 +170,58 @@
 					return false;
 				}
 			});
-
-			$(this.el).find('.jda-user-edit-profile-image').droppable({
-			    accept : '.list-fancymedia',
-			    
-			    tolerance : 'pointer',
-			    over: function(event, ui) { 
-			    	var newCover = jda.app.draggedItem.get('thumbnail_url');
-			      	$(_this.el).find('.jda-user-filter-profile-image').attr('src', newCover).show();
-				 	$(_this.el).find('.jda-user-edit-profile-image').hide();
-			    },
-			    out: function(){
-
-			      	$(_this.el).find('.jda-user-filter-profile-image').hide();
-				 	$(_this.el).find('.jda-user-edit-profile-image').show();
-			    },
-			    drop : function( event, ui )
-			    {
-			    	
-			      	var newCover = jda.app.draggedItem.get('thumbnail_url');
-			      	$(_this.el).find('.jda-user-filter-profile-image').attr('src', newCover).show();
-				 	$(_this.el).find('.jda-user-edit-profile-image').hide();
-
-			      
-			      ui.draggable.draggable('option','revert',false);
-
-			    }
-			});
+			return false
 		},
+		
+		fileUpload : function()
+		{
+			//starting setting some animation when the ajax starts and completes
+			$("#loading")
+				.ajaxStart(function(){
+					$(this).show();
+				})
+				.ajaxComplete(function(){
+					$(this).hide();
+			});
+
+/*
+		prepareing ajax file upload
+		url: the url of script file handling the uploaded files
+		fileElementId: the file type of input element id and it will be the index of  $_FILES Array()
+		dataType: it support json, xml
+		secureuri:use secure protocol
+		success: call back function when the ajax complete
+		error: callback function when the ajax failed
+*/
+			$.ajaxFileUpload({
+				url:'doajaxfileupload.php', 
+				secureuri:false,
+				fileElementId:'fileToUpload',
+				dataType: 'json',
+				success: function (data, status)
+				{
+					if(typeof(data.error) != 'undefined')
+					{
+						if(data.error != '')
+						{
+							console.log('error 2',data.error);
+						}
+						else
+						{
+							console.log('error 1',data.msg);
+						}
+					}
+				},
+				error: function (data, status, e)
+				{
+					console.log('error!!',e);
+				}
+			})
+
+			return false;
+
+		},
+		
 		geocodeString : function()
 		{
 			var _this = this;
@@ -219,8 +243,8 @@
 				else console.log("Geocoder failed at address look for "+$(that.el).find('.locator-search-input').val()+": " + status);
 			});
 		},
-		remove:function(){
-
+		remove:function()
+		{
 			console.log("Users.UserPage.remove");
 			//remove from DOM
 			$(this.el).empty();
@@ -230,33 +254,33 @@
 			$('.tab-content').css('top','auto');
 
 			$('#zeega-right-column').removeClass('zeega-right-column-user-page');
-
 		},
 		
 		getTemplate : function()
 		{
 			html = 
 			
-			'<div class="pull-left user-image-container">'+
-				'<img class="pull-left jda-user-filter-profile-image" src="<%=thumbnail_url%>" alt="" style="width:160px;height:160px;margin-right:10px;border: 1px solid grey;">'+
-				'<div class="jda-user-edit-profile-image" style="display:none;border: 1px solid #666;background: #CCC;width: 160px;position: absolute;opacity: 0.9;height: 160px;text-align:center">'+
-					'<i class="jdicon-drag" style="float:none;position:relative;top:30px"></i> '+
-					'<p style="font-weight: bolder;color: #333;text-align: center;padding: 30px;">Drag a new image here</p>'+
+			'<div class="row-fluid">'+
+			
+				'<div class="span2" style="width:155px">'+
+					'<img class="pull-left jda-user-filter-profile-image" src="<%=thumbnail_url%>" alt="" style="width:160px;height:160px;margin-right:10px;border: 1px solid grey;">'+
 				'</div>'+
-			'</div>'+
-			'<div style="margin-right:10px;">'+
-				'<h1 class="jda-user-filter-name"><%=display_name%></h1>'+
 				
-				'<div style="width:60%;float:left;margin-right:30px">'+
-					'<p style="font-weight:bold">Joined on <%= created_at%></p>'+
-					'<span class="jda-user-filter-description"><%=bio%></span><i class="icon-plus-sign" style="display:none"></i>'+
-					'<p><button class="btn btn-info btn-mini edit" style="display:none"><i class="icon-pencil icon-white"></i></button></p>'+
+				'<div class="span6">'+
+					'<h1 class="jda-user-filter-name"><%=display_name%></h1>'+
+					'<h5>Joined on <%= created_at %></h5>'+
+					'<div class="jda-user-filter-description"><%=bio%></div>';
+
+					//'<div class="user-image-upload"><input type="file" name="datafile" size="40"></div>'+
+	if(this.model.get('editable')) html += '<a href="#" class="edit"><i class="icon-pencil"></i></a>'+
+					
+						//'<p><button class="btn btn-info btn-mini edit" style="display:none"><i class="icon-pencil icon-white"></i></button></p>'+
 					'<div class="btn-group save-data">'+
 						'<button class="btn btn-success btn-mini save hide">save</button>'+
 						'<button class="btn btn-mini cancel hide">cancel</button>'+
 					'</div>'+
 				'</div>'+
-				'<div class="pull-right">'+
+				'<div class="span2">'+
 					'<div class="jda-user-map" style="border:1px solid #aaa"></div>'+
 					'<div class="jda-user-map-location"></div>'+
 				'</div>'+

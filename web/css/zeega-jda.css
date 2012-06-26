@@ -1,4 +1,4 @@
-.modal{
+!.modal{
 	display:none;
 }
 #zeega-view-navigation{
@@ -87,14 +87,21 @@
 	text-align: center;
 	border-radius: 4px;
 	margin-bottom:30px;
-	z-index:2;
+	z-index:100;
 }
 
 
-#zeega-my-collections-active-collection{
-	width: 165px;height:39px;font-weight: bold;font-size: 14px;border-radius:0;
+#zeega-my-collections-active-collection
+{
+	width: 165px;
+	height:39px;
+	font-weight: bold;
+	font-size: 14px;
+	border-radius:0;
 }
-#zeega-my-collections-items{
+
+#zeega-my-collections-items
+{
 	clear:both;
 	border: 1px solid #AAA;
 	border-radius: 0 0 4px 4px;
@@ -411,3 +418,8 @@
 	margin-left: 45%;
 	margin-top: 20%;
 }
+.modal{display:none;}
+
+.jda-user-filter-description.editing{ height:50px;}
+
+
