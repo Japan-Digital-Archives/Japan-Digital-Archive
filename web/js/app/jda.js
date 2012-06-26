@@ -40,25 +40,16 @@ this.jda = {
 		this.myCollectionsDrawer.getCollectionList();
 	},
 	
-	search : function(params, useValuesFromURL){
-	
-		console.log("jda.app.search",params,useValuesFromURL);
-	
-		
-		//if(_.isUndefined(params.username)&&this.currentFilterType=="user")this.removeFilter("user");
-		
-		//if(_.isObject(this.resultsView.userFilter)) params.user=this.resultsView.userFilter.model.id;
-		
-		
+	search : function(params, useValuesFromURL){		
 		var _this = this;
-		
 		//Parse out search box values for putting them in the Search query
-		if (useValuesFromURL){
+		if (useValuesFromURL)
+		{
 			//get the search query from URL and put it in the search box			
 			this.updateSearchUI(params);
 		}
-		
-		else{
+		else
+		{
 			//Use content value from format dropdown
 			
 			params.content = $('#zeega-content-type').val();
@@ -69,10 +60,10 @@ this.jda = {
 			
 			var tagQuery = "tag:";
 			var textQuery = "";
-			var usernameQuery = null;
-			var collectionQuery = null;
+			var usernameQuery = "";
 
 			_.each(facets, function(facet){
+				console.log(facet.get('category'));
 				switch ( facet.get('category') )
 				{
 					case 'text':
@@ -84,27 +75,27 @@ this.jda = {
 					case 'user':
 						usernameQuery = facet.get('value');
 						break;
-					case 'collection':
-						collectionQuery = facet.get('value');
-						break;
 					
 			    }
 			});
 			
 			params.q = textQuery + (textQuery.length > 0 && tagQuery.length > 4 ? " " : "") + (tagQuery.length > 4 ? tagQuery : "");
 			params.text = textQuery;
-			params.view_type = this.currentView;
+			params.viewType = this.currentView;
 			params.username = usernameQuery;
-			params.collection_name = collectionQuery;
 		}
 		
 		if (!_.isUndefined(params.view_type))  this.switchViewTo(params.view_type,false) ;
 		
-		if (!_.isUndefined(params.view_type) && params.view_type == 'event' && !this.eventMap.timeSliderLoaded) {
+		if (params.view_type == 'event' && !this.eventMap.timeSliderLoaded)
+		{
 			this.setEventViewTimePlace(params);
 		}
+		this.resultsView.search( params,true );
 		
-		if (this.currentView == 'event'){
+		
+		if (this.currentView == 'event')
+		{
 		    
 			if(!_.isUndefined( this.resultsView.getCQLSearchString())&&this.eventMap.mapLoaded)
 			{
@@ -114,24 +105,9 @@ this.jda = {
 			}
 		}
 		
-	
-		if(_.isNull(params.collection_name)&&_.isObject(this.resultsView.collectionFilter)) this.removeFilter("collection");
-		else if(_.isObject(this.resultsView.collectionFilter))params.collection=this.resultsView.collectionFilter.model.id;
-		
-		
-		if(_.isNull(params.user_name)&&_.isObject(this.resultsView.userFilter)) this.removeFilter("user");
-		else if(_.isObject(this.resultsView.userFilter))params.user=this.resultsView.userFilter.model.id;
-		
-		//if(_.isNumber(params.collection)&&this.currentFilterType=="collection")this.removeFilter("collection");
-		
-		this.resultsView.search( params,true );
-		
 	},
 	
 	updateSearchUI : function(obj){
-	
-		console.log("jda.app.updateSearchUI",obj);	
-	
 		var q = obj.q;
 		if (!_.isUndefined(q))
 		{
@@ -158,8 +134,6 @@ this.jda = {
 			}
 			
 		}
-		
-		
 		if (!_.isUndefined(obj.content)){
 			$('#zeega-content-type').val(obj.content);
 			$('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
@@ -188,9 +162,6 @@ this.jda = {
  	},
 
 	switchViewTo : function( view , refresh ){
-	
-		console.log("jda.app.switchViewTo",view,refresh);
-	
 		var _this=this;
 		this.resultsView.setView(view);
 		if( view != this.currentView )
@@ -237,8 +208,10 @@ this.jda = {
 		- searchParams: Optionally pass in searchParams to have it set other things on search
 	***************************************************************************/
 	
-	addFilter : function(model, filterType, searchParams,useValuesFromURL){
-		console.log("jda.app.addFilter",model,filterType,searchParams);
+	addFilter : function(model, filterType, searchParams){
+		
+		console.log("adding filter", filterType);
+		
 		
 		/*******  UX ***/
 		
@@ -247,14 +220,14 @@ this.jda = {
 		
 		/****** END UX **********/
 
-		if (_.isNull(searchParams)||_.isUndefined(searchParams)){
+		if (searchParams == null){
 			searchParams = new Object();
 		}
 		searchParams.page = 1;
 
 		var Browser = jda.module("browser");
 		this.clearSearchFilters(false);
-
+		
 		if (filterType == 'collection'){
 			//clear out user filter - you can't have both
 			if (this.resultsView.userFilter != null) this.removeFilter('user',searchParams,false);
@@ -287,7 +260,7 @@ this.jda = {
 			searchParams.r_itemswithcollections=0;
 			this.resultsView.userFilter = new Browser.Users.Views.UserPage({model:model});
 			searchParams.user = model.id;
-			this.search(searchParams,useValuesFromURL);
+			this.search(searchParams);
 		}
 
 	},
@@ -300,9 +273,7 @@ this.jda = {
 	***************************************************************************/
 	
 	removeFilter : function(filterType, searchParams, clearAll){
-		
-		console.log("jda.app.removeFilter",filterType,searchParams,clearAll);
-			
+		console.log("removeFilter",this.currentFilterType);		
 		if (searchParams == null){
 			searchParams = new Object();
 		}
@@ -328,8 +299,8 @@ this.jda = {
 		
 			console.log("removing collection filter");
 			//remove collectionFilter view which takes care of UI
-			if(_.isObject(this.resultsView.collectionFilter)) this.resultsView.collectionFilter.remove();
-			
+			if(!_.isUndefined(this.resultsView.collectionFilter))this.resultsView.collectionFilter.remove();
+
 			//set filter to null
 			this.resultsView.collectionFilter = null;
 
@@ -341,7 +312,7 @@ this.jda = {
 			console.log("removing user filter");
 			
 			//remove collectionFilter view which takes care of UI
-			if(_.isObject(this.resultsView.userFilter)) this.resultsView.userFilter.remove();
+			this.resultsView.userFilter.remove();
 
 			//set filter to null
 			this.resultsView.userFilter = null;
@@ -356,25 +327,17 @@ this.jda = {
 
 	},
 	
-	clearSearchFilters : function(doSearch){
-		console.log("jda.app.clearSearchFilters", doSearch);
-		
-		if (doSearch == null) doSearch = true;
-		
-    	$('#zeega-content-type').val("all");
-    	$('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
-
-    	//remove search box values
-    	VisualSearch.searchBox.disableFacets();
-	    VisualSearch.searchBox.value('');
-	  	VisualSearch.searchBox.flags.allSelected = false;
-	  	if(doSearch) this.search({ page:1,});
+	addCommas : function(nStr){
+		nStr += '';
+		x = nStr.split('.');
+		x1 = x[0];
+		x2 = x.length > 1 ? '.' + x[1] : '';
+		var rgx = /(\d+)(\d{3})/;
+		while (rgx.test(x1)) {
+			x1 = x1.replace(rgx, '$1' + ',' + '$2');
+		}
+		return x1 + x2;
 	},
-	
-	
-	
-	
-	
 	
 	showListView : function(){
 		console.log('switch to List view');
@@ -460,34 +423,42 @@ this.jda = {
 			$('#remove-tag-alert').show('slow');
 			setTimeout(function() {
 			  $('#remove-tag-alert').hide('slow');
-			}, 3000);
+			}, 5000);
 		}
 		
 		$("#zeega-event-view").width($(window).width());
+
+		//this is the hacky way to update the search count properly on the map
+		$("#zeega-results-count").fadeTo(100,0);
+		this.resultsView.collection.fetch({
+			success : function(model, response){ 
+				_this.resultsView.renderTags(response.tags);
+				_this.resultsView.render();      
+				$('#zeega-results-count-number').text(jda.app.addCommas(response["items_and_collections_count"]));        
+				$('#zeega-results-count').fadeTo(100, 1);
+			}
+		});
+		
 		this.eventMap.load();
 	},
 	
-	goToAuthorPage : function(userId){
-		var _this = this;
-		this.clearSearchFilters(false);
-
-		//retrieve user object and then add user filter
-		var Browser = jda.module("browser");
-		var authorModel = new Browser.Users.Model({id:userId});
-		authorModel.fetch({
-			success : function(model, response){
-				jda.app.addFilter(model,'user', {collection:''});
-			},
-			error : function(model, response){
-				console.log('Failed to fetch the user object.');
-				console.log(model);
-			},
-
-		});
+	
+	
+	clearSearchFilters : function(doSearch){
+	
+		console.log('clearSearchFilters called with doSearch',doSearch);
+    
+    	if (doSearch == null) doSearch = true;
 		
+    	$('#zeega-content-type').val("all");
+    	$('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
+
+    	//remove search box values
+    	VisualSearch.searchBox.disableFacets();
+	    VisualSearch.searchBox.value('');
+	  	VisualSearch.searchBox.flags.allSelected = false;
+	  	if(doSearch) this.search({ page:1,});
 	},
-	
-	
 
 	initAdvSearch : function(){
 		// do init code here
@@ -522,27 +493,29 @@ this.jda = {
 
 
 	
-	
-	
-	addCommas : function(nStr){
-		nStr += '';
-		x = nStr.split('.');
-		x1 = x[0];
-		x2 = x.length > 1 ? '.' + x[1] : '';
-		var rgx = /(\d+)(\d{3})/;
-		while (rgx.test(x1)) {
-			x1 = x1.replace(rgx, '$1' + ',' + '$2');
-		}
-		return x1 + x2;
+	goToAuthorPage : function(userId){
+		var _this = this;
+		this.clearSearchFilters(false);
+
+		//retrieve user object and then add user filter
+		var Browser = jda.module("browser");
+		var authorModel = new Browser.Users.Model({id:userId});
+		authorModel.fetch({
+			success : function(model, response){
+				jda.app.addFilter(model,'user', {collection:''});
+			},
+			error : function(model, response){
+				console.log('Failed to fetch the user object.');
+				console.log(model);
+			},
+
+		});
+		
 	},
 	
 	goToCollectionsPage : function(){ 
 		this.removeFilter("current",null,true);
 	}
-	
-	
-	
-	
 		
 	
 	
