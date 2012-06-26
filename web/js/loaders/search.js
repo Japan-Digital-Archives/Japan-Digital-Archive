@@ -9,8 +9,8 @@
 
 *********************************************/
 
-var loadFiles = [
-	
+require (
+	[
 	//data 
 	
 	'order!../data/map-layers',
@@ -109,9 +109,5 @@ var loadFiles = [
 	//'order!search',
 
 	
-	];
-
-require(loadFiles, function(){
-
-});
+	],function(){});
 

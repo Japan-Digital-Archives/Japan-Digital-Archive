@@ -55,10 +55,13 @@ body {
 
          <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
       <script type="text/javascript" src="http://s3.documentcloud.org/viewer/loader.js"></script>
-      <script data-main="{{ asset('js/loaders/search') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
-
-
-
+	    {% if app.environment == 'dev' %}
+		<!-- to load JS libraries separately -->
+			<script data-main="{{ asset('js/loaders/search') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
+		{% else %}
+			<!-- to load single aggregated JS library --> 
+			<script data-main="{{ asset('js_min/search') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
+		{% endif %}
 
       {% endblock %}
 

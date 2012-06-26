@@ -9,9 +9,8 @@
 
 *********************************************/
 
-var loadFiles = [
-	
-	
+require (
+	[
 	
 	
 	//libraries	
@@ -41,9 +40,4 @@ var loadFiles = [
 	//'order!search',
 
 	
-	];
-
-require(loadFiles, function(){
-
-});
-
+	],function(){});

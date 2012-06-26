@@ -16,3 +16,4 @@ Libraries/
 .DS_Store*
 jda_data.*
 *.class
+web/.htaccess
