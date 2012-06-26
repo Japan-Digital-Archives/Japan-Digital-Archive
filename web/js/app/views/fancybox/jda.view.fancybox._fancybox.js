@@ -21,7 +21,7 @@
 		events : {
 			'click .fancybox-more-button' : 'more',
 			'click .fancybox-less-button' : 'less',
-			'click .jda-show-share-link' : 'shareLink',
+			
 			'click .jda-share-link input' : function(){ 
 				$('.jda-share-link input').select();
 				
@@ -49,7 +49,9 @@
 				'placeholderColor' : '#C0C0C0',
 			});
 			
-			console.log(this.model);
+			
+			$(this.el).find('.jda-show-share-link').click(function(){_this.shareLink();});
+			
 			
 			if(!this.model.get('editable')){$('.tag').find('a').hide();}
 
@@ -187,6 +189,7 @@
 			return false;
 		},
 		shareLink : function(){
+			
 			$('.jda-share-link').toggle();			
 			$('.jda-show-share-link').toggleClass('active');
 		},
