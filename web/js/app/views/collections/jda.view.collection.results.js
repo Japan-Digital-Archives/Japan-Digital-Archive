@@ -39,12 +39,12 @@
 
 		},
 		updateResultsCounts : function(){
-			var collectionsCount = this.collection.collectionsCollection == null ? 0 : this.collection.collectionsCollection.length;
-			var itemsCount = this.collection.length;
+			var collectionsCount = this.collection.collectionsCount;
+			var itemsCount = this.collection.count;
 
+			
 			$('.jda-results-collections-count').text( jda.app.addCommas(collectionsCount));
 			$('.jda-results-items-count').text( jda.app.addCommas(itemsCount));
-			$("#zeega-results-count-number").html( jda.app.addCommas(itemsCount) );
 		},
 		render : function()
 		{
@@ -65,7 +65,11 @@
 				$("#zeega-results-count").hide();
 
 
+				
+
+
 				this.updateResultsCounts();
+
 
 				if(jda.app.currentView == 'thumb'){
 					$('.collections-thumbnails').empty();
@@ -135,7 +139,7 @@
 			//Display related Tags
 			
 			if (!_.isUndefined(this.collection.tags) && this.collection.tags.length > 0 && jda.app.currentView != 'event'){
-				console.log("LOADING tags",this.tags)
+				
 				$("#jda-related-tags button").remove();
 				_.each( _.toArray(this.collection.tags), function(tag){
 
@@ -255,7 +259,7 @@
 	 
 		setView : function(view)
 		{
-			this.collection.search.viewType = view;	
+			this.collection.search.view_type = view;	
 			this.setURLHash();
 		},
 	
@@ -268,8 +272,11 @@
 		setURLHash : function()
 		{
 			var obj = this.collection.search;
+			console.log('app.resultsCollection.setURLHash',obj);
+			
+			
 		 	var hash = '';      
-		 	if( !_.isUndefined(obj.viewType)) hash += 'view_type=' + obj.viewType + '&';
+		 	if( !_.isUndefined(obj.view_type)) hash += 'view_type=' + obj.view_type + '&';
 		 	if( !_.isUndefined(obj.q) && obj.q.length > 0) hash += 'q=' + obj.q + '&';
 		 	if( !_.isUndefined(obj.collection) && obj.collection > 0) hash += 'collection=' + obj.collection + '&';
 		 	if( !_.isUndefined(obj.user) && obj.user > 0) hash += 'user=' + obj.user + '&';
@@ -352,7 +359,7 @@
 			{
 				cqlFilterString = null;
 			}
-			console.log("CQL filter string " + cqlFilterString);
+			//console.log("CQL filter string " + cqlFilterString);
 			return cqlFilterString;
 		},
 	

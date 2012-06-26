@@ -8,20 +8,13 @@
 		id:'fancybox-media-container',
 		
 		initialize: function(){
-
 			var _this = this;
-
 			this.collection = jda.app.myCollectionsDrawer.collection;
-           
-            
-			
-		
 		},
 
 		events : {
 			'click .fancybox-more-button' : 'more',
 			'click .fancybox-less-button' : 'less',
-			
 			'click .jda-share-link input' : function(){ 
 				$('.jda-share-link input').select();
 				
@@ -31,6 +24,7 @@
 		beforeClose: function(){
 
 		},
+		
 		afterShow:function()
 		{
 

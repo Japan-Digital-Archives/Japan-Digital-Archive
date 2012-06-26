@@ -66,7 +66,7 @@
 			$(this.el).find('.new-collection').click(function(){ _this.createNewCollection(); return false; });
 			
 			if (this.collection.length==0){
-				console.log('User has no collections');
+				
 				this.activeCollection = new Browser.Items.Model({
 					title:$('#zeega-my-collections-active-collection').text(),
 					child_items:[],
@@ -81,7 +81,7 @@
 			
 			else {
 				var activeCollectionID = this.collection.at(0).id;
-				console.log('active collection id:',activeCollectionID);
+				
 				this.switchActiveCollection(activeCollectionID);
 			}
 			
@@ -188,7 +188,7 @@
 					
 					
 					
-					console.log('RENDERING COLLECTION PREVIEW',model);
+					
 					var remainingItems = model.get('child_items').length - this.showThumbnailCount;
 					var _this=this;
 					
@@ -251,32 +251,32 @@
 			
 			if(sessionStorage.getItem('user')==1){
 				
-				console.log('user authenticated: fetching user collections');
+
 				this.collection.fetch({
 					
 					success : function(collection, response)
 					{ 
-						console.log('SUCCESSFULLY LOADED COLLECTIONS',collection);
+						
 						_this.render();
 					},
 					error : function(collection, response)
 					{ 
 						console.log(response);
-						console.log('Error getting collection list from server');
+
 	
 					}
 				}
 				);
 			}
 			else{
-				console.log('user not authenticated: creating empty collection');
+
 				this.collection.add(
 					new Browser.Items.Model({
 						title:$('#zeega-my-collections-active-collection').text(),
 						child_items:[],
 						new_items:[],
 					}));
-				console.log(this.collection);
+				
 				this.render();			
 			}
 			
@@ -300,14 +300,14 @@
 			
 			this.activeCollection.save({},{
 				success:function(model,response){
-					console.log('new collection created');
+					
 					_this.collection.add(model);
 					if(model.get('title').length>25) var title = model.get('title').substr(0,23)+'...';
 					else var title = model.get('title');					
 					$('#zeega-my-collections').find('.divider').after('<li class="zeega-collection-list-item" id="'+model.id+'"><a href=".">'+title+'</a></li>');
 					_this.activeCollectionID=model.id;
 					$(_this.el).find('.zeega-collection-list-item').unbind().click( function(e){
-						console.log('clickage');
+						
 						if ($(this).attr('id') != _this.activeCollectionID){
 							var title =$(this).find('a').html();
 							if(title.length>20) title=title.substr(0,15)+"...";
