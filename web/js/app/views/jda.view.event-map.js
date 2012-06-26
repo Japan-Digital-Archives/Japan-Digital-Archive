@@ -39,7 +39,7 @@
 						'CQL_FILTER' : jda.app.resultsView.getCQLSearchString()
 					});
 		 	}
-			console.log('map loaded')
+			
 		
 		},
 		
@@ -405,7 +405,7 @@
 		
 		}, 
 
-		//disabling time slider for the moment
+		
 		updateResultsCountForTimeSlider : function(sliderUI, map){
 			var searchView = jda.app.resultsView;
 			$("#jda-related-tags, #jda-title, #zeega-results-count").fadeTo(100,0);
@@ -413,7 +413,7 @@
 				success : function(model, response){ 
 					searchView.renderTags(response.tags);
 					searchView.render();      
-					$('#zeega-results-count-number').text(jda.app.addCommas(response["items_count"]));        
+					$('#zeega-results-count-number').text(jda.app.addCommas(response["items_and_collections_count"]));        
 					$('#zeega-results-count').fadeTo(100, 1);
 				}
 			});

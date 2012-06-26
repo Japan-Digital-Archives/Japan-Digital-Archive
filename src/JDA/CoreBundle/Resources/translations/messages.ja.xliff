@@ -570,6 +570,14 @@
                 <source>jda.search.confirmdeletecollection</source>
                 <target>Are you sure you want to remove this item from the collection?</target>
             </trans-unit>
+            <trans-unit id="142">
+                <source>jda.search.removedFilter</source>
+                <target>Removed filter</target>
+            </trans-unit>
+            <trans-unit id="143">
+                <source>jda.search.unsupportedFilters</source>
+                <target>Sorry, the events view doesn't support filtering by tag yet.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

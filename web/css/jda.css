@@ -191,6 +191,16 @@ margin-left: -20px;
 .VS-search .VS-icon-search, .VS-search .VS-cancel-search-box {
 	top: 12px !important;
 }
+#remove-tag-alert {
+	font-size: 11px;
+	background-color: 
+	#FFFC7F;
+	position: absolute;
+	top: 11px;
+	left: 180px;
+	padding: 3px 5px;
+	display: none;
+}
 .arrow-down {
 	width: 0;
 	height: 0;
