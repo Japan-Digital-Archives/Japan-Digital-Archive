@@ -34,8 +34,13 @@
 				
 				$("#zeega-results-count").hide();
 
-				var collectionsCount = this.collection.collectionsCollection.length;
-				var itemsCount = this.collection.length;
+				var collectionsCount = this.collection.collectionsCount;
+				var itemsCount = this.collection.count;
+				
+				console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+				console.log(this.collection);
+				console.log(itemsCount);
+				
 				$('.jda-results-collections-count').text( jda.app.addCommas(collectionsCount));
 				$('.jda-results-items-count').text( jda.app.addCommas(itemsCount));
 
@@ -68,7 +73,7 @@
 				}
 				
 			} else {
-				
+				$('#zeega-results-count-number').text(this.collection.count); 
 				$("#zeega-results-count").fadeTo(100,1);
 			}
 			
@@ -102,15 +107,12 @@
 			$(this.el).show();
 			jda.app.isLoading = false;
 			return this;
-		},
 		
-		renderTags : function(tags)
-		{
 			
-			if (!_.isUndefined(tags) && tags.length > 0 && jda.app.currentView != 'event')
+			if (!_.isUndefined(this.tags) && this.tags.length > 0 && jda.app.currentView != 'event')
 			{
 				$("#jda-related-tags button").remove();
-				_.each( _.toArray(tags), function(tag){
+				_.each( _.toArray(this.tags), function(tag){
 
 					var tagHTML ='<button class="btn btn-mini btn-danger">'+tag.name+'</button> ';
 					
@@ -136,6 +138,12 @@
 			{
 				$("#jda-related-tags-title").fadeTo(1000,0);
 			}
+		},
+		
+	
+		
+		renderTags : function()
+		{
 		},
 		
 		reset : function()

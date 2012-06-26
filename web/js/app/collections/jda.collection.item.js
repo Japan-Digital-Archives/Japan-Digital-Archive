@@ -5,8 +5,7 @@
 		model:Browser.Items.Model,
 		base : jda.app.apiLocation + 'api/search?',
 		search : {	page:1,
-					r_itemswithcollections: 0,
-					r_items:1,
+					r_itemswithcollections: 1,
 					r_tags:1
 
 				},
@@ -42,8 +41,7 @@
 		{
 		
 			if(reset) this.search = {	page:1,
-					r_itemswithcollections: 0,
-					r_items:1,
+					r_itemswithcollections: 1,
 					r_tags:1
 
 				};
@@ -58,12 +56,34 @@
 	
 		parse : function(response)
 		{
+		
+		
+			this.tags=response.tags;
+			
 			if (this.search.r_collections && response.collections){
 				this.collectionsCollection = new Browser.Items.Collection(response.collections);
+				this.collectionsCount=response.collections_count;
+				
 			}else{
 				this.collectionsCollection = null;
+				this.collectionsCount=0;
 			}
-			return response.items;
+			
+			
+			if(this.search.r_itemswithcollections){
+
+				this.count = response.items_and_collections_count
+				return response.items_and_collections;
+			}
+			else{
+				
+				this.count = response.items_count;
+				return response.items;
+			}
+		
+		
+			
+			
 			
 		},
 		

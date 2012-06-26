@@ -40,8 +40,7 @@ this.jda = {
 		this.myCollectionsDrawer.getCollectionList();
 	},
 	
-	search : function(params, useValuesFromURL){
-		console.log("Function: jda.app.search",params,useValuesFromURL);		
+	search : function(params, useValuesFromURL){		
 		var _this = this;
 		//Parse out search box values for putting them in the Search query
 		if (useValuesFromURL)
@@ -163,10 +162,14 @@ this.jda = {
  	},
 
 	switchViewTo : function( view , refresh ){
-		
+		var _this=this;
 		this.resultsView.setView(view);
 		if( view != this.currentView )
 		{
+			
+			if(this.currentView=="event") refresh=true;
+			else refresh =false;
+			
 			//$('#'+this.currentView+'-view').hide();
 			this.currentView = view;
 			$('.tab-pane').removeClass('active');
@@ -189,16 +192,13 @@ this.jda = {
 			}
 			if(refresh){
 				$('#zeega-results-count').fadeOut('fast');
-				var searchView=this.resultsView;
-				searchView.collection.fetch({
+				this.resultsView.collection.fetch({
 					success : function(model, response){ 
-						searchView.renderTags(response.tags);
-						searchView.render();      
-						$('#zeega-results-count-number').text(jda.app.addCommas(response["items_count"]));        
-						$('#zeega-results-count').fadeTo(100, 1);
+						_this.resultsView.render();       
 					}
 				});
 			}
+			
 		}
 	},
 	
@@ -237,7 +237,10 @@ this.jda = {
 			this.currentFilterType ="collection";
 			
 			this.resultsView.collectionFilter = new Browser.Items.Views.CollectionPage({model:model});
+			searchParams.r_items=1;
+			searchParams.r_itemswithcollections=0;
 			searchParams.collection = model.id;
+			console.log(searchParams);
 			this.search(searchParams);
 		
 		} else if (filterType == 'user'){
@@ -253,6 +256,8 @@ this.jda = {
 			var Browser = jda.module("browser");
 			//the r_collections parameter separates the items and collections in the search results
 			searchParams.r_collections=1;
+			searchParams.r_items=1;
+			searchParams.r_itemswithcollections=0;
 			this.resultsView.userFilter = new Browser.Users.Views.UserPage({model:model});
 			searchParams.user = model.id;
 			this.search(searchParams);
