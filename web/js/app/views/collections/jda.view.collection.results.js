@@ -16,12 +16,40 @@
 			$('#spinner').spin('large');
 
 			jda.app.isLoading = true;
+
+			this.collection.bind('remove', this.remove,this);
+			
 		},
-	
+		remove : function(model){
+			var deleteIdx = -1;
+			for (var i=0;i<this._childViews.length;i++){
+				var itemView = this._childViews[i];
+				if (itemView.model.id = model.id){
+					deleteIdx = i;
+					break;
+				}
+			}
+			if (deleteIdx >= 0){
+				var removed = this._childViews.splice(deleteIdx,1);
+				$(this.el).find(removed[0].el).remove();
+
+				this.updateResultsCounts();
+			}
+
+		},
+		updateResultsCounts : function(){
+			var collectionsCount = this.collection.collectionsCollection == null ? 0 : this.collection.collectionsCollection.length;
+			var itemsCount = this.collection.length;
+
+			$('.jda-results-collections-count').text( jda.app.addCommas(collectionsCount));
+			$('.jda-results-items-count').text( jda.app.addCommas(itemsCount));
+			$("#zeega-results-count-number").html( jda.app.addCommas(itemsCount) );
+		},
 		render : function()
 		{
 			var _this = this;
-
+			
+			
 			_this._isRendered = true;
 			if(jda.app.currentView == 'thumb'){
 				this.el = '#zeega-items-thumbnails';
@@ -29,15 +57,13 @@
 				this.el = '#zeega-items-list';
 			}
 			
+			
 			//Display collections and items separately if this is not null
 			if (this.collection.collectionsCollection != null){
 				
 				$("#zeega-results-count").hide();
 
-				var collectionsCount = this.collection.collectionsCollection.length;
-				var itemsCount = this.collection.length;
-				$('.jda-results-collections-count').text( jda.app.addCommas(collectionsCount));
-				$('.jda-results-items-count').text( jda.app.addCommas(itemsCount));
+				this.updateResultsCounts();
 
 				if(jda.app.currentView == 'thumb'){
 					$('.collections-thumbnails').empty();
@@ -45,6 +71,7 @@
 					$('#zeega-collections-list').empty();
 					
 				}
+
 				//this is getting ridiculous!!
 				_.each( _.toArray(this.collection.collectionsCollection), function(item){
 					var itemView;

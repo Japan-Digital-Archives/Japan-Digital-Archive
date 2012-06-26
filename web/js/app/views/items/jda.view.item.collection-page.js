@@ -15,6 +15,7 @@
 				'click button.cancel' : 'cancelEdits',
 				'click .jda-collection-filter-author' : 'goToAuthorPage'
 			},
+
 			
 		initialize: function (){
 	
@@ -62,12 +63,13 @@
 					
 			
 				});
-				
-				console.log('collection view', this)
+			
 	
 	
 		  },
-	
+
+		 
+		
 		playCollection: function(){
 			window.open(sessionStorage.getItem('apiUrl')+'collection/'+this.model.id+'/view');
 		},
@@ -78,9 +80,8 @@
 		
 		render: function(done){
 			var _this = this;
-			var canEdit = this.model.get('editable');
-			console.log(this.model);
-			console.log("THe ability to edit is:",canEdit);
+			this.canEdit = this.model.get('editable');
+			
 			if (this.isEditView){
 				this.isMoreView=true;
 			}
@@ -157,7 +158,7 @@
 						Tags view
 					***************************************************************************/
 					$(this.el).find('.tagsedit').empty().tagsInput({
-						'interactive':canEdit && this.isEditView,
+						'interactive':this.canEdit && this.isEditView,
 						'defaultText':'add a tag',
 						'onAddTag':function(){_this.updateTags('',_this)},
 						'onRemoveTag':function(){_this.updateTags('',_this)},
@@ -231,7 +232,7 @@
 				/***************************************************************************
 					Edit title
 				***************************************************************************/
-				if (canEdit && this.isEditView){
+				if (this.canEdit && this.isEditView){
 	
 					$(this.el).find('.jda-collection-filter-title').addClass('jda-editable');
 					$(this.el).find('.jda-collection-filter-title').editable(
@@ -279,7 +280,7 @@
 				/***************************************************************************
 					Edit Description
 				***************************************************************************/
-				if (canEdit && this.isEditView){
+				if (this.canEdit && this.isEditView){
 	
 					$(this.el).find('.jda-collection-filter-description').addClass('jda-editable');
 					$(this.el).find('.jda-collection-filter-description').editable(
@@ -333,21 +334,21 @@
 				//Replace broken thumbnail images with option to drag new item
 				$(this.el).find('img').error(function() {
 				   $(_this.el).find('img').hide();
-				   if (canEdit){
+				   if (this.canEdit){
 					 $(_this.el).find('.jda-collection-filter-drag-item-here').show();
 					}
 				});
 				//if thumbnail isn't set
 				if (this.model.get('thumbnail_url') == null || this.model.get('thumbnail_url').length <=0){
 					 $(_this.el).find('img').hide();
-					 if (canEdit){
+					 if (this.canEdit){
 						$(_this.el).find('.jda-collection-filter-drag-item-here').show();
 					}
 				}
-				if (!canEdit || !this.isEditView){
+				if (!this.canEdit || !this.isEditView){
 					$('#jda-collection-editing-toolbar').hide();
 				}
-				if (canEdit && this.isEditView){
+				if (this.canEdit && this.isEditView){
 					$('#jda-collection-editing-toolbar').fadeIn();
 	
 					$(this.el).find('img, .jda-collection-filter-drag-item-here').droppable({
@@ -385,7 +386,7 @@
 				/***************************************************************************
 					Show editing button and editing toolbar 
 				***************************************************************************/
-				if (canEdit){
+				if (this.canEdit){
 					
 					if(this.isEditView){
 						$(this.el).find('.jda-done-btn').show();
@@ -402,7 +403,7 @@
 					}
 					
 				}
-				if (canEdit && this.isEditView){
+				if (this.canEdit && this.isEditView){
 					
 					/*$('.tab-content').find('.jda-item-checkbox').show();
 					$('.jda-item-checkbox').click(function(e){
@@ -474,8 +475,39 @@
 			},
 			
 		editMetadata : function(){
-				console.log('edit the metadata!')
+				
 				var _this  = this;
+			
+				//Show the trash cans
+				$('.jda-delete-item').click(function(){
+					var doDelete = confirm('Are you sure you want to remove this item from the collection?')
+					if (doDelete){
+						var itemID = $(this).closest('li').attr('id');
+						_this.model.save({
+																			items_to_remove:itemID
+																		},
+						{
+							url:jda.app.apiLocation + 'api/items/' + jda.app.resultsView.collectionFilter.model.id+'/items',
+							success: function(model, response) { 
+								jda.app.resultsView.collection.remove(jda.app.resultsView.collection.get(itemID));
+							},
+							error: function(model, response){
+								
+								console.log("Error updating item title.");
+								console.log(response);
+							}
+
+						});
+						return false;
+					}else{
+						return false;
+					}
+				})
+				$('.jda-delete-item').show();
+				
+				
+				
+				
 				this.loadMap();
 				
 				$(this.el).find('.save-data button').show();
@@ -499,6 +531,7 @@
 			},
 			
 		saveMetadata : function(){
+				
 				this.turnOffEditMode();
 				this.saveFields();
 			},
@@ -511,10 +544,16 @@
 			},
 			
 		cancelEdits : function(){
+			$('.jda-delete-item').hide();
 			this.turnOffEditMode();
 		},
 			
 		turnOffEditMode : function(){
+				this.isEditing = false;
+				
+				//hide the trash cans
+				$(this.el).find('.jda-delete-item').hide();
+
 				$(this.el).find('.save-data button').hide();
 				$(this.el).find('button.edit').removeClass('active');
 				$(this.el).find('.editing').removeClass('editing').attr('contenteditable', false);

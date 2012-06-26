@@ -16,9 +16,16 @@
 	        $(this.el).attr("rel", "group");
 
 	        //list item has a thumbnail item with same model as a subview
-	        this.thumbnailView = new Browser.Items.Views.Thumb({model:this.model,thumbnail_width:100,thumbnail_height:80,show_caption:false,fancybox:false,draggable:false});
+	        this.thumbnailView = new Browser.Items.Views.Thumb({	model:this.model,
+	        														thumbnail_width:100,
+	        														thumbnail_height:80,
+	        														show_caption:false,
+	        														fancybox:false,
+	        														draggable:false
+	        													});
 	        
     	},
+    	
 		render: function(done)
 		{
 			var _this = this;

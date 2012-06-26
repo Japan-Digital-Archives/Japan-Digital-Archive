@@ -24,7 +24,7 @@
 	        if (_.isUndefined(this.options.show_caption)){
 	        	this.options.show_caption = true;
 	        }
-
+	        
 			if (!_.isUndefined(this.options.draggable)){
 				this.draggable=this.options.draggable;
 			}
@@ -36,6 +36,7 @@
 	        $(this.el).attr("rel", "group");
 	        
     	},
+
 		render: function(done)
 		{
 			var _this = this;
@@ -73,6 +74,8 @@
 			}
 			
 			$(this.el).html( _.template( template, blanks ) );
+
+			
 
 			//Turn off captions if we don't want them OR if it's an image
 			if (!this.options.show_caption || this.model.get('media_type') == "Image"){
@@ -151,8 +154,7 @@
 													'" style="position: absolute;top: 10%;left: 10%;"></i>');
 			});
 
-
-
+			
 			return this;
 		},
 		
@@ -166,6 +168,7 @@
 				//	'<i class="icon-share-alt icon-white"></i></span>'+
 					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px">'+
 					//'<input class="jda-item-checkbox" type="checkbox">'+
+					'<i class="icon-trash icon-white jda-delete-item"></i>'+
 				'</a>';
 
 			
@@ -180,6 +183,7 @@
 				'<a href="#" class="thumbnail" style="position:relative;width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
 					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px">'+	
 					//'<input class="jda-item-checkbox" type="checkbox">'+
+					'<i class="icon-trash icon-white jda-delete-item"></i>'+
 				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px;"><%=title%></p>';
 
 			
@@ -194,6 +198,7 @@
 				'<a href="#" class="thumbnail" style="position:relative;width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
 					'<img src="../images/jdicons-testimonial-large.png" alt="<%=title%>" style="max-width:90px;max-height:66px;position:relative;top:20%">'+	
 					//'<input class="jda-item-checkbox" type="checkbox">'+
+					'<i class="icon-trash icon-white jda-delete-item"></i>'+
 				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px"><%=description%></p>';
 
 			
@@ -209,6 +214,7 @@
 					'<img src="../images/jdicons-tweet-large.png" alt="<%=title%>" style="max-width:53px;max-height:54px;position:absolute;top:15%;left:15%">'+	
 					'<span style="position:absolute;top:<%=position_tweet_handle%>;right:9%;color:#444;font-size:12px">@<%=media_creator_username%></span>'+
 					//'<input class="jda-item-checkbox" type="checkbox">'+
+					'<i class="icon-trash icon-white jda-delete-item"></i>'+
 				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px"><%=description%></p>';
 
 			
