@@ -247,8 +247,7 @@ this.jda = {
 		
 		/****** END UX **********/
 
-		if (_.isNull(searchParams)){
-			console.log("check this out;;;;;;;",searchParams.q);
+		if (_.isNull(searchParams)||_.isUndefined(searchParams)){
 			searchParams = new Object();
 		}
 		searchParams.page = 1;
