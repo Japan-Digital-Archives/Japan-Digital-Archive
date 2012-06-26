@@ -493,11 +493,12 @@ border-radius: 0px 4px 0px 0px;
 .map-popup-list-items{
 	padding:5px;
 	min-height:50px;
+	min-width: 300px;
 	clear:both;
+	cursor:pointer;
 }
 
 .map-popup-list-items:hover{
-
 	background-color:rgba(0,0,0,.15);
 }
 

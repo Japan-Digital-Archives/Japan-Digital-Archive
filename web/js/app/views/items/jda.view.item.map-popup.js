@@ -12,6 +12,7 @@
 		{
 			var _this = this;
 			var template;
+			console.log(this.model.get('media_type'));
 			switch( this.model.get('media_type') )
 			{
 				
@@ -20,6 +21,9 @@
 					break;
 				case 'Image':
 					template = this.getImageTemplate();
+					break;
+				case 'Collection':
+					template = this.getCollectionTemplate();
 					break;
 				default:
 					template = this.getDefaultTemplate();
@@ -36,6 +40,12 @@
 
 
 			$(this.el).html( _.template( template, blanks ));
+
+			if(this.model.get('media_type')=="Collection"){
+			console.log("setting up the click");
+				$(this.el).click(function(){console.log('clicked');jda.app.addFilter(_this.model, 'collection'); return false;});
+			
+			}
 
 			if (blanks["author"] == ""){
 				$(this.el).find('.item-author').hide();
@@ -62,6 +72,21 @@
 			'<a  class="map-fancymedia" id="<%= id %>" rel="group">'+
 			'<div class="map-popup-icon-container" style="float:left;">'+
 				'<img  src="<%= thumbnail_url %>" height="50" width="50"/>'+
+			'</div>'+
+			'<div>'+
+				'<div class="item-title"><%= title %></div>'+
+				'<div class="item-author">by <%= author %></div>'+
+			'</div>'+
+			'</a>';
+
+			return html;
+		},
+		getCollectionTemplate : function()
+		{
+			html =
+			'<a  id="<%= id %>" href="#view_type=list&collection=885025&content=all&" rel="group">'+
+			'<div class="map-popup-icon-container" style="float:left;">'+
+				'<i class="jdicon-<%=media_type%>"></i>'+
 			'</div>'+
 			'<div>'+
 				'<div class="item-title"><%= title %></div>'+
