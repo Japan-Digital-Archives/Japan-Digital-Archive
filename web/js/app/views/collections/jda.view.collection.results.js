@@ -106,13 +106,14 @@
 
 			$(this.el).show();
 			jda.app.isLoading = false;
-			return this;
+	
 		
-			
-			if (!_.isUndefined(this.tags) && this.tags.length > 0 && jda.app.currentView != 'event')
+			console.log("WANNA LOAD tags",this.collection.tags);
+			if (!_.isUndefined(this.collection.tags) && this.collection.tags.length > 0 && jda.app.currentView != 'event')
 			{
+				console.log("LOADING tags",this.tags)
 				$("#jda-related-tags button").remove();
-				_.each( _.toArray(this.tags), function(tag){
+				_.each( _.toArray(this.collection.tags), function(tag){
 
 					var tagHTML ='<button class="btn btn-mini btn-danger">'+tag.name+'</button> ';
 					
@@ -138,6 +139,8 @@
 			{
 				$("#jda-related-tags-title").fadeTo(1000,0);
 			}
+			
+					return this;
 		},
 		
 	

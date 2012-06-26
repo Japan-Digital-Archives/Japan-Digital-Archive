@@ -13,7 +13,6 @@
 		url : function()
 		{
 			console.log(this.search);
-			console.log(this.search.username);
 			//constructs the search URL
 			var url = this.base;
 			if( !_.isUndefined(this.search.q) && this.search.q.length > 0) url += '&q=' + this.search.q.toString();
@@ -57,7 +56,7 @@
 		parse : function(response)
 		{
 		
-		
+			console.log(response);
 			this.tags=response.tags;
 			
 			if (this.search.r_collections && response.collections){

@@ -99,6 +99,7 @@
 			}
 			if (this.model.get('media_type') == 'Collection')
 			{
+				this.draggable=false;
 				$(this.el).click(function(){ jda.app.addFilter(_this.model, 'collection'); return false;});
 				
 			} else{

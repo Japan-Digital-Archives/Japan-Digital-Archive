@@ -22,7 +22,7 @@
 		render: function(done)
 		{
 			var _this = this;
-
+			
 			var template;
 			switch( this.model.get('media_type') )
 			{
@@ -52,7 +52,6 @@
 					break;
 				case 'Collection':
 					$(this.el).removeClass('list-fancymedia');
-					$(this.el).click(function(){jda.app.addFilter(_this.model, 'collection'); return false;});
 					template = this.getCollectionTemplate();
 					break;
 				
@@ -108,7 +107,15 @@
 				$(this.el).find('.jda-item-author').hide();
 			}
 
-			$(this.el).draggable({
+			if (this.model.get("media_type") == "Collection"){
+				this.draggable=false;
+			}
+			else {
+				this.draggable=true;
+			}
+
+			if(this.draggable){
+				$(this.el).draggable({
 
 			    cursor : 'crosshair',
 			    cursorAt : { 
@@ -139,6 +146,7 @@
 			      }
 			      
 			});
+			}
 			$(this.el).find(".jdicon-small-drag").tooltip({'title':'Drag to add to your collection','placement':'bottom', delay: { show: 600, hide: 100 }});
 			$(this.el).find(".jda-user-link").click(function(){jda.app.goToAuthorPage(_this.model.get('user_id')); return false;});
 			return this;
