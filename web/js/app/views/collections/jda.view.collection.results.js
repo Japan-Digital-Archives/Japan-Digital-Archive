@@ -17,14 +17,14 @@
 
 			jda.app.isLoading = true;
 
-			this.collection.bind('remove', this.remove,this);
+			this.collection.bind('remove', this.remove, this);
 			
 		},
 		remove : function(model){
 			var deleteIdx = -1;
 			for (var i=0;i<this._childViews.length;i++){
 				var itemView = this._childViews[i];
-				if (itemView.model.id = model.id){
+				if (itemView.model.id == model.id){
 					deleteIdx = i;
 					break;
 				}
@@ -269,7 +269,14 @@
 			this.collection.search.content = content;
 			this.setURLHash();
 		},
-		
+		clearTags : function(){
+			var currentQ = 	this.collection.search.q;
+			if (currentQ.indexOf("tag:") >= 0){
+				var newQ = currentQ.substring(0,currentQ.indexOf("tag:"));
+				this.collection.search.q = newQ;
+				this.setURLHash();
+			}
+		},
 		setURLHash : function()
 		{
 			var obj = this.collection.search;

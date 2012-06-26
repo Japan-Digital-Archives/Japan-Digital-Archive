@@ -13,12 +13,14 @@
 				'click button.edit' : 'editMetadata',
 				'click button.save' : 'saveMetadata',
 				'click button.cancel' : 'cancelEdits',
-				'click .jda-collection-filter-author' : 'goToAuthorPage'
+				'click .jda-collection-filter-author' : 'goToAuthorPage',
+
 			},
 
 			
 		initialize: function (){
-	
+			
+				
 				//for looking up address from lat/lon
 				this.geocoder = new google.maps.Geocoder();
 	
@@ -186,12 +188,12 @@
 
 			return this;
 		},
-			
+		
 		editMetadata : function(){
 				
 				var _this  = this;
 			
-				//Show the trash cans
+				
 				$('.jda-delete-item').click(function(){
 					var doDelete = confirm($('#confirm-delete-collection-text').text());
 					if (doDelete){
@@ -202,7 +204,13 @@
 						{
 							url:jda.app.apiLocation + 'api/items/' + jda.app.resultsView.collectionFilter.model.id+'/items',
 							success: function(model, response) { 
-								jda.app.resultsView.collection.remove(jda.app.resultsView.collection.get(itemID));
+								//$(jda.app.resultsView.el).find('#'+itemID).remove();
+								var itemToRemove = jda.app.resultsView.collection.get(itemID);
+								jda.app.resultsView.collection.remove(itemToRemove);
+
+								if (_this.model.id == jda.app.myCollectionsDrawer.activeCollection.id){
+									jda.app.myCollectionsDrawer.renderCollectionPreview(model);
+								}
 							},
 							error: function(model, response){
 								
@@ -215,7 +223,7 @@
 					}else{
 						return false;
 					}
-				})
+				});
 				$('.jda-delete-item').show();
 				
 				
@@ -280,7 +288,7 @@
 			},
 			
 		cancelEdits : function(){
-			$('.jda-delete-item').hide();
+			
 			this.turnOffEditMode();
 		},
 			
@@ -288,7 +296,8 @@
 
 				//hide the trash cans
 				$('.jda-delete-item').unbind();
-				$(this.el).find('.jda-delete-item').hide();
+				$('.jda-delete-item').hide();
+				
 
 				$(this.el).find('.save-data button').hide();
 				$(this.el).find('button.edit').removeClass('active');
