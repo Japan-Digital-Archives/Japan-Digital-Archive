@@ -442,24 +442,51 @@ this.jda = {
 
 		$('#zeega-results-count-text-with-date').show();
 		
+		var removedFilters = "";
+		var _this = this;
 		_.each( VisualSearch.searchBox.facetViews, function( facet ){
-			if( facet.model.get('category') == 'tag' ) {
-				var facetValue = facet.model.get('value');
+			if( facet.model.get('category') == 'tag' || facet.model.get('category') == 'collection' ||
+				facet.model.get('category') == 'user') 
+			{
 				facet.model.set({'value': null });
 				facet.remove();
-				$('#removed-tag-name').text(facetValue);
-				$('#remove-tag-alert').show('slow');
-				setTimeout(function() {
-				  $('#remove-tag-alert').hide('slow');
-				}, 3000);
+				removedFilters += facet.model.get('category') + ": " + facet.model.get('value') + " ";
+				
+				
+			}
+			if( facet.model.get('category') == 'tag'){
+				_this.resultsView.clearTags();
+			}
+			if( facet.model.get('category') == 'collection' ||
+				facet.model.get('category') == 'user') {
+				_this.removeFilter(facet.model.get('category'),_this.resultsView.getSearch());
+				_this.resultsView.setURLHash();
 			}
 			
 		})
+		if (removedFilters.length > 0){
+			$('#removed-tag-name').text(removedFilters);
+			$('#remove-tag-alert').show('slow');
+			setTimeout(function() {
+			  $('#remove-tag-alert').hide('slow');
+			}, 5000);
+		}
 		
 		$("#zeega-event-view").width($(window).width());
+
+		//this is the hacky way to update the search count properly on the map
+		$("#zeega-results-count").fadeTo(100,0);
+		this.resultsView.collection.fetch({
+			success : function(model, response){ 
+				_this.resultsView.renderTags(response.tags);
+				_this.resultsView.render();      
+				$('#zeega-results-count-number').text(jda.app.addCommas(response["items_and_collections_count"]));        
+				$('#zeega-results-count').fadeTo(100, 1);
+			}
+		});
+		
 		this.eventMap.load();
 	},
-	
 	goToAuthorPage : function(userId){
 		var _this = this;
 		this.clearSearchFilters(false);
