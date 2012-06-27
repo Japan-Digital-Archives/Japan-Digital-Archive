@@ -6,6 +6,7 @@
 	Browser.Users.Views.UserPage = Backbone.View.extend({
 		
 		el : $('#jda-user-filter'),
+		geolocated : false,
 		
 		events: {
 			
@@ -13,11 +14,13 @@
 			'click button.save' : 'saveMetadata',
 			'click button.cancel' : 'cancelEdits',
 		},
+		
 		initialize: function () {
 
 			//for looking up address from lat/lon
 			this.geocoder = new google.maps.Geocoder();
 
+			if(this.model.get('locationLatitude')) this.geolocated = true;
 
 			var facetExists = false;
 			
@@ -83,32 +86,36 @@
 			/***************************************************************************
 				Map
 			***************************************************************************/
-			this.cloudmadeUrl = 'http://{s}.tiles.mapbox.com/v2/mapbox.mapbox-streets/{z}/{x}/{y}.png',
-	    	this.cloudmadeAttrib = '',
-	   		this.cloudmade = new L.TileLayer(this.cloudmadeUrl, {maxZoom: 18, attribution: this.cloudmadeAttrib});
+			
+			if(this.geolocated)
+			{
+				this.cloudmadeUrl = 'http://{s}.tiles.mapbox.com/v2/mapbox.mapbox-streets/{z}/{x}/{y}.png',
+		    	this.cloudmadeAttrib = '',
+		   		this.cloudmade = new L.TileLayer(this.cloudmadeUrl, {maxZoom: 18, attribution: this.cloudmadeAttrib});
 		
 			
-			var values = {
-				latitude : this.model.get('locationLatitude') == null ? 38.266667 : this.model.get('locationLatitude'),//this.model.get('media_geo_latitude'),
-				longitude : this.model.get('locationLongitude') == null ? 140.866667 : this.model.get('locationLongitude'),
-			};
-			this.latlng = new L.LatLng( values.latitude,values.longitude);
-			var div = $(this.el).find('.jda-user-map').get(0);
-			this.map = new L.Map(div);
-			this.map.setView(this.latlng, 8).addLayer(this.cloudmade);
-			this.marker = new L.Marker(this.latlng,{draggable:true});
-			this.marker.addEventListener( 'drag', this.updateLatLng, this );
-			this.marker.addEventListener( 'dragend', this.updateLocation, this );
-			this.map.addLayer(this.marker);
+				var values = {
+					latitude : this.model.get('locationLatitude') == null ? 38.266667 : this.model.get('locationLatitude'),//this.model.get('media_geo_latitude'),
+					longitude : this.model.get('locationLongitude') == null ? 140.866667 : this.model.get('locationLongitude'),
+				};
+				this.latlng = new L.LatLng( values.latitude,values.longitude);
+				var div = $(this.el).find('.jda-user-map').get(0);
+				this.map = new L.Map(div);
+				this.map.setView(this.latlng, 8).addLayer(this.cloudmade);
+				this.marker = new L.Marker(this.latlng,{draggable:true});
+				this.marker.addEventListener( 'drag', this.updateLatLng, this );
+				this.marker.addEventListener( 'dragend', this.updateLocation, this );
+				this.map.addLayer(this.marker);
 		
-			this.geocoder.geocode( { 'latLng' : new google.maps.LatLng(values.latitude,values.longitude) }, function(results, status) {	
-				if (status == google.maps.GeocoderStatus.OK) {
-					if (results[0].formatted_address)
-					{
-						$(_this.el).find('.jda-collection-map-location').html( results[ results.length-3 ].formatted_address );
+				this.geocoder.geocode( { 'latLng' : new google.maps.LatLng(values.latitude,values.longitude) }, function(results, status) {	
+					if (status == google.maps.GeocoderStatus.OK) {
+						if (results[0].formatted_address)
+						{
+							$(_this.el).find('.jda-collection-map-location').html( results[ results.length-3 ].formatted_address );
+						}
 					}
-				}
-			});
+				});
+			}
 
 			/***************************************************************************
 				Edit button
