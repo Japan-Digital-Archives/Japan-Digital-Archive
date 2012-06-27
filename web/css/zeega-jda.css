@@ -81,7 +81,8 @@
 #zeega-my-collections{
 	
 	position: fixed;
-	top: 95px;
+	top: 94px;
+	padding-top:6px;
 	right:20px;
 	width: 200px;
 	text-align: center;
