@@ -128,7 +128,7 @@
 			      .clone()
 			      .css({
 			      	
-			        'z-index':'3',
+			        'z-index':'101',
 
 			      });
 			      return drag;
