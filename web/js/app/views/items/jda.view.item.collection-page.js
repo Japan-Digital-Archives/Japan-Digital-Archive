@@ -13,7 +13,8 @@
 				'click button.edit' : 'editMetadata',
 				'click button.save' : 'saveMetadata',
 				'click button.cancel' : 'cancelEdits',
-				'click .jda-collection-filter-author' : 'goToAuthorPage'
+				'click .jda-collection-filter-author' : 'goToAuthorPage',
+				'click .edit-archive-settings' : 'editArchiveSettings'
 			},
 
 			
@@ -70,15 +71,18 @@
 
 		 
 		
-		playCollection: function(){
+		playCollection: function()
+		{
 			window.open(sessionStorage.getItem('apiUrl')+'collection/'+this.model.id+'/view');
 		},
 		
-		goToAuthorPage :function(){
+		goToAuthorPage :function()
+		{
 			jda.app.goToAuthorPage(this.model.get('user_id'));
 		},
 		
-		render: function(done){
+		render: function(done)
+		{
 			var _this = this;
 			this.canEdit = this.model.get('editable');
 			
@@ -89,6 +93,11 @@
 			var template = this.getTemplate();
 			var blanks = this.model.attributes;
 			blanks.randId = this.elemId
+			blanks.archiveSettingsClass = blanks.public == false ? '' : 'label-success';
+			blanks.archiveSettingsText = blanks.public == false ? 'Limited' : 'Public';
+			blanks.archiveSettingsDesc = blanks.public == false ? 'Will not show up in search results' : 'Anyone can find the collection';
+		
+		
 		
 			$(this.el).html( _.template( template, blanks ) );
 	
@@ -284,16 +293,17 @@
 			this.turnOffEditMode();
 		},
 			
-		turnOffEditMode : function(){
+		turnOffEditMode : function()
+		{
 
-				//hide the trash cans
-				$('.jda-delete-item').unbind();
-				$(this.el).find('.jda-delete-item').hide();
+			//hide the trash cans
+			$('.jda-delete-item').unbind();
+			$(this.el).find('.jda-delete-item').hide();
 
-				$(this.el).find('.save-data button').hide();
-				$(this.el).find('button.edit').removeClass('active');
-				$(this.el).find('.editing').removeClass('editing').attr('contenteditable', false);
-			},
+			$(this.el).find('.save-data button').hide();
+			$(this.el).find('button.edit').removeClass('active');
+			$(this.el).find('.editing').removeClass('editing').attr('contenteditable', false);
+		},
 			
 		loadMap : function(){
 				if( !this.isGeoLocated )
@@ -358,30 +368,43 @@
 				});
 			},
 			
-		updateTags:function(name, _this){
-				model = _this.model;
-				var $t = $("#"+_this.elemId+"_tagsinput").children(".tag");
-				var tags = [];
-				for (var i = $t.length; i--;) 
-				{  
-					tags.push($($t[i]).text().substring(0, $($t[i]).text().length -  1).trim());  
-				}
-				_this.model.save({tags : tags});
-			},	
+		updateTags:function(name, _this)
+		{
+			model = _this.model;
+			var $t = $("#"+_this.elemId+"_tagsinput").children(".tag");
+			var tags = [];
+			for (var i = $t.length; i--;) 
+			{  
+				tags.push($($t[i]).text().substring(0, $($t[i]).text().length -  1).trim());  
+			}
+			_this.model.save({tags : tags});
+		},	
 		
-		remove:function(){
+		remove:function()
+		{
 	
-				//remove from DOM
-				$(this.el).empty();
-	
-				$('.jda-edit-btn').hide();
-				$('.tab-content').find('.jda-item-checkbox').hide();
-				$('.tab-content').removeClass('jda-low-top');
-				$('.tab-content').css('top','auto');
-	
-				$('#zeega-right-column').removeClass('zeega-right-column-low');
-				
-			},
+			//remove from DOM
+			$(this.el).empty();
+
+			$('.jda-edit-btn').hide();
+			$('.tab-content').find('.jda-item-checkbox').hide();
+			$('.tab-content').removeClass('jda-low-top');
+			$('.tab-content').css('top','auto');
+
+			$('#zeega-right-column').removeClass('zeega-right-column-low');
+			
+		},
+		
+		editArchiveSettings : function()
+		{
+			console.log('edit the archive settings');
+			
+			var a = new Browser.Modals.Views.ArchiveSettings({model:this.model});
+			$('body').append(a.render().el);
+			a.show();
+			
+			return false;
+		},
 			
 		getTemplate : function(){
 				html = 
@@ -394,13 +417,15 @@
 						'</div>'+
 					'</div>'+
 	
-						'<div class="left-col">'+
+					'<div class="row-fluid">'+
+					
+						'<div class="span6">'+
 							'<div class="btn-toolbar">'+
-								
-								'<button class="btn btn-info btn-mini play pull-left" style="margin-right:3px"><i class="icon-play icon-white"></i></button>'+
-								//'<button class="btn btn-info btn-mini share"><i class="icon-share-alt icon-white"></i></button>'+
-								' <button class="btn btn-info btn-mini edit pull-left" style="display:none;margin-right:3px"><i class="icon-pencil icon-white"></i></button>'+
-							
+								//'<div class="btn-group">'+
+									'<button class="btn btn-info btn-mini play pull-left" ><i class="icon-play icon-white"></i></button>'+
+									//'<button class="btn btn-info btn-mini share"><i class="icon-share-alt icon-white"></i></button>'+
+									'<button class="btn btn-info btn-mini edit pull-left" style="display:none"><i class="icon-pencil icon-white"></i></button>'+
+								//'</div>'+
 								'<div class="btn-group save-data">'+
 									'<button class="btn btn-success btn-mini save hide">save</button>'+
 									'<button class="btn btn-mini cancel hide">cancel</button>'+
@@ -409,14 +434,32 @@
 							'<div class="jda-collection-description"><%= description %></div>'+
 							//'<div class="jda-collection-tags"><a href="#">add tags</a></div>'+
 							
-						'</div>'+
-						'<div class="right-col">'+
+						'</div>';
+						
+						
+						if(this.model.get('editable'))
+						{
+						html+=
+						'<div class="span3">'+
+							'<div>ARCHIVE SETTINGS <a href="#" class="edit-archive-settings"><i class="icon-pencil"></i></a></div>'+
+							'<div><span class="archive-setting-type label <%= archiveSettingsClass %>"><%= archiveSettingsText %>:</span> <span class="archive-setting-description"><%= archiveSettingsDesc %></span></div>'+
+						'</div>';
+						}
+						else
+						{
+							html+=
+							'<div class="span3">&nbsp;</div>';
+						}
+						html+=
+						'<div class="span1">&nbsp;</div>'+
+						
+						'<div class="span2">'+
 							'<div class="jda-collection-map" style="text-align:center;background-image: url(../images/nogeomap.gif)"><h3 class="jda-no-geo-location-message" style="top:24px">No location information</h3></div>'+
 							'<div class="jda-collection-map-location"></div>'+
 						'</div>'+
-						
+
 				'</div>';
-				
+
 				return html;
 			},
 

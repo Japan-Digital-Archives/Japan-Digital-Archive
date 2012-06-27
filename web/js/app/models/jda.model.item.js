@@ -6,6 +6,7 @@
 		type:'item',
 
 		defaults : {
+			'public' : false,
             'attribution_uri': 'default',
             'uri': 'default',
             'archive': 'default',
