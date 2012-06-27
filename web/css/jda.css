@@ -230,7 +230,8 @@ margin-left: -20px;
 	background:white;
 
 }
-#jda-user-filter{
+#jda-user-filter
+{
 	position: fixed;
 	top:90px;
 	z-index:50;
