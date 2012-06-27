@@ -218,8 +218,9 @@ margin-left: -20px;
 #spinner{
 	
 	position:absolute;
-	top:50px;
+	top:250px;
 	left:40%;
+	z-index:1000;
 
 }
 #jda-collection-filter-new{
@@ -665,4 +666,13 @@ border-radius: 0px 4px 0px 0px;
 
 .zeega-list-middle-column li:hover{
 
-	color:#08c
+	color:#08c;
+}
+
+/**********************************
+	END ITEM PAGE
+***********************************/
+
+
+
+

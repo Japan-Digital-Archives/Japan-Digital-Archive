@@ -39,8 +39,8 @@
 
 		},
 		updateResultsCounts : function(){
-			var collectionsCount = this.collection.collectionsCollection == null ? 0 : this.collection.collectionsCollection.length;
-			var itemsCount = this.collection.length;
+			var collectionsCount = this.collection.collectionsCount;
+			var itemsCount = this.collection.count;
 
 			$('.jda-results-collections-count').text( jda.app.addCommas(collectionsCount));
 			$('.jda-results-items-count').text( jda.app.addCommas(itemsCount));
@@ -49,7 +49,7 @@
 		render : function()
 		{
 			var _this = this;
-			
+			$("#zeega-results-count").hide();
 			
 			_this._isRendered = true;
 			if(jda.app.currentView == 'thumb'){
@@ -62,7 +62,7 @@
 			//Display collections and items separately if this is not null
 			if (this.collection.collectionsCollection != null){
 				
-				$("#zeega-results-count").hide();
+				
 
 
 				this.updateResultsCounts();
@@ -282,7 +282,7 @@
 		 	if( !_.isUndefined(obj.user) && obj.user > 0) hash += 'user=' + obj.user + '&';
 		 	if( !_.isUndefined(obj.content) )  hash += 'content='+ obj.content + '&';
 		 	if( !_.isUndefined(obj.mapBounds) )  hash += 'map_bounds='+ encodeURIComponent(obj.mapBounds) + '&';
-		 	if( !_.isUndefined(obj.username) && obj.username.length > 0)  hash += 'username='+ encodeURIComponent(obj.username) + '&';
+		 	//if( !_.isUndefined(obj.username) && obj.username.length > 0)  hash += 'username='+ encodeURIComponent(obj.username) + '&';
 		 	if( !_.isUndefined(obj.times) )
 			{
 		 		if( !_.isUndefined(obj.times.start) ) hash += 'min_date='+ obj.times.start + '&';
