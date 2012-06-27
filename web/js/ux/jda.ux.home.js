@@ -263,8 +263,7 @@ $(document).ready(function(){
 
 				$('#jda-go-button').click(function(){
 					var query = VisualSearch.searchBox.value();
-					console.log(query);
-					//window.location = 'search#q=' + query;
+					window.location = 'search#q=' + query;
 				});
 			},
 
@@ -283,9 +282,11 @@ $(document).ready(function(){
 				{
 					case 'text':
 						textQuery = (textQuery.length > 0) ? textQuery + " AND " + facet.get('value') : facet.get('value'); 
+						textQuery=textQuery.replace(/^#/, '');
 						break;
 					case 'tag':
 						tagQuery = (tagQuery.length > 4) ? tagQuery + ", " + facet.get('value') : tagQuery + facet.get('value');
+						tagQuery=tagQuery.replace(/^#/, '');
 						break;
 					/*
 					case 'user':
@@ -306,7 +307,8 @@ $(document).ready(function(){
 			facetMatches : function(callback)
 			{
 				callback([
-					'tag', 'keyword', 'text', 'data:time & place','collection','user'
+					//'tag', 'keyword', 'text', 'data:time & place','collection','user'
+					'tag','text'
 				]);
 			},
 			// These are the values that match specific categories, autocompleted

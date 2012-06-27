@@ -77,9 +77,11 @@ this.jda = {
 				{
 					case 'text':
 						textQuery = (textQuery.length > 0) ? textQuery + " AND " + facet.get('value') : facet.get('value'); 
+						textQuery=textQuery.replace(/^#/, '');
 						break;
 					case 'tag':
 						tagQuery = (tagQuery.length > 4) ? tagQuery + ", " + facet.get('value') : tagQuery + facet.get('value');
+						tagQuery=tagQuery.replace(/^#/, '');
 						break;
 					case 'user':
 						usernameQuery = facet.get('value');
