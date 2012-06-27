@@ -318,9 +318,14 @@ margin-left: -20px;
 	rgba(255, 255, 255, 0.7);
 
 }
-.jda-home-featured-collection{
-	vertical-align:top;background-position:center;display:inline-block;
-	height:650px;width:33%;
+.jda-home-featured-collection
+{
+	vertical-align:top;
+	background-position:center;
+	/*display:inline-block;*/
+	float:left;
+	height:100%;
+	width:33%;
 	border-right:2px solid white;
 	background-repeat:no-repeat;
 	background-size:cover;
