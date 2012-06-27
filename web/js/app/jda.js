@@ -100,42 +100,53 @@ this.jda = {
 			params.collection_name = collectionQuery;
 		}
 		
-		if (!_.isUndefined(params.view_type))  this.switchViewTo(params.view_type,false) ;
-		
-		if (!_.isUndefined(params.view_type) && params.view_type == 'event' && !this.eventMap.timeSliderLoaded) {
-			this.setEventViewTimePlace(params);
-		}
-		
-		if (this.currentView == 'event'){
-		    
-			if(!_.isUndefined( this.resultsView.getCQLSearchString())&&this.eventMap.mapLoaded)
-			{
-				_this.eventMap.map.getLayersByName('cite:item - Tiled')[0].mergeNewParams({
-					'CQL_FILTER' : this.resultsView.getCQLSearchString()
-				});
-			}
-		}
+	
 		
 	
-		if(_.isNull(params.collection_name)&&_.isObject(this.resultsView.collectionFilter)){
-			this.removeFilter("collection");
-		}
+		if(_.isNull(params.collection_name)&&_.isObject(this.resultsView.collectionFilter)) this.removeFilter("collection");
+		else if(_.isObject(this.resultsView.collectionFilter)) params.collection=this.resultsView.collectionFilter.model.id;
 		
-		else if(_.isObject(this.resultsView.collectionFilter)){
-			console.log('STILL APPEARS TO BE A COLLECTION FILTER',	this.resultsView.collectionFilter,params.collection_name);
-			params.collection=this.resultsView.collectionFilter.model.id;
-		}
-		else{
-			
-			console.log('DOES NOT APPEAR TO BE A COLLECTIONFILTER',	this.resultsView.collectionFilter,params.collection_name);
-		}
+	
 		
 		if(_.isNull(params.username)&&_.isObject(this.resultsView.userFilter)) this.removeFilter("user");
 		else if(_.isObject(this.resultsView.userFilter))params.user=this.resultsView.userFilter.model.id;
 		
 		//if(_.isNumber(params.collection)&&this.currentFilterType=="collection")this.removeFilter("collection");
 		
-		this.resultsView.search( params,true );
+		//if (!_.isUndefined(params.view_type))  this.switchViewTo(params.view_type,false) ;
+		
+		
+		
+		if ( params.view_type == 'event'){
+		
+			this.resultsView.collection.setSearch(params,true);
+		}
+		else this.resultsView.search( params,true );
+		
+		if (!_.isUndefined(params.view_type))  this.switchViewTo(params.view_type,true) ;
+		
+		
+		if ( params.view_type == 'event' && !this.eventMap.timeSliderLoaded) {
+			
+			this.setEventViewTimePlace(params);
+		}
+		
+		
+		
+		if (this.currentView == 'event'){
+		    
+		    console.log("currentView is event");
+		    
+		    
+			if(!_.isUndefined( this.resultsView.getCQLSearchString())&&this.eventMap.mapLoaded)
+			{
+				console.log("merging cql string",this.resultsView.getCQLSearchString());
+				
+				_this.eventMap.map.getLayersByName('cite:item - Tiled')[0].mergeNewParams({
+					'CQL_FILTER' : this.resultsView.getCQLSearchString()
+				});
+			}
+		}
 		
 	},
 	
@@ -204,7 +215,7 @@ this.jda = {
 	
 		var _this=this;
 		this.resultsView.setView(view);
-		if( view != this.currentView )
+		if( view != this.currentView ||view=="event")
 		{
 			
 			if(this.currentView=="event") refresh=true;
@@ -298,7 +309,7 @@ this.jda = {
 			searchParams.r_itemswithcollections=0;
 			this.resultsView.userFilter = new Browser.Users.Views.UserPage({model:model});
 			searchParams.user = model.id;
-			this.search(searchParams,useValuesFromURL);
+			this.search(searchParams);
 		}
 
 	},

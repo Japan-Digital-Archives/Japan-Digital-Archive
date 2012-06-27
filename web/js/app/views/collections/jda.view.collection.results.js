@@ -317,7 +317,7 @@
 					startString = startDate.format('yyyy-mm-dd HH:MM:ss');
 					cqlFilters.push("media_date_created >= '" + startString +"'");
 				}
-				if( !_.isUndefined(search.times.start) )
+				if( !_.isUndefined(search.times.end) )
 				{
 					endDate = new Date(search.times.end*1000);
 					endString = endDate.format('yyyy-mm-dd HH:MM:ss');
