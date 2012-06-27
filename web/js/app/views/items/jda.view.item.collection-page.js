@@ -93,9 +93,9 @@
 			var template = this.getTemplate();
 			var blanks = this.model.attributes;
 			blanks.randId = this.elemId
-			blanks.archiveSettingsClass = blanks.public == false ? '' : 'label-success';
-			blanks.archiveSettingsText = blanks.public == false ? 'Limited' : 'Public';
-			blanks.archiveSettingsDesc = blanks.public == false ? 'Will not show up in search results' : 'Anyone can find the collection';
+			blanks.archiveSettingsClass = blanks.published == false ? '' : 'label-success';
+			blanks.archiveSettingsText = blanks.published == false ? 'Limited' : 'Public';
+			blanks.archiveSettingsDesc = blanks.published == false ? 'Will not show up in search results' : 'Anyone can find the collection';
 		
 		
 		
@@ -441,7 +441,7 @@
 						{
 						html+=
 						'<div class="span3">'+
-							'<div>ARCHIVE SETTINGS <a href="#" class="edit-archive-settings"><i class="icon-pencil"></i></a></div>'+
+							'<div>Archive Settings <a href="#" class="edit-archive-settings"><i class="icon-pencil"></i></a></div>'+
 							'<div><span class="archive-setting-type label <%= archiveSettingsClass %>"><%= archiveSettingsText %>:</span> <span class="archive-setting-description"><%= archiveSettingsDesc %></span></div>'+
 						'</div>';
 						}

@@ -16,8 +16,8 @@
 		{
 			console.log('init modal shizzzz', this)
 			this.settings = {
-				'public' : this.model.get('public') ? 'checked' : '',
-				'private' : !this.model.get('public') ? 'checked' : ''
+				'public' : this.model.get('published') ? 'checked' : '',
+				'private' : !this.model.get('published') ? 'checked' : ''
 			}
 		},
 		
