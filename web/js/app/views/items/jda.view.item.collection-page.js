@@ -10,15 +10,16 @@
 		events: {
 				'click button.play' : 'playCollection',
 				'click button.share' : function(){alert('Opens publish process modal window');},
-				'click button.edit' : 'editMetadata',
+				'click a.edit' : 'editMetadata',
 				'click button.save' : 'saveMetadata',
 				'click button.cancel' : 'cancelEdits',
 				'click .jda-collection-filter-author' : 'goToAuthorPage',
-				'click .edit-archive-settings' : 'editArchiveSettings'
-			},
+				'click .edit-archive-settings' : 'editArchiveSettings',
+		},
 
 			
-		initialize: function (){
+		initialize: function ()
+		{
 	
 				//for looking up address from lat/lon
 				this.geocoder = new google.maps.Geocoder();
@@ -193,64 +194,69 @@
 			})
 
 
+			this.$el.find('.edit, .edit-archive-settings, .play').tooltip({placement:'right'});
+
 			return this;
 		},
 			
-		editMetadata : function(){
+		editMetadata : function()
+		{
 				
-				var _this  = this;
-			
-				//Show the trash cans
-				$('.jda-delete-item').click(function(){
-					var doDelete = confirm($('#confirm-delete-collection-text').text());
-					if (doDelete){
-						var itemID = $(this).closest('li').attr('id');
-						_this.model.save({
-											items_to_remove:itemID
-																		},
-						{
-							url:jda.app.apiLocation + 'api/items/' + jda.app.resultsView.collectionFilter.model.id+'/items',
-							success: function(model, response) { 
-								jda.app.resultsView.collection.remove(jda.app.resultsView.collection.get(itemID));
-							},
-							error: function(model, response){
-								
-								console.log("Error updating item title.");
-								console.log(response);
-							}
+			var _this  = this;
+		
+			//Show the trash cans
+			$('.jda-delete-item').click(function(){
+				var doDelete = confirm($('#confirm-delete-collection-text').text());
+				if (doDelete){
+					var itemID = $(this).closest('li').attr('id');
+					_this.model.save({
+										items_to_remove:itemID
+																	},
+					{
+						url:jda.app.apiLocation + 'api/items/' + jda.app.resultsView.collectionFilter.model.id+'/items',
+						success: function(model, response) { 
+							jda.app.resultsView.collection.remove(jda.app.resultsView.collection.get(itemID));
+						},
+						error: function(model, response){
+							
+							console.log("Error updating item title.");
+							console.log(response);
+						}
 
-						});
-						return false;
-					}else{
-						return false;
-					}
-				})
-				$('.jda-delete-item').show();
-				
-				
-				
-				
-				this.loadMap();
-				
-				$(this.el).find('.save-data button').show();
-				$(this.el).find('button.edit').addClass('active');
-				$(this.el).find('.cover-overlay h1').addClass('editing').attr('contenteditable', true).keypress(function(e){
-					if(e.which==13)
-					{
-						_this.saveFields();
-						$(this).blur();
-						return false;
-					}
-				});
-				$(this.el).find('.jda-collection-description').addClass('editing').attr('contenteditable', true);
-				$(this.el).find('.jda-collection-map-location').addClass('editing').attr('contenteditable', true).keypress(function(e){
-					if(e.which==13)
-					{
-						_this.geocodeString();
-						return false;
-					}
-				});
-			},
+					});
+					return false;
+				}else{
+					return false;
+				}
+			})
+			$('.jda-delete-item').show();
+			
+			
+			
+			
+			this.loadMap();
+			
+			$(this.el).find('.save-data button').show();
+			$(this.el).find('button.edit').addClass('active');
+			$(this.el).find('.cover-overlay h1').addClass('editing').attr('contenteditable', true).keypress(function(e){
+				if(e.which==13)
+				{
+					_this.saveFields();
+					$(this).blur();
+					return false;
+				}
+			});
+			$(this.el).find('.jda-collection-description').addClass('editing').attr('contenteditable', true);
+			$(this.el).find('.jda-collection-map-location').addClass('editing').attr('contenteditable', true).keypress(function(e){
+				if(e.which==13)
+				{
+					_this.geocodeString();
+					return false;
+				}
+			});
+			
+			return false
+		},
 			
 		saveMetadata : function(){
 				
@@ -420,19 +426,22 @@
 					'<div class="row-fluid">'+
 					
 						'<div class="span6">'+
+							'<div class="meta-head">Collection Description: <a href="#" class="edit" title="edit collection details"><i class="icon-pencil"></i></a></div>'+
+							'<div class="jda-collection-description"><%= description %></div>'+
+							//'<div class="jda-collection-tags"><a href="#">add tags</a></div>'+
+							
 							'<div class="btn-toolbar">'+
 								//'<div class="btn-group">'+
-									'<button class="btn btn-info btn-mini play pull-left" ><i class="icon-play icon-white"></i></button>'+
+									'<a class="btn btn-info btn-mini play pull-left" title="play collection in Zeega player"><i class="icon-play icon-white"></i></a>'+
 									//'<button class="btn btn-info btn-mini share"><i class="icon-share-alt icon-white"></i></button>'+
-									'<button class="btn btn-info btn-mini edit pull-left" style="display:none"><i class="icon-pencil icon-white"></i></button>'+
+									//'<button class="btn btn-info btn-mini edit pull-left" style="display:none"><i class="icon-pencil icon-white"></i></button>'+
 								//'</div>'+
 								'<div class="btn-group save-data">'+
 									'<button class="btn btn-success btn-mini save hide">save</button>'+
 									'<button class="btn btn-mini cancel hide">cancel</button>'+
 								'</div>'+
 							'</div>'+
-							'<div class="jda-collection-description"><%= description %></div>'+
-							//'<div class="jda-collection-tags"><a href="#">add tags</a></div>'+
+							
 							
 						'</div>';
 						
@@ -441,7 +450,7 @@
 						{
 						html+=
 						'<div class="span3">'+
-							'<div>Archive Settings <a href="#" class="edit-archive-settings"><i class="icon-pencil"></i></a></div>'+
+							'<div class="meta-head">Archive Settings <a href="#" class="edit-archive-settings" title="edit archive settings"><i class="icon-pencil"></i></a></div>'+
 							'<div><span class="archive-setting-type label <%= archiveSettingsClass %>"><%= archiveSettingsText %>:</span> <span class="archive-setting-description"><%= archiveSettingsDesc %></span></div>'+
 						'</div>';
 						}

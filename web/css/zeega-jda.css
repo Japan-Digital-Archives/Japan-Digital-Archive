@@ -391,7 +391,6 @@
 	font-size:10px;
 	width:200px
 }
-.jda-collection-map{ float:right;}
 .jda-collection-map,.jda-user-map
 {
 	width:200px;
@@ -424,3 +423,4 @@
 
 .jda-user-filter-description.editing{ height:50px;}
 
+.meta-head{ font-weight:bold; }
