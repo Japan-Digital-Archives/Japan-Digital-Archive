@@ -13,7 +13,6 @@
 				'click button.edit' : 'editMetadata',
 				'click button.save' : 'saveMetadata',
 				'click button.cancel' : 'cancelEdits',
-				'click .jda-collection-filter-author' : 'goToAuthorPage',
 
 			},
 
@@ -76,9 +75,6 @@
 			window.open(sessionStorage.getItem('apiUrl')+'collection/'+this.model.id+'/view');
 		},
 		
-		goToAuthorPage :function(){
-			jda.app.goToAuthorPage(this.model.get('user_id'));
-		},
 		
 		render: function(done){
 			var _this = this;
@@ -185,6 +181,15 @@
 				}
 			})
 
+
+
+			//awkward click event
+			
+			$(this.el).find('.jda-collection-filter-author').click(function(){
+				console.log("GOGINGGGINGINGINIGNI");
+				jda.app.goToAuthorPage(_this.model.get('user_id'));
+			
+			});
 
 			return this;
 		},
