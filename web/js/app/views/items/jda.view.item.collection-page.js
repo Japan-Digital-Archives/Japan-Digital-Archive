@@ -295,6 +295,10 @@
 			},
 			
 		cancelEdits : function(){
+			
+			this.render();
+			
+			
 			$('.jda-delete-item').hide();
 			this.turnOffEditMode();
 		},

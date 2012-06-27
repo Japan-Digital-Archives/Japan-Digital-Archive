@@ -396,6 +396,10 @@
 	width:200px;
 	height:100px;
 }
+.jda-collection-map
+{
+	float:right;
+}
 
 .left-col{float:left;}
 .right-col{float:right;}
