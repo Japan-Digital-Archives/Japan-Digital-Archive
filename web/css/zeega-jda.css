@@ -7,9 +7,16 @@
 	padding:4px 0;
 	z-index:2;
 	position: fixed;
-	top: 44px;
+	top: 43px;
 	width:100%;
 	min-width:900px;
+}
+
+#jda-home-search-div{
+	margin-left: 15px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	display:none;
 }
 #zeega-view-buttons{
 	width: 108px;
