@@ -251,11 +251,11 @@
 			//remove from DOM
 			$(this.el).empty();
 			$('.jda-separate-collections-and-items').hide();
-			$('.tab-content').removeClass('jda-low-top');
+			//$('.tab-content').removeClass('jda-low-top');
 		
-			$('.tab-content').css('top','auto');
+			//$('.tab-content').css('top','auto');
 
-			$('#zeega-right-column').removeClass('zeega-right-column-user-page');
+			//$('#zeega-right-column').removeClass('zeega-right-column-user-page');
 		},
 		
 		getTemplate : function()
