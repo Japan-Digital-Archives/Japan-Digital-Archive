@@ -28,7 +28,6 @@ require (
 	'order!../lib/jquery-ui-1.8.18.custom/js/jquery-ui-1.8.18.custom.min',
 	'order!../lib/spin',
 	'order!../lib/spin-jquery',
-	'order!../lib/OpenLayers-2.11/OpenLayers',
 	'order!../lib/date.format',
 	'order!../lib/jquery-ui-timepicker-addon',
 	'order!../lib/bootstrap-2.0.2/js/bootstrap.min',
