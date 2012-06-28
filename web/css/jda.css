@@ -227,16 +227,16 @@ margin-left: -20px;
 
 	position: fixed;
 	z-index:50;
-	top:100px;
+	top:94px;
 	background:white;
 
 }
 #jda-user-filter
 {
 	position: fixed;
-	top:95px;
+	top:89px;
 	padding-top:6px;
-	z-index:50;
+	z-index:49;
 	overflow: hidden;
 	background:white;
 }
