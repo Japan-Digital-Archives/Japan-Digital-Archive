@@ -43,13 +43,7 @@ this.jda = {
 	search : function(params, useValuesFromURL){
 	
 		console.log("jda.app.search",params,useValuesFromURL);
-	
-		
-		//if(_.isUndefined(params.username)&&this.currentFilterType=="user")this.removeFilter("user");
-		
-		//if(_.isObject(this.resultsView.userFilter)) params.user=this.resultsView.userFilter.model.id;
-		
-		
+
 		var _this = this;
 		
 		//Parse out search box values for putting them in the Search query
@@ -61,7 +55,7 @@ this.jda = {
 		else{
 			//Use content value from format dropdown
 			
-			params.content = $('#zeega-content-type').val();
+			
 
 			//Parse searchbox values
 			var facets = VisualSearch.searchQuery.models;
@@ -100,7 +94,7 @@ this.jda = {
 			params.collection_name = collectionQuery;
 		}
 		
-	
+		params.content = $('#zeega-content-type').val();
 		
 	
 		if(_.isNull(params.collection_name)&&_.isObject(this.resultsView.collectionFilter)) this.removeFilter("collection");
