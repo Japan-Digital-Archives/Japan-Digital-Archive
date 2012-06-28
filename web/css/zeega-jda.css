@@ -88,7 +88,8 @@
 #zeega-my-collections{
 	
 	position: fixed;
-	top: 95px;
+	top: 94px;
+	padding-top:6px;
 	right:20px;
 	width: 200px;
 	text-align: center;
@@ -402,6 +403,10 @@
 	width:200px;
 	height:100px;
 }
+.jda-collection-map
+{
+	float:right;
+}
 
 .left-col{float:left;}
 .right-col{float:right;}
@@ -429,4 +434,4 @@
 
 .jda-user-filter-description.editing{ height:50px;}
 
-
+.meta-head{ font-weight:bold; }

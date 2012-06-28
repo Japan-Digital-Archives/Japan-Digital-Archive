@@ -78,6 +78,7 @@ require (
 
 	'order!../app/views/users/jda.view.user.user-page',
 	
+	'order!../app/views/modals/jda.view.modal.archive-settings',
 	
 	
 	//fancybox

@@ -10,16 +10,17 @@
 		events: {
 				'click button.play' : 'playCollection',
 				'click button.share' : function(){alert('Opens publish process modal window');},
-				'click button.edit' : 'editMetadata',
+				'click a.edit' : 'editMetadata',
 				'click button.save' : 'saveMetadata',
 				'click button.cancel' : 'cancelEdits',
-
-			},
+				'click .edit-archive-settings' : 'editArchiveSettings',
+		},
 
 			
-		initialize: function (){
-			
-				
+		initialize: function ()
+		{
+	
+
 				//for looking up address from lat/lon
 				this.geocoder = new google.maps.Geocoder();
 	
@@ -71,12 +72,15 @@
 
 		 
 		
-		playCollection: function(){
+		playCollection: function()
+		{
 			window.open(sessionStorage.getItem('apiUrl')+'collection/'+this.model.id+'/view');
 		},
 		
+
 		
-		render: function(done){
+		render: function(done)
+		{
 			var _this = this;
 			this.canEdit = this.model.get('editable');
 			
@@ -87,6 +91,11 @@
 			var template = this.getTemplate();
 			var blanks = this.model.attributes;
 			blanks.randId = this.elemId
+			blanks.archiveSettingsClass = blanks.published == false ? '' : 'label-success';
+			blanks.archiveSettingsText = blanks.published == false ? 'Limited' : 'Public';
+			blanks.archiveSettingsDesc = blanks.published == false ? 'Will not show up in search results' : 'Anyone can find the collection';
+		
+		
 		
 			$(this.el).html( _.template( template, blanks ) );
 	
@@ -181,8 +190,6 @@
 				}
 			})
 
-
-
 			//awkward click event
 			
 			$(this.el).find('.jda-collection-filter-author').click(function(){
@@ -191,70 +198,69 @@
 			
 			});
 
+			this.$el.find('.edit, .edit-archive-settings, .play').tooltip({placement:'right'});
+
 			return this;
 		},
-		
-		editMetadata : function(){
-				
-				var _this  = this;
 			
+		editMetadata : function()
+		{
 				
-				$('.jda-delete-item').click(function(){
-					var doDelete = confirm($('#confirm-delete-collection-text').text());
-					if (doDelete){
-						var itemID = $(this).closest('li').attr('id');
-						_this.model.save({
-											items_to_remove:itemID
-																		},
-						{
-							url:jda.app.apiLocation + 'api/items/' + jda.app.resultsView.collectionFilter.model.id+'/items',
-							success: function(model, response) { 
-								//$(jda.app.resultsView.el).find('#'+itemID).remove();
-								var itemToRemove = jda.app.resultsView.collection.get(itemID);
-								jda.app.resultsView.collection.remove(itemToRemove);
-
-								if (_this.model.id == jda.app.myCollectionsDrawer.activeCollection.id){
-									jda.app.myCollectionsDrawer.renderCollectionPreview(model);
-								}
-							},
-							error: function(model, response){
-								
-								console.log("Error updating item title.");
-								console.log(response);
-							}
-
-						});
-						return false;
-					}else{
-						return false;
-					}
-				});
-				$('.jda-delete-item').show();
-				
-				
-				
-				
-				this.loadMap();
-				
-				$(this.el).find('.save-data button').show();
-				$(this.el).find('button.edit').addClass('active');
-				$(this.el).find('.cover-overlay h1').addClass('editing').attr('contenteditable', true).keypress(function(e){
-					if(e.which==13)
+			var _this  = this;
+		
+			//Show the trash cans
+			$('.jda-delete-item').click(function(){
+				var doDelete = confirm($('#confirm-delete-collection-text').text());
+				if (doDelete){
+					var itemID = $(this).closest('li').attr('id');
+					_this.model.save({
+										items_to_remove:itemID
+																	},
 					{
-						_this.saveFields();
-						$(this).blur();
-						return false;
-					}
-				});
-				$(this.el).find('.jda-collection-description').addClass('editing').attr('contenteditable', true);
-				$(this.el).find('.jda-collection-map-location').addClass('editing').attr('contenteditable', true).keypress(function(e){
-					if(e.which==13)
-					{
-						_this.geocodeString();
-						return false;
-					}
-				});
-			},
+						url:jda.app.apiLocation + 'api/items/' + jda.app.resultsView.collectionFilter.model.id+'/items',
+						success: function(model, response) { 
+							jda.app.resultsView.collection.remove(jda.app.resultsView.collection.get(itemID));
+						},
+						error: function(model, response){
+							
+							console.log("Error updating item title.");
+							console.log(response);
+						}
+
+					});
+					return false;
+				}else{
+					return false;
+				}
+			})
+			$('.jda-delete-item').show();
+			
+			
+			
+			
+			this.loadMap();
+			
+			$(this.el).find('.save-data button').show();
+			$(this.el).find('button.edit').addClass('active');
+			$(this.el).find('.cover-overlay h1').addClass('editing').attr('contenteditable', true).keypress(function(e){
+				if(e.which==13)
+				{
+					_this.saveFields();
+					$(this).blur();
+					return false;
+				}
+			});
+			$(this.el).find('.jda-collection-description').addClass('editing').attr('contenteditable', true);
+			$(this.el).find('.jda-collection-map-location').addClass('editing').attr('contenteditable', true).keypress(function(e){
+				if(e.which==13)
+				{
+					_this.geocodeString();
+					return false;
+				}
+			});
+			
+			return false
+		},
 			
 		saveMetadata : function(){
 				
@@ -293,21 +299,28 @@
 			},
 			
 		cancelEdits : function(){
+
+			this.render();
 			
+			
+			$('.jda-delete-item').hide();
+
 			this.turnOffEditMode();
 		},
 			
-		turnOffEditMode : function(){
+		turnOffEditMode : function()
+		{
 
-				//hide the trash cans
-				$('.jda-delete-item').unbind();
-				$('.jda-delete-item').hide();
-				
 
-				$(this.el).find('.save-data button').hide();
-				$(this.el).find('button.edit').removeClass('active');
-				$(this.el).find('.editing').removeClass('editing').attr('contenteditable', false);
-			},
+			//hide the trash cans
+			$('.jda-delete-item').unbind();
+			$(this.el).find('.jda-delete-item').hide();
+
+
+			$(this.el).find('.save-data button').hide();
+			$(this.el).find('button.edit').removeClass('active');
+			$(this.el).find('.editing').removeClass('editing').attr('contenteditable', false);
+		},
 			
 		loadMap : function(){
 				if( !this.isGeoLocated )
@@ -372,30 +385,43 @@
 				});
 			},
 			
-		updateTags:function(name, _this){
-				model = _this.model;
-				var $t = $("#"+_this.elemId+"_tagsinput").children(".tag");
-				var tags = [];
-				for (var i = $t.length; i--;) 
-				{  
-					tags.push($($t[i]).text().substring(0, $($t[i]).text().length -  1).trim());  
-				}
-				_this.model.save({tags : tags});
-			},	
+		updateTags:function(name, _this)
+		{
+			model = _this.model;
+			var $t = $("#"+_this.elemId+"_tagsinput").children(".tag");
+			var tags = [];
+			for (var i = $t.length; i--;) 
+			{  
+				tags.push($($t[i]).text().substring(0, $($t[i]).text().length -  1).trim());  
+			}
+			_this.model.save({tags : tags});
+		},	
 		
-		remove:function(){
+		remove:function()
+		{
 	
-				//remove from DOM
-				$(this.el).empty();
-	
-				$('.jda-edit-btn').hide();
-				$('.tab-content').find('.jda-item-checkbox').hide();
-				$('.tab-content').removeClass('jda-low-top');
-				$('.tab-content').css('top','auto');
-	
-				$('#zeega-right-column').removeClass('zeega-right-column-low');
-				
-			},
+			//remove from DOM
+			$(this.el).empty();
+
+			$('.jda-edit-btn').hide();
+			$('.tab-content').find('.jda-item-checkbox').hide();
+			$('.tab-content').removeClass('jda-low-top');
+			$('.tab-content').css('top','auto');
+
+			$('#zeega-right-column').removeClass('zeega-right-column-low');
+			
+		},
+		
+		editArchiveSettings : function()
+		{
+			console.log('edit the archive settings');
+			
+			var a = new Browser.Modals.Views.ArchiveSettings({model:this.model});
+			$('body').append(a.render().el);
+			a.show();
+			
+			return false;
+		},
 			
 		getTemplate : function(){
 				html = 
@@ -408,29 +434,52 @@
 						'</div>'+
 					'</div>'+
 	
-						'<div class="left-col">'+
-							'<div class="btn-toolbar">'+
-								
-								'<button class="btn btn-info btn-mini play pull-left" style="margin-right:3px"><i class="icon-play icon-white"></i></button>'+
-								//'<button class="btn btn-info btn-mini share"><i class="icon-share-alt icon-white"></i></button>'+
-								' <button class="btn btn-info btn-mini edit pull-left" style="display:none;margin-right:3px"><i class="icon-pencil icon-white"></i></button>'+
+					'<div class="row-fluid">'+
+					
+						'<div class="span6">'+
+							'<div class="meta-head">Collection Description: <a href="#" class="edit" title="edit collection details"><i class="icon-pencil"></i></a></div>'+
+							'<div class="jda-collection-description"><%= description %></div>'+
+							//'<div class="jda-collection-tags"><a href="#">add tags</a></div>'+
 							
+							'<div class="btn-toolbar">'+
+								//'<div class="btn-group">'+
+									'<a class="btn btn-info btn-mini play pull-left" title="play collection in Zeega player"><i class="icon-play icon-white"></i></a>'+
+									//'<button class="btn btn-info btn-mini share"><i class="icon-share-alt icon-white"></i></button>'+
+									//'<button class="btn btn-info btn-mini edit pull-left" style="display:none"><i class="icon-pencil icon-white"></i></button>'+
+								//'</div>'+
 								'<div class="btn-group save-data">'+
 									'<button class="btn btn-success btn-mini save hide">save</button>'+
 									'<button class="btn btn-mini cancel hide">cancel</button>'+
 								'</div>'+
 							'</div>'+
-							'<div class="jda-collection-description"><%= description %></div>'+
-							//'<div class="jda-collection-tags"><a href="#">add tags</a></div>'+
 							
-						'</div>'+
-						'<div class="right-col">'+
+							
+						'</div>';
+						
+						
+						if(this.model.get('editable'))
+						{
+						html+=
+						'<div class="span3">'+
+							'<div class="meta-head">Archive Settings <a href="#" class="edit-archive-settings" title="edit archive settings"><i class="icon-pencil"></i></a></div>'+
+							'<div><span class="archive-setting-type label <%= archiveSettingsClass %>"><%= archiveSettingsText %>:</span> <span class="archive-setting-description"><%= archiveSettingsDesc %></span></div>'+
+						'</div>';
+						}
+						else
+						{
+							html+=
+							'<div class="span3">&nbsp;</div>';
+						}
+						html+=
+						'<div class="span1">&nbsp;</div>'+
+						
+						'<div class="span2">'+
 							'<div class="jda-collection-map" style="text-align:center;background-image: url(../images/nogeomap.gif)"><h3 class="jda-no-geo-location-message" style="top:24px">No location information</h3></div>'+
 							'<div class="jda-collection-map-location"></div>'+
 						'</div>'+
-						
+
 				'</div>';
-				
+
 				return html;
 			},
 
