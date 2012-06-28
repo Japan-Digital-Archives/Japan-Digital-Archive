@@ -8,7 +8,7 @@
 		el : $('#jda-collection-filter-new'),
 	
 		events: {
-				'click button.play' : 'playCollection',
+				'click a.play' : 'playCollection',
 				'click button.share' : function(){alert('Opens publish process modal window');},
 				'click a.edit' : 'editMetadata',
 				'click button.save' : 'saveMetadata',
