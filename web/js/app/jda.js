@@ -106,22 +106,17 @@ this.jda = {
 		if(_.isNull(params.collection_name)&&_.isObject(this.resultsView.collectionFilter)) this.removeFilter("collection");
 		else if(_.isObject(this.resultsView.collectionFilter)) params.collection=this.resultsView.collectionFilter.model.id;
 		
-	
-		
+
 		if(_.isNull(params.username)&&_.isObject(this.resultsView.userFilter)) this.removeFilter("user");
 		else if(_.isObject(this.resultsView.userFilter))params.user=this.resultsView.userFilter.model.id;
-		
-		//if(_.isNumber(params.collection)&&this.currentFilterType=="collection")this.removeFilter("collection");
-		
-		//if (!_.isUndefined(params.view_type))  this.switchViewTo(params.view_type,false) ;
-		
-		
+	
 		
 		if ( params.view_type == 'event'){
-		
 			this.resultsView.collection.setSearch(params,true);
 		}
-		else this.resultsView.search( params,true );
+		else {
+			this.resultsView.search( params,true );
+		}
 		
 		if (!_.isUndefined(params.view_type))  this.switchViewTo(params.view_type,true) ;
 		
@@ -260,6 +255,10 @@ this.jda = {
 	***************************************************************************/
 	
 	addFilter : function(model, filterType, searchParams,useValuesFromURL){
+		
+		
+		
+		
 		console.log("jda.app.addFilter",model,filterType,searchParams);
 		
 		/*******  UX ***/
