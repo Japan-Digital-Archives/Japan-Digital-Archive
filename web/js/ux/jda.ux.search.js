@@ -131,7 +131,7 @@ $(document).ready(function(){
 	/*************** USER LOGIN ************************/
 	
 	$('#sign-in').click(function(){
-		$('#user-modal-body').empty().append('<iframe class="login" src="/'+sessionStorage.getItem('directory')+'login?_locale='+sessionStorage.getItem('locale')+'"></iframe>');
+		$('#user-modal-body').empty().append('<iframe class="login" src="login?_locale='+sessionStorage.getItem('locale')+'"></iframe>');
 		$('#user-modal').modal('show'); 
 		return false;
 	});
@@ -153,7 +153,7 @@ $(document).ready(function(){
 	/*************** ACCOUNT SETTINGS ************************/
 	
 	$('#account-settings').click(function(){
-		$('#user-modal-body').empty().append('<iframe class="login" src="/'+sessionStorage.getItem('directory')+'profile/change-password?_locale='+sessionStorage.getItem('locale')+'"></iframe>');
+		$('#user-modal-body').empty().append('<iframe class="login" src="profile/change-password?_locale='+sessionStorage.getItem('locale')+'"></iframe>');
 		$('#user-modal').modal('show'); 
 		return false;
 		

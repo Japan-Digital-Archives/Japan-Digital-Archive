@@ -251,7 +251,7 @@ this.jda = {
 	addFilter : function(model, filterType, searchParams,useValuesFromURL){
 		
 		
-		
+		this.switchViewTo('list',false);
 		
 		console.log("jda.app.addFilter",model,filterType,searchParams);
 		
