@@ -340,16 +340,6 @@ $(document).ready(function(){
 		} //callbacks
 	});
 
-	//For about page only
-	var currentURL = window.location.href;
-	if (currentURL.indexOf('about') >= 0){
-		var anchor = "#mission";
-		if (currentURL != null && currentURL.indexOf('#') >=0){
-			anchor = currentURL.substring(currentURL.indexOf('#'), currentURL.length);
-		}
-		$('a[href="'+anchor+'"]').closest('li').addClass('active');
-		$(anchor).addClass('active');
-		
-	}
+	
 
 });
