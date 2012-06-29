@@ -545,10 +545,6 @@ this.jda = {
 	},
 
 
-
-
-	
-	
 	
 	addCommas : function(nStr){
 		nStr += '';
@@ -565,21 +561,7 @@ this.jda = {
 	goToCollectionsPage : function(){ 
 		this.removeFilter("current",null,true);
 	}
-	
-	
-	
-	
-		
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 }, Backbone.Events)

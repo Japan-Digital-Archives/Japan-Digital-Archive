@@ -578,6 +578,10 @@
                 <source>jda.search.unsupportedFilters</source>
                 <target>Sorry, the events view doesn't support filtering by tag yet.</target>
             </trans-unit>
+            <trans-unit id="144">
+                <source>jda.search.loadingmoreresults</source>
+                <target>Loading more results...</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

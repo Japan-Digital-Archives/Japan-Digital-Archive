@@ -215,13 +215,19 @@ margin-left: -20px;
 	left: 117px;
 }
 
-#spinner{
+#loading{
 	
-	position:absolute;
+	position:fixed;
 	top:250px;
 	left:40%;
+	text-align: center;
 	
 
+}
+#spinner-text{
+	margin-top: 20px;
+	color:#666;
+	display: none;
 }
 #jda-collection-filter-new{
 

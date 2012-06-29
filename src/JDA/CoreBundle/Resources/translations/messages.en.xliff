@@ -581,6 +581,10 @@ nuclear catastrophe.</target>
                 <source>jda.search.unsupportedFilters</source>
                 <target>Sorry, the map view doesn't support this yet.</target>
             </trans-unit>
+            <trans-unit id="144">
+                <source>jda.search.loadingmoreresults</source>
+                <target>Loading more results...</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -118,7 +118,7 @@
 			
 			
 
-			$('#spinner').spin(false);
+			
 			
 			//this is kind of a hack - give all thumbnails same height
 			//to fix floaty issues
@@ -129,6 +129,7 @@
 
 
 			$(this.el).show();
+
 			jda.app.isLoading = false;
 	
 		
@@ -163,6 +164,10 @@
 				$("#jda-related-tags-title").fadeTo(1000,0);
 			}
 			
+
+			$('#spinner').spin(false);
+			$('#spinner-text').fadeTo('slow',0);
+			$('#jda-left').fadeTo('slow',1);
 			return this;
 		},
 		
@@ -236,6 +241,7 @@
 					else jda.app.killScroll = true;
 					
 					jda.app.isLoading = false;	//to activate infinite scroll again
+
 				},
 				error : function(model, response){
 					console.log('Search failed - model is ' + model);
