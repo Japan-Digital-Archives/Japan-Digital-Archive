@@ -268,6 +268,9 @@ margin-left: -20px;
 	position: relative;
 	top: 56px;display:none;color:#666
 }
+.jda-no-geo-info{
+	background: url("../images/nogeomap.gif") no-repeat;
+}
 .jda-edit-btn {
 	display:none;
 
@@ -640,7 +643,7 @@ border-radius: 0px 4px 0px 0px;
 	ITEM PAGE
 ***********************************/
 
-.jda-item-map-container,{
+.jda-item-map-container{
 
 	width:250px;
 	height:150px;
