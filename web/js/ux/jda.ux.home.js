@@ -340,6 +340,19 @@ $(document).ready(function(){
 		} //callbacks
 	});
 
-	
+	$('#jda-go-button').click(function(){
+	  	var e = jQuery.Event("keydown");
+		e.which = 13;
+
+		//For whatever reason there are two ways of telling VS to search
+		//based on whether the facet has been created yet or not
+		if ( $(".search_facet_input_container input").length ){
+			$(".search_facet_input_container input").trigger(e);
+		} else{
+			VisualSearch.searchBox.searchEvent(e);
+		}
+		
+  		return false;
+  	});
 
 });
