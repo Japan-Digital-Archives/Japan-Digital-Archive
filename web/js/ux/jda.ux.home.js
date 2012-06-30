@@ -194,7 +194,7 @@ $(document).ready(function(){
 		
 		});
 		
-		bug.url="http://dev.jdarchive.org/bugs/report.php";
+		bug.url="../bugs/report.php";
 		bug.save();
 		$('.bug-description').attr('value','');
 		$('.bug-unsubmitted').fadeOut('fast',function(){

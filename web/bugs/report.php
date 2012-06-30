@@ -13,7 +13,7 @@
 	try{
 		$client = Zend_Gdata_ClientLogin::getHttpClient($email, $password, Zend_Gdata_Spreadsheets::AUTH_SERVICE_NAME);
 	}catch (Zend_Gdata_App_AuthException $ae) {
-		exit("Error Connecting");
+		exit("Error Connecting to this shit");
 	}
 	
 
