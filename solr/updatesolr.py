@@ -5,7 +5,7 @@ from time import gmtime, strftime
 
 print strftime("%Y-%m-%d %H:%M:%S", gmtime()) + " Preparing to update Solr"
 
-host = "http://geo.zeega.org:8080/solr/jda/"
+host = "http://184.106.176.86:8080/solr/jda/"
 
 conn = urlopen(host + "dataimport?command=status&wt=python")
 response = eval(conn.read())
