@@ -249,11 +249,32 @@ this.jda = {
 	***************************************************************************/
 	
 	addFilter : function(model, filterType, searchParams,useValuesFromURL){
-		
-		
-		this.switchViewTo('list',false);
-		
 		console.log("jda.app.addFilter",model,filterType,searchParams);
+		
+		
+		if(this.currentView=='event'){
+			var view ='list';
+			this.currentView = view;
+			$('.tab-pane').removeClass('active');
+			$('#zeega-'+view+'-view').addClass('active');
+			
+ 	 		//$(this).hide();
+			switch( this.currentView )
+			{
+				case 'list':
+					this.showListView();
+					break;
+				case 'event':
+					this.showEventView();
+					break;
+				case 'thumb':
+					this.showThumbnailView();
+					break;
+				default:
+					console.log('view type not recognized')
+			}
+		}
+		
 		
 		/*******  UX ***/
 		
@@ -282,7 +303,7 @@ this.jda = {
 			searchParams.r_items=1;
 			searchParams.r_itemswithcollections=0;
 			searchParams.collection = model.id;
-			console.log(searchParams);
+		
 			this.search(searchParams);
 		
 		} else if (filterType == 'user'){
