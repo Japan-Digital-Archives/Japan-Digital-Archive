@@ -42,7 +42,7 @@
 		save : function()
 		{
 			var v = this.$el.find('input[name=set]:checked').val() == 'true' ? true : false;
-			this.model.save({'public':v});
+			this.model.save({'published':v});
 			if(v) $('.archive-setting-type').addClass('label-success').html('Public');
 			else $('.archive-setting-type').removeClass('label-success').html('Limited');
 			this.hide();
