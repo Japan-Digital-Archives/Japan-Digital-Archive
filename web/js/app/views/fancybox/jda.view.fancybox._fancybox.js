@@ -35,8 +35,8 @@
 			$(this.el).find('.tagsedit').empty().tagsInput({
 				'interactive':true,
 				'defaultText':'add a tag',
-				'onAddTag':function(){_this.addTag('',_this)},
-				'onRemoveTag':function(){_this.removeTag('',_this)},
+				'onAddTag':function(){_this.updateTags('',_this)},
+				'onRemoveTag':function(){_this.updateTags('',_this)},
 				'removeWithBackspace' : false,
 				'minChars' : 1,
 				'maxChars' : 0,

@@ -21,8 +21,9 @@
 		
 		
 		this.unique =Math.floor(Math.random() *10000)
-		$(this.el).find('.fancybox-media-item').append($('<div>').attr({id:'fancybox-video-'+this.unique}));
+		$(this.el).find('.fancybox-media-item').append($('<div style="margin-top:210px">').attr({id:'fancybox-video-'+this.unique}));
 		
+
 
 		//set fancybox content
 		
@@ -34,6 +35,7 @@
 		Browser.Views._Fancybox.prototype.afterShow.call(this); //This is like calling super()
 		var source = this.model.get('uri');
 		this.plyr = new Plyr('fancybox-video-'+this.unique,{url:source});
+		$(this.el).find('video').hide();//css({'height':'0','margin-top':'31px'});
 
 	},
 	

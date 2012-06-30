@@ -98,7 +98,13 @@
 	z-index:100;
 }
 
-
+#zeega-my-collections-spinner{
+	
+	position: absolute;
+	z-index: 2;
+	left: 100px;
+	top: 82px;
+}
 #zeega-my-collections-active-collection
 {
 	width: 165px;

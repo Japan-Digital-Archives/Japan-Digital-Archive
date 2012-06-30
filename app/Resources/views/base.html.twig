@@ -94,7 +94,7 @@
 						</div>
 						<ul class="nav pull-right">
 							<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class='zicon-warning'></i>{% trans %}jda.report.bug{% endtrans %}<b class="caret"></b></a>
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class='zicon-warning'></i>{% trans %}jda.report.feedback{% endtrans %}<b class="caret"></b></a>
 									<ul class="dropdown-menu bug-report">
 										<li class='bug-unsubmitted'>
 											<div><label>{% trans %}jda.report.bugintro{% endtrans %}</label></div>
@@ -119,7 +119,9 @@
 										
 									</ul>
 							</li>
-							<li class="dropdown">
+							<li class="divider-vertical"></li>
+							<li><a href="{{path('about', { '_locale': locale })}}">{% trans %}jda.header.about{% endtrans %}</a></li>
+							<!--<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans %}jda.header.about{% endtrans %}<b class="caret"></b></a>
 										<ul class="dropdown-menu">
 											<li><a href="{{path('about', { '_locale': locale })}}#mission">{% trans %}jda.about.mission{% endtrans %}</a></li>
@@ -128,7 +130,7 @@
 											<li><a href="{{path('about', { '_locale': locale })}}#faq">{% trans %}jda.about.faq{% endtrans %}</a></li>
 											<li><a href="{{path('about', { '_locale': locale })}}#terms">{% trans %}jda.about.terms{% endtrans %}</a></li>
 										</ul>
-							</li>
+							</li>-->
 							
 							
 							<li class="divider-vertical"></li>

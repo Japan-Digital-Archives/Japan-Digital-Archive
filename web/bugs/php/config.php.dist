@@ -1,0 +1,7 @@
+<?php
+		$email = 'bugs@example.org';
+		$password = '';
+		$spreadsheetKey="";
+		$worksheetId="od6";
+        
+?>

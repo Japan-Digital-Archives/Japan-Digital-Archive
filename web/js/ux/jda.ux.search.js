@@ -191,7 +191,7 @@ $(document).ready(function(){
 		
 		});
 		
-		bug.url="http://dev.jdarchive.org/bugs/report.php";
+		bug.url="../bugs/report.php";
 		bug.save();
 		$('.bug-description').attr('value','');
 		$('.bug-unsubmitted').fadeOut('fast',function(){
@@ -257,16 +257,33 @@ $(document).ready(function(){
     }
   });
 
+  $('#jda-go-button').click(function(){
+	  	var e = jQuery.Event("keydown");
+		e.which = 13;
+
+		//For whatever reason there are two ways of telling VS to search
+		//based on whether the facet has been created yet or not
+		if ( $(".search_facet_input_container input").length ){
+			$(".search_facet_input_container input").trigger(e);
+		} else{
+			VisualSearch.searchBox.searchEvent(e);
+		}
+		
+  		return false;
+  	});
  
   
   //Infinite Scroll
   jda.app.killScroll = false; 
   $(window).scroll(function(){
-    //don't excecute if the app is loading, if it's too far down, or if the viewing the map event view
+    //don't execute if the app is loading, if it's too far down, or if the viewing the map event view
     if  (jda.app.isLoading == false && $(window).scrollTop()+200 >= ($(document).height() - ($(window).height())) && jda.app.currentView != 'event')
     { 
       if (jda.app.killScroll == false) // Keeps the loader from fetching more than once.
       {
+      	
+      	$('#spinner-text').fadeTo('fast',1);
+      	$('#jda-left').fadeTo('slow',0.8);
         jda.app.killScroll = true; // IMPORTANT - Set killScroll to true, to make sure we do not trigger this code again before it's done running.
         jda.app.search({ page: jda.app.resultsView.collection.search.page+1 });
       }
@@ -359,7 +376,7 @@ $(document).ready(function(){
       
     var elementID = $(this.element).attr('id');
     var thisModel = jda.app.currentView == 'list' || jda.app.currentView == 'thumb' ? jda.app.resultsView.collection.get(elementID) : jda.app.eventMap.mapViewCollection.collection.get(elementID);
-      console.log(thisModel);
+      
       this.fancyView = null;
 
     switch(thisModel.get("media_type")){
@@ -381,18 +398,10 @@ $(document).ready(function(){
       case 'Document':
         this.fancyView = new Browser.Views.FancyBox.DocumentCloud({model:thisModel});
         break;
-         
       case 'Website':
         this.fancyView = new Browser.Views.FancyBox.Website({model:thisModel});
         break;
-      /*
-         case 'PDF':
-          this.fancyView = new Browser.Views.FancyBox.Pdf({model:thisModel});
-          break;
-          case 'Collection':
-          this.fancyView = new Browser.Views.FancyBox.Collection({model:thisModel});
-          break
-          */
+      
       }
         
           this.fancyView.render(this);

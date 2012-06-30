@@ -20,7 +20,7 @@
 		initialize: function ()
 		{
 	
-
+				
 				//for looking up address from lat/lon
 				this.geocoder = new google.maps.Geocoder();
 	

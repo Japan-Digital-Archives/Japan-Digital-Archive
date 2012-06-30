@@ -457,20 +457,20 @@ nuclear catastrophe.</target>
                 <target>Change your password</target>
             </trans-unit>
              <trans-unit id="114">
-                <source>jda.report.bug</source>
-                <target>Report a bug</target>
+                <source>jda.report.feedback</source>
+                <target>Give us feeback</target>
             </trans-unit>
             <trans-unit id="115">
                 <source>jda.report.bugintro</source>
-                <target>The website is still in beta! We need your help to make it better! Let us know if something is misbehaving by sending us a brief description of what's wrong:</target>
+                <target>The website is still in beta and we need your help to make it better! Let us know what you think.  If something is misbehaving please write us a brief description of what's wrong.  You can also reach us at info [at] jdarchive.org</target>
             </trans-unit>
              <trans-unit id="116">
                 <source>jda.report.buglinknote</source>
-                <target>a link to the current view will be included automatically</target>
+                <target> a link to the current view will be included automatically</target>
             </trans-unit>
              <trans-unit id="117">
                 <source>jda.report.bugemail</source>
-                <target>Your email</target>
+                <target>Your email (optional)</target>
             </trans-unit>
             <trans-unit id="118">
                 <source>jda.sort.by</source>
@@ -580,6 +580,10 @@ nuclear catastrophe.</target>
             <trans-unit id="143">
                 <source>jda.search.unsupportedFilters</source>
                 <target>Sorry, the map view doesn't support this yet.</target>
+            </trans-unit>
+            <trans-unit id="144">
+                <source>jda.search.loadingmoreresults</source>
+                <target>Loading more results...</target>
             </trans-unit>
         </body>
     </file>

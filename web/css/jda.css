@@ -42,14 +42,14 @@
 .jdicon-tweet{background-position:-150px 0}
 .jdicon-facebook{background-position:-200px 0}
 .jdicon-map{background-position:-250px 0}
-.jdicon-collection{background-position:-200px -100px}
+.jdicon-collection{background-position:-199px -100px}
 .jdicon-document{background-position:-300px 0px}
 .jdicon-date{background-position:-0px -50px}
 .jdicon-video{background-position:-400px 0}
 .jdicon-article{background-position:-450px 0}
 .jdicon-pdf{background-position:-350px -50px}
 .jdicon-text{background-position:-200px -200px}
-.jdicon-testimonial{background-position:-200px -200px}
+.jdicon-testimonial{background-position:-199px -200px}
 .jdicon-layers{background-position:-250px -200px}
 .jdicon-drag{background-position:-300px -200px}
 .jdicon-play{background-position:-350px -200px}
@@ -215,13 +215,19 @@ margin-left: -20px;
 	left: 117px;
 }
 
-#spinner{
+#loading{
 	
-	position:absolute;
+	position:fixed;
 	top:250px;
 	left:40%;
+	text-align: center;
 	
 
+}
+#spinner-text{
+	margin-top: 20px;
+	color:#666;
+	display: none;
 }
 #jda-collection-filter-new{
 
@@ -261,6 +267,9 @@ margin-left: -20px;
 .jda-no-geo-location-message{
 	position: relative;
 	top: 56px;display:none;color:#666
+}
+.jda-no-geo-info{
+	background: url("../images/nogeomap.gif") no-repeat;
 }
 .jda-edit-btn {
 	display:none;
@@ -634,7 +643,7 @@ border-radius: 0px 4px 0px 0px;
 	ITEM PAGE
 ***********************************/
 
-.jda-item-map-container,{
+.jda-item-map-container{
 
 	width:250px;
 	height:150px;

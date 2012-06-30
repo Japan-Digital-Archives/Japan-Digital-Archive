@@ -453,7 +453,7 @@
                 <target>Change your password</target>
             </trans-unit>
             <trans-unit id="114">
-                <source>jda.report.bug</source>
+                <source>jda.report.feedback</source>
                 <target>不具合の報告</target>
             </trans-unit>
             <trans-unit id="115">
@@ -577,6 +577,10 @@
             <trans-unit id="143">
                 <source>jda.search.unsupportedFilters</source>
                 <target>Sorry, the events view doesn't support filtering by tag yet.</target>
+            </trans-unit>
+            <trans-unit id="144">
+                <source>jda.search.loadingmoreresults</source>
+                <target>Loading more results...</target>
             </trans-unit>
         </body>
     </file>

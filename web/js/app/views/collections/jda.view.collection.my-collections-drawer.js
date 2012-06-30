@@ -11,6 +11,8 @@
 		
 		initialize : function(){
 			
+			$('#zeega-my-collections-spinner').spin(true);
+
 			this.collection = new Browser.Items.Collection();
             this.collection.url=jda.app.apiLocation + 'api/search?r_collections=1&user=-1';			
             this.collection.parse= function(data){ return data.collections;}
@@ -143,7 +145,7 @@
 			    }
 			});
 			  
-	
+			$('#zeega-my-collections-spinner').spin(false);
 			return this;
 		},
 		

@@ -104,6 +104,7 @@
 			{
 				this.draggable=false;
 				$(this.el).click(function(){ jda.app.addFilter(_this.model, 'collection'); return false;});
+				$(this.el).find('.zeega-collection').css({'width':this.options.thumbnail_width, 'height': this.options.thumbnail_height});
 				
 			} else{
 				//Turning this off because buggy
@@ -170,7 +171,7 @@
 					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px">'+
 					//'<input class="jda-item-checkbox" type="checkbox">'+
 					'<i class="icon-trash icon-white jda-delete-item"></i>'+
-				'</a>';
+				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px;text-align:center;font-size:12px;font-weight:bold"><%=title%></p>';
 
 			
 			return html;

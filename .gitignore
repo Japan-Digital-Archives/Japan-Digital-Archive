@@ -17,3 +17,5 @@ Libraries/
 jda_data.*
 *.class
 web/.htaccess
+web/bugs/php/config.php
+

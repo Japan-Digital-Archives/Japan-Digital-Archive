@@ -118,7 +118,7 @@
 			
 			
 
-			$('#spinner').spin(false);
+			
 			
 			//this is kind of a hack - give all thumbnails same height
 			//to fix floaty issues
@@ -129,13 +129,13 @@
 
 
 			$(this.el).show();
+
 			jda.app.isLoading = false;
 	
 		
 			//Display related Tags
 			
 			if (!_.isUndefined(this.collection.tags) && this.collection.tags.length > 0 && jda.app.currentView != 'event'){
-				console.log("LOADING tags",this.tags)
 				$("#jda-related-tags button").remove();
 				_.each( _.toArray(this.collection.tags), function(tag){
 
@@ -163,6 +163,10 @@
 				$("#jda-related-tags-title").fadeTo(1000,0);
 			}
 			
+
+			$('#spinner').spin(false);
+			$('#spinner-text').fadeTo('slow',0);
+			$('#jda-left').fadeTo('slow',1);
 			return this;
 		},
 		
@@ -198,7 +202,7 @@
 			$('#spinner').spin('large');
 
 			this.collection.setSearch(obj,reset);
-			this.setURLHash();
+			//this.setURLHash();
 			
 			// fetch search collection for the list/thumb view
 			this.collection.fetch({
@@ -236,6 +240,7 @@
 					else jda.app.killScroll = true;
 					
 					jda.app.isLoading = false;	//to activate infinite scroll again
+
 				},
 				error : function(model, response){
 					console.log('Search failed - model is ' + model);
@@ -243,33 +248,33 @@
 			});
 			
 			
-			
+			this.setURLHash();
 		},
 		
 		
 		setMapBounds : function(bounds)
 		{
 			this.collection.search.mapBounds = bounds;
-			this.setURLHash();
+			//this.setURLHash();
 		},
 	 
 		setView : function(view)
 		{
 			this.collection.search.viewType = view;	
-			this.setURLHash();
+			//this.setURLHash();
 		},
 	
 		setContent : function(content)
 		{
 			this.collection.search.content = content;
-			this.setURLHash();
+			//this.setURLHash();
 		},
 		clearTags : function(){
 			var currentQ = 	this.collection.search.q;
 			if (currentQ.indexOf("tag:") >= 0){
 				var newQ = currentQ.substring(0,currentQ.indexOf("tag:"));
 				this.collection.search.q = newQ;
-				this.setURLHash();
+				//this.setURLHash();
 			}
 		},
 		setURLHash : function()
@@ -289,6 +294,7 @@
 		 		if( !_.isUndefined(obj.times.end) ) hash += 'max_date='+ obj.times.end + '&';
 			}  
 	
+			console.log('jda.app.router.navigate',hash);
 	 		jda.app.router.navigate(hash,{trigger:false});
 	
 		},
@@ -300,7 +306,7 @@
 			search.times = {};
 			search.times.start = startDate;
 			search.times.end = endDate;
-			this.setURLHash()
+			//this.setURLHash()
 		},
 		
 		getCQLSearchString : function()
@@ -359,7 +365,6 @@
 			{
 				cqlFilterString = null;
 			}
-			console.log("CQL filter string " + cqlFilterString);
 			return cqlFilterString;
 		},
 	

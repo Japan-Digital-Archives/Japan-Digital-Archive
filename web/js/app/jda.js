@@ -230,6 +230,8 @@ this.jda = {
 				default:
 					console.log('view type not recognized')
 			}
+			console.log('setting url hash');
+			this.resultsView.setURLHash();
 			if(refresh){
 				$('#zeega-results-count').fadeOut('fast');
 				this.resultsView.collection.fetch({
@@ -238,6 +240,7 @@ this.jda = {
 					}
 				});
 			}
+			
 			
 		}
 	},
@@ -249,11 +252,32 @@ this.jda = {
 	***************************************************************************/
 	
 	addFilter : function(model, filterType, searchParams,useValuesFromURL){
-		
-		
-		this.switchViewTo('list',false);
-		
 		console.log("jda.app.addFilter",model,filterType,searchParams);
+		
+		
+		if(this.currentView=='event'){
+			var view ='list';
+			this.currentView = view;
+			$('.tab-pane').removeClass('active');
+			$('#zeega-'+view+'-view').addClass('active');
+			
+ 	 		//$(this).hide();
+			switch( this.currentView )
+			{
+				case 'list':
+					this.showListView();
+					break;
+				case 'event':
+					this.showEventView();
+					break;
+				case 'thumb':
+					this.showThumbnailView();
+					break;
+				default:
+					console.log('view type not recognized')
+			}
+		}
+		
 		
 		/*******  UX ***/
 		
@@ -282,7 +306,7 @@ this.jda = {
 			searchParams.r_items=1;
 			searchParams.r_itemswithcollections=0;
 			searchParams.collection = model.id;
-			console.log(searchParams);
+		
 			this.search(searchParams);
 		
 		} else if (filterType == 'user'){
@@ -545,10 +569,6 @@ this.jda = {
 	},
 
 
-
-
-	
-	
 	
 	addCommas : function(nStr){
 		nStr += '';
@@ -565,21 +585,7 @@ this.jda = {
 	goToCollectionsPage : function(){ 
 		this.removeFilter("current",null,true);
 	}
-	
-	
-	
-	
-		
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 }, Backbone.Events)
