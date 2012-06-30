@@ -136,7 +136,6 @@
 			//Display related Tags
 			
 			if (!_.isUndefined(this.collection.tags) && this.collection.tags.length > 0 && jda.app.currentView != 'event'){
-				console.log("LOADING tags",this.tags)
 				$("#jda-related-tags button").remove();
 				_.each( _.toArray(this.collection.tags), function(tag){
 
@@ -365,7 +364,6 @@
 			{
 				cqlFilterString = null;
 			}
-			console.log("CQL filter string " + cqlFilterString);
 			return cqlFilterString;
 		},
 	

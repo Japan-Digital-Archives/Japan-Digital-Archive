@@ -75,12 +75,12 @@
 			
 			
 			if(this.search.r_itemswithcollections){
-				console.log("using items with collections");
+				
 				this.count = response.items_and_collections_count
 				return response.items_and_collections;
 			}
 			else{
-				console.log("using items only");
+		
 				this.count = response.items_count;
 				return response.items;
 			}

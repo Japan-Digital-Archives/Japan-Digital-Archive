@@ -114,7 +114,7 @@
 			var _this = this;
 			this.map.events.register('click', map, function(e){
 			
-			console.log('clicked');
+		
 			var params = {
 				REQUEST : "GetFeatureInfo",
 				EXCEPTIONS : "application/vnd.ogc.se_xml",
@@ -215,7 +215,6 @@
 					//var data = jQuery.parseJSON(response.responseText.substring(75));
 					//console.log(response.responseText);
 					var d = response.responseText.replace(/(\r\n|\n|\r|\t)/gm," ");
-					console.log(d);
 					var data = jQuery.parseJSON(d);
 				}
 				catch(err)

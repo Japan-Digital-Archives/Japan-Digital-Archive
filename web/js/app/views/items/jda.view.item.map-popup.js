@@ -12,7 +12,7 @@
 		{
 			var _this = this;
 			var template;
-			console.log(this.model.get('media_type'));
+			
 			switch( this.model.get('media_type') )
 			{
 				
@@ -42,8 +42,8 @@
 			$(this.el).html( _.template( template, blanks ));
 
 			if(this.model.get('media_type')=="Collection"){
-			console.log("setting up the click");
-				$(this.el).click(function(){console.log('clicked');jda.app.addFilter(_this.model, 'collection'); return false;});
+			
+				$(this.el).click(function(){jda.app.addFilter(_this.model, 'collection'); return false;});
 			
 			}
 
