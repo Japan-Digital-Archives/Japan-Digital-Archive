@@ -202,7 +202,7 @@
 			$('#spinner').spin('large');
 
 			this.collection.setSearch(obj,reset);
-			this.setURLHash();
+			//this.setURLHash();
 			
 			// fetch search collection for the list/thumb view
 			this.collection.fetch({
@@ -248,33 +248,33 @@
 			});
 			
 			
-			
+			this.setURLHash();
 		},
 		
 		
 		setMapBounds : function(bounds)
 		{
 			this.collection.search.mapBounds = bounds;
-			this.setURLHash();
+			//this.setURLHash();
 		},
 	 
 		setView : function(view)
 		{
 			this.collection.search.viewType = view;	
-			this.setURLHash();
+			//this.setURLHash();
 		},
 	
 		setContent : function(content)
 		{
 			this.collection.search.content = content;
-			this.setURLHash();
+			//this.setURLHash();
 		},
 		clearTags : function(){
 			var currentQ = 	this.collection.search.q;
 			if (currentQ.indexOf("tag:") >= 0){
 				var newQ = currentQ.substring(0,currentQ.indexOf("tag:"));
 				this.collection.search.q = newQ;
-				this.setURLHash();
+				//this.setURLHash();
 			}
 		},
 		setURLHash : function()
@@ -294,6 +294,7 @@
 		 		if( !_.isUndefined(obj.times.end) ) hash += 'max_date='+ obj.times.end + '&';
 			}  
 	
+			console.log('jda.app.router.navigate',hash);
 	 		jda.app.router.navigate(hash,{trigger:false});
 	
 		},
@@ -305,7 +306,7 @@
 			search.times = {};
 			search.times.start = startDate;
 			search.times.end = endDate;
-			this.setURLHash()
+			//this.setURLHash()
 		},
 		
 		getCQLSearchString : function()

@@ -230,6 +230,8 @@ this.jda = {
 				default:
 					console.log('view type not recognized')
 			}
+			console.log('setting url hash');
+			this.resultsView.setURLHash();
 			if(refresh){
 				$('#zeega-results-count').fadeOut('fast');
 				this.resultsView.collection.fetch({
@@ -238,6 +240,7 @@ this.jda = {
 					}
 				});
 			}
+			
 			
 		}
 	},

@@ -453,7 +453,7 @@
                 <target>Change your password</target>
             </trans-unit>
             <trans-unit id="114">
-                <source>jda.report.bug</source>
+                <source>jda.report.feedback</source>
                 <target>不具合の報告</target>
             </trans-unit>
             <trans-unit id="115">

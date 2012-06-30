@@ -65,6 +65,7 @@ jQuery(function($)
 		search : function( query )
 				{
 
+					JDA.clearSearchFilters(false);
 					var obj = '{page:1}';
 					if (!_.isUndefined(query))
 					{
