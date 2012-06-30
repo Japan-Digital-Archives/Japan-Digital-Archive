@@ -23,12 +23,6 @@
 			if(this.model.get('locationLatitude')) this.geolocated = true;
 
 			var facetExists = false;
-			
-
-			/* Adjust layout for filter */
-			//$('.tab-content').addClass('jda-low-top');
-			//$('#zeega-right-column').addClass('zeega-right-column-user-page');
-			
 
 			
 			//first remove other user filters
@@ -130,8 +124,10 @@
 		},
 		saveMetadata : function()
 		{
-			this.turnOffEditMode();
-			this.saveFields();
+			this.fileUpload();
+			//this.turnOffEditMode();
+			//this.saveFields();
+			
 		},
 		
 		saveFields : function()
@@ -158,6 +154,7 @@
 			$(this.el).find('button.edit').removeClass('active');
 			$(this.el).find('.editing').removeClass('editing').attr('contenteditable', false);
 			$(this.el).find('.jda-user-map-location').removeClass('editing').attr('contenteditable', false);
+			
 		},
 		editMetadata : function()
 		{
@@ -201,10 +198,15 @@
 		success: call back function when the ajax complete
 		error: callback function when the ajax failed
 */
+			jQuery.handleError=function(a,b,c,d){
+			
+			console.log(a,b,c,d)
+			
+			};
 			$.ajaxFileUpload({
-				url:'doajaxfileupload.php', 
+				url:'../../../zeegastaging/web/api/users/'+this.model.id+'/profileimage', 
 				secureuri:false,
-				fileElementId:'fileToUpload',
+				fileElementId:'user-image-upload-file',
 				dataType: 'json',
 				success: function (data, status)
 				{
@@ -219,8 +221,13 @@
 							console.log('error 1',data.msg);
 						}
 					}
+					else{
+						
+						$('.jda-user-filter-profile-image').fadeOut('fast',function(){$(this).attr('src',data.thumbnail_url).fadeIn('fast');});
+					}
+	
 				},
-				error: function (data, status, e)
+				handleError: function (data, status, e)
 				{
 					console.log('error!!',e);
 				}
@@ -257,11 +264,6 @@
 			//remove from DOM
 			$(this.el).empty();
 			$('.jda-separate-collections-and-items').hide();
-			//$('.tab-content').removeClass('jda-low-top');
-		
-			//$('.tab-content').css('top','auto');
-
-			//$('#zeega-right-column').removeClass('zeega-right-column-user-page');
 		},
 		
 		getTemplate : function()
@@ -277,12 +279,11 @@
 				'<div class="span6">'+
 					'<h1 class="jda-user-filter-name"><%=display_name%></h1>'+
 					'<h5>Joined on <%= created_at %></h5>'+
-					'<div class="jda-user-filter-description"><%=bio%></div>';
+					'<div class="jda-user-filter-description"><%=bio%></div>'+
 
-					//'<div class="user-image-upload"><input type="file" name="datafile" size="40"></div>'+
-	if(this.model.get('editable')) html += '<a href="#" class="edit"><i class="icon-pencil"></i></a>'+
+					'<div class="user-image-upload"><input id="user-image-upload-file" type="file" name="imagefile" size="40" onsubmit="javascript:jda.app.resultsView.userFilter.fileUpload();" ></div>';
+					if(this.model.get('editable')) html += '<a href="#" class="edit"><i class="icon-pencil"></i></a>'+
 					
-						//'<p><button class="btn btn-info btn-mini edit" style="display:none"><i class="icon-pencil icon-white"></i></button></p>'+
 					'<div class="btn-group save-data">'+
 						'<button class="btn btn-success btn-mini save hide">save</button>'+
 						'<button class="btn btn-mini cancel hide">cancel</button>'+
