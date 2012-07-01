@@ -282,12 +282,11 @@
 					'<div class="jda-user-filter-description"><%=bio%></div>'+
 
 					'<div class="user-image-upload"><input id="user-image-upload-file" type="file" name="imagefile" size="40" onsubmit="javascript:jda.app.resultsView.userFilter.fileUpload();" ></div>';
-					if(this.model.get('editable')) html += '<a href="#" class="edit"><i class="icon-pencil"></i></a>'+
-					
-					'<div class="btn-group save-data">'+
-						'<button class="btn btn-success btn-mini save hide">save</button>'+
-						'<button class="btn btn-mini cancel hide">cancel</button>'+
-					'</div>'+
+					if(this.model.get('editable')) html += '<a href="#" class="edit"><i class="icon-pencil"></i></a>';
+					html+='<div class="btn-group save-data">'+
+							'<button class="btn btn-success btn-mini save hide">save</button>'+
+							'<button class="btn btn-mini cancel hide">cancel</button>'+
+					'	</div>'+
 				'</div>'+
 				'<div class="span2">'+
 					'<div class="jda-user-map" style="border:1px solid #aaa"></div>'+
