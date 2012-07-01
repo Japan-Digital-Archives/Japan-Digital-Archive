@@ -193,7 +193,7 @@
 			//awkward click event
 			
 			$(this.el).find('.jda-collection-filter-author').click(function(){
-				console.log("GOGINGGGINGINGINIGNI");
+				
 				jda.app.goToAuthorPage(_this.model.get('user_id'));
 			
 			});
@@ -209,7 +209,7 @@
 			var _this  = this;
 		
 			//Show the trash cans
-			$('.jda-delete-item').click(function(){
+			$('.jda-delete-item').unbind().click(function(){
 				var doDelete = confirm($('#confirm-delete-collection-text').text());
 				if (doDelete){
 					var itemID = $(this).closest('li').attr('id');
@@ -270,12 +270,14 @@
 			
 		saveFields : function(){
 				var oldTitle = this.model.get("title");
+				var _this=this;
 				this.model.save({
 					'title' : $(this.el).find('.cover-overlay h1').text(),
 					'description' : $(this.el).find('.jda-collection-description').text()
 				},{
 					success: function(model, response) { 
 						
+						console.log("successfully updated the collection");
 						_.each( VisualSearch.searchBox.facetViews, function( facet ){
 							if( facet.model.get('category') == 'collection' && facet.model.get('value') == oldTitle) {
 								
@@ -287,15 +289,20 @@
 						})
 						
 						
+							
 						//Update my collections drawer
+						
+						var title =model.get('title');
+						if(title.length>20) title=title.substr(0,15)+"...";
+					
 						if(jda.app.myCollectionsDrawer.activeCollectionID == model.id){
-							$('#zeega-my-collections-active-collection').text(model.get('title'));
+							$('#zeega-my-collections-active-collection').text(title);
 						}
 						else{
-							$('#'+model.id+' a').html(model.get('title'));
+							$('#'+model.id+' a').html(title);
 						}
 
-						
+						_this.turnOffEditMode();
 					
 					},
 					error: function(model, response){
@@ -311,7 +318,7 @@
 			this.render();
 			
 			
-			$('.jda-delete-item').hide();
+			
 
 			this.turnOffEditMode();
 		},
@@ -321,8 +328,7 @@
 
 
 			//hide the trash cans
-			$('.jda-delete-item').unbind();
-			$(this.el).find('.jda-delete-item').hide();
+			$('.jda-delete-item').hide();
 
 
 			$(this.el).find('.save-data button').hide();
