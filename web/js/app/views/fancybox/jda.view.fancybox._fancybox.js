@@ -209,7 +209,7 @@
 			else 	if(this.model.get('attribution_uri').indexOf('soundcloud')>-1) blanks.sourceText = 'Listen on Soundcloud';
 			else blanks.sourceText ='View Source';
 
-			blanks.itemShareLink = sessionStorage.getItem("hostname") + sessionStorage.getItem("directory") + sessionStorage.getItem("locale") + '/item/'+ this.model.id;
+			blanks.itemShareLink = 'item/'+ this.model.id;
 			
 			//use template to clone the database items into
 			var template = _.template( this.getTemplate() );
