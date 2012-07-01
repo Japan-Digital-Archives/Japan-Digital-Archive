@@ -64,7 +64,7 @@
             </trans-unit>
             <trans-unit id="16">
                 <source>jda.about.connect</source>
-                <target>発見</target>
+                <target>つながりと発見</target>
             </trans-unit>   
             <trans-unit id="17">
                 <source>jda.about.connectbody</source>
@@ -80,11 +80,11 @@
             </trans-unit>
             <trans-unit id="20">
                 <source>jda.about.participatethree</source>
-                <target>テキストや写真、動画、リンクなどをアーカイブする</target>
+                <target>自分だけのコレクションをつくり、他のユーザと共有する</target>
             </trans-unit>
             <trans-unit id="21">
                 <source>jda.about.participatefour</source>
-                <target>震災に関する皆様の「物語」を共有する (開発中)</target>
+                <target>震災に関する皆様の「物語」を共有する（開発中）</target>
             </trans-unit>
              <trans-unit id="22">
                 <source>jda.search.allformats</source>
