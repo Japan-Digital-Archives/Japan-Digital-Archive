@@ -58,25 +58,50 @@
 		getTemplate : function()
 		{
 
-			var html =
-			
-			'<div class="modal" id="modal-archive-settings">'+
-				'<div class="modal-header">'+
-					'<h3>Manage your collection\'s archive settings</h3>'+
-				'</div>'+
-				'<div class="modal-body">'+
+			if(sessionStorage.getItem('locale')=='en'){
+				var html =
 				
-					'<div class="control-group">'+
-						'<label class="radio"><input name="set" type="radio" value="true" <%= public %>> <span class="label label-success">PUBLIC</span> Anyone can view your collection. Your collection will appear in general archive searches.</label>'+
-						'<label class="radio"><input name="set" type="radio" value="false" <%= private %>> <span class="label">LIMITED</span> Only those people with a link to your collection can view it. Your collection will not appear in general archive searches or on your public user page.</label>'+
+				'<div class="modal" id="modal-archive-settings">'+
+					'<div class="modal-header">'+
+						'<h3>Manage your collection\'s archive settings</h3>'+
 					'</div>'+
-					'Note: it may take several minutes for the changes to take effect'+
-				'</div>'+
-				'<div class="modal-footer">'+
-					'<a href="#" class="btn close">Cancel</a>'+
-					'<a href="#" class="btn btn-success pull-right save">OK</a>'+
-				'</div>'+
-			'</div>';
+					'<div class="modal-body">'+
+					
+						'<div class="control-group">'+
+							'<label class="radio"><input name="set" type="radio" value="true" <%= public %>> <span class="label label-success">PUBLIC</span> Anyone can view your collection. Your collection will appear in general archive searches.</label>'+
+							'<label class="radio"><input name="set" type="radio" value="false" <%= private %>> <span class="label">LIMITED</span> Only those people with a link to your collection can view it. Your collection will not appear in general archive searches or on your public user page.</label>'+
+						'</div>'+
+						'Note: it may take several minutes for the changes to take effect'+
+					'</div>'+
+					'<div class="modal-footer">'+
+						'<a href="#" class="btn close">Cancel</a>'+
+						'<a href="#" class="btn btn-success pull-right save">OK</a>'+
+					'</div>'+
+				'</div>';
+			}
+			else{
+				var html =
+				
+				'<div class="modal" id="modal-archive-settings">'+
+					'<div class="modal-header">'+
+						'<h3>コレクション設定</h3>'+
+					'</div>'+
+					'<div class="modal-body">'+
+					
+						'<div class="control-group">'+
+							'<label class="radio"><input name="set" type="radio" value="true" <%= public %>> <span class="label label-success">公開</span> どなたでもあなたのコレクションを見ることができます。またあなたのコレクションはアーカイブの一般検索結果に表示されます。</label>'+
+							'<label class="radio"><input name="set" type="radio" value="false" <%= private %>> <span class="label">限定</span> リンクを知っている方だけがあなたのコレクションを見ることができます。あなたのコレクションは一般検索結果やパブリック・ユーザページには表示されません。</label>'+
+						'</div>'+
+						'Note: it may take several minutes for the changes to take effect'+
+					'</div>'+
+					'<div class="modal-footer">'+
+						'<a href="#" class="btn close">キャンセル</a>'+
+						'<a href="#" class="btn btn-success pull-right save">OK</a>'+
+					'</div>'+
+				'</div>';
+			
+			
+			}
 			
 			return html
 		}
