@@ -139,7 +139,7 @@
 				$("#jda-related-tags button").remove();
 				_.each( _.toArray(this.collection.tags), function(tag){
 
-					var tagHTML ='<button class="btn btn-mini btn-danger">'+tag.name+'</button> ';
+					var tagHTML ='<button class="btn btn-mini">'+tag.name+'</button> ';
 					
 					$("#jda-related-tags").append(tagHTML);
 					$("#jda-related-tags button").filter(":last").click(function(){
