@@ -213,7 +213,7 @@
 			};
 						
 			$.ajaxFileUpload({
-				url:'../../../zeegastaging/web/api/users/'+this.model.id+'/profileimage', 
+				url:jda.app.apiLocation + 'api/users/'+this.model.id+'/profileimage', 
 				secureuri:false,
 				fileElementId:'user-image-upload-file',
 				dataType: 'json',
