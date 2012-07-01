@@ -85,7 +85,7 @@ body {
 			<div id="jda-search-button-group" style="display:none">
 				<div id="search-bar" style="margin-right:5px">
 					<div class="visual_search pull-left"></div>
-					<span id="select-wrap"><span id="select-wrap-text">{% trans %}jda.search.allformats{% endtrans %}</span><div class="arrow-down"></div>
+					<span id="select-wrap"><span id="select-wrap-text" {% if locale == 'ja' %} style="font-weight:normal"{% endif %} >{% trans %}jda.search.allformats{% endtrans %}</span><div class="arrow-down"></div>
 						<select id="zeega-content-type">
 							<option value="all">{% trans %}jda.search.allformats{% endtrans %}</option>
 							<option value="image">{% trans %}jda.search.image{% endtrans %}</option>
@@ -161,9 +161,6 @@ body {
 									<span class="caret"></span>
 							  </a>
 							  <ul class="dropdown-menu">
-								  <li><a href="#">My Collection 2</a></li>
-								  <li><a href="#">My Collection 3</a></li>
-								  <li><a href="#">My Collection 4</a></li>
 							</ul>
 					  </div>
 				</div>
