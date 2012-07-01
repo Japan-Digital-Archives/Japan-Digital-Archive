@@ -285,9 +285,17 @@
 							}
 							
 						})
+						
+						
+						//Update my collections drawer
+						if(jda.app.myCollectionsDrawer.activeCollectionID == model.id){
+							$('#zeega-my-collections-active-collection').text(model.get('title'));
+						}
+						else{
+							$('#'+model.id+' a').html(model.get('title'));
+						}
 
-						//Reset the collections drawer because there's also a collection view there
-						jda.app.myCollectionsDrawer.getCollectionList();
+						
 					
 					},
 					error: function(model, response){
