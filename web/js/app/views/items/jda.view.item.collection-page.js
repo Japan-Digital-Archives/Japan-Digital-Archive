@@ -1,4 +1,4 @@
-(function(Browser) {
+	(function(Browser) {
 
 	Browser.Items = Browser.Items || {};
 	Browser.Items.Views = Browser.Items || {};
@@ -437,16 +437,17 @@
 					'<div class="row-fluid">'+
 					
 						'<div class="span6">'+
-							'<div class="meta-head">Collection Description: <a href="#" class="edit" title="edit collection details"><i class="icon-pencil"></i></a></div>'+
+							'<div class="meta-head">Collection Description:';
+							
+							if(this.model.get('editable')) html+='<a href="#" class="edit" title="edit collection details"><i class="icon-pencil"></i></a>';
+							html+='</div>'+
 							'<div class="jda-collection-description"><%= description %></div>'+
 							//'<div class="jda-collection-tags"><a href="#">add tags</a></div>'+
 							
 							'<div class="btn-toolbar">'+
-								//'<div class="btn-group">'+
+								
 									'<a class="btn btn-info btn-mini play pull-left" title="play collection in Zeega player"><i class="icon-play icon-white"></i></a>'+
-									//'<button class="btn btn-info btn-mini share"><i class="icon-share-alt icon-white"></i></button>'+
-									//'<button class="btn btn-info btn-mini edit pull-left" style="display:none"><i class="icon-pencil icon-white"></i></button>'+
-								//'</div>'+
+		
 								'<div class="btn-group save-data">'+
 									'<button class="btn btn-success btn-mini save hide">save</button>'+
 									'<button class="btn btn-mini cancel hide">cancel</button>'+
