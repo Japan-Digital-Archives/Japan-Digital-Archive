@@ -263,7 +263,7 @@
 		},
 			
 		saveMetadata : function(){
-				
+				$('.jda-delete-item').hide();
 				this.turnOffEditMode();
 				this.saveFields();
 			},
