@@ -547,14 +547,12 @@ nuclear catastrophe.</target>
             </trans-unit>
              <trans-unit id="136">
                 <source>jda.search.tips2</source>
-                <target>
-                To search only tags, begin your search with "t" and select "tag:"
+                <target>To search only tags, begin your search with "t" and select "tag:"
                 </target>
             </trans-unit>    
              <trans-unit id="137">
                 <source>jda.search.tips3</source>
-                <target>
-                To search by user, begin your search with "u" and select "user:"
+                <target>To search by user, begin your search with "u" and select "user:"
                 </target>
             </trans-unit>  
               <trans-unit id="138">
