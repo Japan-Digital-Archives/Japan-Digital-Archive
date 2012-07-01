@@ -43,8 +43,14 @@
 		{
 			var v = this.$el.find('input[name=set]:checked').val() == 'true' ? true : false;
 			this.model.save({'published':v});
-			if(v) $('.archive-setting-type').addClass('label-success').html('Public');
-			else $('.archive-setting-type').removeClass('label-success').html('Limited');
+			if(v){
+				$('.archive-setting-type').addClass('label-success').html('Public');
+				$('.archive-setting-description').text('Anyone can find this collection.');
+			}
+			else{
+				$('.archive-setting-type').removeClass('label-success').html('Limited');
+				$('.archive-setting-description').text('Will not show up in search results');
+			}
 			this.hide();
 			return false;
 		},

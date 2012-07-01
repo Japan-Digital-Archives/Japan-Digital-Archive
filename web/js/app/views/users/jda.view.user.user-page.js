@@ -23,12 +23,6 @@
 			if(this.model.get('locationLatitude')) this.geolocated = true;
 
 			var facetExists = false;
-			
-
-			/* Adjust layout for filter */
-			//$('.tab-content').addClass('jda-low-top');
-			//$('#zeega-right-column').addClass('zeega-right-column-user-page');
-			
 
 			
 			//first remove other user filters
@@ -88,7 +82,7 @@
 			***************************************************************************/
 			
 
-			if(this.geolocated)
+			if(this.geolocated&&1==2)
 			{
 				this.cloudmadeUrl = 'http://{s}.tiles.mapbox.com/v2/mapbox.mapbox-streets/{z}/{x}/{y}.png',
 		    	this.cloudmadeAttrib = '',
@@ -125,6 +119,12 @@
 				$(this.el).find('button.edit').show();
 				
 			}
+			
+			$('#user-image-upload-file').change(function(){
+				console.log('upload image!!!')
+				_this.fileUpload();
+			})
+			
 
 			return this;
 		},
@@ -132,6 +132,7 @@
 		{
 			this.turnOffEditMode();
 			this.saveFields();
+			
 		},
 		
 		saveFields : function()
@@ -158,6 +159,7 @@
 			$(this.el).find('button.edit').removeClass('active');
 			$(this.el).find('.editing').removeClass('editing').attr('contenteditable', false);
 			$(this.el).find('.jda-user-map-location').removeClass('editing').attr('contenteditable', false);
+			
 		},
 		editMetadata : function()
 		{
@@ -183,15 +185,6 @@
 		
 		fileUpload : function()
 		{
-			//starting setting some animation when the ajax starts and completes
-			$("#loading")
-				.ajaxStart(function(){
-					$(this).show();
-				})
-				.ajaxComplete(function(){
-					$(this).hide();
-			});
-
 /*
 		prepareing ajax file upload
 		url: the url of script file handling the uploaded files
@@ -201,31 +194,56 @@
 		success: call back function when the ajax complete
 		error: callback function when the ajax failed
 */
+			var _this = this;
+			$('.jda-user-filter-profile-image').fadeTo(500,0.5);
+			$('.profile-image-wrapper').spin('tiny');
+			
+			jQuery.handleError=function(a,b,c,d)
+			{
+				console.log('ERROR UPLOADING',a,b,c,d)
+				$('.jda-user-filter-profile-image').fadeTo(500,1);
+				$('.profile-image-wrapper').spin(false)
+				
+				$('#user-image-upload-file').change(function(){
+					console.log('upload image some more!!!!!')
+					_this.fileUpload();
+				})
+				//_this.$el.prepend('<div class="alert">There was a problem with your file upload. Please try again.</div>');
+				//_.delay(function(){ $('.alert').remove() }, 2000 );
+			};
+						
 			$.ajaxFileUpload({
-				url:'doajaxfileupload.php', 
+				url:'../../../zeegastaging/web/api/users/'+this.model.id+'/profileimage', 
 				secureuri:false,
-				fileElementId:'fileToUpload',
+				fileElementId:'user-image-upload-file',
 				dataType: 'json',
 				success: function (data, status)
 				{
 					if(typeof(data.error) != 'undefined')
 					{
-						if(data.error != '')
-						{
-							console.log('error 2',data.error);
-						}
-						else
-						{
-							console.log('error 1',data.msg);
-						}
+							console.log('ERROR',data);
 					}
+					else
+					{
+						$('.jda-user-filter-profile-image')
+							.attr('src',data.thumbnail_url)
+							.fadeTo(500,1);
+						$('.profile-image-wrapper').spin(false);
+						
+						$('#user-image-upload-file').change(function(){
+							console.log('upload image again!!!!!!')
+							_this.fileUpload();
+						})
+						
+					}
+	
 				},
-				error: function (data, status, e)
+				handleError: function (data, status, e)
 				{
-					console.log('error!!',e);
+					console.log('ERROR!!',e);
 				}
 			})
-
+			
 			return false;
 
 		},
@@ -257,43 +275,38 @@
 			//remove from DOM
 			$(this.el).empty();
 			$('.jda-separate-collections-and-items').hide();
-			//$('.tab-content').removeClass('jda-low-top');
-		
-			//$('.tab-content').css('top','auto');
-
-			//$('#zeega-right-column').removeClass('zeega-right-column-user-page');
 		},
 		
 		getTemplate : function()
 		{
-			html = 
+			html = 	'<div class="row-fluid" >'+
 			
-			'<div class="row-fluid">'+
-			
-				'<div class="span2" style="width:155px">'+
-					'<img class="pull-left jda-user-filter-profile-image" src="<%=thumbnail_url%>" alt="" style="width:160px;height:160px;margin-right:10px;border: 1px solid grey;">'+
+		
+				'<div class="profile-image-wrapper span2" style="width:155px">'+
+					'<img class="pull-left jda-user-filter-profile-image" src="<%=thumbnail_url%>" alt="" style="width:160px;height:160px;margin-right:10px;border: 1px solid grey;" >'+
 				'</div>'+
-				
 				'<div class="span6">'+
 					'<h1 class="jda-user-filter-name"><%=display_name%></h1>'+
 					'<h5>Joined on <%= created_at %></h5>'+
-					'<div class="jda-user-filter-description"><%=bio%></div>';
-
-					//'<div class="user-image-upload"><input type="file" name="datafile" size="40"></div>'+
-	if(this.model.get('editable')) html += '<a href="#" class="edit"><i class="icon-pencil"></i></a>'+
-					
-						//'<p><button class="btn btn-info btn-mini edit" style="display:none"><i class="icon-pencil icon-white"></i></button></p>'+
-					'<div class="btn-group save-data">'+
+					'<div class="jda-user-filter-description"><%=bio%></div>'+
+					'<div class="user-image-upload hide" >update your profile picture <input id="user-image-upload-file" type="file" size="40" name="imagefile"></input></div>';
+			
+			if(this.model.get('editable')) html += '<a href="#" class="edit"><i class="icon-pencil"></i></a>';
+			
+			html+=	'<div class="btn-group save-data">'+
 						'<button class="btn btn-success btn-mini save hide">save</button>'+
 						'<button class="btn btn-mini cancel hide">cancel</button>'+
 					'</div>'+
-				'</div>'+
-				'<div class="span2">'+
-					'<div class="jda-user-map" style="border:1px solid #aaa"></div>'+
-					'<div class="jda-user-map-location"></div>'+
-				'</div>'+
-			'</div>';
 
+				'</div>';
+				
+				
+					
+			html+= 	 '<div class="span2">'+
+							//'<div><div class="jda-user-map" style="border:1px solid #aaa"></div></div>'+
+							//'<div class="jda-user-map-location"></div>'+
+						'</div>'+
+					'</div>';
 			
 			return html;
 		},

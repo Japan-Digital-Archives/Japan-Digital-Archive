@@ -438,6 +438,10 @@
 }
 .modal{display:none;}
 
-.jda-user-filter-description.editing{ height:50px;}
+.jda-user-filter-description.editing
+{
+	overflow:auto;
+	height:50px;
+}
 
 .meta-head{ font-weight:bold; }

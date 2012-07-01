@@ -1,4 +1,4 @@
-(function(Browser) {
+	(function(Browser) {
 
 	Browser.Items = Browser.Items || {};
 	Browser.Items.Views = Browser.Items || {};
@@ -193,7 +193,7 @@
 			//awkward click event
 			
 			$(this.el).find('.jda-collection-filter-author').click(function(){
-				console.log("GOGINGGGINGINGINIGNI");
+				
 				jda.app.goToAuthorPage(_this.model.get('user_id'));
 			
 			});
@@ -209,7 +209,7 @@
 			var _this  = this;
 		
 			//Show the trash cans
-			$('.jda-delete-item').click(function(){
+			$('.jda-delete-item').unbind().click(function(){
 				var doDelete = confirm($('#confirm-delete-collection-text').text());
 				if (doDelete){
 					var itemID = $(this).closest('li').attr('id');
@@ -263,19 +263,21 @@
 		},
 			
 		saveMetadata : function(){
-				
+				$('.jda-delete-item').hide();
 				this.turnOffEditMode();
 				this.saveFields();
 			},
 			
 		saveFields : function(){
 				var oldTitle = this.model.get("title");
+				var _this=this;
 				this.model.save({
 					'title' : $(this.el).find('.cover-overlay h1').text(),
 					'description' : $(this.el).find('.jda-collection-description').text()
 				},{
 					success: function(model, response) { 
 						
+						console.log("successfully updated the collection");
 						_.each( VisualSearch.searchBox.facetViews, function( facet ){
 							if( facet.model.get('category') == 'collection' && facet.model.get('value') == oldTitle) {
 								
@@ -285,9 +287,22 @@
 							}
 							
 						})
+						
+						
+							
+						//Update my collections drawer
+						
+						var title =model.get('title');
+						if(title.length>20) title=title.substr(0,15)+"...";
+					
+						if(jda.app.myCollectionsDrawer.activeCollectionID == model.id){
+							$('#zeega-my-collections-active-collection').text(title);
+						}
+						else{
+							$('#'+model.id+' a').html(title);
+						}
 
-						//Reset the collections drawer because there's also a collection view there
-						jda.app.myCollectionsDrawer.getCollectionList();
+						_this.turnOffEditMode();
 					
 					},
 					error: function(model, response){
@@ -303,7 +318,7 @@
 			this.render();
 			
 			
-			$('.jda-delete-item').hide();
+			
 
 			this.turnOffEditMode();
 		},
@@ -313,8 +328,7 @@
 
 
 			//hide the trash cans
-			$('.jda-delete-item').unbind();
-			$(this.el).find('.jda-delete-item').hide();
+			$('.jda-delete-item').hide();
 
 
 			$(this.el).find('.save-data button').hide();
@@ -437,16 +451,17 @@
 					'<div class="row-fluid">'+
 					
 						'<div class="span6">'+
-							'<div class="meta-head">Collection Description: <a href="#" class="edit" title="edit collection details"><i class="icon-pencil"></i></a></div>'+
+							'<div class="meta-head">Collection Description:';
+							
+							if(this.model.get('editable')) html+='<a href="#" class="edit" title="edit collection details"><i class="icon-pencil"></i></a>';
+							html+='</div>'+
 							'<div class="jda-collection-description"><%= description %></div>'+
 							//'<div class="jda-collection-tags"><a href="#">add tags</a></div>'+
 							
 							'<div class="btn-toolbar">'+
-								//'<div class="btn-group">'+
+								
 									'<a class="btn btn-info btn-mini play pull-left" title="play collection in Zeega player"><i class="icon-play icon-white"></i></a>'+
-									//'<button class="btn btn-info btn-mini share"><i class="icon-share-alt icon-white"></i></button>'+
-									//'<button class="btn btn-info btn-mini edit pull-left" style="display:none"><i class="icon-pencil icon-white"></i></button>'+
-								//'</div>'+
+		
 								'<div class="btn-group save-data">'+
 									'<button class="btn btn-success btn-mini save hide">save</button>'+
 									'<button class="btn btn-mini cancel hide">cancel</button>'+

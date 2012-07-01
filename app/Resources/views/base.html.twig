@@ -147,7 +147,7 @@
 							<li id="user-dropdown" class="dropdown" style="display:none;">
 										<a id="user-displayname" href="#" class="dropdown-toggle" data-toggle="dropdown"></a>
 										<ul class="dropdown-menu">
-											<!--<li><a id="account-settings" href ="#">{% trans %}jda.user.settings{% endtrans %}</a></li>-->
+											<li><a id="account-settings" href ="#">{% trans %}jda.user.settings{% endtrans %}</a></li>
 											<li><a href="{{path('search', { '_locale': locale })}}#view_type=thumb&user=-1&content=all&">{% trans %}jda.user.profile{% endtrans %}</a></li>
 											<li><a href='{{ path('_security_logout',{ '_locale': locale })}}' >{% trans %}jda.user.logout{% endtrans %}</a></li>
 										</ul>

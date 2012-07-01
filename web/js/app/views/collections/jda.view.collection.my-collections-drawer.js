@@ -238,7 +238,7 @@
 						$('#zeega-my-collections-items-thumbs').append(itemView.el);
 				
 					}
-					
+					$('#zeega-my-collections-items-thumbs .jda-delete-item').remove();
 					$('#zeega-my-collections-items-thumbs .thumbnail').css({cursor:"default"});
 					
 		},

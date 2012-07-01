@@ -7,7 +7,7 @@
         <input type="text" id="username" name="username" />
     </div>
     <div>
-        <input type="submit" value="{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}" />
-        <a href="{{path('fos_user_security_login', { '_locale': locale})}}" >{% trans %}jda.login.back{% endtrans %}</a>
+        <input class="btn btn-info" type="submit" value="{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}" />
+        <a class="btn" href="{{path('fos_user_security_login', { '_locale': locale})}}" >{% trans %}jda.login.back{% endtrans %}</a>
     </div>
 </form>

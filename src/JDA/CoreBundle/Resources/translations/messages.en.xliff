@@ -462,7 +462,7 @@ nuclear catastrophe.</target>
             </trans-unit>
             <trans-unit id="115">
                 <source>jda.report.bugintro</source>
-                <target>The website is still in beta and we need your help to make it better! Let us know what you think.  If something is misbehaving please write us a brief description of what's wrong.  You can also reach us at info [at] jdarchive.org</target>
+                <target>The website is still in beta and we need your help to make it better! Please share your feedback and if something is not working properly, please write us a brief description of what's wrong.  You can also reach us at info [at] jdarchive.org</target>
             </trans-unit>
              <trans-unit id="116">
                 <source>jda.report.buglinknote</source>
@@ -584,6 +584,10 @@ nuclear catastrophe.</target>
             <trans-unit id="144">
                 <source>jda.search.loadingmoreresults</source>
                 <target>Loading more results...</target>
+            </trans-unit>
+        	<trans-unit id="145">
+                <source>jda.login.forgotpassword</source>
+                <target>Forgot Password</target>
             </trans-unit>
         </body>
     </file>
