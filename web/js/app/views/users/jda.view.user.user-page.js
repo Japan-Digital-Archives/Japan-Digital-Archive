@@ -119,14 +119,19 @@
 				$(this.el).find('button.edit').show();
 				
 			}
+			
+			$('#user-image-upload-file').change(function(){
+				console.log('upload image!!!')
+				_this.fileUpload();
+			})
+			
 
 			return this;
 		},
 		saveMetadata : function()
 		{
-			this.fileUpload();
-			//this.turnOffEditMode();
-			//this.saveFields();
+			this.turnOffEditMode();
+			this.saveFields();
 			
 		},
 		
@@ -180,15 +185,6 @@
 		
 		fileUpload : function()
 		{
-			//starting setting some animation when the ajax starts and completes
-			$("#loading")
-				.ajaxStart(function(){
-					$(this).show();
-				})
-				.ajaxComplete(function(){
-					$(this).hide();
-			});
-
 /*
 		prepareing ajax file upload
 		url: the url of script file handling the uploaded files
@@ -198,11 +194,24 @@
 		success: call back function when the ajax complete
 		error: callback function when the ajax failed
 */
-			jQuery.handleError=function(a,b,c,d){
+			var _this = this;
+			$('.jda-user-filter-profile-image').fadeTo(500,0.5);
+			$('.profile-image-wrapper').spin('tiny');
 			
-			console.log(a,b,c,d)
-			
+			jQuery.handleError=function(a,b,c,d)
+			{
+				console.log('ERROR UPLOADING',a,b,c,d)
+				$('.jda-user-filter-profile-image').fadeTo(500,1);
+				$('.profile-image-wrapper').spin(false)
+				
+				$('#user-image-upload-file').change(function(){
+					console.log('upload image some more!!!!!')
+					_this.fileUpload();
+				})
+				//_this.$el.prepend('<div class="alert">There was a problem with your file upload. Please try again.</div>');
+				//_.delay(function(){ $('.alert').remove() }, 2000 );
 			};
+						
 			$.ajaxFileUpload({
 				url:'../../../zeegastaging/web/api/users/'+this.model.id+'/profileimage', 
 				secureuri:false,
@@ -212,27 +221,29 @@
 				{
 					if(typeof(data.error) != 'undefined')
 					{
-						if(data.error != '')
-						{
-							console.log('error 2',data.error);
-						}
-						else
-						{
-							console.log('error 1',data.msg);
-						}
+							console.log('ERROR',data);
 					}
-					else{
+					else
+					{
+						$('.jda-user-filter-profile-image')
+							.attr('src',data.thumbnail_url)
+							.fadeTo(500,1);
+						$('.profile-image-wrapper').spin(false);
 						
-						$('.jda-user-filter-profile-image').fadeOut('fast',function(){$(this).attr('src',data.thumbnail_url).fadeIn('fast');});
+						$('#user-image-upload-file').change(function(){
+							console.log('upload image again!!!!!!')
+							_this.fileUpload();
+						})
+						
 					}
 	
 				},
 				handleError: function (data, status, e)
 				{
-					console.log('error!!',e);
+					console.log('ERROR!!',e);
 				}
 			})
-
+			
 			return false;
 
 		},
@@ -272,7 +283,7 @@
 			
 			'<div class="row-fluid">'+
 			
-				'<div class="span2" style="width:155px">'+
+				'<div class="profile-image-wrapper span2" style="width:155px">'+
 					'<img class="pull-left jda-user-filter-profile-image" src="<%=thumbnail_url%>" alt="" style="width:160px;height:160px;margin-right:10px;border: 1px solid grey;">'+
 				'</div>'+
 				
@@ -281,12 +292,13 @@
 					'<h5>Joined on <%= created_at %></h5>'+
 					'<div class="jda-user-filter-description"><%=bio%></div>'+
 
-					'<div class="user-image-upload"><input id="user-image-upload-file" type="file" name="imagefile" size="40" onsubmit="javascript:jda.app.resultsView.userFilter.fileUpload();" ></div>';
+					'<div class="user-image-upload hide">update your profile picture <input id="user-image-upload-file" type="file" name="imagefile"/></div>';
 					if(this.model.get('editable')) html += '<a href="#" class="edit"><i class="icon-pencil"></i></a>';
 					html+='<div class="btn-group save-data">'+
 							'<button class="btn btn-success btn-mini save hide">save</button>'+
 							'<button class="btn btn-mini cancel hide">cancel</button>'+
 					'	</div>'+
+
 				'</div>'+
 				'<div class="span2">'+
 					'<div class="jda-user-map" style="border:1px solid #aaa"></div>'+
