@@ -82,7 +82,7 @@
 			***************************************************************************/
 			
 
-			if(this.geolocated)
+			if(this.geolocated&&1==2)
 			{
 				this.cloudmadeUrl = 'http://{s}.tiles.mapbox.com/v2/mapbox.mapbox-streets/{z}/{x}/{y}.png',
 		    	this.cloudmadeAttrib = '',
@@ -279,33 +279,34 @@
 		
 		getTemplate : function()
 		{
-			html = 
+			html = 	'<div class="row-fluid" >'+
 			
-			'<div class="row-fluid">'+
-			
+		
 				'<div class="profile-image-wrapper span2" style="width:155px">'+
-					'<img class="pull-left jda-user-filter-profile-image" src="<%=thumbnail_url%>" alt="" style="width:160px;height:160px;margin-right:10px;border: 1px solid grey;">'+
+					'<img class="pull-left jda-user-filter-profile-image" src="<%=thumbnail_url%>" alt="" style="width:160px;height:160px;margin-right:10px;border: 1px solid grey;" >'+
 				'</div>'+
-				
 				'<div class="span6">'+
 					'<h1 class="jda-user-filter-name"><%=display_name%></h1>'+
 					'<h5>Joined on <%= created_at %></h5>'+
 					'<div class="jda-user-filter-description"><%=bio%></div>'+
+					'<div class="user-image-upload hide" >update your profile picture <input id="user-image-upload-file" type="file" size="40" name="imagefile"></input></div>';
+			
+			if(this.model.get('editable')) html += '<a href="#" class="edit"><i class="icon-pencil"></i></a>';
+			
+			html+=	'<div class="btn-group save-data">'+
+						'<button class="btn btn-success btn-mini save hide">save</button>'+
+						'<button class="btn btn-mini cancel hide">cancel</button>'+
+					'</div>'+
 
-					'<div class="user-image-upload hide">update your profile picture <input id="user-image-upload-file" type="file" name="imagefile"/></div>';
-					if(this.model.get('editable')) html += '<a href="#" class="edit"><i class="icon-pencil"></i></a>';
-					html+='<div class="btn-group save-data">'+
-							'<button class="btn btn-success btn-mini save hide">save</button>'+
-							'<button class="btn btn-mini cancel hide">cancel</button>'+
-					'	</div>'+
-
-				'</div>'+
-				'<div class="span2">'+
-					'<div class="jda-user-map" style="border:1px solid #aaa"></div>'+
-					'<div class="jda-user-map-location"></div>'+
-				'</div>'+
-			'</div>';
-
+				'</div>';
+				
+				
+					
+			html+= 	 '<div class="span2">'+
+							//'<div><div class="jda-user-map" style="border:1px solid #aaa"></div></div>'+
+							//'<div class="jda-user-map-location"></div>'+
+						'</div>'+
+					'</div>';
 			
 			return html;
 		},

@@ -240,8 +240,8 @@ margin-left: -20px;
 #jda-user-filter
 {
 	position: fixed;
-	top:89px;
-	padding-top:6px;
+	top:87px;
+	padding-top:10px;
 	z-index:49;
 	overflow: hidden;
 	background:white;
