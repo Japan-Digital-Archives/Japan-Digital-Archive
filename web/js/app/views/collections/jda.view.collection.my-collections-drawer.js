@@ -73,7 +73,12 @@
 					title:$('#zeega-my-collections-active-collection').text(),
 					child_items:[],
 					new_items:[],
+					editable:true,
 				});
+				
+				this.activeCollection.save({},{success:function(model,response){
+					_this.activeCollectionID=model.id;
+				}});
 			}
 			
 			/* 
@@ -223,6 +228,7 @@
 					}
 					else if( model.get('child_items').length >0){
 						$('#zeega-my-collections-share-and-organize').html($('#go-to-collection-text').html()).unbind().click(function(){
+							_this.activeCollection.set('editable',true);
 							jda.app.addFilter(_this.activeCollection, 'collection');
 							return false;
 						}).show();
@@ -297,6 +303,7 @@
 				title:"new collection "+Math.floor(Math.random()*1000),
 				child_items:[],
 				new_items:[],
+				editable:true,
 			});
 			this.renderCollectionPreview(this.activeCollection);
 			

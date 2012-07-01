@@ -694,3 +694,13 @@ border-radius: 0px 4px 0px 0px;
 {
 	margin:10px 0;
 }
+
+.jda-collection-map-location {
+
+	position: absolute;
+	top: 315px;
+	margin-left: -59px;
+	width: 198px;
+	height: 18px;
+
+}

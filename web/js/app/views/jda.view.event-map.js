@@ -437,7 +437,7 @@
 			seconds = (dateMillis + timeMillis)/1000;
 			oldValues =  $("#range-slider").slider( "option", "values" );
 			$( "#range-slider" ).slider( "option", "values", [seconds, oldValues[1]] );
-			jda.app.setStartDateTimeSliderBubble(seconds);
+			this.setStartDateTimeSliderBubble(seconds);
 		},
 		
 		setEndDateTimeSliderHandle : function(){
@@ -449,7 +449,7 @@
 			seconds = (dateMillis + timeMillis)/1000;
 			oldValues =  $("#range-slider").slider( "option", "values" );
 			$( "#range-slider" ).slider( "option", "values", [oldValues[0], seconds] );
-			jda.app.setEndDateTimeSliderBubble(seconds);
+			this.setEndDateTimeSliderBubble(seconds);
 		},
 		
 		setStartDateTimeSliderBubble : function(val){		

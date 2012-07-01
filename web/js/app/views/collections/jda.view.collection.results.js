@@ -46,8 +46,7 @@
 			$('.jda-results-items-count').text( jda.app.addCommas(itemsCount));
 			$("#zeega-results-count-number").html( jda.app.addCommas(itemsCount) );
 		},
-		render : function()
-		{
+		render : function(){
 			var _this = this;
 			$("#zeega-results-count").hide();
 			
@@ -188,6 +187,8 @@
 		
 		search : function(obj,reset)
 		{
+		
+			console.log("jda.app.resultsView.search",obj);
 			var _this = this;
 			
 			this.updated = true;
@@ -306,7 +307,7 @@
 			search.times = {};
 			search.times.start = startDate;
 			search.times.end = endDate;
-			//this.setURLHash()
+			this.setURLHash();
 		},
 		
 		getCQLSearchString : function()

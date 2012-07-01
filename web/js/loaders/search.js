@@ -31,7 +31,6 @@ require (
 	'order!../lib/date.format',
 	'order!../lib/jquery-ui-timepicker-addon',
 	'order!../lib/bootstrap-2.0.2/js/bootstrap.min',
-	'order!../lib/leaflet/leaflet',
 	'order!../lib/ajaxfileuploader/ajaxfileupload',
 	
 	'order!../lib/jquery.tagsinput.min',

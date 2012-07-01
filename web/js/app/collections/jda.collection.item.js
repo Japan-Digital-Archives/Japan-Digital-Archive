@@ -38,7 +38,7 @@
 	
 		setSearch : function(obj, reset)
 		{
-			console.log('items.collection.setSearch',obj)
+			console.log('items.collection.setSearch',this.search,obj)
 			if(reset){
 				this.search = { r_tags:1,page:1, r_items:1 };
 				if(_.isNumber(obj.collection)||_.isNumber(obj.user))this.search.r_itemswithcollections=0;
@@ -50,6 +50,15 @@
 			
 			
 			_.extend(this.search,obj)
+			
+			
+			
+			console.log(jda.app.currentView);
+			if(jda.app.currentView=="event") console.log("Range slider values",$("#range-slider").slider( "option", "values" ));
+			
+			
+			
+			
 			console.log("final search",this.search);
 		},
 		
