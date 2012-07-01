@@ -2,8 +2,8 @@
 <form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST" class="fos_user_resetting_reset">
     {{ form_widget(form) }}
     <div>
-        <input type="submit" value="{{ 'resetting.reset.submit'|trans({}, 'FOSUserBundle') }}" />
-        	<a  href="{{path('fos_user_security_login', { '_locale': locale})}}" >Back</a>	
+        <input class="btn btn-info" type="submit" value="{{ 'resetting.reset.submit'|trans({}, 'FOSUserBundle') }}" />
+        	<a  class="btn" href="{{path('fos_user_security_login', { '_locale': locale})}}" >Back</a>	
     </div>
-    test 1,2,3
+
 </form>
