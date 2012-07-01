@@ -204,6 +204,10 @@
 				$('.jda-user-filter-profile-image').fadeTo(500,1);
 				$('.profile-image-wrapper').spin(false)
 				
+				$('#user-image-upload-file').change(function(){
+					console.log('upload image some more!!!!!')
+					_this.fileUpload();
+				})
 				//_this.$el.prepend('<div class="alert">There was a problem with your file upload. Please try again.</div>');
 				//_.delay(function(){ $('.alert').remove() }, 2000 );
 			};
@@ -224,7 +228,13 @@
 						$('.jda-user-filter-profile-image')
 							.attr('src',data.thumbnail_url)
 							.fadeTo(500,1);
-						$('.profile-image-wrapper').spin(false)
+						$('.profile-image-wrapper').spin(false);
+						
+						$('#user-image-upload-file').change(function(){
+							console.log('upload image again!!!!!!')
+							_this.fileUpload();
+						})
+						
 					}
 	
 				},
