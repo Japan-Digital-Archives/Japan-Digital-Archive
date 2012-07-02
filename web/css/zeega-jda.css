@@ -197,12 +197,11 @@
 	opacity: 0;
 	-moz-opacity: 0;
 	filter:alpha(opacity=0);
-	border: 0;
-	background: transparent;
-	width:154px;
+	width:150px;
+}
+#search-bar option{
 	
 }
-
 #select-wrap {
 
 	height: 36px;
@@ -226,6 +225,9 @@
 
 #zeega-items-thumbnails > li{
 	overflow: hidden;
+}
+.zeega-item-thumbnail{
+	position:relative;
 }
 /* 	
 	zeega-collection

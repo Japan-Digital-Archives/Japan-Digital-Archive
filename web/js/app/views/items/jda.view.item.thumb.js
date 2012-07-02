@@ -214,7 +214,7 @@
 			
 				'<a href="#" class="thumbnail" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
 					'<img src="../images/jdicons-tweet-large.png" alt="<%=title%>" style="max-width:53px;max-height:54px;position:absolute;top:15%;left:15%">'+	
-					'<span style="position:absolute;top:<%=position_tweet_handle%>;right:9%;color:#444;font-size:12px">@<%=media_creator_username%></span>'+
+					'<span style="position:absolute;top:<%=position_tweet_handle%>;right:9%;max-width:85%;overflow:hidden;line-height:18px;color:#444;font-size:12px">@<%=media_creator_username%></span>'+
 					//'<input class="jda-item-checkbox" type="checkbox">'+
 					'<i class="icon-trash icon-white jda-delete-item"></i>'+
 				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px"><%=description%></p>';
