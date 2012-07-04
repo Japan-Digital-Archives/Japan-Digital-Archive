@@ -349,6 +349,7 @@ margin-left: -20px;
 	border-right:2px solid white;
 	background-repeat:no-repeat;
 	background-size:cover;
+	position: relative;
 }
 .jda-home-bottom-row{
 background-color:#444;position:relative;top:76px;color:whiteSmoke;padding-top:10px;

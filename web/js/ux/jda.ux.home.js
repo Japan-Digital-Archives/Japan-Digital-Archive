@@ -119,7 +119,7 @@ $(document).ready(function(){
 
 	};
 		BrowserDetect.init();
-		console.log(BrowserDetect);
+		
 
 
 
