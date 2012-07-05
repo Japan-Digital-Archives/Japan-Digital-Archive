@@ -119,7 +119,13 @@ $(document).ready(function(){
 
 	};
 		BrowserDetect.init();
-		console.log(BrowserDetect);
+		
+		if(BrowserDetect.browser!='Chrome'&&BrowserDetect.browser!='Safari') {
+		
+			$('#browserModal').modal('show');
+		
+		}
+		
 
 
 
