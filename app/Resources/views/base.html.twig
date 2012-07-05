@@ -45,9 +45,8 @@
 		{% else %}
 				sessionStorage.setItem('user','0');
 		{% endif %}		
-	
-	</script>
-
+		
+		</script>
 
 	{% block scripts %}
 	
@@ -192,6 +191,20 @@
 		</div>
 
 	</div>
+
+	<div class="modal"  id="browserModal"  >
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">×</a>
+			<h3>{% trans %}jda.browser.modalheader{% endtrans %}</h3>
+		</div>
+		<div class="modal-body">
+			<p>{% trans %}jda.browser.modalbody{% endtrans %}</p>
+		</div>
+
+	</div>
+	
+	
+
 
 </body>
 </html>

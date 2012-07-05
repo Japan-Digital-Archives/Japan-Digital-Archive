@@ -584,6 +584,14 @@
                 <source>jda.login.forgotpassword</source>
                 <target>Forgot Password</target>
             </trans-unit>
+                        <trans-unit id="146">
+                <source>jda.browser.modalheader</source>
+                <target>推奨動作環境についてのお知らせ</target>
+            </trans-unit>
+            <trans-unit id="147">
+                <source>jda.browser.modalbody</source>
+                <target>現在このアーカイブはGoogle Chrome、Safari、Firefox 10以降に最適化されており、その他のブラウザでは正しく作動しない場合がございますので、どうぞご了承下さい。Internet Explorer につきましてはまもなくサポートされる予定です。</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
