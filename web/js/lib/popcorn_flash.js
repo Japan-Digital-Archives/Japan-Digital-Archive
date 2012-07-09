@@ -10271,7 +10271,7 @@ Popcorn.player( "flashvideo", {
 
       src = /(http.*)/.exec( media.src )[ 1 ];
      
-      swfobject.embedSWF("MediaPlayer.swf", container.id, "100%", "100%", "9.0.0", false, flashvars, params, attributes);
+      swfobject.embedSWF("../MediaPlayer.swf", container.id, "100%", "100%", "9.0.0", false, flashvars, params, attributes);
 	  
 	  
      
