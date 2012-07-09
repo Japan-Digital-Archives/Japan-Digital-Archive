@@ -611,6 +611,10 @@ nuclear catastrophe.</target>
                 <source>jda.search.anyoneCanFind</source>
                 <target>Anyone can find the collection</target>
             </trans-unit>
+            <trans-unit id="152">
+                <source>jda.search.remove</source>
+                <target>remove</target>
+            </trans-unit>
 
 
            
