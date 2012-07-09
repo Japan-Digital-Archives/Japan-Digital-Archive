@@ -29,6 +29,9 @@
 .jdicon-lightgrey{
 	background-image: url(../images/jdicons-lightgrey-50.png);
 }
+.jdicon-halfling-red{
+	background-image: url(../images/glyphicons-halflings-red.png);
+}
 [class^="jdicon-small-"]
 {
 	width: 25px;
@@ -75,6 +78,7 @@
 .jda-centered-icon{
 	position: absolute;top: 35px;left: 55px;
 }
+
 
 li{
 	list-style:none;
@@ -174,7 +178,7 @@ legend{
 margin-left: -20px;
 }
 .jda-delete-item{
-	padding: 2px 0 0 2px;background-color:rgba(0, 0, 0, 0.5);position: absolute;top:0;left:0;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.5);position: absolute;top: 4px;left: 4px;
 	display:none;
 
 }

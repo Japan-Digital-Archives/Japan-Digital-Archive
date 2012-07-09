@@ -288,7 +288,7 @@
 		},
 			
 		saveMetadata : function(){
-				$('.jda-delete-item').hide();
+				
 				this.turnOffEditMode();
 				this.saveFields();
 			},
@@ -478,7 +478,7 @@
 						'<div class="span6" style="position:relative">'+
 							'<div class="meta-head">Collection Description:';
 							
-							if(this.model.get('editable')) html+='<a href="#" class="edit" title="edit collection details"><i class="icon-pencil"></i></a>';
+							if(this.model.get('editable')) html+='<a href="#" class="edit" title="edit collection details"><i class="icon-pencil jdicon-halfling-red"></i></a>';
 							html+='</div>'+
 							'<div class="jda-collection-description"><%= description %></div>'+
 							'<div class="jda-collection-description-empty" style="left: 5px;position: absolute;top: 32px;color:#999;display:none;">Edit description</div>'+
@@ -503,7 +503,7 @@
 						{
 						html+=
 						'<div class="span3">'+
-							'<div class="meta-head">Archive Settings <a href="#" class="edit-archive-settings" title="edit archive settings"><i class="icon-pencil"></i></a></div>'+
+							'<div class="meta-head">Archive Settings <a href="#" class="edit-archive-settings" title="edit archive settings"><i class="icon-pencil jdicon-halfling-red"></i></a></div>'+
 							'<div><span class="archive-setting-type label <%= archiveSettingsClass %>"><%= archiveSettingsText %>:</span> <span class="archive-setting-description"><%= archiveSettingsDesc %></span></div>'+
 						'</div>';
 						}
