@@ -92,17 +92,18 @@
 			var blanks = this.model.attributes;
 			blanks.randId = this.elemId
 			blanks.archiveSettingsClass = blanks.published == false ? '' : 'label-success';
-			blanks.archiveSettingsText = blanks.published == false ? 'Limited' : 'Public';
-			blanks.archiveSettingsDesc = blanks.published == false ? 'Will not show up in search results' : 'Anyone can find the collection';
-		
-		
+			blanks.archiveSettingsText = blanks.published == false ? $('#jda-search-limited').text() : $('#jda-search-public').text();
+			blanks.archiveSettingsDesc = blanks.published == false ? $('#jda-search-willNotShowInResults').text() : $('#jda-search-anyoneCanFind').text();
+			blanks.editMapLocationText=$('#edit-map-location-text').text();
+			blanks.editDescriptionText = $('#edit-description-text').text();
 		
 			$(this.el).html( _.template( template, blanks ) );
 	
 			if (this.canEdit){
 				$(this.el).find('button.edit').show();
 			}
-
+			
+			
 			/***************************************************************************
 				Map view
 			***************************************************************************/
@@ -481,7 +482,7 @@
 							if(this.model.get('editable')) html+='<a href="#" class="edit" title="edit collection details"><i class="icon-pencil jdicon-halfling-red"></i></a>';
 							html+='</div>'+
 							'<div class="jda-collection-description"><%= description %></div>'+
-							'<div class="jda-collection-description-empty" style="left: 5px;position: absolute;top: 32px;color:#999;display:none;">Edit description</div>'+
+							'<div class="jda-collection-description-empty" style="left: 5px;position: absolute;top: 32px;color:#999;display:none;"></div>'+
 
 							//'<div class="jda-collection-tags"><a href="#">add tags</a></div>'+
 							
@@ -519,7 +520,7 @@
 							'<div class="jda-collection-map" style="text-align:center;background-image: url(../images/nogeomap.gif)"><h3 class="jda-no-geo-location-message" style="top:24px">No location information</h3></div>'+
 							'<div class="jda-collection-map-location"></div>'+
 							'<a class="btn btn-mini jda-collection-map-location-go" style="margin-left:5px;margin-top:5px;display:none" href=".">go</a>'+
-							'<div class="jda-collection-map-empty" style="position: relative;top: -17px;left:5px;color:#999;display:none;">Edit map location</div>'+
+							'<div class="jda-collection-map-empty" style="position: relative;top: -17px;left:5px;color:#999;display:none;"></div>'+
 						'</div>'+
 
 				'</div>';

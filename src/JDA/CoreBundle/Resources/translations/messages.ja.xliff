@@ -584,6 +584,31 @@
                 <source>jda.login.forgotpassword</source>
                 <target>Forgot Password</target>
             </trans-unit>
+            <trans-unit id="146">
+                <source>jda.search.edit-description</source>
+                <target>Edit description</target>
+            </trans-unit>
+            <trans-unit id="147">
+                <source>jda.search.edit-map-location</source>
+                <target>Edit map location</target>
+            </trans-unit>
+            <trans-unit id="148">
+                <source>jda.search.limited</source>
+                <target>Limited</target>
+            </trans-unit>
+            <trans-unit id="149">
+                <source>jda.search.public</source>
+                <target>Public</target>
+            </trans-unit>
+            <trans-unit id="150">
+                <source>jda.search.willNotShowInResults</source>
+                <target>Will not show up in search results</target>
+            </trans-unit>
+            <trans-unit id="151">
+                <source>jda.search.anyoneCanFind</source>
+                <target>Anyone can find the collection</target>
+            </trans-unit>
+
         </body>
     </file>
 </xliff>
