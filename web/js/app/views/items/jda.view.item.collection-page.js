@@ -251,6 +251,31 @@
 				}
 			});
 			$(this.el).find('.jda-collection-description').addClass('editing').attr('contenteditable', true);
+			
+			//Add placeholder text
+			if( $(this.el).find('.jda-collection-description').is(':empty') ) {
+				
+				$(this.el).find('.jda-collection-description-empty').show();
+				$(this.el).find('.jda-collection-description-empty').click(function(){$(this).hide();$(_this.el).find('.jda-collection-description').focus();});
+			}
+			$(this.el).find('.jda-collection-description').focus(function(){
+				$(_this.el).find('.jda-collection-description-empty').hide();
+				$(this).unbind('focus');
+				$(this).trigger('focus');
+			});
+			if( $(this.el).find('.jda-collection-map-location').is(':empty') ) {
+				$(this.el).find('.jda-collection-map-empty').show();
+				$(this.el).find('.jda-collection-map-empty').click(function(){$(this).hide();$(_this.el).find('.jda-collection-map-location').focus();});
+				$(this.el).find('.jda-collection-map-location').focus(function(){
+						$(_this.el).find('.jda-collection-map-empty').hide();
+						$(this).unbind('focus');
+						$(this).trigger('focus');
+				});
+			}
+			$(this.el).find('.jda-collection-map-location-go').show().click(function(){
+				_this.geocodeString();
+				return false;
+			});
 			$(this.el).find('.jda-collection-map-location').addClass('editing').attr('contenteditable', true).keypress(function(e){
 				if(e.which==13)
 				{
@@ -329,8 +354,8 @@
 
 			//hide the trash cans
 			$('.jda-delete-item').hide();
-
-
+			$(this.el).find('.jda-collection-description-empty,.jda-collection-map-empty,.jda-collection-map-location-go').hide();
+			
 			$(this.el).find('.save-data button').hide();
 			$(this.el).find('button.edit').removeClass('active');
 			$(this.el).find('.editing').removeClass('editing').attr('contenteditable', false);
@@ -444,23 +469,25 @@
 					'<div class="cover-image" style="background-image:url(<%= thumbnail_url %>)">';
 			if(_.isNull(this.model.get('thumbnail_url')) || this.model.get('thumbnail_url') == '' ) html += '<div class="drag-to"><i class="icon-camera"></i>'+$('#drag-cover-text').html()+'</div>';
 			html+=			'<div class="cover-overlay">'+
-							'<h1><%=title%></h1><h4>by: <a href="#" class="jda-collection-filter-author"><%=media_creator_realname%></a> on <%= date_created %></h4>'+
+							'<h1 style="width:90%"><%=title%></h1><h4>by: <a href="#" class="jda-collection-filter-author"><%=media_creator_realname%></a> on <%= date_created %></h4>'+
 						'</div>'+
 					'</div>'+
 	
 					'<div class="row-fluid">'+
 					
-						'<div class="span6">'+
+						'<div class="span6" style="position:relative">'+
 							'<div class="meta-head">Collection Description:';
 							
 							if(this.model.get('editable')) html+='<a href="#" class="edit" title="edit collection details"><i class="icon-pencil"></i></a>';
 							html+='</div>'+
 							'<div class="jda-collection-description"><%= description %></div>'+
+							'<div class="jda-collection-description-empty" style="left: 5px;position: absolute;top: 32px;color:#999;display:none;">Edit description</div>'+
+
 							//'<div class="jda-collection-tags"><a href="#">add tags</a></div>'+
 							
 							'<div class="btn-toolbar">'+
 								
-									'<a class="btn btn-info btn-mini play pull-left" title="play collection in Zeega player"><i class="icon-play icon-white"></i></a>'+
+									'<a class="btn btn-info btn-mini play pull-left" title="play collection in Zeega player"><i class="icon-play icon-white"></i></a>&nbsp;'+
 		
 								'<div class="btn-group save-data">'+
 									'<button class="btn btn-success btn-mini save hide">save</button>'+
@@ -488,9 +515,11 @@
 						html+=
 						'<div class="span1">&nbsp;</div>'+
 						
-						'<div class="span2">'+
+						'<div class="span3" style="position:relative">'+
 							'<div class="jda-collection-map" style="text-align:center;background-image: url(../images/nogeomap.gif)"><h3 class="jda-no-geo-location-message" style="top:24px">No location information</h3></div>'+
 							'<div class="jda-collection-map-location"></div>'+
+							'<a class="btn btn-mini jda-collection-map-location-go" style="margin-left:5px;margin-top:5px;display:none" href=".">go</a>'+
+							'<div class="jda-collection-map-empty" style="position: relative;top: -17px;left:5px;color:#999;display:none;">Edit map location</div>'+
 						'</div>'+
 
 				'</div>';
