@@ -119,7 +119,11 @@ $(document).ready(function(){
 
 	};
 		BrowserDetect.init();
-		console.log(BrowserDetect);
+		
+		if(BrowserDetect.browser=='Firefox'||(BrowserDetect.browser=='Explorer'&&BrowserDetect.version<9)) {
+			$('#browserModal').modal('show');
+		}
+
 
 
 

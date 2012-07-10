@@ -124,7 +124,7 @@ $(document).ready(function(){
 		if(BrowserDetect.browser=='Firefox'||(BrowserDetect.browser=='Explorer'&&BrowserDetect.version<9)) {
 			$('#browserModal').modal('show');
 		}
-		console.log(BrowserDetect);
+
 		
 
 
