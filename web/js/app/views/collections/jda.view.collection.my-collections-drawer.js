@@ -27,7 +27,7 @@
 			//Render collection list in drop-down menu
 			$(this.el).find('.dropdown-menu').empty();
 			
-			if(sessionStorage.getItem('user')==1)$(this.el).find('.dropdown-menu').append('<li class="zeega-collection-list-item" ><a class="new-collection" href="#"><i class="icon-plus"></i> Create A New Collection</a></li><li class="divider"></li>');
+			if(sessionStorage.getItem('user')==1)$(this.el).find('.dropdown-menu').append('<li class="zeega-collection-list-item" ><a class="new-collection" href="#"><i class="icon-plus"></i> '+l.jda_collection_createnew+'</a></li><li class="divider"></li>');
 			
 			
 			_.each( _.toArray(this.collection), function(item){

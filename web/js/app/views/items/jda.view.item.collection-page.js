@@ -92,8 +92,8 @@
 			var blanks = this.model.attributes;
 			blanks.randId = this.elemId
 			blanks.archiveSettingsClass = blanks.published == false ? '' : 'label-success';
-			blanks.archiveSettingsText = blanks.published == false ? 'Limited' : 'Public';
-			blanks.archiveSettingsDesc = blanks.published == false ? 'Will not show up in search results' : 'Anyone can find the collection';
+			blanks.archiveSettingsText = blanks.published == false ? l.jda_collection_limited : l.jda_collection_public;
+			blanks.archiveSettingsDesc = blanks.published == false ? l.jda_collection_limiteddesc : l.jda_collection_publicdesc;
 		
 		
 		
@@ -451,20 +451,20 @@
 					'<div class="row-fluid">'+
 					
 						'<div class="span6">'+
-							'<div class="meta-head">Collection Description:';
+							'<div class="meta-head">'+l.jda_collection_description+':';
 							
-							if(this.model.get('editable')) html+='<a href="#" class="edit" title="edit collection details"><i class="icon-pencil"></i></a>';
+							if(this.model.get('editable')) html+='<a href="#" class="edit" title="'+l.jda_collection_editdetails+'"><i class="icon-pencil"></i></a>';
 							html+='</div>'+
 							'<div class="jda-collection-description"><%= description %></div>'+
 							//'<div class="jda-collection-tags"><a href="#">add tags</a></div>'+
 							
 							'<div class="btn-toolbar">'+
 								
-									'<a class="btn btn-info btn-mini play pull-left" title="play collection in Zeega player"><i class="icon-play icon-white"></i></a>'+
+									'<a class="btn btn-info btn-mini play pull-left" title="'+l.jda_collection_play+'"><i class="icon-play icon-white"></i></a>'+
 		
 								'<div class="btn-group save-data">'+
-									'<button class="btn btn-success btn-mini save hide">save</button>'+
-									'<button class="btn btn-mini cancel hide">cancel</button>'+
+									'<button class="btn btn-success btn-mini save hide">'+l.jda_save+'</button>'+
+									'<button class="btn btn-mini cancel hide">'+l.jda_cancel+'</button>'+
 								'</div>'+
 							'</div>'+
 							
@@ -476,7 +476,7 @@
 						{
 						html+=
 						'<div class="span3">'+
-							'<div class="meta-head">Archive Settings <a href="#" class="edit-archive-settings" title="edit archive settings"><i class="icon-pencil"></i></a></div>'+
+							'<div class="meta-head">'+l.jda_collection_archive+'<a href="#" class="edit-archive-settings" title="'+l.jda_collection_editarchive+'"><i class="icon-pencil"></i></a></div>'+
 							'<div><span class="archive-setting-type label <%= archiveSettingsClass %>"><%= archiveSettingsText %>:</span> <span class="archive-setting-description"><%= archiveSettingsDesc %></span></div>'+
 						'</div>';
 						}
@@ -489,7 +489,7 @@
 						'<div class="span1">&nbsp;</div>'+
 						
 						'<div class="span2">'+
-							'<div class="jda-collection-map" style="text-align:center;background-image: url(../images/nogeomap.gif)"><h3 class="jda-no-geo-location-message" style="top:24px">No location information</h3></div>'+
+							'<div class="jda-collection-map" style="text-align:center;background-image: url(../images/nogeomap.gif)"><h3 class="jda-no-geo-location-message" style="top:24px">'+l.jda_collection_nolocation+'</h3></div>'+
 							'<div class="jda-collection-map-location"></div>'+
 						'</div>'+
 

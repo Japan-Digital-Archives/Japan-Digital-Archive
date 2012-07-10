@@ -582,7 +582,7 @@
             </trans-unit>
             <trans-unit id="145">
                 <source>jda.login.forgotpassword</source>
-                <target>Forgot Password</target>
+                <target>パスワードをお忘れですか？</target>
             </trans-unit>
                         <trans-unit id="146">
                 <source>jda.browser.modalheader</source>
@@ -591,6 +591,74 @@
             <trans-unit id="147">
                 <source>jda.browser.modalbody</source>
                 <target>現在このアーカイブはGoogle Chrome、Safari、Firefox 10以降に最適化されており、その他のブラウザでは正しく作動しない場合がございますので、どうぞご了承下さい。Internet Explorer につきましてはまもなくサポートされる予定です。</target>
+            </trans-unit>
+                <trans-unit id="148">
+                <source>jda.collection.play</source>
+                <target>ジーガ・プレイヤーでコレクションを再生</target>
+            </trans-unit>
+            <trans-unit id="149">
+                <source>jda.collection.editdetails</source>
+                <target>コレクションの詳細を編集する</target>
+            </trans-unit>
+             <trans-unit id="150">
+                <source>jda.collection.editarchive</source>
+                <target>アーカイブ設定を変更する</target>
+            </trans-unit>
+             <trans-unit id="151">
+                <source>jda.collection.description</source>
+                <target>コレクションの説明</target>
+            </trans-unit>
+             <trans-unit id="152">
+                <source>jda.collection.archive</source>
+                <target>アーカイブ設定</target>
+            </trans-unit>
+             <trans-unit id="153">
+                <source>jda.collection.public</source>
+                <target>公開</target>
+            </trans-unit>
+             <trans-unit id="154">
+                <source>jda.collection.limited</source>
+                <target>限定</target>
+            </trans-unit>
+             <trans-unit id="155">
+                <source>jda.collection.archivenote</source>
+                <target>変更が反映されるまで少しお時間がかかる場合がございます。</target>
+            </trans-unit>
+             <trans-unit id="156">
+                <source>jda.collection.new</source>
+                <target>新しいコレクション</target>
+            </trans-unit>
+            <trans-unit id="157">
+                <source>jda.collection.createnew</source>
+                <target>コレクションを新規作成</target>
+            </trans-unit>
+              <trans-unit id="158">
+                <source>jda.save</source>
+                <target>保存</target>
+            </trans-unit>
+             <trans-unit id="159">
+                <source>jda.cancel</source>
+                <target>キャンセル</target>
+            </trans-unit>
+            <trans-unit id="160">
+                <source>jda.collection.nolocation</source>
+                <target>No location information</target>
+            </trans-unit>
+            <trans-unit id="161">
+                <source>jda.collection.publiclabel</source>
+                <target>どなたでもあなたのコレクションを見ることができます。またあなたのコレクションはアーカイブの一般検索結果に表示されます。</target>
+            </trans-unit>
+            <trans-unit id="162">
+                <source>jda.collection.limitedlabel</source>
+                <target> リンクを知っている方だけがあなたのコレクションを見ることができます。あなたのコレクションは一般検索結果やパブリック・ユーザページには表示されません。</target>
+            </trans-unit>
+              <trans-unit id="163">
+                <source>jda.collection.publicdesc</source>
+                <target>Anyone can find this collection.</target>
+            </trans-unit>
+            <trans-unit id="164">
+                <source>jda.collection.limiteddesc</source>
+                <target>Will not show up in search results</target>
             </trans-unit>
         </body>
     </file>

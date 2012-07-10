@@ -595,6 +595,74 @@ nuclear catastrophe.</target>
                 <source>jda.browser.modalbody</source>
                 <target>The Japan Digital Archive is currently optimized for the latest versions of Chrome or Safari.  Support for Internet Explorer and Firefox coming soon.</target>
             </trans-unit>
+            <trans-unit id="148">
+                <source>jda.collection.play</source>
+                <target>Play collection in Zeega Player </target>
+            </trans-unit>
+            <trans-unit id="149">
+                <source>jda.collection.editdetails</source>
+                <target>edit collection details</target>
+            </trans-unit>
+             <trans-unit id="150">
+                <source>jda.collection.editarchive</source>
+                <target>edit archive settings</target>
+            </trans-unit>
+             <trans-unit id="151">
+                <source>jda.collection.description</source>
+                <target>Collection Description</target>
+            </trans-unit>
+             <trans-unit id="152">
+                <source>jda.collection.archive</source>
+                <target>Archive Settings</target>
+            </trans-unit>
+             <trans-unit id="153">
+                <source>jda.collection.public</source>
+                <target>Public</target>
+            </trans-unit>
+             <trans-unit id="154">
+                <source>jda.collection.limited</source>
+                <target>Limited</target>
+            </trans-unit>
+             <trans-unit id="155">
+                <source>jda.collection.archivenote</source>
+                <target>Note: it may take several minutes for the changes to take effect</target>
+            </trans-unit>
+             <trans-unit id="156">
+                <source>jda.collection.new</source>
+                <target>new collection</target>
+            </trans-unit>
+             <trans-unit id="157">
+                <source>jda.collection.createnew</source>
+                <target>Create A New Collection</target>
+            </trans-unit>
+             <trans-unit id="158">
+                <source>jda.save</source>
+                <target>Save</target>
+            </trans-unit>
+             <trans-unit id="159">
+                <source>jda.cancel</source>
+                <target>Cancel</target>
+            </trans-unit>
+            <trans-unit id="160">
+                <source>jda.collection.nolocation</source>
+                <target>No location information</target>
+            </trans-unit>
+            <trans-unit id="161">
+                <source>jda.collection.publiclabel</source>
+                <target>Anyone can view your collection. Your collection will appear in general archive searches.</target>
+            </trans-unit>
+            <trans-unit id="162">
+                <source>jda.collection.limitedlabel</source>
+                <target>Only those people with a link to your collection can view it. Your collection will not appear in general archive searches or on your public user page.</target>
+            </trans-unit>
+              <trans-unit id="163">
+                <source>jda.collection.publicdesc</source>
+                <target>Anyone can find this collection.</target>
+            </trans-unit>
+            <trans-unit id="164">
+                <source>jda.collection.limiteddesc</source>
+                <target>Will not show up in search results</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
