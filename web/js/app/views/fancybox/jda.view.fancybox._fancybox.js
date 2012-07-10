@@ -34,7 +34,7 @@
 			
 			$(this.el).find('.tagsedit').empty().tagsInput({
 				'interactive':true,
-				'defaultText':'add a tag',
+				'defaultText':l.fancybox_addtag,
 				'onAddTag':function(){_this.updateTags('',_this)},
 				'onRemoveTag':function(){_this.updateTags('',_this)},
 				'removeWithBackspace' : false,
@@ -204,10 +204,13 @@
 			};
 			
 			
+			/*
 			if(this.model.get('attribution_uri').indexOf('flickr')>-1) blanks.sourceText = 'View on Flickr';
 			else 	if(this.model.get('attribution_uri').indexOf('youtube')>-1) blanks.sourceText = 'View on Youtube';
 			else 	if(this.model.get('attribution_uri').indexOf('soundcloud')>-1) blanks.sourceText = 'Listen on Soundcloud';
-			else blanks.sourceText ='View Source';
+			else blanks.sourceText = l.fancybox_source;
+			*/
+			blanks.sourceText = l.fancybox_source;
 
 			blanks.itemShareLink = sessionStorage.getItem('hostname')+sessionStorage.getItem('locale')+'/item/'+ this.model.id;
 			
@@ -367,10 +370,10 @@
 							'<div class="fancybox-left-column">' +
 								/* Share & Add to collection buttons */
 								'<div style="margin-bottom:3px">'+
-									'<button class="btn btn-mini btn-inverse pull-left jda-show-share-link" style="margin-right:5px;margin-bottom:3px"><i  class="icon-share-alt icon-white"></i>'+l.jda_fancybox_link+'</button> '+
+									'<button class="btn btn-mini btn-inverse pull-left jda-show-share-link" style="margin-right:5px;margin-bottom:3px"><i  class="icon-share-alt icon-white"></i>'+l.fancybox_link+'</button> '+
 									'<div class="btn-group jda-add-to-menu pull-left">'+
 									  '<a class="btn btn-mini btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">'+
-									    l.jda_fancybox_addto+
+									    l.fancybox_addto+
 									    '<span class="caret"></span>'+
 									  '</a>'+
 									  '<ul class="dropdown-menu fancybox-my-collections-list">'+
@@ -386,18 +389,18 @@
 								'<div class="fancybox-media-item media-item" style="clear:both"></div>'+
 
 								/* Tags */
-								'<p class="more subheader" style="clear:both">Tags</p><div id="zeega-tag-container" class="more zeega-tags">'+
+								'<p class="more subheader" style="clear:both">'+l.fancybox_tags+'</p><div id="zeega-tag-container" class="more zeega-tags">'+
 								'<input name="tags" class="fancybox-editable tagsedit" id="<%=randId%>" value="<%=tags%>" />'+
 								'</div>'+
 							'</div>'+
 							'<p class="fancybox-editable title"><%= title %></p>'+
 							'<p><span class=" creator fancybox-editable"><%= creator %></span> <span class="source"><a href="<%= sourceLink %>" target="_blank"><%= sourceText %></a></span></p>'+
-							'<p class="more subheader">Description</p><p class="more description fancybox-editable"><%= description %></p>'+
+							'<p class="more subheader">'+l.fancybox_description+'</p><p class="more description fancybox-editable"><%= description %></p>'+
 							'<div id = "fancybox-map" class="more geo"></div>'+
 
 						'</div>'+
 						'<div class="fancybox-buttons" class="clearfix">'+
-							'<p class="less fancybox-more-button"><a href=".">view more</a></p><p class="more fancybox-less-button"><a href=".">view less</a></p>'+
+							'<p class="less fancybox-more-button"><a href=".">'+l.fancybox_more+'</a></p><p class="more fancybox-less-button"><a href=".">'+l.fancybox_less+'</a></p>'+
 							'<p class="fancybox-delete-button more" style="display:none"><a href=".">delete</a></p>'+
 							'<p class="fancybox-confirm-delete-button">are you totally sure you want to delete this? '+
 							'<a href="." class="yes-confirm-delete">yes</a> <a class="no-do-not-delete" href=".">no</a></p>'+
