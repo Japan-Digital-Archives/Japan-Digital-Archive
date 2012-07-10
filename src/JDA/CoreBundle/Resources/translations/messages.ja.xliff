@@ -526,15 +526,15 @@
                 <target>（時間／地図データ）</target>
             </trans-unit> 
 			 <trans-unit id="132">
-                <source>jda.search.gotocollection</source>
+                <source>jda.collection.goto</source>
                 <target>コレクションに移動する</target>
             </trans-unit>     
             <trans-unit id="133">
-                <source>jda.search.savecollection</source>
+                <source>jda.collection.save</source>
                 <target>コレクションを保存する</target>
             </trans-unit>   
              <trans-unit id="134">
-                <source>jda.search.dragcover</source>
+                <source>jda.collection.dragcover</source>
                 <target>ここにドラッグした画像がカバーになります</target>
             </trans-unit>   
              <trans-unit id="135">
@@ -565,7 +565,7 @@
                 <target>アーカイブされたデジタル情報</target>
             </trans-unit>
             <trans-unit id="141">
-                <source>jda.search.confirmdeletecollection</source>
+                <source>jda.collection.confirmdelete</source>
                 <target>Are you sure you want to remove this item from the collection?</target>
             </trans-unit>
             <trans-unit id="142">

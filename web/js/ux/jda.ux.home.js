@@ -121,9 +121,10 @@ $(document).ready(function(){
 		BrowserDetect.init();
 		
 
-		if(BrowserDetect.browser!='Chrome'&&BrowserDetect.browser!='Safari') {
+		if(BrowserDetect.browser=='Firefox'||(BrowserDetect.browser=='Explorer'&&BrowserDetect.version<9)) {
 			$('#browserModal').modal('show');
 		}
+		console.log(BrowserDetect);
 		
 
 
@@ -236,7 +237,6 @@ $(document).ready(function(){
 		window.open("search?#view_type=thumb&collection="+$(this).data('id')+"&content=all&","_self");
 	
 	});
-	
 	
 	$(window).resize(function() {
       $('.jda-home-featured-collection').height(Math.max($(window).height()-50, 600));

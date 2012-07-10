@@ -466,7 +466,7 @@
 				
 				'<div class="jda-collection-head">'+
 					'<div class="cover-image" style="background-image:url(<%= thumbnail_url %>)">';
-			if(_.isNull(this.model.get('thumbnail_url')) || this.model.get('thumbnail_url') == '' ) html += '<div class="drag-to"><i class="icon-camera"></i>'+$('#drag-cover-text').html()+'</div>';
+			if(_.isNull(this.model.get('thumbnail_url')) || this.model.get('thumbnail_url') == '' ) html += '<div class="drag-to"><i class="icon-camera"></i>'+l.jda_collection_dragcover+'</div>';
 			html+=			'<div class="cover-overlay">'+
 							'<h1 style="width:90%"><%=title%></h1><h4>by: <a href="#" class="jda-collection-filter-author"><%=media_creator_realname%></a> on <%= date_created %></h4>'+
 						'</div>'+

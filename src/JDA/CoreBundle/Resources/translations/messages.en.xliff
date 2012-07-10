@@ -529,15 +529,15 @@ nuclear catastrophe.</target>
                 <target>with time and place data</target>
             </trans-unit> 
 			 <trans-unit id="132">
-                <source>jda.search.gotocollection</source>
+                <source>jda.collection.goto</source>
                 <target>Go to Collection</target>
             </trans-unit>  
             <trans-unit id="133">
-                <source>jda.search.savecollection</source>
+                <source>jda.collection.save</source>
                 <target>Save Collection</target>
             </trans-unit>
          	 <trans-unit id="134">
-                <source>jda.search.dragcover</source>
+                <source>jda.collection.dragcover</source>
                 <target>Drag cover image here</target>
             </trans-unit>    
             <trans-unit id="135">
@@ -568,7 +568,7 @@ nuclear catastrophe.</target>
                 <target>Items Contributed to the Archive</target>
             </trans-unit>
              <trans-unit id="141">
-                <source>jda.search.confirmdeletecollection</source>
+                <source>jda.collection.confirmdelete</source>
                 <target>Are you sure you want to remove this item from the collection?</target>
             </trans-unit>
             <trans-unit id="142">
@@ -593,7 +593,7 @@ nuclear catastrophe.</target>
             </trans-unit>
             <trans-unit id="147">
                 <source>jda.browser.modalbody</source>
-                <target>The Japan Digital Archive is currently optimized for the latest versions of Chrome or Safari.  Support for Internet Explorer and Firefox coming soon.</target>
+                <target>The Japan Digital Archive is currently optimized for the latest versions of Chrome, Internet Explorer and Safari.  Support for Firefox coming soon.</target>
             </trans-unit>
             <trans-unit id="148">
                 <source>jda.collection.play</source>
@@ -669,7 +669,7 @@ nuclear catastrophe.</target>
             </trans-unit>
             <trans-unit id="166">
                 <source>jda.collection.editmap</source>
-                <target>Edit Map Location</target>
+                <target>Edit Location</target>
             </trans-unit>
             <trans-unit id="167">
                 <source>jda.collection.remove</source>

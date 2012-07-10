@@ -222,12 +222,12 @@
 					
 					
 					if(sessionStorage.getItem('user')!=1){
-						$('#zeega-my-collections-share-and-organize').html($('#save-collection-text').html()).click(function(){
+						$('#zeega-my-collections-share-and-organize').html("<a href='#' >"+l.jda_collection_save+"</a>").click(function(){
 							$('#sign-in').trigger('click'); 
 						}).show();
 					}
 					else if( model.get('child_items').length >0){
-						$('#zeega-my-collections-share-and-organize').html($('#go-to-collection-text').html()).unbind().click(function(){
+						$('#zeega-my-collections-share-and-organize').html("<a href='#' >"+l.jda_collection_goto+"</a>").unbind().click(function(){
 							_this.activeCollection.set('editable',true);
 							jda.app.addFilter(_this.activeCollection, 'collection');
 							return false;

@@ -64,7 +64,7 @@
 
 			var blanks = this.model.attributes;
 
-			blanks.remove_text = $('#jda-search-remove').text();
+			blanks.remove_text = l.jda_collection_remove;
 
 			
 			if (this.model.get('media_type') == "Tweet" && this.options.show_caption){
