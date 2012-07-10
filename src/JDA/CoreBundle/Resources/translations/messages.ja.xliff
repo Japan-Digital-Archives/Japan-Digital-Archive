@@ -590,7 +590,7 @@
             </trans-unit>
             <trans-unit id="147">
                 <source>jda.browser.modalbody</source>
-                <target>現在このアーカイブはGoogle Chrome、Safari、Firefox 10以降に最適化されており、その他のブラウザでは正しく作動しない場合がございますので、どうぞご了承下さい。Internet Explorer につきましてはまもなくサポートされる予定です。</target>
+                <target>現在このアーカイブはGoogle Chrome、Internet Explorer、Safariの最新版に最適化されており、その他のブラウザでは正しく作動しない場合がございますので、どうぞご了承下さい。Firefox につきましてはまもなくサポートされる予定です。</target>
             </trans-unit>
                 <trans-unit id="148">
                 <source>jda.collection.play</source>
@@ -642,7 +642,7 @@
             </trans-unit>
             <trans-unit id="160">
                 <source>jda.collection.nolocation</source>
-                <target>No location information</target>
+                <target>位置情報はありません</target>
             </trans-unit>
             <trans-unit id="161">
                 <source>jda.collection.publiclabel</source>
@@ -675,6 +675,18 @@
             <trans-unit id="168">
                 <source>jda.searching</source>
                 <target>検索方法</target>
+            </trans-unit>
+            <trans-unit id="169">
+                <source>jda.feedbackthanks</source>
+                <target>ご意見・ご感想ありがとうございました！</target>
+            </trans-unit>
+            <trans-unit id="170">
+                <source>jda.close</source>
+                <target>閉じる</target>
+            </trans-unit>
+             <trans-unit id="171">
+                <source>jda.team</source>
+                <target>the jda team</target>
             </trans-unit>
         </body>
     </file>

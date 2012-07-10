@@ -679,6 +679,18 @@ nuclear catastrophe.</target>
                 <source>jda.searching</source>
                 <target>Searching</target>
             </trans-unit>
+            <trans-unit id="169">
+                <source>jda.feedbackthanks</source>
+                <target>Thanks for your feedback！</target>
+            </trans-unit>
+            <trans-unit id="170">
+                <source>jda.close</source>
+                <target>Close</target>
+            </trans-unit>
+             <trans-unit id="171">
+                <source>jda.team</source>
+                <target>the jda team</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
