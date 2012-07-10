@@ -28,7 +28,7 @@
 	
 	
 				this.isEditView = false;
-				this.isMoreView = false;
+				
 				this.elemId = Math.floor(Math.random()*10000);
 	
 				
@@ -82,7 +82,7 @@
 		render: function(done)
 		{
 			var _this = this;
-			this.canEdit = this.model.get('editable');
+			
 			
 
 			/***************************************************************************
@@ -99,7 +99,7 @@
 		
 			$(this.el).html( _.template( template, blanks ) );
 	
-			if (this.canEdit){
+			if (this.model.get('editable')){
 				$(this.el).find('button.edit').show();
 			}
 			
@@ -120,7 +120,7 @@
 				Tags view
 			***************************************************************************/
 			$(this.el).find('.tagsedit').empty().tagsInput({
-				'interactive':this.canEdit && this.isEditView,
+				'interactive':this.model.get('editable') && this.isEditView,
 				'defaultText':'add a tag',
 				'onAddTag':function(){_this.updateTags('',_this)},
 				'onRemoveTag':function(){_this.updateTags('',_this)},
@@ -340,12 +340,11 @@
 			},
 			
 		cancelEdits : function(){
+			//ensure that it's editable, weird bug where editable value changes - wha??
+			this.model.set({'editable':true});
 
 			this.render();
 			
-			
-			
-
 			this.turnOffEditMode();
 		},
 			
