@@ -29,18 +29,20 @@
 					break;
 				}
 			}
+
 			if (deleteIdx >= 0){
 				var removed = this._childViews.splice(deleteIdx,1);
 				$(this.el).find(removed[0].el).remove();
 
 				this.updateResultsCounts();
 				this.updated = true;
+				
 			}
 
 		},
 		updateResultsCounts : function(){
-			var collectionsCount = this.collection.collectionsCount;
-			var itemsCount = this.collection.count;
+			var collectionsCount = this.collection.collectionsCount.length;
+			var itemsCount = this.collection.length;
 
 			$('.jda-results-collections-count').text( jda.app.addCommas(collectionsCount));
 			$('.jda-results-items-count').text( jda.app.addCommas(itemsCount));
@@ -64,7 +66,7 @@
 				
 
 
-				this.updateResultsCounts();
+				
 
 				if(jda.app.currentView == 'thumb'){
 					$('.collections-thumbnails').empty();
@@ -126,7 +128,8 @@
 			} 
 
 
-
+			this.updateResultsCounts();
+			
 			$(this.el).show();
 
 			jda.app.isLoading = false;

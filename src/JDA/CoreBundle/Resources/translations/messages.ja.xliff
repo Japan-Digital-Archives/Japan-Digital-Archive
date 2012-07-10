@@ -660,6 +660,18 @@
                 <source>jda.collection.limiteddesc</source>
                 <target>Will not show up in search results</target>
             </trans-unit>
+             <trans-unit id="165">
+                <source>jda.collection.editdesc</source>
+                <target>Edit Collection Description</target>
+            </trans-unit>
+            <trans-unit id="166">
+                <source>jda.collection.editmap</source>
+                <target>Edit Map Location</target>
+            </trans-unit>
+        	<trans-unit id="167">
+                <source>jda.collection.remove</source>
+                <target>remove</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -120,12 +120,12 @@ $(document).ready(function(){
 	};
 		BrowserDetect.init();
 		
+
 		if(BrowserDetect.browser!='Chrome'&&BrowserDetect.browser!='Safari') {
-		
 			$('#browserModal').modal('show');
-		
 		}
 		
+
 
 
 
@@ -229,9 +229,9 @@ $(document).ready(function(){
 	
 	
 	
+	$('.jda-home-featured-collection').height(Math.max($(window).height()-50, 600));
 	
-	
-	$('.jda-home-featured-collection-text-block').height(Math.max($(window).height()-50, 600)).click(function(){
+	$('.jda-home-featured-collection-text-block').click(function(){
 	
 		window.open("search?#view_type=thumb&collection="+$(this).data('id')+"&content=all&","_self");
 	

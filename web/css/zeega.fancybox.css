@@ -13,6 +13,8 @@
 	left:10px;
 	-webkit-transform: rotate(180deg);
 	-moz-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
 	background-image: url('../images/mediaPlayerArrow_shadow.png');
 	width:57px !important;
 	height:110px;
@@ -168,12 +170,12 @@
 	position: absolute;
 	top: 0px;
 	right: 0px;
-	font-size: 2em;
+	/*font-size: 2em;
 	font-weight:bold;
 	font-family: Arial,sans-serif;
 	text-shadow: 1px 1px 1px #666;
 	filter: dropshadow(color=#666, offx=1, offy=1);
-	z-index:100;
+	z-index:100;*/
 }
 .tagsinput input{
 	padding:2px !important;
@@ -652,7 +654,7 @@ position:relative;
 
 #plyr-standard .plyr-controls-wrapper {
 	position:relative;
-		display:none;
+	display:none;
 }
 
 
