@@ -675,6 +675,10 @@ nuclear catastrophe.</target>
                 <source>jda.collection.remove</source>
                 <target>remove</target>
             </trans-unit>
+            <trans-unit id="168">
+                <source>jda.searching</source>
+                <target>Searching</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

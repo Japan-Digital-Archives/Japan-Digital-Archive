@@ -650,27 +650,31 @@
             </trans-unit>
             <trans-unit id="162">
                 <source>jda.collection.limitedlabel</source>
-                <target> リンクを知っている方だけがあなたのコレクションを見ることができます。あなたのコレクションは一般検索結果やパブリック・ユーザページには表示されません。</target>
+                <target>リンクを知っている方だけがあなたのコレクションを見ることができます。あなたのコレクションは一般検索結果や公開ユーザページには表示されません。</target>
             </trans-unit>
               <trans-unit id="163">
                 <source>jda.collection.publicdesc</source>
-                <target>Anyone can find this collection.</target>
+                <target>検索結果には表示されません。</target>
             </trans-unit>
             <trans-unit id="164">
                 <source>jda.collection.limiteddesc</source>
-                <target>Will not show up in search results</target>
+                <target>検索結果には表示されません。</target>
             </trans-unit>
              <trans-unit id="165">
                 <source>jda.collection.editdesc</source>
-                <target>Edit Collection Description</target>
+                <target>コレクションの説明を編集する</target>
             </trans-unit>
             <trans-unit id="166">
                 <source>jda.collection.editmap</source>
-                <target>Edit Map Location</target>
+                <target>位置情報を編集する</target>
             </trans-unit>
         	<trans-unit id="167">
                 <source>jda.collection.remove</source>
-                <target>remove</target>
+                <target>削除</target>
+            </trans-unit>
+            <trans-unit id="168">
+                <source>jda.searching</source>
+                <target>検索方法</target>
             </trans-unit>
         </body>
     </file>
