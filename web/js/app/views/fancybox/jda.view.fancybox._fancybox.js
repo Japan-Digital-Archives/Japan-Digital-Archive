@@ -367,10 +367,10 @@
 							'<div class="fancybox-left-column">' +
 								/* Share & Add to collection buttons */
 								'<div style="margin-bottom:3px">'+
-									'<button class="btn btn-mini btn-inverse pull-left jda-show-share-link" style="margin-right:5px;margin-bottom:3px"><i  class="icon-share-alt icon-white"></i> Link</button> '+
+									'<button class="btn btn-mini btn-inverse pull-left jda-show-share-link" style="margin-right:5px;margin-bottom:3px"><i  class="icon-share-alt icon-white"></i>'+l.jda_fancybox_link+'</button> '+
 									'<div class="btn-group jda-add-to-menu pull-left">'+
 									  '<a class="btn btn-mini btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">'+
-									    'Add to '+
+									    l.jda_fancybox_addto+
 									    '<span class="caret"></span>'+
 									  '</a>'+
 									  '<ul class="dropdown-menu fancybox-my-collections-list">'+

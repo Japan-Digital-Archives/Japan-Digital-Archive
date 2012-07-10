@@ -688,6 +688,14 @@
                 <source>jda.team</source>
                 <target>the jda team</target>
             </trans-unit>
+             <trans-unit id="172">
+                <source>jda.fancybox.addto</source>
+                <target>追加</target>
+            </trans-unit>
+            <trans-unit id="173">
+                <source>jda.fancybox.link</source>
+                <target>リンク</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

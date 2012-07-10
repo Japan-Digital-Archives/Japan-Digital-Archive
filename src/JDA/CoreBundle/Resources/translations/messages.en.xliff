@@ -691,6 +691,14 @@ nuclear catastrophe.</target>
                 <source>jda.team</source>
                 <target>the jda team</target>
             </trans-unit>
+            <trans-unit id="172">
+                <source>jda.fancybox.addto</source>
+                <target>Add to</target>
+            </trans-unit>
+            <trans-unit id="173">
+                <source>jda.fancybox.link</source>
+                <target>Link</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
