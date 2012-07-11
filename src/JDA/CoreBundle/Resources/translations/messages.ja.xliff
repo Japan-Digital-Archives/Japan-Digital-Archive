@@ -688,6 +688,42 @@
                 <source>jda.team</source>
                 <target>the jda team</target>
             </trans-unit>
+             <trans-unit id="172">
+                <source>fancybox.addto</source>
+                <target>追加</target>
+            </trans-unit>
+            <trans-unit id="173">
+                <source>fancybox.link</source>
+                <target>リンク</target>
+            </trans-unit>
+            <trans-unit id="174">
+                <source>fancybox.more</source>
+                <target>詳細</target>
+            </trans-unit>
+            <trans-unit id="175">
+                <source>fancybox.less</source>
+                <target>概要</target>
+            </trans-unit>
+            <trans-unit id="176">
+                <source>fancybox.source</source>
+                <target>元の情報を開く</target>
+            </trans-unit>
+              <trans-unit id="177">
+                <source>fancybox.description</source>
+                <target>説明</target>
+            </trans-unit>
+            <trans-unit id="178">
+                <source>fancybox.map</source>
+                <target>Map</target>
+            </trans-unit>
+             <trans-unit id="179">
+                <source>fancybox.tags</source>
+                <target>タグ</target>
+            </trans-unit>
+            <trans-unit id="180">
+                <source>fancybox.addtag</source>
+                <target>add a tag</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

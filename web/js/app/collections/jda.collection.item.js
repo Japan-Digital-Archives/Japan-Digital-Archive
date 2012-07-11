@@ -91,6 +91,7 @@
 			else{
 		
 				this.count = response.items_count;
+				this.collectionsCount = response.collections_count;
 				return response.items;
 			}
 		
