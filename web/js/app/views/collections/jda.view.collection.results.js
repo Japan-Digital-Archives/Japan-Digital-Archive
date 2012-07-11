@@ -41,8 +41,8 @@
 
 		},
 		updateResultsCounts : function(){
-			var collectionsCount = this.collection.collectionsCount.length;
-			var itemsCount = this.collection.length;
+			var collectionsCount = this.collection.collectionsCount;
+			var itemsCount = this.collection.count;
 
 			$('.jda-results-collections-count').text( jda.app.addCommas(collectionsCount));
 			$('.jda-results-items-count').text( jda.app.addCommas(itemsCount));
