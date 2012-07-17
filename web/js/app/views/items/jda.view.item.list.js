@@ -192,7 +192,7 @@
 				'<p class="jda-item-description"><%= description %></p>'+
 			'</td>'+
 			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
-				'<p class="jda-user-link bottom" >via <a href="#" ><%= display_name %></a></p>'+
+				'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
 			'</td>';
 			
 
@@ -212,7 +212,7 @@
 				'<p class="jda-item-description"><%= description %></p>'+
 			'</td>'+
 			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
-			'<p class="jda-user-link bottom" >via <a href="#" ><%= display_name %></a></p>'+
+			'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
 			'</td>';
 			
 
@@ -235,7 +235,7 @@
 			'</td>'+
 			'<td class="jda-item-date">'+
 				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
-				'<p class="jda-user-link bottom" >via <a href="#" ><%= display_name %></a></p>'+
+				'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
 			'</td>';
 
 			
@@ -255,7 +255,7 @@
 			'</td>'+
 			'<td class="zeega-list-right-column jda-item-date">'+
 				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
-				'<p class="jda-user-link bottom" >via <a href="#" ><%= display_name %></a></p>'+
+				'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
 			'</td>';
 			
 			
@@ -272,7 +272,7 @@
 				'<p class="jda-item-description"><%= text %></p>'+
 			'</td>'+
 			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
-				'<p class="jda-user-link bottom">via <a href="#" ><%= display_name %></a></p>'+
+				'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
 			'</td>';
 			
 			return html;
@@ -288,7 +288,7 @@
 				'<p class="jda-item-description"><%= description %></p>'+
 			'</td>'+
 			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
-				'<p class="jda-user-link bottom">via <a href="#" ><%= display_name %></a></p>'+			
+				'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
 			'</td>';
 			return html;
 		},
@@ -329,7 +329,7 @@
 				'</td>'+
 				'<td class="zeega-list-right-column jda-item-date">'+
 					'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
-					'<p class="jda-user-link bottom">via <a href="#" ><%= display_name %></a></p>'+	
+					'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
 				'</td>';
 				
 
