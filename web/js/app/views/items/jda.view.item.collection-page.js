@@ -210,7 +210,7 @@
 		
 			//Show the trash cans
 			$('.jda-delete-item').unbind().click(function(){
-				var doDelete = confirm($('#confirm-delete-collection-text').text());
+				var doDelete = confirm(l.jda_collection_confirmdelete);
 				if (doDelete){
 					var itemID = $(this).closest('li').attr('id');
 					_this.model.save({
