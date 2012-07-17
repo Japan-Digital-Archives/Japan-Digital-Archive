@@ -124,11 +124,11 @@
             </trans-unit>
              <trans-unit id="31">
                 <source>jda.search.listview</source>
-                <target>LIST VIEW</target>
+                <target>List View</target>
             </trans-unit>
              <trans-unit id="32">
-                <source>jda.search.timeplaceview</source>
-                <target>TIME + PLACE VIEW</target>
+                <source>jda.search.map</source>
+                <target>Map View</target>
             </trans-unit>
              <trans-unit id="33">
                 <source>jda.search.relatedtags</source>
@@ -726,6 +726,10 @@ nuclear catastrophe.</target>
             <trans-unit id="180">
                 <source>fancybox.addtag</source>
                 <target>add a tag</target>
+            </trans-unit>
+             <trans-unit id="181">
+                <source>jda.search.thumbnailview</source>
+                <target>Thumbnail View</target>
             </trans-unit>
         </body>
     </file>

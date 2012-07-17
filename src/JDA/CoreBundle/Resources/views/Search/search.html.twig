@@ -79,9 +79,9 @@ body {
 	<div id="zeega-view-navigation">
 		<div class="container" style="width:98%">
 			<div class="btn-group" id="zeega-view-buttons">
-				<a data-goto-view='list'><button id="list-button" class="btn btn-inverse active" rel="tooltip" title="List View" style="4px 0 0 4px"><i class="icon-list icon-white"></i></button></a>
-				<a data-goto-view='thumb'><button id="thumb-button" class="btn btn-inverse" rel="tooltip" title="Thumbnail View" style="border-radius:0"><i class="icon-th-large icon-white"></i></button></a>	
-				<a data-goto-view='event'><button id="event-button" class="btn btn-inverse" rel="tooltip" title="Map View" style="border-radius:0 4px 4px 0"><i class="icon-map-marker icon-white"></i></button></a>
+				<a data-goto-view='list'><button id="list-button" class="btn btn-inverse active" rel="tooltip" title="{% trans %}jda.search.listview{% endtrans %}" style="4px 0 0 4px"><i class="icon-list icon-white"></i></button></a>
+				<a data-goto-view='thumb'><button id="thumb-button" class="btn btn-inverse" rel="tooltip" title="{% trans %}jda.search.thumbnailview{% endtrans %}" style="border-radius:0"><i class="icon-th-large icon-white"></i></button></a>	
+				<a data-goto-view='event'><button id="event-button" class="btn btn-inverse" rel="tooltip" title="{% trans %}jda.search.mapview{% endtrans %}" style="border-radius:0 4px 4px 0"><i class="icon-map-marker icon-white"></i></button></a>
 			</div>
 			<div id="jda-search-button-group" style="display:none">
 				<div id="search-bar" style="margin-right:5px">
@@ -181,7 +181,7 @@ body {
 								  </div>
 								  <div id="layer-control">
 										<ul>
-											  <li><a href="#layer-checkboxes">{% trans %}jda.search.data{% endtrans %}</a></li>
+											  <li><a href="#layer-checkboxes">{% trans %}jda.search.layers{% endtrans %}</a></li>
 											  <li><a href="#layer-legend">{% trans %}jda.search.legend{% endtrans %}</a></li>
 										</ul>
 										<div id='layer-checkboxes'>

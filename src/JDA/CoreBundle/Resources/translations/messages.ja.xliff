@@ -127,8 +127,8 @@
                 <target>リスト表示</target>
             </trans-unit>
              <trans-unit id="32">
-                <source>jda.search.timeplaceview</source>
-                <target>時間／空間表示</target>
+                <source>jda.search.mapview</source>
+                <target>時間・地図表示</target>
             </trans-unit>
              <trans-unit id="33">
                 <source>jda.search.relatedtags</source>
@@ -723,6 +723,10 @@
             <trans-unit id="180">
                 <source>fancybox.addtag</source>
                 <target>タグを加える</target>
+            </trans-unit>
+             <trans-unit id="181">
+                <source>jda.search.thumbnailview</source>
+                <target>サムネイル表示</target>
             </trans-unit>
         </body>
     </file>
