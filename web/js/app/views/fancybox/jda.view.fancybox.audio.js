@@ -40,6 +40,7 @@
 	},
 	
 	beforeClose: function(){
+		this.plyr.pop.pause();
 		this.plyr.destroy();
 
 	},
