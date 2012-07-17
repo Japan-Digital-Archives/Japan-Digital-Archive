@@ -570,11 +570,11 @@
             </trans-unit>
             <trans-unit id="142">
                 <source>jda.search.removedFilter</source>
-                <target>Removed filter</target>
+                <target>フィルターを外す</target>
             </trans-unit>
             <trans-unit id="143">
                 <source>jda.search.unsupportedFilters</source>
-                <target>Sorry, the events view doesn't support filtering by tag yet.</target>
+                <target>現在のところ、時間／地図表示ではタグによるフィルタリングができません。どうぞご了解下さい。</target>
             </trans-unit>
             <trans-unit id="144">
                 <source>jda.search.loadingmoreresults</source>
@@ -590,7 +590,7 @@
             </trans-unit>
             <trans-unit id="147">
                 <source>jda.browser.modalbody</source>
-                <target>現在このアーカイブはGoogle Chrome、Internet Explorer、Safariの最新版に最適化されており、その他のブラウザでは正しく作動しない場合がございますので、どうぞご了承下さい。Firefox につきましてはまもなくサポートされる予定です。</target>
+                <target>2011年東日本大震災デジタルアーカイブは、現在Chrome、Internet Explorer、Firefox、Safariの最新版に最適化しています。アーカイブを快適にご利用歌頂くため、お使いのブラウザの更新をお勧め致します。</target>
             </trans-unit>
                 <trans-unit id="148">
                 <source>jda.collection.play</source>
