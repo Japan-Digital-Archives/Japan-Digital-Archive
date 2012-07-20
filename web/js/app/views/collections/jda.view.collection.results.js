@@ -146,6 +146,9 @@
 					$("#jda-related-tags").append(tagHTML);
 					$("#jda-related-tags button").filter(":last").click(function(){
 						
+						
+						
+						
 						//clear all current search filters
 						jda.app.clearSearchFilters(false);
 
@@ -154,7 +157,7 @@
 						
 
 
-						jda.app.search({ page:1,});
+						jda.app.parseSearchUI();
 						return false;
 					});
 				})
@@ -206,15 +209,15 @@
 			$('#spinner').spin('large');
 
 			this.collection.setSearch(obj,reset);
-			//this.setURLHash();
+	
 			
 			// fetch search collection for the list/thumb view
 			this.collection.fetch({
 				add : (obj.page) > 1 ? true : false,
 				success : function(model, response)
-				{ 
-					
+				{
 					//deselect/unfocus last tag - temp fix till figure out why tag is popping up autocomplete
+					
 					VisualSearch.searchBox.disableFacets();
 
 					$('#zeega-results-count-number').html( jda.app.addCommas(response["items_count"]));
@@ -256,18 +259,16 @@
 		},
 		
 		
+
+		
+		
 		setMapBounds : function(bounds)
 		{
 			this.collection.search.mapBounds = bounds;
 			//this.setURLHash();
 		},
 	 
-		setView : function(view)
-		{
-			this.collection.search.viewType = view;	
-			//this.setURLHash();
-		},
-	
+
 		setContent : function(content)
 		{
 			this.collection.search.content = content;
@@ -283,23 +284,7 @@
 		},
 		setURLHash : function()
 		{
-			var obj = this.collection.search;
-		 	var hash = '';      
-		 	if( !_.isUndefined(obj.viewType)) hash += 'view_type=' + obj.viewType + '&';
-		 	if( !_.isUndefined(obj.q) && obj.q.length > 0) hash += 'q=' + obj.q + '&';
-		 	if( !_.isUndefined(obj.collection) && obj.collection > 0) hash += 'collection=' + obj.collection + '&';
-		 	if( !_.isUndefined(obj.user) && obj.user > 0) hash += 'user=' + obj.user + '&';
-		 	if( !_.isUndefined(obj.content) )  hash += 'content='+ obj.content + '&';
-		 	if( !_.isUndefined(obj.mapBounds) )  hash += 'map_bounds='+ encodeURIComponent(obj.mapBounds) + '&';
-		 	//if( !_.isUndefined(obj.username) && obj.username.length > 0)  hash += 'username='+ encodeURIComponent(obj.username) + '&';
-		 	if( !_.isUndefined(obj.times) )
-			{
-		 		if( !_.isUndefined(obj.times.start) ) hash += 'min_date='+ obj.times.start + '&';
-		 		if( !_.isUndefined(obj.times.end) ) hash += 'max_date='+ obj.times.end + '&';
-			}  
 	
-			console.log('jda.app.router.navigate',hash);
-	 		jda.app.router.navigate(hash,{trigger:false});
 	
 		},
 		
@@ -310,7 +295,7 @@
 			search.times = {};
 			search.times.start = startDate;
 			search.times.end = endDate;
-			this.setURLHash();
+
 		},
 		
 		getCQLSearchString : function()
@@ -319,7 +304,7 @@
 			var search = this.collection.search;
 		
 			var cqlFilters = [];
-			if( !_.isUndefined(search.times) )
+			if( !_.isUndefined(search.times) &&!_.isNull(search.times))
 			{
 				if( !_.isUndefined(search.times.start) )
 				{

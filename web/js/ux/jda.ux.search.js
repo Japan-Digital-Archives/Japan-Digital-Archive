@@ -253,7 +253,7 @@ $(document).ready(function(){
 
   $('#zeega-content-type').change(function(){
     $('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
-    jda.app.search({ page:1});
+    jda.app.parseSearchUI();
     return false;
   });
 

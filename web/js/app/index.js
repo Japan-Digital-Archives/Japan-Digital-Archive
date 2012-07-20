@@ -10,7 +10,7 @@ jQuery(function($)
 			loaded	: function(){},
 
 			search : function(){ 
-					jda.app.search( {page:1} ) 
+					jda.app.parseSearchUI() 
 				
 			},
 
@@ -19,7 +19,7 @@ jQuery(function($)
 			facetMatches : function(callback)
 			{
 				callback([
-					'tag', 'keyword', 'text', 'data:time & place','collection','user'
+					'tag', 'keyword', 'text'  //, 'data:time & place','collection','user'
 				]);
 			},
 			// These are the values that match specific categories, autocompleted
@@ -29,9 +29,11 @@ jQuery(function($)
 			{
 				switch (facet)
 				{
-					case 'user':
+
+/*					case 'user':
 						callback([]);
 						break;
+*/
 					case 'tag':
 						callback([]);
 						break;
@@ -41,9 +43,11 @@ jQuery(function($)
 					case 'text':
 						callback([]);
 						break;
+/*
 					case 'data:time & place':
 						callback([]);
 						break;
+*/
 				}
 			}
 		} //callbacks
@@ -58,14 +62,15 @@ jQuery(function($)
 
 		routes: {
 			""				: 'search',
-			":query"		: "search",
+			":query"		: 'search',
 
 		},
 
 		search : function( query )
 				{
 
-					JDA.clearSearchFilters(false);
+					//Update Search Object
+					
 					var obj = '{page:1}';
 					if (!_.isUndefined(query))
 					{
@@ -81,6 +86,19 @@ jQuery(function($)
 						obj.times.end = obj.max_date;
 					}
 
+					JDA.searchObject = obj;
+
+
+					//Update interface
+					
+					JDA.updateSearchUI(obj);
+					
+					if (!_.isUndefined(obj.view_type)) JDA.switchViewTo(obj.view_type,true) ;
+					else JDA.search(obj);
+					
+					
+
+					/*
 
 					//If URL specifies particular collection then we gotta look it up and set it in the app
 					//Only then can we update search UI with the title of the collection as a facet
@@ -120,10 +138,15 @@ jQuery(function($)
 					else {
 						JDA.search(obj, true);
 					}
+					
+					*/
 				}
 
 
 			});
+	
+	
+	
 	var QueryStringToHash = function QueryStringToHash  (query) {
 	  var query_string = {};
 	  var vars = query.split("&");

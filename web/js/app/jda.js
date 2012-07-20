@@ -40,61 +40,73 @@ this.jda = {
 		this.myCollectionsDrawer.getCollectionList();
 	},
 	
-	search : function(params, useValuesFromURL){
 	
-		console.log("jda.app.search",params,useValuesFromURL);
-
-		var _this = this;
+	parseSearchUI : function(){
 		
-		//Parse out search box values for putting them in the Search query
-		if (useValuesFromURL){
-			//get the search query from URL and put it in the search box			
-			this.updateSearchUI(params);
-		}
-		
-		else{
-			//Use content value from format dropdown
+		var facets = VisualSearch.searchQuery.models;
 			
-			
+		var obj={};
+		var tagQuery = "tag:";
+		var textQuery = "";
+		//var usernameQuery = null;
+		//var collectionQuery = null;
 
-			//Parse searchbox values
-			var facets = VisualSearch.searchQuery.models;
+		_.each(facets, function(facet){
+			switch ( facet.get('category') )
+			{
+				case 'text':
+					textQuery = (textQuery.length > 0) ? textQuery + " AND " + facet.get('value') : facet.get('value'); 
+					textQuery=textQuery.replace(/^#/, '');
+					break;
+				case 'tag':
+					tagQuery = (tagQuery.length > 4) ? tagQuery + ", " + facet.get('value') : tagQuery + facet.get('value');
+					tagQuery=tagQuery.replace(/^#/, '');
+					break;
+				/*
+				case 'user':
+					usernameQuery = facet.get('value');
+					break;
+				case 'collection':
+					collectionQuery = facet.get('value');
+					break;
+				*/
+			}
+		});
 			
-			
-			var tagQuery = "tag:";
-			var textQuery = "";
-			var usernameQuery = null;
-			var collectionQuery = null;
-
-			_.each(facets, function(facet){
-				switch ( facet.get('category') )
-				{
-					case 'text':
-						textQuery = (textQuery.length > 0) ? textQuery + " AND " + facet.get('value') : facet.get('value'); 
-						textQuery=textQuery.replace(/^#/, '');
-						break;
-					case 'tag':
-						tagQuery = (tagQuery.length > 4) ? tagQuery + ", " + facet.get('value') : tagQuery + facet.get('value');
-						tagQuery=tagQuery.replace(/^#/, '');
-						break;
-					case 'user':
-						usernameQuery = facet.get('value');
-						break;
-					case 'collection':
-						collectionQuery = facet.get('value');
-						break;
-					
-			    }
-			});
-			
-			params.q = textQuery + (textQuery.length > 0 && tagQuery.length > 4 ? " " : "") + (tagQuery.length > 4 ? tagQuery : "");
-			params.text = textQuery;
-			params.view_type = this.currentView;
-			params.username = usernameQuery;
-			params.collection_name = collectionQuery;
-		}
+		obj.q = textQuery + (textQuery.length > 0 && tagQuery.length > 4 ? " " : "") + (tagQuery.length > 4 ? tagQuery : "");
+		obj.text = textQuery;
+		obj.view_type = this.currentView;
+		//obj.username = usernameQuery;
+		//obj.collection_name = collectionQuery;
+	
 		
-		params.content = $('#zeega-content-type').val();
+		obj.content = $('#zeega-content-type').val();
+		
+		obj.times = this.searchObject.times;
+		
+		this.searchObject=obj;
+		
+		
+		this.updateURLHash(obj);
+		this.search(obj);
+	
+	},
+	
+	search : function(obj, useValuesFromURL){
+	
+		console.log("jda.app.search",obj);
+		
+		var _this=this;
+		
+		this.resultsView.search( obj,true );
+		
+		//if ( obj.view_type == 'event' && !this.eventMap.timeSliderLoaded) this.setEventViewTimePlace(obj);
+		
+		
+		if (this.currentView == 'event') this.eventMap.load();
+		
+		
+		/*
 		
 	
 		if(_.isNull(params.collection_name)&&_.isObject(this.resultsView.collectionFilter)) this.removeFilter("collection");
@@ -137,12 +149,17 @@ this.jda = {
 			}
 		}
 		
+		*/
+		
 	},
 	
 	updateSearchUI : function(obj){
 	
 		console.log("jda.app.updateSearchUI",obj);	
 	
+		VisualSearch.searchBox.disableFacets();
+	    VisualSearch.searchBox.value('');
+	  	VisualSearch.searchBox.flags.allSelected = false;
 		var q = obj.q;
 		if (!_.isUndefined(q))
 		{
@@ -171,13 +188,37 @@ this.jda = {
 		}
 		
 		
-		if (!_.isUndefined(obj.content)){
-			$('#zeega-content-type').val(obj.content);
-			$('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
-		}
+		if (!_.isUndefined(obj.content)) $('#zeega-content-type').val(obj.content);
+		else $('#zeega-content-type').val("all");
+		
+		$('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
 		
 		
 	},
+	
+	updateURLHash : function(obj){
+		
+		 	var hash = '';      
+		 	if( !_.isUndefined(this.viewType)) hash += 'view_type=' + this.viewType + '&';
+		 	if( !_.isUndefined(obj.q) && obj.q.length > 0) hash += 'q=' + obj.q + '&';
+		 	//if( !_.isUndefined(obj.collection) && obj.collection > 0) hash += 'collection=' + obj.collection + '&';
+		 	//if( !_.isUndefined(obj.user) && obj.user > 0) hash += 'user=' + obj.user + '&';
+		 	if( !_.isUndefined(obj.content) )  hash += 'content='+ obj.content + '&';
+		 	if( !_.isUndefined(obj.mapBounds) )  hash += 'map_bounds='+ encodeURIComponent(obj.mapBounds) + '&';
+		 	//if( !_.isUndefined(obj.username) && obj.username.length > 0)  hash += 'username='+ encodeURIComponent(obj.username) + '&';
+		 	if( !_.isUndefined(obj.times)&&  !_.isNull(obj.times) )
+			{
+		 		if( !_.isUndefined(obj.times.start) ) hash += 'min_date='+ obj.times.start + '&';
+		 		if( !_.isUndefined(obj.times.end) ) hash += 'max_date='+ obj.times.end + '&';
+			}  
+	
+			console.log('jda.app.updateURLHash',obj,hash);
+	 		jda.app.router.navigate(hash,{trigger:false});
+	
+	},
+	
+	
+	
 	
 	setEventViewTimePlace : function(obj){
 		if (!_.isUndefined(obj.start))
@@ -200,49 +241,32 @@ this.jda = {
 
 	switchViewTo : function( view , refresh ){
 	
-		console.log("jda.app.switchViewTo",view,refresh);
+		console.log("jda.app.switchViewTo",view,this.currentView,refresh);
 	
 		var _this=this;
-		this.resultsView.setView(view);
-		if( view != this.currentView ||view=="event")
+
+		if( view != this.currentView&&(view=="event"||this.currentView=="event"))refresh = true;
+		 
+		this.currentView = view;
+		$('.tab-pane').removeClass('active');
+		$('#zeega-'+view+'-view').addClass('active');
+		
+	
+		switch( this.currentView )
 		{
-			
-			if(this.currentView=="event") refresh=true;
-			else refresh =false;
-			
-			//$('#'+this.currentView+'-view').hide();
-			this.currentView = view;
-			$('.tab-pane').removeClass('active');
-			$('#zeega-'+view+'-view').addClass('active');
-			
- 	 		//$(this).hide();
-			switch( this.currentView )
-			{
-				case 'list':
-					this.showListView();
-					break;
-				case 'event':
-					this.showEventView();
-					break;
-				case 'thumb':
-					this.showThumbnailView();
-					break;
-				default:
-					console.log('view type not recognized')
-			}
-			console.log('setting url hash');
-			this.resultsView.setURLHash();
-			if(refresh){
-				$('#zeega-results-count').fadeOut('fast');
-				this.resultsView.collection.fetch({
-					success : function(model, response){ 
-						_this.resultsView.render();       
-					}
-				});
-			}
-			
-			
+			case 'list':
+				this.showListView(refresh);
+				break;
+			case 'event':
+				this.showEventView(refresh);
+				break;
+			case 'thumb':
+				this.showThumbnailView(refresh);
+				break;
+			default:
+				console.log('view type not recognized')
 		}
+		
 	},
 	
 	/***************************************************************************
@@ -396,8 +420,12 @@ this.jda = {
 	},
 	
 	clearSearchFilters : function(doSearch){
+		
+		
 		console.log("jda.app.clearSearchFilters", doSearch);
 		
+		
+	
 		if (doSearch == null) doSearch = true;
 		
     	$('#zeega-content-type').val("all");
@@ -408,16 +436,14 @@ this.jda = {
 	    VisualSearch.searchBox.value('');
 	  	VisualSearch.searchBox.flags.allSelected = false;
 	  	if(doSearch) this.search({ page:1,});
+	  	
+
 	},
 	
-	
-	
-	
-	
-	
-	showListView : function(){
+	showListView : function(refresh){
 		console.log('switch to List view');
 
+	
 	    
 		$('#zeega-view-buttons .btn').removeClass('active');
 		$('#list-button').addClass('active');
@@ -436,10 +462,19 @@ this.jda = {
 			console.log('render collection')
 			this.resultsView.render();
 		}
+		this.viewType='list';
+		if(refresh){
+			this.searchObject.times=null;
+			this.search(this.searchObject);
+		}
+	    
+	    this.updateURLHash(this.searchObject);
 		
 	},
 	
-	showThumbnailView : function(){
+	showThumbnailView : function(refresh){
+		
+		
 	
 		$('#zeega-view-buttons .btn').removeClass('active');
 		$('#thumb-button').addClass('active');
@@ -457,9 +492,15 @@ this.jda = {
 			console.log('render collection')
 			this.resultsView.render();
 		}
+		this.viewType='thumb';
+		if(refresh){
+			this.searchObject.times=null;
+			this.search(this.searchObject);
+		}
+	    this.updateURLHash(this.searchObject);
 	},
 	
-	showEventView : function(){
+	showEventView : function(refresh){
 		console.log('switch to Event view');
 		$('#zeega-view-buttons .btn').removeClass('active');
 		$('#event-button').addClass('active');
@@ -490,7 +531,7 @@ this.jda = {
 			if( facet.model.get('category') == 'collection' ||
 				facet.model.get('category') == 'user') {
 				_this.removeFilter(facet.model.get('category'),_this.resultsView.getSearch());
-				_this.resultsView.setURLHash();
+				
 			}
 			
 		})
@@ -506,17 +547,12 @@ this.jda = {
 
 		//this is the hacky way to update the search count properly on the map
 		$("#zeega-results-count").fadeTo(100,0);
-		this.resultsView.collection.fetch({
-			success : function(model, response){ 
-				_this.resultsView.renderTags(response.tags);
-				_this.resultsView.render();      
-				$('#zeega-results-count-number').text(jda.app.addCommas(response["items_and_collections_count"]));        
-				$('#zeega-results-count').fadeTo(100, 1);
-			}
-		});
 		
-		this.eventMap.load();
+		
+		this.viewType='event';
+		this.parseSearchUI();
 	},
+	
 	goToAuthorPage : function(userId){
 		var _this = this;
 		this.clearSearchFilters(false);

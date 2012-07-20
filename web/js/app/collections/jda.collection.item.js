@@ -24,7 +24,7 @@
 			if( !_.isUndefined(this.search.r_tags)) url += '&r_tags=' + this.search.r_tags;
 			if( !_.isUndefined(this.search.r_itemswithcollections) ) url += '&r_itemswithcollections=' + this.search.r_itemswithcollections;
 			if( !_.isUndefined(this.search.r_collections) ) url += '&r_collections=' + this.search.r_collections;
-			if( !_.isUndefined(this.search.times) ){
+			if( !_.isUndefined(this.search.times)&&!_.isNull(this.search.times) ){
 			    if( !_.isUndefined(this.search.times.start) ) url += '&min_date=' + this.search.times.start;
 			    if( !_.isUndefined(this.search.times.end) ) url += '&max_date=' + this.search.times.end;
 	     	};
@@ -70,7 +70,7 @@
 		parse : function(response)
 		{
 		
-			
+			console.log("jda.collection.item", response);
 			this.tags=response.tags;
 			
 			if (this.search.r_collections && response.collections){

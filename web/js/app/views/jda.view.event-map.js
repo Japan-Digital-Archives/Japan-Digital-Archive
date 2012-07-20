@@ -38,7 +38,9 @@
 				this.map.getLayersByName('cite:item - Tiled')[0].mergeNewParams({
 						'CQL_FILTER' : jda.app.resultsView.getCQLSearchString()
 					});
+				this.initTimeSlider();
 		 	}
+		 	
 			
 		
 		},
@@ -90,8 +92,6 @@
 					_this.map.setCenter(new OpenLayers.LonLat(140.652466, 38.052417).transform(proj, _this.map.getProjectionObject()), 9);
 					_this.startMapListeners( _this.map );
 				
-					//_this.initTimeSlider(_this.map);
-					
 					_this.initLayerControl();
 					_this.mapLoaded = true;
 					$(".olControlPanZoomBar").css({"top":"65px"});
@@ -328,10 +328,8 @@
 		
 		
 		
-		
 		initTimeSlider : function(map){
 			console.log("Initializing Time Slider");
-			
 			_this = this;
 			if( !this.timesliderLoaded ){
 				this.timeSliderLoaded = true;
@@ -351,6 +349,9 @@
 				timeSliderContainer.html(timesliderHTML);
 				
 				//add the jquery-ui date and time pickers and change handlers
+				
+				
+				
 				$('#start-time').timepicker({}).change(this.setStartDateTimeSliderHandle);
 				$('#end-time').timepicker({}).change(this.setEndDateTimeSliderHandle);
 				
@@ -370,12 +371,18 @@
 				//times are seconds since jan 1 1970
 				minTime = 1293840000;
 				maxTime = 1330095357;
+				
+				if(!_.isNull(jda.app.searchObject.times)&&!_.isUndefined(jda.app.searchObject.times.start)) start=jda.app.searchObject.times.start; 
+				else start=minTime;
+			
+				if(!_.isNull(jda.app.searchObject.times)&&!_.isUndefined(jda.app.searchObject.times.end)) end=jda.app.searchObject.times.end; 
+				else end=maxTime;
 				//maxTime = 1293940000;      //short range for testing hours and minutes
 				$("#range-slider").slider({
 					range: true, 
 					min: minTime, 
 					max: maxTime,
-					values: [minTime, maxTime],
+					values: [start, end],
 					slide: function( event, ui )
 					{
 						if (ui.values[0]<ui.values[1]){
@@ -389,9 +396,14 @@
 					{	
 						_this.setStartDateTimeSliderBubble(ui.values[0]);
 						_this.setEndDateTimeSliderBubble(ui.values[1]);
-						 jda.app.resultsView.setStartAndEndTimes(ui.values[0], ui.values[1]);
-						_this.updateMapForTimeSlider(map);
-						_this.updateResultsCountForTimeSlider();
+						
+						jda.app.searchObject.times = {
+							start:ui.values[0],
+							end:ui.values[1]
+							};
+						jda.app.updateURLHash(jda.app.searchObject);
+						jda.app.search(jda.app.searchObject);
+	
 					 }
 				});
 				$("#range-slider").css("margin-left", $("#date-time-start").outerWidth());
@@ -404,29 +416,8 @@
 			}
 		
 		}, 
+		
 
-		
-		updateResultsCountForTimeSlider : function(sliderUI, map){
-			var searchView = jda.app.resultsView;
-			$("#jda-related-tags, #jda-title, #zeega-results-count").fadeTo(100,0);
-			searchView.collection.fetch({
-				success : function(model, response){ 
-					searchView.renderTags(response.tags);
-					searchView.render();      
-					$('#zeega-results-count-number').text(jda.app.addCommas(response["items_and_collections_count"]));        
-					$('#zeega-results-count').fadeTo(100, 1);
-				}
-			});
-		},
-		
-		updateMapForTimeSlider : function(map){
-			 cqlFilterString = jda.app.resultsView.getCQLSearchString();
- 	 			if( jda.app.resultsView.getCQLSearchString()!=null){
- 					map.getLayersByName('cite:item - Tiled')[0].mergeNewParams({
- 					'CQL_FILTER' : jda.app.resultsView.getCQLSearchString()
-			     });
-				 }
-		},
 		
 		setStartDateTimeSliderHandle : function(){
 			dateMillis = $("#start-date").datepicker('getDate').getTime();
