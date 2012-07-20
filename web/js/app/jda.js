@@ -40,6 +40,105 @@ this.jda = {
 		this.myCollectionsDrawer.getCollectionList();
 	},
 	
+	queryStringToHash: function (query) {
+	  var query_obj = {};
+	  var vars = query.split("&");
+	  for (var i=0;i<vars.length;i++) {
+		var pair = vars[i].split("=");
+		pair[0] = decodeURIComponent(pair[0]);
+		pair[1] = decodeURIComponent(pair[1]);
+			// If first entry with this name
+		if (typeof query_obj[pair[0]] === "undefined") {
+		  query_obj[pair[0]] = pair[1];
+			// If second entry with this name
+		} else if (typeof query_obj[pair[0]] === "string") {
+		  var arr = [ query_obj[pair[0]], pair[1] ];
+		  query_obj[pair[0]] = arr;
+			// If third or later entry with this name
+		} else {
+		  query_obj[pair[0]].push(pair[1]);
+		}
+	  }
+	  
+	  //parse time slider properties
+		query_obj.times = {};
+		if (query_obj.min_date != null){
+			query_obj.times.start = query_obj.min_date;
+		}
+		if (query_obj.max_date != null){
+			query_obj.times.end = query_obj.max_date;
+		}
+	  
+	  return query_obj;
+	},
+	
+	parseURLHash  : function (query){
+	
+					var _this=this;
+					
+					//Update Search Object
+					
+					if (!_.isUndefined(query)) this.searchObject =  this.queryStringToHash(query);
+					else this.searchObject = {page:1};
+
+					//Update interface
+					
+					this.updateSearchUI(this.searchObject);
+					
+					//Load filter if nec, carry out search
+					
+					if(sessionStorage.getItem('filterType')=='none'||!_.isUndefined(this.filterModel)) {
+					
+						if (!_.isUndefined(this.searchObject.view_type)) this.switchViewTo(this.searchObject.view_type,true) ;
+						else this.search(this.searchObject);
+					}
+					else{
+					
+						$('.tab-content').find('.btn-group').hide();
+						$('#jda-related-tags').hide();
+						$('#event-button').hide();
+						
+						if(sessionStorage.getItem('filterType')=='user'){
+							this.filterType ="user";
+							$('#jda-left').css("margin-top","165px");							
+							var Browser = jda.module("browser");
+							this.filterModel = new Browser.Users.Model({id:sessionStorage.getItem('filterId')});
+							this.filterModel.fetch({
+								success : function(model, response){
+												_this.resultsView.userFilter = new Browser.Users.Views.UserPage({model:model});
+												if (!_.isUndefined(_this.searchObject.view_type)) _this.switchViewTo(_this.searchObject.view_type,true) ;
+												else _this.search(_this.searchObject);
+								},
+								error : function(model, response){
+									console.log('Failed to fetch the user object.');
+									console.log(model);
+								},
+							});					
+						}
+						else if(sessionStorage.getItem('filterType')=='collection'){
+							$('#jda-left').css("margin-top","325px");
+							this.filterType ="collection";
+							var Browser = jda.module("browser");
+							this.filterModel = new Browser.Items.Model({id:sessionStorage.getItem('filterId')});
+							this.filterModel.fetch({
+								success : function(model, response){
+									_this.resultsView.collectionFilter = new Browser.Items.Views.CollectionPage({model:model});
+									if (!_.isUndefined(_this.searchObject.view_type)) _this.switchViewTo(_this.searchObject.view_type,true) ;
+									else _this.search(_this.searchObject);
+								},
+								error : function(model, response){
+									console.log('Failed to fetch the user object.');
+									console.log(model);
+								},
+					
+							});
+						
+						}
+					}
+				
+	
+	
+	},
 	
 	parseSearchUI : function(){
 		
@@ -90,67 +189,6 @@ this.jda = {
 		this.updateURLHash(obj);
 		this.search(obj);
 	
-	},
-	
-	search : function(obj, useValuesFromURL){
-	
-		console.log("jda.app.search",obj);
-		
-		var _this=this;
-		
-		this.resultsView.search( obj,true );
-		
-		//if ( obj.view_type == 'event' && !this.eventMap.timeSliderLoaded) this.setEventViewTimePlace(obj);
-		
-		
-		if (this.currentView == 'event') this.eventMap.load();
-		
-		
-		/*
-		
-	
-		if(_.isNull(params.collection_name)&&_.isObject(this.resultsView.collectionFilter)) this.removeFilter("collection");
-		else if(_.isObject(this.resultsView.collectionFilter)) params.collection=this.resultsView.collectionFilter.model.id;
-		
-
-		if(_.isNull(params.username)&&_.isObject(this.resultsView.userFilter)) this.removeFilter("user");
-		else if(_.isObject(this.resultsView.userFilter))params.user=this.resultsView.userFilter.model.id;
-	
-		
-		if ( params.view_type == 'event'){
-			this.resultsView.collection.setSearch(params,true);
-		}
-		else {
-			this.resultsView.search( params,true );
-		}
-		
-		if (!_.isUndefined(params.view_type))  this.switchViewTo(params.view_type,true) ;
-		
-		
-		if ( params.view_type == 'event' && !this.eventMap.timeSliderLoaded) {
-			
-			this.setEventViewTimePlace(params);
-		}
-		
-		
-		
-		if (this.currentView == 'event'){
-		    
-		    console.log("currentView is event");
-		    
-		    
-			if(!_.isUndefined( this.resultsView.getCQLSearchString())&&this.eventMap.mapLoaded)
-			{
-				console.log("merging cql string",this.resultsView.getCQLSearchString());
-				
-				_this.eventMap.map.getLayersByName('cite:item - Tiled')[0].mergeNewParams({
-					'CQL_FILTER' : this.resultsView.getCQLSearchString()
-				});
-			}
-		}
-		
-		*/
-		
 	},
 	
 	updateSearchUI : function(obj){
@@ -217,28 +255,35 @@ this.jda = {
 	
 	},
 	
+	search : function(obj){
 	
+		console.log("jda.app.search",obj);		
+		
+		if(!_.isUndefined(this.filterType)){
+			if(this.filterType=="user"){
+				obj.user= sessionStorage.getItem('filterId');
+				obj.r_collections=1;
+				obj.r_items=1;
+				obj.r_itemswithcollections=0;
+			}
+			else if(this.filterType=="collection"){
+				obj.collection = sessionStorage.getItem('filterId');
+				obj.r_items=1;
+				obj.r_itemswithcollections=0;
+			
+			}
+		}
+		
 	
+		this.resultsView.search( obj,true );
+		
+		//if ( obj.view_type == 'event' && !this.eventMap.timeSliderLoaded) this.setEventViewTimePlace(obj);
+		
+		
+		if (this.currentView == 'event') this.eventMap.load();
+		
+	},
 	
-	setEventViewTimePlace : function(obj){
-		if (!_.isUndefined(obj.start))
-		{
-			oldValues =  $("#range-slider").slider( "option", "values" );
-			$( "#range-slider" ).slider( "option", "values", [obj.start, oldValues[1]] );
-		}
-		if (!_.isUndefined(obj.end))
-		{
-			oldValues =  $("#range-slider").slider( "option", "values" );
-			$( "#range-slider" ).slider( "option", "values", [oldValues[0], obj.end]);
-		}
-		if (!_.isUndefined(obj.map_bounds))
-		{
-			coords = (obj.map_bounds).split(',');
-			bounds = new OpenLayers.Bounds(coords[0], coords[1], coords[2], coords[3]);
-			this.eventMap.map.zoomToExtent(bounds);
-		}
- 	},
-
 	switchViewTo : function( view , refresh ){
 	
 		console.log("jda.app.switchViewTo",view,this.currentView,refresh);
@@ -268,178 +313,7 @@ this.jda = {
 		}
 		
 	},
-	
-	/***************************************************************************
-		- model: either collection or user
-		- filterType: Filters are type either "collection" or "user"
-		- searchParams: Optionally pass in searchParams to have it set other things on search
-	***************************************************************************/
-	
-	addFilter : function(model, filterType, searchParams,useValuesFromURL){
-		console.log("jda.app.addFilter",model,filterType,searchParams);
-		
-		
-		if(this.currentView=='event'){
-			var view ='list';
-			this.currentView = view;
-			$('.tab-pane').removeClass('active');
-			$('#zeega-'+view+'-view').addClass('active');
-			
- 	 		//$(this).hide();
-			switch( this.currentView )
-			{
-				case 'list':
-					this.showListView();
-					break;
-				case 'event':
-					this.showEventView();
-					break;
-				case 'thumb':
-					this.showThumbnailView();
-					break;
-				default:
-					console.log('view type not recognized')
-			}
-		}
-		
-		
-		/*******  UX ***/
-		
-		$('.tab-content').find('.btn-group').hide();
-		$('#jda-related-tags').hide();
-		
-		/****** END UX **********/
 
-		if (_.isUndefined(searchParams)||_.isNull(searchParams)){
-			searchParams = new Object();
-		}
-		searchParams.page = 1;
-
-		var Browser = jda.module("browser");
-		this.clearSearchFilters(false);
-
-		if (filterType == 'collection'){
-			//clear out user filter - you can't have both
-			if (this.resultsView.userFilter != null) this.removeFilter('user',searchParams,false);
-			
-			
-			$('#jda-left').css("margin-top","325px");
-			this.currentFilterType ="collection";
-			
-			this.resultsView.collectionFilter = new Browser.Items.Views.CollectionPage({model:model});
-			searchParams.r_items=1;
-			searchParams.r_itemswithcollections=0;
-			searchParams.collection = model.id;
-		
-			this.search(searchParams);
-		
-		} else if (filterType == 'user'){
-			
-			
-			
-			//clear out collection filter - you can't have both
-			if (this.resultsView.collectionFilter != null) this.removeFilter('collection',searchParams,false);
-			
-			this.currentFilterType ="user";
-			$('#jda-left').css("margin-top","165px");
-			
-			var Browser = jda.module("browser");
-			//the r_collections parameter separates the items and collections in the search results
-			searchParams.r_collections=1;
-			searchParams.r_items=1;
-			searchParams.r_itemswithcollections=0;
-			this.resultsView.userFilter = new Browser.Users.Views.UserPage({model:model});
-			searchParams.user = model.id;
-			this.search(searchParams);
-		}
-
-	},
-	
-	
-	/***************************************************************************
-		- filterType: Filters are type either "collection" or "user"
-		- searchParams: Optionally pass in searchParams to have it set other things on search
-		- doSearch: Optionally make app request new items or not, default is TRUE
-	***************************************************************************/
-	
-	removeFilter : function(filterType, searchParams, clearAll){
-		
-		console.log("jda.app.removeFilter",filterType,searchParams,clearAll);
-			
-		if (searchParams == null){
-			searchParams = new Object();
-		}
-		if (clearAll == null){
-			clearAll = true;
-		}
-		
-		if(filterType == 'current') filterType=this.currentFilterType;
-			
-		if(clearAll){
-		
-			$('.tab-content').find('.btn-group').show();
-			$('#jda-left').css("margin-top", "0px");
-			$('#jda-related-tags').fadeIn('fast');
-			this.currenFilterType=null;
-			
-		}
-		
-
-	
-	
-		if (filterType == 'collection'){
-		
-			console.log("removing collection filter");
-			//remove collectionFilter view which takes care of UI
-			if(_.isObject(this.resultsView.collectionFilter)) this.resultsView.collectionFilter.remove();
-			
-			//set filter to null
-			this.resultsView.collectionFilter = null;
-
-			//remove search parameter from JDA app
-			searchParams.collection = '';
-		} 
-		else if (filterType == 'user'){
-		
-			console.log("removing user filter");
-			
-			//remove collectionFilter view which takes care of UI
-			if(_.isObject(this.resultsView.userFilter)) this.resultsView.userFilter.remove();
-
-			//set filter to null
-			this.resultsView.userFilter = null;
-
-			//remove the item/collection separation
-			searchParams.r_collections=0;
-
-			//remove search parameter from JDA app
-			searchParams.user = '';
-		}
-		
-
-	},
-	
-	clearSearchFilters : function(doSearch){
-		
-		
-		console.log("jda.app.clearSearchFilters", doSearch);
-		
-		
-	
-		if (doSearch == null) doSearch = true;
-		
-    	$('#zeega-content-type').val("all");
-    	$('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
-
-    	//remove search box values
-    	VisualSearch.searchBox.disableFacets();
-	    VisualSearch.searchBox.value('');
-	  	VisualSearch.searchBox.flags.allSelected = false;
-	  	if(doSearch) this.search({ page:1,});
-	  	
-
-	},
-	
 	showListView : function(refresh){
 		console.log('switch to List view');
 
@@ -553,34 +427,53 @@ this.jda = {
 		this.parseSearchUI();
 	},
 	
-	goToAuthorPage : function(userId){
-		var _this = this;
-		this.clearSearchFilters(false);
-
-		//retrieve user object and then add user filter
-		var Browser = jda.module("browser");
-		var authorModel = new Browser.Users.Model({id:userId});
-		authorModel.fetch({
-			success : function(model, response){
-				jda.app.addFilter(model,'user', {collection:''});
-			},
-			error : function(model, response){
-				console.log('Failed to fetch the user object.');
-				console.log(model);
-			},
-
-		});
+	setEventViewTimePlace : function(obj){
+			if (!_.isUndefined(obj.start))
+			{
+				oldValues =  $("#range-slider").slider( "option", "values" );
+				$( "#range-slider" ).slider( "option", "values", [obj.start, oldValues[1]] );
+			}
+			if (!_.isUndefined(obj.end))
+			{
+				oldValues =  $("#range-slider").slider( "option", "values" );
+				$( "#range-slider" ).slider( "option", "values", [oldValues[0], obj.end]);
+			}
+			if (!_.isUndefined(obj.map_bounds))
+			{
+				coords = (obj.map_bounds).split(',');
+				bounds = new OpenLayers.Bounds(coords[0], coords[1], coords[2], coords[3]);
+				this.eventMap.map.zoomToExtent(bounds);
+			}
+		},
 		
+	clearSearchFilters : function(doSearch){
+		console.log("jda.app.clearSearchFilters", doSearch);
+
+    	$('#zeega-content-type').val("all");
+    	$('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
+
+    	//remove search box values
+    	VisualSearch.searchBox.disableFacets();
+	    VisualSearch.searchBox.value('');
+	  	VisualSearch.searchBox.flags.allSelected = false;
+	  	if(doSearch) this.search({ page:1,});
 	},
 	
+	goToCollection: function (id){
 	
-
-	initAdvSearch : function(){
-		// do init code here
-    },
-
-
-
+		console.log('gotocollection',id);
+		window.location=$('#zeega-main-content').data('collection-link')+"/"+id;
+	
+	},
+	
+	goToUser: function (id){
+	
+		console.log('gotouser',id);
+		window.location=$('#zeega-main-content').data('user-link')+"/"+id;
+	
+	},
+		
+		
 
 	/***************************************************************************
 		- called when user authentication has occured
@@ -604,8 +497,6 @@ this.jda = {
 		else this.initCollectionsDrawer();
 	},
 
-
-	
 	addCommas : function(nStr){
 		nStr += '';
 		x = nStr.split('.');
@@ -617,11 +508,6 @@ this.jda = {
 		}
 		return x1 + x2;
 	},
-	
-	goToCollectionsPage : function(){ 
-		this.removeFilter("current",null,true);
-	}
-
 	
 	
 }, Backbone.Events)

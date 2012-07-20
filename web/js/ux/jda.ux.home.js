@@ -140,7 +140,7 @@ $(document).ready(function(){
 	/*************** USER LOGIN ************************/
 	
 	$('#sign-in').click(function(){
-		$('#user-modal-body').empty().append('<iframe class="login" src="login?_locale='+sessionStorage.getItem('locale')+'"></iframe>');
+		$('#user-modal-body').empty().append('<iframe class="login" src="'+$('#sign-in').data('link')+'"></iframe>');
 		$('#user-modal').modal('show'); 
 		return false;
 	});

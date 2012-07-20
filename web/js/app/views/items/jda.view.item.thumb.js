@@ -103,7 +103,7 @@
 			if (this.model.get('media_type') == 'Collection')
 			{
 				this.draggable=false;
-				$(this.el).click(function(){ jda.app.addFilter(_this.model, 'collection'); return false;});
+				$(this.el).click(function(){ jda.app.goToCollection(_this.model.id); return false;});
 				$(this.el).find('.zeega-collection').css({'width':this.options.thumbnail_width, 'height': this.options.thumbnail_height});
 				
 			} else{

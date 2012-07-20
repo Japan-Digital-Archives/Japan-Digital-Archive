@@ -31,40 +31,7 @@
 				
 				this.elemId = Math.floor(Math.random()*10000);
 	
-				
-				/* Adjust Visual Search box with proper filters */
-			  var facetExists = false;
-	
-				//first remove other collection filters
-				_.each( VisualSearch.searchBox.facetViews, function( facet ){
-					if (facet.model.get("category")=="collection" && facet.model.get("value") != _this.model.get('title')) {
-						facet.model.set({'value': null });
-						facet.remove();
-					} else if (facet.model.get("category")=="collection" && facet.model.get("value") == _this.model.get('title')){
-						facetExists = true;
-					}
-				});
-				
-				//add collection filter to the VisualSearch box
-				if (!facetExists){	
-					VisualSearch.searchBox.addFacet('collection', this.model.get('title'), 0);
-					_.delay(function(){	$('input').blur();},500);
-				}
-				
-				//collection close removes the filter from the DOM and sets the object to null
-				_.each( VisualSearch.searchBox.facetViews, function( facet ){
-					
-					if (facet.model.get("category")=="collection") {
-						$(facet.el).find('.VS-icon-cancel').click(function(){
-							jda.app.removeFilter('collection');
-	
-						});
-						
-						
-					}
-					
 			
-				});
 			
 	
 	
@@ -95,6 +62,8 @@
 			blanks.archiveSettingsText = blanks.published == false ? l.jda_collection_limited : l.jda_collection_public;
 			blanks.archiveSettingsDesc = blanks.published == false ? l.jda_collection_limiteddesc : l.jda_collection_publicdesc;
 
+		
+		
 		
 			$(this.el).html( _.template( template, blanks ) );
 	
@@ -194,7 +163,7 @@
 			
 			$(this.el).find('.jda-collection-filter-author').click(function(){
 				
-				jda.app.goToAuthorPage(_this.model.get('user_id'));
+				jda.app.goToUser(_this.model.get('user_id'));
 			
 			});
 
@@ -462,10 +431,13 @@
 		},
 			
 		getTemplate : function(){
+				
+				
 				html = 
 				
 				'<div class="jda-collection-head">'+
 					'<div class="cover-image" style="background-image:url(<%= thumbnail_url %>)">';
+			
 			if(_.isNull(this.model.get('thumbnail_url')) || this.model.get('thumbnail_url') == '' ) html += '<div class="drag-to"><i class="icon-camera"></i>'+l.jda_collection_dragcover+'</div>';
 			html+=			'<div class="cover-overlay">'+
 							'<h1 style="width:90%"><%=title%></h1><h4>by: <a href="#" class="jda-collection-filter-author"><%=media_creator_realname%></a> on <%= date_created %></h4>'+

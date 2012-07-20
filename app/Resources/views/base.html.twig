@@ -103,7 +103,7 @@
 											<input class='bug-email' type='text'></input>
 										</li>
 										<li class='bug-unsubmitted'>
-											<button class='btn btn-success submit-bug'>{% trans %}jda.login.button{% endtrans %}</button>
+											<button  class='btn btn-success submit-bug'>{% trans %}jda.login.button{% endtrans %}</button>
 										</li>
 										<li class='bug-submitted'>
 											<h2>{% trans %}jda.feedbackthanks{% endtrans %}</h2>
@@ -149,7 +149,7 @@
 											<li><a href='{{ path('_security_logout',{ '_locale': locale })}}' >{% trans %}jda.user.logout{% endtrans %}</a></li>
 										</ul>
 								</li>
-								<li><a id="sign-in" href="#">{% trans %}jda.header.signin{% endtrans %}</a></li>
+								<li><a id="sign-in" data-link="{{path('fos_user_security_login', { '_locale': locale })}}" href="#">{% trans %}jda.header.signin{% endtrans %}</a></li>
 							{% endif %}
 							
 							

@@ -372,11 +372,15 @@
 				minTime = 1293840000;
 				maxTime = 1330095357;
 				
-				if(!_.isNull(jda.app.searchObject.times)&&!_.isUndefined(jda.app.searchObject.times.start)) start=jda.app.searchObject.times.start; 
-				else start=minTime;
-			
-				if(!_.isNull(jda.app.searchObject.times)&&!_.isUndefined(jda.app.searchObject.times.end)) end=jda.app.searchObject.times.end; 
-				else end=maxTime;
+				if(!_.isNull(jda.app.searchObject.times)&&!_.isNull(jda.app.searchObject.times)&&!_.isUndefined(jda.app.searchObject.times.start)&&!_.isUndefined(jda.app.searchObject.times.end)){
+					var start=jda.app.searchObject.times.start; 
+					var end=jda.app.searchObject.times.end;
+				}
+				else{
+					var start=minTime;
+					var  end=maxTime;
+				}
+				console.log(start,end);
 				//maxTime = 1293940000;      //short range for testing hours and minutes
 				$("#range-slider").slider({
 					range: true, 

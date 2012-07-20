@@ -228,8 +228,10 @@
 					}
 					else if( model.get('child_items').length >0){
 						$('#zeega-my-collections-share-and-organize').html("<a href='#' >"+l.jda_collection_goto+"</a>").unbind().click(function(){
-							_this.activeCollection.set('editable',true);
-							jda.app.addFilter(_this.activeCollection, 'collection');
+							//_this.activeCollection.set('editable',true);
+							//jda.app.addFilter(_this.activeCollection, 'collection');
+							
+							jda.app.goToCollection(_this.activeCollection.id);
 							return false;
 						}).show();
 					}

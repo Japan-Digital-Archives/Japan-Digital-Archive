@@ -22,38 +22,6 @@
 
 			if(this.model.get('locationLatitude')) this.geolocated = true;
 
-			var facetExists = false;
-
-			
-			//first remove other user filters
-			_.each( VisualSearch.searchBox.facetViews, function( facet ){
-				if (facet.model.get("category")=="user" && facet.model.get("value") != _this.model.get('display_name')) {
-					facet.model.set({'value': null });
-					facet.remove();
-				} else if (facet.model.get("category")=="user" && facet.model.get("value") == _this.model.get('display_name')){
-					facetExists = true;
-				}
-			});
-			
-			//add user filter to the VisualSearch box
-			if (!facetExists){	
-				VisualSearch.searchBox.addFacet('user', this.model.get('display_name'), 0);
-			}
-			
-			//user filter close removes the filter from the DOM and sets the object to null
-			_.each( VisualSearch.searchBox.facetViews, function( facet ){
-				
-				if (facet.model.get("category")=="user") {
-					$(facet.el).find('.VS-icon-cancel').click(function(){
-						jda.app.removeFilter('user');
-
-					});
-				}
-			});
-			
-			console.log('user info', this.model)
-
-
 		},
 		render: function(done)
 		{

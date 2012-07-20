@@ -30,10 +30,6 @@ jQuery(function($)
 				switch (facet)
 				{
 
-/*					case 'user':
-						callback([]);
-						break;
-*/
 					case 'tag':
 						callback([]);
 						break;
@@ -43,11 +39,7 @@ jQuery(function($)
 					case 'text':
 						callback([]);
 						break;
-/*
-					case 'data:time & place':
-						callback([]);
-						break;
-*/
+
 				}
 			}
 		} //callbacks
@@ -55,7 +47,7 @@ jQuery(function($)
 
 	var JDA = jda.app;
 	JDA.init();
-	//jda.app.init();
+
 
 	// Defining the application router, you can attach sub routers here.
 	var Router = Backbone.Router.extend({
@@ -66,108 +58,10 @@ jQuery(function($)
 
 		},
 
-		search : function( query )
-				{
-
-					//Update Search Object
-					
-					var obj = '{page:1}';
-					if (!_.isUndefined(query))
-					{
-						obj = QueryStringToHash(query);
-					}
-
-					//parse time slider properties
-					obj.times = {};
-					if (obj.min_date != null){
-						obj.times.start = obj.min_date;
-					}
-					if (obj.max_date != null){
-						obj.times.end = obj.max_date;
-					}
-
-					JDA.searchObject = obj;
-
-
-					//Update interface
-					
-					JDA.updateSearchUI(obj);
-					
-					if (!_.isUndefined(obj.view_type)) JDA.switchViewTo(obj.view_type,true) ;
-					else JDA.search(obj);
-					
-					
-
-					/*
-
-					//If URL specifies particular collection then we gotta look it up and set it in the app
-					//Only then can we update search UI with the title of the collection as a facet
-					if (obj.collection != null && obj.collection > 0){
-						var Browser = jda.module("browser");
-						var collectionModel = new Browser.Items.Model({id:obj.collection});
-
-						collectionModel.fetch(
-						{
-							success : function(model, response)
-							{ 
-								JDA.addFilter(model,'collection',obj,true);
-							},
-							error : function(model, response)
-							{ 
-								console.log('index.js: Error getting collection specified in URL');
-							}
-						});
-
-					} 
-					else if (obj.user != null && obj.user >= -1){
-						var Browser = jda.module("browser");
-
-						//retrieve user object and then add user filter
-						var authorModel = new Browser.Users.Model({id:obj.user});
-						authorModel.fetch({
-							success : function(model, response){
-								console.log(obj.q);
-								JDA.addFilter(model,'user',obj,true);
-							},
-							error : function(model, response){
-								console.log('index.js: Error getting user specified in URL');
-							},
-
-						});
-					}
-					else {
-						JDA.search(obj, true);
-					}
-					
-					*/
+		search : function( query ){
+					JDA.parseURLHash(query);
 				}
-
-
-			});
-	
-	
-	
-	var QueryStringToHash = function QueryStringToHash  (query) {
-	  var query_string = {};
-	  var vars = query.split("&");
-	  for (var i=0;i<vars.length;i++) {
-		var pair = vars[i].split("=");
-		pair[0] = decodeURIComponent(pair[0]);
-		pair[1] = decodeURIComponent(pair[1]);
-			// If first entry with this name
-		if (typeof query_string[pair[0]] === "undefined") {
-		  query_string[pair[0]] = pair[1];
-			// If second entry with this name
-		} else if (typeof query_string[pair[0]] === "string") {
-		  var arr = [ query_string[pair[0]], pair[1] ];
-		  query_string[pair[0]] = arr;
-			// If third or later entry with this name
-		} else {
-		  query_string[pair[0]].push(pair[1]);
-		}
-	  } 
-	  return query_string;
-	};
+		});
 
 	JDA.router = new Router();
 	Backbone.history.start();

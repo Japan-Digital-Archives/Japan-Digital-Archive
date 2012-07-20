@@ -32,3 +32,15 @@ item:
     defaults:  { _controller: JDACoreBundle:Item:index, _locale: ja }
     requirements:
         _locale: en|ja
+user:
+    pattern:   /{_locale}/user/{id}
+    defaults:  { _controller: JDACoreBundle:User:index}
+    requirements:
+        _locale: en|ja
+        id:  \d+
+collection:
+    pattern:   /{_locale}/collection/{id}
+    defaults:  { _controller: JDACoreBundle:Collection:index}
+    requirements:
+        _locale: en|ja
+        id:  \d+
