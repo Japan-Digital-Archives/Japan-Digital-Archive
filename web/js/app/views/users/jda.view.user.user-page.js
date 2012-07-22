@@ -21,6 +21,8 @@
 			this.geocoder = new google.maps.Geocoder();
 
 			if(this.model.get('locationLatitude')) this.geolocated = true;
+			
+			this.render();
 
 		},
 		render: function(done)

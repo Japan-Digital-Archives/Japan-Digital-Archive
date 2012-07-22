@@ -17,6 +17,8 @@
             this.collection.url=jda.app.apiLocation + 'api/search?r_collections=1&user=-1';			
             this.collection.parse= function(data){ return data.collections;}
 			
+			this.user=sessionStorage.getItem('user');
+			
 			//show 3 thumbnails by default in collections drawer
 			this.showThumbnailCount = 3;
 		},
@@ -27,7 +29,7 @@
 			//Render collection list in drop-down menu
 			$(this.el).find('.dropdown-menu').empty();
 			
-			if(sessionStorage.getItem('user')==1)$(this.el).find('.dropdown-menu').append('<li class="zeega-collection-list-item" ><a class="new-collection" href="#"><i class="icon-plus"></i> '+l.jda_collection_createnew+'</a></li><li class="divider"></li>');
+			if(!_.isNull(this.user))$(this.el).find('.dropdown-menu').append('<li class="zeega-collection-list-item" ><a class="new-collection" href="#"><i class="icon-plus"></i> '+l.jda_collection_createnew+'</a></li><li class="divider"></li>');
 			
 			
 			_.each( _.toArray(this.collection), function(item){
@@ -102,7 +104,7 @@
 			    drop : function( event, ui ){
 			    
 			    	//TODO -- Check whether user is logged in - if not then log them in before adding
-					if(sessionStorage.getItem('user')!=1){
+					if(_.isNull(_this.user)){
 						$(_this.el).find('#zeega-my-collections-items').addClass('zeega-my-collections-items-dropping');
 					
 						_this.activeCollection.attributes.child_items.push(jda.app.draggedItem.toJSON());
@@ -221,7 +223,7 @@
 					else $('#zeega-my-collections-count-string').hide();	
 					
 					
-					if(sessionStorage.getItem('user')!=1){
+					if(_.isNull(sessionStorage.getItem('user'))){
 						$('#zeega-my-collections-share-and-organize').html("<a href='#' >"+l.jda_collection_save+"</a>").click(function(){
 							$('#sign-in').trigger('click'); 
 						}).show();
@@ -259,7 +261,7 @@
 			// but don't save until they add something to it
 			
 			
-			if(sessionStorage.getItem('user')==1){
+			if(!_.isNull(this.user)){
 				
 
 				this.collection.fetch({

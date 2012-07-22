@@ -28,17 +28,51 @@ this.jda = {
 	init : function(){
 		// make item collection
 		this.currentFilter=null;
+		
 		var Browser = jda.module("browser");
+		
+		
 		this.resultsView = new Browser.Items.Collections.Views.Results();
+		
+		
 		this.eventMap = new Browser.Views.EventMap();
+		
 		this.initCollectionsDrawer();
+		
+		
+		this.startRouter();
+		
 	},
-	
-	initCollectionsDrawer: function(){
+	initCollectionsDrawer:function(){
+		//load my collections drawer
 		var Browser = jda.module("browser");
 		this.myCollectionsDrawer = new Browser.Items.Collections.Views.MyCollectionsDrawer();
 		this.myCollectionsDrawer.getCollectionList();
+		
+	
+	
 	},
+	startRouter: function()
+	{
+		var _this = this;
+			// Defining the application router, you can attach sub routers here.
+		var Router = Backbone.Router.extend({
+	
+			routes: {
+				""				: 'search',
+				":query"		: 'search',
+	
+			},
+	
+			search : function( query ){
+						_this.parseURLHash(query);
+					}
+			});
+	
+		this.router = new Router();
+		Backbone.history.start();
+	},
+	
 	
 	queryStringToHash: function (query) {
 	  var query_obj = {};
@@ -147,8 +181,6 @@ this.jda = {
 		var obj={};
 		var tagQuery = "tag:";
 		var textQuery = "";
-		//var usernameQuery = null;
-		//var collectionQuery = null;
 
 		_.each(facets, function(facet){
 			switch ( facet.get('category') )
@@ -161,22 +193,13 @@ this.jda = {
 					tagQuery = (tagQuery.length > 4) ? tagQuery + ", " + facet.get('value') : tagQuery + facet.get('value');
 					tagQuery=tagQuery.replace(/^#/, '');
 					break;
-				/*
-				case 'user':
-					usernameQuery = facet.get('value');
-					break;
-				case 'collection':
-					collectionQuery = facet.get('value');
-					break;
-				*/
 			}
 		});
 			
 		obj.q = textQuery + (textQuery.length > 0 && tagQuery.length > 4 ? " " : "") + (tagQuery.length > 4 ? tagQuery : "");
 		obj.text = textQuery;
 		obj.view_type = this.currentView;
-		//obj.username = usernameQuery;
-		//obj.collection_name = collectionQuery;
+
 	
 		
 		obj.content = $('#zeega-content-type').val();
@@ -239,11 +262,8 @@ this.jda = {
 		 	var hash = '';      
 		 	if( !_.isUndefined(this.viewType)) hash += 'view_type=' + this.viewType + '&';
 		 	if( !_.isUndefined(obj.q) && obj.q.length > 0) hash += 'q=' + obj.q + '&';
-		 	//if( !_.isUndefined(obj.collection) && obj.collection > 0) hash += 'collection=' + obj.collection + '&';
-		 	//if( !_.isUndefined(obj.user) && obj.user > 0) hash += 'user=' + obj.user + '&';
 		 	if( !_.isUndefined(obj.content) )  hash += 'content='+ obj.content + '&';
 		 	if( !_.isUndefined(obj.mapBounds) )  hash += 'map_bounds='+ encodeURIComponent(obj.mapBounds) + '&';
-		 	//if( !_.isUndefined(obj.username) && obj.username.length > 0)  hash += 'username='+ encodeURIComponent(obj.username) + '&';
 		 	if( !_.isUndefined(obj.times)&&  !_.isNull(obj.times) )
 			{
 		 		if( !_.isUndefined(obj.times.start) ) hash += 'min_date='+ obj.times.start + '&';
@@ -277,9 +297,6 @@ this.jda = {
 	
 		this.resultsView.search( obj,true );
 		
-		//if ( obj.view_type == 'event' && !this.eventMap.timeSliderLoaded) this.setEventViewTimePlace(obj);
-		
-		
 		if (this.currentView == 'event') this.eventMap.load();
 		
 	},
@@ -291,6 +308,7 @@ this.jda = {
 		var _this=this;
 
 		if( view != this.currentView&&(view=="event"||this.currentView=="event"))refresh = true;
+	
 		 
 		this.currentView = view;
 		$('.tab-pane').removeClass('active');
@@ -428,23 +446,8 @@ this.jda = {
 	},
 	
 	setEventViewTimePlace : function(obj){
-			if (!_.isUndefined(obj.start))
-			{
-				oldValues =  $("#range-slider").slider( "option", "values" );
-				$( "#range-slider" ).slider( "option", "values", [obj.start, oldValues[1]] );
-			}
-			if (!_.isUndefined(obj.end))
-			{
-				oldValues =  $("#range-slider").slider( "option", "values" );
-				$( "#range-slider" ).slider( "option", "values", [oldValues[0], obj.end]);
-			}
-			if (!_.isUndefined(obj.map_bounds))
-			{
-				coords = (obj.map_bounds).split(',');
-				bounds = new OpenLayers.Bounds(coords[0], coords[1], coords[2], coords[3]);
-				this.eventMap.map.zoomToExtent(bounds);
-			}
-		},
+		this.eventMap.updateTimePlace(obj);
+	},
 		
 	clearSearchFilters : function(doSearch){
 		console.log("jda.app.clearSearchFilters", doSearch);
@@ -478,11 +481,12 @@ this.jda = {
 	/***************************************************************************
 		- called when user authentication has occured
 	***************************************************************************/
+	
 	userAuthenticated: function(){
 	
 		console.log("you're logged in now!");
 		
-		sessionStorage.setItem('user','1');
+		//sessionStorage.setItem('user','1');
 		$('#zeega-my-collections-share-and-organize').html('Saving collection...');
 		var _this=this;
 		console.log(this.myCollectionsDrawer.activeCollection);
@@ -496,19 +500,8 @@ this.jda = {
 		}
 		else this.initCollectionsDrawer();
 	},
-
-	addCommas : function(nStr){
-		nStr += '';
-		x = nStr.split('.');
-		x1 = x[0];
-		x2 = x.length > 1 ? '.' + x[1] : '';
-		var rgx = /(\d+)(\d{3})/;
-		while (rgx.test(x1)) {
-			x1 = x1.replace(rgx, '$1' + ',' + '$2');
-		}
-		return x1 + x2;
-	},
 	
+
 	
 }, Backbone.Events)
 

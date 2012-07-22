@@ -31,6 +31,7 @@
 				
 				this.elemId = Math.floor(Math.random()*10000);
 	
+				this.render();
 			
 			
 	

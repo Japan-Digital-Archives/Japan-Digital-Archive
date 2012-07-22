@@ -8,7 +8,8 @@
 		
 		tagName : 'div',
 		className: 'event-map',
-			
+		minTime : 1293840000,
+		maxTime : 1330095357,	
 		mapLoaded : false,
 		timeSliderLoaded : false,
 		japanMapUrl : sessionStorage.getItem("japanMapUrl"),
@@ -39,6 +40,10 @@
 						'CQL_FILTER' : jda.app.resultsView.getCQLSearchString()
 					});
 				this.initTimeSlider();
+		 	}
+		 	else{
+		 		this.initTimeSlider();
+		 		
 		 	}
 		 	
 			
@@ -329,7 +334,6 @@
 		
 		
 		initTimeSlider : function(map){
-			console.log("Initializing Time Slider");
 			_this = this;
 			if( !this.timesliderLoaded ){
 				this.timeSliderLoaded = true;
@@ -369,23 +373,21 @@
 				
 				//Set up the range slider
 				//times are seconds since jan 1 1970
-				minTime = 1293840000;
-				maxTime = 1330095357;
 				
-				if(!_.isNull(jda.app.searchObject.times)&&!_.isNull(jda.app.searchObject.times)&&!_.isUndefined(jda.app.searchObject.times.start)&&!_.isUndefined(jda.app.searchObject.times.end)){
+				
+				if(!_.isNull(jda.app.searchObject.times)&&!_.isUndefined(jda.app.searchObject.times)&&!_.isUndefined(jda.app.searchObject.times.start)&&!_.isUndefined(jda.app.searchObject.times.end)){
 					var start=jda.app.searchObject.times.start; 
 					var end=jda.app.searchObject.times.end;
 				}
 				else{
-					var start=minTime;
-					var  end=maxTime;
+					var start=this.minTime;
+					var  end= this.maxTime;
 				}
-				console.log(start,end);
-				//maxTime = 1293940000;      //short range for testing hours and minutes
+				
 				$("#range-slider").slider({
 					range: true, 
-					min: minTime, 
-					max: maxTime,
+					min: this.minTime, 
+					max: this.maxTime,
 					values: [start, end],
 					slide: function( event, ui )
 					{
@@ -410,6 +412,7 @@
 	
 					 }
 				});
+				
 				$("#range-slider").css("margin-left", $("#date-time-start").outerWidth());
 				$("#range-slider").css("margin-right", $("#date-time-end").outerWidth());
 				
@@ -420,8 +423,6 @@
 			}
 		
 		}, 
-		
-
 		
 		setStartDateTimeSliderHandle : function(){
 			dateMillis = $("#start-date").datepicker('getDate').getTime();

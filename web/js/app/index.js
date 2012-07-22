@@ -49,21 +49,6 @@ jQuery(function($)
 	JDA.init();
 
 
-	// Defining the application router, you can attach sub routers here.
-	var Router = Backbone.Router.extend({
 
-		routes: {
-			""				: 'search',
-			":query"		: 'search',
-
-		},
-
-		search : function( query ){
-					JDA.parseURLHash(query);
-				}
-		});
-
-	JDA.router = new Router();
-	Backbone.history.start();
 
 });

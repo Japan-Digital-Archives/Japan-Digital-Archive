@@ -40,7 +40,8 @@ class SecurityController extends Controller
 			if(is_object($user))$displayName = $user->getDisplayName();
 			else $displayName='none';
     	 	return $this->render('ZeegaUserBundle:Security:confirmed.html.twig', array(
-    	 		'displayname'=>$displayName
+    	 		'displayname'=>$displayName,
+    	 		'id'=>$user->getId();
     	 
     	 ));
     }

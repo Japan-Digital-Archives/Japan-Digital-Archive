@@ -230,16 +230,7 @@ $(document).ready(function(){
 	/*********** SEARCH SPECIFIC GO TO PROFILE PAGE ****************/
 	
 	
-	$('#jda-user-profile').click(function(){ jda.app.goToAuthorPage(-1);});
-	$('.go-to-collections').click(function(){jda.app.goToCollectionsPage();});
 	
-
-  
-  
-  $('.jda-play-collection').click(function () {
-    alert('plays collection as slideshow in player');
-  });
-
 
   
   $("#jda-search-button-group,#search-bar").fadeTo('fast',1);
@@ -291,7 +282,11 @@ $(document).ready(function(){
       	$('#spinner-text').fadeTo('fast',1);
       	$('#jda-left').fadeTo('slow',0.8);
         jda.app.killScroll = true; // IMPORTANT - Set killScroll to true, to make sure we do not trigger this code again before it's done running.
-        jda.app.search({ page: jda.app.resultsView.collection.search.page+1 });
+       
+        jda.app.searchObject.page=jda.app.resultsView.collection.search.page+1;
+        jda.app.search(jda.app.searchObject);
+       
+       // jda.app.search({ page: jda.app.resultsView.collection.search.page+1 });
       }
     }
   });

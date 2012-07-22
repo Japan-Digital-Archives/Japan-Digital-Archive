@@ -7,8 +7,7 @@
 		
 		el : $('#zeega-items-list'),
 	
-		initialize : function()
-		{
+		initialize : function(){
 			this.collection = new Browser.Items.Collection();
 			this.collection.on( 'reset', this.reset, this);
 			this._childViews = [];
@@ -20,6 +19,7 @@
 			this.collection.bind('remove', this.remove, this);
 			
 		},
+		
 		remove : function(model){
 			var deleteIdx = -1;
 			for (var i=0;i<this._childViews.length;i++){
@@ -40,14 +40,16 @@
 			}
 
 		},
+		
 		updateResultsCounts : function(){
 			var collectionsCount = this.collection.collectionsCount;
 			var itemsCount = this.collection.count;
 
-			$('.jda-results-collections-count').text( jda.app.addCommas(collectionsCount));
-			$('.jda-results-items-count').text( jda.app.addCommas(itemsCount));
-			$("#zeega-results-count-number").html( jda.app.addCommas(itemsCount) );
+			$('.jda-results-collections-count').text( this.addCommas(collectionsCount));
+			$('.jda-results-items-count').text( this.addCommas(itemsCount));
+			$("#zeega-results-count-number").html( this.addCommas(itemsCount) );
 		},
+		
 		render : function(){
 			var _this = this;
 			$("#zeega-results-count").hide();
@@ -63,19 +65,11 @@
 			//Display collections and items separately if this is not null
 			if (this.collection.collectionsCollection != null){
 				
+				if(jda.app.currentView == 'thumb') $('.collections-thumbnails').empty();
+				else if(jda.app.currentView == 'list') $('#zeega-collections-list').empty();
 				
-
-
 				
-
-				if(jda.app.currentView == 'thumb'){
-					$('.collections-thumbnails').empty();
-				}else if(jda.app.currentView == 'list'){
-					$('#zeega-collections-list').empty();
-					
-				}
-
-				//this is getting ridiculous!!
+				//Display collections
 				_.each( _.toArray(this.collection.collectionsCollection), function(item){
 					var itemView;
 					if(jda.app.currentView == 'thumb'){
@@ -98,25 +92,29 @@
 				}
 				
 			} else {
-				$('#zeega-results-count-number').text(jda.app.addCommas(this.collection.count)); 
+				$('#zeega-results-count-number').text(this.addCommas(this.collection.count)); 
 				$("#zeega-results-count").fadeTo(100,1);
 			}
 			
-			//Display regular old items
-			_.each( _.toArray(this.collection), function(item){
-				var itemView;
-				if(jda.app.currentView == 'thumb'){
-					itemView = new Browser.Items.Views.Thumb({model:item});
-				} else{
-					
-					itemView = new Browser.Items.Views.List({model:item});
-				}
-				
-				_this._childViews.push( itemView );
-				$(_this.el).append( itemView.render().el );
-			})
-
+			//Display items
 			
+			var q =0;
+			
+			_.each( _.toArray(this.collection), function(item){
+				q++;
+				if(q>(_this.collection.search.page-1)*100){
+					var itemView;
+					if(jda.app.currentView == 'thumb'){
+						itemView = new Browser.Items.Views.Thumb({model:item});
+					} else{
+						
+						itemView = new Browser.Items.Views.List({model:item});
+					}
+					
+					_this._childViews.push( itemView );
+					$(_this.el).append( itemView.render().el );
+				}
+			})
 			
 
 			
@@ -164,10 +162,7 @@
 				
 				$("#jda-related-tags-title").fadeTo(100,1);
 			}
-			else{
-				$("#jda-related-tags-title").fadeTo(1000,0);
-			}
-			
+			else $("#jda-related-tags-title").fadeTo(1000,0);
 
 			$('#spinner').spin(false);
 			$('#spinner-text').fadeTo('slow',0);
@@ -175,14 +170,10 @@
 			return this;
 		},
 		
-	
-		
-		renderTags : function()
-		{
+		renderTags : function(){
 		},
 		
-		reset : function()
-		{
+		reset : function(){
 			if ( this._isRendered )
 			{
 				$(this.el).empty();
@@ -220,32 +211,13 @@
 					
 					VisualSearch.searchBox.disableFacets();
 
-					$('#zeega-results-count-number').html( jda.app.addCommas(response["items_count"]));
-					
-					
-					
+					$('#zeega-results-count-number').html( _this.addCommas(response["items_count"]));
 					_this.renderTags(response.tags);
 					_this.render();
 					
-					//If this was a collection search then load the collection view which
-					//appears above search results
-					if (!_.isUndefined(_this.collectionFilter) && _this.collectionFilter != null){
-						
-						_this.collectionFilter.render();
-					}
-					//If this was a user search then load the user view which
-					//appears above search results
-					if (!_.isUndefined(_this.userFilter) && _this.userFilter != null){
-						
-						_this.userFilter.render();
-					}
-
-					
-					
-					
 					if(_this.collection.length<parseInt(response["items_count"])) jda.app.killScroll = false; //to activate infinite scroll again
 					else jda.app.killScroll = true;
-					
+					$(_this.el).fadeTo(1000,1);
 					jda.app.isLoading = false;	//to activate infinite scroll again
 
 				},
@@ -253,9 +225,6 @@
 					console.log('Search failed - model is ' + model);
 				}
 			});
-			
-			
-			this.setURLHash();
 		},
 		
 		
@@ -265,29 +234,22 @@
 		setMapBounds : function(bounds)
 		{
 			this.collection.search.mapBounds = bounds;
-			//this.setURLHash();
 		},
 	 
 
 		setContent : function(content)
 		{
 			this.collection.search.content = content;
-			//this.setURLHash();
+
 		},
 		clearTags : function(){
 			var currentQ = 	this.collection.search.q;
 			if (currentQ.indexOf("tag:") >= 0){
 				var newQ = currentQ.substring(0,currentQ.indexOf("tag:"));
 				this.collection.search.q = newQ;
-				//this.setURLHash();
+
 			}
 		},
-		setURLHash : function()
-		{
-	
-	
-		},
-		
 
 		setStartAndEndTimes : function(startDate, endDate)
 		{
