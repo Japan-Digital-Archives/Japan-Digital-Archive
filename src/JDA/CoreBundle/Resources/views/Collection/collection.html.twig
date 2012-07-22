@@ -1,0 +1,19 @@
+{# src/JDA/CoreBundle/Resources/views/Collection/collection.html.twig #}
+
+{% extends 'JDACoreBundle:Search:search.html.twig' %}
+
+{% block filter %}
+
+
+	<script>
+			sessionStorage.setItem('filterType','collection');
+			sessionStorage.setItem('filterId', {{ filterId }});
+	
+	</script>
+	
+	    
+		<div class="row-fluid">
+			<div id="jda-collection-filter-new" class="span9"></div>
+		</div>
+
+{% endblock %}

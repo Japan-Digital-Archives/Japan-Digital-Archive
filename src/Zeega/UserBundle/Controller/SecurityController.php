@@ -37,11 +37,18 @@ class SecurityController extends Controller
 	public function successAction()
     {
 			$user = $this->get('security.context')->getToken()->getUser();
-			if(is_object($user))$displayName = $user->getDisplayName();
-			else $displayName='none';
+			if(is_object($user)){
+				$displayName = $user->getDisplayName();
+				$userId = $user->getId();
+			}
+			else{
+				$displayName='none';
+				$userId=-1;	
+			}
+
     	 	return $this->render('ZeegaUserBundle:Security:confirmed.html.twig', array(
     	 		'displayname'=>$displayName,
-    	 		'id'=>$user->getId();
+    	 		'id'=>$userId,
     	 
     	 ));
     }
