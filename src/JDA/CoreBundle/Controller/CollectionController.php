@@ -19,7 +19,7 @@ class CollectionController extends Controller
     	}
     	else{
     		$displayName='none';
-    		$userId=-1;	
+    		$userId=0;	
     	}
 
 

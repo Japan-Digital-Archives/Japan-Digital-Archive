@@ -22,7 +22,7 @@ class SearchController extends Controller
     	}
     	else{
     		$displayName='none';
-    		$userId=-1;	
+    		$userId=0;	
     	}
 
     	return $this->render('JDACoreBundle:Search:search.html.twig', array(

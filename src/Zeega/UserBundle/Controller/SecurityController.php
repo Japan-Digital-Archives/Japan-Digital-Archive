@@ -43,7 +43,7 @@ class SecurityController extends Controller
 			}
 			else{
 				$displayName='none';
-				$userId=-1;	
+				$userId=0;	
 			}
 
     	 	return $this->render('ZeegaUserBundle:Security:confirmed.html.twig', array(

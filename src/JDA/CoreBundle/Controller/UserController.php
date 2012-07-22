@@ -20,11 +20,11 @@ class UserController extends Controller
     	}
     	else{
     		$displayName='none';
-    		$userId=-1;	
+    		$userId=0;	
     	}
     	
     	if($id==0){
-			if($userId!=-1) return $this->redirect($this->generateUrl('user',array('locale'=>$locale,'id'=>$userId)), 301);
+			if($userId!=0) return $this->redirect($this->generateUrl('user',array('locale'=>$locale,'id'=>$userId)), 301);
 			else  return $this->redirect($this->generateUrl('home'), 301);
     	}
     	
