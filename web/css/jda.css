@@ -75,6 +75,33 @@
 }
 
 
+
+
+.jda-icon-twitter{
+
+	background-image: url(../images/jdicons-tweet-large.png);
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+	width: 53px;
+	height: 54px;
+	position: absolute;
+	top: 15%;
+	left: 15%;
+
+}
+
+.jda-icon-twitter{
+
+	background-image: url(../images/jdicons-testimonial-large.png);
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+	width: 90px;
+	height: 66px;
+	position: absolute;
+	top: 20%;
+
+}
+
 .jda-centered-icon{
 	position: absolute;top: 35px;left: 55px;
 }
@@ -222,7 +249,7 @@ margin-left: -20px;
 #loading{
 	
 	position:fixed;
-	top:250px;
+	top:400px;
 	left:40%;
 	text-align: center;
 	

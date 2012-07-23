@@ -198,7 +198,7 @@
 			var html = 
 			
 				'<a href="#" class="thumbnail" style="position:relative;width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
-					'<img src="../images/jdicons-testimonial-large.png" alt="<%=title%>" style="max-width:90px;max-height:66px;position:relative;top:20%">'+	
+					'<i class="jda-icon-twitter"></i>'+	
 					
 					'<button class="btn btn-danger btn-mini jda-delete-item">x &nbsp;<%=remove_text%></button>'+
 				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px"><%=description%></p>';
@@ -213,7 +213,7 @@
 			var html = 
 			
 				'<a href="#" class="thumbnail" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
-					'<img src="../images/jdicons-tweet-large.png" alt="<%=title%>" style="max-width:53px;max-height:54px;position:absolute;top:15%;left:15%">'+	
+					'<i class="jda-icon-twitter"></i>'+	
 					'<span style="position:absolute;top:<%=position_tweet_handle%>;right:9%;max-width:85%;overflow:hidden;line-height:18px;color:#444;font-size:12px">@<%=media_creator_username%></span>'+
 					
 					'<button class="btn btn-danger btn-mini jda-delete-item">x &nbsp;<%=remove_text%></button>'+
@@ -223,6 +223,9 @@
 			return html;
 			
 		}
+		
+		
+		
 		
 	});
 	
