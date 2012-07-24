@@ -54,14 +54,14 @@
 	<div class="jda-home-featured-collection" style="background-image:url({{ asset('images/featured1_large.jpg') }})">
 		
 		<div  data-id="885024"  class="jda-home-featured-collection-text-block">
-			<a href="#"><h3>{% trans %}jda.home.collection1{% endtrans %} ></h3></a>
+			<a href="{{path('collection', { '_locale': locale,'id':885024 })}}"><h3>{% trans %}jda.home.collection1{% endtrans %} ></h3></a>
 			<p>{% trans %}jda.home.collection1text{% endtrans %}</p>
 		</div>
 		
 	</div>
 	<div  class="jda-home-featured-collection" style="background-image:url({{ asset('images/featured2_large.jpg') }})">
 		<div data-id="884991" class="jda-home-featured-collection-text-block">
-			<a href="#"><h3>{% trans %}jda.home.collection2{% endtrans %} ></h3></a>
+			<a href="{{path('collection', { '_locale': locale,'id':884991 })}}"><h3>{% trans %}jda.home.collection2{% endtrans %} ></h3></a>
 			<p>{% trans %}jda.home.collection2text{% endtrans %}</p>
 		</div>
 	</div>
@@ -69,7 +69,7 @@
 	
 	<div data-id="9" class="jda-home-featured-collection" style="background-position:left;background-image:url({{ asset('images/featured3_large.jpg') }})">
 		<div  data-id="885007" class="jda-home-featured-collection-text-block">
-			<a href="#"><h3>{% trans %}jda.home.collection3{% endtrans %} ></h3></a>
+			<a href="{{path('collection', { '_locale': locale,'id':885007 })}}"><h3>{% trans %}jda.home.collection3{% endtrans %} ></h3></a>
 			<p>{% trans %}jda.home.collection3text{% endtrans %}</p>
 		</div>
 	</div>
