@@ -198,7 +198,7 @@
 			var html = 
 			
 				'<a href="#" class="thumbnail" style="position:relative;width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
-					'<i class="jda-icon-twitter"></i>'+	
+					'<i class="jda-icon-testimonial"></i>'+	
 					
 					'<button class="btn btn-danger btn-mini jda-delete-item">x &nbsp;<%=remove_text%></button>'+
 				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px"><%=description%></p>';
