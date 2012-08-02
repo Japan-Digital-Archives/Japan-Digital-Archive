@@ -6,9 +6,15 @@
 	Browser.Items.Views.Thumb = Backbone.View.extend({
 		
 		tagName : 'li',
+		events: {
+			
+			//'click .jda-delete-item' : this.remove,
+			
+		},
 		 initialize: function () {
 	        
 	        this.el.id = this.model.id;
+	        
 	        if (_.isUndefined(this.options.thumbnail_height)){
 	        	this.options.thumbnail_height = 120;
 	        }
@@ -65,6 +71,8 @@
 			var blanks = this.model.attributes;
 
 			blanks.remove_text = l.jda_collection_remove;
+			blanks.delete_text = l.jda_collection_delete;
+
 
 			
 			if (this.model.get('media_type') == "Tweet" && this.options.show_caption){
@@ -170,7 +178,7 @@
 				//	'<i class="icon-share-alt icon-white"></i></span>'+
 					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px">'+
 					//'<input class="jda-item-checkbox" type="checkbox">'+
-					'<button class="btn btn-danger btn-mini jda-delete-item">x &nbsp;<%=remove_text%></button>'+
+					'<button class="btn btn-danger btn-mini jda-delete-item jda-delete-collection">x &nbsp;<%=delete_text%></button>'+
 				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px;text-align:center;font-size:12px;font-weight:bold"><%=title%></p>';
 
 			

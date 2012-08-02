@@ -134,7 +134,7 @@ this.jda = {
 						
 						if(sessionStorage.getItem('filterType')=='user'){
 							this.filterType ="user";
-							$('#jda-left').css("margin-top","165px");							
+							//$('#jda-left').css("margin-top","165px");							
 							var Browser = jda.module("browser");
 							this.filterModel = new Browser.Users.Model({id:sessionStorage.getItem('filterId')});
 							this.filterModel.fetch({
@@ -150,7 +150,7 @@ this.jda = {
 							});					
 						}
 						else if(sessionStorage.getItem('filterType')=='collection'){
-							$('#jda-left').css("margin-top","325px");
+							//$('#jda-left').css("margin-top","325px");
 							this.filterType ="collection";
 							var Browser = jda.module("browser");
 							this.filterModel = new Browser.Items.Model({id:sessionStorage.getItem('filterId')});

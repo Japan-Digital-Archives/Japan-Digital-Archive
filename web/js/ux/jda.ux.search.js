@@ -382,7 +382,7 @@ $(document).ready(function(){
 
     switch(thisModel.get("media_type")){
       case 'Image':
-        this.fancyView = new Browser.Views.FancyBox.Image({model:thisModel});
+        this.fancyView = new Browser.Views.FancyBox.PDF({model:thisModel});
         break;
       case 'Video':
         this.fancyView = new Browser.Views.FancyBox.Video({model:thisModel});

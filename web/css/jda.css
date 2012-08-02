@@ -205,7 +205,9 @@ legend{
 margin-left: -20px;
 }
 .jda-delete-item{
-	box-shadow: 1px 1px 3px rgba(0,0,0,0.5);position: absolute;top: 4px;left: 4px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.5);position: absolute;
+	top: 4px;
+	left: 3px;
 	display:none;
 
 }
@@ -262,20 +264,23 @@ margin-left: -20px;
 }
 #jda-collection-filter-new{
 
-	position: fixed;
+	/*position: fixed;
 	z-index:50;
 	top:94px;
 	background:white;
+	*/
 
 }
 #jda-user-filter
 {
+	/*
 	position: fixed;
 	top:87px;
 	padding-top:10px;
 	z-index:49;
 	overflow: hidden;
 	background:white;
+	*/
 }
 
 .jda-user-link.bottom{  	

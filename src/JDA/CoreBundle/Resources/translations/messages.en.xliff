@@ -731,6 +731,14 @@ nuclear catastrophe.</target>
                 <source>jda.search.thumbnailview</source>
                 <target>Thumbnail View</target>
             </trans-unit>
+            <trans-unit id="182">
+                <source>jda.collection.delete</source>
+                <target>delete</target>
+            </trans-unit>
+            <trans-unit id="183">
+                <source>fancybox.pdf</source>
+                <target>Click to download PDF</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

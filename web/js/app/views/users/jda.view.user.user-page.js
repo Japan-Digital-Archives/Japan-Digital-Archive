@@ -124,7 +124,7 @@
 		turnOffEditMode : function()
 		{
 			this.$el.find('.user-image-upload , .save-data button').hide();
-			this.$el.find('.edit').show();
+			$('.jda-delete-collection').hide();
 
 			$(this.el).find('button.edit').removeClass('active');
 			$(this.el).find('.editing').removeClass('editing').attr('contenteditable', false);
@@ -137,7 +137,24 @@
 			var _this  = this;
 			
 			this.$el.find('.user-image-upload, .save-data button').show();
-			this.$el.find('.edit').hide();
+			
+			//Show the remove stuff
+			$('.jda-delete-collection').unbind().click(function(){
+				var doDelete = confirm(l.jda_collection_confirmdelete);
+				if (doDelete){
+					var itemID = $(this).closest('li').attr('id');
+					var itemToDelete = jda.app.resultsView.collection.collectionsCollection.get(itemID);
+					console.log('deleting ' + itemID + itemToDelete.get('title'))
+
+					//KILL KILL
+					itemToDelete.destroy();
+					
+					return false;
+				}else{
+					return false;
+				}
+			})
+			$('.jda-delete-collection').show();
 			
 			$(this.el).find('button.edit').addClass('active');
 			$(this.el).find('.jda-user-filter-description').addClass('editing').attr('contenteditable', true);

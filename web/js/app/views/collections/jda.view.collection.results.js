@@ -18,6 +18,7 @@
 
 			this.collection.bind('remove', this.remove, this);
 			
+			
 		},
 		
 		remove : function(model){
@@ -40,12 +41,37 @@
 			}
 
 		},
+		removeCollection : function(model){
+			var deleteIdx = -1;
+			for (var i=0;i<this._collectionChildViews.length;i++){
+				var itemView = this._collectionChildViews[i];
+				if (itemView.model.id == model.id){
+					deleteIdx = i;
+					break;
+				}
+			}
+
+			if (deleteIdx >= 0){
+				var removed = this._collectionChildViews.splice(deleteIdx,1);
+				$(removed[0].el).remove();
+
+				this.updateResultsCounts();
+				this.updated = true;
+				
+			}
+
+		},
 		
 		updateResultsCounts : function(){
-			var collectionsCount = this.collection.collectionsCount;
+			var collectionsCount = 0;
+			if (this.collection.collectionsCollection){
+				collectionsCount = this.collection.collectionsCollection.length;
+			}
 			var itemsCount = this.collection.count;
 
-			$('.jda-results-collections-count').text( this.addCommas(collectionsCount));
+			if (collectionsCount !=null){
+				$('.jda-results-collections-count').text( this.addCommas(collectionsCount));
+			}
 			$('.jda-results-items-count').text( this.addCommas(itemsCount));
 			$("#zeega-results-count-number").html( this.addCommas(itemsCount) );
 		},
@@ -65,6 +91,8 @@
 			//Display collections and items separately if this is not null
 			if (this.collection.collectionsCollection != null){
 				
+				this.collection.collectionsCollection.unbind().bind('remove', this.removeCollection, this);
+
 				if(jda.app.currentView == 'thumb') $('.collections-thumbnails').empty();
 				else if(jda.app.currentView == 'list') $('#zeega-collections-list').empty();
 				

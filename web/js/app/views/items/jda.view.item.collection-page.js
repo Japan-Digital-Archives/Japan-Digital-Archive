@@ -58,6 +58,7 @@
 			***************************************************************************/
 			var template = this.getTemplate();
 			var blanks = this.model.attributes;
+
 			blanks.randId = this.elemId
 			blanks.archiveSettingsClass = blanks.published == false ? '' : 'label-success';
 			blanks.archiveSettingsText = blanks.published == false ? l.jda_collection_limited : l.jda_collection_public;
@@ -178,7 +179,7 @@
 				
 			var _this  = this;
 		
-			//Show the trash cans
+			//Show the remove stuff
 			$('.jda-delete-item').unbind().click(function(){
 				var doDelete = confirm(l.jda_collection_confirmdelete);
 				if (doDelete){
@@ -454,7 +455,7 @@
 							if(this.model.get('editable')) html+='<a href="#" class="edit" title="'+l.jda_collection_editdetails+'"><i class="icon-pencil jdicon-halfling-red"></i></a>';
 
 							html+='</div>'+
-							'<div class="jda-collection-description"><%= description %></div>'+
+							'<div class="jda-collection-description"><%= text %></div>'+
 							'<div class="jda-collection-description-empty" style="left: 5px;position: absolute;top: 32px;color:#999;display:none;">'+l.jda_collection_editdesc+'</div>'+
 
 							//'<div class="jda-collection-tags"><a href="#">add tags</a></div>'+

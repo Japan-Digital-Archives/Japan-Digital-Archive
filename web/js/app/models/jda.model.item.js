@@ -38,6 +38,7 @@
 			
 			if(_.isUndefined(this.id)) var url = jda.app.apiLocation + 'api/items';
 			else var url = jda.app.apiLocation + 'api/items/' + this.id;
+			console.log("final URL is " + url);
 			return url;
 		},
 	});
