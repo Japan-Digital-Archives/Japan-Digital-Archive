@@ -197,9 +197,10 @@ function initMap() {
 
 }
 
+
 function DoSearch() {
 
-    var baseURL = sessionStorage.getItem('hostname') + sessionStorage.getItem('directory') + 'en/search?';
+    var baseURL = window.location.href.replace('en/advsearch','')  + 'en/search?';
     baseURL += "#q=" + $("#searchTerms").val();
     var contentType = $("#contentTypeDDL option:selected").val();
     if (contentType != "0") {
