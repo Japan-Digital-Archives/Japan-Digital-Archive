@@ -204,7 +204,7 @@ function DoSearch() {
     baseURL += "#q=" + $("#searchTerms").val();
     var contentType = $("#contentTypeDDL option:selected").val();
     if (contentType != "0") {
-        baseURL += "&content=" + contentType;
+        baseURL += "&content=" + contentType.toLowerCase();
     }
     var tagArr = new Array();
     $("#tagListDiv > span > a").each(function (i) {
