@@ -41,7 +41,7 @@
 		sessionStorage.setItem('locale','{{app.session.locale}}');
 		
 		{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-		sessionStorage.setItem('user',{{userId}});
+		sessionStorage.setItem('user',{{app.user.getId}});
 		{% endif %}		
 		
 	</script>
@@ -134,7 +134,7 @@
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="zicon-user"></i> {% if displayname is defined %} {{displayname}}{% endif %}<b class="caret"></b></a>
 										<ul class="dropdown-menu">
 											<li><a id="account-settings" href ="#">{% trans %}jda.user.settings{% endtrans %}</a></li>
-											<li><a href="{{path('user', { '_locale': locale,'id':userId })}}">{% trans %}jda.user.profile{% endtrans %}</a></li>
+											<li><a href="{{path('user', { '_locale': locale,'id':app.user.getId })}}">{% trans %}jda.user.profile{% endtrans %}</a></li>
 											<li><a href='{{ path('_security_logout',{ '_locale': locale })}}' >{% trans %}jda.user.logout{% endtrans %}</a></li>
 										</ul>
 								</li>
