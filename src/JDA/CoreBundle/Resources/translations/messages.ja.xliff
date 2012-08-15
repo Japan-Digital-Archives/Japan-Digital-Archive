@@ -736,6 +736,10 @@
                 <source>fancybox.pdf</source>
                 <target>Click to download PDF</target>
             </trans-unit>
+             <trans-unit id="184">
+                <source>jda.search.relevant</source>
+                <target>Relevant</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
