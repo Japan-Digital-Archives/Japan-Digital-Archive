@@ -10,6 +10,10 @@
 		initialize: function(){
 			var _this = this;
 			this.collection = jda.app.myCollectionsDrawer.collection;
+			if(!_.isUndefined(_gaq)) {
+					_gaq.push(["_trackEvent", "JDA-Item", "View", this.model.id]);
+					console.log("Tracking item view",this.model.id);
+			}
 		},
 
 		events : {
