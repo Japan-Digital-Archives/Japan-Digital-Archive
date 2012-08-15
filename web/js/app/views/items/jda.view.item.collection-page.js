@@ -23,18 +23,14 @@
 				
 				//for looking up address from lat/lon
 				this.geocoder = new google.maps.Geocoder();
-	
-				this.isGeoLocated = !_.isNull( this.model.get('media_geo_latitude') );
-	
-	
+				this.isGeoLocated = !_.isNull( this.model.get('media_geo_latitude') );	
 				this.isEditView = false;
-				
 				this.elemId = Math.floor(Math.random()*10000);
-	
 				this.render();
-			
-			
-	
+				if(!_.isUndefined(_gaq)) {
+					_gaq.push(["_trackEvent", "JDA-Collection", "View", this.model.id]);
+					console.log("Tracking collection view",this.model.id);
+				}
 	
 		  },
 
