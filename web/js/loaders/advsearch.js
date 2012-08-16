@@ -222,11 +222,11 @@ function DoSearch() {
     var endDate = $("#endDateTxt").val();
     if (startDate != "") {
         var sDate = new Date(startDate);
-        baseURL += "&dtstart=" + sDate.getTime();
+        baseURL += "&min_date=" + sDate.getTime();
     }
     if (endDate != "") {
         var eDate = new Date(endDate);
-        baseURL += "&dtend=" + eDate.getTime();
+        baseURL += "&max_date=" + eDate.getTime();
     }
     var usersVal = $("#userDDL option:selected").val();
     if (usersVal == -1) {
