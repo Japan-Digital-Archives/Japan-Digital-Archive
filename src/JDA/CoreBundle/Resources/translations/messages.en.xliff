@@ -733,7 +733,7 @@ nuclear catastrophe.</target>
             </trans-unit>
             <trans-unit id="182">
                 <source>jda.collection.delete</source>
-                <target>delete</target>
+                <target>Delete Collection</target>
             </trans-unit>
             <trans-unit id="183">
                 <source>fancybox.pdf</source>

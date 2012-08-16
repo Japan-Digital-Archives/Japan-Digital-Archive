@@ -27,8 +27,8 @@
 				this.isEditView = false;
 				this.elemId = Math.floor(Math.random()*10000);
 				this.render();
-				if(!_.isUndefined(_gaq)) {
-					_gaq.push(["_trackEvent", "JDA-Collection", "NewView", ""]);
+				if(!_.isUndefined(window._gaq)) {
+					_gaq.push(["_trackEvent", "JDA-Collection-Page", "NewView", ""]);
 					console.log("Tracking collection view",this.model.id);
 				}
 	
@@ -265,7 +265,7 @@
 				var _this=this;
 				this.model.save({
 					'title' : $(this.el).find('.cover-overlay h1').text(),
-					'description' : $(this.el).find('.jda-collection-description').text()
+					'text' : $(this.el).find('.jda-collection-description').text()
 				},{
 					success: function(model, response) { 
 						
@@ -466,6 +466,13 @@
 									'<button class="btn btn-success btn-mini save hide">'+l.jda_save+'</button>'+
 									'<button class="btn btn-mini cancel hide">'+l.jda_cancel+'</button>'+
 								'</div>'+
+						
+						
+						/*     UNCLEAR WHERE DELETE COLLECTION SHOULD BE LOCATED
+								'<div class="btn-group save-data pull-right">'+
+									'<button class="btn btn-danger btn-mini delete hide">'+l.jda_collection_delete+'</button>'+
+								'</div>'+
+						*/	
 							'</div>'+
 							
 							
