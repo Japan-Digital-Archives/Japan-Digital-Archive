@@ -12,12 +12,13 @@
 	
 		url : function()
 		{
-			//console.log(this.search);
+			console.log(this.search);
 			//constructs the search URL
 			var url = this.base;
 			if( !_.isUndefined(this.search.q) && this.search.q.length > 0) url += '&q=' + this.search.q.toString();
 			if( !_.isUndefined(this.search.viewType) ) url += '&view_type=' + this.search.viewType;
 			if( !_.isUndefined(this.search.content) ) url += '&content=' + this.search.content;
+			if( !_.isUndefined(this.search.sort) ) url += '&sort=' + this.search.sort;
 			if( !_.isUndefined(this.search.collection) && this.search.collection > 0) url += '&collection=' + this.search.collection;
 			if( !_.isUndefined(this.search.page) ) url += '&page=' + this.search.page;
 			if( !_.isUndefined(this.search.r_items) ) url += '&r_items=' + this.search.r_items;

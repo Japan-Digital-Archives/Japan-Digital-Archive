@@ -473,11 +473,11 @@
                 <target>並べ替え</target>
             </trans-unit>
             <trans-unit id="119">
-                <source>jda.sort.recent</source>
+                <source>jda.search.recent</source>
                 <target>最新</target>
             </trans-unit>
             <trans-unit id="120">
-                <source>jda.sort.oldest</source>
+                <source>jda.search.oldest</source>
                 <target>最古</target>
             </trans-unit>
             <trans-unit id="121">

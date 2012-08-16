@@ -477,11 +477,11 @@ nuclear catastrophe.</target>
                 <target>Sort By</target>
             </trans-unit>
               <trans-unit id="119">
-                <source>jda.sort.recent</source>
+                <source>jda.search.recent</source>
                 <target>Recent</target>
             </trans-unit>
             <trans-unit id="120">
-                <source>jda.sort.oldest</source>
+                <source>jda.search.oldest</source>
                 <target>Oldest</target>
             </trans-unit>
             <trans-unit id="121">
