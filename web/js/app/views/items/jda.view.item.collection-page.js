@@ -23,18 +23,11 @@
 				
 				//for looking up address from lat/lon
 				this.geocoder = new google.maps.Geocoder();
-	
-				this.isGeoLocated = !_.isNull( this.model.get('media_geo_latitude') );
-	
-	
+				this.isGeoLocated = !_.isNull( this.model.get('media_geo_latitude') );	
 				this.isEditView = false;
-				
 				this.elemId = Math.floor(Math.random()*10000);
-	
 				this.render();
-			
-			
-	
+				if(!_.isUndefined(window._gaq)) _gaq.push(["_trackEvent", "JDA-Collection", "View", this.model.id.toString()]);
 	
 		  },
 
@@ -207,6 +200,24 @@
 			$('.jda-delete-item').show();
 			
 			
+			$('.jda-delete-this-collection').unbind().click(function(){
+				var doDelete = confirm(l.jda_collection_confirmdelete);
+				if (doDelete){
+					var itemID = _this.model.id;
+					var itemToDelete = _this.model;
+					console.log('deleting ' + itemID + itemToDelete.get('title'))
+
+					//KILL KILL
+					itemToDelete.destroy({success:function(model){
+						window.location=$('#user-profile').attr('href');
+					}});
+					
+					return false;
+				}else{
+					return false;
+				}
+			})
+			
 			
 			
 			this.loadMap();
@@ -269,7 +280,7 @@
 				var _this=this;
 				this.model.save({
 					'title' : $(this.el).find('.cover-overlay h1').text(),
-					'description' : $(this.el).find('.jda-collection-description').text()
+					'text' : $(this.el).find('.jda-collection-description').text()
 				},{
 					success: function(model, response) { 
 						
@@ -470,6 +481,12 @@
 									'<button class="btn btn-success btn-mini save hide">'+l.jda_save+'</button>'+
 									'<button class="btn btn-mini cancel hide">'+l.jda_cancel+'</button>'+
 								'</div>'+
+						
+						
+									'<div class="btn-group save-data pull-right">'+
+									'<button class="btn btn-danger btn-mini jda-delete-this-collection hide">'+l.jda_collection_delete+'</button>'+
+								'</div>'+
+							
 							'</div>'+
 							
 							
@@ -496,7 +513,7 @@
 						
 
 						'<div class="span3" style="position:relative">'+
-							'<div class="jda-collection-map" style="text-align:center;background-image: url(../images/nogeomap.gif)"><h3 class="jda-no-geo-location-message" style="top:24px">'+l.jda_collection_nolocation+'</h3></div>'+
+							'<div class="jda-collection-map" style="text-align:center;"><h3 class="jda-no-geo-location-message" style="top:24px">'+l.jda_collection_nolocation+'</h3></div>'+
 
 							'<div class="jda-collection-map-location"></div>'+
 							'<a class="btn btn-mini jda-collection-map-location-go" style="margin-left:5px;margin-top:5px;display:none" href=".">go</a>'+

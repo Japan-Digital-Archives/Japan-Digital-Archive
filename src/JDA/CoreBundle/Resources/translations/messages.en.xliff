@@ -428,9 +428,7 @@
             </trans-unit>
             <trans-unit id="108">
                 <source>jda.home.collection1text</source>
-                <target>This public collection assembles visual and textual records documenting the impacts of
-the March 11, 2011 disasters on fisheries and mariculture in Minami Sanriku-chō and
-nearby Kesennuma.</target>
+                <target>This public collection assembles visual and textual records documenting the impacts of the March 11, 2011 disasters on fisheries and mariculture in Minami Sanriku-chō and nearby Kesennuma.</target>
             </trans-unit>
             <trans-unit id="109">
                 <source>jda.home.collection2</source>
@@ -438,9 +436,7 @@ nearby Kesennuma.</target>
             </trans-unit>
             <trans-unit id="110">
                 <source>jda.home.collection2text</source>
-                <target>This public collection features articles, plans, and images related to the pivotal
-discussions taking place among residents of disaster-stricken areas over their economic
-future and how to rebuild.</target>
+                <target>This public collection features articles, plans, and images related to the pivotal discussions taking place among residents of disaster-stricken areas over their economic future and how to rebuild.</target>
             </trans-unit>
              <trans-unit id="111">
                 <source>jda.home.collection3</source>
@@ -448,9 +444,7 @@ future and how to rebuild.</target>
             </trans-unit>
             <trans-unit id="112">
                 <source>jda.home.collection3text</source>
-                <target>This public collection assembles records related to public concerns over radioactive
-food contamination and the future of regional agriculture since the 2011 Fukushima
-nuclear catastrophe.</target>
+                <target>This public collection assembles records related to public concerns over radioactive food contamination and the future of regional agriculture since the 2011 Fukushima nuclear catastrophe.</target>
             </trans-unit>
              <trans-unit id="113">
                 <source>jda.accountsettings.header</source>
@@ -477,11 +471,11 @@ nuclear catastrophe.</target>
                 <target>Sort By</target>
             </trans-unit>
               <trans-unit id="119">
-                <source>jda.sort.recent</source>
+                <source>jda.search.recent</source>
                 <target>Recent</target>
             </trans-unit>
             <trans-unit id="120">
-                <source>jda.sort.oldest</source>
+                <source>jda.search.oldest</source>
                 <target>Oldest</target>
             </trans-unit>
             <trans-unit id="121">
@@ -733,7 +727,7 @@ nuclear catastrophe.</target>
             </trans-unit>
             <trans-unit id="182">
                 <source>jda.collection.delete</source>
-                <target>delete</target>
+                <target>Delete Collection</target>
             </trans-unit>
             <trans-unit id="183">
                 <source>fancybox.pdf</source>
@@ -775,9 +769,13 @@ nuclear catastrophe.</target>
                 <source>jda.header.addwebsite</source>
                 <target>Add a Website</target>
             </trans-unit>
-            <trans-unit id="193">
+             <trans-unit id="193">     
                 <source>jda.header.addtestimonial</source>
                 <target>Add a Testimonial</target>
+			</trans-unit>
+             <trans-unit id="194"> 
+                <source>jda.search.relevant</source>
+                <target>Relevant</target>
             </trans-unit>
         </body>
     </file>

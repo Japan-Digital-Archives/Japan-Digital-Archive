@@ -3,59 +3,90 @@
 	Browser.Views = Browser.Views || {};
 	Browser.Views.FancyBox = Browser.Views.FancyBox || {};
 	
-	Browser.Views.FancyBox.PDF = Browser.Views._Fancybox.extend({
+	Browser.Views.FancyBox.Pdf = Browser.Views._Fancybox.extend({
+		
+		events : {
+
+			'click .fancybox-more-button' : 'more',
+			'click .fancybox-less-button' : 'less',
+
+		},
+
 		
 		initialize: function()
 		{
 			Browser.Views._Fancybox.prototype.initialize.call(this); //This is like calling super()
 		},
 		
+
+		more : function()
+		{
+			//call parent MORE method to lay out metadata
+			Browser.Views._Fancybox.prototype.more.call(this);
+
+			this.fillInTemplate(this.getMediaTemplate(275, 375));
+
+			return false;
+		},
+		
+		less : function()
+		{
+			//call parent LESS method to lay out metadata
+			Browser.Views._Fancybox.prototype.less.call(this);
+			var width = 750;//$(this.el).width();
+			this.fillInTemplate(this.getMediaTemplate(width,400));
+
+			return false;
+		},
+		
+		fillInTemplate : function(template)
+		{
+			//use template to clone the database items into
+			var template = _.template( template );
+
+			//Fill in info
+			var blanks = {
+
+				uri : this.model.get('uri'),
+			};
+			//copy the cloned item into the el
+			var docHTML =  template( blanks ) ;
+
+			$(this.el).find('.fancybox-media-item').html(docHTML);
+		},
+
 		/* Pass in the element that the user clicked on from fancybox. */
 		render: function(obj)
 		{
 
-			sessionStorage.setItem('currentItemId', this.model.id);
-			//console.log('this model id is'+this.model.id);
 			//Call parent class to do captioning and metadata
 			Browser.Views._Fancybox.prototype.render.call(this, obj); //This is like calling super()
 
 
-			//Fill in image-specific stuff
-			var blanks = {
-				uri: this.model.get('uri'),
-				src : sessionStorage.getItem('hostname') + sessionStorage.getItem('directory') + 'images/adobe-pdf-logo.png',
-				title : this.model.get('title'),
-				fancybox_pdf : l.fancybox_pdf
-			};
+			/* Because the document viewer needs to be reloaded for MORE and LESS views
+			this will be handled by the MORE and LESS methods in this class which call the parent
+			FancyBoxView class to handle the metadata and stuff.
 
-			//use template to clone the database items into
-			var template = _.template( this.getMediaTemplate() );
+			So if you need to change how this renders change it in the MORE or LESS or FILLINTEMPLATE functions
+			 of this class.
+			*/
 
-			//copy the cloned item into the el
-			var imageHTML =  template( blanks ) ;
-
-			$(this.el).find('.fancybox-media-item').html(imageHTML);
 
 			//set fancybox content
 			obj.content = $(this.el);
 
 			return this;
 		},
-		getMediaTemplate : function()
-		{
 
-			var html =	''+
-							'<a href="<%=uri%>" target="_blank">'+
-							'<div style="padding-top:13%">'+
-								'<img src="<%=src%>" title="<%=title%>" alt="<%=title%>" style="width:30%;"/>'+
-								'<br>'+
-								'<span style="font-size:11px"><%=fancybox_pdf%></span>'+
-							'</div>'+
-							'</a>'+
-						'';
+		
+		getMediaTemplate : function(width, height)
+		{
+			var html =	'<p class="fancybox-pdf">Download the document <%= uri %></p>';
 
 			return html;
 		}
+		
+
 	});
 	
 })(jda.module("browser"));

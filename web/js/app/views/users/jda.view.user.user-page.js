@@ -21,7 +21,7 @@
 			this.geocoder = new google.maps.Geocoder();
 
 			if(this.model.get('locationLatitude')) this.geolocated = true;
-			
+			if(!_.isUndefined(window._gaq)) _gaq.push(["_trackEvent", "JDA-User", "View", this.model.id.toString()]);
 			this.render();
 
 		},

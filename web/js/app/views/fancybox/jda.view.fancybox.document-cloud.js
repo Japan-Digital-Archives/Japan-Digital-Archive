@@ -46,6 +46,7 @@
 			var blanks = {
 
 				uri : this.model.get('uri'),
+				title : this.model.get('title'),
 			};
 			//copy the cloned item into the el
 			var docHTML =  template( blanks ) ;
@@ -77,15 +78,17 @@
 		
 		getMediaTemplate : function(width, height)
 		{
-			var html =	'<div id="fancybox-document-cloud" class="DV-container" style="z-index:1"></div>'+
+			if(this.model.get('layer_type') == 'Pdf')
+			{
+				return '<div id="fancybox-pdf"><a href="<%= uri %>" target="_blank">PDF: <%=title%></a></div>';
+			}
+			return	'<div id="fancybox-document-cloud" class="DV-container" style="z-index:1"></div>'+
 						'<script>'+
 						"DV.load('http://www.documentcloud.org/documents/<%= uri %>.js', {"+
 						'sidebar: false, width:'+width+',height:'+height+','+
 						'container: "#fancybox-document-cloud"'+
 						'      });'+
 						'</script>';
-
-			return html;
 		}
 		
 	});

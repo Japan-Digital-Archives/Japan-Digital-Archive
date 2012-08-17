@@ -473,11 +473,11 @@
                 <target>並べ替え</target>
             </trans-unit>
             <trans-unit id="119">
-                <source>jda.sort.recent</source>
+                <source>jda.search.recent</source>
                 <target>最新</target>
             </trans-unit>
             <trans-unit id="120">
-                <source>jda.sort.oldest</source>
+                <source>jda.search.oldest</source>
                 <target>最古</target>
             </trans-unit>
             <trans-unit id="121">
@@ -776,7 +776,10 @@
                 <source>jda.header.addtestimonial</source>
                 <target>Add a Testimonial</target>
             </trans-unit>
-
+            <trans-unit id="194">
+                <source>jda.search.relevant</source>
+                <target>Relevant</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
