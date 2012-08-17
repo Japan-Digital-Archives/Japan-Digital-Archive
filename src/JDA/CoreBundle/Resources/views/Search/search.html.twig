@@ -140,16 +140,16 @@ body {
 					  <div id="zeega-results-count" class="span4">
 					  	<span id="zeega-results-count-number"></span><span id="zeega-results-count-text">{% trans %}jda.search.items{% endtrans %}</span><br><span id="zeega-results-count-text-with-date">{% trans %}jda.search.withtimeplace{% endtrans %}</span>
 					  </div>
-					  <!---<div class="btn-group pull-right" style="margin-bottom:8px;margin-right:30px">
-							<a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
-								  {% trans %}jda.sort.by{% endtrans %}
-								  <span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu">
-								  <li><a href="#">{% trans %}jda.sort.recent{% endtrans %}</a></li>
-								  <li><a href="#">{% trans %}jda.sort.oldest{% endtrans %}</a></li>
-							</ul>
-					  </div>-->
+					<div class="pull-right" style="margin-top:8px;">
+						<span id="sort-wrap">
+							<select id="zeega-sort" style="width:130px">
+								<option value="relevant">{% trans %}jda.search.relevant{% endtrans %}</option>
+								<option value="date-desc">{% trans %}jda.search.recent{% endtrans %}</option>
+								<option value="date-asc">{% trans %}jda.search.oldest{% endtrans %}</option>
+							</select>
+						</span>
+	
+					  </div>
 					</div> 
 					 
 					 

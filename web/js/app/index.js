@@ -47,7 +47,7 @@ jQuery(function($)
 
 	var JDA = jda.app;
 	JDA.init();
-
+	
 
 
 

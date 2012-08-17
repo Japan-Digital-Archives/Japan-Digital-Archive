@@ -197,13 +197,14 @@ function initMap() {
 
 }
 
+
 function DoSearch() {
 
-    var baseURL = sessionStorage.getItem('hostname') + sessionStorage.getItem('directory') + 'en/search?';
+    var baseURL = window.location.href.replace('en/advsearch','')  + 'en/search?';
     baseURL += "#q=" + $("#searchTerms").val();
     var contentType = $("#contentTypeDDL option:selected").val();
     if (contentType != "0") {
-        baseURL += "&content=" + contentType;
+        baseURL += "&content=" + contentType.toLowerCase();
     }
     var tagArr = new Array();
     $("#tagListDiv > span > a").each(function (i) {
@@ -221,11 +222,11 @@ function DoSearch() {
     var endDate = $("#endDateTxt").val();
     if (startDate != "") {
         var sDate = new Date(startDate);
-        baseURL += "&dtstart=" + sDate.getTime();
+        baseURL += "&min_date=" + sDate.getTime();
     }
     if (endDate != "") {
         var eDate = new Date(endDate);
-        baseURL += "&dtend=" + eDate.getTime();
+        baseURL += "&max_date=" + eDate.getTime();
     }
     var usersVal = $("#userDDL option:selected").val();
     if (usersVal == -1) {

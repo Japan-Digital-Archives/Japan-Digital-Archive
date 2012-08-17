@@ -477,11 +477,11 @@ nuclear catastrophe.</target>
                 <target>Sort By</target>
             </trans-unit>
               <trans-unit id="119">
-                <source>jda.sort.recent</source>
+                <source>jda.search.recent</source>
                 <target>Recent</target>
             </trans-unit>
             <trans-unit id="120">
-                <source>jda.sort.oldest</source>
+                <source>jda.search.oldest</source>
                 <target>Oldest</target>
             </trans-unit>
             <trans-unit id="121">
@@ -733,11 +733,15 @@ nuclear catastrophe.</target>
             </trans-unit>
             <trans-unit id="182">
                 <source>jda.collection.delete</source>
-                <target>delete</target>
+                <target>Delete Collection</target>
             </trans-unit>
             <trans-unit id="183">
                 <source>fancybox.pdf</source>
                 <target>Click to download PDF</target>
+            </trans-unit>
+            <trans-unit id="184">
+                <source>jda.search.relevant</source>
+                <target>Relevant</target>
             </trans-unit>
         </body>
     </file>

@@ -41,6 +41,8 @@ this.jda = {
 		
 		
 		this.startRouter();
+		var _this=this;
+		$('#zeega-sort').change(function(){console.log('hellow');_this.parseSearchUI(); });
 		
 	},
 	initCollectionsDrawer:function(){
@@ -133,8 +135,7 @@ this.jda = {
 						$('#event-button').hide();
 						
 						if(sessionStorage.getItem('filterType')=='user'){
-							this.filterType ="user";
-							//$('#jda-left').css("margin-top","165px");							
+							this.filterType ="user";							
 							var Browser = jda.module("browser");
 							this.filterModel = new Browser.Users.Model({id:sessionStorage.getItem('filterId')});
 							this.filterModel.fetch({
@@ -150,7 +151,7 @@ this.jda = {
 							});					
 						}
 						else if(sessionStorage.getItem('filterType')=='collection'){
-							//$('#jda-left').css("margin-top","325px");
+							
 							this.filterType ="collection";
 							var Browser = jda.module("browser");
 							this.filterModel = new Browser.Items.Model({id:sessionStorage.getItem('filterId')});
@@ -203,6 +204,7 @@ this.jda = {
 	
 		
 		obj.content = $('#zeega-content-type').val();
+		obj.sort = $('#zeega-sort').val();
 		
 		obj.times = this.searchObject.times;
 		
@@ -252,6 +254,9 @@ this.jda = {
 		if (!_.isUndefined(obj.content)) $('#zeega-content-type').val(obj.content);
 		else $('#zeega-content-type').val("all");
 		
+		if (!_.isUndefined(obj.sort)) $('#zeega-sort').val(obj.sort);
+		else $('#zeega-sort').val("relevant");
+		
 		$('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
 		
 		
@@ -263,6 +268,7 @@ this.jda = {
 		 	if( !_.isUndefined(this.viewType)) hash += 'view_type=' + this.viewType + '&';
 		 	if( !_.isUndefined(obj.q) && obj.q.length > 0) hash += 'q=' + obj.q + '&';
 		 	if( !_.isUndefined(obj.content) )  hash += 'content='+ obj.content + '&';
+		 	if( !_.isUndefined(obj.sort) )  hash += 'sort='+ obj.sort + '&';
 		 	if( !_.isUndefined(obj.mapBounds) )  hash += 'map_bounds='+ encodeURIComponent(obj.mapBounds) + '&';
 		 	if( !_.isUndefined(obj.times)&&  !_.isNull(obj.times) )
 			{

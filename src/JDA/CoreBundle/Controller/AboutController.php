@@ -17,10 +17,23 @@ class AboutController extends Controller
     	
     	$request = $this->getRequest();
     	if($request->request->get('search-text')) return $this->redirect(sprintf('%s#%s', $this->generateUrl('search',array('_locale'=>$locale)), 'text='.$request->request->get('search-text')));
-   
+   		
+   		    	$user = $this->get('security.context')->getToken()->getUser();
+    	
+    	if(is_object($user)){
+    		$displayName = $user->getDisplayName();
+    		$userId = $user->getId();
+    	}
+    	else{
+    		$displayName='none';
+    		$userId=0;	
+    	}
+    	
         return $this->render('JDACoreBundle:About:about.html.twig', array(
 					// last displayname entered by the user
 					'page'=> 'about',
+					'displayname'=>$displayName,
+					'userId'=>$userId,
 					
 				));
     	
