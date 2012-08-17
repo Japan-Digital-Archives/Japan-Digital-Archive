@@ -11,18 +11,14 @@
 
 namespace Zeega\UserBundle\Controller;
 
+use FOS\UserBundle\Controller\ChangePasswordController as BaseController;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use FOS\UserBundle\Model\UserInterface;
 
-/**
- * Controller managing the password change
- *
- * @author Thibault Duplessis <thibault.duplessis@gmail.com>
- * @author Christophe Coevoet <stof@notk.org>
- */
-class ChangePasswordController extends Controller
+class ChangePasswordController extends BaseController
 {
     /**
      * Change user password
@@ -45,7 +41,7 @@ class ChangePasswordController extends Controller
 		
         return $this->container->get('templating')->renderResponse(
             'FOSUserBundle:ChangePassword:changePassword.html.'.$this->container->getParameter('fos_user.template.engine'),
-            array('form' => $form->createView(), 'theme' => $this->container->getParameter('fos_user.template.theme'), 
+                array('form' => $form->createView(), 'theme' => $this->container->getParameter('fos_user.template.theme'), 
 				'email' => $user->getEmail(),
 				'user_id' => $user->getId(),
 				'displayname' => $user->getDisplayName(),
@@ -58,24 +54,8 @@ class ChangePasswordController extends Controller
 				'myprojects'=>false,
 				'site' => false,					
 				'sites'=>false,
-)
+            )
         );
     }
 
-    /**
-     * Generate the redirection url when the resetting is completed.
-     *
-     * @param \FOS\UserBundle\Model\UserInterface $user
-     *
-     * @return string
-     */
-    protected function getRedirectionUrl(UserInterface $user)
-    {
-        return $this->container->get('sequencer')->generate('fos_user_profile_show');
-    }
-
-    protected function setFlash($action, $value)
-    {
-        $this->container->get('session')->setFlash($action, $value);
-    }
 }
