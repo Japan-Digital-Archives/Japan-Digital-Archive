@@ -499,7 +499,7 @@
 						
 
 						'<div class="span3" style="position:relative">'+
-							'<div class="jda-collection-map" style="text-align:center;background-image: url(../images/nogeomap.gif)"><h3 class="jda-no-geo-location-message" style="top:24px">'+l.jda_collection_nolocation+'</h3></div>'+
+							'<div class="jda-collection-map" style="text-align:center;"><h3 class="jda-no-geo-location-message" style="top:24px">'+l.jda_collection_nolocation+'</h3></div>'+
 
 							'<div class="jda-collection-map-location"></div>'+
 							'<a class="btn btn-mini jda-collection-map-location-go" style="margin-left:5px;margin-top:5px;display:none" href=".">go</a>'+
