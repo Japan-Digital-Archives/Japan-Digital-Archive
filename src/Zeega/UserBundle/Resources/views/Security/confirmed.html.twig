@@ -3,7 +3,6 @@
 {% block header %}
 					{{displayname}}, {% trans %}jda.login.confirm{% endtrans %} 
 					<script>
-							console.log('alrighty then');
 							sessionStorage.setItem('user',{{ id }});
 							parent.$("#user-displayname").html('<i class="zicon-user"></i>{{displayname}}<b class="caret"></b>');
 							parent.$("#user-modal").trigger("authenticated");

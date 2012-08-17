@@ -42,7 +42,7 @@ this.jda = {
 		
 		this.startRouter();
 		var _this=this;
-		$('#zeega-sort').change(function(){console.log('hellow');_this.parseSearchUI(); });
+		$('#zeega-sort').change(function(){_this.parseSearchUI(); });
 		
 	},
 	initCollectionsDrawer:function(){
@@ -146,7 +146,7 @@ this.jda = {
 								},
 								error : function(model, response){
 									console.log('Failed to fetch the user object.');
-									console.log(model);
+									
 								},
 							});					
 						}
@@ -163,7 +163,7 @@ this.jda = {
 								},
 								error : function(model, response){
 									console.log('Failed to fetch the user object.');
-									console.log(model);
+									
 								},
 					
 							});
@@ -490,16 +490,14 @@ this.jda = {
 	
 	userAuthenticated: function(){
 	
-		console.log("you're logged in now!");
 		
-		sessionStorage.setItem('user','1');
 		$('#zeega-my-collections-share-and-organize').html('Saving collection...');
 		var _this=this;
-		console.log(this.myCollectionsDrawer.activeCollection);
+		
 		if(this.myCollectionsDrawer.activeCollection.get('new_items').length>0){
 			this.myCollectionsDrawer.activeCollection.save({},{
 				success:function(model,response){
-					console.log('saved collection');
+					
 					_this.initCollectionsDrawer();
 				}
 			});
