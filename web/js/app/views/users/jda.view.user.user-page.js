@@ -21,10 +21,7 @@
 			this.geocoder = new google.maps.Geocoder();
 
 			if(this.model.get('locationLatitude')) this.geolocated = true;
-			if(!_.isUndefined(window._gaq)) {
-				_gaq.push(["_trackEvent", "JDA-User", "View", ""]);
-				console.log("Tracking user view",this.model.id);
-			}
+			if(!_.isUndefined(window._gaq)) _gaq.push(["_trackEvent", "JDA-User", "View", "user-"+this.model.id]);
 			this.render();
 
 		},

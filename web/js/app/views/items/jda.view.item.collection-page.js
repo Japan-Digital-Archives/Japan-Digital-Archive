@@ -27,10 +27,7 @@
 				this.isEditView = false;
 				this.elemId = Math.floor(Math.random()*10000);
 				this.render();
-				if(!_.isUndefined(window._gaq)) {
-					_gaq.push(["_trackEvent", "JDA-Collection-Page", "NewView", ""]);
-					console.log("Tracking collection view",this.model.id);
-				}
+				if(!_.isUndefined(window._gaq)) _gaq.push(["_trackEvent", "JDA-Collection", "View", "collection="+this.model.id]);
 	
 		  },
 
@@ -202,6 +199,24 @@
 			})
 			$('.jda-delete-item').show();
 			
+			
+			$('.jda-delete-this-collection').unbind().click(function(){
+				var doDelete = confirm(l.jda_collection_confirmdelete);
+				if (doDelete){
+					var itemID = _this.model.id;
+					var itemToDelete = _this.model;
+					console.log('deleting ' + itemID + itemToDelete.get('title'))
+
+					//KILL KILL
+					itemToDelete.destroy({success:function(model){
+						window.location=$('#user-profile').attr('href');
+					}});
+					
+					return false;
+				}else{
+					return false;
+				}
+			})
 			
 			
 			
@@ -468,11 +483,10 @@
 								'</div>'+
 						
 						
-						/*     UNCLEAR WHERE DELETE COLLECTION SHOULD BE LOCATED
-								'<div class="btn-group save-data pull-right">'+
-									'<button class="btn btn-danger btn-mini delete hide">'+l.jda_collection_delete+'</button>'+
+									'<div class="btn-group save-data pull-right">'+
+									'<button class="btn btn-danger btn-mini jda-delete-this-collection hide">'+l.jda_collection_delete+'</button>'+
 								'</div>'+
-						*/	
+							
 							'</div>'+
 							
 							

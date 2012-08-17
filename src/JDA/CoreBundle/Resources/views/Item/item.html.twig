@@ -65,9 +65,9 @@
 		<script data-main="{{ asset('js_min/item') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
 	{% endif %}
 	
-	{% if app.environment == 'prod' %}
-	<script>_gaq.push(["_trackEvent", "JDA-Item", "View", {{item.id}} ]);</script>	
-	{% endif %}
+	
+	<script>if(!_.isUndefined(window._gaq))_gaq.push(["_trackEvent", "JDA-Item", "View", "item-{{item.id}}" ]);</script>	
+
 	
 	
 {% endblock %}
