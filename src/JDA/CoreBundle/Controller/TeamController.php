@@ -5,7 +5,7 @@ namespace JDA\CoreBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
-class AboutController extends Controller
+class TeamController extends Controller
 {
     
     public function indexAction()
@@ -30,9 +30,9 @@ class AboutController extends Controller
     	$request = $this->getRequest();
     	if($request->request->get('search-text')) return $this->redirect(sprintf('%s#%s', $this->generateUrl('search',array('_locale'=>$locale)), 'text='.$request->request->get('search-text')));
    
-        return $this->render('JDACoreBundle:About:about.html.twig', array(
+        return $this->render('JDACoreBundle:Team:team.html.twig', array(
 					// last displayname entered by the user
-					'page'=> 'about',
+					'page'=> 'team',
 					'displayname'=>$displayName,
                     'userId'=>$userId,
 				));

@@ -1,0 +1,140 @@
+{# src/Zeega/CoreBundle/Resources/views/Team/team.html.twig #}
+
+{% extends '::base.html.twig' %}
+
+{% block title %}<title>{% trans %}jda.home.title{% endtrans %}</title>{% endblock %}
+{% block stylesheets %}
+<!-- Visual Search --> 
+<!--[if (!IE)|(gte IE 8)]><!-->
+<link href="{{ asset('js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+<!--[if lte IE 7]><!-->
+<link href="{{ asset('js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<style>
+	p{
+		margin:14px 25px 18px;
+	}
+</style>
+<!--<![endif]-->
+{% endblock %}
+{% block scripts %}
+{% if app.environment == 'dev' %}
+<!-- to load JS libraries separately -->
+	<script data-main="{{ asset('js/loaders/about') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
+{% else %}
+	<!-- to load single aggregated JS library --> 
+	<script data-main="{{ asset('js_min/about') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="container" id="zeega-view-navigation" style="background-color:rgba(0,0,0,0.7)">
+
+
+	<div id="jda-home-search-div" class="pull-left" style="margin-right:17px;margin-top:5px;margin-left:5%;margin-bottom:5px;display:none">
+		<div id="search-bar" style="margin-right:10px">
+			<div class="visual_search pull-left"></div>
+		</div>
+		<a href="#" id="jda-go-button" class="btn btn-info btn-large">go</a>
+	</div>
+
+
+
+</div><!-- end container -->
+<div id="jda-about-container" style="margin:0 5%;position:relative;top:115px">
+
+	<h2 style="color:#666;letter-spacing:1px;margin-bottom:20px">{% trans %}jda.about.team{% endtrans %}</h2>
+
+	<h3>{% trans %}jda.team.leader{% endtrans %}</h3>
+
+	<p>Project Director: Andrew Gordon, Professor of History<br/>
+	Project Manager: Nick Kapur, Postdoctoral Fellow<br/>
+	Archive Development Manager: Molly Des Jardin, Postdoctoral Fellow<br/>
+	</p>
+
+	<h4>{% trans %}jda.team.additional{% endtrans %}</h4>
+
+	<p>Professor Ted Bestor, Director<br/>
+	Dr. Ted Gilman, Associate Director<br/>
+	Kazuko Sakaguchi, Librarian, Documentation Center on Contemporary Japan<br/>
+	Stacie Matsumoto, [check title]<br/>
+	</p>
+
+	<h4>{% trans %}jda.team.zeega{% endtrans %}</h4>
+
+	<p>Joseph Bergen<br/> Filipe Brandão<br/> James Burns<br/> Catherine D’Ignazio<br/> Kara Oehler<br/> Jesse Shapins<br/> Lindsey Wagner<br/></p>
+
+	<h4>{% trans %}jda.team.interaction{% endtrans %}</h4>
+
+	<p>Curricular Question Designer: Kyle Parry, metaLAB (at) Harvard<br/>
+	Public Relations and Social Media: Taisei Wake<br/>
+	Web Harvesting Coordinator: Koko Howell<br/>
+	Project Technical Lead: E. J. Bensing<br/>
+	Project Development and Design: Julie Zhang, Hikari Senju<br/>
+	</p>
+
+	<h4>{% trans %}jda.team.alumni{% endtrans %}</h4>
+
+	<p>Konrad M. Lawson: Project management, 2011-2012<br/>
+	Yuhki Yamashita: Project developer, designer<br/>
+	Arne Brasseur: Project developer<br/>
+	Eric Dinmore: Research associate, collection curator<br/>
+	Kyoko Shiga: Project management, web seed and testimonial curation<br/>
+	Ray Kameda: GIS analyst<br/>
+	Takamasa Nunogaki: Web seed curator<br/>
+	Alicia Zhao: Web seed curator<br/>
+	Yeonjoo Kim: Web seed curator<br/>
+	Ilsoo Cho: Web seed curator<br/>
+	Miho Segal: Web seed curator<br/>
+	Grace Song: Web seed web curator<br/>
+	Sandy Xu: Web seed and testimonial curator<br/>
+	Anna Wada: Web seed and testimonial curator<br/>
+	Atsuko Yamashita: Web seed curator<br/>
+	Rei Yoshimune: Web seed curator<br/>
+	</p>
+
+	<h4>{% trans %}jda.team.inquiries{% endtrans %}<a href="mailto:info@jdarchive.org">info@jdarchive.org</h4>
+</div>
+<!-- end tab content -->
+<footer style="position:relative;top:150px">
+
+
+	<h3>{% trans %}jda.home.partners{% endtrans %}</h3>
+	<ul>
+
+		<li><a href="http://warp.ndl.go.jp/WARP_disaster.html" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/nationalDietLibrary.png')}}"></a></li>
+		<li><a href="http://www.fas.harvard.edu/~rijs/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/reischauer.png')}}"></a></li>
+		<li><a href="http://311archives.jp/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/all311.png')}}"></a></li>
+		<li><a href="http://www.dcrc.tohoku.ac.jp/archive/index.html/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/tohoku311.png')}}"></a></li>						
+		<li><a href="http://311map.com/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/311Map.png')}}"></a></li>
+		<li><a href="http://recorder311.smt.jp/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/logo_cr.png')}}"></a></li>
+		<li><a href="http://savemlak.jp/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/saveMLAK.png')}}"></a></li>
+		<li><a href="http://recorder311.smt.jp/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/sendaiMedia.png')}}"></a></li>
+
+
+		<li><a href="http://www.yahoo.co.jp/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/YahooJapan.gif')}}"></a></li>
+
+
+		<li><a href="http://zeega.org" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/zeega.png')}}"></a></li>
+		<li><a href="http://metalab.harvard.edu" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/mlh.gif')}}"></a></li>
+
+
+
+		<li><a href="http://www.archive-it.org/collections/2438" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/archiveIT.png')}}"></a></li>
+		<li><a href="http://worldmap.harvard.edu/japanmap/" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/CGA.png')}}"></a></li>
+		<li><a href="http://archive.org" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/InternetArchive.png')}}"></a></li>
+		<li><a href="http://www.loc.gov/index.html" target="_blank"><img class="partnerimg" src="{{ asset('images/partner-logos/LibraryOfCongress.png')}}"></a></li>
+	</ul>
+	<h4 style="text-align:center;clear:both; margin:30px 0">Site powered by <a href="http://www.zeega.org/about.php" target="_blank">Zeega.org</a><br> <br></h4>
+
+
+
+	
+</footer>
+
+
+
+
+
+{% endblock %}	
