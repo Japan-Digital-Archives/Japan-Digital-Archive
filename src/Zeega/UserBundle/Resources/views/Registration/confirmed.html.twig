@@ -20,14 +20,14 @@
 	<div class="login-modal-header">
 			<br>
 			<h2 style="padding-top:20px;padding-bottom:15px;">
-				{{displayname}}, {% trans %}jda.register.confirm{% endtrans %} 
+				{{app.user.displayName}}, {% trans %}jda.register.confirm{% endtrans %} 
 			</h2>
 			<a id="close-button" class="btn" href="#" onclick="javascript: parent.$('#user-modal').trigger('close');">Close</a>	
 	</div>
 
 	<script>
 			
-			parent.$("#user-displayname").html('<i class="zicon-user"></i>{{displayname}}<b class="caret"></b>');
+			parent.$("#user-displayname").html('<i class="zicon-user"></i>{{app.user.displayName}}<b class="caret"></b>');
 			parent.$("#user-modal").trigger("authenticated");
 			
 	</script>
