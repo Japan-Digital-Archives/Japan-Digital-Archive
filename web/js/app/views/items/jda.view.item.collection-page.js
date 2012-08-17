@@ -27,7 +27,7 @@
 				this.isEditView = false;
 				this.elemId = Math.floor(Math.random()*10000);
 				this.render();
-				if(!_.isUndefined(window._gaq)) _gaq.push(["_trackEvent", "JDA-Collection", "View", "collection="+this.model.id]);
+				if(!_.isUndefined(window._gaq)) _gaq.push(["_trackEvent", "JDA-Collection", "View", this.model.id.toString()]);
 	
 		  },
 
