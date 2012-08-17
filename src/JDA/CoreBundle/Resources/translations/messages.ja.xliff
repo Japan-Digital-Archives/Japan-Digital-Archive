@@ -450,7 +450,7 @@
             </trans-unit>
             <trans-unit id="113">
                 <source>jda.accountsettings.header</source>
-                <target>Change your password</target>
+                <target>パスワードを変更する</target>
             </trans-unit>
             <trans-unit id="114">
                 <source>jda.report.feedback</source>
@@ -665,7 +665,7 @@
                 <target>コレクションの説明を編集する</target>
             </trans-unit>
             <trans-unit id="166">
-                <source>jda.collection.editmap</source>
+                <source>jda.collection.editlocation</source>
                 <target>位置情報を編集する</target>
             </trans-unit>
         	<trans-unit id="167">

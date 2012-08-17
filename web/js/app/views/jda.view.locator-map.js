@@ -159,8 +159,8 @@
 	
 		getTemplate : function()
 		{
-			var html =	'<p class="map-title">'+l.fancybox_map+'</p><div class="locator-map"></div><span class="edit edit-geo-location"><a>Edit item location</a></span>'+
-				'<span class="no-geo-data" style="display:none;font-size:11px">No location information</span>'+
+			var html =	'<p class="map-title">'+l.fancybox_map+'</p><div class="locator-map"></div><span class="edit edit-geo-location"><a>'+l.fancybox_editlocation+'</a></span>'+
+				'<span class="no-geo-data" style="display:none;font-size:11px">'+l.fancybox_nolocation+'</span>'+
 				'<span class="item-address-text" style="display:none;font-size:11px"></span>'+
 				'<div class="item-lat-lng"><span class="item-latitude"><%= latitude %></span><span class="item-longitude"><%= longitude %></span></div>'+
 				'<div class="locator-search-bar"><input class="locator-search-input" type="text" value="Search a Location"  ></div>';

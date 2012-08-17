@@ -492,7 +492,7 @@ this.jda = {
 	
 		console.log("you're logged in now!");
 		
-		//sessionStorage.setItem('user','1');
+		sessionStorage.setItem('user','1');
 		$('#zeega-my-collections-share-and-organize').html('Saving collection...');
 		var _this=this;
 		console.log(this.myCollectionsDrawer.activeCollection);

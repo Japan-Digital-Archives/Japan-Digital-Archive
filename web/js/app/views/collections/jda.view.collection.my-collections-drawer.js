@@ -17,8 +17,9 @@
             this.collection.url=jda.app.apiLocation + 'api/search?r_collections=1&user=-1';			
             this.collection.parse= function(data){ return data.collections;}
 			
-			this.user=sessionStorage.getItem('user');
-			
+			if(sessionStorage.getItem('user')!=0)this.user=sessionStorage.getItem('user');
+			else this.user=null;
+			console.log(this.user,"IS THE USER");
 			//show 3 thumbnails by default in collections drawer
 			this.showThumbnailCount = 3;
 		},

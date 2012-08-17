@@ -662,7 +662,7 @@
                 <target>Edit Collection Description</target>
             </trans-unit>
             <trans-unit id="166">
-                <source>jda.collection.editmap</source>
+                <source>jda.collection.editlocation</source>
                 <target>Edit Location</target>
             </trans-unit>
             <trans-unit id="167">
