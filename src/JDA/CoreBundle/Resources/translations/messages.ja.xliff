@@ -730,7 +730,7 @@
             </trans-unit>
              <trans-unit id="182">
                 <source>jda.collection.delete</source>
-                <target>delete</target>
+                <target>削除</target>
             </trans-unit>
             <trans-unit id="183">
                 <source>fancybox.pdf</source>
@@ -766,19 +766,23 @@
             </trans-unit>
              <trans-unit id="191">
                 <source>jda.header.add</source>
-                <target>Add to the Archive</target>
+                <target>アーカイブに情報を加える</target>
             </trans-unit>
             <trans-unit id="192">
                 <source>jda.header.addwebsite</source>
-                <target>Add a Website</target>
+                <target>ウェブサイト</target>
             </trans-unit>
             <trans-unit id="193">
                 <source>jda.header.addtestimonial</source>
-                <target>Add a Testimonial</target>
+                <target>わたしの「東日本大震災」</target>
             </trans-unit>
             <trans-unit id="194">
                 <source>jda.search.relevant</source>
-                <target>Relevant</target>
+                <target>関連性</target>
+            </trans-unit>
+            <trans-unit id="195">
+                <source>jda.collection.dragcover</source>
+                <target>drag to add a cover image</target>
             </trans-unit>
         </body>
     </file>
