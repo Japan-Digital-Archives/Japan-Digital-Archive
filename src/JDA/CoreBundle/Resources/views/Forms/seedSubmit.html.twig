@@ -50,20 +50,20 @@
                 </tr>
                 <tr>
                     <th>{% trans %}jda.form.contribute.url{% endtrans %}<span class="form_required">*</span></th>
-                    <td><input type="text" name="urlTxt" value="" /></td>          
+                    <td><input type="text" name="urlTxt" id="urlTxt" value="" /></td>          
                 </tr>                  
                 <tr>                   
                     <th>{% trans %}jda.form.contribute.pageTitle{% endtrans %}<span class="form_required">*</span></th>
-                    <td><input type="text" name="pageTitleTxt" value="" /></td>          
+                    <td><input type="text" name="pageTitleTxt" id="pageTitleTxt" value="" /></td>          
                 </tr>                  
                 <tr>                   
                     <th>{% trans %}jda.form.contribute.description{% endtrans %}</th>
-                    <td><textarea name="descriptionTxt"></textarea></td>          
+                    <td><textarea name="descriptionTxt" id="descriptionTxt"></textarea></td>          
                 </tr>                  
                 <tr>                   
                     <th>{% trans %}jda.form.contribute.frequency{% endtrans %}</th>
                     <td>
-                        <select name="frequencyDDL">
+                        <select name="frequencyDDL" id="frequencyDDL">
                             <option value="Once">{% trans %}jda.form.contribute.once{% endtrans %}</option>
                             <option value="Daily">{% trans %}jda.form.contribute.daily{% endtrans %}</option>
                             <option value="Weekly">{% trans %}jda.form.contribute.weekly{% endtrans %}</option>
@@ -74,7 +74,7 @@
                 <tr>                   
                     <th>{% trans %}jda.form.contribute.scope{% endtrans %}</th>
                     <td>
-                        <select name="scopeDDL">
+                        <select name="scopeDDL" id="scopeDDL">
                             <option value="Page">{% trans %}jda.form.contribute.scope.page{% endtrans %}</option>
                             <option value="Directory">{% trans %}jda.form.contribute.scope.directory{% endtrans %}</option>
                             <option value="Site">{% trans %}jda.form.contribute.scope.site{% endtrans %}</option>
@@ -98,38 +98,45 @@
                             <div><span class="hint">{% trans %}jda.form.contribute.map.hint{% endtrans %}</span></div>
                             <div id="map_canvas" style="width: 550px; height: 300px"></div>
                             <div id="latlng"></div>
-                            <input type="hidden" id="lat" name="lat" />
-                            <input type="hidden" id="lng" name="lng" />
+                            <input type="hidden" id="lat" name="lat" value="" />
+                            <input type="hidden" id="lng" name="lng" value="" />
                     </td>          
                 </tr>                  
                 <tr>                   
                     <th>{% trans %}jda.form.contribute.category{% endtrans %}</th>
                     <td>
-                        <select name="categoryDDL">
-                            <option value="website">{% trans %}jda.search.website{% endtrans %}</option>
-                            <option value="image">{% trans %}jda.search.image{% endtrans %}</option>
-                            <option value="video">{% trans %}jda.search.video{% endtrans %}</option>
-                            <option value="audio">{% trans %}jda.search.audio{% endtrans %}</option>
-                            <option value="document">{% trans %}jda.search.document{% endtrans %}</option>
+                        <select name="categoryDDL" id="categoryDDL">
+                            <option value="Website">{% trans %}jda.search.website{% endtrans %}</option>
+                            <option value="Image">{% trans %}jda.search.image{% endtrans %}</option>
+                            <option value="Video">{% trans %}jda.search.video{% endtrans %}</option>
+                            <option value="Audio">{% trans %}jda.search.audio{% endtrans %}</option>
+                            <option value="Document">{% trans %}jda.search.document{% endtrans %}</option>
                         </select>
                     </td>          
                 </tr>                  
                 <tr>                   
                     <th>{% trans %}jda.form.contribute.language{% endtrans %}</th>
                     <td>
-                        <input type="checkbox" name="englishChk" value="English" /> {% trans %}jda.form.contribute.language.english{% endtrans %}
-                        <input type="checkbox" name="japaneseChk" value="Japanese" /> {% trans %}jda.form.contribute.language.japanese{% endtrans %}
-                        <input type="checkbox" name="chineseChk" value="Chinese" /> {% trans %}jda.form.contribute.language.chinese{% endtrans %}
-                        <input type="checkbox" name="koreanChk" value="Korean" /> {% trans %}jda.form.contribute.language.korean{% endtrans %}
+                        <input type="checkbox" name="englishChk" id="englishChk" value="English" /> {% trans %}jda.form.contribute.language.english{% endtrans %}
+                        <input type="checkbox" name="japaneseChk" id="japaneseChk" value="Japanese" /> {% trans %}jda.form.contribute.language.japanese{% endtrans %}
+                        <input type="checkbox" name="chineseChk" id="chineseChk" value="Chinese" /> {% trans %}jda.form.contribute.language.chinese{% endtrans %}
+                        <input type="checkbox" name="koreanChk" id="koreanChk" value="Korean" /> {% trans %}jda.form.contribute.language.korean{% endtrans %}
                     </td>          
                 </tr>                  
                 <tr>                   
                     <th>{% trans %}jda.form.contribute.name{% endtrans %}</th>
-                    <td><input type="text" name="nameTxt" value="" /></td>
+                    <td><input type="text" name="nameTxt" id="nameTxt" value="" /></td>
                 </tr>
                 <tr>                   
                     <th>{% trans %}jda.form.contribute.email{% endtrans %}</th>
-                    <td><input type="text" name="emailTxt" value="" /></td>
+                    <td><input type="text" name="emailTxt" id="emailTxt" value="" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <center>
+                            <input type="button" name="submitContributeBtn" id="submitContributeBtn" value="Submit" class="btn" />
+                        </center>
+                    </td>
                 </tr>
             </table>
         </div>

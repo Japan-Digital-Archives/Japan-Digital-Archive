@@ -97,6 +97,31 @@ require(loadFiles, function () {
         setTimeout(function () {
             initializeMap();
         }, 1000);
+
+        $("#submitContributeBtn").click(function () {
+            var postObj = {};
+
+            postObj.title = $("#pageTitleTxt").val();
+            postObj.description = $("#descriptionTxt").val();
+            postObj.media_type = $("#categoryDDL > option:selected").val();
+            postObj.layer_type = $("#categoryDDL > option:selected").val();
+            postObj.uri = $("#urlTxt").val();
+            postObj.attribution_uri = $("#urlTxt").val();
+            postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+            postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+
+            if ($("#lat").val() != "") {
+                postObj.media_geo_latitude = parseFloat($("#lat").val());
+                postObj.media_geo_longitude = parseFloat($("#lng").val());
+            }
+            postObj.tags = [];
+            $("#tagsSelect option:selected").each(function () {
+                postObj.tags.push($(this).val());
+            });
+
+            alert(postObj);
+        });
+
         var BrowserDetect = {
             init: function () {
                 this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
