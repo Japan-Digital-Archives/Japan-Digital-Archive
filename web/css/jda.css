@@ -715,11 +715,12 @@ border-radius: 0px 4px 0px 0px;
  ***************/
 
 .main_form_div {
-    padding:50px;
+    padding: 50px 15% 50px 15%;
 }
 
 .main_form_table th, td {
     padding: 5px;
+    text-align:left;
 }
 
 .main_form_table th {
@@ -728,6 +729,10 @@ border-radius: 0px 4px 0px 0px;
 
 .form_required {
     color: red;
+}
+
+.main_form_table input[type=text] {
+    width: 200px;
 }
 
 /**********************

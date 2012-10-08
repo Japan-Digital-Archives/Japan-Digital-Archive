@@ -738,7 +738,7 @@ nuclear catastrophe.</target>
             <trans-unit id="183">
               <source>jda.form.contribute.instructions</source>
               <target>
-                We need your help finding websites to archive! Please fill out the form below as thoroughly as possible. &gt;span style="color:red;"&lt;*&gt;/span&lt; Required Field
+                We need your help finding websites to archive! Please fill out the form below as thoroughly as possible. &lt;br /&gt; &lt;span style="color:red;"&gt;*&lt;/span&gt; Required Field
               </target>
             </trans-unit>
             <trans-unit id="184">
