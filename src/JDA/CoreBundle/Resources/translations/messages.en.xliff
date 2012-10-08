@@ -817,6 +817,22 @@ nuclear catastrophe.</target>
               <source>jda.form.contribute.map.hint</source>
               <target>Search to designate a location that this website is primarily about. Move the point if necessary.</target>
             </trans-unit>
+            <trans-unit id="203">
+              <source>jda.form.contribute.language.english</source>
+              <target>Full Site</target>
+            </trans-unit>
+            <trans-unit id="204">
+              <source>jda.form.contribute.language.japanese</source>
+              <target>Full Site</target>
+            </trans-unit>
+            <trans-unit id="205">
+              <source>jda.form.contribute.language.chinese</source>
+              <target>Full Site</target>
+            </trans-unit>
+            <trans-unit id="206">
+              <source>jda.form.contribute.language.korean</source>
+              <target>Full Site</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
