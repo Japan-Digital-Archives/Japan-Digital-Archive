@@ -15,6 +15,9 @@
 	<!-- Tags --> 
 	<link rel="stylesheet" type="text/css" href="{{ asset('js/lib/jquery.tagsinput.css')}}" />
 
+    <!-- chosen -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('js/lib/chosen/chosen.css')}}" />
+
 	<!-- Visual Search --> 
 	<!--[if (!IE)|(gte IE 8)]><!-->
 	<link href="{{ asset('js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
@@ -26,6 +29,7 @@
 
 {% block scripts %}
 
+    <script src="{{ asset('js/lib/chosen/chosen.jquery.min.js') }}"></script>
 	<!--<script data-main="{{ asset('js/loaders/advsearch') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>-->
 
 {% endblock %}
@@ -80,7 +84,13 @@
                 </tr>                  
                 <tr>                   
                     <th>{% trans %}jda.form.contribute.tags{% endtrans %}</th>
-                    <td>special tag box</td>          
+                    <td>
+                        <select name="tagsSelect" id="tagsSelect" multiple>
+                            <option value="test1">test1</option>
+                            <option value="test2">test2</option>
+                            <option value="test3">test3</option>
+                        </select>
+                    </td>          
                 </tr>                  
                 <tr>                   
                     <th>{% trans %}jda.form.contribute.location{% endtrans %}</th>
@@ -103,6 +113,11 @@
                     <td><input type="text" name="emailTxt" value="" /></td>
                 </tr>
             </table>
+            <script type="text/javascript">
+                $("document").ready(function () {
+                    $("#tagsSelect").chosen();
+                });
+            </script>
         </div>
     </div>
 </center>
