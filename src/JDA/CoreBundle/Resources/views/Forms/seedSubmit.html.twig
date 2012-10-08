@@ -29,8 +29,7 @@
 
 {% block scripts %}
 
-    <script src="{{ asset('js/lib/chosen/chosen.jquery.min.js') }}"></script>
-	<!--<script data-main="{{ asset('js/loaders/advsearch') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>-->
+	<script data-main="{{ asset('js/loaders/form') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
 
 {% endblock %}
 
@@ -113,11 +112,6 @@
                     <td><input type="text" name="emailTxt" value="" /></td>
                 </tr>
             </table>
-            <script type="text/javascript">
-                $("document").ready(function () {
-                    $("#tagsSelect").chosen();
-                });
-            </script>
         </div>
     </div>
 </center>
