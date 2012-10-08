@@ -41,7 +41,7 @@ require(loadFiles, function () {
 
         $("#tagsSelect").chosen({
             create_option_text: 'Add New Tag',
-            create_opion: true,
+            create_option: true,
             persistent_create_option: true
         });
 
