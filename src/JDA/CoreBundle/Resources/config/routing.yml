@@ -32,3 +32,8 @@ item:
     defaults:  { _controller: JDACoreBundle:Item:index, _locale: ja }
     requirements:
         _locale: en|ja
+seedSubmit:
+    pattern:   /{_locale}/seedSubmission/
+    defaults:  { _controller: JDACoreBundle:SeedSubmitController:index, _locale: ja }
+    requirements:
+        _locale: en|ja
