@@ -59,7 +59,14 @@
                 </tr>                  
                 <tr>                   
                     <th>{% trans %}jda.form.contribute.frequency{% endtrans %}</th>
-                    <td>drop down here</td>          
+                    <td>
+                        <select name="frequencyDDL">
+                            <option value="Once">{% trans %}jda.form.contribute.once{% endtrans %}</option>
+                            <option value="Daily">{% trans %}jda.form.contribute.daily{% endtrans %}</option>
+                            <option value="Weekly">{% trans %}jda.form.contribute.weekly{% endtrans %}</option>
+                            <option value="Monthly">{% trans %}jda.form.contribute.monthly{% endtrans %}</option>
+                        </select>
+                    </td>          
                 </tr>                  
                 <tr>                   
                     <th>{% trans %}jda.form.contribute.scope{% endtrans %}</th>

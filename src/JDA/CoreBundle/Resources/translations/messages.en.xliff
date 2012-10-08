@@ -785,6 +785,22 @@ nuclear catastrophe.</target>
               <source>jda.form.contribute.email</source>
               <target>Your Email</target>
             </trans-unit>
+            <trans-unit id="195">
+              <source>jda.form.contribute.once</source>
+              <target>Archive Once</target>
+            </trans-unit>
+            <trans-unit id="196">
+              <source>jda.form.contribute.daily</source>
+              <target>Daily</target>
+            </trans-unit>
+            <trans-unit id="197">
+              <source>jda.form.contribute.weekly</source>
+              <target>Weekly</target>
+            </trans-unit>
+            <trans-unit id="198">
+              <source>jda.form.contribute.monthly</source>
+              <target>Monthly</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
