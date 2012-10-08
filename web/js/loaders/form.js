@@ -39,7 +39,11 @@ var loadFiles = [
 require(loadFiles, function () {
     $(document).ready(function () {
 
-       $("#tagsSelect").chosen();
+        $("#tagsSelect").chosen({
+            create_option_text: 'Add New Tag',
+            create_opion: true,
+            persistent_create_option: true
+        });
 
 
 

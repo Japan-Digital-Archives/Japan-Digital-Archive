@@ -275,6 +275,9 @@
   background: #f4f4f4;
   display: list-item;
 }
+.chzn-container .chzn-results .create-option {
+  display: list-item;
+}
 .chzn-container .chzn-results .group-result {
   cursor: default;
   color: #999;
