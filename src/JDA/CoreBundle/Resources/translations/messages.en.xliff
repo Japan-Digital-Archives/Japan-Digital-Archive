@@ -813,6 +813,10 @@ nuclear catastrophe.</target>
               <source>jda.form.contribute.scope.site</source>
               <target>Full Site</target>
             </trans-unit>
+            <trans-unit id="202">
+              <source>jda.form.contribute.map.hint</source>
+              <target>Search to designate a location that this website is primarily about. Move the point if necessary.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

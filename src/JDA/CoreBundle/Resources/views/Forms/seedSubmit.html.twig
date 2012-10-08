@@ -94,8 +94,8 @@
                 <tr>                   
                     <th>{% trans %}jda.form.contribute.location{% endtrans %}</th>
                     <td>
-                            <input type="text" id="address" name="location" size="60" /><button type="button" onclick="showAddress();">Find on Map!</button>
-                            <div><span class="hint">Search to designate a location that this website is primarily about. Move the point if necessary.</span></div>
+                            <input type="text" id="address" name="location" size="60" /> &nbsp;&nbsp;<button type="button" onclick="showAddress();" class="btn">Find on Map!</button>
+                            <div><span class="hint">{% trans %}jda.form.contribute.map.hint{% endtrans %}</span></div>
                             <div id="map_canvas" style="width: 550px; height: 300px"></div>
                             <div id="latlng"></div>
                             <input type="hidden" id="lat" name="lat" />
@@ -104,7 +104,15 @@
                 </tr>                  
                 <tr>                   
                     <th>{% trans %}jda.form.contribute.category{% endtrans %}</th>
-                    <td>drop down</td>          
+                    <td>
+                        <select name="categoryDDL">
+                            <option value="website">{% trans %}jda.search.website{% endtrans %}</option>
+                            <option value="image">{% trans %}jda.search.image{% endtrans %}</option>
+                            <option value="video">{% trans %}jda.search.video{% endtrans %}</option>
+                            <option value="audio">{% trans %}jda.search.audio{% endtrans %}</option>
+                            <option value="document">{% trans %}jda.search.document{% endtrans %}</option>
+                        </select>
+                    </td>          
                 </tr>                  
                 <tr>                   
                     <th>{% trans %}jda.form.contribute.language{% endtrans %}</th>
