@@ -99,6 +99,7 @@ require(loadFiles, function () {
         }, 1000);
 
         $("#submitContributeBtn").click(function () {
+            var baseApiUrl = "http://dev.jdarchive.org/zeegastaging/web/api/items/"
             var postObj = {};
 
             postObj.title = $("#pageTitleTxt").val();
@@ -119,7 +120,9 @@ require(loadFiles, function () {
                 postObj.tags.push($(this).val());
             });
 
-            alert(postObj);
+            $.post(baseApiUrl, postObj, function (response) {
+                alert(response);
+            }).error(function() { alert("error"); });
         });
 
         var BrowserDetect = {
