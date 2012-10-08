@@ -29,7 +29,6 @@ var loadFiles = [
     'order!../lib/visualsearch/visualsearch',
     'order!../lib/modestmaps.min',
     'order!../lib/chosen/chosen.jquery.min',
-    'http://maps.google.com/maps/api/js?sensor=false'
 ];
 
 
@@ -95,9 +94,9 @@ require(loadFiles, function () {
             create_option: true,
             persistent_create_option: true
         });
-
-        initializeMap();
-
+        setTimeout(function () {
+            initializeMap();
+        }, 1000);
         var BrowserDetect = {
             init: function () {
                 this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
