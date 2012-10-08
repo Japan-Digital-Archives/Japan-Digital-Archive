@@ -70,7 +70,13 @@
                 </tr>                  
                 <tr>                   
                     <th>{% trans %}jda.form.contribute.scope{% endtrans %}</th>
-                    <td>drop down here</td>          
+                    <td>
+                        <select name="scopeDDL">
+                            <option value="Page">{% trans %}jda.form.contribute.scope.page{% endtrans %}</option>
+                            <option value="Directory">{% trans %}jda.form.contribute.scope.directory{% endtrans %}</option>
+                            <option value="Site">{% trans %}jda.form.contribute.scope.site{% endtrans %}</option>
+                        </select>
+                    </td>          
                 </tr>                  
                 <tr>                   
                     <th>{% trans %}jda.form.contribute.tags{% endtrans %}</th>

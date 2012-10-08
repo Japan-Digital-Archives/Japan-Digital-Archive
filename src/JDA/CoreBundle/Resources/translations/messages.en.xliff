@@ -801,6 +801,18 @@ nuclear catastrophe.</target>
               <source>jda.form.contribute.monthly</source>
               <target>Monthly</target>
             </trans-unit>
+            <trans-unit id="199">
+              <source>jda.form.contribute.scope.page</source>
+              <target>One Page</target>
+            </trans-unit>
+            <trans-unit id="200">
+              <source>jda.form.contribute.scope.directory</source>
+              <target>Directory</target>
+            </trans-unit>
+            <trans-unit id="201">
+              <source>jda.form.contribute.scope.site</source>
+              <target>Full Site</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
