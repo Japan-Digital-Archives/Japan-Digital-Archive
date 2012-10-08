@@ -731,6 +731,60 @@ nuclear catastrophe.</target>
                 <source>jda.search.thumbnailview</source>
                 <target>Thumbnail View</target>
             </trans-unit>
+            <trans-unit id="182">
+              <source>jda.form.contribute.title</source>
+              <target>Contribute</target>
+            </trans-unit>
+            <trans-unit id="183">
+              <source>jda.form.contribute.instructions</source>
+              <target>
+                We need your help finding websites to archive! Please fill out the form below as thoroughly as possible. &gt;span style="color:red;"&lt;*&gt;/span&lt; Required Field
+              </target>
+            </trans-unit>
+            <trans-unit id="184">
+              <source>jda.form.contribute.url</source>
+              <target>URL</target>
+            </trans-unit>
+            <trans-unit id="185">
+              <source>jda.form.contribute.pageTitle</source>
+              <target>Page Title</target>
+            </trans-unit>
+            <trans-unit id="186">
+              <source>jda.form.contribute.description</source>
+              <target>Description</target>
+            </trans-unit>
+            <trans-unit id="187">
+              <source>jda.form.contribute.frequency</source>
+              <target>Frequency</target>
+            </trans-unit>
+            <trans-unit id="188">
+              <source>jda.form.contribute.scope</source>
+              <target>Scope</target>
+            </trans-unit>
+            <trans-unit id="189">
+              <source>jda.form.contribute.tags</source>
+              <target>Tags</target>
+            </trans-unit>
+            <trans-unit id="190">
+              <source>jda.form.contribute.location</source>
+              <target>Location</target>
+            </trans-unit>
+            <trans-unit id="191">
+              <source>jda.form.contribute.category</source>
+              <target>Category</target>
+            </trans-unit>
+            <trans-unit id="192">
+              <source>jda.form.contribute.language</source>
+              <target>Language</target>
+            </trans-unit>
+            <trans-unit id="193">
+              <source>jda.form.contribute.name</source>
+              <target>Your Name</target>
+            </trans-unit>
+            <trans-unit id="194">
+              <source>jda.form.contribute.email</source>
+              <target>Your Email</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

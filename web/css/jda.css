@@ -715,9 +715,20 @@ border-radius: 0px 4px 0px 0px;
  ***************/
 
 .main_form_div {
-    padding:30px;
+    padding:50px;
 }
 
+.main_form_table th, td {
+    padding: 5px;
+}
+
+.main_form_table th {
+    font-weight: bold;
+}
+
+.form_required {
+    color: red;
+}
 
 /**********************
     END FORMS

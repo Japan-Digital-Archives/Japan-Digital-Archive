@@ -33,7 +33,7 @@ item:
     requirements:
         _locale: en|ja
 seedSubmit:
-    pattern:   /{_locale}/seedSubmission/
+    pattern:   /{_locale}/contribute/
     defaults:  { _controller: JDACoreBundle:SeedSubmit:index, _locale: ja }
     requirements:
         _locale: en|ja
