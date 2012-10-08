@@ -819,19 +819,19 @@ nuclear catastrophe.</target>
             </trans-unit>
             <trans-unit id="203">
               <source>jda.form.contribute.language.english</source>
-              <target>Full Site</target>
+              <target>English</target>
             </trans-unit>
             <trans-unit id="204">
               <source>jda.form.contribute.language.japanese</source>
-              <target>Full Site</target>
+              <target>Japanese</target>
             </trans-unit>
             <trans-unit id="205">
               <source>jda.form.contribute.language.chinese</source>
-              <target>Full Site</target>
+              <target>Chinese</target>
             </trans-unit>
             <trans-unit id="206">
               <source>jda.form.contribute.language.korean</source>
-              <target>Full Site</target>
+              <target>Korean</target>
             </trans-unit>
         </body>
     </file>
