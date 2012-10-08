@@ -120,6 +120,15 @@ require(loadFiles, function () {
                 postObj.tags.push($(this).val());
             });
 
+            postObj.language = $("#englishChk").is(":checked") ? "English|" : "";
+            postObj.language += $("#japaneseChk").is(":checked") ? "Japanese|" : "";
+            postObj.language += $("#chineseChk").is(":checked") ? "Chinese|" : "";
+            postObj.language += $("#koreanChk").is(":checked") ? "Korean|" : "";
+
+            postObj.attributes = [];
+            postObj.attributes.push("frequency:" + $("#frequencyDDL > option:selected").val());
+            postObj.attributes.push("scope:" + $("#scopeDDL > option:selected").val());
+
             $.post(baseApiUrl, postObj, function (response) {
                 alert(response);
             }).error(function() { alert("error"); });
