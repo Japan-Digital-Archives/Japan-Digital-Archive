@@ -29,12 +29,63 @@ var loadFiles = [
     'order!../lib/visualsearch/visualsearch',
     'order!../lib/modestmaps.min',
     'order!../lib/chosen/chosen.jquery.min',
+    'http://maps.google.com/maps/api/js?sensor=false'
 ];
 
 
+var map;
+var geocoder;
+var marker;
 
+function initializeMap() {
+    var latlng = new google.maps.LatLng(38.268215, 140.869356);
+    var myOptions = {
+        zoom: 8,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
 
+    geocoder = new google.maps.Geocoder();
 
+    marker = new google.maps.Marker({
+        position: latlng,
+        map: map,
+    });
+
+    marker.setDraggable(true);
+    google.maps.event.addListener(
+      marker,
+      'dragend',
+      function () {
+          var newpos = marker.getPosition();
+          $('#latlng').html(newpos.toString());
+          $('#lat').val(newpos.lat());
+          $('#lng').val(newpos.lng());
+      });
+}
+
+function showAddress() {
+    var address = $('#address').val();
+    var geocoderRequest = {
+        address: address
+    };
+    geocoder.geocode(
+      geocoderRequest,
+      function (result, status) {
+          if (status != 'OK') {
+              alert('Google could not locate this address.');
+              return;
+          }
+          var latlng = result[0].geometry.location;
+          map.setCenter(latlng);
+          marker.setPosition(latlng);
+          $('#latlng').html(latlng.toString());
+          $('#lat').val(latlng.lat());
+          $('#lng').val(latlng.lng());
+      });
+}
 
 require(loadFiles, function () {
     $(document).ready(function () {
@@ -45,7 +96,7 @@ require(loadFiles, function () {
             persistent_create_option: true
         });
 
-
+        initializeMap();
 
         var BrowserDetect = {
             init: function () {

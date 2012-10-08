@@ -93,7 +93,14 @@
                 </tr>                  
                 <tr>                   
                     <th>{% trans %}jda.form.contribute.location{% endtrans %}</th>
-                    <td>maps stuff</td>          
+                    <td>
+                            <input type="text" id="address" name="location" size="60" /><button type="button" onclick="showAddress();">Find on Map!</button>
+                            <div><span class="hint">Search to designate a location that this website is primarily about. Move the point if necessary.</span></div>
+                            <div id="map_canvas" style="width: 550px; height: 300px"></div>
+                            <div id="latlng"></div>
+                            <input type="hidden" id="lat" name="lat" />
+                            <input type="hidden" id="lng" name="lng" />
+                    </td>          
                 </tr>                  
                 <tr>                   
                     <th>{% trans %}jda.form.contribute.category{% endtrans %}</th>
