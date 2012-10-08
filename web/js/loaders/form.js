@@ -99,7 +99,7 @@ require(loadFiles, function () {
         }, 1000);
 
         $("#submitContributeBtn").click(function () {
-            var baseApiUrl = "http://dev.jdarchive.org/zeegastaging/web/api/items/"
+            var baseApiUrl = "http://dev.jdarchive.org/zeegastaging/web/app.php/api/items"
             var postObj = {};
 
             postObj.title = $("#pageTitleTxt").val();
