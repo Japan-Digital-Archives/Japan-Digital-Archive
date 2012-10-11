@@ -833,6 +833,81 @@ nuclear catastrophe.</target>
               <source>jda.form.contribute.language.korean</source>
               <target>Korean</target>
             </trans-unit>
+            <trans-unit id="207">
+              <source>jda.form.testimonial.title</source>
+              <target>Testimonial</target>
+            </trans-unit>
+            <trans-unit id="208">
+              <source>jda.form.testimonial.instructions</source>
+              <target>Please enter as much information as you feel comfortable with in the fields below. &lt;br /&gt; &lt;span style="color:red;"&gt;*&lt;/span&gt; Required Field</target>
+            </trans-unit>
+            <trans-unit id="209">
+              <source>jda.form.testimonial.name</source>
+              <target>Your Name</target>
+            </trans-unit>
+            <trans-unit id="210">
+              <source>jda.form.testimonial.privacy</source>
+              <target>Name Privacy</target>
+            </trans-unit>
+            <trans-unit id="211">
+              <source>jda.form.testimonial.privacy.show</source>
+              <target>Show</target>
+            </trans-unit>
+            <trans-unit id="212">
+              <source>jda.form.testimonial.privacy.hide</source>
+              <target>Hide</target>
+            </trans-unit>
+            <trans-unit id="213">
+              <source>jda.form.testimonial.email</source>
+              <target>Email</target>
+            </trans-unit>
+            <trans-unit id="214">
+              <source>jda.form.testimonial.residence</source>
+              <target>Place of Residence</target>
+            </trans-unit>
+            <trans-unit id="215">
+              <source>jda.form.testimonial.occupation</source>
+              <target>Occupation</target>
+            </trans-unit>
+            <trans-unit id="216">
+              <source>jda.form.testimonial.birthyear</source>
+              <target>Year of Birth</target>
+            </trans-unit>
+            <trans-unit id="217">
+              <source>jda.form.testimonial.story</source>
+              <target>Tell us your story</target>
+            </trans-unit>
+            <trans-unit id="218">
+              <source>jda.form.testimonial.to</source>
+              <target>To</target>
+            </trans-unit>
+            <trans-unit id="219">
+              <source>jda.form.testimonial.from</source>
+              <target>From</target>
+            </trans-unit>
+            <trans-unit id="220">
+              <source>jda.form.testimonial.locations</source>
+              <target>Locations</target>
+            </trans-unit>
+            <trans-unit id="221">
+              <source>jda.form.testimonial.locations.note</source>
+              <target>Please list the locations about which you are writing. Search for or directly move the pin to each location. You may optionally give each location a specific name.</target>
+            </trans-unit>
+            <trans-unit id="222">
+              <source>jda.form.testimonial.imageUpload</source>
+              <target>Add images</target>
+            </trans-unit>
+            <trans-unit id="223">
+              <source>jda.form.testimonial.terms</source>
+              <target>Terms</target>
+            </trans-unit>
+          <trans-unit id="224">
+            <source>jda.form.testimonial.terms.text</source>
+            <target>
+              Do you grant us permission to include your story in the digital archive and allow all visitors to the archive read it? You must grant us permission if you wish to add the story to our archive. Your email will not be made public. All other information, except for your name, if you chose to hide it, can be found by visitors to the archive. After submission, a link will be sent to the email address above that will allow you to edit or remove your contribution to the archive.
+              &lt;br /&gt;I accept these terms
+            </target>
+          </trans-unit>
         </body>
     </file>
 </xliff>

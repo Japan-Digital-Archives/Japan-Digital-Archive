@@ -37,3 +37,8 @@ seedSubmit:
     defaults:  { _controller: JDACoreBundle:SeedSubmit:index, _locale: ja }
     requirements:
         _locale: en|ja
+testimonial:
+    pattern:   /{_locale}/testimonial/
+    defaults:  { _controller: JDACoreBundle:SeedSubmit:testimonial, _locale: ja }
+    requirements:
+        _locale: en|ja

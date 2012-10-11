@@ -16,6 +16,15 @@ class SeedSubmitController extends Controller
 					'page'=> 'Seed Submission Form',
 				));
     }
+    
+    public function testimonialAction()
+    {
+        
+    	$locale=$this->get('session')->getLocale();
+		return $this->render('JDACoreBundle:Forms:testimonial.html.twig', array(
+        'page'=> 'Testimonial Submission Form',
+        ));
+    }
 }
 
 ?>
