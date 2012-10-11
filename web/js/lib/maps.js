@@ -139,8 +139,7 @@ $.extend(
         {
             var url = window.location.href;
             url = url.substring(0, url.indexOf("web/"));
-            alert(url);
-            return url + '/images/markers/red_' + String.fromCharCode(65 + this.index) + '.png';
+            return url + 'web/images/markers/red_' + String.fromCharCode(65 + this.index) + '.png';
         },
 
         toStr: function() 
