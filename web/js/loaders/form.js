@@ -30,6 +30,8 @@ var loadFiles = [
     'order!../lib/modestmaps.min',
     'order!../lib/chosen/chosen.jquery.min',
     'order!../lib/maps',
+    'order!../lib/timepicker/jquery-ui-timepicker-addon',
+    'order!../lib/timepicker/jquery-ui-sliderAccess',
 ];
 
 
@@ -134,6 +136,9 @@ require(loadFiles, function () {
                 initMultiMap();
             } 
         }, 1000);
+
+        $('#toTxt').datetimepicker();
+        $('#fromTxt').datetimepicker();
 
         $("#submitContributeBtn").click(function () {
             var baseApiUrl = "http://dev.jdarchive.org/zeegastaging/web/app.php/api/items"

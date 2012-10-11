@@ -18,6 +18,8 @@
     <!-- chosen -->
     <link rel="stylesheet" type="text/css" href="{{ asset('js/lib/chosen/chosen.css')}}" />
 
+    <!-- timepicker -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('js/lib/timepicker/jquery-ui-timepicker-addon.css')}}" />
 	<!-- Visual Search --> 
 	<!--[if (!IE)|(gte IE 8)]><!-->
 	<link href="{{ asset('js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
@@ -82,8 +84,8 @@
                     </td>          
                 </tr>            
                 <tr>                   
-                    <th>{% trans %}jda.form.testimonial.story{% endtrans %}</th>
-                    <td><textarea name="storyTxt" id="storyTxt"></textarea><span class="form_required">*</span></td>          
+                    <th>{% trans %}jda.form.testimonial.story{% endtrans %}<span class="form_required">*</span></th>
+                    <td><textarea name="storyTxt" id="storyTxt"></textarea></td>          
                 </tr>                            
                 <tr>                   
                     <th>{% trans %}jda.form.testimonial.from{% endtrans %}</th>
