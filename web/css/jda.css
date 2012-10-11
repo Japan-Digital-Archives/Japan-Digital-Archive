@@ -740,6 +740,15 @@ border-radius: 0px 4px 0px 0px;
     height: 100px;
 }
 
+#map_canvas {
+    margin: 8px 0;
+    background-color: #E5E3DF;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    width: 520px;
+}
+
 /**********************
     END FORMS
 ***********************/
