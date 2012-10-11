@@ -88,36 +88,6 @@ function showAddress() {
 }
 
 function initMultiMap() {
-    var JA = {
-        "language": "en",
-        "readonly": false,
-        "i18n": {
-            "add_location": "add location",
-            "delete_confirmation_title": "Confirm deletion",
-            "button_delete_submission": "Delete submission",
-            "button_cancel": "Cancel",
-            "remove_location": "remove",
-            "google_could_not_find_address": "Google could not find the address",
-            "add_image_button": "Upload an image",
-            "image_delete": "remove image",
-            "upload_failed": "Failed",
-            "upload_typeError": "{file} has invalid extension. Only {extensions} are allowed.",
-            "upload_sizeError": "{file} is too large, maximum file size is {sizeLimit}.",
-            "upload_minSizeError": "{file} is too small, minimum file size is {minSizeLimit}.",
-            "upload_emptyError": "{file} is empty, please select files again without it.",
-            "upload_onLeave": "The files are being uploaded, if you leave now the upload will be cancelled."
-        }, "imageUpload": { "allowedExtensions": ["jpeg", "jpg", "png"], "sizeLimit": 2097152 }
-    };
-    JA.t = function (key) {
-        if (JA.i18n[key]) {
-            return JA.i18n[key];
-        }
-        if (typeof JA.i18n_missing == 'undefined') {
-            JA.i18n_missing = [];
-        }
-        JA.i18n_missing[JA.i18n_missing.length] = key;
-        return key;
-    };
     JA_Map.instance = new JA_Map(38.268215, 140.869356, 5, 'map_canvas', google.maps.MapTypeId.ROADMAP);
 
 
