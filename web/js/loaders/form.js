@@ -140,7 +140,7 @@ require(loadFiles, function () {
         $('#toTxt').datetimepicker();
         $('#fromTxt').datetimepicker();
 
-        for (var i = 0; i < new Date().getYear(); i++) {
+        for (var i = 1900; i <= new Date().getFullYear(); i++) {
             $("#yearDDL").append("<option value='" + i.toString() + "'>" + i.toString() + "</option>");
         }
 
