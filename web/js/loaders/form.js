@@ -140,6 +140,10 @@ require(loadFiles, function () {
         $('#toTxt').datetimepicker();
         $('#fromTxt').datetimepicker();
 
+        for (var i = 0; i < new Date().getYear(); i++) {
+            $("#yearDDL").append("<option value='" + i.toString() + "'>" + i.toString() + "</option>");
+        }
+
         $("#submitContributeBtn").click(function () {
             var baseApiUrl = "http://dev.jdarchive.org/zeegastaging/web/app.php/api/items"
             var postObj = {};
