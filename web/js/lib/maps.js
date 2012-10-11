@@ -137,7 +137,10 @@ $.extend(
 
         iconUrl: function()
         {
-            return '/mvc/img/markers/red_' + String.fromCharCode(65 + this.index) + '.png';
+            var url = window.location.href;
+            url = url.substring(0, url.indexOf("web/"));
+            alert(url);
+            return url + '/images/markers/red_' + String.fromCharCode(65 + this.index) + '.png';
         },
 
         toStr: function() 
