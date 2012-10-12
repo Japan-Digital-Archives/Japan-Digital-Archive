@@ -121,6 +121,10 @@ function initMultiMap() {
     JA_Marker.showAll();
 }
 
+function removeImg(btn) {
+    $(btn).parent().remove();
+}
+
 require(loadFiles, function () {
     $(document).ready(function () {
 
@@ -143,6 +147,10 @@ require(loadFiles, function () {
         for (var i = 1900; i <= new Date().getFullYear(); i++) {
             $("#yearDDL").append("<option value='" + i.toString() + "'>" + i.toString() + "</option>");
         }
+
+        $("#addImageBtn").click(function () {
+            $("#imgTbl").append("<tr><td><input type='text' /></td><td><input type='button' value='Remove' onclick='removeImg(this);' /></td></tr>");
+        });
 
         $("#submitContributeBtn").click(function () {
             var baseApiUrl = "http://dev.jdarchive.org/zeegastaging/web/app.php/api/items"
