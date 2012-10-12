@@ -122,7 +122,7 @@ function initMultiMap() {
 }
 
 function removeImg(btn) {
-    $(btn).parent().remove();
+    $(btn).parent().parent().remove();
 }
 
 require(loadFiles, function () {
