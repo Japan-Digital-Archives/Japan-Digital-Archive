@@ -149,7 +149,7 @@ require(loadFiles, function () {
         }
 
         $("#addImageBtn").click(function () {
-            $("#imgTbl").append("<tr><td><input type='text' /></td><td><input type='button' value='Remove' onclick='removeImg(this);' /></td></tr>");
+            $("#imgTbl").append("<tr><th>Url:</th><td><input type='text' /></td><td><input type='button' value='Remove' onclick='removeImg(this);' /></td></tr>");
         });
 
         $("#submitContributeBtn").click(function () {
