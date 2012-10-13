@@ -134,11 +134,7 @@ require(loadFiles, function () {
             persistent_create_option: true
         });
         setTimeout(function () {
-            if (document.location.href.indexOf("contribute") != -1) {
                 initializeMap();
-            } else {
-                initMultiMap();
-            } 
         }, 1000);
 
         $('#toTxt').datetimepicker();
@@ -156,12 +152,11 @@ require(loadFiles, function () {
             var baseApiUrl = "http://dev.jdarchive.org/zeegastaging/web/app.php/api/items"
             var postObj = {};
 
-            postObj.title = $("#pageTitleTxt").val();
-            postObj.description = $("#descriptionTxt").val();
-            postObj.media_type = $("#categoryDDL > option:selected").val();
-            postObj.layer_type = $("#categoryDDL > option:selected").val();
-            postObj.uri = $("#urlTxt").val();
-            postObj.attribution_uri = $("#urlTxt").val();
+            postObj.title = $("#titleTxt").val();
+            postObj.description = $("#titleTxt").val();
+            postObj.media_type = "Testimonial";
+            postObj.layer_type = "Testimonial";
+            postObj.uri = $("#titleTxt").val().replace(" ", "-");
             postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
             postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
 
@@ -184,8 +179,58 @@ require(loadFiles, function () {
             postObj.attributes.push("scope:" + $("#scopeDDL > option:selected").val());
 
             $.post(baseApiUrl, postObj, function (response) {
-                alert(response);
             }).error(function() { alert("error"); });
+        });
+
+        $("#submitTestimonialBtn").click(function () {
+            var baseApiUrl = "http://dev.jdarchive.org/zeegastaging/web/app.php/api/items"
+            var postObj = {};
+
+            postObj.title = $("#pageTitleTxt").val();
+            postObj.description = $("#descriptionTxt").val();
+            postObj.media_type = $("#categoryDDL > option:selected").val();
+            postObj.layer_type = $("#categoryDDL > option:selected").val();
+            postObj.uri = $("#urlTxt").val();
+            postObj.attribution_uri = $("#urlTxt").val();
+            postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+            postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+
+            if ($("#lat").val() != "") {
+                postObj.media_geo_latitude = parseFloat($("#lat").val());
+                postObj.media_geo_longitude = parseFloat($("#lng").val());
+            }
+
+            postObj.text = $("#storyTxt").text();
+
+            postObj.attributes = {};
+            if ($("#fromTxt").val().trim() != "") {
+                var fromDate = new Date($("#fromTxt").val());
+                postObj.attributes.from_year = fromDate.getFullYear();
+                postObj.attributes.from_month = fromDate.getMonth() + 1;
+                postObj.attributes.from_day = fromDate.getDate();
+                postObj.attributes.from_hour = fromDate.getHours();
+                postObj.attributes.from_date = fromDate;
+            }
+            if ($("#toTxt").val().trim() != "") {
+                var toDate = new Date($("#toTxt").val());
+                postObj.attributes.to_year = toDate.getFullYear();
+                postObj.attributes.to_month = toDate.getMonth() + 1;
+                postObj.attributes.to_day = toDate.getDate();
+                postObj.attributes.to_hour = toDate.getHours();
+                postObj.attributes.to_date = toDate;
+            }
+
+            postObj.attributes["year of birth"] = $("#yearDDL > option:selected").val();
+            postObj.attributes.occupation = $("#occupationTxt").val();
+            postObj.attributes.images = [];
+            $("#imgTbl").find("input[type='text']").each(function () {
+                postObj.attributes.images.push($(this).val());
+            });
+            postObj.attributes.privacy = $("#privacyDDL > option:selected").val();
+            postObj.attributes.residence = $("#residenceTxt").val();
+
+            $.post(baseApiUrl, postObj, function (response) {
+            }).error(function () { alert("error"); });
         });
 
         var BrowserDetect = {

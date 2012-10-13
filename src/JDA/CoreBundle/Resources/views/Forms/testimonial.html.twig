@@ -54,6 +54,10 @@
                     <th>{% trans %}jda.form.testimonial.name{% endtrans %}</th>
                     <td><input type="text" name="nameTxt" id="nameTxt" value="" /></td>          
                 </tr>
+                <tr>
+                    <th>{% trans %}jda.form.testimonial.title{% endtrans %}<span class="form_required">*</span></th>
+                    <td><input type="text" name="titleTxt" id="titleTxt" value="" /></td>          
+                </tr>
                 <tr>                   
                     <th>{% trans %}jda.form.testimonial.privacy{% endtrans %}</th>
                     <td>
@@ -104,13 +108,13 @@
                         {% trans %}jda.form.testimonial.locations{% endtrans %}
                       </th>
                       <td>
-                             <span class="note">{% trans %}jda.form.testimonial.locations.note{% endtrans %}</span><br />
-                             <input type="text" id="address" name="location" size="60" />
-                             <button type="button" id="geocode_button">Find on Map!</button>
-                        <div id="map_canvas"></div>
-                        <ul id="location_list">
-                        </ul>
-                      </td>
+                            <input type="text" id="address" name="location" size="60" /> &nbsp;&nbsp;<button type="button" onclick="showAddress();" class="btn">Find on Map!</button>
+                            <div><span class="hint">{% trans %}jda.form.contribute.map.hint{% endtrans %}</span></div>
+                            <div id="map_canvas" style="width: 550px; height: 300px"></div>
+                            <div id="latlng"></div>
+                            <input type="hidden" id="lat" name="lat" value="" />
+                            <input type="hidden" id="lng" name="lng" value="" />
+                    </td> 
                 </tr>                  
                 <tr>                   
                     <th>{% trans %}jda.form.testimonial.imageUpload{% endtrans %}</th>

@@ -901,13 +901,17 @@ nuclear catastrophe.</target>
               <source>jda.form.testimonial.terms</source>
               <target>Terms</target>
             </trans-unit>
-          <trans-unit id="224">
-            <source>jda.form.testimonial.terms.text</source>
-            <target>
-              Do you grant us permission to include your story in the digital archive and allow all visitors to the archive read it? You must grant us permission if you wish to add the story to our archive. Your email will not be made public. All other information, except for your name, if you chose to hide it, can be found by visitors to the archive. After submission, a link will be sent to the email address above that will allow you to edit or remove your contribution to the archive.
-              &lt;br /&gt;I accept these terms
-            </target>
-          </trans-unit>
+            <trans-unit id="224">
+              <source>jda.form.testimonial.terms.text</source>
+              <target>
+                Do you grant us permission to include your story in the digital archive and allow all visitors to the archive read it? You must grant us permission if you wish to add the story to our archive. Your email will not be made public. All other information, except for your name, if you chose to hide it, can be found by visitors to the archive. After submission, a link will be sent to the email address above that will allow you to edit or remove your contribution to the archive.
+                &lt;br /&gt;I accept these terms
+              </target>
+            </trans-unit>
+            <trans-unit id="225">
+              <source>jda.form.testimonial.title</source>
+              <target>Title</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
