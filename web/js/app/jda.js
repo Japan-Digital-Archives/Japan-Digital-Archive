@@ -176,7 +176,7 @@ this.jda = {
 	},
 	
 	parseSearchUI : function(){
-		
+		console.log('JDA parserSearchUI');
 		var facets = VisualSearch.searchQuery.models;
 			
 		var obj={};
@@ -202,8 +202,9 @@ this.jda = {
 		obj.view_type = this.currentView;
 
 	
+		if($('#zeega-content-type').val()=="excludetweets")obj.exclude_content='tweet';
+		else obj.content = $('#zeega-content-type').val();
 		
-		obj.content = $('#zeega-content-type').val();
 		obj.sort = $('#zeega-sort').val();
 		
 		obj.times = this.searchObject.times;
@@ -254,6 +255,9 @@ this.jda = {
 		if (!_.isUndefined(obj.content)) $('#zeega-content-type').val(obj.content);
 		else $('#zeega-content-type').val("all");
 		
+		
+		if (!_.isUndefined(obj.exclude_content)) $('#zeega-content-type').val('excludetweets');
+	
 		if (!_.isUndefined(obj.sort)) $('#zeega-sort').val(obj.sort);
 		else $('#zeega-sort').val("relevant");
 		
@@ -267,7 +271,9 @@ this.jda = {
 		 	var hash = '';      
 		 	if( !_.isUndefined(this.viewType)) hash += 'view_type=' + this.viewType + '&';
 		 	if( !_.isUndefined(obj.q) && obj.q.length > 0) hash += 'q=' + obj.q + '&';
-		 	if( !_.isUndefined(obj.content) )  hash += 'content='+ obj.content + '&';
+		 	if( !_.isUndefined(obj.content) )hash += 'content='+ obj.content + '&';
+		 	if( !_.isUndefined(obj.exclude_content) )hash += 'exclude_content='+ obj.exclude_content + '&';
+
 		 	if( !_.isUndefined(obj.sort) )  hash += 'sort='+ obj.sort + '&';
 		 	if( !_.isUndefined(obj.mapBounds) )  hash += 'map_bounds='+ encodeURIComponent(obj.mapBounds) + '&';
 		 	if( !_.isUndefined(obj.times)&&  !_.isNull(obj.times) )
