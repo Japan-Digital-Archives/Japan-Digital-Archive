@@ -777,6 +777,14 @@
                 <source>jda.search.relevant</source>
                 <target>Relevant</target>
             </trans-unit>
+            <trans-unit id="195">
+                <source>jda.collection.dragcover</source>
+                <target>drag to add a cover image</target>
+            </trans-unit>
+            <trans-unit id="196">
+                <source>jda.search.excludetweets</source>
+                <target>exclude tweets</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
