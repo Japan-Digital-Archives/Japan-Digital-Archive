@@ -374,9 +374,10 @@ $(document).ready(function(){
     var Browser = jda.module("browser");
     $('#fancybox-document-cloud').remove();
   
-      
+  
     var elementID = $(this.element).attr('id');
-    var thisModel = jda.app.currentView == 'list' || jda.app.currentView == 'thumb' ? jda.app.resultsView.collection.get(elementID) : jda.app.eventMap.mapViewCollection.collection.get(elementID);
+      console.log(jda.app,elementID);  
+      var thisModel = jda.app.currentView == 'list' || jda.app.currentView == 'thumb' ? jda.app.resultsView.collection.get(elementID) : jda.app.eventMap.mapViewCollection.collection.get(elementID);
       
       this.fancyView = null;
 

@@ -288,25 +288,26 @@
 
 		},
 		
-		getCQLSearchString : function()
+		getSQLSearchString : function(lng,lat)
 		{
-		
+			
+			
 			var search = this.collection.search;
 		
-			var cqlFilters = [];
+			var sqlFilters = [];
 			if( !_.isUndefined(search.times) &&!_.isNull(search.times))
 			{
 				if( !_.isUndefined(search.times.start) )
 				{
 					startDate = new Date(search.times.start*1000);
 					startString = startDate.format('yyyy-mm-dd HH:MM:ss');
-					cqlFilters.push("media_date_created >= '" + startString +"'");
+					sqlFilters.push("media_date_created > " + search.times.start);
 				}
 				if( !_.isUndefined(search.times.end) )
 				{
 					endDate = new Date(search.times.end*1000);
 					endString = endDate.format('yyyy-mm-dd HH:MM:ss');
-					cqlFilters.push("media_date_created <= '" + endString +"'");
+					sqlFilters.push("media_date_created < " + search.times.end);
 				}	
 			}
 
@@ -316,35 +317,54 @@
 				var text = search.q;
 				if(text)
 				{
-					if(cqlFilters.length > 0)
+					if(sqlFilters.length > 0)
 					{
-						var newCqlFilters = [];
-						var prevCqlFiltersString = cqlFilters.join(" AND ");
-						newCqlFilters.push(prevCqlFiltersString + " AND (title LIKE '%"+text+"%' OR " + prevCqlFiltersString + " AND media_creator_username LIKE '%"+text+"%' OR " + prevCqlFiltersString + " AND description LIKE '%"+text+"%')");
+						var newsqlFilters = [];
+						var prevsqlFiltersString = "("+sqlFilters.join(" AND ")+")";
+						//newsqlFilters.push(prevsqlFiltersString + " AND (title LIKE '"+text+"' OR " + prevsqlFiltersString + " AND media_creator_username LIKE '"+text+"' OR " + prevsqlFiltersString + " AND description LIKE '"+text+"')");
+						//newsqlFilters.push(prevsqlFiltersString + " AND (text LIKE '"+text+"' OR media_creator_username LIKE '"+text+"' OR description LIKE '"+text+"')");
+						newsqlFilters.push(prevsqlFiltersString + " AND (text LIKE '"+text+"')");
 						
-						cqlFilters = newCqlFilters;
+						sqlFilters = newsqlFilters;
 					}
 					else
 					{
 						console.log("map search");
-						cqlFilters.push("(title LIKE '%"+text+"%' OR media_creator_username LIKE '%"+text+"%' OR description LIKE '%"+text+"%')");
+						//sqlFilters.push("(title LIKE '"+text+"' OR media_creator_username LIKE '"+text+"' OR description LIKE '"+text+"')");
+						sqlFilters.push("(text LIKE '"+text+"' OR media_creator_username LIKE '"+text+"')");
 					}
 				}
 			}
 			if( !_.isUndefined(search.content)&&search.content!="all" )
 			{  
 				var capitalizedContent =  search.content.charAt(0).toUpperCase() + search.content.slice(1);
-				cqlFilters.push("media_type='" + capitalizedContent + "'");
+				sqlFilters.push("media_type LIKE '" + capitalizedContent + "'");
 			}
-			if (cqlFilters.length>0)
+			else
+			{  
+				sqlFilters.push("media_type LIKE ''");
+			}
+			if (sqlFilters.length>0)
 			{
-				cqlFilterString = cqlFilters.join(" AND ");
+				sqlFilterstring = sqlFilters.join(" AND ");
 			}
 			else
 			{
-				cqlFilterString = null;
+				sqlFilterstring = null;
 			}
-			return cqlFilterString;
+			
+			
+			
+			if(lat&&lng){
+				sqlFilterstring='select id, site_id, user_id, title, description, text, uri, thumbnail_url, attribution_uri, date_created, date_updated, archive, media_type, layer_type, child_items_count, media_geo_latitude, media_geo_longitude, media_date_created, media_date_created_end, media_creator_username, media_creator_realname, license, attributes, tags from jda where '+sqlFilterstring+' AND dist(point(media_geo_longitude,media_geo_latitude),point('+lng+','+lat+')) < 5.0 LIMIT 50';
+			}
+			else{
+			
+				sqlFilterstring='select goog_x, goog_y from jda where '+sqlFilterstring;
+			}
+			
+			console.log("sqlstring: "+sqlFilterstring);
+			return sqlFilterstring;
 		},
 	
 		
