@@ -247,6 +247,9 @@ $(document).ready(function(){
     jda.app.parseSearchUI();
     return false;
   });
+  
+  
+  
 
   $(window).resize(function() {
     if (jda.app.currentView == "event"){

@@ -738,7 +738,7 @@
             </trans-unit>
              <trans-unit id="184">
                 <source>jda.about.project</source>
-                <target>About the Archive</target>
+                <target>アーカイブについて</target>
             </trans-unit>
              <trans-unit id="185">
                 <source>jda.team.leader</source>
@@ -783,6 +783,10 @@
             <trans-unit id="195">
                 <source>jda.collection.dragcover</source>
                 <target>drag to add a cover image</target>
+            </trans-unit>
+            <trans-unit id="196">
+                <source>jda.search.excludetweets</source>
+                <target>exclude tweets</target>
             </trans-unit>
         </body>
     </file>
