@@ -223,8 +223,8 @@
 					if (remainingItems > 0) $('#zeega-my-collections-count-string').show();
 					else $('#zeega-my-collections-count-string').hide();	
 					
-					
-					if(_.isNull(sessionStorage.getItem('user'))){
+					console.log("current user",this.user);
+					if(_.isNull(this.user)){
 						$('#zeega-my-collections-share-and-organize').html("<a href='#' >"+l.jda_collection_save+"</a>").click(function(){
 							$('#sign-in').trigger('click'); 
 						}).show();
