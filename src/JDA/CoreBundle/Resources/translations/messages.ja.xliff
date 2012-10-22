@@ -738,7 +738,7 @@
             </trans-unit>
              <trans-unit id="184">
                 <source>jda.about.project</source>
-                <target>About the Archive</target>
+                <target>アーカイブについて</target>
             </trans-unit>
              <trans-unit id="185">
                 <source>jda.team.leader</source>
