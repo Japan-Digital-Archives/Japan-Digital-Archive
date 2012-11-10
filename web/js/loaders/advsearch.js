@@ -208,7 +208,7 @@ function DoSearch() {
         if (first != "0") {
             baseURL += "&content=";
             $("#contentTypeDDL option:selected").each(function () {
-                baseURL += $(this).val().toLowerCase();
+                baseURL += $(this).val().toLowerCase()+",";
             });
         }
     }
