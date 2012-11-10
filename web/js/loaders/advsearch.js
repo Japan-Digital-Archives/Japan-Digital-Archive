@@ -202,9 +202,15 @@ function DoSearch() {
 
     var baseURL = window.location.href.replace('en/advsearch','')  + 'en/search?';
     baseURL += "#q=" + $("#searchTerms").val();
-    var contentType = $("#contentTypeDDL option:selected").val();
-    if (contentType != "0") {
-        baseURL += "&content=" + contentType.toLowerCase();
+    var contentType = $("#contentTypeDDL option:selected").length;
+    if (contentType != 0) {
+        var first = $("#contentTypeDDL option:selected")[0].val();
+        if (first != "0") {
+            baseURL += "&content=";
+            $("#contentTypeDDL option:selected").each(function () {
+                baseURL += $(this).val().toLowerCase();
+            });
+        }
     }
     var tagArr = new Array();
     $("#tagListDiv > span > a").each(function (i) {

@@ -910,7 +910,7 @@ nuclear catastrophe.</target>
             </trans-unit>
             <trans-unit id="225">
               <source>jda.form.testimonial.title</source>
-              <target>Title</target>
+              <target>Testimonials</target>
             </trans-unit>
         </body>
     </file>
