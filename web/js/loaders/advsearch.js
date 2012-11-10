@@ -204,7 +204,7 @@ function DoSearch() {
     baseURL += "#q=" + $("#searchTerms").val();
     var contentType = $("#contentTypeDDL option:selected").length;
     if (contentType != 0) {
-        var first = $("#contentTypeDDL option:selected")[0].val();
+        var first = $("#contentTypeDDL option:selected").first().val();
         if (first != "0") {
             baseURL += "&content=";
             $("#contentTypeDDL option:selected").each(function () {
