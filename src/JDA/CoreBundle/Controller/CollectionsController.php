@@ -10,7 +10,7 @@ class CollectionsController extends Controller
     public function indexAction()
     {
 	    $request = $this->getRequest();
-	    $locale=$this->get('session')->getLocale();
+	    $locale=$this->getRequest()->getLocale();
         return $this->redirect(sprintf('%s#%s', $this->generateUrl('search',array('_locale'=>$locale)), 'view_type=list&content=collection&'));
     }
 }

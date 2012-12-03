@@ -18,7 +18,7 @@ class ItemController extends Controller
 	    	$item = $item["items"][0];
 	    }
 	    
-    	$locale=$this->get('session')->getLocale();
+    	$locale=$this->getRequest()->getLocale();
     	$request = $this->getRequest();
 	 	$query=$request->query->get('query');
     	

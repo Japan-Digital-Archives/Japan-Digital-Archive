@@ -11,7 +11,7 @@ class CollectionController extends Controller
     public function indexAction($id)
     {
     
-    	$locale=$this->get('session')->getLocale();
+    	$locale=$this->getRequest()->getLocale();
     	$user = $this->get('security.context')->getToken()->getUser();
     	if(is_object($user)){
     		$displayName = $user->getDisplayName();

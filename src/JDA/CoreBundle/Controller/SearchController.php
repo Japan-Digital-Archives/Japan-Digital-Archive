@@ -11,7 +11,7 @@ class SearchController extends Controller
     public function indexAction($query=NULL)
     {
     
-    	$locale=$this->get('session')->getLocale();
+    	$locale=$this->getRequest()->getLocale();
     	$request = $this->getRequest();
 	 	$query=$request->query->get('query');
     	

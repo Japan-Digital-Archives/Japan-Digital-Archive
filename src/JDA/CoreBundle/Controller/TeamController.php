@@ -11,7 +11,7 @@ class TeamController extends Controller
     public function indexAction()
     {
     
-    	$locale=$this->get('session')->getLocale();
+    	$locale=$this->getRequest()->getLocale();
 
         //If search query posted, redirect to search page and pass search query as url hash
         $user = $this->get('security.context')->getToken()->getUser();

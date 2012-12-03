@@ -11,7 +11,7 @@ class AdvSearchController extends Controller
     public function indexAction()
     {
     
-    	$locale=$this->get('session')->getLocale();
+    	$locale=$this->getRequest()->getLocale();
 		return $this->render('JDACoreBundle:AdvSearch:advsearch.html.twig', array(
 					// last displayname entered by the user
 					'page'=> 'search',

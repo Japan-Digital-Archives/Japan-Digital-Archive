@@ -56,7 +56,7 @@
 		sessionStorage.setItem('apiUrl','{{api_url}}');
 		sessionStorage.setItem('japanMapUrl','{{japan_map_url}}');
 		sessionStorage.setItem('geoServerUrl','{{geoserver_url}}');
-		sessionStorage.setItem('locale','{{app.session.locale}}');
+		sessionStorage.setItem('locale','{{app.request.locale}}');
 		
 		{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 		sessionStorage.setItem('user',{{app.user.getId}});
@@ -83,7 +83,7 @@
 </head>
 
 <body>
-	{% set locale = app.session.locale  %}
+	{% set locale = app.request.locale  %}
 
 	{% block header %}
 
