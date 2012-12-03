@@ -8,7 +8,7 @@ security:
 
     providers:
         fos_userbundle:
-            id: fos_user.user_manager
+            id: fos_user.user_provider.username
         my_memory_provider:
             memory:
                 users:
@@ -34,9 +34,6 @@ security:
         - { path: ^/ja/home, role: IS_AUTHENTICATED_ANONYMOUSLY }        
         - { path: ^/search, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/en/search, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/ja/search, role: IS_AUTHENTICATED_ANONYMOUSLY }        
-        - { path: ^/about role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/en/about role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/ja/about role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/ja/search, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin, role: ROLE_ADMIN }

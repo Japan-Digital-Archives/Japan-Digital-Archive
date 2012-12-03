@@ -5,9 +5,7 @@ imports:
 framework:
     #esi:             ~
     secret:          %secret%
-    router:          
-        resource: "%kernel.root_dir%/config/routing.yml"
-        strict_requirements: %kernel.debug%
+    router:          { resource: "%kernel.root_dir%/config/routing.yml" }
     form:            true
     csrf_protection: true
     validation:      { enable_annotations: true }
@@ -18,7 +16,7 @@ framework:
     session:
         cookie_domain: ~
         cookie_lifetime:       72000
-        storage_id:     session.storage.pdo
+        handler_id:     session.storage.pdo
  
 parameters:
     pdo.db_options:
@@ -35,8 +33,8 @@ services:
             - %database_user%
             - %database_password%
     session.storage.pdo:
-            class:     Symfony\Component\HttpFoundation\SessionStorage\PdoSessionStorage
-            arguments: [@pdo, %session.storage.options%, %pdo.db_options%]
+            class:     Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
+            arguments: [@pdo, %pdo.db_options%]
 
 sonata_block:
     default_contexts: [cms]
@@ -78,17 +76,14 @@ assetic:
 # Doctrine Configuration
 doctrine:
     dbal:
-        default_connection:   default
-        connections:
-            default:
-                mapping_types:
-                    geometry: string
-                driver:   %database_driver%
-                host:     %database_host%
-                dbname:   %database_name%
-                user:     %database_user%
-                password: %database_password%
-                charset:  utf8
+        driver:   %database_driver%
+        host:     %database_host%
+        dbname:   %database_name%
+        user:     %database_user%
+        password: %database_password%
+        charset:  utf8
+        mapping_types:
+            geometry: string  
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
@@ -101,16 +96,20 @@ fos_user:
         address: noreply@zeega.org
         sender_name: Zeega
     resetting:
+        token_ttl: 8640000
         email:
             template: ZeegaUserBundle:Email:resetting.email.twig
     registration:
         form:
             type: zeega_user_registration
-                
+
 # Swiftmailer Configuration
 swiftmailer:
-    spool: { type: memory }
     transport: %mailer_transport%
     host:      %mailer_host%
     username:  %mailer_user%
     password:  %mailer_password%
+
+sensio_framework_extra:
+    view:
+        annotations: false
