@@ -3,7 +3,7 @@
 	Browser.Items.Collection = Backbone.Collection.extend({
 		
 		model:Browser.Items.Model,
-		base : jda.app.apiLocation + 'api/search?',
+		base : jda.app.apiLocation + 'api/items/search?',
 		search : {	page:1,
 					r_itemswithcollections: 1,
 					r_tags:1
@@ -72,35 +72,9 @@
 		parse : function(response)
 		{
 		
-			console.log("jda.collection.item", response);
 			this.tags=response.tags;
-			
-			if (this.search.r_collections && response.collections){
-				this.collectionsCollection = new Browser.Items.Collection(response.collections);
-				this.collectionsCount=response.collections_count;
-				
-			}else{
-				this.collectionsCollection = null;
-				this.collectionsCount=0;
-			}
-			
-			
-			if(this.search.r_itemswithcollections){
-				
-				this.count = response.items_and_collections_count
-				return response.items_and_collections;
-			}
-			else{
-		
-				this.count = response.items_count;
-				this.collectionsCount = response.collections_count;
-				return response.items;
-			}
-		
-		
-			
-			
-			
+			this.count = response.items_count;
+			return response.items;
 		},
 		
 	

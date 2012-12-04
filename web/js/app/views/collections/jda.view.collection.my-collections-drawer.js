@@ -14,7 +14,7 @@
 			$('#zeega-my-collections-spinner').spin(true);
 
 			this.collection = new Browser.Items.Collection();
-            this.collection.url=jda.app.apiLocation + 'api/search?r_collections=1&user=-1';			
+            this.collection.url=jda.app.apiLocation + 'api/items/search?q=type:Collection,user=-1';			
             this.collection.parse= function(data){ return data.collections;}
 			
 			if(sessionStorage.getItem('user')!=0)this.user=sessionStorage.getItem('user');
