@@ -29,7 +29,14 @@
 					template = this.getDefaultTemplate();
 			}
 			var blanks = jQuery.extend({}, this.model.attributes);
-			blanks.id=this.model.get("id").split('.')[1];
+			
+			
+			//temp fix
+			
+			
+			console.log(this.model);
+			
+			blanks.id=this.model.id;
 			
 			if (this.model.get("media_creator_realname") == null || this.model.get("media_creator_realname") == "" || this.model.get("media_creator_realname") == "Unknown" || this.model.get("media_creator_realname") == "unknown"){
 				blanks["author"] = this.model.get("media_creator_username");
@@ -37,7 +44,7 @@
 				blanks["author"] = this.model.get("media_creator_realname");	
 			}
 			if (blanks.media_type !=null) blanks.media_type = blanks.media_type.toLowerCase();
-
+			
 
 			$(this.el).html( _.template( template, blanks ));
 

@@ -14,11 +14,65 @@
 		timeSliderLoaded : false,
 		japanMapUrl : sessionStorage.getItem("japanMapUrl"),
 		geoUrl : sessionStorage.getItem("geoServerUrl"),
-	
+		newUrl : "http://140.247.116.252:8083/",
 		initialize : function()
 		{
 		
-		
+			OpenLayers.Layer.Grid.newRatio = 1.5;
+
+			OpenLayers.Layer.Grid.prototype.setTileSize = function(size) {
+				if (this.singleTile) {
+					size = this.map.getSize();
+					var curWidth = parseInt(size.w * this.ratio);
+					var targetWidth = curWidth +  (16 - (curWidth % 16));
+					this.newRatio = this.ratio * (targetWidth/curWidth);
+					size.h = parseInt(Math.round(size.h * this.newRatio));
+					size.w = parseInt(Math.round(size.w * this.newRatio));
+					//console.log("In setTileSize: " + this.newRatio);
+			
+				}
+				OpenLayers.Layer.HTTPRequest.prototype.setTileSize.apply(this, [size]);
+			};
+			
+			OpenLayers.Layer.Grid.prototype.initSingleTile = function(bounds) {
+			
+				//determine new tile bounds
+				var center = bounds.getCenterLonLat();
+				var tileWidth = (bounds.getWidth() * this.newRatio);
+				var tileHeight = bounds.getHeight() * this.newRatio;
+			
+				var tileBounds =
+						new OpenLayers.Bounds(center.lon - (tileWidth/2),
+								center.lat - (tileHeight/2),
+								center.lon + (tileWidth/2),
+								center.lat + (tileHeight/2));
+			
+				var px = this.map.getLayerPxFromLonLat({
+					lon: tileBounds.left,
+					lat: tileBounds.top
+				});
+			
+				if (!this.grid.length) {
+					this.grid[0] = [];
+				}
+			
+				var tile = this.grid[0][0];
+				if (!tile) {
+					tile = this.addTile(tileBounds, px);
+			
+					this.addTileMonitoringHooks(tile);
+					tile.draw();
+					this.grid[0][0] = tile;
+				} else {
+					tile.moveTo(tileBounds, px);
+				}
+			
+				//remove all but our single tile
+				this.removeExcessTiles(1,1);
+			
+				// store the resolution of the grid
+				//this.gridResolution = this.getServerResolution();
+			};
 		},
 	
 		events : {
@@ -34,10 +88,10 @@
 			this.resetMapSize();
 
 			if( !this.mapLoaded ) this.initMap();
-			else if( jda.app.resultsView.getCQLSearchString()!=null){
+			else if( jda.app.resultsView.getSQLSearchString()!=null){
 				
 				this.map.getLayersByName('cite:item - Tiled')[0].mergeNewParams({
-						'CQL_FILTER' : jda.app.resultsView.getCQLSearchString()
+						'SQL' : jda.app.resultsView.getSQLSearchString()
 					});
 				this.initTimeSlider();
 		 	}
@@ -60,28 +114,6 @@
 			wax.tilejson('http://d.tiles.mapbox.com/v2/mapbox.mapbox-streets.jsonp',
 				function(tilejson) {
 					var baseLayer =  wax.ol.connector(tilejson);
-					var dataLayer =  new OpenLayers.Layer.WMS(
-						"cite:item - Tiled",
-						_this.geoUrl + "cite/wms",
-							{
-								layers : 'cite:item',
-								transparent : true,
-								format : 'image/png',
-								//'CQL_FILTER' : function(){ return this.resultsView.getCQLSearchString() },
-								tiled: true,
-								
-							},
-							{
-								buffer: 0,
-									displayOutsideMaxExtent: true,
-									isBaseLayer: false,
-									yx : {'EPSG:900913' : false},
-									'sphericalMercator': true,
-									'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
-			
-							}
-					);
-					
 					_this.map = new OpenLayers.Map('event-map',{
 						
 						//controls: [ new OpenLayers.Control.PanZoomBar()],
@@ -92,6 +124,37 @@
 						units: 'm'
 				
 					});
+					
+					var dataLayer =  new OpenLayers.Layer.WMS(
+						"cite:item - Tiled",
+						_this.newUrl + "?LAYERS=point&",
+							{
+
+								'SQL' : function(){ return this.resultsView.getSQLSearchString() },
+								BBOX: '',
+								WIDTH : 250,
+								HEIGHT : 250,
+								RADIUS : 2,
+								R : 255,
+								G : 0,
+								B : 0,
+								
+
+								
+							},
+							{
+								buffer: 0,
+								singleTile: true,
+									displayOutsideMaxExtent: true,
+									isBaseLayer: false,
+									yx : {'EPSG:900913' : false},
+									'sphericalMercator': true,
+									'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
+			
+							}
+					);
+					
+					
 					var proj = new OpenLayers.Projection("EPSG:4326");
 					
 					_this.map.setCenter(new OpenLayers.LonLat(140.652466, 38.052417).transform(proj, _this.map.getProjectionObject()), 9);
@@ -103,11 +166,8 @@
 				
 					_this.map.addLayers(_this.getMapLayers());
 					_this.map.addLayer(dataLayer); 
-					if( jda.app.resultsView.getCQLSearchString()!=null){
-						_this.map.getLayersByName('cite:item - Tiled')[0].mergeNewParams({
-							'CQL_FILTER' : jda.app.resultsView.getCQLSearchString()
-						});
-					}
+					_this.map.getLayersByName('cite:item - Tiled')[0].mergeNewParams({'SQL' : jda.app.resultsView.getSQLSearchString()});
+					
 					_this.map.addControl(new OpenLayers.Control.Attribution());
 					_this.map.getLayersByName('cite:item - Tiled')[0].events.register('loadstart','ok',function(){$('.jda-map-loader').show();});
 					_this.map.getLayersByName('cite:item - Tiled')[0].events.register('loadend','ok',function(){$('.jda-map-loader').fadeOut('fast');});
@@ -119,35 +179,39 @@
 		startMapListeners : function(map){
 			var _this = this;
 			this.map.events.register('click', map, function(e){
-			
-		
-			var params = {
-				REQUEST : "GetFeatureInfo",
-				EXCEPTIONS : "application/vnd.ogc.se_xml",
-				BBOX : map.getExtent().toBBOX(),
-				SERVICE : "WMS",
-				VERSION : "1.1.1",
-				X : e.xy.x,
-				Y : e.xy.y,
-				INFO_FORMAT : 'text/html',
-				QUERY_LAYERS : 'cite:item',
-				FEATURE_COUNT : 50,
-				Layers : 'cite:item',
-				WIDTH : map.size.w,
-				HEIGHT : map.size.h,
-				// format : format,
-				styles : map.layers[map.layers.length-1].params.STYLES,
-				srs : map.layers[map.layers.length-1].params.SRS,
-				TILED : true
-			};
-			// merge filters
-			if (map.getLayersByName('cite:item - Tiled')[0].params.CQL_FILTER != null) params.cql_filter = map.getLayersByName('cite:item - Tiled')[0].params.CQL_FILTER;
-			if (map.getLayersByName('cite:item - Tiled')[0].params.FILTER != null) params.filter = map.getLayersByName('cite:item - Tiled')[0].params.FILTER;
-			if (map.getLayersByName('cite:item - Tiled')[0].params.FEATUREID) params.featureid = map.getLayersByName('cite:item - Tiled')[0].params.FEATUREID;
-			
-			OpenLayers.loadURL( _this.geoUrl + "cite/wms", params, _this, _this.onMapClick, _this.onMapClick );
-			_this.mapClickEvent = e;
-			OpenLayers.Event.stop(e);
+				var event=e;
+				var lonlat =map.getLonLatFromViewPortPx(e.xy).transform(_this.map.getProjectionObject(),new OpenLayers.Projection("EPSG:4326"));
+				var mapSelections =  new Browser.Items.MapCollection([],{SQL:jda.app.resultsView.getSQLSearchString(lonlat.lon,lonlat.lat)});
+				$('.olPopup').remove();
+				mapSelections.fetch({success:function(response,collection){
+						
+						_this.mapViewCollection = new Browser.Items.Collections.Views.MapPopup({ collection : mapSelections});
+						
+						
+						_this.popup = new OpenLayers.Popup.FramedCloud( 
+							"map-popup",
+							_this.map.getLonLatFromPixel(event.xy),
+							_this.map.size,
+							$(_this.mapViewCollection.el).html(),
+							null,
+							true
+						);
+						
+						//openlayers workaround, propogates click events to trigger fancybox
+						_this.popup.events.register("click", _this.popup, function(event){ $(event.target).trigger('click') });
+						
+						_this.map.addPopup(_this.popup);
+						$('.map-popup-list-items').css("margin-right","-40px");
+						$('#map-popup').height($('#map-popup').height() - 50);
+					}
+				});
+					
+	
+				
+				
+				return false;
+				
+
 		});
 		
 		
@@ -211,57 +275,6 @@
 			})
 		},
 		
-		onMapClick : function(response){
-			var _this=this;
-			if(this.popup) this.popup.destroy();
-			if (response.responseText != ""){			
-				try
-				{
-					//UGLY – remove header string
-					//var data = jQuery.parseJSON(response.responseText.substring(75));
-					//console.log(response.responseText);
-					var d = response.responseText.replace(/(\r\n|\n|\r|\t)/gm," ");
-					var data = jQuery.parseJSON(d);
-				}
-				catch(err)
-				{
-                                        console.log(err);
-					this.popup=false;
-					console.log('failure to parse json');
-					return;
-				}
-			
-				features = data["features"];
-				features.shift();  //removes first item which is empty
-			
-				this.mapViewCollection = new Browser.Items.Collections.Views.MapPopup({ collection : new Browser.Items.Collection(features)});
-			
-				//Fix model ids (remove prepended "item.id")
-				
-				_.each(_.toArray(this.mapViewCollection.collection),function(model){
-					var newid = model.get("id").split('.')[1];
-					_this.mapViewCollection.collection.get(model.id).set({id:newid});
-					
-				});
-				
-				this.popup = new OpenLayers.Popup.FramedCloud( 
-					"map-popup",
-					this.map.getLonLatFromPixel(this.mapClickEvent.xy),
-					this.map.size,
-					$(_this.mapViewCollection.el).html(),
-					null,
-					true
-				);
-			
-				//openlayers workaround, propogates click events to trigger fancybox
-				this.popup.events.register("click", this.popup, function(event){ $(event.target).trigger('click') });
-			
-				this.map.addPopup(this.popup);
-				$('.map-popup-list-items').css("margin-right","-40px");
-				$('#map-popup').height($('#map-popup').height() - 50);	
-			}
-			else this.popup=false;
-		},
 		
 		getMapLayers : function(){
 	

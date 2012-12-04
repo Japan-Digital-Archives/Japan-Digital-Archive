@@ -79,6 +79,35 @@
 		
 	
 	});
+	
+	
+	Browser.Items.MapCollection = Backbone.Collection.extend({
+		
+		model:Browser.Items.Model,
+		base : 'http://140.247.116.252:8083/',
+		initialize : function(models,options){
+			console.log(options);
+			_.extend(this,options);
+		
+		},
+		url : function()
+		{
+		
+		
+			
+			return this.base+'getFeatureInfo&SQL='+this.SQL;
+		
+		},
+	
+		parse : function(response)
+		{
+		
+			return response.results.splice(0,Math.max(response.results.length,50));
+			
+		},
+		
+	
+	});
 
 	Browser.Router = Backbone.Router.extend({ /* ... */ });
 
