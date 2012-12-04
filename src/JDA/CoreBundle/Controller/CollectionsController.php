@@ -11,6 +11,6 @@ class CollectionsController extends Controller
     {
 	    $request = $this->getRequest();
 	    $locale=$this->getRequest()->getLocale();
-        return $this->redirect(sprintf('%s#%s', $this->generateUrl('search',array('_locale'=>$locale)), 'view_type=list&content=collection&'));
+        return $this->redirect(sprintf('%s#%s', $this->generateUrl('search',array('_locale'=>$locale)), 'view_type=list&media_type=Collection'));
     }
 }

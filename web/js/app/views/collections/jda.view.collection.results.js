@@ -267,7 +267,7 @@
 
 		setContent : function(content)
 		{
-			this.collection.search.content = content;
+			this.collection.search.media_type = content;
 
 		},
 		clearTags : function(){
@@ -335,9 +335,9 @@
 					}
 				}
 			}
-			if( !_.isUndefined(search.content)&&search.content!="all" )
+			if( !_.isUndefined(search.media_type)&&search.media_type!="all" )
 			{  
-				var capitalizedContent =  search.content.charAt(0).toUpperCase() + search.content.slice(1);
+				var capitalizedContent =  search.media_type + search.content.slice(1);
 				sqlFilters.push("media_type LIKE '" + capitalizedContent + "'");
 			}
 			else

@@ -22,16 +22,11 @@ class CollectionController extends Controller
     		$userId=0;	
     	}
 
-
     	return $this->render('JDACoreBundle:Collection:collection.html.twig', array(
-				
 					'page'=> 'collection',
 					'displayname'=>$displayName,
 					'filterId'=>$id,
 					'userId'=>$userId,
-					
-					
-					
 				));
     }
 }

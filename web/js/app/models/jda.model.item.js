@@ -35,9 +35,11 @@
 				return response;
 		},
 		url : function(){ 
-			
-			if(_.isUndefined(this.id)) var url = jda.app.apiLocation + 'api/items';
-			else var url = jda.app.apiLocation + 'api/items/' + this.id;
+			if(_.isUndefined(this.id)) {
+				var url = jda.app.apiLocation + 'api/items';	
+			} else {
+				var url = jda.app.apiLocation + 'api/items/' + this.id + '?result_type=recursive';
+			} 
 			console.log("final URL is " + url);
 			return url;
 		},

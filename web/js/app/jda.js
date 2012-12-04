@@ -42,40 +42,32 @@ this.jda = {
 		
 		this.startRouter();
 		var _this=this;
-		$('#zeega-sort').change(function(){_this.parseSearchUI(); });
-		
+		$('#zeega-sort').change(function(){_this.parseSearchUI(); });		
 	},
 	initCollectionsDrawer:function(){
 		//load my collections drawer
 		var Browser = jda.module("browser");
 		this.myCollectionsDrawer = new Browser.Items.Collections.Views.MyCollectionsDrawer();
 		this.myCollectionsDrawer.getCollectionList();
-		
-	
-	
 	},
 	startRouter: function()
 	{
 		var _this = this;
 			// Defining the application router, you can attach sub routers here.
 		var Router = Backbone.Router.extend({
-	
 			routes: {
 				""				: 'search',
 				":query"		: 'search',
-	
 			},
 	
 			search : function( query ){
-						_this.parseURLHash(query);
-					}
-			});
+				_this.parseURLHash(query);
+			}
+		});
 	
 		this.router = new Router();
 		Backbone.history.start();
 	},
-	
-	
 	queryStringToHash: function (query) {
 	  var query_obj = {};
 	  var vars = query.split("&");
@@ -104,79 +96,79 @@ this.jda = {
 		if (query_obj.max_date != null){
 			query_obj.times.end = query_obj.max_date;
 		}
-	  
+		console.dir(query_obj);
 	  return query_obj;
 	},
 	
 	parseURLHash  : function (query){
-	
-					var _this=this;
-					
-					//Update Search Object
-					
-					if (!_.isUndefined(query)) this.searchObject =  this.queryStringToHash(query);
-					else this.searchObject = {page:1};
+		console.log("parseURLHash "  + query);
+		var _this=this;
+		
+		//Update Search Object
+		
+		if (!_.isUndefined(query)) {
+			this.searchObject =  this.queryStringToHash(query);	
+		} else {
+			this.searchObject = {page:1};
+		}
 
-					//Update interface
-					
-					this.updateSearchUI(this.searchObject);
-					
-					//Load filter if nec, carry out search
-					
-					if(sessionStorage.getItem('filterType')=='none'||!_.isUndefined(this.filterModel)) {
-					
-						if (!_.isUndefined(this.searchObject.view_type)) this.switchViewTo(this.searchObject.view_type,true) ;
-						else this.search(this.searchObject);
-					}
-					else{
-					
-						$('.tab-content').find('.btn-group').hide();
-						$('#jda-related-tags').hide();
-						$('#event-button').hide();
-						
-						if(sessionStorage.getItem('filterType')=='user'){
-							this.filterType ="user";							
-							var Browser = jda.module("browser");
-							this.filterModel = new Browser.Users.Model({id:sessionStorage.getItem('filterId')});
-							this.filterModel.fetch({
-								success : function(model, response){
-												_this.resultsView.userFilter = new Browser.Users.Views.UserPage({model:model});
-												if (!_.isUndefined(_this.searchObject.view_type)) _this.switchViewTo(_this.searchObject.view_type,true) ;
-												else _this.search(_this.searchObject);
-								},
-								error : function(model, response){
-									console.log('Failed to fetch the user object.');
-									
-								},
-							});					
-						}
-						else if(sessionStorage.getItem('filterType')=='collection'){
-							
-							this.filterType ="collection";
-							var Browser = jda.module("browser");
-							this.filterModel = new Browser.Items.Model({id:sessionStorage.getItem('filterId')});
-							this.filterModel.fetch({
-								success : function(model, response){
-									_this.resultsView.collectionFilter = new Browser.Items.Views.CollectionPage({model:model});
+		//Update interface
+		this.updateSearchUI(this.searchObject);
+		console.log("Filter type " + sessionStorage.getItem('filterType'));
+		//Load filter if nec, carry out search
+		if(sessionStorage.getItem('filterType')=='none'||!_.isUndefined(this.filterModel)) {
+			if (!_.isUndefined(this.searchObject.view_type)) {
+				this.switchViewTo(this.searchObject.view_type,true) ;	
+			} else {
+				this.search(this.searchObject); 	
+			}
+		} else{
+			$('.tab-content').find('.btn-group').hide();
+			$('#jda-related-tags').hide();
+			$('#event-button').hide();
+			
+			if(sessionStorage.getItem('filterType')=='user'){
+				this.filterType ="user";							
+				var Browser = jda.module("browser");
+				this.filterModel = new Browser.Users.Model({id:sessionStorage.getItem('filterId')});
+				this.filterModel.fetch({
+					success : function(model, response){
+									_this.resultsView.userFilter = new Browser.Users.Views.UserPage({model:model});
 									if (!_.isUndefined(_this.searchObject.view_type)) _this.switchViewTo(_this.searchObject.view_type,true) ;
 									else _this.search(_this.searchObject);
-								},
-								error : function(model, response){
-									console.log('Failed to fetch the user object.');
-									
-								},
-					
-							});
+					},
+					error : function(model, response){
+						console.log('Failed to fetch the user object.');
 						
-						}
-					}
+					},
+				});					
+			}
+			else if(sessionStorage.getItem('filterType')=='collection'){
+				
+				this.filterType ="collection";
+				var Browser = jda.module("browser");
+				this.filterModel = new Browser.Items.Model({id:sessionStorage.getItem('filterId')});
+				this.filterModel.fetch({
+					success : function(model, response){
+						_this.resultsView.collectionFilter = new Browser.Items.Views.CollectionPage({model:model});
+						if (!_.isUndefined(_this.searchObject.view_type)) _this.switchViewTo(_this.searchObject.view_type,true) ;
+						else _this.search(_this.searchObject);
+					},
+					error : function(model, response){
+						console.log('Failed to fetch the user object.');
+						
+					},
+		
+				});
+			
+			}
+		}
 				
 	
 	
 	},
 	
 	parseSearchUI : function(){
-		console.log('JDA parserSearchUI');
 		var facets = VisualSearch.searchQuery.models;
 			
 		var obj={};
@@ -201,10 +193,7 @@ this.jda = {
 		obj.text = textQuery;
 		obj.view_type = this.currentView;
 
-	
-		if($('#zeega-content-type').val()=="excludetweets")obj.exclude_content='tweet';
-		else obj.content = $('#zeega-content-type').val();
-		
+		obj.media_type = $('#zeega-content-type').val();
 		obj.sort = $('#zeega-sort').val();
 		
 		obj.times = this.searchObject.times;
@@ -218,9 +207,6 @@ this.jda = {
 	},
 	
 	updateSearchUI : function(obj){
-	
-		console.log("jda.app.updateSearchUI",obj);	
-	
 		VisualSearch.searchBox.disableFacets();
 	    VisualSearch.searchBox.value('');
 	  	VisualSearch.searchBox.flags.allSelected = false;
@@ -248,16 +234,13 @@ this.jda = {
 					VisualSearch.searchBox.addFacet('text', text, 0);
 				}
 			}
-			
 		}
 		
 		
-		if (!_.isUndefined(obj.content)) $('#zeega-content-type').val(obj.content);
-		else $('#zeega-content-type').val("all");
+		if (!_.isUndefined(obj.media_type)) $('#zeega-content-type').val(obj.media_type);
+		else $('#zeega-content-type').val("");
 		
 		
-		if (!_.isUndefined(obj.exclude_content)) $('#zeega-content-type').val('excludetweets');
-	
 		if (!_.isUndefined(obj.sort)) $('#zeega-sort').val(obj.sort);
 		else $('#zeega-sort').val("relevant");
 		
@@ -267,30 +250,26 @@ this.jda = {
 	},
 	
 	updateURLHash : function(obj){
-		
-		 	var hash = '';      
-		 	if( !_.isUndefined(this.viewType)) hash += 'view_type=' + this.viewType + '&';
-		 	if( !_.isUndefined(obj.q) && obj.q.length > 0) hash += 'q=' + obj.q + '&';
-		 	if( !_.isUndefined(obj.content) )hash += 'content='+ obj.content + '&';
-		 	if( !_.isUndefined(obj.exclude_content) )hash += 'exclude_content='+ obj.exclude_content + '&';
+		console.log(obj);		
+	 	var hash = '';      
+	 	if( !_.isUndefined(obj.viewType)) hash += 'view_type=' + this.viewType + '&';
+	 	if( !_.isUndefined(obj.q) && obj.q.length > 0) hash += 'q=' + obj.q + '&';
+	 	if( !_.isUndefined(obj.media_type) )hash += 'media_type='+ obj.media_type + '&';
 
-		 	if( !_.isUndefined(obj.sort) )  hash += 'sort='+ obj.sort + '&';
-		 	if( !_.isUndefined(obj.mapBounds) )  hash += 'map_bounds='+ encodeURIComponent(obj.mapBounds) + '&';
-		 	if( !_.isUndefined(obj.times)&&  !_.isNull(obj.times) )
-			{
-		 		if( !_.isUndefined(obj.times.start) ) hash += 'min_date='+ obj.times.start + '&';
-		 		if( !_.isUndefined(obj.times.end) ) hash += 'max_date='+ obj.times.end + '&';
-			}  
-	
-			console.log('jda.app.updateURLHash',obj,hash);
-	 		jda.app.router.navigate(hash,{trigger:false});
+	 	if( !_.isUndefined(obj.sort) )  hash += 'sort='+ obj.sort + '&';
+	 	if( !_.isUndefined(obj.mapBounds) )  hash += 'map_bounds='+ encodeURIComponent(obj.mapBounds) + '&';
+	 	if( !_.isUndefined(obj.times)&&  !_.isNull(obj.times) )
+		{
+	 		if( !_.isUndefined(obj.times.start) ) hash += 'min_date='+ obj.times.start + '&';
+	 		if( !_.isUndefined(obj.times.end) ) hash += 'max_date='+ obj.times.end + '&';
+		} 
+		console.log("HASH " + hash);
+ 		jda.app.router.navigate(hash,{trigger:false});
 	
 	},
 	
 	search : function(obj){
-	
-		console.log("jda.app.search",obj);		
-		
+		console.log("SEARCH " + this.filterType);
 		if(!_.isUndefined(this.filterType)){
 			if(this.filterType=="user"){
 				obj.user= sessionStorage.getItem('filterId');
@@ -299,10 +278,7 @@ this.jda = {
 				obj.r_itemswithcollections=0;
 			}
 			else if(this.filterType=="collection"){
-				obj.collection = sessionStorage.getItem('filterId');
-				obj.r_items=1;
-				obj.r_itemswithcollections=0;
-			
+				obj.itemId = sessionStorage.getItem('filterId');
 			}
 		}
 		
@@ -314,9 +290,6 @@ this.jda = {
 	},
 	
 	switchViewTo : function( view , refresh ){
-	
-		console.log("jda.app.switchViewTo",view,this.currentView,refresh);
-	
 		var _this=this;
 
 		if( view != this.currentView&&(view=="event"||this.currentView=="event"))refresh = true;
@@ -345,10 +318,6 @@ this.jda = {
 	},
 
 	showListView : function(refresh){
-		console.log('switch to List view');
-
-	
-	    
 		$('#zeega-view-buttons .btn').removeClass('active');
 		$('#list-button').addClass('active');
 		
@@ -363,7 +332,6 @@ this.jda = {
 
 		if(this.resultsView.updated)
 		{
-			console.log('render collection')
 			this.resultsView.render();
 		}
 		this.viewType='list';
@@ -393,7 +361,6 @@ this.jda = {
 		
 		if(this.resultsView.updated)
 		{
-			console.log('render collection')
 			this.resultsView.render();
 		}
 		this.viewType='thumb';
@@ -405,7 +372,6 @@ this.jda = {
 	},
 	
 	showEventView : function(refresh){
-		console.log('switch to Event view');
 		$('#zeega-view-buttons .btn').removeClass('active');
 		$('#event-button').addClass('active');
 		
@@ -462,8 +428,6 @@ this.jda = {
 	},
 		
 	clearSearchFilters : function(doSearch){
-		console.log("jda.app.clearSearchFilters", doSearch);
-
     	$('#zeega-content-type').val("all");
     	$('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
 
@@ -475,20 +439,14 @@ this.jda = {
 	},
 	
 	goToCollection: function (id){
-	
-		console.log('gotocollection',id);
 		window.location=$('#zeega-main-content').data('collection-link')+"/"+id;
 	
 	},
 	
 	goToUser: function (id){
-	
-		console.log('gotouser',id);
 		window.location=$('#zeega-main-content').data('user-link')+"/"+id;
 	
 	},
-		
-		
 
 	/***************************************************************************
 		- called when user authentication has occured
