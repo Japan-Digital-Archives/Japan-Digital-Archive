@@ -101,7 +101,6 @@ this.jda = {
                     
                     if (!_.isUndefined(query)) this.searchObject =  this.queryStringToHash(query);
                     else this.searchObject = {page:1};
-
                     //Update interface
                     
                     this.updateSearchUI(this.searchObject);
@@ -238,7 +237,7 @@ this.jda = {
     
     updateURLHash : function(obj){
 		var hash = '';
-        if( !_.isUndefined(obj.viewType)) hash += 'view_type=' + this.viewType + '&';
+        if( !_.isUndefined(this.viewType)) hash += 'view_type=' + this.viewType + '&';
         if( !_.isUndefined(obj.q) && obj.q.length > 0) hash += 'q=' + obj.q + '&';
         if( !_.isUndefined(obj.media_type) )hash += 'media_type='+ obj.media_type + '&';
 
