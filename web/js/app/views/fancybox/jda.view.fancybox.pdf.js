@@ -8,7 +8,7 @@
 		events : {
 
 			'click .fancybox-more-button' : 'more',
-			'click .fancybox-less-button' : 'less',
+			'click .fancybox-less-button' : 'less'
 
 		},
 
@@ -39,15 +39,14 @@
 			return false;
 		},
 		
-		fillInTemplate : function(template)
+		fillInTemplate : function(templateData)
 		{
 			//use template to clone the database items into
-			var template = _.template( template );
+			var template = _.template( templateData );
 
 			//Fill in info
 			var blanks = {
-
-				uri : this.model.get('uri'),
+				uri : this.model.get('uri')
 			};
 			//copy the cloned item into the el
 			var docHTML =  template( blanks ) ;
@@ -68,7 +67,7 @@
 			FancyBoxView class to handle the metadata and stuff.
 
 			So if you need to change how this renders change it in the MORE or LESS or FILLINTEMPLATE functions
-			 of this class.
+			of this class.
 			*/
 
 

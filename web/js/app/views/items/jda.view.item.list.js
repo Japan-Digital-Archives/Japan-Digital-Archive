@@ -8,24 +8,25 @@
 		tagName : 'tr',
 		className : 'list-media',
 		
-		 initialize: function () {
-	        
-	        this.el.id = this.model.id;
+		initialize: function () {
 
-	        //this is for fancy box to know to group these into a gallery
-	        $(this.el).attr("rel", "group");
+			this.el.id = this.model.id;
 
-	        //list item has a thumbnail item with same model as a subview
-	        this.thumbnailView = new Browser.Items.Views.Thumb({	model:this.model,
-	        														thumbnail_width:100,
-	        														thumbnail_height:80,
-	        														show_caption:false,
-	        														fancybox:false,
-	        														draggable:false
-	        													});
-	        
-    	},
-    	
+			//this is for fancy box to know to group these into a gallery
+			$(this.el).attr("rel", "group");
+
+			//list item has a thumbnail item with same model as a subview
+			this.thumbnailView = new Browser.Items.Views.Thumb({
+				model:this.model,
+				thumbnail_width:100,
+				thumbnail_height:80,
+				show_caption:false,
+				fancybox:false,
+				draggable:false
+			});
+
+		},
+
 		render: function(done)
 		{
 			var _this = this;
@@ -76,25 +77,25 @@
 			} else {
 				blanks["media_date"] = "n/a";
 			}
-			if (this.model.get("text") != null){
-				var excerpt = this.model.get("text").replace(/\r\n/gi, '<br/>');;
+			if (this.model.get("text") !== null){
+				var excerpt = this.model.get("text").replace(/\r\n/gi, '<br/>');
 				blanks["text"] = this.linkifyTweet(excerpt);
 
 			}
-			if (this.model.get("description") == null){
+			if (this.model.get("description") === null){
 				blanks["description"] = " ";
 			}
-			if (this.model.get("description") != null && this.model.get("description").length > 255){
+			if (this.model.get("description") !== null && this.model.get("description").length > 255){
 				blanks["description"] = this.model.get("description").substring(0,255) + "...";
-			} 
-			if (this.model.get("title") == null || this.model.get("title") == "none" || this.model.get("title") == ""){
+			}
+			if (this.model.get("title") === null || this.model.get("title") == "none" || this.model.get("title") === ""){
 				blanks["title"] = "";
 			}
 
-			if (this.model.get("media_creator_realname") == null || this.model.get("media_creator_realname") == "" || this.model.get("media_creator_realname") == "Unknown" || this.model.get("media_creator_realname") == "unknown"){
+			if (this.model.get("media_creator_realname") === null || this.model.get("media_creator_realname") === "" || this.model.get("media_creator_realname") == "Unknown" || this.model.get("media_creator_realname") == "unknown"){
 				blanks["author"] = this.model.get("media_creator_username");
 			} else {
-				blanks["author"] = this.model.get("media_creator_realname");	
+				blanks["author"] = this.model.get("media_creator_realname");
 			}
 			if (this.model.get("media_type") == "Text" && this.model.get('description').length < this.model.get('text').length){
 				blanks["description"] = this.model.get('description') + '...';
@@ -110,7 +111,7 @@
 			
 			$(this.el).find('.zeega-item-thumbnail').append(this.thumbnailView.render().el);
 
-			if (blanks["author"] == ""){
+			if (blanks["author"] === ""){
 				$(this.el).find('.jda-item-author').hide();
 			}
 
@@ -123,35 +124,28 @@
 
 			if(this.draggable){
 				$(this.el).draggable({
+					cursor : 'crosshair',
+					cursorAt : {
+						top : 50,
+						left : 50
+					},
+					appendTo : 'body',
+					opacity : 0.8,
 
-			    cursor : 'crosshair',
-			    cursorAt : { 
-				top : 50,
-				left : 50
-				},
-			    appendTo : 'body',
-			    opacity : .8,
+					helper : function(){
+						var drag = $(this).find('.thumbnail')
+						.clone()
+						.css({
+							'z-index':'101'
+						});
+						return drag;
+					},
 
-			    helper : function(){
-			      var drag = $(this).find('.thumbnail')
-			      .clone()
-			      .css({
-			      	
-			        'z-index':'101',
-
-			      });
-			      return drag;
-			    },
-
-			      //init the dragged item variable
-			      start : function(){
-			        $(this).draggable('option','revert',true);
-			        jda.app.draggedItem = _this.model;
-			      },
-
-			      stop : function(){
-			      }
-			      
+					//init the dragged item variable
+					start : function(){
+						$(this).draggable('option','revert',true);
+						jda.app.draggedItem = _this.model;
+					}
 			});
 			}
 			$(this.el).find(".jdicon-small-drag").tooltip({'title':'Drag to add to your collection','placement':'bottom', delay: { show: 600, hide: 100 }});
@@ -164,19 +158,19 @@
 
 			// urls
 			var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-	    	tweet = tweet.replace(exp,"<strong>$1</strong>"); 
+			tweet = tweet.replace(exp,"<strong>$1</strong>");
 
-	    	// users
-	    	 tweet = tweet.replace(/(^|)@(\w+)/gi, function (s) {
-	        	return '<strong>' + s + '</strong>';
-	    	});
+			// users
+			tweet = tweet.replace(/(^|)@(\w+)/gi, function (s) {
+				return '<strong>' + s + '</strong>';
+			});
 
-	    	// tags
-	    	tweet = tweet.replace(/(^|)#(\w+)/gi, function (s) {
-	        	return '<strong>' + s + '</strong>';
-	     	});
+			// tags
+			tweet = tweet.replace(/(^|)#(\w+)/gi, function (s) {
+				return '<strong>' + s + '</strong>';
+			});
 
-	    	return tweet;
+			return tweet;
 		},
 		
 		getImageTemplate : function()
@@ -221,7 +215,7 @@
 		},
 		getDocumentTemplate : function()
 		{
-			html = 
+			html =
 			
 
 
@@ -243,7 +237,7 @@
 		},
 		getWebsiteTemplate : function()
 		{
-			html = 
+			html =
 
 			'<td class="zeega-list-left-column">'+
 				'<div class="zeega-item-thumbnail"></div>'+
@@ -263,7 +257,7 @@
 		},
 		getTweetTemplate : function()
 		{
-			html = 
+			html =
 
 			'<td class="zeega-list-left-column">'+
 				'<div class="zeega-item-thumbnail"></div>'+
@@ -279,7 +273,7 @@
 		},
 		getTestimonialTemplate : function()
 		{
-			html = 
+			html =
 			'<td class="zeega-list-left-column">'+
 				'<div class="zeega-item-thumbnail"></div>'+
 			'</td>'+
@@ -297,7 +291,7 @@
 		
 		getCollectionTemplate : function()
 		{
-			html = 
+			html =
 
 				'<td class="zeega-list-left-column">'+
 				'<div class="zeega-item-thumbnail"></div>'+

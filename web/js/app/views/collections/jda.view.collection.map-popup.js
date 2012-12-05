@@ -1,5 +1,5 @@
 (function(Browser) {
-		Browser.Items = Browser.Items || {};
+	Browser.Items = Browser.Items || {};
 	Browser.Items.Collections = Browser.Items.Collections || {};
 	Browser.Items.Collections.Views =  Browser.Items.Collections.Views || {};
 	

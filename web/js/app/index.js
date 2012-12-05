@@ -9,9 +9,8 @@ jQuery(function($)
 
 			loaded	: function(){},
 
-			search : function(){ 
-					jda.app.parseSearchUI() 
-				
+			search : function(){
+					jda.app.parseSearchUI();
 			},
 
 			clearSearch : jda.app.clearSearchFilters,

@@ -38,12 +38,12 @@
 			
 			blanks.id=this.model.id;
 			
-			if (this.model.get("media_creator_realname") == null || this.model.get("media_creator_realname") == "" || this.model.get("media_creator_realname") == "Unknown" || this.model.get("media_creator_realname") == "unknown"){
+			if (this.model.get("media_creator_realname") === null || this.model.get("media_creator_realname") === "" || this.model.get("media_creator_realname") == "Unknown" || this.model.get("media_creator_realname") == "unknown"){
 				blanks["author"] = this.model.get("media_creator_username");
 			} else {
-				blanks["author"] = this.model.get("media_creator_realname");	
+				blanks["author"] = this.model.get("media_creator_realname");
 			}
-			if (blanks.media_type !=null) blanks.media_type = blanks.media_type.toLowerCase();
+			if (blanks.media_type !==null) blanks.media_type = blanks.media_type.toLowerCase();
 			
 
 			$(this.el).html( _.template( template, blanks ));
@@ -54,7 +54,7 @@
 			
 			}
 
-			if (blanks["author"] == ""){
+			if (blanks["author"] === ""){
 				$(this.el).find('.item-author').hide();
 			}
 			return this;
@@ -117,7 +117,7 @@
 			'</a>';
 
 			return html;
-		}		
+		}
 	});
 
 })(jda.module("browser"));

@@ -9,12 +9,11 @@
 		tagName : 'div',
 		className: 'event-map',
 		minTime : 1293840000,
-		maxTime : 1330095357,	
+		maxTime : 1330095357,
 		mapLoaded : false,
 		timeSliderLoaded : false,
 		japanMapUrl : sessionStorage.getItem("japanMapUrl"),
 		geoUrl : sessionStorage.getItem("geoServerUrl"),
-		newUrl : "http://140.247.116.252:8083/",
 		initialize : function()
 		{
 		
@@ -23,13 +22,11 @@
 			OpenLayers.Layer.Grid.prototype.setTileSize = function(size) {
 				if (this.singleTile) {
 					size = this.map.getSize();
-					var curWidth = parseInt(size.w * this.ratio);
+					var curWidth = parseInt(size.w * this.ratio,10);
 					var targetWidth = curWidth +  (16 - (curWidth % 16));
-					this.newRatio = this.ratio * (targetWidth/curWidth);
-					size.h = parseInt(Math.round(size.h * this.newRatio));
-					size.w = parseInt(Math.round(size.w * this.newRatio));
-					//console.log("In setTileSize: " + this.newRatio);
-			
+					this.newRatio = targetWidth/size.w;
+					size.h = parseInt(Math.round(size.h * this.newRatio),10);
+					size.w = parseInt(Math.round(size.w * this.newRatio),10);
 				}
 				OpenLayers.Layer.HTTPRequest.prototype.setTileSize.apply(this, [size]);
 			};
@@ -86,22 +83,19 @@
 		
 		load : function(){
 			this.resetMapSize();
+			$('.olPopup').remove();
 
 			if( !this.mapLoaded ) this.initMap();
-			else if( jda.app.resultsView.getSQLSearchString()!=null){
+			else if( jda.app.resultsView.getSQLSearchString()!==null){
 				
 				this.map.getLayersByName('cite:item - Tiled')[0].mergeNewParams({
 						'SQL' : jda.app.resultsView.getSQLSearchString()
 					});
 				this.initTimeSlider();
-		 	}
-		 	else{
-		 		this.initTimeSlider();
-		 		
-		 	}
-		 	
-			
-		
+			}
+			else{
+				this.initTimeSlider();
+			}
 		},
 		
 		initMap : function(){
@@ -127,20 +121,17 @@
 					
 					var dataLayer =  new OpenLayers.Layer.WMS(
 						"cite:item - Tiled",
-						_this.newUrl + "?LAYERS=point&",
+						_this.geoUrl + "?LAYERS=point&",
 							{
 
-								'SQL' : function(){ return this.resultsView.getSQLSearchString() },
+								'SQL' : function(){ return this.resultsView.getSQLSearchString(); },
 								BBOX: '',
 								WIDTH : 250,
 								HEIGHT : 250,
 								RADIUS : 2,
 								R : 255,
 								G : 0,
-								B : 0,
-								
-
-								
+								B : 0
 							},
 							{
 								buffer: 0,
@@ -149,7 +140,7 @@
 									isBaseLayer: false,
 									yx : {'EPSG:900913' : false},
 									'sphericalMercator': true,
-									'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
+									'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34)
 			
 							}
 					);
@@ -165,7 +156,7 @@
 					$(".olControlPanZoomBar").css({"top":"65px"});
 				
 					_this.map.addLayers(_this.getMapLayers());
-					_this.map.addLayer(dataLayer); 
+					_this.map.addLayer(dataLayer);
 					_this.map.getLayersByName('cite:item - Tiled')[0].mergeNewParams({'SQL' : jda.app.resultsView.getSQLSearchString()});
 					
 					_this.map.addControl(new OpenLayers.Control.Attribution());
@@ -188,7 +179,7 @@
 						_this.mapViewCollection = new Browser.Items.Collections.Views.MapPopup({ collection : mapSelections});
 						
 						
-						_this.popup = new OpenLayers.Popup.FramedCloud( 
+						_this.popup = new OpenLayers.Popup.FramedCloud(
 							"map-popup",
 							_this.map.getLonLatFromPixel(event.xy),
 							_this.map.size,
@@ -198,7 +189,7 @@
 						);
 						
 						//openlayers workaround, propogates click events to trigger fancybox
-						_this.popup.events.register("click", _this.popup, function(event){ $(event.target).trigger('click') });
+						_this.popup.events.register("click", _this.popup, function(event){ $(event.target).trigger('click'); });
 						
 						_this.map.addPopup(_this.popup);
 						$('.map-popup-list-items').css("margin-right","-40px");
@@ -216,34 +207,7 @@
 		
 		
 		
-		//Adding DRAG back in -- wasn't working for some reason...
-		var dragcontrol = new OpenLayers.Control.DragPan({'map':this.map, 'panMapDone':function(xy){
-			
-	        if(this.panned) {
-	            var res = null;
-	            if (this.kinetic) {
-	                res = this.kinetic.end(xy);
-	            }
-	            this.map.pan(
-	                this.handler.last.x - xy.x,
-	                this.handler.last.y - xy.y,
-	                {dragging: !!res, animate: false}
-	            );
-	            if (res) {
-	                var self = this;
-	                this.kinetic.move(res, function(x, y, end) {
-	                    self.map.pan(x, y, {dragging: !end, animate: false});
-	                });
-	            }
-	            this.panned = false;
-	        }
-	        _this.userdragged  = true;
-	        console.log(map.getCenter());
-	            
-	    }});
-	    dragcontrol.draw();
-	    map.addControl(dragcontrol);
-	    dragcontrol.activate();
+
 		
 
 	},
@@ -272,7 +236,7 @@
 					$("#layer-control-drawer").animate({right : "-25px"}, 400);
 				}
 				_this.layerControlIsOut = !_this.layerControlIsOut;
-			})
+			});
 		},
 		
 		
@@ -283,11 +247,12 @@
 			_this = this;
 			var layers = [];
 			_.each(jdaMapLayers.layers,function(layer){
-				 
-				 if(sessionStorage.getItem('locale') == 'en') var title = layer.title; else var title = layer.titleJa;
-				
-				 $('#layer-checkboxes').append('<label class="checkbox">'+title+'<input type="checkbox" data-layer="'+layer.src+'" class="layer-checkbox" id="'+layer.id+'"/></label>');
-				 $('#layer-legend').append('<div class="legend-entry hidden" id="'+layer.id+'-legend"><p>'+title+'</p></div>');
+				var title;
+				if(sessionStorage.getItem('locale') == 'en') title = layer.title;
+				else title = layer.titleJa;
+
+				$('#layer-checkboxes').append('<label class="checkbox">'+title+'<input type="checkbox" data-layer="'+layer.src+'" class="layer-checkbox" id="'+layer.id+'"/></label>');
+				$('#layer-legend').append('<div class="legend-entry hidden" id="'+layer.id+'-legend"><p>'+title+'</p></div>');
 		
 				layers.push( new OpenLayers.Layer.WMS(
 					layer.id,
@@ -308,7 +273,7 @@
 									isBaseLayer: false,
 									yx : {'EPSG:900913' : false},
 									'sphericalMercator': true,
-									'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
+									'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34)
 					})
 				);
 			});
@@ -332,11 +297,11 @@
 		},
 		
 		toggleMapLayer : function(id,layerId){
-			 //set visibility of map layer
+			//set visibility of map layer
 			this.map.getLayersByName(id)[0].setVisibility( $('#'+id).is(':checked'));
-			if ( $("#"+id+"-legend").find("img").length == 0){
+			if ( $("#"+id+"-legend").find("img").length === 0){
 				$("#"+id+"-legend").append("<img src='http://worldmap.harvard.edu/geoserver/wms?TRANSPARENT=TRUE&EXCEPTIONS=application%2Fvnd.ogc.se_xml&VERSION=1.1.1&SERVICE=WMS&REQUEST=GetLegendGraphic&LLBBOX=133.65533295554525,34.24189997810896,143.33901303676075,42.22959346742014&URL=http%3A%2F%2Fworldmap.harvard.edu%2Fgeoserver%2Fwms&TILED=true&TILESORIGIN=14878443.604346,4061329.7164352&LAYER="+layerId+"&FORMAT=image/gif&SCALE=1091958.1364361627'>");
-			}		
+			}
 			
 			//toggle visibility of that legend item
 			$("#"+id+"-legend").toggleClass("hidden");
@@ -353,11 +318,11 @@
 				timeSliderContainer = $("#event-time-slider");
 			
 				//Put HTML into the div
-				timesliderHTML = 
+				timesliderHTML =
 					"<div id='date-time-start' class='date-time-block pull-left'>" +
-						"<input type='text' name='start-date' id='start-date' value='' class='date-picker'>" + 
+						"<input type='text' name='start-date' id='start-date' value='' class='date-picker'>" +
 						"<input type='text' name='start-time' id='start-time' value='' class='time-picker'>" +
-					"</div>" +  
+					"</div>" +
 					"<div id='date-time-end' class='date-time-block pull-right'>" +
 						"<input type='text' name='end-date' id='end-date' value='' class='date-picker'>" +
 						"<input type='text' name='end-time' id='end-time' value='' class='time-picker'>" +
@@ -387,19 +352,20 @@
 				//Set up the range slider
 				//times are seconds since jan 1 1970
 				
-				
+				var start,end;
+
 				if(!_.isNull(jda.app.searchObject.times)&&!_.isUndefined(jda.app.searchObject.times)&&!_.isUndefined(jda.app.searchObject.times.start)&&!_.isUndefined(jda.app.searchObject.times.end)){
-					var start=jda.app.searchObject.times.start; 
-					var end=jda.app.searchObject.times.end;
+					start=jda.app.searchObject.times.start;
+					end=jda.app.searchObject.times.end;
 				}
 				else{
-					var start=this.minTime;
-					var  end= this.maxTime;
+					start=this.minTime;
+					end= this.maxTime;
 				}
 				
 				$("#range-slider").slider({
-					range: true, 
-					min: this.minTime, 
+					range: true,
+					min: this.minTime,
 					max: this.maxTime,
 					values: [start, end],
 					slide: function( event, ui )
@@ -412,7 +378,7 @@
 						else return false;
 					},
 					change : function(event, ui)
-					{	
+					{
 						_this.setStartDateTimeSliderBubble(ui.values[0]);
 						_this.setEndDateTimeSliderBubble(ui.values[1]);
 						
@@ -423,7 +389,7 @@
 						jda.app.updateURLHash(jda.app.searchObject);
 						jda.app.search(jda.app.searchObject);
 	
-					 }
+					}
 				});
 				
 				$("#range-slider").css("margin-left", $("#date-time-start").outerWidth());
@@ -435,7 +401,7 @@
 				this.setEndDateTimeSliderBubble($( "#range-slider" ).slider( "values", 1 ));
 			}
 		
-		}, 
+		},
 		
 		setStartDateTimeSliderHandle : function(){
 			dateMillis = $("#start-date").datepicker('getDate').getTime();
@@ -461,28 +427,17 @@
 			this.setEndDateTimeSliderBubble(seconds);
 		},
 		
-		setStartDateTimeSliderBubble : function(val){		
-			//centerX = $("#range-slider a").first().position()["left"];
-			//dateTimeWidth = $("#date-time-start").outerWidth();
-			//$("#date-time-start").css("left", centerX);
+		setStartDateTimeSliderBubble : function(val){
 			var d = new Date(val*1000);
 			$("#start-date").val(d.format('mmmm d, yy'));
 			$("#start-time").val(d.format("h:MM tt"));
 		},
 		
 		setEndDateTimeSliderBubble : function(val){
-			//handleWidth =  $("#range-slider a").last().outerWidth();
-			//centerX = $("#range-slider a").last().position()["left"];
-			//dateTimeWidth = $("#date-time-end").width();
-			//$("#date-time-end").css("left", centerX + dateTimeWidth + handleWidth/2);
 			var d = new Date(val*1000);
 			$("#end-date").val(d.format('mmmm d, yy'));
 			$("#end-time").val(d.format("h:MM tt"));
-		},
-	
-
-	
-	
+		}
 	});
 
 

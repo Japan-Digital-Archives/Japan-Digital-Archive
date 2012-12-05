@@ -23,7 +23,7 @@
 			//Fill in image-specific stuff
 			var blanks = {
 				src : this.model.get('uri'),
-				title : this.model.get('title'),
+				title : this.model.get('title')
 			};
 
 			//use template to clone the database items into

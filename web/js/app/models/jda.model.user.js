@@ -13,14 +13,11 @@
 			var test = "hi";
 			
 		},
-
-		
-		
-		url : function(){ 
+		url : function(){
 			var url = jda.app.apiLocation + 'api/users/' + this.id;
 			console.log("Final url for getting user is: " + url);
 			return url;
-		},
+		}
 	});
 
 })(jda.module("browser"));

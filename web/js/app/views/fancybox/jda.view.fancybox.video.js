@@ -21,7 +21,7 @@
 		Browser.Views._Fancybox.prototype.render.call(this, obj); //This is like calling super()
 		
 		
-		this.unique =Math.floor(Math.random() *10000)
+		this.unique =Math.floor(Math.random() *10000);
 		$(this.el).find('.fancybox-media-item').append($('<div>').attr({id:'fancybox-video-'+this.unique}).addClass('fancybox-shrinkable'));
 		
 
@@ -33,20 +33,21 @@
 	afterShow:function(){
 		
 		Browser.Views._Fancybox.prototype.afterShow.call(this);
+		var source;
 		switch( this.model.get("layer_type") )
 			{
 
 				case 'Video':
-					var source = this.model.get('uri');
+					source = this.model.get('uri');
 					this.plyr = new Plyr('fancybox-video-'+this.unique,{url:source,controls:1});
 					break;
 				case 'Youtube':
-					var source = "http://www.youtube.com/watch?v="+this.model.get('uri');
+					source = "http://www.youtube.com/watch?v="+this.model.get('uri');
 					this.plyr = new Plyr('fancybox-video-'+this.unique,{url:source,controls:1});
 					
 					break;
 				case 'Vimeo':
-					var source = "http://vimeo.com/"+this.model.get('uri');
+					source = "http://vimeo.com/"+this.model.get('uri');
 					this.plyr = new Plyr('fancybox-video-'+this.unique,{url:source,controls:0});
 					break;
 			
@@ -60,9 +61,7 @@
 		this.plyr.pop.pause();
 		this.plyr.destroy();
 
-	},
-	
-
+	}
 });
 	
 })(jda.module("browser"));
