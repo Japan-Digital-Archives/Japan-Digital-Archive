@@ -172,7 +172,7 @@
 											<li><a href='{{ path('_security_logout',{ '_locale': locale })}}' >{% trans %}jda.user.logout{% endtrans %}</a></li>
 										</ul>
 								</li>
-								<li><a id="sign-in" data-link="{{path('fos_user_security_login', { '_locale': locale })}}" href="#">{% trans %}jda.header.signin{% endtrans %}</a></li>
+								<li><a id="sign-in" data-link="{{path('_security_login')}}" href="#">{% trans %}jda.header.signin{% endtrans %}</a></li>
 							{% endif %}
 							
 							

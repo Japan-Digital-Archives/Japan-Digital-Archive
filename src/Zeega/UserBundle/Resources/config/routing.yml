@@ -1,6 +1,6 @@
 _security_login:
     pattern:   /{_locale}/login
-    defaults: { _controller:  ZeegaUserBundle:Security:login, _locale: ja }
+    defaults: { _controller:  FOSUserBundle:Security:login}
     requirements:
         _locale: en|ja
 
@@ -15,6 +15,12 @@ _security_logout:
 user_registration:
     pattern:  /{_locale}/register
     defaults: { _controller:  FOSUserBundle:Registration:register, _locale: ja }
+    requirements:
+        _locale: en|ja
+
+forgot_password:
+    pattern:  /{_locale}/resetting/request
+    defaults: { _controller:  FOSUserBundle:Resetting:request, _locale: ja }
     requirements:
         _locale: en|ja
 

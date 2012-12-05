@@ -5,7 +5,7 @@
 					<div class="box">
 				    	<label for="username">{% trans %}jda.login.username{% endtrans %}
 					    <input tabindex="1" type="text" id="username" name="_username" value="{{ last_username }}" class="input_text" /></label>
-					    <label for="password">{% trans %}jda.login.password{% endtrans %} <a style="font-size: 9px; padding-left: 85px;" href="{{path('fos_user_resetting_request', { '_locale': locale})}}" >{% trans %}jda.login.forgot{% endtrans %}</a>
+					    <label for="password">{% trans %}jda.login.password{% endtrans %} <a style="font-size: 9px; padding-left: 85px;" href="{{path('forgot_password', { '_locale': locale})}}" >{% trans %}jda.login.forgot{% endtrans %}</a>
 					    <input  tabindex="2" type="password" id="password" name="_password" class="input_text" /></label>
 				    	<input tabindex="3"  class="btn" type="submit" id="_submit" name="_submit" value="{% trans %}jda.login.button{% endtrans %}" class="btn btn-info"/>
 						<br>	
