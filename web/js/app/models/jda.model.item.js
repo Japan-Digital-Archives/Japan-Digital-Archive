@@ -22,25 +22,23 @@
 		{
 			this.tags.reset({silent:true});
 			this.tags.item_id=this.id;
-			this.tags.fetch({ 
+			this.tags.fetch({
 				success:successFunction,
-				error:errorFunction,
+				error:errorFunction
 			});
 		},
 		parse : function(response)
 		{
-			if (response.items)
-				return response.items[0];
-			else 
-				return response;
+			if (response.items) return response.items[0];
+			else return response;
 		},
-		url : function(){ 
-			
-			if(_.isUndefined(this.id)) var url = jda.app.apiLocation + 'api/items';
-			else var url = jda.app.apiLocation + 'api/items/' + this.id;
+		url : function(){
+			var url;
+			if(_.isUndefined(this.id)) url = jda.app.apiLocation + 'api/items';
+			else url = jda.app.apiLocation + 'api/items/' + this.id;
 			console.log("final URL is " + url);
 			return url;
-		},
+		}
 	});
 
 })(jda.module("browser"));

@@ -21,7 +21,7 @@
 		var src = encodeURI( this.model.get('uri').slice(0, this.model.get('uri').indexOf('/stream')) );
 		//Fill in media-specific stuff
 		var blanks = {
-			src : src,
+			src : src
 		};
 
 		//use template to clone the database items into
@@ -30,7 +30,7 @@
 		//copy the cloned item into the el
 		var mediaHTML =  template( blanks ) ;
 
-		$(this.el).find('.fancybox-media-item').html(mediaHTML); 
+		$(this.el).find('.fancybox-media-item').html(mediaHTML);
 
 		//set fancybox content
 		obj.content = $(this.el);

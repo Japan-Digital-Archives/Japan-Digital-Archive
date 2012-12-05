@@ -21,7 +21,7 @@
 
 			//Fill in tweet-specific stuff
 			var blanks = {
-				tweet : linkifyTweet(tweet),
+				tweet : linkifyTweet(tweet)
 			};
 
 			//use template to clone the database items into

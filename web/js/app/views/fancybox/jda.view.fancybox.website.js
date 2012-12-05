@@ -44,7 +44,7 @@
 		var blanks = {
 			original_src :"http"+parts[parts.length-1],
 			src: this.model.get("attribution_uri"),
-			type : this.model.get("type"),
+			type : this.model.get("type")
 		};
 		
 		//use template to clone the database items into
@@ -53,7 +53,7 @@
 		//copy the cloned item into the el
 		var mediaHTML =  template( blanks ) ;
 
-		$(this.el).find('.fancybox-media-item').html(mediaHTML); 
+		$(this.el).find('.fancybox-media-item').html(mediaHTML);
 
 		//set fancybox content
 		obj.content = $(this.el);
@@ -70,7 +70,7 @@
 					'</div>';
 								
 		return html;
-	},
+	}
 
 });
 	

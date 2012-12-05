@@ -69,7 +69,7 @@
 			}
 			var itemsCount = this.collection.count;
 
-			if (collectionsCount !=null){
+			if (collectionsCount !==null){
 				$('.jda-results-collections-count').text( this.addCommas(collectionsCount));
 			}
 			$('.jda-results-items-count').text( this.addCommas(itemsCount));
@@ -89,7 +89,7 @@
 			
 			
 			//Display collections and items separately if this is not null
-			if (this.collection.collectionsCollection != null){
+			if (this.collection.collectionsCollection !== null){
 				
 				this.collection.collectionsCollection.unbind().bind('remove', this.removeCollection, this);
 
@@ -112,15 +112,15 @@
 					
 					_this._collectionChildViews.push( itemView );
 					
-				})
+				});
 
 				$('.jda-separate-collections-and-items').show();
-				if (this.collection.collectionsCollection.length ==0){
+				if (this.collection.collectionsCollection.length ===0){
 					$('.jda-separate-collections-and-items').find('.jda-results-collections-text').hide();
 				}
 				
 			} else {
-				$('#zeega-results-count-number').text(this.addCommas(this.collection.count)); 
+				$('#zeega-results-count-number').text(this.addCommas(this.collection.count));
 				$("#zeega-results-count").fadeTo(100,1);
 			}
 			
@@ -142,7 +142,7 @@
 					_this._childViews.push( itemView );
 					$(_this.el).append( itemView.render().el );
 				}
-			})
+			});
 			
 
 			
@@ -151,7 +151,7 @@
 			//to fix floaty issues
 			if(jda.app.currentView == 'thumb'){
 				$(this.el).find('li').css('height','170px');
-			} 
+			}
 
 
 			this.updateResultsCounts();
@@ -186,7 +186,7 @@
 						jda.app.parseSearchUI();
 						return false;
 					});
-				})
+				});
 				
 				$("#jda-related-tags-title").fadeTo(100,1);
 			}
@@ -243,7 +243,7 @@
 					_this.renderTags(response.tags);
 					_this.render();
 					
-					if(_this.collection.length<parseInt(response["items_count"])) jda.app.killScroll = false; //to activate infinite scroll again
+					if(_this.collection.length<parseInt(response["items_count"],10)) jda.app.killScroll = false; //to activate infinite scroll again
 					else jda.app.killScroll = true;
 					$(_this.el).fadeTo(1000,1);
 					jda.app.isLoading = false;	//to activate infinite scroll again
@@ -271,7 +271,7 @@
 
 		},
 		clearTags : function(){
-			var currentQ = 	this.collection.search.q;
+			var currentQ = this.collection.search.q;
 			if (currentQ.indexOf("tag:") >= 0){
 				var newQ = currentQ.substring(0,currentQ.indexOf("tag:"));
 				this.collection.search.q = newQ;
@@ -308,7 +308,7 @@
 					endDate = new Date(search.times.end*1000);
 					endString = endDate.format('yyyy-mm-dd HH:MM:ss');
 					sqlFilters.push("media_date_created < " + search.times.end);
-				}	
+				}
 			}
 
 			//Tags and Texts are stored in the q property
@@ -317,32 +317,24 @@
 				var text = search.q;
 				if(text)
 				{
-					if(sqlFilters.length > 0)
-					{
-						var newsqlFilters = [];
-						var prevsqlFiltersString = "("+sqlFilters.join(" AND ")+")";
-						//newsqlFilters.push(prevsqlFiltersString + " AND (title LIKE '"+text+"' OR " + prevsqlFiltersString + " AND media_creator_username LIKE '"+text+"' OR " + prevsqlFiltersString + " AND description LIKE '"+text+"')");
-						//newsqlFilters.push(prevsqlFiltersString + " AND (text LIKE '"+text+"' OR media_creator_username LIKE '"+text+"' OR description LIKE '"+text+"')");
-						newsqlFilters.push(prevsqlFiltersString + " AND (text LIKE '"+text+"')");
-						
-						sqlFilters = newsqlFilters;
-					}
-					else
-					{
-						console.log("map search");
-						//sqlFilters.push("(title LIKE '"+text+"' OR media_creator_username LIKE '"+text+"' OR description LIKE '"+text+"')");
-						sqlFilters.push("(text LIKE '"+text+"' OR media_creator_username LIKE '"+text+"')");
-					}
+					
+					sqlFilters.push("full_text LIKE '"+text+"'");
 				}
 			}
-			if( !_.isUndefined(search.content)&&search.content!="all" )
-			{  
+
+			if(!_.isUndefined(search.exclude_content)&&search.exclude_content=="tweet" ){
+			
+				sqlFilters.push("media_type NOT LIKE 'Tweet'");
+			
+			}
+			else if( !_.isUndefined(search.content)&&search.content!="all" )
+			{
 				var capitalizedContent =  search.content.charAt(0).toUpperCase() + search.content.slice(1);
 				sqlFilters.push("media_type LIKE '" + capitalizedContent + "'");
 			}
 			else
-			{  
-				sqlFilters.push("media_type LIKE ''");
+			{
+				//sqlFilters.push("media_type LIKE ''");
 			}
 			if (sqlFilters.length>0)
 			{
@@ -359,16 +351,16 @@
 				sqlFilterstring='select id, site_id, user_id, title, description, text, uri, thumbnail_url, attribution_uri, date_created, date_updated, archive, media_type, layer_type, child_items_count, media_geo_latitude, media_geo_longitude, media_date_created, media_date_created_end, media_creator_username, media_creator_realname, license, attributes, tags from jda where '+sqlFilterstring+' AND dist(point(media_geo_longitude,media_geo_latitude),point('+lng+','+lat+')) < 5.0 LIMIT 50';
 			}
 			else{
-			
-				sqlFilterstring='select goog_x, goog_y from jda where '+sqlFilterstring;
+				if(sqlFilterstring===null)sqlFilterstring='select goog_x, goog_y from jda';
+				else sqlFilterstring='select goog_x, goog_y from jda where '+sqlFilterstring;
 			}
 			
-			console.log("sqlstring: "+sqlFilterstring);
+			console.log(search, "sqlstring: "+sqlFilterstring);
 			return sqlFilterstring;
 		},
 	
 		
-		getSearch : function(){ return this.collection.search },
+		getSearch : function(){ return this.collection.search; },
 		
 		//Formats returned results number
 		addCommas : function(nStr)

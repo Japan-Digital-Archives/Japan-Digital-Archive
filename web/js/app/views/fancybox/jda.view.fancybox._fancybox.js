@@ -16,10 +16,9 @@
 		events : {
 			'click .fancybox-more-button' : 'more',
 			'click .fancybox-less-button' : 'less',
-			'click .jda-share-link input' : function(){ 
+			'click .jda-share-link input' : function(){
 				$('.jda-share-link input').select();
-				
-			},
+			}
 		},
 		
 		beforeClose: function(){
@@ -36,12 +35,12 @@
 			$(this.el).find('.tagsedit').empty().tagsInput({
 				'interactive':true,
 				'defaultText':l.fancybox_addtag,
-				'onAddTag':function(){_this.updateTags('',_this)},
-				'onRemoveTag':function(){_this.updateTags('',_this)},
+				'onAddTag':function(){_this.updateTags('',_this);},
+				'onRemoveTag':function(){_this.updateTags('',_this);},
 				'removeWithBackspace' : false,
 				'minChars' : 1,
 				'maxChars' : 0,
-				'placeholderColor' : '#C0C0C0',
+				'placeholderColor' : '#C0C0C0'
 			});
 			
 			
@@ -54,7 +53,7 @@
 				ADD TO COLLECTION LINK
 				Only show if they are logged in and not looking at a collection page already
 			***********************************/
-			if(sessionStorage.getItem('user')==0 || jda.app.resultsView.collectionFilter != null){
+			if(sessionStorage.getItem('user')===0 || jda.app.resultsView.collectionFilter !== null){
 				$('.jda-add-to-menu').hide();
 
 			} else{
@@ -63,12 +62,12 @@
 					var myCollections = $(_this.el).find('.fancybox-my-collections-list');
 
 					_.each( _.toArray(this.collection), function(item){
-					
-						if(!_.isUndefined(item.id)) var id =item.id;
+						var id,title;
+						if(!_.isUndefined(item.id)) id =item.id;
 						else id = -1;
 						
-						if(item.get('title').length>25) var title = item.get('title').substr(0,23)+'...';
-						else var title = item.get('title');
+						if(item.get('title').length>25) title = item.get('title').substr(0,23)+'...';
+						else title = item.get('title');
 						
 						var itemView = '<li class="zeega-collection-list-item" id="'+id+'"><a href=".">'+title+'</a></li>';
 						myCollections.append(itemView);
@@ -79,7 +78,7 @@
 					$(_this.el).find('.zeega-collection-list-item').click(function(){
 
 						$(_this.el).find('.jda-add-to-menu').removeClass('open');
-						$(_this.el).find('.jda-saving').show()
+						$(_this.el).find('.jda-saving').show();
 
 						var collectionID = $(this).attr("id");
 						var itemID = _this.model.id;
@@ -98,7 +97,7 @@
 
 							collection.save({new_items:[itemID ]},
 									{
-										success : function(model, response){ 
+										success : function(model, response){
 											//_this.collection.reset();
 											$(_this.el).find('.jda-saving').hide();
 											$(_this.el).find('.jda-added').show().delay(800).fadeOut(400);
@@ -124,20 +123,16 @@
 					});
 					
 				
-			} 
-
-
-
+			}
 		},
 		updateTags:function(name, _this)
 		{
-			
-		    model = _this.model;
+			model = _this.model;
 			var $t = $("#"+_this.elemId+"_tagsinput").children(".tag");
 			var tags = [];
-			for (var i = $t.length; i--;) 
-			{  
-				tags.push($($t[i]).text().substring(0, $($t[i]).text().length -  1).trim());  
+			for (var i = $t.length; i--;)
+			{
+				tags.push($($t[i]).text().substring(0, $($t[i]).text().length -  1).trim());
 			}
 			_this.model.save({tags : tags});
 		},
@@ -156,7 +151,7 @@
 			$(this.el).find(".fancybox-media-wrapper").addClass("fancybox-media-wrapper-more");
 			$(this.el).find(".fancybox-left-column").addClass("fancybox-left-column-more");
 			$(this.el).find(".fancybox-media-item").addClass("fancybox-media-item-more");
-			$(this.el).addClass("fancybox-media-container-more");	
+			$(this.el).addClass("fancybox-media-container-more");
 
 			//Show delete button in More view if user added this item
 			console.log(sessionStorage.getItem("userid") + ' is session nid');
@@ -180,12 +175,12 @@
 			$(this.el).find(".fancybox-media-wrapper").removeClass("fancybox-media-wrapper-more");
 			$(this.el).find(".fancybox-left-column").removeClass("fancybox-left-column-more");
 			$(this.el).find(".fancybox-media-item").removeClass("fancybox-media-item-more");
-			$(this.el).removeClass("fancybox-media-container-more");	
+			$(this.el).removeClass("fancybox-media-container-more");
 			return false;
 		},
 		shareLink : function(){
 			
-			$('.jda-share-link').toggle();			
+			$('.jda-share-link').toggle();
 			$('.jda-show-share-link').toggleClass('active');
 			$('.jda-share-link').find('input').select();
 			
@@ -207,10 +202,11 @@
 			
 			/*
 			if(this.model.get('attribution_uri').indexOf('flickr')>-1) blanks.sourceText = 'View on Flickr';
-			else 	if(this.model.get('attribution_uri').indexOf('youtube')>-1) blanks.sourceText = 'View on Youtube';
-			else 	if(this.model.get('attribution_uri').indexOf('soundcloud')>-1) blanks.sourceText = 'Listen on Soundcloud';
+			else if(this.model.get('attribution_uri').indexOf('youtube')>-1) blanks.sourceText = 'View on Youtube';
+			else if(this.model.get('attribution_uri').indexOf('soundcloud')>-1) blanks.sourceText = 'Listen on Soundcloud';
 			else blanks.sourceText = l.fancybox_source;
 			*/
+
 			blanks.sourceText = l.fancybox_source;
 
 			blanks.itemShareLink = sessionStorage.getItem('hostname')+sessionStorage.getItem('locale')+'/item/'+ this.model.id;
@@ -239,10 +235,10 @@
 				//EDIT TITLE
 				$(this.el).find('.title').editable(
 					function(value, settings)
-					{ 
-						_this.model.save({ title:value }, 
+					{
+						_this.model.save({ title:value },
 								{
-									success: function(model, response) { 
+									success: function(model, response) {
 										console.log("Updated item title for item " + model.id);
 									},
 									error: function(model, response){
@@ -254,7 +250,6 @@
 						return value; //must return the value
 					},
 					{
-						indicator : 'Saving...',
 						tooltip   : 'Click to edit...',
 						indicator : '<img src="images/loading.gif">',
 						select : false,
@@ -265,10 +260,10 @@
 				//EDIT DESCRIPTION
 				$(this.el).find('.description').editable(
 					function(value, settings)
-					{ 
-						_this.model.save({ description:value }, 
+					{
+						_this.model.save({ description:value },
 								{
-									success: function(model, response) { 
+									success: function(model, response) {
 										$(_this.el).find('.description').text(_this.model.get("description"));
 										console.log("Updated item description for item " + _this.model.id);
 									},
@@ -281,9 +276,8 @@
 						return value; //must return the value
 					},
 					{
-						type 	: 'textarea',
-						indicator : 'Saving...',
-						tooltip   : 'Click to edit description...',
+						type : 'textarea',
+						tooltip : 'Click to edit description...',
 						indicator : '<img src="images/loading.gif">',
 						select : false,
 						onblur : 'submit',
@@ -293,10 +287,10 @@
 				//EDIT CREATOR
 				$(this.el).find('.creator').editable(
 					function(value, settings)
-					{ 
-						_this.model.save({ "media_creator_username":value }, 
+					{
+						_this.model.save({ "media_creator_username":value },
 								{
-									success: function(model, response) { 
+									success: function(model, response) {
 										console.log("Updated item creator for item " + _this.model.id);
 									},
 									error: function(model, response){
@@ -308,7 +302,6 @@
 						return value; //must return the value
 					},
 					{
-						indicator : 'Saving...',
 						tooltip   : 'Click to edit...',
 						indicator : '<img src="images/loading.gif">',
 						select : false,
@@ -324,23 +317,21 @@
 				});
 				$(this.el).find('.yes-confirm-delete').click(function(e){
 	
-					var deleteURL = sessionStorage.getItem('hostname')+sessionStorage.getItem('directory') + "api/items/"
-								+ _this.model.id;
+					var deleteURL = sessionStorage.getItem('hostname')+sessionStorage.getItem('directory') + "api/items/" + _this.model.id;
 	
 					//DESTROYYYYYYYY
-					_this.model.destroy({	
+					_this.model.destroy({
 										url : deleteURL,
 										success: function(model, response)
-										{ 
-											console.log("Deleted item " + _this.model.id);	
-	
+										{
+											console.log("Deleted item " + _this.model.id);
 											//close fancy box window
 											jQuery.fancybox.close();
 	
 										},
 										error: function(model, response)
 										{
-											console.log("Error deleting item " + _this.model.id);		
+											console.log("Error deleting item " + _this.model.id);
 											console.log(response);
 										}
 									});
@@ -373,13 +364,12 @@
 								'<div style="margin-bottom:3px">'+
 									'<button class="btn btn-mini btn-inverse pull-left jda-show-share-link" style="margin-right:5px;margin-bottom:3px"><i  class="icon-share-alt icon-white"></i>'+l.fancybox_link+'</button> '+
 									'<div class="btn-group jda-add-to-menu pull-left">'+
-									  '<a class="btn btn-mini btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">'+
-									    l.fancybox_addto+
-									    '<span class="caret"></span>'+
-									  '</a>'+
-									  '<ul class="dropdown-menu fancybox-my-collections-list">'+
-									    
-									  '</ul>'+
+										'<a class="btn btn-mini btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">'+
+											l.fancybox_addto +
+											'<span class="caret"></span>'+
+										'</a>'+
+										'<ul class="dropdown-menu fancybox-my-collections-list">'+
+										'</ul>'+
 									'</div><span class="label label-info jda-saving" style="display:none;margin-left:3px">Saving...</span><span class="label label-success jda-added" style="display:none;margin-left:3px">Added</span><span  style="display:none;margin-left:3px" class="label label-warning jda-duplicate-item">Duplicate</span>'+
 								'</div>'+
 								'<div class="jda-share-link" style="display:none;float:none;clear:both;margin-top:3px">'+

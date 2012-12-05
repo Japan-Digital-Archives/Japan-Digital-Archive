@@ -12,7 +12,7 @@
 			
 			'click a.edit' : 'editMetadata',
 			'click button.save' : 'saveMetadata',
-			'click button.cancel' : 'cancelEdits',
+			'click button.cancel' : 'cancelEdits'
 		},
 		
 		initialize: function () {
@@ -37,7 +37,7 @@
 			var template = this.getTemplate();
 			var blanks = this.model.attributes;
 
-			if (blanks["created_at"] == null){
+			if (blanks["created_at"] === null){
 				blanks["created_at"] = "March 20th, 2011";
 			}
 			$(this.el).html( _.template( template, blanks ) );
@@ -55,12 +55,12 @@
 			if(this.geolocated&&1==2)
 			{
 				this.cloudmadeUrl = 'http://{s}.tiles.mapbox.com/v2/mapbox.mapbox-streets/{z}/{x}/{y}.png',
-		    	this.cloudmadeAttrib = '',
-		   		this.cloudmade = new L.TileLayer(this.cloudmadeUrl, {maxZoom: 18, attribution: this.cloudmadeAttrib});
+				this.cloudmadeAttrib = '',
+				this.cloudmade = new L.TileLayer(this.cloudmadeUrl, {maxZoom: 18, attribution: this.cloudmadeAttrib});
 			
 				var values = {
-					latitude : this.model.get('locationLatitude') == null ? 38.266667 : this.model.get('locationLatitude'),//this.model.get('media_geo_latitude'),
-					longitude : this.model.get('locationLongitude') == null ? 140.866667 : this.model.get('locationLongitude'),
+					latitude : this.model.get('locationLatitude') === null ? 38.266667 : this.model.get('locationLatitude'),//this.model.get('media_geo_latitude'),
+					longitude : this.model.get('locationLongitude') === null ? 140.866667 : this.model.get('locationLongitude')
 				};
 				this.latlng = new L.LatLng( values.latitude,values.longitude);
 				var div = $(this.el).find('.jda-user-map').get(0);
@@ -71,7 +71,7 @@
 				this.marker.addEventListener( 'dragend', this.updateLocation, this );
 				this.map.addLayer(this.marker);
 		
-				this.geocoder.geocode( { 'latLng' : new google.maps.LatLng(values.latitude,values.longitude) }, function(results, status) {	
+				this.geocoder.geocode( { 'latLng' : new google.maps.LatLng(values.latitude,values.longitude) }, function(results, status) {
 					if (status == google.maps.GeocoderStatus.OK) {
 						if (results[0].formatted_address)
 						{
@@ -91,9 +91,9 @@
 			}
 			
 			$('#user-image-upload-file').change(function(){
-				console.log('upload image!!!')
+				console.log('upload image!!!');
 				_this.fileUpload();
-			})
+			});
 			
 
 			return this;
@@ -111,9 +111,9 @@
 			this.model.save({
 				
 				'bio' : $(this.el).find('.jda-user-filter-description').text().substring(0,250),
-				'thumbnail_url' : $(this.el).find('.jda-user-filter-profile-image').attr('src'),
+				'thumbnail_url' : $(this.el).find('.jda-user-filter-profile-image').attr('src')
 				
-			})
+			});
 		},
 		
 		cancelEdits : function()
@@ -133,7 +133,7 @@
 		},
 		editMetadata : function()
 		{
-			console.log('edit the metadata!')
+			console.log('edit the metadata!');
 			var _this  = this;
 			
 			this.$el.find('.user-image-upload, .save-data button').show();
@@ -144,7 +144,7 @@
 				if (doDelete){
 					var itemID = $(this).closest('li').attr('id');
 					var itemToDelete = jda.app.resultsView.collection.collectionsCollection.get(itemID);
-					console.log('deleting ' + itemID + itemToDelete.get('title'))
+					console.log('deleting ' + itemID + itemToDelete.get('title'));
 
 					//KILL KILL
 					itemToDelete.destroy();
@@ -153,7 +153,7 @@
 				}else{
 					return false;
 				}
-			})
+			});
 			$('.jda-delete-collection').show();
 			
 			$(this.el).find('button.edit').addClass('active');
@@ -167,7 +167,7 @@
 					return false;
 				}
 			});
-			return false
+			return false;
 		},
 		
 		fileUpload : function()
@@ -187,20 +187,20 @@
 			
 			jQuery.handleError=function(a,b,c,d)
 			{
-				console.log('ERROR UPLOADING',a,b,c,d)
+				console.log('ERROR UPLOADING',a,b,c,d);
 				$('.jda-user-filter-profile-image').fadeTo(500,1);
-				$('.profile-image-wrapper').spin(false)
+				$('.profile-image-wrapper').spin(false);
 				
 				$('#user-image-upload-file').change(function(){
-					console.log('upload image some more!!!!!')
+					console.log('upload image some more!!!!!');
 					_this.fileUpload();
-				})
+				});
 				//_this.$el.prepend('<div class="alert">There was a problem with your file upload. Please try again.</div>');
 				//_.delay(function(){ $('.alert').remove() }, 2000 );
 			};
 						
 			$.ajaxFileUpload({
-				url:jda.app.apiLocation + 'api/users/'+this.model.id+'/profileimage', 
+				url:jda.app.apiLocation + 'api/users/'+this.model.id+'/profileimage',
 				secureuri:false,
 				fileElementId:'user-image-upload-file',
 				dataType: 'json',
@@ -218,9 +218,9 @@
 						$('.profile-image-wrapper').spin(false);
 						
 						$('#user-image-upload-file').change(function(){
-							console.log('upload image again!!!!!!')
+							console.log('upload image again!!!!!!');
 							_this.fileUpload();
-						})
+						});
 						
 					}
 	
@@ -229,7 +229,7 @@
 				{
 					console.log('ERROR!!',e);
 				}
-			})
+			});
 			
 			return false;
 
@@ -251,7 +251,7 @@
 					_this.model.save({
 						'location_latitude': results[0].geometry.location.lat(),
 						'location_longitude': results[0].geometry.location.lng()
-					})
+					});
 				}
 				else console.log("Geocoder failed at address look for "+$(that.el).find('.locator-search-input').val()+": " + status);
 			});
@@ -266,9 +266,7 @@
 		
 		getTemplate : function()
 		{
-			html = 	'<div class="row-fluid" >'+
-			
-		
+		html = '<div class="row-fluid" >'+
 				'<div class="profile-image-wrapper span2" style="width:155px">'+
 					'<img class="pull-left jda-user-filter-profile-image" src="<%=thumbnail_url%>" alt="" style="width:160px;height:160px;margin-right:10px;border: 1px solid grey;" >'+
 				'</div>'+
@@ -289,16 +287,14 @@
 				
 				
 					
-			html+= 	 '<div class="span2">'+
+			html+= '<div class="span2">'+
 							//'<div><div class="jda-user-map" style="border:1px solid #aaa"></div></div>'+
 							//'<div class="jda-user-map-location"></div>'+
 						'</div>'+
 					'</div>';
 			
 			return html;
-		},
-		
-
+		}
 	});
 
 })(jda.module("browser"));

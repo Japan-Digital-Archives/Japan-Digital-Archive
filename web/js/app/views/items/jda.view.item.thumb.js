@@ -11,37 +11,37 @@
 			//'click .jda-delete-item' : this.remove,
 			
 		},
-		 initialize: function () {
-	        
-	        this.el.id = this.model.id;
-	        
-	        if (_.isUndefined(this.options.thumbnail_height)){
-	        	this.options.thumbnail_height = 120;
-	        }
-	        if (_.isUndefined(this.options.fancybox)){
-	        	this.options.fancybox = true;
-	        }
-	        if(this.options.fancybox||true){
-	        	$(this.el).addClass('thumb-fancymedia');
-	        }
-	        if (_.isUndefined(this.options.thumbnail_width)){
-	        	this.options.thumbnail_width = 160;
-	        }
-	        if (_.isUndefined(this.options.show_caption)){
-	        	this.options.show_caption = true;
-	        }
-	        
+		initialize: function () {
+
+			this.el.id = this.model.id;
+
+			if (_.isUndefined(this.options.thumbnail_height)){
+				this.options.thumbnail_height = 120;
+			}
+			if (_.isUndefined(this.options.fancybox)){
+				this.options.fancybox = true;
+			}
+			if(this.options.fancybox||true){
+				$(this.el).addClass('thumb-fancymedia');
+			}
+			if (_.isUndefined(this.options.thumbnail_width)){
+				this.options.thumbnail_width = 160;
+			}
+			if (_.isUndefined(this.options.show_caption)){
+				this.options.show_caption = true;
+			}
+
 			if (!_.isUndefined(this.options.draggable)){
 				this.draggable=this.options.draggable;
 			}
 			else this.draggable=true;
-		
-	        this.model.set({thumbnail_width:this.options.thumbnail_width, thumbnail_height:this.options.thumbnail_height});
 
-	        //this is for fancy box to know to group these into a gallery
-	        $(this.el).attr("rel", "group");
-	        
-    	},
+			this.model.set({thumbnail_width:this.options.thumbnail_width, thumbnail_height:this.options.thumbnail_height});
+
+			//this is for fancy box to know to group these into a gallery
+			$(this.el).attr("rel", "group");
+
+		},
 
 		render: function(done)
 		{
@@ -124,35 +124,25 @@
 			if(this.draggable){
 				$(this.el).draggable({
 
-			    cursor : 'move',
-			    cursorAt : { 
-					top : -5,
-					left : -5
-				},
-			    appendTo : 'body',
-			    opacity : .8,
+					cursor : 'move',
+					cursorAt : {
+						top : -5,
+						left : -5
+					},
+					appendTo : 'body',
+					opacity : 0.8,
 
-			    helper : function(){
-			      var drag = $(this).find('a')
-			      .clone()
-			      .css({
-			      	
-			        'z-index':'101',
+					helper : function(){
+						var drag = $(this).find('a').clone().css({'z-index':'101'});
+						return drag;
+					},
 
-			      });
-			      return drag;
-			    },
-
-			      //init the dragged item variable
-			      start : function()
-				{
-			        $(this).draggable('option','revert',true);
-			        jda.app.draggedItem = _this.model;
-			      },
-
-			      stop : function(){}
-			      
-			});
+					//init the dragged item variable
+					start : function(){
+						$(this).draggable('option','revert',true);
+						jda.app.draggedItem = _this.model;
+					}
+				});
 				$(this.el).find(".jdicon-small-drag").tooltip({'title':'Drag to add to your collection','placement':'bottom', delay: { show: 600, hide: 100 }});
 				$(this.el).find(".label").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
 			}
@@ -160,7 +150,7 @@
 
 			//Replace broken thumbnail images with the media type icon
 			$(this.el).find('img').error(function() {
-			  $(_this.el).find('img').replaceWith(	'<i class="jdicon-'+ _this.model.get('media_type').toLowerCase() +
+			$(_this.el).find('img').replaceWith(	'<i class="jdicon-'+ _this.model.get('media_type').toLowerCase() +
 													'" style="position: absolute;top: 10%;left: 10%;"></i>');
 			});
 
@@ -170,7 +160,7 @@
 		
 		getCollectionTemplate : function()
 		{
-			var html = 
+			var html =
 			
 				'<a href="#" class="thumbnail zeega-collection rotated-left">'+
 				//	'<i class="jdicon-small-drag" style="z-index:2"></i>'+
@@ -188,10 +178,10 @@
 		getDefaultTemplate : function()
 		{
 
-			var html = 
+			var html =
 			
 				'<a href="#" class="thumbnail" style="position:relative;width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
-					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px">'+	
+					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px">'+
 					
 					'<button class="btn btn-danger btn-mini jda-delete-item">x &nbsp;<%=remove_text%></button>'+
 				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px;"><%=title%></p>';
@@ -203,10 +193,10 @@
 		getTestimonialTemplate : function()
 		{
 
-			var html = 
+			var html =
 			
 				'<a href="#" class="thumbnail" style="position:relative;width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
-					'<i class="jda-icon-testimonial"></i>'+	
+					'<i class="jda-icon-testimonial"></i>'+
 					
 					'<button class="btn btn-danger btn-mini jda-delete-item">x &nbsp;<%=remove_text%></button>'+
 				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px"><%=description%></p>';
@@ -218,10 +208,10 @@
 		getTweetTemplate : function()
 		{
 
-			var html = 
+			var html =
 			
 				'<a href="#" class="thumbnail" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
-					'<i class="jda-icon-twitter"></i>'+	
+					'<i class="jda-icon-twitter"></i>'+
 					'<span style="position:absolute;top:<%=position_tweet_handle%>;right:9%;max-width:85%;overflow:hidden;line-height:18px;color:#444;font-size:12px">@<%=media_creator_username%></span>'+
 					
 					'<button class="btn btn-danger btn-mini jda-delete-item">x &nbsp;<%=remove_text%></button>'+

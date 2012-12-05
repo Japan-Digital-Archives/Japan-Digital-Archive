@@ -18,7 +18,7 @@
 			this.settings = {
 				'public' : this.model.get('published') ? 'checked' : '',
 				'private' : !this.model.get('published') ? 'checked' : ''
-			}
+			};
 		},
 		
 		render: function()
@@ -80,7 +80,7 @@
 			'</div>';
 
 			
-			return html
+			return html;
 		}
 		
 

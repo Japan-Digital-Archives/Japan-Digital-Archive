@@ -17,8 +17,8 @@
 			
 			
 			this.cloudmadeUrl = 'http://{s}.tiles.mapbox.com/v2/mapbox.mapbox-streets/{z}/{x}/{y}.png',
-	    	this.cloudmadeAttrib = '',
-	   		this.cloudmade = new L.TileLayer(this.cloudmadeUrl, {maxZoom: 18, attribution: this.cloudmadeAttrib});
+			this.cloudmadeAttrib = '',
+			this.cloudmade = new L.TileLayer(this.cloudmadeUrl, {maxZoom: 18, attribution: this.cloudmadeAttrib});
 			if(parseFloat(this.model.get('media_geo_latitude'))) this.geoLocated=true;
 			else this.geoLocated=false;
 		
@@ -26,7 +26,7 @@
 		
 			var values = {
 				latitude : this.model.get('media_geo_latitude'),
-				longitude : this.model.get('media_geo_longitude'),
+				longitude : this.model.get('media_geo_longitude')
 			};
 			//use template to clone the database items into
 			var template = _.template( this.getTemplate() );
@@ -39,7 +39,7 @@
 			if (!this.model.get('editable')){
 				$(this.el).find('.edit').hide();
 				
-			}	
+			}
 			if (!this.geoLocated){
 				$(this.el).find('.no-geo-data').show();
 			}
@@ -49,7 +49,7 @@
 		
 			'click .edit-geo-location' : 'displaySearch',
 			'focus .locator-search-input': 'clearSearch',
-			'keypress .locator-search-input': 'runSearch',
+			'keypress .locator-search-input': 'runSearch'
 		},
 	
 		render : function( )
@@ -69,7 +69,7 @@
 			this.mapRendered=true;
 
 			var _this = this;
-			this.geocoder.geocode( { 'latLng' : new google.maps.LatLng(this.latlng.lat,this.latlng.lng) }, function(results, status) {	
+			this.geocoder.geocode( { 'latLng' : new google.maps.LatLng(this.latlng.lat,this.latlng.lng) }, function(results, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
 					if (results[0].formatted_address){
 						$(_this.el).find('.item-address-text').text( results[0].formatted_address );
@@ -81,10 +81,10 @@
 			var div = $(this.el).find('.locator-map').get(0);
 
 			this.map = new L.Map(div);
-	    	this.map.setView(this.latlng, 13).addLayer(this.cloudmade);
-	    	$('.leaflet-control-attribution').hide();
-    	
-	    	var that=this;
+			this.map.setView(this.latlng, 13).addLayer(this.cloudmade);
+			$('.leaflet-control-attribution').hide();
+
+			var that=this;
     
 			//this.circle = new L.CircleMarker(this.latlng, 100, this.circleOptions);
 			if(this.model.get('editable')){
@@ -111,7 +111,7 @@
 	
 		updateItem:function(e)
 		{
-			this.model.set({'media_geo_latitude':e.target.getLatLng().lat,'media_geo_longitude':e.target.getLatLng().lng,});
+			this.model.set({'media_geo_latitude':e.target.getLatLng().lat,'media_geo_longitude':e.target.getLatLng().lng});
 			this.model.save();
 		},
 	
@@ -137,8 +137,8 @@
 						that.latlng=new L.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng());
 						if(that.mapRendered) that.updateMap();
 						else that.addMap();
-						that.model.set({'media_geo_latitude':that.latlng.lat,'media_geo_longitude':that.latlng.lng,});
-						that.model.save({'media_geo_latitude':that.latlng.lat,'media_geo_longitude':that.latlng.lng,},{success: function(){
+						that.model.set({'media_geo_latitude':that.latlng.lat,'media_geo_longitude':that.latlng.lng});
+						that.model.save({'media_geo_latitude':that.latlng.lat,'media_geo_longitude':that.latlng.lng},{success: function(){
 							$(that.el).find('.locator-search-bar').fadeOut('fast',
 									function(){
 										$(that.el).find('.item-address-text').text( placeText );

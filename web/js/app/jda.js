@@ -9,7 +9,7 @@ this.jda = {
 		var modules = {};
 
 		// Create a new module reference scaffold or load an existing module.
-		return function(name) 
+		return function(name)
 		{
 			// If this module has already been created, return it
 			if (modules[name]) return modules[name];
@@ -28,17 +28,11 @@ this.jda = {
 	init : function(){
 		// make item collection
 		this.currentFilter=null;
-		
 		var Browser = jda.module("browser");
 		
-		
 		this.resultsView = new Browser.Items.Collections.Views.Results();
-		
-		
 		this.eventMap = new Browser.Views.EventMap();
-		
 		this.initCollectionsDrawer();
-		
 		
 		this.startRouter();
 		var _this=this;
@@ -62,7 +56,7 @@ this.jda = {
 	
 			routes: {
 				""				: 'search',
-				":query"		: 'search',
+				":query"		: 'search'
 	
 			},
 	
@@ -77,41 +71,41 @@ this.jda = {
 	
 	
 	queryStringToHash: function (query) {
-	  var query_obj = {};
-	  var vars = query.split("&");
-	  for (var i=0;i<vars.length;i++) {
-		var pair = vars[i].split("=");
-		pair[0] = decodeURIComponent(pair[0]);
-		pair[1] = decodeURIComponent(pair[1]);
+		var query_obj = {};
+		var vars = query.split("&");
+		for (var i=0;i<vars.length;i++) {
+			var pair = vars[i].split("=");
+			pair[0] = decodeURIComponent(pair[0]);
+			pair[1] = decodeURIComponent(pair[1]);
 			// If first entry with this name
-		if (typeof query_obj[pair[0]] === "undefined") {
-		  query_obj[pair[0]] = pair[1];
+			if (typeof query_obj[pair[0]] === "undefined") {
+				query_obj[pair[0]] = pair[1];
 			// If second entry with this name
-		} else if (typeof query_obj[pair[0]] === "string") {
-		  var arr = [ query_obj[pair[0]], pair[1] ];
-		  query_obj[pair[0]] = arr;
-			// If third or later entry with this name
-		} else {
-		  query_obj[pair[0]].push(pair[1]);
+			} else if (typeof query_obj[pair[0]] === "string") {
+				var arr = [ query_obj[pair[0]], pair[1] ];
+				query_obj[pair[0]] = arr;
+				// If third or later entry with this name
+			} else {
+				query_obj[pair[0]].push(pair[1]);
+			}
 		}
-	  }
-	  
-	  //parse time slider properties
+
+		//parse time slider properties
 		query_obj.times = {};
-		if (query_obj.min_date != null){
-			query_obj.times.start = query_obj.min_date;
+		if (query_obj.min_date !== null){
+		query_obj.times.start = query_obj.min_date;
 		}
-		if (query_obj.max_date != null){
-			query_obj.times.end = query_obj.max_date;
+		if (query_obj.max_date !== null){
+		query_obj.times.end = query_obj.max_date;
 		}
-	  
-	  return query_obj;
+
+		return query_obj;
 	},
 	
 	parseURLHash  : function (query){
 	
 					var _this=this;
-					
+					var Browser = jda.module("browser");
 					//Update Search Object
 					
 					if (!_.isUndefined(query)) this.searchObject =  this.queryStringToHash(query);
@@ -135,8 +129,7 @@ this.jda = {
 						$('#event-button').hide();
 						
 						if(sessionStorage.getItem('filterType')=='user'){
-							this.filterType ="user";							
-							var Browser = jda.module("browser");
+							this.filterType ="user";
 							this.filterModel = new Browser.Users.Model({id:sessionStorage.getItem('filterId')});
 							this.filterModel.fetch({
 								success : function(model, response){
@@ -147,13 +140,12 @@ this.jda = {
 								error : function(model, response){
 									console.log('Failed to fetch the user object.');
 									
-								},
-							});					
+								}
+							});
 						}
 						else if(sessionStorage.getItem('filterType')=='collection'){
 							
 							this.filterType ="collection";
-							var Browser = jda.module("browser");
 							this.filterModel = new Browser.Items.Model({id:sessionStorage.getItem('filterId')});
 							this.filterModel.fetch({
 								success : function(model, response){
@@ -164,13 +156,13 @@ this.jda = {
 								error : function(model, response){
 									console.log('Failed to fetch the user object.');
 									
-								},
+								}
 					
 							});
 						
 						}
 					}
-				
+		
 	
 	
 	},
@@ -187,7 +179,7 @@ this.jda = {
 			switch ( facet.get('category') )
 			{
 				case 'text':
-					textQuery = (textQuery.length > 0) ? textQuery + " AND " + facet.get('value') : facet.get('value'); 
+					textQuery = (textQuery.length > 0) ? textQuery + " AND " + facet.get('value') : facet.get('value');
 					textQuery=textQuery.replace(/^#/, '');
 					break;
 				case 'tag':
@@ -219,11 +211,11 @@ this.jda = {
 	
 	updateSearchUI : function(obj){
 	
-		console.log("jda.app.updateSearchUI",obj);	
+		console.log("jda.app.updateSearchUI",obj);
 	
 		VisualSearch.searchBox.disableFacets();
-	    VisualSearch.searchBox.value('');
-	  	VisualSearch.searchBox.flags.allSelected = false;
+		VisualSearch.searchBox.value('');
+		VisualSearch.searchBox.flags.allSelected = false;
 		var q = obj.q;
 		if (!_.isUndefined(q))
 		{
@@ -242,9 +234,9 @@ this.jda = {
 			if (textPart.length > 0)
 			{
 				var texts = textPart.split(",");
-				for(var i=0;i<texts.length;i++)
+				for(var j=0;j<texts.length;j++)
 				{
-					var text = texts[i];
+					var text = texts[j];
 					VisualSearch.searchBox.addFacet('text', text, 0);
 				}
 			}
@@ -268,28 +260,28 @@ this.jda = {
 	
 	updateURLHash : function(obj){
 		
-		 	var hash = '';      
-		 	if( !_.isUndefined(this.viewType)) hash += 'view_type=' + this.viewType + '&';
-		 	if( !_.isUndefined(obj.q) && obj.q.length > 0) hash += 'q=' + obj.q + '&';
-		 	if( !_.isUndefined(obj.content) )hash += 'content='+ obj.content + '&';
-		 	if( !_.isUndefined(obj.exclude_content) )hash += 'exclude_content='+ obj.exclude_content + '&';
+		var hash = '';
+		if( !_.isUndefined(this.viewType)) hash += 'view_type=' + this.viewType + '&';
+		if( !_.isUndefined(obj.q) && obj.q.length > 0) hash += 'q=' + obj.q + '&';
+		if( !_.isUndefined(obj.content) )hash += 'content='+ obj.content + '&';
+		if( !_.isUndefined(obj.exclude_content) )hash += 'exclude_content='+ obj.exclude_content + '&';
 
-		 	if( !_.isUndefined(obj.sort) )  hash += 'sort='+ obj.sort + '&';
-		 	if( !_.isUndefined(obj.mapBounds) )  hash += 'map_bounds='+ encodeURIComponent(obj.mapBounds) + '&';
-		 	if( !_.isUndefined(obj.times)&&  !_.isNull(obj.times) )
-			{
-		 		if( !_.isUndefined(obj.times.start) ) hash += 'min_date='+ obj.times.start + '&';
-		 		if( !_.isUndefined(obj.times.end) ) hash += 'max_date='+ obj.times.end + '&';
-			}  
-	
-			console.log('jda.app.updateURLHash',obj,hash);
-	 		jda.app.router.navigate(hash,{trigger:false});
+		if( !_.isUndefined(obj.sort) )  hash += 'sort='+ obj.sort + '&';
+		if( !_.isUndefined(obj.mapBounds) )  hash += 'map_bounds='+ encodeURIComponent(obj.mapBounds) + '&';
+		if( !_.isUndefined(obj.times)&&  !_.isNull(obj.times) )
+		{
+			if( !_.isUndefined(obj.times.start) ) hash += 'min_date='+ obj.times.start + '&';
+			if( !_.isUndefined(obj.times.end) ) hash += 'max_date='+ obj.times.end + '&';
+		}
+
+		console.log('jda.app.updateURLHash',obj,hash);
+		jda.app.router.navigate(hash,{trigger:false});
 	
 	},
 	
 	search : function(obj){
 	
-		console.log("jda.app.search",obj);		
+		console.log("jda.app.search",obj);
 		
 		if(!_.isUndefined(this.filterType)){
 			if(this.filterType=="user"){
@@ -339,7 +331,7 @@ this.jda = {
 				this.showThumbnailView(refresh);
 				break;
 			default:
-				console.log('view type not recognized')
+			console.log('view type not recognized');
 		}
 		
 	},
@@ -347,8 +339,6 @@ this.jda = {
 	showListView : function(refresh){
 		console.log('switch to List view');
 
-	
-	    
 		$('#zeega-view-buttons .btn').removeClass('active');
 		$('#list-button').addClass('active');
 		
@@ -363,7 +353,7 @@ this.jda = {
 
 		if(this.resultsView.updated)
 		{
-			console.log('render collection')
+			console.log('render collection');
 			this.resultsView.render();
 		}
 		this.viewType='list';
@@ -371,8 +361,7 @@ this.jda = {
 			this.searchObject.times=null;
 			this.search(this.searchObject);
 		}
-	    
-	    this.updateURLHash(this.searchObject);
+		this.updateURLHash(this.searchObject);
 		
 	},
 	
@@ -393,7 +382,7 @@ this.jda = {
 		
 		if(this.resultsView.updated)
 		{
-			console.log('render collection')
+			console.log('render collection');
 			this.resultsView.render();
 		}
 		this.viewType='thumb';
@@ -401,7 +390,7 @@ this.jda = {
 			this.searchObject.times=null;
 			this.search(this.searchObject);
 		}
-	    this.updateURLHash(this.searchObject);
+				this.updateURLHash(this.searchObject);
 	},
 	
 	showEventView : function(refresh){
@@ -421,7 +410,7 @@ this.jda = {
 		var _this = this;
 		_.each( VisualSearch.searchBox.facetViews, function( facet ){
 			if( facet.model.get('category') == 'tag' || facet.model.get('category') == 'collection' ||
-				facet.model.get('category') == 'user') 
+				facet.model.get('category') == 'user');
 			{
 				facet.model.set({'value': null });
 				facet.remove();
@@ -438,12 +427,12 @@ this.jda = {
 				
 			}
 			
-		})
+		});
 		if (removedFilters.length > 0){
 			$('#removed-tag-name').text(removedFilters);
 			$('#remove-tag-alert').show('slow');
 			setTimeout(function() {
-			  $('#remove-tag-alert').hide('slow');
+				$('#remove-tag-alert').hide('slow');
 			}, 5000);
 		}
 		
@@ -464,14 +453,14 @@ this.jda = {
 	clearSearchFilters : function(doSearch){
 		console.log("jda.app.clearSearchFilters", doSearch);
 
-    	$('#zeega-content-type').val("all");
-    	$('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
+		$('#zeega-content-type').val("all");
+		$('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
 
-    	//remove search box values
-    	VisualSearch.searchBox.disableFacets();
-	    VisualSearch.searchBox.value('');
-	  	VisualSearch.searchBox.flags.allSelected = false;
-	  	if(doSearch) this.search({ page:1,});
+		//remove search box values
+		VisualSearch.searchBox.disableFacets();
+		VisualSearch.searchBox.value('');
+		VisualSearch.searchBox.flags.allSelected = false;
+		if(doSearch) this.search({ page:1});
 	},
 	
 	goToCollection: function (id){
@@ -509,10 +498,7 @@ this.jda = {
 			});
 		}
 		else this.initCollectionsDrawer();
-	},
-	
-
-	
+	}
 }, Backbone.Events)
 
 
