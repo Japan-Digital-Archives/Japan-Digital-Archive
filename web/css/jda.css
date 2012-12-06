@@ -741,3 +741,46 @@ border-radius: 0px 4px 0px 0px;
 
 
 }
+
+/***************
+    FORMS
+ ***************/
+
+.main_form_div {
+    padding: 50px 15% 50px 15%;
+}
+
+.main_form_table th, td {
+    padding: 5px;
+    text-align:left;
+}
+
+.main_form_table th {
+    font-weight: bold;
+}
+
+.form_required {
+    color: red;
+}
+
+.main_form_table input[type=text] {
+    width: 350px;
+}
+
+.main_form_table textarea {
+    width: 350px;
+    height: 100px;
+}
+
+#map_canvas {
+    margin: 8px 0;
+    background-color: #E5E3DF;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    width: 520px;
+}
+
+/**********************
+    END FORMS
+***********************/
