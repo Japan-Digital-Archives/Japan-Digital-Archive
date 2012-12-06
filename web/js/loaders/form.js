@@ -152,11 +152,12 @@ require(loadFiles, function () {
             var baseApiUrl = "http://dev.jdarchive.org/zeegastaging/web/app.php/api/items"
             var postObj = {};
 
-            postObj.title = $("#titleTxt").val();
-            postObj.description = $("#titleTxt").val();
-            postObj.media_type = "Testimonial";
-            postObj.layer_type = "Testimonial";
-            postObj.uri = $("#titleTxt").val().replace(" ", "-");
+            postObj.title = $("#pageTitleTxt").val();
+            postObj.description = $("#pageTitleTxt").val();
+            postObj.media_type = $("#categoryDDL > option:selected").val(); // fix this based on https://github.com/Zeega/Zeega-Core/wiki/Database-schema
+            postObj.layer_type = $("#categoryDDL > option:selected").val();
+            postObj.uri = $("#urlTxt").val();
+			postObj.attribution_uri = $("#urlTxt").val();
             postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
             postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
 
@@ -177,6 +178,7 @@ require(loadFiles, function () {
             postObj.attributes = [];
             postObj.attributes.push("frequency:" + $("#frequencyDDL > option:selected").val());
             postObj.attributes.push("scope:" + $("#scopeDDL > option:selected").val());
+			postObj.published = 0;
 
             $.post(baseApiUrl, postObj, function (response) {
             }).error(function() { alert("error"); });
@@ -186,12 +188,12 @@ require(loadFiles, function () {
             var baseApiUrl = "http://dev.jdarchive.org/zeegastaging/web/app.php/api/items"
             var postObj = {};
 
-            postObj.title = $("#pageTitleTxt").val();
+            postObj.title = $("#titleTxt").val();
             postObj.description = $("#descriptionTxt").val();
-            postObj.media_type = $("#categoryDDL > option:selected").val();
-            postObj.layer_type = $("#categoryDDL > option:selected").val();
-            postObj.uri = $("#urlTxt").val();
-            postObj.attribution_uri = $("#urlTxt").val();
+            postObj.media_type = "Text";
+            postObj.layer_type = "Testimonial";
+            postObj.uri = $("#titleTxt").val().replace(" ","-");
+            postObj.attribution_uri = $("#titleTxt").val().replace(" ","-");
             postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
             postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
 
@@ -200,7 +202,7 @@ require(loadFiles, function () {
                 postObj.media_geo_longitude = parseFloat($("#lng").val());
             }
 
-            postObj.text = $("#storyTxt").text();
+            postObj.text = $("#storyTxt").val();
 
             postObj.attributes = {};
             if ($("#fromTxt").val().trim() != "") {
@@ -228,6 +230,7 @@ require(loadFiles, function () {
             });
             postObj.attributes.privacy = $("#privacyDDL > option:selected").val();
             postObj.attributes.residence = $("#residenceTxt").val();
+			postObj.published = 0;
 
             $.post(baseApiUrl, postObj, function (response) {
             }).error(function () { alert("error"); });
