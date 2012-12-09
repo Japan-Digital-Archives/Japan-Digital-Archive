@@ -16,6 +16,7 @@ var loadFiles = [
 	'order!../lib/jquery-easing/jquery.easing.1.3',
 	'order!../lib/jquerySVG/jquery.svg',
 	'order!../lib/jquery-ui-1.8.20.custom/js/jquery-ui-1.8.20.custom.min',
+    'order!../lib/jquery.validate.min',
 	'order!../lib/spin',
 	'order!../lib/spin-jquery',
 	'order!../lib/date.format',
@@ -127,7 +128,16 @@ function removeImg(btn) {
 
 require(loadFiles, function () {
     $(document).ready(function () {
-
+        var layerMediaMap = {
+            YouTube: "Video",
+            Website: "Website",
+            DocumentCloud: "Document",
+            PDF: "Document",
+            Testimonial: "Text",
+            Image: "Image",
+            Audio: "Audio",
+            Tweet: "Tweet"
+        };
         $("#tagsSelect").chosen({
             create_option_text: 'Add New Tag',
             create_option: true,
@@ -148,44 +158,60 @@ require(loadFiles, function () {
             $("#imgTbl").append("<tr><th>Url:</th><td><input type='text' /></td><td><input type='button' value='Remove' onclick='removeImg(this);' /></td></tr>");
         });
 
-        $("#submitContributeBtn").click(function () {
-            var baseApiUrl = "http://107.20.134.68/zeega/web/api/items"
-            var postObj = {};
-
-            postObj.title = $("#pageTitleTxt").val();
-            postObj.description = $("#pageTitleTxt").val();
-            postObj.media_type = $("#categoryDDL > option:selected").val(); // fix this based on https://github.com/Zeega/Zeega-Core/wiki/Database-schema
-            postObj.layer_type = $("#categoryDDL > option:selected").val();
-            postObj.uri = $("#urlTxt").val();
-			postObj.attribution_uri = $("#urlTxt").val();
-            postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
-            postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
-
-            if ($("#lat").val() != "") {
-                postObj.media_geo_latitude = parseFloat($("#lat").val());
-                postObj.media_geo_longitude = parseFloat($("#lng").val());
+        $("#contributeForm").validate({
+            rules: {
+                title: "required",
+                languageChk: {
+                    required: true,
+                    minlength: 1
+                }
+            },
+            messages: {
+                title: "Please enter a title",
+                languageChk : "Please select at least 1 language"
             }
-            postObj.tags = [];
-            $("#tagsSelect option:selected").each(function () {
-                postObj.tags.push($(this).val());
-            });
+        });
 
-            postObj.language = $("#englishChk").is(":checked") ? "English|" : "";
-            postObj.language += $("#japaneseChk").is(":checked") ? "Japanese|" : "";
-            postObj.language += $("#chineseChk").is(":checked") ? "Chinese|" : "";
-            postObj.language += $("#koreanChk").is(":checked") ? "Korean|" : "";
+        $("#submitContributeBtn").click(function () {
+            if ($("#contributeForm").valid()) {
+                var baseApiUrl = document.domain + "/zeega/web/api/items"
+                var postObj = {};
 
-            postObj.attributes = [];
-            postObj.attributes.push("frequency:" + $("#frequencyDDL > option:selected").val());
-            postObj.attributes.push("scope:" + $("#scopeDDL > option:selected").val());
-			postObj.published = 0;
+                postObj.title = $("#pageTitleTxt").val();
+                postObj.description = $("#pageTitleTxt").val();
+                postObj.media_type = layerMediaMap[$("#categoryDDL > option:selected").val()]; // fix this based on https://github.com/Zeega/Zeega-Core/wiki/Database-schema
+                postObj.layer_type = $("#categoryDDL > option:selected").val();
+                postObj.uri = $("#urlTxt").val();
+                postObj.attribution_uri = $("#urlTxt").val();
+                postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
 
-            $.post(baseApiUrl, postObj, function (response) {
-            }).error(function() { alert("error"); });
+                if ($("#lat").val() != "") {
+                    postObj.media_geo_latitude = parseFloat($("#lat").val());
+                    postObj.media_geo_longitude = parseFloat($("#lng").val());
+                }
+                postObj.tags = [];
+                $("#tagsSelect option:selected").each(function () {
+                    postObj.tags.push($(this).val());
+                });
+
+                postObj.language = $("#englishChk").is(":checked") ? "English|" : "";
+                postObj.language += $("#japaneseChk").is(":checked") ? "Japanese|" : "";
+                postObj.language += $("#chineseChk").is(":checked") ? "Chinese|" : "";
+                postObj.language += $("#koreanChk").is(":checked") ? "Korean|" : "";
+
+                postObj.attributes = [];
+                postObj.attributes.push("frequency:" + $("#frequencyDDL > option:selected").val());
+                postObj.attributes.push("scope:" + $("#scopeDDL > option:selected").val());
+                postObj.published = 0;
+
+                $.post(baseApiUrl, postObj, function (response) {
+                }).error(function () { alert("error"); });
+            }
         });
 
         $("#submitTestimonialBtn").click(function () {
-            var baseApiUrl = "http://107.20.134.68/zeega/web/api/items"
+            var baseApiUrl = document.domain + "/zeega/web/api/items"
             var postObj = {};
 
             postObj.title = $("#titleTxt").val();
