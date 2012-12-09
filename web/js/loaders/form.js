@@ -161,7 +161,10 @@ require(loadFiles, function () {
         $("#contributeForm").validate({
             rules: {
                 pageTitleTxt: "required",
-                urlTxt: "required",
+                urlTxt: {
+                    required: true,
+                    url: true
+                },
                 languageChk: {
                     required: true,
                     minlength: 1
