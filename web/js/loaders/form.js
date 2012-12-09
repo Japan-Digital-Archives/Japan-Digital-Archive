@@ -217,58 +217,78 @@ require(loadFiles, function () {
             }
         });
 
+        $("#testimonialForm").validate({
+            rules: {
+                titleTxt: "required",
+                emailTxt: {
+                    required: true,
+                    email: true
+                },
+                storyTxt: "required",
+                termsChk: "required"
+            },
+            messages: {
+                titleTxt: "Please enter a title",
+                emailTxt: "Please enter an email",
+                storyTxt: "Please enter your story",
+                termsChk: "Please agree to the Terms"
+            }
+        });
+
         $("#submitTestimonialBtn").click(function () {
-            var baseApiUrl = "http://" + document.domain + "/zeega/web/api/items"
-            var postObj = {};
+            if ($("#testimonialForm").valid()) {
+                var baseApiUrl = "http://" + document.domain + "/zeega/web/api/items"
+                var postObj = {};
 
-            postObj.title = $("#titleTxt").val();
-            postObj.description = $("#descriptionTxt").val();
-            postObj.media_type = "Text";
-            postObj.layer_type = "Testimonial";
-            postObj.uri = $("#titleTxt").val().replace(" ","-");
-            postObj.attribution_uri = $("#titleTxt").val().replace(" ","-");
-            postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
-            postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                postObj.title = $("#titleTxt").val();
+                postObj.description = $("#descriptionTxt").val();
+                postObj.media_type = "Text";
+                postObj.layer_type = "Testimonial";
+                postObj.uri = $("#titleTxt").val().replace(" ", "-");
+                postObj.attribution_uri = $("#titleTxt").val().replace(" ", "-");
+                postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
 
-            if ($("#lat").val() != "") {
-                postObj.media_geo_latitude = parseFloat($("#lat").val());
-                postObj.media_geo_longitude = parseFloat($("#lng").val());
+                if ($("#lat").val() != "") {
+                    postObj.media_geo_latitude = parseFloat($("#lat").val());
+                    postObj.media_geo_longitude = parseFloat($("#lng").val());
+                }
+
+                postObj.text = $("#storyTxt").val();
+
+                postObj.attributes = {};
+                if ($("#fromTxt").val().trim() != "") {
+                    var fromDate = new Date($("#fromTxt").val());
+                    postObj.attributes.from_year = fromDate.getFullYear();
+                    postObj.attributes.from_month = fromDate.getMonth() + 1;
+                    postObj.attributes.from_day = fromDate.getDate();
+                    postObj.attributes.from_hour = fromDate.getHours();
+                    postObj.attributes.from_date = fromDate;
+                }
+                if ($("#toTxt").val().trim() != "") {
+                    var toDate = new Date($("#toTxt").val());
+                    postObj.attributes.to_year = toDate.getFullYear();
+                    postObj.attributes.to_month = toDate.getMonth() + 1;
+                    postObj.attributes.to_day = toDate.getDate();
+                    postObj.attributes.to_hour = toDate.getHours();
+                    postObj.attributes.to_date = toDate;
+                }
+
+                postObj.attributes["year of birth"] = $("#yearDDL > option:selected").val();
+                postObj.attributes.occupation = $("#occupationTxt").val();
+                postObj.attributes.images = [];
+                $("#imgTbl").find("input[type='text']").each(function () {
+                    postObj.attributes.images.push($(this).val());
+                });
+                postObj.attributes.privacy = $("#privacyDDL > option:selected").val();
+                postObj.attributes.residence = $("#residenceTxt").val();
+                postObj.published = 0;
+
+                $.post(baseApiUrl, postObj, function (response) {
+                }).error(function () { alert("There was a problem with your submission, please try again"); }).success(function () {
+                    document.location.href = document.location.href.replace("contribute", "home");
+                });
             }
-
-            postObj.text = $("#storyTxt").val();
-
-            postObj.attributes = {};
-            if ($("#fromTxt").val().trim() != "") {
-                var fromDate = new Date($("#fromTxt").val());
-                postObj.attributes.from_year = fromDate.getFullYear();
-                postObj.attributes.from_month = fromDate.getMonth() + 1;
-                postObj.attributes.from_day = fromDate.getDate();
-                postObj.attributes.from_hour = fromDate.getHours();
-                postObj.attributes.from_date = fromDate;
-            }
-            if ($("#toTxt").val().trim() != "") {
-                var toDate = new Date($("#toTxt").val());
-                postObj.attributes.to_year = toDate.getFullYear();
-                postObj.attributes.to_month = toDate.getMonth() + 1;
-                postObj.attributes.to_day = toDate.getDate();
-                postObj.attributes.to_hour = toDate.getHours();
-                postObj.attributes.to_date = toDate;
-            }
-
-            postObj.attributes["year of birth"] = $("#yearDDL > option:selected").val();
-            postObj.attributes.occupation = $("#occupationTxt").val();
-            postObj.attributes.images = [];
-            $("#imgTbl").find("input[type='text']").each(function () {
-                postObj.attributes.images.push($(this).val());
-            });
-            postObj.attributes.privacy = $("#privacyDDL > option:selected").val();
-            postObj.attributes.residence = $("#residenceTxt").val();
-			postObj.published = 0;
-
-            $.post(baseApiUrl, postObj, function (response) {
-            }).error(function () { alert("There was a problem with your submission, please try again"); }).success(function () {
-                document.location.href = document.location.href.replace("contribute","home");
-            });
         });
 
         var BrowserDetect = {

@@ -42,105 +42,107 @@
     <center>
     <div class="main_form_div">
         <div>
-            <table class="main_form_table">
-                <tr>
-                    <td><h2>{% trans %}jda.form.testimonial.title{% endtrans %}</h2></td>
-                    <td><!-- language options here --></td>
-                </tr>
-                <tr>
-                    <td colspan="2">{% trans %}jda.form.testimonial.instructions{% endtrans %}</td>
-                </tr>
-                <tr>
-                    <th>{% trans %}jda.form.testimonial.name{% endtrans %}</th>
-                    <td><input type="text" name="nameTxt" id="nameTxt" value="" /></td>          
-                </tr>
-                <tr>
-                    <th>{% trans %}jda.form.testimonial.title{% endtrans %}<span class="form_required">*</span></th>
-                    <td><input type="text" name="titleTxt" id="titleTxt" value="" /></td>          
-                </tr>
-                <tr>                   
-                    <th>{% trans %}jda.form.testimonial.privacy{% endtrans %}</th>
-                    <td>
-                        <select name="privacyDDL" id="privacyDDL">
-                            <option value="Show">{% trans %}jda.form.testimonial.privacy.show{% endtrans %}</option>
-                            <option value="Hide">{% trans %}jda.form.testimonial.privacy.hide{% endtrans %}</option>
-                        </select>
-                    </td>          
-                </tr>                   
-                <tr>                   
-                    <th>{% trans %}jda.form.testimonial.email{% endtrans %}<span class="form_required">*</span></th>
-                    <td><input type="text" name="emailTxt" id="emailTxt" value="" /></td>          
-                </tr>    
-                <tr>                   
-                    <th>{% trans %}jda.form.testimonial.residence{% endtrans %}</th>
-                    <td><input type="text" name="residenceTxt" id="residenceTxt" value="" /></td>          
-                </tr>
-                <tr>                   
-                    <th>{% trans %}jda.form.testimonial.occupation{% endtrans %}</th>
-                    <td><input type="text" name="occupationTxt" id="occupationTxt" value="" /></td>          
-                </tr>   
-                <tr>                   
-                    <th>{% trans %}jda.form.testimonial.birthyear{% endtrans %}</th>
-                    <td>
-                        <select name="yearDDL" id="yearDDL">
-                                <option value=""></option>
-                        </select>
-                    </td>          
-                </tr>            
-                <tr>                   
-                    <th>{% trans %}jda.form.testimonial.story{% endtrans %}<span class="form_required">*</span></th>
-                    <td><textarea name="storyTxt" id="storyTxt"></textarea></td>          
-                </tr>                            
-                <tr>                   
-                    <th>{% trans %}jda.form.testimonial.from{% endtrans %}</th>
-                    <td>
-                        <input type="text" name="fromTxt" id="fromTxt" value="" />
-                    </td>          
-                </tr>
-                <tr>                   
-                    <th>{% trans %}jda.form.testimonial.to{% endtrans %}</th>
-                    <td>
-                        <input type="text" name="toTxt" id="toTxt" value="" />
-                    </td>          
-                </tr>                  
-                <tr>
-                      <th>
-                        {% trans %}jda.form.testimonial.locations{% endtrans %}
-                      </th>
-                      <td>
-                            <input type="text" id="address" name="location" size="60" /> &nbsp;&nbsp;<button type="button" onclick="showAddress();" class="btn">Find on Map!</button>
-                            <div><span class="hint">{% trans %}jda.form.contribute.map.hint{% endtrans %}</span></div>
-                            <div id="map_canvas" style="width: 550px; height: 300px"></div>
-                            <div id="latlng"></div>
-                            <input type="hidden" id="lat" name="lat" value="" />
-                            <input type="hidden" id="lng" name="lng" value="" />
-                    </td> 
-                </tr>                  
-                <tr>                   
-                    <th>{% trans %}jda.form.testimonial.imageUpload{% endtrans %}</th>
-                    <td>
-                        <div>
-                            <input type="button" name="addImageBtn" id="addImageBtn" value="Add Image" />
-                        </div>
-                        <table id="imgTbl">
-                        </table>
-                    </td>          
-                </tr>                                  
-                <tr>                   
-                    <th>{% trans %}jda.form.testimonial.terms{% endtrans %}</th>
-                    <td>
-                        {% trans %}jda.form.testimonial.terms.text{% endtrans %}
-                        <input type="checkbox" name="termsChk" id="termsChk" />
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <center>
-                            <input type="button" name="submitTestimonialBtn" id="submitTestimonialBtn" value="Submit" class="btn" />
-                        </center>
-                    </td>
-                </tr>
-            </table>
+            <form id="testimonialForm">
+                <table class="main_form_table">
+                    <tr>
+                        <td><h2>{% trans %}jda.form.testimonial.title{% endtrans %}</h2></td>
+                        <td><!-- language options here --></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">{% trans %}jda.form.testimonial.instructions{% endtrans %}</td>
+                    </tr>
+                    <tr>
+                        <th>{% trans %}jda.form.testimonial.name{% endtrans %}</th>
+                        <td><input type="text" name="nameTxt" id="nameTxt" value="" /></td>          
+                    </tr>
+                    <tr>
+                        <th>{% trans %}jda.form.testimonial.titleTxt{% endtrans %}<span class="form_required">*</span></th>
+                        <td><input type="text" name="titleTxt" id="titleTxt" value="" /></td>          
+                    </tr>
+                    <tr>                   
+                        <th>{% trans %}jda.form.testimonial.privacy{% endtrans %}</th>
+                        <td>
+                            <select name="privacyDDL" id="privacyDDL">
+                                <option value="Show">{% trans %}jda.form.testimonial.privacy.show{% endtrans %}</option>
+                                <option value="Hide">{% trans %}jda.form.testimonial.privacy.hide{% endtrans %}</option>
+                            </select>
+                        </td>          
+                    </tr>                   
+                    <tr>                   
+                        <th>{% trans %}jda.form.testimonial.email{% endtrans %}<span class="form_required">*</span></th>
+                        <td><input type="text" name="emailTxt" id="emailTxt" value="" /></td>          
+                    </tr>    
+                    <tr>                   
+                        <th>{% trans %}jda.form.testimonial.residence{% endtrans %}</th>
+                        <td><input type="text" name="residenceTxt" id="residenceTxt" value="" /></td>          
+                    </tr>
+                    <tr>                   
+                        <th>{% trans %}jda.form.testimonial.occupation{% endtrans %}</th>
+                        <td><input type="text" name="occupationTxt" id="occupationTxt" value="" /></td>          
+                    </tr>   
+                    <tr>                   
+                        <th>{% trans %}jda.form.testimonial.birthyear{% endtrans %}</th>
+                        <td>
+                            <select name="yearDDL" id="yearDDL">
+                                    <option value=""></option>
+                            </select>
+                        </td>          
+                    </tr>            
+                    <tr>                   
+                        <th>{% trans %}jda.form.testimonial.story{% endtrans %}<span class="form_required">*</span></th>
+                        <td><textarea name="storyTxt" id="storyTxt"></textarea></td>          
+                    </tr>                            
+                    <tr>                   
+                        <th>{% trans %}jda.form.testimonial.from{% endtrans %}</th>
+                        <td>
+                            <input type="text" name="fromTxt" id="fromTxt" value="" />
+                        </td>          
+                    </tr>
+                    <tr>                   
+                        <th>{% trans %}jda.form.testimonial.to{% endtrans %}</th>
+                        <td>
+                            <input type="text" name="toTxt" id="toTxt" value="" />
+                        </td>          
+                    </tr>                  
+                    <tr>
+                          <th>
+                            {% trans %}jda.form.testimonial.locations{% endtrans %}
+                          </th>
+                          <td>
+                                <input type="text" id="address" name="location" size="60" /> &nbsp;&nbsp;<button type="button" onclick="showAddress();" class="btn">Find on Map!</button>
+                                <div><span class="hint">{% trans %}jda.form.contribute.map.hint{% endtrans %}</span></div>
+                                <div id="map_canvas" style="width: 550px; height: 300px"></div>
+                                <div id="latlng"></div>
+                                <input type="hidden" id="lat" name="lat" value="" />
+                                <input type="hidden" id="lng" name="lng" value="" />
+                        </td> 
+                    </tr>                  
+                    <tr>                   
+                        <th>{% trans %}jda.form.testimonial.imageUpload{% endtrans %}</th>
+                        <td>
+                            <div>
+                                <input type="button" name="addImageBtn" id="addImageBtn" value="Add Image" />
+                            </div>
+                            <table id="imgTbl">
+                            </table>
+                        </td>          
+                    </tr>                                  
+                    <tr>                   
+                        <th>{% trans %}jda.form.testimonial.terms{% endtrans %}</th>
+                        <td>
+                            {% trans %}jda.form.testimonial.terms.text{% endtrans %}
+                            <input type="checkbox" name="termsChk" id="termsChk" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <center>
+                                <input type="button" name="submitTestimonialBtn" id="submitTestimonialBtn" value="Submit" class="btn" />
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+            </form>
         </div>
     </div>
 </center>
