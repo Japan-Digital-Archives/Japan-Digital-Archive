@@ -261,7 +261,9 @@ require(loadFiles, function () {
 			postObj.published = 0;
 
             $.post(baseApiUrl, postObj, function (response) {
-            }).error(function () { alert("error"); });
+            }).error(function () { alert("There was a problem with your submission, please try again"); }).success(function () {
+                document.location.href = document.location.href.replace("contribute","home");
+            });
         });
 
         var BrowserDetect = {
