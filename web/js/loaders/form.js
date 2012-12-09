@@ -179,7 +179,7 @@ require(loadFiles, function () {
 
         $("#submitContributeBtn").click(function () {
             if ($("#contributeForm").valid()) {
-                var baseApiUrl = document.domain + "/zeega/web/api/items"
+                var baseApiUrl = "http://" + document.domain + "/zeega/web/api/items"
                 var postObj = {};
 
                 postObj.title = $("#pageTitleTxt").val();
@@ -211,12 +211,14 @@ require(loadFiles, function () {
                 postObj.published = 0;
 
                 $.post(baseApiUrl, postObj, function (response) {
-                }).error(function () { alert("error"); });
+                }).error(function () { alert("There was a problem with your submission, please try again"); }).success(function () {
+                    document.location.href = document.location.href.replace("contribute", "home");
+                });
             }
         });
 
         $("#submitTestimonialBtn").click(function () {
-            var baseApiUrl = document.domain + "/zeega/web/api/items"
+            var baseApiUrl = "http://" + document.domain + "/zeega/web/api/items"
             var postObj = {};
 
             postObj.title = $("#titleTxt").val();
