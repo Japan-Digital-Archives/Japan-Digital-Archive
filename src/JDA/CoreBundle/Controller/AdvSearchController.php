@@ -10,7 +10,7 @@ class AdvSearchController extends Controller
     
     public function indexAction()
     {
-    
+        $user = $this->get('security.context')->getToken()->getUser();
     	$locale=$this->getRequest()->getLocale();
         if(is_object($user)){
     		$displayName = $user->getDisplayName();

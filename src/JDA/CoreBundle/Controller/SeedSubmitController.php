@@ -10,7 +10,7 @@ class SeedSubmitController extends Controller
     
     public function indexAction()
     {
-    
+        $user = $this->get('security.context')->getToken()->getUser();
         if(is_object($user)){
     		$displayName = $user->getDisplayName();
     		$userId = $user->getId();
@@ -29,6 +29,7 @@ class SeedSubmitController extends Controller
     
     public function testimonialAction()
     {
+        $user = $this->get('security.context')->getToken()->getUser();
         if(is_object($user)){
     		$displayName = $user->getDisplayName();
     		$userId = $user->getId();
