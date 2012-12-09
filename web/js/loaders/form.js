@@ -160,14 +160,16 @@ require(loadFiles, function () {
 
         $("#contributeForm").validate({
             rules: {
-                title: "required",
+                pageTitleTxt: "required",
+                urlTxt: "required",
                 languageChk: {
                     required: true,
                     minlength: 1
                 }
             },
             messages: {
-                title: "Please enter a title",
+                pageTitleTxt: "Please enter a title",
+                urlTxt: "Please enter the URL for the seed",
                 languageChk : "Please select at least 1 language"
             }
         });
