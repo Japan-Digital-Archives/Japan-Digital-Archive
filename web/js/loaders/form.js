@@ -258,7 +258,7 @@ require(loadFiles, function () {
 
                 postObj.attributes = {};
                 if ($("#fromTxt").val().trim() != "") {
-                    var fromDate = new Date($("#fromTxt").val());
+                    var fromDate = Date.parse($("#fromTxt").val(), "m/d/Y H:i");
                     postObj.attributes.from_year = fromDate.getFullYear();
                     postObj.attributes.from_month = fromDate.getMonth() + 1;
                     postObj.attributes.from_day = fromDate.getDate();
@@ -266,7 +266,7 @@ require(loadFiles, function () {
                     postObj.attributes.from_date = fromDate;
                 }
                 if ($("#toTxt").val().trim() != "") {
-                    var toDate = new Date($("#toTxt").val());
+                    var toDate = Date.parse($("#toTxt").val(), "m/d/Y H:i");
                     postObj.attributes.to_year = toDate.getFullYear();
                     postObj.attributes.to_month = toDate.getMonth() + 1;
                     postObj.attributes.to_day = toDate.getDate();
