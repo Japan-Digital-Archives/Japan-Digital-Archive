@@ -263,7 +263,7 @@ require(loadFiles, function () {
                     postObj.attributes.from_month = fromDate.getMonth() + 1;
                     postObj.attributes.from_day = fromDate.getDate();
                     postObj.attributes.from_hour = fromDate.getHours();
-                    postObj.attributes.from_date = fromDate;
+                    //postObj.attributes.from_date = fromDate;
                 }
                 if ($("#toTxt").val().trim() != "") {
                     var toDate = new Date(Date.parse($("#toTxt").val(), "m/d/Y H:i"));
@@ -271,7 +271,7 @@ require(loadFiles, function () {
                     postObj.attributes.to_month = toDate.getMonth() + 1;
                     postObj.attributes.to_day = toDate.getDate();
                     postObj.attributes.to_hour = toDate.getHours();
-                    postObj.attributes.to_date = toDate;
+                    //postObj.attributes.to_date = toDate;
                 }
 
                 postObj.attributes["year of birth"] = $("#yearDDL > option:selected").val();
