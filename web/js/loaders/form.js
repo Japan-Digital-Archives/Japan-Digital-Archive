@@ -149,7 +149,7 @@ require(loadFiles, function () {
         });
 
         $("#submitContributeBtn").click(function () {
-            var baseApiUrl = "http://107.20.134.68/zeega/web/api/items"
+            var baseApiUrl = "http://dev.jdarchive.org/zeega/web/api/items"
             var postObj = {};
 
             postObj.title = $("#pageTitleTxt").val();
@@ -179,13 +179,15 @@ require(loadFiles, function () {
             postObj.attributes.push("frequency:" + $("#frequencyDDL > option:selected").val());
             postObj.attributes.push("scope:" + $("#scopeDDL > option:selected").val());
 			postObj.published = 0;
+            postObj.api_key = "9bIRe71qSeHeVQIcb54NNqY-y";
+            postObj.archive = "Seeds";
 
             $.post(baseApiUrl, postObj, function (response) {
             }).error(function() { alert("error"); });
         });
 
         $("#submitTestimonialBtn").click(function () {
-            var baseApiUrl = "http://107.20.134.68/zeega/web/api/items"
+            var baseApiUrl = "http://dev.jdarchive.org/zeega/web/api/items"
             var postObj = {};
 
             postObj.title = $("#titleTxt").val();
@@ -231,6 +233,8 @@ require(loadFiles, function () {
             postObj.attributes.privacy = $("#privacyDDL > option:selected").val();
             postObj.attributes.residence = $("#residenceTxt").val();
 			postObj.published = 0;
+            postObj.api_key = "9bIRe71qSeHeVQIcb54NNqY-y";
+            postObj.archive = "Testimonial";
 
             $.post(baseApiUrl, postObj, function (response) {
             }).error(function () { alert("error"); });
