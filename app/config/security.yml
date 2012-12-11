@@ -20,9 +20,10 @@ security:
             form_login:
                 provider: fos_userbundle
                 default_target_path: /en/success
-                login_path: /login 
+                login_path: fos_user_security_login 
+                check_path: fos_user_security_check
             logout:
-                path:   /logout
+                path:   fos_user_security_logout
                 target: /en/home
             anonymous:    true
 
