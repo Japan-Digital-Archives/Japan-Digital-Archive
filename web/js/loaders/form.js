@@ -1,31 +1,32 @@
 ﻿/********************************************
 
-	MAIN.JS
-	
-	VERSION 0.1
-	
-	LOADS JS FILES
+    MAIN.JS
+    
+    VERSION 0.1
+    
+    LOADS JS FILES
 
 
 *********************************************/
 
 var loadFiles = [
-	'order!../lib/jquery/jquery-1.7.1.min',
-	'order!../lib/underscore/underscore-min',
-	'order!../lib/backbone/backbone-0.9.1',
-	'order!../lib/jquery-easing/jquery.easing.1.3',
-	'order!../lib/jquerySVG/jquery.svg',
-	'order!../lib/jquery-ui-1.8.20.custom/js/jquery-ui-1.8.20.custom.min',
-	'order!../lib/spin',
-	'order!../lib/spin-jquery',
-	'order!../lib/date.format',
+    'order!../lib/jquery/jquery-1.7.1.min',
+    'order!../lib/underscore/underscore-min',
+    'order!../lib/backbone/backbone-0.9.1',
+    'order!../lib/jquery-easing/jquery.easing.1.3',
+    'order!../lib/jquerySVG/jquery.svg',
+    'order!../lib/jquery-ui-1.8.20.custom/js/jquery-ui-1.8.20.custom.min',
+    'order!../lib/jquery.validate.min',
+    'order!../lib/spin',
+    'order!../lib/spin-jquery',
+    'order!../lib/date.format',
 
-	'order!../lib/bootstrap-2.0.2/js/bootstrap.min',
-	'order!../lib/leaflet/leaflet',
+    'order!../lib/bootstrap-2.0.2/js/bootstrap.min',
+    'order!../lib/leaflet/leaflet',
 
-	'order!../lib/jquery.tagsinput.min',
-	'order!../lib/jeditable.min',
-	'order!../lib/dateformat/date.format',
+    'order!../lib/jquery.tagsinput.min',
+    'order!../lib/jeditable.min',
+    'order!../lib/dateformat/date.format',
     'order!../lib/visualsearch/visualsearch',
     'order!../lib/modestmaps.min',
     'order!../lib/chosen/chosen.jquery.min',
@@ -127,7 +128,16 @@ function removeImg(btn) {
 
 require(loadFiles, function () {
     $(document).ready(function () {
-
+        var layerMediaMap = {
+            YouTube: "Video",
+            Website: "Website",
+            DocumentCloud: "Document",
+            PDF: "Document",
+            Testimonial: "Text",
+            Image: "Image",
+            Audio: "Audio",
+            Tweet: "Tweet"
+        };
         $("#tagsSelect").chosen({
             create_option_text: 'Add New Tag',
             create_option: true,
@@ -148,96 +158,141 @@ require(loadFiles, function () {
             $("#imgTbl").append("<tr><th>Url:</th><td><input type='text' /></td><td><input type='button' value='Remove' onclick='removeImg(this);' /></td></tr>");
         });
 
-        $("#submitContributeBtn").click(function () {
-            var baseApiUrl = "http://dev.jdarchive.org/zeega/web/api/items"
-            var postObj = {};
-
-            postObj.title = $("#pageTitleTxt").val();
-            postObj.description = $("#pageTitleTxt").val();
-            postObj.media_type = $("#categoryDDL > option:selected").val(); // fix this based on https://github.com/Zeega/Zeega-Core/wiki/Database-schema
-            postObj.layer_type = $("#categoryDDL > option:selected").val();
-            postObj.uri = $("#urlTxt").val();
-			postObj.attribution_uri = $("#urlTxt").val();
-            postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
-            postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
-
-            if ($("#lat").val() != "") {
-                postObj.media_geo_latitude = parseFloat($("#lat").val());
-                postObj.media_geo_longitude = parseFloat($("#lng").val());
+        $("#contributeForm").validate({
+            rules: {
+                pageTitleTxt: "required",
+                urlTxt: {
+                    required: true,
+                    url: true
+                },
+                languageChk: {
+                    required: true,
+                    minlength: 1
+                }
+            },
+            messages: {
+                pageTitleTxt: "Please enter a title",
+                urlTxt: "Please enter the URL for the seed",
+                languageChk : "Please select at least 1 language"
             }
-            postObj.tags = [];
-            $("#tagsSelect option:selected").each(function () {
-                postObj.tags.push($(this).val());
-            });
+        });
 
-            postObj.language = $("#englishChk").is(":checked") ? "English|" : "";
-            postObj.language += $("#japaneseChk").is(":checked") ? "Japanese|" : "";
-            postObj.language += $("#chineseChk").is(":checked") ? "Chinese|" : "";
-            postObj.language += $("#koreanChk").is(":checked") ? "Korean|" : "";
+        $("#submitContributeBtn").click(function () {
+            if ($("#contributeForm").valid()) {
+                var baseApiUrl = "http://" + document.domain + "/zeega/web/api/items"
+                var postObj = {};
 
-            postObj.attributes = [];
-            postObj.attributes.push("frequency:" + $("#frequencyDDL > option:selected").val());
-            postObj.attributes.push("scope:" + $("#scopeDDL > option:selected").val());
-			postObj.published = 0;
-            postObj.api_key = "9bIRe71qSeHeVQIcb54NNqY-y";
-            postObj.archive = "Seeds";
+                postObj.title = $("#pageTitleTxt").val();
+                postObj.description = $("#pageTitleTxt").val();
+                postObj.media_type = layerMediaMap[$("#categoryDDL > option:selected").val()]; // fix this based on https://github.com/Zeega/Zeega-Core/wiki/Database-schema
+                postObj.layer_type = $("#categoryDDL > option:selected").val();
+                postObj.uri = $("#urlTxt").val();
+                postObj.attribution_uri = $("#urlTxt").val();
+                postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
 
-            $.post(baseApiUrl, postObj, function (response) {
-            }).error(function() { alert("error"); });
+                if ($("#lat").val() != "") {
+                    postObj.media_geo_latitude = parseFloat($("#lat").val());
+                    postObj.media_geo_longitude = parseFloat($("#lng").val());
+                }
+                postObj.tags = [];
+                $("#tagsSelect option:selected").each(function () {
+                    postObj.tags.push($(this).val());
+                });
+
+                postObj.language = $("#englishChk").is(":checked") ? "English|" : "";
+                postObj.language += $("#japaneseChk").is(":checked") ? "Japanese|" : "";
+                postObj.language += $("#chineseChk").is(":checked") ? "Chinese|" : "";
+                postObj.language += $("#koreanChk").is(":checked") ? "Korean|" : "";
+
+                postObj.attributes = [];
+                postObj.attributes.push("frequency:" + $("#frequencyDDL > option:selected").val());
+                postObj.attributes.push("scope:" + $("#scopeDDL > option:selected").val());
+                postObj.published = 0;
+                postObj.api_key = "9bIRe71qSeHeVQIcb54NNqY-y";
+                postObj.archive = "Seeds";
+                
+                $.post(baseApiUrl, postObj, function (response) {
+                }).error(function () { alert("There was a problem with your submission, please try again"); }).success(function () {
+                    document.location.href = document.location.href.replace("contribute", "home");
+                });
+            }
+        });
+
+        $("#testimonialForm").validate({
+            rules: {
+                titleTxt: "required",
+                emailTxt: {
+                    required: true,
+                    email: true
+                },
+                storyTxt: "required",
+                termsChk: "required"
+            },
+            messages: {
+                titleTxt: "Please enter a title",
+                emailTxt: "Please enter an email",
+                storyTxt: "Please enter your story",
+                termsChk: "Please agree to the Terms"
+            }
         });
 
         $("#submitTestimonialBtn").click(function () {
-            var baseApiUrl = "http://dev.jdarchive.org/zeega/web/api/items"
-            var postObj = {};
+            if ($("#testimonialForm").valid()) {
+                var baseApiUrl = "http://" + document.domain + "/zeega/web/api/items"
+                var postObj = {};
 
-            postObj.title = $("#titleTxt").val();
-            postObj.description = $("#descriptionTxt").val();
-            postObj.media_type = "Text";
-            postObj.layer_type = "Testimonial";
-            postObj.uri = $("#titleTxt").val().replace(" ","-");
-            postObj.attribution_uri = $("#titleTxt").val().replace(" ","-");
-            postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
-            postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                postObj.title = $("#titleTxt").val();
+                postObj.description = $("#descriptionTxt").val();
+                postObj.media_type = "Text";
+                postObj.layer_type = "Testimonial";
+                postObj.uri = $("#titleTxt").val().replace(" ", "-");
+                postObj.attribution_uri = $("#titleTxt").val().replace(" ", "-");
+                postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
 
-            if ($("#lat").val() != "") {
-                postObj.media_geo_latitude = parseFloat($("#lat").val());
-                postObj.media_geo_longitude = parseFloat($("#lng").val());
+                if ($("#lat").val() != "") {
+                    postObj.media_geo_latitude = parseFloat($("#lat").val());
+                    postObj.media_geo_longitude = parseFloat($("#lng").val());
+                }
+
+                postObj.text = $("#storyTxt").val();
+
+                postObj.attributes = {};
+                if ($("#fromTxt").val().trim() != "") {
+                    var fromDate = new Date(Date.parse($("#fromTxt").val(), "m/d/Y H:i"));
+                    postObj.attributes.from_year = fromDate.getFullYear();
+                    postObj.attributes.from_month = fromDate.getMonth() + 1;
+                    postObj.attributes.from_day = fromDate.getDate();
+                    postObj.attributes.from_hour = fromDate.getHours();
+                    //postObj.attributes.from_date = fromDate;
+                }
+                if ($("#toTxt").val().trim() != "") {
+                    var toDate = new Date(Date.parse($("#toTxt").val(), "m/d/Y H:i"));
+                    postObj.attributes.to_year = toDate.getFullYear();
+                    postObj.attributes.to_month = toDate.getMonth() + 1;
+                    postObj.attributes.to_day = toDate.getDate();
+                    postObj.attributes.to_hour = toDate.getHours();
+                    //postObj.attributes.to_date = toDate;
+                }
+
+                postObj.attributes["year of birth"] = $("#yearDDL > option:selected").val();
+                postObj.attributes.occupation = $("#occupationTxt").val();
+                postObj.attributes.images = [];
+                $("#imgTbl").find("input[type='text']").each(function () {
+                    postObj.attributes.images.push($(this).val());
+                });
+                postObj.attributes.privacy = $("#privacyDDL > option:selected").val();
+                postObj.attributes.residence = $("#residenceTxt").val();
+                postObj.published = 0;
+                postObj.api_key = "9bIRe71qSeHeVQIcb54NNqY-y";
+                postObj.archive = "Testimonial";
+
+                $.post(baseApiUrl, postObj, function (response) {
+                }).error(function () { alert("There was a problem with your submission, please try again"); }).success(function () {
+                    document.location.href = document.location.href.replace("contribute", "home");
+                });
             }
-
-            postObj.text = $("#storyTxt").val();
-
-            postObj.attributes = {};
-            if ($("#fromTxt").val().trim() != "") {
-                var fromDate = new Date($("#fromTxt").val());
-                postObj.attributes.from_year = fromDate.getFullYear();
-                postObj.attributes.from_month = fromDate.getMonth() + 1;
-                postObj.attributes.from_day = fromDate.getDate();
-                postObj.attributes.from_hour = fromDate.getHours();
-                postObj.attributes.from_date = fromDate;
-            }
-            if ($("#toTxt").val().trim() != "") {
-                var toDate = new Date($("#toTxt").val());
-                postObj.attributes.to_year = toDate.getFullYear();
-                postObj.attributes.to_month = toDate.getMonth() + 1;
-                postObj.attributes.to_day = toDate.getDate();
-                postObj.attributes.to_hour = toDate.getHours();
-                postObj.attributes.to_date = toDate;
-            }
-
-            postObj.attributes["year of birth"] = $("#yearDDL > option:selected").val();
-            postObj.attributes.occupation = $("#occupationTxt").val();
-            postObj.attributes.images = [];
-            $("#imgTbl").find("input[type='text']").each(function () {
-                postObj.attributes.images.push($(this).val());
-            });
-            postObj.attributes.privacy = $("#privacyDDL > option:selected").val();
-            postObj.attributes.residence = $("#residenceTxt").val();
-			postObj.published = 0;
-            postObj.api_key = "9bIRe71qSeHeVQIcb54NNqY-y";
-            postObj.archive = "Testimonial";
-
-            $.post(baseApiUrl, postObj, function (response) {
-            }).error(function () { alert("error"); });
         });
 
         var BrowserDetect = {
@@ -309,7 +364,7 @@ require(loadFiles, function () {
                     subString: "Camino",
                     identity: "Camino"
                 },
-                {		// for newer Netscapes (6+)
+                {       // for newer Netscapes (6+)
                     string: navigator.userAgent,
                     subString: "Netscape",
                     identity: "Netscape"
@@ -326,7 +381,7 @@ require(loadFiles, function () {
                     identity: "Mozilla",
                     versionSearch: "rv"
                 },
-                { 		// for older Netscapes (4-)
+                {       // for older Netscapes (4-)
                     string: navigator.userAgent,
                     subString: "Mozilla",
                     identity: "Netscape",

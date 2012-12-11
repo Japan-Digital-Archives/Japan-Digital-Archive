@@ -781,6 +781,10 @@ border-radius: 0px 4px 0px 0px;
     width: 520px;
 }
 
+.error {
+    color: red;
+}
+
 /**********************
     END FORMS
 ***********************/
