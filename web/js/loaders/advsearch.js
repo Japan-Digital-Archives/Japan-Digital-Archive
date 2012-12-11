@@ -200,16 +200,16 @@ function initMap() {
 
 function DoSearch() {
 
-    var baseURL = window.location.href.replace('en/advsearch','')  + 'en/search?';
-    baseURL += "#q=" + $("#searchTerms").val();
+    var baseURL = window.location.href.replace('en/advsearch','')  + 'en/search?#';
+    if($("#searchTerms").val()) {
+        baseURL += "q=" + $("#searchTerms").val();
+    }
     var contentType = $("#contentTypeDDL option:selected").length;
     if (contentType != 0) {
         var first = $("#contentTypeDDL option:selected").first().val();
         if (first != "0") {
-            baseURL += "&content=";
-            $("#contentTypeDDL option:selected").each(function () {
-                baseURL += $(this).val().toLowerCase()+",";
-            });
+            baseURL += "&media_type=";
+            baseURL += $("#contentTypeDDL option:selected").map(function(){ return this.value }).get().join(" OR ");
         }
     }
     var tagArr = new Array();
