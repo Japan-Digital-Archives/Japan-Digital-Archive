@@ -255,9 +255,6 @@ this.jda = {
         if(!_.isUndefined(this.filterType)){
             if(this.filterType=="user"){
                 obj.user= sessionStorage.getItem('filterId');
-                obj.r_collections=1;
-                obj.r_items=1;
-                obj.r_itemswithcollections=0;
             }
             else if(this.filterType=="collection"){
                 obj.itemId = sessionStorage.getItem('filterId');
