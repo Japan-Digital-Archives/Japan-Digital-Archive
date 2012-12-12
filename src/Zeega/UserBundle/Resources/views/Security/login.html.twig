@@ -9,7 +9,7 @@
 					{% endif %} 
 				{% endif %} 
 				{% trans %}jda.login.header{% endtrans %} 
-				<a href="{{path('user_registration')}}">{% trans %}jda.login.register{% endtrans %}</a>
+				<a href="{{path('fos_user_registration_register',{ '_locale': locale})}}">{% trans %}jda.login.register{% endtrans %}</a>
 {% endblock header %}
 
 

@@ -1,15 +1,3 @@
-user_registration:
-    pattern:  /{_locale}/register
-    defaults: { _controller:  FOSUserBundle:Registration:register, _locale: ja }
-    requirements:
-        _locale: en|ja
-
-forgot_password:
-    pattern:  /{_locale}/resetting/request
-    defaults: { _controller:  FOSUserBundle:Resetting:request, _locale: ja }
-    requirements:
-        _locale: en|ja
-
 login_success:
     pattern:  /{_locale}/success
     defaults: { _controller:  FOSUserBundle:Security:success, _locale: ja }
