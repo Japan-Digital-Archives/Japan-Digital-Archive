@@ -6,7 +6,7 @@
 	Browser.Items.Views.List = Backbone.View.extend({
 		
 		tagName : 'tr',
-		className : 'list-media',
+		className : 'list-media list-fancymedia',
 		
 		initialize: function () {
 
@@ -27,7 +27,7 @@
 
 		},
 
-		render: function(done)
+		render: function ( done )
 		{
 			var _this = this;
 			
@@ -193,6 +193,7 @@
 			
 			return html;
 		},
+
 		getDefaultTemplate : function()
 		{
 			html =
@@ -213,6 +214,7 @@
 			
 			return html;
 		},
+
 		getDocumentTemplate : function()
 		{
 			html =
@@ -235,6 +237,7 @@
 			
 			return html;
 		},
+
 		getWebsiteTemplate : function()
 		{
 			html =
@@ -255,6 +258,7 @@
 			
 			return html;
 		},
+
 		getTweetTemplate : function()
 		{
 			html =
@@ -271,6 +275,7 @@
 			
 			return html;
 		},
+
 		getTestimonialTemplate : function()
 		{
 			html =
@@ -286,9 +291,7 @@
 			'</td>';
 			return html;
 		},
-		
-	
-		
+
 		getCollectionTemplate : function()
 		{
 			html =
@@ -305,27 +308,6 @@
 				'</td>';
 				
 
-
-			
-			return html;
-		},
-		getDefaultTemplate : function()
-		{
-			html = 
-			
-
-				'<td class="zeega-list-left-column">'+
-					'<div class="zeega-item-thumbnail"></div>'+
-				'</td>'+
-				'<td class="zeega-list-middle-column">'+
-					'<h3><%= title %></h3><p class="jda-item-author">by: <%= author %></p>'+
-					'<p class="jda-item-description"><%= description %></p>'+
-				'</td>'+
-				'<td class="zeega-list-right-column jda-item-date">'+
-					'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
-					'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
-				'</td>';
-				
 
 			
 			return html;

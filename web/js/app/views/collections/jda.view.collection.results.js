@@ -290,9 +290,11 @@
 		{
 			
 			
-			var search = this.collection.search;
-		
-			var sqlFilters = [];
+			var search = this.collection.search,
+				sqlFilters = [],
+				text,
+				radius;
+
 			if( !_.isUndefined(search.times) &&!_.isNull(search.times))
 			{
 				if( !_.isUndefined(search.times.start) )
@@ -312,7 +314,7 @@
 			//Tags and Texts are stored in the q property
 			if( !_.isUndefined(search.q) )
 			{
-				var text = search.q;
+				text = search.q;
 				if(text)
 				{
 					
@@ -344,13 +346,16 @@
 			console.log(sqlFilterstring);
 			
 			
+			radius = this.getRadius();
+
+
 			if(lat&&lng){
 				if(sqlFilterstring===null) {
-					sqlFilterstring='select id, site_id, user_id, title, description, text, uri, thumbnail_url, attribution_uri, date_created, date_updated, archive, media_type, layer_type, child_items_count, media_geo_latitude, media_geo_longitude, media_date_created, media_date_created_end, media_creator_username, media_creator_realname, license, attributes, tags from jda where dist(point(media_geo_longitude,media_geo_latitude),point('+lng+','+lat+')) < 5.0 LIMIT 50';	
+					sqlFilterstring='select id, site_id, user_id, title, description, text, uri, thumbnail_url, attribution_uri, date_created, date_updated, archive, media_type, layer_type, child_items_count, media_geo_latitude, media_geo_longitude, media_date_created, media_date_created_end, media_creator_username, media_creator_realname, license, attributes, tags from jda where dist(point(media_geo_longitude,media_geo_latitude),point('+lng+','+lat+')) < '+radius+' LIMIT 50';
 				} else {
-					sqlFilterstring='select id, site_id, user_id, title, description, text, uri, thumbnail_url, attribution_uri, date_created, date_updated, archive, media_type, layer_type, child_items_count, media_geo_latitude, media_geo_longitude, media_date_created, media_date_created_end, media_creator_username, media_creator_realname, license, attributes, tags from jda where '+sqlFilterstring+' AND dist(point(media_geo_longitude,media_geo_latitude),point('+lng+','+lat+')) < 5.0 LIMIT 50';
+					sqlFilterstring='select id, site_id, user_id, title, description, text, uri, thumbnail_url, attribution_uri, date_created, date_updated, archive, media_type, layer_type, child_items_count, media_geo_latitude, media_geo_longitude, media_date_created, media_date_created_end, media_creator_username, media_creator_realname, license, attributes, tags from jda where '+sqlFilterstring+' AND dist(point(media_geo_longitude,media_geo_latitude),point('+lng+','+lat+')) < '+radius+'LIMIT 50';
 				}
-			} 
+			}
 			else{
 				if(sqlFilterstring===null)sqlFilterstring='select goog_x, goog_y from jda';
 				else sqlFilterstring='select goog_x, goog_y from jda where '+sqlFilterstring;
@@ -359,6 +364,15 @@
 			console.log(search, "sqlstring: "+sqlFilterstring);
 			return sqlFilterstring;
 		},
+
+		getRadius: function(){
+
+			var zoom = +jda.app.eventMap.map.zoom;
+
+			return 5.0*Math.max(1,((17-zoom)/17)*((17-zoom)/17));
+
+
+		},
 	
 		
 		getSearch : function(){ return this.collection.search; },
@@ -366,15 +380,20 @@
 		//Formats returned results number
 		addCommas : function(nStr)
 		{
+			var rgx,
+				x,
+				x1,
+				x2;
+
 			nStr += '';
 			x = nStr.split('.');
 			x1 = x[0];
 			x2 = x.length > 1 ? '.' + x[1] : '';
-			var rgx = /(\d+)(\d{3})/;
-			while (rgx.test(x1))
-			{
+			rgx = /(\d+)(\d{3})/;
+			while ( rgx.test(x1) ) {
 				x1 = x1.replace(rgx, '$1' + ',' + '$2');
 			}
+
 			return x1 + x2;
 		}
 		

@@ -63,7 +63,7 @@
 			
 			'<div class="modal" id="modal-archive-settings">'+
 				'<div class="modal-header">'+
-					'<h3>コレクション設定</h3>'+
+					'<h3>'+l.jda_collection_archivesettings+'</h3>'+
 				'</div>'+
 				'<div class="modal-body">'+
 				
