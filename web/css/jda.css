@@ -112,7 +112,7 @@ li{
 }
 header .container{
 	/*width:98% !important;*/
-	min-width:900px;
+	min-width:1000px;
 }
 /* overriding bootstrap z-index for fancybox */
 .navbar-fixed-top, .navbar-fixed-bottom {
@@ -663,8 +663,8 @@ border-radius: 0px 4px 0px 0px;
 #jda-search-advancedoptions {
     width: 120px;
     position:absolute;
-    margin-left: 50px;
-    margin-top: 16px;
+    margin-left: 15px;
+    margin-top: 10px;
     overflow: hidden;
     color:#999;
     text-decoration: underline;
@@ -785,6 +785,9 @@ border-radius: 0px 4px 0px 0px;
     color: red;
 }
 
+.container{
+	min-width:1000px;
+}
 /**********************
     END FORMS
 ***********************/
