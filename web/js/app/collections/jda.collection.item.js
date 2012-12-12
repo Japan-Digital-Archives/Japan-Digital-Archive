@@ -32,14 +32,12 @@
     
         setSearch : function(obj, reset)
         {
-            console.log(obj);
             if(reset){
                 this.search = { page:1, published:1 };
                 if(_.isNumber(obj.collection)||_.isNumber(obj.user)) {
                     this.search.media_type="-Collection";
                 }
                 if(_.isNumber(obj.user)) {
-                    console.log('yo');
                     this.search.media_type="Collection";
                     this.search.data_source="db"; 
                 } 

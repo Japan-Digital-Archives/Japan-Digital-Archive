@@ -36,7 +36,7 @@
 			if(_.isUndefined(this.id)) {
 				var url = jda.app.apiLocation + 'api/items';	
 			} else {
-				var url = jda.app.apiLocation + 'api/items/' + this.id + '?result_type=recursive';
+				var url = jda.app.apiLocation + 'api/items/' + this.id + '?result_type=recursive&data_source=db';
 			} 
 			return url;
 		}
