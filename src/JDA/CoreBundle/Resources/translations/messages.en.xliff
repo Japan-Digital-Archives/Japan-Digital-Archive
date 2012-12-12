@@ -978,6 +978,70 @@
                 <source>jda.form.testimonial.titleTxt</source>
                 <target>Title</target>
           </trans-unit>
+          <trans-unit id="244">
+            <source>jda.collection.archivesettings</source>
+            <target>Archive Settings</target>
+        </trans-unit>
+        <trans-unit id="245">
+                <source>jda.collection.delete</source>
+                <target>Delete</target>
+            </trans-unit>
+            <trans-unit id="246">
+                <source>fancybox.pdf</source>
+                <target>Click to download PDF</target>
+            </trans-unit>
+             <trans-unit id="247">
+                <source>jda.about.project</source>
+                <target>About</target>
+            </trans-unit>
+             <trans-unit id="248">
+                <source>jda.team.leader</source>
+                <target>This project is led by the Reischauer Institute of Japanese Studies</target>
+            </trans-unit>
+            <trans-unit id="249">
+                <source>jda.team.additional</source>
+                <target>Reischauer Institute Faculty and Staff providing additional support</target>
+            </trans-unit>
+             <trans-unit id="250">
+                <source>jda.team.zeega</source>
+                <target>Interactive Design and Development by Zeega.org</target>
+            </trans-unit>
+            <trans-unit id="251">
+                <source>jda.team.alumni</source>
+                <target>Team Alumni</target>
+            </trans-unit>
+            <trans-unit id="252">
+                <source>jda.team.inquiries</source>
+                <target>Please direct inquiries to </target>
+            </trans-unit>
+             <trans-unit id="253">
+                <source>jda.header.add</source>
+                <target>Add to the Archive</target>
+            </trans-unit>
+            <trans-unit id="254">
+                <source>jda.header.addwebsite</source>
+                <target>Add Website</target>
+            </trans-unit>
+            <trans-unit id="255">
+                <source>jda.header.addtestimonial</source>
+                <target>Add Testimonial</target>
+            </trans-unit>
+            <trans-unit id="256">
+                <source>jda.search.relevant</source>
+                <target>Relevant</target>
+            </trans-unit>
+            <trans-unit id="257">
+                <source>jda.collection.dragcover</source>
+                <target>drag to add a cover image</target>
+            </trans-unit>
+            <trans-unit id="258">
+                <source>jda.search.excludetweets</source>
+                <target>exclude tweets</target>
+            </trans-unit>
+             <trans-unit id="259">
+                <source>jda.team.interaction</source>
+                <target>Interaction Design</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
