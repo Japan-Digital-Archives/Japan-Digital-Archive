@@ -6,6 +6,7 @@
 	Browser.Items.Views.Thumb = Backbone.View.extend({
 		
 		tagName : 'li',
+		
 		events: {
 			
 			//'click .jda-delete-item' : this.remove,
