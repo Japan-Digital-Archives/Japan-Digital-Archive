@@ -280,7 +280,7 @@ $(document).ready(function(){
     if  ( jda.app.isLoading === false && $(window).scrollTop()+200 >= ($(document).height() - ($(window).height())) && jda.app.currentView != 'event' ) {
         // Keeps the loader from fetching more than once.
         if (jda.app.killScroll === false) {
-            ('#spinner-text').fadeTo('fast',1);
+            $('#spinner-text').fadeTo('fast',1);
             $('#jda-left').fadeTo('slow',0.8);
             jda.app.killScroll = true;
             jda.app.searchObject.page=jda.app.resultsView.collection.search.page+1;
