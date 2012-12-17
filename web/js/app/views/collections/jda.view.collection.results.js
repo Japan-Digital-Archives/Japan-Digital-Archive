@@ -353,7 +353,7 @@
 				if(sqlFilterstring===null) {
 					sqlFilterstring='select id, site_id, user_id, title, description, text, uri, thumbnail_url, attribution_uri, date_created, date_updated, archive, media_type, layer_type, child_items_count, media_geo_latitude, media_geo_longitude, media_date_created, media_date_created_end, media_creator_username, media_creator_realname, license, attributes, tags from jda where dist(point(media_geo_longitude,media_geo_latitude),point('+lng+','+lat+')) < '+radius+' LIMIT 50';
 				} else {
-					sqlFilterstring='select id, site_id, user_id, title, description, text, uri, thumbnail_url, attribution_uri, date_created, date_updated, archive, media_type, layer_type, child_items_count, media_geo_latitude, media_geo_longitude, media_date_created, media_date_created_end, media_creator_username, media_creator_realname, license, attributes, tags from jda where '+sqlFilterstring+' AND dist(point(media_geo_longitude,media_geo_latitude),point('+lng+','+lat+')) < '+radius+'LIMIT 50';
+					sqlFilterstring='select id, site_id, user_id, title, description, text, uri, thumbnail_url, attribution_uri, date_created, date_updated, archive, media_type, layer_type, child_items_count, media_geo_latitude, media_geo_longitude, media_date_created, media_date_created_end, media_creator_username, media_creator_realname, license, attributes, tags from jda where '+sqlFilterstring+' AND dist(point(media_geo_longitude,media_geo_latitude),point('+lng+','+lat+')) < '+radius+' LIMIT 50';
 				}
 			}
 			else{
