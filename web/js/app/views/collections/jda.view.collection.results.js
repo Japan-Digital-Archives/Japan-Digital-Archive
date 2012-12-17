@@ -293,7 +293,7 @@
 			var search = this.collection.search,
 				sqlFilters = [],
 				text,
-				radius;
+				dist;
 
 			if( !_.isUndefined(search.times) &&!_.isNull(search.times))
 			{
@@ -346,14 +346,14 @@
 			console.log(sqlFilterstring);
 			
 			
-			radius = this.getRadius();
+			dist = this.getDist();
 
 
 			if(lat&&lng){
 				if(sqlFilterstring===null) {
-					sqlFilterstring='select id, site_id, user_id, title, description, text, uri, thumbnail_url, attribution_uri, date_created, date_updated, archive, media_type, layer_type, child_items_count, media_geo_latitude, media_geo_longitude, media_date_created, media_date_created_end, media_creator_username, media_creator_realname, license, attributes, tags from jda where dist(point(media_geo_longitude,media_geo_latitude),point('+lng+','+lat+')) < '+radius+' LIMIT 50';
+					sqlFilterstring='select id, site_id, user_id, title, description, text, uri, thumbnail_url, attribution_uri, date_created, date_updated, archive, media_type, layer_type, child_items_count, media_geo_latitude, media_geo_longitude, media_date_created, media_date_created_end, media_creator_username, media_creator_realname, license, attributes, tags from jda where dist(point(media_geo_longitude,media_geo_latitude),point('+lng+','+lat+')) < '+dist+' LIMIT 50';
 				} else {
-					sqlFilterstring='select id, site_id, user_id, title, description, text, uri, thumbnail_url, attribution_uri, date_created, date_updated, archive, media_type, layer_type, child_items_count, media_geo_latitude, media_geo_longitude, media_date_created, media_date_created_end, media_creator_username, media_creator_realname, license, attributes, tags from jda where '+sqlFilterstring+' AND dist(point(media_geo_longitude,media_geo_latitude),point('+lng+','+lat+')) < '+radius+' LIMIT 50';
+					sqlFilterstring='select id, site_id, user_id, title, description, text, uri, thumbnail_url, attribution_uri, date_created, date_updated, archive, media_type, layer_type, child_items_count, media_geo_latitude, media_geo_longitude, media_date_created, media_date_created_end, media_creator_username, media_creator_realname, license, attributes, tags from jda where '+sqlFilterstring+' AND dist(point(media_geo_longitude,media_geo_latitude),point('+lng+','+lat+')) < '+dist+' LIMIT 50';
 				}
 			}
 			else{
@@ -365,13 +365,17 @@
 			return sqlFilterstring;
 		},
 
-		getRadius: function(){
+		getDist:function(){
 
-			var zoom = +jda.app.eventMap.map.zoom;
+			var bounds,
+				latLngBounds,
+				dist;
 
-			return 5.0*Math.max(1,((17-zoom)/17)*((17-zoom)/17));
-
-
+			bounds = jda.app.eventMap.map.getExtent();
+			latLngBounds = bounds.transform(jda.app.eventMap.map.getProjectionObject(),new OpenLayers.Projection("EPSG:4326"));
+			dist = 1000*Math.abs(latLngBounds.left-latLngBounds.right)/window.innerWidth;
+			console.log("###########",bounds,latLngBounds,dist);
+			return dist;
 		},
 	
 		
