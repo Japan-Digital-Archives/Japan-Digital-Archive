@@ -12,9 +12,10 @@
 		initialize : function(){
 			
 			$('#zeega-my-collections-spinner').spin(true);
+                        var user = sessionStorage.getItem('user');
 
 			this.collection = new Browser.Items.Collection();
-            this.collection.url=jda.app.apiLocation + 'api/items/search?q=type:Collection&user=-1&data_source=db';			
+            this.collection.url=jda.app.apiLocation + 'api/items/search?q=type:Collection&user='+user+'&data_source=db';			
             this.collection.parse= function(data){ return data.items;}
 			
 			if(sessionStorage.getItem('user')!=0)this.user=sessionStorage.getItem('user');
