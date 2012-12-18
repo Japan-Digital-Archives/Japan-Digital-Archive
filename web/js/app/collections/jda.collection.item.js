@@ -39,8 +39,8 @@
                 }
                 if(_.isNumber(obj.user)) {
                     this.search.media_type="Collection";
-                    this.search.data_source="db"; 
-                } 
+                    this.search.data_source="db";
+                }
                 if(!_.isUndefined(obj.itemId) || jda.app.currentView=='event') {
                     this.search.published=undefined;
                 }
@@ -81,7 +81,13 @@
     
         parse : function(response)
         {
-            return response.results.splice(0,Math.max(response.results.length,50));
+            if(!_.isNull(response)){
+                return response.results.splice(0,Math.max(response.results.length,50));
+            }
+            else{
+                return [];
+            }
+            
         }
     });
 

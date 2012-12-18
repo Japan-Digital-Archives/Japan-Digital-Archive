@@ -33,9 +33,6 @@
 			
 			//temp fix
 			
-			
-			console.log(this.model);
-			
 			blanks.id=this.model.id;
 			
 			if (this.model.get("media_creator_realname") === null || this.model.get("media_creator_realname") === "" || this.model.get("media_creator_realname") == "Unknown" || this.model.get("media_creator_realname") == "unknown"){
