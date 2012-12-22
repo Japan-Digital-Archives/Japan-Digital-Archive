@@ -15,9 +15,9 @@ framework:
     default_locale: %locale%
     trust_proxy_headers: false # change if the application is behind a proxy
     session:
-        cookie_domain: ~
+        cookie_domain: %session_domain%
         cookie_lifetime:       72000
-        handler_id:     session.storage.pdo
+        handler_id: session.handler.pdo
  
 parameters:
     pdo.db_options:
@@ -33,7 +33,7 @@ services:
             - "%database_type%:dbname=%database_name%;host=%database_host%"
             - %database_user%
             - %database_password%
-    session.storage.pdo:
+    session.handler.pdo:
             class:     Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
             arguments: [@pdo, %pdo.db_options%]
 
@@ -94,7 +94,7 @@ fos_user:
     firewall_name: secured_area
     user_class: Zeega\DataBundle\Entity\User
     from_email:
-        address: noreply@zeega.org
+        address: noreply@jdarchive.org
         sender_name: Zeega
     resetting:
         token_ttl: 8640000
@@ -103,6 +103,8 @@ fos_user:
     registration:
         form:
             type: zeega_user_registration
+    service:
+        mailer: fos_user.mailer.default
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -110,7 +112,8 @@ swiftmailer:
     host:      %mailer_host%
     username:  %mailer_user%
     password:  %mailer_password%
-
+    port:      %mailer_port%
+    auth_mode:  login
 sensio_framework_extra:
     view:
         annotations: false
