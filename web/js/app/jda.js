@@ -158,7 +158,7 @@ this.jda = {
         var facets = VisualSearch.searchQuery.models;
             
         var obj={};
-        var tagQuery = "tag:";
+        var tagQuery = "tags:";
         var textQuery = "";
 
         _.each(facets, function(facet){
