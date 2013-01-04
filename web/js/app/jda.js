@@ -36,7 +36,6 @@ this.jda = {
         
         this.startRouter();
         var _this=this;
-        $('#zeega-sort').change(function(){_this.parseSearchUI(); });
     },
     initCollectionsDrawer:function(){
         //load my collections drawer
@@ -154,11 +153,17 @@ this.jda = {
                     }
     },
     
+    sort : function(){
+        this.searchObject.sort = $('#zeega-sort').val();
+        this.updateURLHash(this.searchObject);
+        this.search(this.searchObject);
+    },
+
     parseSearchUI : function(){
         var facets = VisualSearch.searchQuery.models;
             
         var obj={};
-        var tagQuery = "tag:";
+        var tagQuery = "tags:";
         var textQuery = "";
 
         _.each(facets, function(facet){

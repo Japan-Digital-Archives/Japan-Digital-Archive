@@ -105,7 +105,7 @@
 			OpenLayers.DOTS_PER_INCH = 25.4 / 0.28;
 		
 			var _this=this;
-			wax.tilejson('http://d.tiles.mapbox.com/v2/mapbox.mapbox-streets.jsonp',
+			wax.tilejson('http://d.tiles.mapbox.com/v2/zeega.map-2w4y8pj8.jsonp',
 				function(tilejson) {
 					var baseLayer =  wax.ol.connector(tilejson);
 					_this.map = new OpenLayers.Map('event-map',{
