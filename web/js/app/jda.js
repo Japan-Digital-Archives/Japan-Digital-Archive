@@ -174,13 +174,13 @@ this.jda = {
                     textQuery=textQuery.replace(/^#/, '');
                     break;
                 case 'tag':
-                    tagQuery = (tagQuery.length > 4) ? tagQuery + ", " + facet.get('value') : tagQuery + facet.get('value');
+                    tagQuery = (tagQuery.length > 5) ? tagQuery + ", " + facet.get('value') : tagQuery + facet.get('value');
                     tagQuery=tagQuery.replace(/^#/, '');
                     break;
             }
         });
             
-        obj.q = textQuery + (textQuery.length > 0 && tagQuery.length > 4 ? " " : "") + (tagQuery.length > 4 ? tagQuery : "");
+        obj.q = textQuery + (textQuery.length > 0 && tagQuery.length > 5 ? " " : "") + (tagQuery.length > 5 ? tagQuery : "");
         obj.text = textQuery;
         obj.view_type = this.currentView;
 
