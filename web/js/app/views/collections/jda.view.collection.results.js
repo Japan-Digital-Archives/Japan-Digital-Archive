@@ -177,7 +177,7 @@
 						jda.app.clearSearchFilters(false);
 
 						//add only tag filter
-						VisualSearch.searchBox.addFacet('tag', tag.name, 0);
+						VS.init.searchBox.addFacet('tag', tag.name, 0);
 						
 
 
@@ -311,16 +311,42 @@
 				}
 			}
 
-			//Tags and Texts are stored in the q property
-			if( !_.isUndefined(search.q) )
+			//Text stored in the q property
+			if( !_.isUndefined(search.q) && search.q)
 			{
-				text = search.q;
-				if(text)
-				{
-					
-					sqlFilters.push("full_text LIKE '"+text+"'");
+				var textFilter="",
+					textQueries;
+				textQueries = search.q.split(" AND ");
+				
+				for(var i=0;i<textQueries.length;i++){
+					textQueries[i]="full_text LIKE '"+textQueries[i]+"'";
 				}
+				
+				textFilter = "("+textQueries.join(" AND ")+")";
+
+				sqlFilters.push(textFilter);
+			
+
 			}
+
+			
+			if( !_.isUndefined(search.tags) && search.tags)
+			{
+				var tagFilter="",
+					tagQueries;
+				tagQueries = search.tags.split(" AND ");
+				console.log(tagQueries.length);
+				for(var j=0;j<tagQueries.length;j++){
+					console.log(tagQueries[j]+"--");
+					tagQueries[j]="tags LIKE '"+tagQueries[j]+"'";
+					console.log(tagQueries[j]+"--");
+				}
+				console.log(tagQueries);
+				tagFilter = "("+tagQueries.join(" AND ")+")";
+
+				sqlFilters.push(tagFilter);
+			}
+
 
 			if(!_.isUndefined(search.media_type)&&search.media_type=="-Tweet" ){
 			

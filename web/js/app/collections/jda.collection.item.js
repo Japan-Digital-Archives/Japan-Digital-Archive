@@ -13,6 +13,7 @@
             var url = this.base;
             console.log(this.search);
             if( !_.isUndefined(this.search.q) && this.search.q.length > 0) url += '&q=' + this.search.q.toString();
+            if( !_.isUndefined(this.search.tags) && this.search.tags.length > 0) url += '&tags=' + this.search.tags.toString();
             if( !_.isUndefined(this.search.viewType) ) url += '&view_type=' + this.search.viewType;
             if( !_.isUndefined(this.search.media_type) && this.search.media_type !== "") url += '&type=' + this.search.media_type;
             if( !_.isUndefined(this.search.sort) ) url += '&sort=' + this.search.sort;
