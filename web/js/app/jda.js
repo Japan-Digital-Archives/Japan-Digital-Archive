@@ -89,68 +89,74 @@ this.jda = {
         if (query_obj.max_date !== null){
         query_obj.times.end = query_obj.max_date;
         }
+
         return query_obj;
     },
     
     parseURLHash  : function (query){
     
-                    var _this=this;
-                    var Browser = jda.module("browser");
-                    //Update Search Object
-                    
-                    if (!_.isUndefined(query)) this.searchObject =  this.queryStringToHash(query);
-                    else this.searchObject = {page:1};
-                    //Update interface
-                    
-                    this.updateSearchUI(this.searchObject);
-                    
-                    //Load filter if nec, carry out search
-                    
-                    if(sessionStorage.getItem('filterType')=='none'||!_.isUndefined(this.filterModel)) {
-                    
-                        if (!_.isUndefined(this.searchObject.view_type)) this.switchViewTo(this.searchObject.view_type,true) ;
-                        else this.search(this.searchObject);
-                    }
-                    else{
-                    
-                        $('.tab-content').find('.btn-group').hide();
-                        $('#jda-related-tags').hide();
-                        $('#event-button').hide();
-                        
-                        if(sessionStorage.getItem('filterType')=='user'){
-                            this.filterType ="user";
-                            this.filterModel = new Browser.Users.Model({id:sessionStorage.getItem('filterId')});
-                            this.filterModel.fetch({
-                                success : function(model, response){
-                                                _this.resultsView.userFilter = new Browser.Users.Views.UserPage({model:model});
-                                                if (!_.isUndefined(_this.searchObject.view_type)) _this.switchViewTo(_this.searchObject.view_type,true) ;
-                                                else _this.search(_this.searchObject);
-                                },
-                                error : function(model, response){
-                                    console.log('Failed to fetch the user object.');
-                                    
-                                }
-                            });
-                        }
-                        else if(sessionStorage.getItem('filterType')=='collection'){
-                            
-                            this.filterType ="collection";
-                            this.filterModel = new Browser.Items.Model({id:sessionStorage.getItem('filterId')});
-                            this.filterModel.fetch({
-                                success : function(model, response){
-                                    _this.resultsView.collectionFilter = new Browser.Items.Views.CollectionPage({model:model});
+        var _this=this;
+        var Browser = jda.module("browser");
+        //Update Search Object
+        
+        if (!_.isUndefined(query)){
+            this.searchObject =  this.queryStringToHash(query);
+        } else {
+            this.searchObject = {page:1};
+        }
+
+        console.log("searchObject",this.searchObject);
+        //Update interface
+        
+        this.updateSearchUI(this.searchObject);
+        
+        //Load filter if nec, carry out search
+        
+        if(sessionStorage.getItem('filterType')=='none'||!_.isUndefined(this.filterModel)) {
+        
+            if (!_.isUndefined(this.searchObject.view_type)) this.switchViewTo(this.searchObject.view_type,true) ;
+            else this.search(this.searchObject);
+        }
+        else{
+        
+            $('.tab-content').find('.btn-group').hide();
+            $('#jda-related-tags').hide();
+            $('#event-button').hide();
+            
+            if(sessionStorage.getItem('filterType')=='user'){
+                this.filterType ="user";
+                this.filterModel = new Browser.Users.Model({id:sessionStorage.getItem('filterId')});
+                this.filterModel.fetch({
+                    success : function(model, response){
+                                    _this.resultsView.userFilter = new Browser.Users.Views.UserPage({model:model});
                                     if (!_.isUndefined(_this.searchObject.view_type)) _this.switchViewTo(_this.searchObject.view_type,true) ;
                                     else _this.search(_this.searchObject);
-                                },
-                                error : function(model, response){
-                                    console.log('Failed to fetch the user object.');
-                                    
-                                }
-                    
-                            });
+                    },
+                    error : function(model, response){
+                        console.log('Failed to fetch the user object.');
                         
-                        }
                     }
+                });
+            }
+            else if(sessionStorage.getItem('filterType')=='collection'){
+                
+                this.filterType ="collection";
+                this.filterModel = new Browser.Items.Model({id:sessionStorage.getItem('filterId')});
+                this.filterModel.fetch({
+                    success : function(model, response){
+                        _this.resultsView.collectionFilter = new Browser.Items.Views.CollectionPage({model:model});
+                        if (!_.isUndefined(_this.searchObject.view_type)) _this.switchViewTo(_this.searchObject.view_type,true) ;
+                        else _this.search(_this.searchObject);
+                    },
+                    error : function(model, response){
+                        console.log('Failed to fetch the user object.');
+                        
+                    }
+        
+                });
+            
+            }
+        }
     },
     
     sort : function(){
@@ -163,9 +169,18 @@ this.jda = {
         var facets = VisualSearch.searchQuery.models;
             
         var obj={};
-        var tagQuery = "tags:";
+        var tagQuery = "";
         var textQuery = "";
 
+        _.each( VisualSearch.searchBox.facetViews, function( facet ){
+
+            if( facet.model.get('category') != 'tag' && facet.model.get('category') != 'text')
+            {
+                facet.model.set({'value': null });
+                facet.remove();
+            }
+        });
+        
         _.each(facets, function(facet){
             switch ( facet.get('category') )
             {
@@ -174,14 +189,14 @@ this.jda = {
                     textQuery=textQuery.replace(/^#/, '');
                     break;
                 case 'tag':
-                    tagQuery = (tagQuery.length > 5) ? tagQuery + ", " + facet.get('value') : tagQuery + facet.get('value');
+                    tagQuery = (tagQuery.length > 0) ? tagQuery + " AND " + facet.get('value') : tagQuery + facet.get('value');
                     tagQuery=tagQuery.replace(/^#/, '');
                     break;
             }
         });
             
-        obj.q = textQuery + (textQuery.length > 0 && tagQuery.length > 5 ? " " : "") + (tagQuery.length > 5 ? tagQuery : "");
-        obj.text = textQuery;
+        obj.q = textQuery;
+        obj.tags = tagQuery;
         obj.view_type = this.currentView;
 
         obj.media_type = $('#zeega-content-type').val();
@@ -198,32 +213,29 @@ this.jda = {
     },
     
     updateSearchUI : function(obj){
+        
+
         VisualSearch.searchBox.disableFacets();
         VisualSearch.searchBox.value('');
         VisualSearch.searchBox.flags.allSelected = false;
-        var q = obj.q;
-        if (!_.isUndefined(q))
-        {
-            //check for tags
-            if (q.indexOf("tag:") >=0){
-                var tagPart = q.substr(q.indexOf("tag:") + 4);
-                var tagNames = tagPart.split(" ");
-                for(var i=0;i<tagNames.length;i++)
-                {
-                    var tagName = tagNames[i];
-                    VisualSearch.searchBox.addFacet('tag', tagName, 0);
-                }
+        var tags, text;
+
+
+
+        if (!_.isUndefined(obj.q)&&obj.q.length>0){
+            text = obj.q.split(" AND ");
+            for( var j=0; j<text.length; j++ ){
+                VisualSearch.searchBox.addFacet('text', text[j], 0);
             }
-            //check for text
-            var textPart = q.indexOf("tag:") >= 0 ? q.substr(0,  q.indexOf("tag:")) : q;
-            if (textPart.length > 0)
+        }
+
+        //check for tags
+        if (!_.isUndefined(obj.tags)&&obj.tags.length>0){
+            tags = obj.tags.split(" AND ");
+            for(var i=0;i<tags.length;i++)
             {
-                var texts = textPart.split(",");
-                for(var j=0;j<texts.length;j++)
-                {
-                    var text = texts[j];
-                    VisualSearch.searchBox.addFacet('text', text, 0);
-                }
+
+                VisualSearch.searchBox.addFacet('tag', tags[i], 0);
             }
         }
         
@@ -244,6 +256,7 @@ this.jda = {
 		var hash = '';
         if( !_.isUndefined(this.viewType)) hash += 'view_type=' + this.viewType + '&';
         if( !_.isUndefined(obj.q) && obj.q.length > 0) hash += 'q=' + obj.q + '&';
+        if( !_.isUndefined(obj.tags) && obj.tags.length > 0) hash += 'tags=' + obj.tags + '&';
         if( !_.isUndefined(obj.media_type) )hash += 'media_type='+ obj.media_type + '&';
 
         if( !_.isUndefined(obj.sort) )  hash += 'sort='+ obj.sort + '&';
@@ -365,7 +378,7 @@ this.jda = {
         $('#zeega-results-count').css('z-index', 1000);
 
         $('#zeega-results-count-text-with-date').show();
-        
+        /*
         var removedFilters = "";
         var _this = this;
         _.each( VisualSearch.searchBox.facetViews, function( facet ){
@@ -395,7 +408,8 @@ this.jda = {
                 $('#remove-tag-alert').hide('slow');
             }, 5000);
         }
-        
+        */
+
         $("#zeega-event-view").width($(window).width());
 
         //this is the hacky way to update the search count properly on the map
@@ -403,7 +417,11 @@ this.jda = {
         
         
         this.viewType='event';
-        this.parseSearchUI();
+        //this.parseSearchUI();
+        this.updateURLHash(this.searchObject);
+        this.search(this.searchObject);
+
+
     },
     
     setEventViewTimePlace : function(obj){

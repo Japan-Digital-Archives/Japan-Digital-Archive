@@ -1,5 +1,8 @@
 jQuery(function($)
 {
+
+	var JDA = jda.app;
+
 	// Shorthand the application namespace
 	//http://documentcloud.github.com/visualsearch/
 	VisualSearch = VS.init({
@@ -10,15 +13,15 @@ jQuery(function($)
 			loaded	: function(){},
 
 			search : function(){
-					jda.app.parseSearchUI();
+					JDA.parseSearchUI();
 			},
 
-			clearSearch : jda.app.clearSearchFilters,
+			clearSearch : JDA.clearSearchFilters,
 			// These are the facets that will be autocompleted in an empty input.
 			facetMatches : function(callback)
 			{
 				callback([
-					'tag', 'keyword', 'text'  //, 'data:time & place','collection','user'
+					'tag', 'text'  //, 'data:time & place','collection','user'
 				]);
 			},
 			// These are the values that match specific categories, autocompleted
@@ -32,9 +35,6 @@ jQuery(function($)
 					case 'tag':
 						callback([]);
 						break;
-					case 'keyword':
-						callback([]);
-						break;
 					case 'text':
 						callback([]);
 						break;
@@ -44,7 +44,7 @@ jQuery(function($)
 		} //callbacks
 	});
 
-	var JDA = jda.app;
+	
 	JDA.init();
 	
 
