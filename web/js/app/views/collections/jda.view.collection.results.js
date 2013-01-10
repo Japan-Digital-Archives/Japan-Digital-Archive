@@ -315,8 +315,15 @@
 			if( !_.isUndefined(search.q) && search.q)
 			{
 				var textFilter="",
-					textQueries;
-				textQueries = search.q.split(" AND ");
+					tempQueries,
+					textQueries=[];
+				tempQueries = search.q.split(" AND ");
+
+
+				for(var k=0;k<tempQueries.length;k++){
+					textQueries=_.union(textQueries, tempQueries[k].split(" "));
+				}
+
 				
 				for(var i=0;i<textQueries.length;i++){
 					textQueries[i]="full_text LIKE '"+textQueries[i]+"'";
