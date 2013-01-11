@@ -1,11 +1,11 @@
 ﻿<?php
+
 namespace JDA\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
-
-class ExportController extends Controller
+class ExporterController extends Controller
 {
     
     public function indexAction()

@@ -61,4 +61,4 @@ testimonial:
         _locale: en|ja
 export:
     pattern:   /export-seeds/
-    defaults:  { _controller: JDACoreBundle:Export:index }
+    defaults:  { _controller: JDACoreBundle:Exporter:index }
