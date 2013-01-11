@@ -19,7 +19,7 @@ class ExportController extends Controller
         $lastItem = file_get_contents($fileLoc);
 		return $this->render('JDACoreBundle:SeedExport:export.html.twig', array(
 					'page'=> 'export',
-                    'lastItem' => $lastItem
+                    'lastItem' => $lastItem,
 				));
     }
 }
