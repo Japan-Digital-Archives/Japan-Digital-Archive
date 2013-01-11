@@ -1,5 +1,4 @@
 ﻿<?php
-
 namespace JDA\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
