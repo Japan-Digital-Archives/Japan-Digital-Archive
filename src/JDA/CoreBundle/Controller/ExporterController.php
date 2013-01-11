@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 namespace JDA\CoreBundle\Controller;
 
