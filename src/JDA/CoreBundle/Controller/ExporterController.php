@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 namespace JDA\CoreBundle\Controller;
 
@@ -7,10 +7,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ExporterController extends Controller
 {
-    
+
     public function indexAction()
     {
-    
+
         // $loggedUser = $this->get('security.context')->getToken()->getUser();
         //$fileLoc = "lastExport.txt";
         //if(!file_exists($fileLoc)) {
@@ -23,3 +23,4 @@ class ExporterController extends Controller
                 ));
     }
 }
+
