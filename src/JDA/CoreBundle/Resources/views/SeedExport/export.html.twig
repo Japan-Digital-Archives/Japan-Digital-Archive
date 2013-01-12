@@ -17,7 +17,14 @@
                 dataType: "json",
                 type: "GET",
                 success: function (r) {
-                    $("#resultsDiv").html(r["items_count"]);
+                    $.each(r.items, function (index, val) {
+                        
+                    });
+                    var lastItem = r.returned_items_count * r.query.limit;
+                    $("#resultsDiv").html($("#resultsDiv").html() + "called again!</br>");
+                    if (lastItem < r.item_count) {
+                        getResultsByPage(pageNum + 1);
+                    }
                 }
             });
         }
