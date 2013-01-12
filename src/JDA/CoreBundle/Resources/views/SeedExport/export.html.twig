@@ -18,7 +18,8 @@
                 type: "GET",
                 success: function (r) {
                     $.each(r.items, function (index, val) {
-                        $("#resultsDiv").html($("#resultsDiv").html() + val.title + "</br>");
+                        var line = val.date_created + ", website, " + val.attributes.frequency + ", " + val.attributes.scope + ", " + val.id;
+                        $("#resultsDiv").html($("#resultsDiv").html() + line + "</br>");
                     });
                     var lastItem = r.returned_items_count * r.query.limit;
                     
