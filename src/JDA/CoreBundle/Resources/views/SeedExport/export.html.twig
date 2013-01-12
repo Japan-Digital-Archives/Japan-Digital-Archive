@@ -18,10 +18,10 @@
                 type: "GET",
                 success: function (r) {
                     $.each(r.items, function (index, val) {
-                        
+                        $("#resultsDiv").html($("#resultsDiv").html() + val.title + "</br>");
                     });
                     var lastItem = r.returned_items_count * r.query.limit;
-                    $("#resultsDiv").html($("#resultsDiv").html() + "called again!</br>");
+                    
                     if (lastItem < r.item_count) {
                         getResultsByPage(pageNum + 1);
                     }
