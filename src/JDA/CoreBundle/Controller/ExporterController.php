@@ -12,7 +12,7 @@ class ExporterController extends Controller
     {
 
         // $loggedUser = $this->get('security.context')->getToken()->getUser();
-        $fileLoc = "lastExport.txt";
+        $fileLoc = realpath("lastExport.txt");
         if(!file_exists($fileLoc)) {
             file_put_contents($fileLoc, "1");
         }
