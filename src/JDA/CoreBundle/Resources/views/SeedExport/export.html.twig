@@ -8,6 +8,7 @@
             $("#submitBtn").val($("#submitBtn").val() + lastExport);
             $("#submitBtn").click(function () {
                 getResultsByPage(1);
+                $("#submitBtn").hide();
             });
         });
 
@@ -18,7 +19,8 @@
                 type: "GET",
                 success: function (r) {
                     $.each(r.items, function (index, val) {
-                        var line = val.date_created + ", website, " + val.uri.replace("http://wayback.archive-it.org/2438/20110301000000/", "") + ", " + (val.attributes.frequency || "once") + ", " + (val.attributes.scope || "page") + ", " + val.id;
+                        var line = val.date_created + ", website, " + val.uri.replace("http://wayback.archive-it.org/2438/20110301000000/", "")
+                            + ", " + (val.attributes.frequency || "once") + ", " + (val.attributes.scope || "page") + ", Seed Id: " + val.id;
                         $("#resultsDiv").html($("#resultsDiv").html() + line + "</br>");
                     });
                     var lastItem = r.returned_items_count * r.query.limit;
