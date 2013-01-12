@@ -7,9 +7,24 @@
         $("document").ready(function () {
             $("#submitBtn").val($("#submitBtn").val() + lastExport);
         });
+
+        function getResultsByPage(pageNum) {
+            $.ajax({
+                url: "http://jdarchive.org/zeega/api/items/search?&type=Website&sort=relevant&limit=500&page=" + pageNum + "&published=1",
+                dataType: "json",
+                type: "GET",
+                success: function (r) {
+                    $("#resultsDiv").html(r["items_count"]);
+                }
+            });
+        }
+        $("#submitBtn").click(function () {
+            getResultsByPage(1);
+        });
     </script>
 </head>
     <body>
         <input type="button" id="submitBtn" value="Export Seeds created after " />
+        <div id="resultsDiv"></div>
     </body>
 </html>
