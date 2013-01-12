@@ -1,1 +1,15 @@
-﻿{{ lastExport }}
+﻿<html>
+<head>
+    <title>Export Seeds</title>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript">
+        var lastExport = "{{ lastExport }}";
+        $("document").ready(function () {
+            $("#submitBtn").val($("#submitBtn").val() + lastExport);
+        });
+    </script>
+</head>
+    <body>
+        <input type="button" id="submitBtn" value="Export Seeds created after " />
+    </body>
+</html>
