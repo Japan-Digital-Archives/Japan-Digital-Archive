@@ -18,13 +18,13 @@
                 type: "GET",
                 success: function (r) {
                     $.each(r.items, function (index, val) {
-                        var line = val.date_created + ", website, " + val.attributes.frequency + ", " + val.attributes.scope + ", " + val.id;
+                        var line = val.date_created + ", website, " + (val.attributes.frequency || "once") + ", " + (val.attributes.scope || "page") + ", " + val.id;
                         $("#resultsDiv").html($("#resultsDiv").html() + line + "</br>");
                     });
                     var lastItem = r.returned_items_count * r.query.limit;
                     
                     if (lastItem < r.item_count) {
-                        getResultsByPage(pageNum + 1);
+                        //getResultsByPage(pageNum + 1);
                     }
                 }
             });
