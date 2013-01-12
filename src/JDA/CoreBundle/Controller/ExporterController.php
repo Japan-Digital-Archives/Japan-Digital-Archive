@@ -14,12 +14,12 @@ class ExporterController extends Controller
         // $loggedUser = $this->get('security.context')->getToken()->getUser();
         $fileLoc = realpath("lastExport.txt");
         if(!file_exists($fileLoc)) {
-            file_put_contents($fileLoc, "1");
+            file_put_contents($fileLoc, date('m/d/Y h:i:s a', time()));
         }
-        $lastItem = file_get_contents($fileLoc);
+		$lastExport = file_get_contents($fileLoc);
         return $this->render('JDACoreBundle:SeedExport:export.html.twig', array(
                     'page'=> 'export',
-                    'lastItem' => $lastItem,
+                    'lastExport' => $lastExport,
                 ));
     }
 }
