@@ -6,6 +6,9 @@
         var lastExport = "{{ lastExport }}";
         $("document").ready(function () {
             $("#submitBtn").val($("#submitBtn").val() + lastExport);
+            $("#submitBtn").click(function () {
+                getResultsByPage(1);
+            });
         });
 
         function getResultsByPage(pageNum) {
@@ -18,9 +21,6 @@
                 }
             });
         }
-        $("#submitBtn").click(function () {
-            getResultsByPage(1);
-        });
     </script>
 </head>
     <body>
