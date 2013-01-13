@@ -22,5 +22,19 @@ class ExporterController extends Controller
                     'lastExport' => $lastExport,
                 ));
     }
+    
+	public function updateAction()
+    {
+
+        // $loggedUser = $this->get('security.context')->getToken()->getUser();
+        $fileLoc = realpath("lastExport.txt");
+        if(file_exists($fileLoc)) {
+            file_put_contents($fileLoc, date('m/d/Y h:i:s a', time()));
+        }
+        
+		return $this->render('JDACoreBundle:SeedExport:ok.html.twig', array(
+                    'page'=> 'export',
+                ));
+    }
 }
 
