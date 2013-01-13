@@ -27,6 +27,15 @@
                     
                     if (lastItem < r.item_count) {
                         //getResultsByPage(pageNum + 1);
+                    } else {
+                        $.ajax({
+                            url: document.location.href + "update/",
+                            dataType: "json",
+                            type: "GET",
+                            success: function (r) {
+                               
+                            }
+                        });
                     }
                 }
             });
