@@ -23,7 +23,7 @@
                             + ", " + (val.attributes.frequency || "once") + ", " + (val.attributes.scope || "page") + ", Seed Id: " + val.id;
                         $("#resultsDiv").html($("#resultsDiv").html() + line + "</br>");
                     });
-                    var lastItem = r.returned_items_count * r.query.limit;
+                    var lastItem = r.returned_items_count * r.request.query.limit;
                     
                     if (lastItem < r.item_count) {
                         //getResultsByPage(pageNum + 1);
