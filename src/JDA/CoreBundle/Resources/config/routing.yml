@@ -62,6 +62,6 @@ testimonial:
 export:
     pattern:   /export-seeds/
     defaults:  { _controller: JDACoreBundle:Exporter:index }
-export-update:
+export_update:
     pattern:   /export-seeds/update/
     defaults:  { _controller: JDACoreBundle:Exporter:update }
