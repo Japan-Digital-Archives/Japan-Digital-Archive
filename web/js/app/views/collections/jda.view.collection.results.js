@@ -326,7 +326,7 @@
 
 				
 				for(var i=0;i<textQueries.length;i++){
-					textQueries[i]="full_text LIKE '"+textQueries[i]+"'";
+					textQueries[i]="full_text ILIKE '"+textQueries[i]+"'";
 				}
 				
 				textFilter = "("+textQueries.join(" AND ")+")";
@@ -345,7 +345,7 @@
 				console.log(tagQueries.length);
 				for(var j=0;j<tagQueries.length;j++){
 					console.log(tagQueries[j]+"--");
-					tagQueries[j]="tags LIKE '"+tagQueries[j]+"'";
+					tagQueries[j]="tags ILIKE '"+tagQueries[j]+"'";
 					console.log(tagQueries[j]+"--");
 				}
 				console.log(tagQueries);
@@ -357,16 +357,16 @@
 
 			if(!_.isUndefined(search.media_type)&&search.media_type=="-Tweet" ){
 			
-				sqlFilters.push("media_type NOT LIKE 'Tweet'");
+				sqlFilters.push("media_type NOT ILIKE 'Tweet'");
 			
 			}
 			else if( !_.isUndefined(search.media_type)&&search.media_type!=="all" && search.media_type!== '')
 			{
-				sqlFilters.push("media_type LIKE '" + search.media_type + "'");
+				sqlFilters.push("media_type ILIKE '" + search.media_type + "'");
 			}
 			else
 			{
-				//sqlFilters.push("media_type LIKE ''");
+				//sqlFilters.push("media_type ILIKE ''");
 			}
 			if (sqlFilters.length>0)
 			{
