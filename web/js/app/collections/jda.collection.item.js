@@ -45,6 +45,9 @@
                 if(!_.isUndefined(obj.itemId) || jda.app.currentView=='event') {
                     this.search.published=undefined;
                 }
+                if(!_.isUndefined(obj.itemId) && _.isUndefined(obj.q)) {
+                    this.search.data_source="db";
+                }
             }
             
             _.extend(this.search,obj);
