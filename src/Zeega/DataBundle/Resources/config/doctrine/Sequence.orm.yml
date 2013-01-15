@@ -1,42 +1,45 @@
 # src/Zeega/EditorBundle/Resources/config/doctrine/Sequence.orm.yml
 Zeega\DataBundle\Entity\Sequence:
-   type: entity
-   table: sequence
-   repositoryClass: Zeega\DataBundle\Repository\EditorRepository
-   manyToOne:
-    project:
-     targetEntity: Project
-     onDelete: CASCADE
-     joinColumns:
-       project_id:
-        referencedColumnName: id
-        onDelete: CASCADE
-   manyToMany:
-    layers:
-     fetch: EAGER
-     targetEntity: Layer
-     inversedBy:
-      name: sequences
-     joinTable:
-      name: sequences_layers
-      joinColumns:
-       sequence_id:
-        referencedColumnName: id
-        onDelete: CASCADE
-      inverseJoinColumns:
-       layer_id:
-        referencedColumnName: id
-        onDelete: CASCADE
-   id:
+    type: entity
+    table: sequence
+    repositoryClass: Zeega\DataBundle\Repository\SequenceRepository
+    manyToOne:
+        project:
+           targetEntity: Project
+           onDelete: CASCADE
+           joinColumns:
+               project_id:
+                   referencedColumnName: id
+                   onDelete: CASCADE
     id:
-     type: integer
-     generator: { strategy: AUTO }
-   fields:
-    title:
-     type: string
-     length: 255
-    attr:
-     type: array
-     nullable: true
-
- 
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        project_id:
+            type: integer
+            associationKey: true
+        title:
+            type: string
+            length: 255
+        attr:
+            type: array
+            nullable: true
+        enabled:
+            type: boolean
+            nullable: true
+        persistent_layers:
+            type: array
+            nullable: true
+        description:
+            type: string
+            length: 140
+            nullable: true
+        advance_to:
+            type: integer
+            nullable: true
+    indexes:
+        sequence_enabled:
+            columns: [enabled]
+        sequence_project_id_index:
+            columns: [project_id]

@@ -21,8 +21,8 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             
             new FOS\UserBundle\FOSUserBundle(),                        
-            new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\jQueryBundle\SonatajQueryBundle(),
+			new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),      

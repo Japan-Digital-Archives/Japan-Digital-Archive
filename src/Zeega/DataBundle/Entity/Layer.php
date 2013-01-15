@@ -223,4 +223,88 @@ class Layer
     {
         $this->sequences[] = $sequences;
     }
+    /**
+     * @var integer
+     */
+    private $project_id;
+
+    /**
+     * @var boolean
+     */
+    private $enabled;
+
+    /**
+     * @var \Zeega\DataBundle\Entity\Project
+     */
+    private $project;
+
+
+    /**
+     * Set project_id
+     *
+     * @param integer $projectId
+     * @return Layer
+     */
+    public function setProjectId($projectId)
+    {
+        $this->project_id = $projectId;
+    
+        return $this;
+    }
+
+    /**
+     * Get project_id
+     *
+     * @return integer 
+     */
+    public function getProjectId()
+    {
+        return $this->project_id;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     * @return Layer
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean 
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * Set project
+     *
+     * @param \Zeega\DataBundle\Entity\Project $project
+     * @return Layer
+     */
+    public function setProject(\Zeega\DataBundle\Entity\Project $project = null)
+    {
+        $this->project = $project;
+    
+        return $this;
+    }
+
+    /**
+     * Get project
+     *
+     * @return \Zeega\DataBundle\Entity\Project 
+     */
+    public function getProject()
+    {
+        return $this->project;
+    }
 }

@@ -7,3 +7,9 @@ services:
         arguments: [null, Zeega\DataBundle\Entity\User, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, alias: zeega_admin_user, manager_type: orm, group: General, label: Users}
+    
+    zeega.admin.item:
+        class: Zeega\AdminBundle\AdminEntity\ItemAdmin
+        arguments: [null, Zeega\DataBundle\Entity\Item, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, alias: zeega_admin_item, manager_type: orm, group: General, label: Items}

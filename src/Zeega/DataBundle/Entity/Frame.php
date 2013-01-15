@@ -254,4 +254,172 @@ class Frame
     {
         return $this->link_right;
     }
+    /**
+     * @var integer
+     */
+    private $sequence_id;
+
+    /**
+     * @var integer
+     */
+    private $project_id;
+
+    /**
+     * @var string
+     */
+    private $thumbnail_url;
+
+    /**
+     * @var boolean
+     */
+    private $enabled;
+
+    /**
+     * @var boolean
+     */
+    private $controllable;
+
+    /**
+     * @var \Zeega\DataBundle\Entity\Project
+     */
+    private $project;
+
+
+    /**
+     * Set sequence_id
+     *
+     * @param integer $sequenceId
+     * @return Frame
+     */
+    public function setSequenceId($sequenceId)
+    {
+        $this->sequence_id = $sequenceId;
+    
+        return $this;
+    }
+
+    /**
+     * Get sequence_id
+     *
+     * @return integer 
+     */
+    public function getSequenceId()
+    {
+        return $this->sequence_id;
+    }
+
+    /**
+     * Set project_id
+     *
+     * @param integer $projectId
+     * @return Frame
+     */
+    public function setProjectId($projectId)
+    {
+        $this->project_id = $projectId;
+    
+        return $this;
+    }
+
+    /**
+     * Get project_id
+     *
+     * @return integer 
+     */
+    public function getProjectId()
+    {
+        return $this->project_id;
+    }
+
+    /**
+     * Set thumbnail_url
+     *
+     * @param string $thumbnailUrl
+     * @return Frame
+     */
+    public function setThumbnailUrl($thumbnailUrl)
+    {
+        $this->thumbnail_url = $thumbnailUrl;
+    
+        return $this;
+    }
+
+    /**
+     * Get thumbnail_url
+     *
+     * @return string 
+     */
+    public function getThumbnailUrl()
+    {
+        return $this->thumbnail_url;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     * @return Frame
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean 
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * Set controllable
+     *
+     * @param boolean $controllable
+     * @return Frame
+     */
+    public function setControllable($controllable)
+    {
+        $this->controllable = $controllable;
+    
+        return $this;
+    }
+
+    /**
+     * Get controllable
+     *
+     * @return boolean 
+     */
+    public function getControllable()
+    {
+        return $this->controllable;
+    }
+
+    /**
+     * Set project
+     *
+     * @param \Zeega\DataBundle\Entity\Project $project
+     * @return Frame
+     */
+    public function setProject(\Zeega\DataBundle\Entity\Project $project = null)
+    {
+        $this->project = $project;
+    
+        return $this;
+    }
+
+    /**
+     * Get project
+     *
+     * @return \Zeega\DataBundle\Entity\Project 
+     */
+    public function getProject()
+    {
+        return $this->project;
+    }
 }
