@@ -160,4 +160,228 @@ class User extends BaseUser
     {
         return $this->sites;
     }
+    /**
+     * @var string $user_type
+     */
+    private $user_type;
+
+    /**
+     * @var string $location
+     */
+    private $location;
+
+    /**
+     * @var float $location_latitude
+     */
+    private $location_latitude;
+
+    /**
+     * @var float $location_longitude
+     */
+    private $location_longitude;
+
+    /**
+     * @var string $background_image_url
+     */
+    private $background_image_url;
+
+    /**
+     * @var string $dropbox_delta
+     */
+    private $dropbox_delta;
+
+    /**
+     * @var string $idea
+     */
+    private $idea;
+
+    /**
+     * @var string $api_key
+     */
+    private $api_key;
+
+
+    /**
+     * Set user_type
+     *
+     * @param string $userType
+     * @return User
+     */
+    public function setUserType($userType)
+    {
+        $this->user_type = $userType;
+    
+        return $this;
+    }
+
+    /**
+     * Get user_type
+     *
+     * @return string 
+     */
+    public function getUserType()
+    {
+        return $this->user_type;
+    }
+
+    /**
+     * Set location
+     *
+     * @param string $location
+     * @return User
+     */
+    public function setLocation($location)
+    {
+        $this->location = $location;
+    
+        return $this;
+    }
+
+    /**
+     * Get location
+     *
+     * @return string 
+     */
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    /**
+     * Set location_latitude
+     *
+     * @param float $locationLatitude
+     * @return User
+     */
+    public function setLocationLatitude($locationLatitude)
+    {
+        $this->location_latitude = $locationLatitude;
+    
+        return $this;
+    }
+
+    /**
+     * Get location_latitude
+     *
+     * @return float 
+     */
+    public function getLocationLatitude()
+    {
+        return $this->location_latitude;
+    }
+
+    /**
+     * Set location_longitude
+     *
+     * @param float $locationLongitude
+     * @return User
+     */
+    public function setLocationLongitude($locationLongitude)
+    {
+        $this->location_longitude = $locationLongitude;
+    
+        return $this;
+    }
+
+    /**
+     * Get location_longitude
+     *
+     * @return float 
+     */
+    public function getLocationLongitude()
+    {
+        return $this->location_longitude;
+    }
+
+    /**
+     * Set background_image_url
+     *
+     * @param string $backgroundImageUrl
+     * @return User
+     */
+    public function setBackgroundImageUrl($backgroundImageUrl)
+    {
+        $this->background_image_url = $backgroundImageUrl;
+    
+        return $this;
+    }
+
+    /**
+     * Get background_image_url
+     *
+     * @return string 
+     */
+    public function getBackgroundImageUrl()
+    {
+        return $this->background_image_url;
+    }
+
+    /**
+     * Set dropbox_delta
+     *
+     * @param string $dropboxDelta
+     * @return User
+     */
+    public function setDropboxDelta($dropboxDelta)
+    {
+        $this->dropbox_delta = $dropboxDelta;
+    
+        return $this;
+    }
+
+    /**
+     * Get dropbox_delta
+     *
+     * @return string 
+     */
+    public function getDropboxDelta()
+    {
+        return $this->dropbox_delta;
+    }
+
+    /**
+     * Set idea
+     *
+     * @param string $idea
+     * @return User
+     */
+    public function setIdea($idea)
+    {
+        $this->idea = $idea;
+    
+        return $this;
+    }
+
+    /**
+     * Get idea
+     *
+     * @return string 
+     */
+    public function getIdea()
+    {
+        return $this->idea;
+    }
+
+    /**
+     * Set api_key
+     *
+     * @param string $apiKey
+     * @return User
+     */
+    public function setApiKey($apiKey)
+    {
+        $this->api_key = $apiKey;
+    
+        return $this;
+    }
+
+    /**
+     * Get api_key
+     *
+     * @return string 
+     */
+    public function getApiKey()
+    {
+        return $this->api_key;
+    }
 }

@@ -727,4 +727,315 @@ class Item
     {
         // Add your code here
     }
+    /**
+     * @var \DateTime $date_updated
+     */
+    private $date_updated;
+
+    /**
+     * @var string $location
+     */
+    private $location;
+
+    /**
+     * @var string $license
+     */
+    private $license;
+
+    /**
+     * @var array $attributes
+     */
+    private $attributes;
+
+    /**
+     * @var string $id_at_source
+     */
+    private $id_at_source;
+
+    /**
+     * @var boolean $enabled
+     */
+    private $enabled;
+
+    /**
+     * @var boolean $published
+     */
+    private $published;
+
+    /**
+     * @var string $ingested_by
+     */
+    private $ingested_by;
+
+    /**
+     * @var integer $duration
+     */
+    private $duration;
+
+
+    /**
+     * Set date_updated
+     *
+     * @param \DateTime $dateUpdated
+     * @return Item
+     */
+    public function setDateUpdated($dateUpdated)
+    {
+        $this->date_updated = $dateUpdated;
+    
+        return $this;
+    }
+
+    /**
+     * Get date_updated
+     *
+     * @return \DateTime 
+     */
+    public function getDateUpdated()
+    {
+        return $this->date_updated;
+    }
+
+    /**
+     * Set location
+     *
+     * @param string $location
+     * @return Item
+     */
+    public function setLocation($location)
+    {
+        $this->location = $location;
+    
+        return $this;
+    }
+
+    /**
+     * Get location
+     *
+     * @return string 
+     */
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    /**
+     * Set license
+     *
+     * @param string $license
+     * @return Item
+     */
+    public function setLicense($license)
+    {
+        $this->license = $license;
+    
+        return $this;
+    }
+
+    /**
+     * Get license
+     *
+     * @return string 
+     */
+    public function getLicense()
+    {
+        return $this->license;
+    }
+
+    /**
+     * Set attributes
+     *
+     * @param array $attributes
+     * @return Item
+     */
+    public function setAttributes($attributes)
+    {
+        $this->attributes = $attributes;
+    
+        return $this;
+    }
+
+    /**
+     * Get attributes
+     *
+     * @return array 
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * Set tags
+     *
+     * @param array $tags
+     * @return Item
+     */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+    
+        return $this;
+    }
+
+    /**
+     * Set id_at_source
+     *
+     * @param string $idAtSource
+     * @return Item
+     */
+    public function setIdAtSource($idAtSource)
+    {
+        $this->id_at_source = $idAtSource;
+    
+        return $this;
+    }
+
+    /**
+     * Get id_at_source
+     *
+     * @return string 
+     */
+    public function getIdAtSource()
+    {
+        return $this->id_at_source;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     * @return Item
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean 
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * Set published
+     *
+     * @param boolean $published
+     * @return Item
+     */
+    public function setPublished($published)
+    {
+        $this->published = $published;
+    
+        return $this;
+    }
+
+    /**
+     * Get published
+     *
+     * @return boolean 
+     */
+    public function getPublished()
+    {
+        return $this->published;
+    }
+
+    /**
+     * Set ingested_by
+     *
+     * @param string $ingestedBy
+     * @return Item
+     */
+    public function setIngestedBy($ingestedBy)
+    {
+        $this->ingested_by = $ingestedBy;
+    
+        return $this;
+    }
+
+    /**
+     * Get ingested_by
+     *
+     * @return string 
+     */
+    public function getIngestedBy()
+    {
+        return $this->ingested_by;
+    }
+
+    /**
+     * Set duration
+     *
+     * @param integer $duration
+     * @return Item
+     */
+    public function setDuration($duration)
+    {
+        $this->duration = $duration;
+    
+        return $this;
+    }
+
+    /**
+     * Get duration
+     *
+     * @return integer 
+     */
+    public function getDuration()
+    {
+        return $this->duration;
+    }
+
+    /**
+     * Add child_items
+     *
+     * @param Zeega\DataBundle\Entity\Item $childItems
+     * @return Item
+     */
+    public function addChildItem(\Zeega\DataBundle\Entity\Item $childItems)
+    {
+        $this->child_items[] = $childItems;
+    
+        return $this;
+    }
+
+    /**
+     * Remove child_items
+     *
+     * @param Zeega\DataBundle\Entity\Item $childItems
+     */
+    public function removeChildItem(\Zeega\DataBundle\Entity\Item $childItems)
+    {
+        $this->child_items->removeElement($childItems);
+    }
+
+    /**
+     * Add parent_items
+     *
+     * @param Zeega\DataBundle\Entity\Item $parentItems
+     * @return Item
+     */
+    public function addParentItem(\Zeega\DataBundle\Entity\Item $parentItems)
+    {
+        $this->parent_items[] = $parentItems;
+    
+        return $this;
+    }
+
+    /**
+     * Remove parent_items
+     *
+     * @param Zeega\DataBundle\Entity\Item $parentItems
+     */
+    public function removeParentItem(\Zeega\DataBundle\Entity\Item $parentItems)
+    {
+        $this->parent_items->removeElement($parentItems);
+    }
 }
