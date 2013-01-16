@@ -6,8 +6,7 @@
         var lastExport = "{{ lastExport }}";
         $("document").ready(function () {
             $("#submitBtn").val($("#submitBtn").val() + lastExport);
-            var lastExportNum = Date.parse(lastExport);
-            alert(lastExportNum);
+            alert(lastExport);
             $("#submitBtn").click(function () {
                 getResultsByPage(1);
                 $("#submitBtn").hide();
