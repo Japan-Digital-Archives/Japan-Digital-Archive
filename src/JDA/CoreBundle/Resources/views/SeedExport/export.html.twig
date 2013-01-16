@@ -15,19 +15,21 @@
 
         function getResultsByPage(pageNum) {
             $.ajax({
-                url: "http://jdarchive.org/zeega/api/items/search?&type=Website&sort=relevant&limit=500&page=" + pageNum + "&published=1",
+                url: "http://jdarchive.org/zeega/api/items/search?&type=Website&sort=relevant&limit=500&page=" + pageNum + "&published=1&after=" + lastExport,
                 dataType: "json",
                 type: "GET",
                 success: function (r) {
                     $.each(r.items, function (index, val) {
-                        var line = val.date_created + ", website, " + val.uri.replace("http://wayback.archive-it.org/2438/20110301000000/", "")
-                            + ", " + (val.attributes.frequency || "once") + ", " + (val.attributes.scope || "page") + ", Seed Id: " + val.id;
-                        $("#resultsDiv").html($("#resultsDiv").html() + line + "</br>");
+                        if (val.id >= 890497) {
+                            var line = val.date_created + ", website, " + val.uri.replace("http://wayback.archive-it.org/2438/20110301000000/", "")
+                                + ", " + (val.attributes.frequency || "once") + ", " + (val.attributes.scope || "page") + ", Seed Id: " + val.id;
+                            $("#resultsDiv").html($("#resultsDiv").html() + line + "</br>");
+                        }
                     });
                     var lastItem = r.returned_items_count * r.request.query.limit;
                     
                     if (lastItem < r.item_count) {
-                        //getResultsByPage(pageNum + 1);
+                        getResultsByPage(pageNum + 1);
                     } else {
                         $.ajax({
                             url: document.location.href + "update/",
