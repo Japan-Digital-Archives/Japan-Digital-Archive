@@ -11,12 +11,15 @@ class ExporterController extends Controller
     public function indexAction()
     {
 
-        // $loggedUser = $this->get('security.context')->getToken()->getUser();
+        $loggedUser = $this->get('security.context')->getToken()->getUser();
+        if(!is_object($loggedUser)){
+            return $this->redirect('/web/login');
+        }        
         $fileLoc = realpath("lastExport.txt");
         if(!file_exists($fileLoc)) {
             file_put_contents($fileLoc, date('m/d/Y h:i:s a', strtotime('12/11/2012 1:51:00 pm')));
         }
-		$lastExport = file_get_contents($fileLoc);
+		$lastExport = strtotime(file_get_contents($fileLoc));
         return $this->render('JDACoreBundle:SeedExport:export.html.twig', array(
                     'page'=> 'export',
                     'lastExport' => $lastExport,
@@ -26,10 +29,13 @@ class ExporterController extends Controller
 	public function updateAction()
     {
 
-        // $loggedUser = $this->get('security.context')->getToken()->getUser();
+        $loggedUser = $this->get('security.context')->getToken()->getUser();
+        if(!is_object($loggedUser)){
+            return $this->redirect('/web/login');
+        }        
         $fileLoc = realpath("lastExport.txt");
         if(file_exists($fileLoc)) {
-            file_put_contents($fileLoc, date('m/d/Y h:i:s a', time()));
+            //file_put_contents($fileLoc, date('m/d/Y h:i:s a', time()));
         }
         
 		return $this->render('JDACoreBundle:SeedExport:ok.html.twig', array(
