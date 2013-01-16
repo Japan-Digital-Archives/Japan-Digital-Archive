@@ -27,7 +27,7 @@ class ItemAdmin extends Admin
 			->add('location')
 			->add('media_creator_username')
 			->add('media_creator_realname')
-			->add('tags')
+			->add('tags', NULL, array('allow_add' => true, 'allow_delete' => true))
 			->add('published')
         ;
     }
@@ -38,6 +38,7 @@ class ItemAdmin extends Admin
             ->add('title')
             ->add('uri')
 			->add('published')
+            ->add('media_type')
         ;
     }
 
