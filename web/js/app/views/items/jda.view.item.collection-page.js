@@ -35,7 +35,7 @@
 		
 		playCollection: function()
 		{
-			window.open(sessionStorage.getItem('apiUrl')+'collection/'+this.model.id+'/view');
+			window.open(sessionStorage.getItem('hostname')+'player/collection/'+this.model.id+'/view');
 		},
 		
 
