@@ -128,4 +128,144 @@ class Sequence
     {
         return $this->layers;
     }
+    /**
+     * @var integer $project_id
+     */
+    private $project_id;
+
+    /**
+     * @var boolean $enabled
+     */
+    private $enabled;
+
+    /**
+     * @var array $persistent_layers
+     */
+    private $persistent_layers;
+
+    /**
+     * @var string $description
+     */
+    private $description;
+
+    /**
+     * @var integer $advance_to
+     */
+    private $advance_to;
+
+
+    /**
+     * Set project_id
+     *
+     * @param integer $projectId
+     * @return Sequence
+     */
+    public function setProjectId($projectId)
+    {
+        $this->project_id = $projectId;
+    
+        return $this;
+    }
+
+    /**
+     * Get project_id
+     *
+     * @return integer 
+     */
+    public function getProjectId()
+    {
+        return $this->project_id;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     * @return Sequence
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean 
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * Set persistent_layers
+     *
+     * @param array $persistentLayers
+     * @return Sequence
+     */
+    public function setPersistentLayers($persistentLayers)
+    {
+        $this->persistent_layers = $persistentLayers;
+    
+        return $this;
+    }
+
+    /**
+     * Get persistent_layers
+     *
+     * @return array 
+     */
+    public function getPersistentLayers()
+    {
+        return $this->persistent_layers;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Sequence
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set advance_to
+     *
+     * @param integer $advanceTo
+     * @return Sequence
+     */
+    public function setAdvanceTo($advanceTo)
+    {
+        $this->advance_to = $advanceTo;
+    
+        return $this;
+    }
+
+    /**
+     * Get advance_to
+     *
+     * @return integer 
+     */
+    public function getAdvanceTo()
+    {
+        return $this->advance_to;
+    }
 }

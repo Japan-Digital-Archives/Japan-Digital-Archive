@@ -128,4 +128,27 @@ class Tag
     {
         return $this->item;
     }
+
+    /**
+     * Add item
+     *
+     * @param Zeega\DataBundle\Entity\ItemTags $item
+     * @return Tag
+     */
+    public function addItem(\Zeega\DataBundle\Entity\ItemTags $item)
+    {
+        $this->item[] = $item;
+    
+        return $this;
+    }
+
+    /**
+     * Remove item
+     *
+     * @param Zeega\DataBundle\Entity\ItemTags $item
+     */
+    public function removeItem(\Zeega\DataBundle\Entity\ItemTags $item)
+    {
+        $this->item->removeElement($item);
+    }
 }
