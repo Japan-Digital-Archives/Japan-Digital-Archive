@@ -97,7 +97,7 @@ fos_user:
         address: noreply@jdarchive.org
         sender_name: Zeega
     resetting:
-        token_ttl: 8640000
+        token_ttl: 600
         email:
             template: ZeegaUserBundle:Email:resetting.email.twig
     registration:
