@@ -1048,3 +1048,25 @@
         </body>
     </file>
 </xliff>
+it>
+            <trans-unit id="257">
+                <source>jda.collection.dragcover</source>
+                <target>drag to add a cover image</target>
+            </trans-unit>
+            <trans-unit id="258">
+                <source>jda.search.excludetweets</source>
+                <target>ツイート以外</target>
+            </trans-unit>
+             <trans-unit id="259">
+                <source>jda.team.interaction</source>
+                <target>Interaction Design</target>
+            </trans-unit>
+            <trans-unit id="260">
+            	<source>jda.form.testimonial.title</source>
+            	<target>わたしの「東日本大震災」</source>
+            </trans-unit>
+            <trans-unit id="261">
+            	<source>
+        </body>
+    </file>
+</xliff>
