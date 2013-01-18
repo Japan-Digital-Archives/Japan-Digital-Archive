@@ -730,12 +730,12 @@
             </trans-unit>
             <trans-unit id="182">
               <source>jda.form.contribute.title</source>
-              <target>Contribute</target>
+              <target>投稿方法</target>
             </trans-unit>
             <trans-unit id="183">
               <source>jda.form.contribute.instructions</source>
               <target>
-                We need your help finding websites to archive! Please fill out the form below as thoroughly as possible. &lt;br /&gt; &lt;span style="color:red;"&gt;*&lt;/span&gt; Required Field
+                アーカイブにウェブサイトを収録するため、皆様のご協力をお願い致します。なるべく詳しく以下の質問事項にお答え下さい。 &lt;br /&gt; &lt;span style="color:red;"&gt;*&lt;/span&gt; 必須事項
               </target>
             </trans-unit>
             <trans-unit id="184">
@@ -744,170 +744,170 @@
             </trans-unit>
             <trans-unit id="185">
               <source>jda.form.contribute.pageTitle</source>
-              <target>Page Title</target>
+              <target>ウェブサイトのタイトル</target>
             </trans-unit>
             <trans-unit id="186">
               <source>jda.form.contribute.description</source>
-              <target>Description</target>
+              <target>説明</target>
             </trans-unit>
             <trans-unit id="187">
               <source>jda.form.contribute.frequency</source>
-              <target>Frequency</target>
+              <target>ウェブサイトの説明したタイトル</target>
             </trans-unit>
             <trans-unit id="188">
               <source>jda.form.contribute.scope</source>
-              <target>Scope</target>
+              <target>ウェブサイトのURL</target>
             </trans-unit>
             <trans-unit id="189">
               <source>jda.form.contribute.tags</source>
-              <target>Tags</target>
+              <target>タグ付け</target>
             </trans-unit>
             <trans-unit id="190">
               <source>jda.form.contribute.location</source>
-              <target>Location</target>
+              <target>地名</target>
             </trans-unit>
             <trans-unit id="191">
               <source>jda.form.contribute.category</source>
-              <target>Category</target>
+              <target>カテゴリー</target>
             </trans-unit>
             <trans-unit id="192">
               <source>jda.form.contribute.language</source>
-              <target>Language</target>
+              <target>言語</target>
             </trans-unit>
             <trans-unit id="193">
               <source>jda.form.contribute.name</source>
-              <target>Your Name</target>
+              <target>お名前</target>
             </trans-unit>
             <trans-unit id="194">
               <source>jda.form.contribute.email</source>
-              <target>Your Email</target>
+              <target>Eメールアドレス</target>
             </trans-unit>
             <trans-unit id="195">
               <source>jda.form.contribute.once</source>
-              <target>Archive Once</target>
+              <target>一度のみ</target>
             </trans-unit>
             <trans-unit id="196">
               <source>jda.form.contribute.daily</source>
-              <target>Daily</target>
+              <target>毎日</target>
             </trans-unit>
             <trans-unit id="197">
               <source>jda.form.contribute.weekly</source>
-              <target>Weekly</target>
+              <target>毎週</target>
             </trans-unit>
             <trans-unit id="198">
               <source>jda.form.contribute.monthly</source>
-              <target>Monthly</target>
+              <target>毎月</target>
             </trans-unit>
             <trans-unit id="199">
               <source>jda.form.contribute.scope.page</source>
-              <target>One Page</target>
+              <target>１ページのみ</target>
             </trans-unit>
             <trans-unit id="200">
               <source>jda.form.contribute.scope.directory</source>
-              <target>Directory</target>
+              <target>ディレクトリーも含む</target>
             </trans-unit>
             <trans-unit id="201">
               <source>jda.form.contribute.scope.site</source>
-              <target>Full Site</target>
+              <target>サイト全て</target>
             </trans-unit>
             <trans-unit id="202">
               <source>jda.form.contribute.map.hint</source>
-              <target>Search to designate a location that this website is primarily about. Move the point if necessary.</target>
+              <target>主に言及されている地名を検索して下さい。見つからない場合は直接マーカーを動かすことができます。</target>
             </trans-unit>
             <trans-unit id="203">
               <source>jda.form.contribute.language.english</source>
-              <target>English</target>
+              <target>英語</target>
             </trans-unit>
             <trans-unit id="204">
               <source>jda.form.contribute.language.japanese</source>
-              <target>Japanese</target>
+              <target>日本語</target>
             </trans-unit>
             <trans-unit id="205">
               <source>jda.form.contribute.language.chinese</source>
-              <target>Chinese</target>
+              <target>中国語</target>
             </trans-unit>
             <trans-unit id="206">
               <source>jda.form.contribute.language.korean</source>
-              <target>Korean</target>
+              <target>韓国語</target>
             </trans-unit>
             <trans-unit id="207">
               <source>jda.form.testimonial.title</source>
-              <target>Testimonial</target>
+              <target>わたしの「東日本大震災」</target>
             </trans-unit>
             <trans-unit id="208">
               <source>jda.form.testimonial.instructions</source>
-              <target>Please enter as much information as you feel comfortable with in the fields below. &lt;br /&gt; &lt;span style="color:red;"&gt;*&lt;/span&gt; Required Field</target>
+              <target>差し支えの無い範囲で、なるべく詳しく以下の質問項目にお答え下さい。 &lt;br /&gt; &lt;span style="color:red;"&gt;*&lt;/span&gt; 必須事項</target>
             </trans-unit>
             <trans-unit id="209">
               <source>jda.form.testimonial.name</source>
-              <target>Your Name</target>
+              <target>お名前</target>
             </trans-unit>
             <trans-unit id="210">
               <source>jda.form.testimonial.privacy</source>
-              <target>Name Privacy</target>
+              <target>お名前のプライバシー</target>
             </trans-unit>
             <trans-unit id="211">
               <source>jda.form.testimonial.privacy.show</source>
-              <target>Show</target>
+              <target>公開</target>
             </trans-unit>
             <trans-unit id="212">
               <source>jda.form.testimonial.privacy.hide</source>
-              <target>Hide</target>
+              <target>非公開</target>
             </trans-unit>
             <trans-unit id="213">
               <source>jda.form.testimonial.email</source>
-              <target>Email</target>
+              <target>Eメールアドレス</target>
             </trans-unit>
             <trans-unit id="214">
               <source>jda.form.testimonial.residence</source>
-              <target>Place of Residence</target>
+              <target>当時の住所</target>
             </trans-unit>
             <trans-unit id="215">
               <source>jda.form.testimonial.occupation</source>
-              <target>Occupation</target>
+              <target>ご職業</target>
             </trans-unit>
             <trans-unit id="216">
               <source>jda.form.testimonial.birthyear</source>
-              <target>Year of Birth</target>
+              <target>誕生年</target>
             </trans-unit>
             <trans-unit id="217">
               <source>jda.form.testimonial.story</source>
-              <target>Tell us your story</target>
+              <target>あなたの物語をお話し下さい。</target>
             </trans-unit>
             <trans-unit id="218">
               <source>jda.form.testimonial.to</source>
-              <target>To</target>
+              <target>〜まで</target>
             </trans-unit>
             <trans-unit id="219">
               <source>jda.form.testimonial.from</source>
-              <target>From</target>
+              <target>〜から</target>
             </trans-unit>
             <trans-unit id="220">
               <source>jda.form.testimonial.locations</source>
-              <target>Locations</target>
+              <target>場所</target>
             </trans-unit>
             <trans-unit id="221">
               <source>jda.form.testimonial.locations.note</source>
-              <target>Please list the locations about which you are writing. Search for or directly move the pin to each location. You may optionally give each location a specific name.</target>
+              <target>この物語はどこで起きたものですか？またそのお話の中で言及されている場所はどこですか。下記に１つ以上の地名をご記入下さい。</target>
             </trans-unit>
             <trans-unit id="222">
               <source>jda.form.testimonial.imageUpload</source>
-              <target>Add images</target>
+              <target>写真を追加する</target>
             </trans-unit>
             <trans-unit id="223">
               <source>jda.form.testimonial.terms</source>
-              <target>Terms</target>
+              <target>同意事項</target>
             </trans-unit>
             <trans-unit id="224">
               <source>jda.form.testimonial.terms.text</source>
               <target>
-                Do you grant us permission to include your story in the digital archive and allow all visitors to the archive read it? You must grant us permission if you wish to add the story to our archive. Your email will not be made public. All other information, except for your name, if you chose to hide it, can be found by visitors to the archive. After submission, a link will be sent to the email address above that will allow you to edit or remove your contribution to the archive.
-                &lt;br /&gt;I accept these terms
+                あなたの物語が当デジタルアーカイブに記録され、訪れた人がそれを読めることに同意しますか。デジタルアーカイブへの記録を希望される場合、ご同意が必要となります。Eメールアドレスは完全に非公開ですが、お名前も含めた他のすべての情報は閲覧者が読むことができます（ただし「非公開」を選ばれた場合、お名前は表示されません）。 投稿後、ご記入されたEメールアドレス宛に届くリンクを通じて、投稿内容を訂正または削除することができます。
+                &lt;br /&gt;同意します
               </target>
             </trans-unit>
             <trans-unit id="225">
               <source>jda.form.testimonial.title</source>
-              <target>Testimonials</target>
+              <target>わたしの「東日本大震災」</target>
             </trans-unit>
             <trans-unit id="226">
                 <source>jda.collection.delete</source>
@@ -1045,28 +1045,10 @@
                 <source>jda.team.interaction</source>
                 <target>Interaction Design</target>
             </trans-unit>
-        </body>
-    </file>
-</xliff>
-it>
-            <trans-unit id="257">
-                <source>jda.collection.dragcover</source>
-                <target>drag to add a cover image</target>
-            </trans-unit>
-            <trans-unit id="258">
-                <source>jda.search.excludetweets</source>
-                <target>ツイート以外</target>
-            </trans-unit>
-             <trans-unit id="259">
-                <source>jda.team.interaction</source>
-                <target>Interaction Design</target>
-            </trans-unit>
             <trans-unit id="260">
             	<source>jda.form.testimonial.title</source>
             	<target>わたしの「東日本大震災」</source>
             </trans-unit>
-            <trans-unit id="261">
-            	<source>
         </body>
     </file>
 </xliff>
