@@ -179,7 +179,7 @@ require(loadFiles, function () {
 
         $("#submitContributeBtn").click(function () {
             if ($("#contributeForm").valid()) {
-                var baseApiUrl = "http://" + document.domain + "/zeega/web/api/items"
+                var baseApiUrl = "http://" + document.domain + "/zeega/api/items"
                 var postObj = {};
 
                 postObj.title = $("#pageTitleTxt").val();
@@ -239,7 +239,7 @@ require(loadFiles, function () {
 
         $("#submitTestimonialBtn").click(function () {
             if ($("#testimonialForm").valid()) {
-                var baseApiUrl = "http://" + document.domain + "/zeega/web/api/items"
+                var baseApiUrl = "http://" + document.domain + "/zeega/api/items"
                 var postObj = {};
 
                 postObj.title = $("#titleTxt").val();
