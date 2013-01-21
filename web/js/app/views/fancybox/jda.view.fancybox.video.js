@@ -23,7 +23,7 @@
 		
 		this.unique =Math.floor(Math.random() *10000);
 		$(this.el).find('.fancybox-media-item').append($('<div>').attr({id:'fancybox-video-'+this.unique}).addClass('fancybox-shrinkable'));
-		
+		$(this.el).find('.text-wrapper').hide();
 
 		//set fancybox content
 		obj.content = $(this.el);
