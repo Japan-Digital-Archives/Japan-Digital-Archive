@@ -1042,6 +1042,10 @@
                 <source>jda.team.interaction</source>
                 <target>Interaction Design</target>
             </trans-unit>
+             <trans-unit id="260">
+                <source>fancybox.text</source>
+                <target>Text</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

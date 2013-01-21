@@ -304,7 +304,11 @@ margin-left: -20px;
 	top: 56px;display:none;color:#666
 }
 .jda-no-geo-info{
-	background: url("../images/nogeomap.gif") no-repeat;
+	background: url("../images/nogeomap.gif") no-repeat center center; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 .jda-edit-btn {
 	display:none;

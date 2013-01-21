@@ -39,11 +39,11 @@
 
 				case 'Video':
 					source = this.model.get('uri');
-					this.plyr = new Plyr('fancybox-video-'+this.unique,{url:source,controls:1});
+					this.plyr = new Plyr('fancybox-video-'+this.unique,{url:source});
 					break;
 				case 'Youtube':
 					source = "http://www.youtube.com/watch?v="+this.model.get('uri');
-					this.plyr = new Plyr('fancybox-video-'+this.unique,{url:source,controls:1});
+					this.plyr = new Plyr('fancybox-video-'+this.unique,{url:source});
 					
 					break;
 				case 'Vimeo':

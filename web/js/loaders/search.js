@@ -42,7 +42,7 @@ require (
 	'order!../lib/jeditable.min',
 	'order!../lib/dateformat/date.format',
 	'order!../lib/visualsearch/visualsearch',
-	'order!../lib/popcorn_flash',
+	'order!../lib/popcorn-flash',
 	'order!../lib/wax.ol.min',
 	//mvc
 	'order!../app/jda',
@@ -90,9 +90,8 @@ require (
 	'order!../app/views/fancybox/jda.view.fancybox.tweet',
 	'order!../app/views/fancybox/jda.view.fancybox.soundcloud',
 	'order!../app/views/fancybox/jda.view.fancybox.video',
-	'order!../app/views/fancybox/jda.view.fancybox.mapbox',
 	'order!../app/views/fancybox/jda.view.fancybox.website',
-//	'order!../app/views/fancybox/jda.view.fancybox.pdf',
+
 
 	
 	

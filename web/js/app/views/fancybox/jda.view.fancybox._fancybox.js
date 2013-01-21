@@ -14,8 +14,6 @@
 		},
 
 		events : {
-			'click .fancybox-more-button' : 'more',
-			'click .fancybox-less-button' : 'less',
 			'click .jda-share-link input' : function(){
 				$('.jda-share-link input').select();
 			}
@@ -28,7 +26,7 @@
 		afterShow:function()
 		{
 
-			if(this.locatorMapView.geoLocated&&sessionStorage.getItem('moreFancy')) this.locatorMapView.addMap();
+			this.locatorMapView.addMap();
 
 			var _this = this;
 			
@@ -140,12 +138,11 @@
 		
 		
 		more : function(){
-			console.log('calling more');
+
 			var _this=this;
 			sessionStorage.setItem('moreFancy', true);
 			$(this.el).find('.less').hide();
 			$(this.el).find('.more').fadeIn('fast');
-			this.locatorMapView.addMap();
 			$(this.el).find('.plyr-video').css({'height':'200px'});
 			$(this.el).find(".fancybox-shrinkable").addClass("fancybox-media-wrapper-more");
 			$(this.el).find(".fancybox-media-wrapper").addClass("fancybox-media-wrapper-more");
@@ -196,6 +193,7 @@
 				description : this.model.get('description'),
 				creator : this.model.get('media_creator_username'),
 				tags : this.model.get('tags'),
+				text : this.model.get('text').replace(/\r\n/gi, '<br/>'),
 				randId: this.elemId
 			};
 			
@@ -225,9 +223,10 @@
 			
 
 			//Fancybox will remember if user was in MORE or LESS view
-			if (sessionStorage.getItem('moreFancy') == "true") this.more(this.el);
-			else this.less(this.el);
+			//if (sessionStorage.getItem('moreFancy') == "true") this.more(this.el);
+			//else this.less(this.el);
 
+			this.more(this.el);
 		
 			if(this.model.get('editable')){
 
@@ -362,7 +361,7 @@
 							'<div class="fancybox-left-column">' +
 								/* Share & Add to collection buttons */
 								'<div style="margin-bottom:3px">'+
-									'<button class="btn btn-mini btn-inverse pull-left jda-show-share-link" style="margin-right:5px;margin-bottom:3px"><i  class="icon-share-alt icon-white"></i>'+l.fancybox_link+'</button> '+
+									'<button class="btn btn-mini btn-inverse pull-left jda-show-share-link" ><i  class="icon-share-alt icon-white"></i>'+l.fancybox_link+'</button> '+
 									'<div class="btn-group jda-add-to-menu pull-left">'+
 										'<a class="btn btn-mini btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">'+
 											l.fancybox_addto +
@@ -372,26 +371,37 @@
 										'</ul>'+
 									'</div><span class="label label-info jda-saving" style="display:none;margin-left:3px">Saving...</span><span class="label label-success jda-added" style="display:none;margin-left:3px">Added</span><span  style="display:none;margin-left:3px" class="label label-warning jda-duplicate-item">Duplicate</span>'+
 								'</div>'+
-								'<div class="jda-share-link" style="display:none;float:none;clear:both;margin-top:3px">'+
+								'<div class="jda-share-link">'+
 									'<input type="text" value="<%= itemShareLink %>">'+
 								'</div>'+
 
 								/* Media Item */
 								'<div class="fancybox-media-item media-item" style="clear:both"></div>'+
 
-								/* Tags */
-								'<p class="more subheader" style="clear:both">'+l.fancybox_tags+'</p><div id="zeega-tag-container" class="more zeega-tags">'+
-								'<input name="tags" class="fancybox-editable tagsedit" id="<%=randId%>" value="<%=tags%>" />'+
+								/* Map */
+								'<div id = "fancybox-map" class="more geo"></div>'+
+								
+								
+							'</div>'+
+							'<p class="fancybox-editable title" style="text-transform: uppercase;"><%= title %></p>'+
+							'<p><span class=" creator fancybox-editable"><%= creator %></span> <span class="source"><a href="<%= sourceLink %>" target="_blank"><%= sourceText %></a></span></p>'+
+							'<div class="fancybox-right-column">'+
+								
+								'<div class="description-wrapper">'+
+									'<p class="more subheader">'+l.fancybox_description+'</p><p class="more description fancybox-editable"><%= description %></p>'+
+								'</div>'+
+								'<div class="tags-wrapper">'+
+									'<p class="more subheader" >'+l.fancybox_tags+'</p>'+
+									'<div id="zeega-tag-container" class="more zeega-tags">'+
+										'<input name="tags" class="more fancybox-editable tagsedit" id="<%=randId%>" value="<%=tags%>" />'+
+									'</div>'+
+								'</div>'+
+								'<div class="text-wrapper">'+
+									'<p class="more subheader">'+l.fancybox_text+'</p><p class="more description fancybox-editable"><%= text %></p>'+
 								'</div>'+
 							'</div>'+
-							'<p class="fancybox-editable title"><%= title %></p>'+
-							'<p><span class=" creator fancybox-editable"><%= creator %></span> <span class="source"><a href="<%= sourceLink %>" target="_blank"><%= sourceText %></a></span></p>'+
-							'<p class="more subheader">'+l.fancybox_description+'</p><p class="more description fancybox-editable"><%= description %></p>'+
-							'<div id = "fancybox-map" class="more geo"></div>'+
-
 						'</div>'+
 						'<div class="fancybox-buttons" class="clearfix">'+
-							'<p class="less fancybox-more-button"><a href=".">'+l.fancybox_more+'</a></p><p class="more fancybox-less-button"><a href=".">'+l.fancybox_less+'</a></p>'+
 							'<p class="fancybox-delete-button more" style="display:none"><a href=".">delete</a></p>'+
 							'<p class="fancybox-confirm-delete-button">are you totally sure you want to delete this? '+
 							'<a href="." class="yes-confirm-delete">yes</a> <a class="no-do-not-delete" href=".">no</a></p>'+

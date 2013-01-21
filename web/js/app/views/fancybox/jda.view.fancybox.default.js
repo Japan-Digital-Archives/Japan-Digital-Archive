@@ -31,7 +31,7 @@
 
 			//copy the cloned item into the el
 			var imageHTML =  template( blanks ) ;
-
+			$(this.el).find('.description-wrapper').hide();
 			$(this.el).find('.fancybox-media-item').html(imageHTML);
 
 			//set fancybox content
@@ -42,9 +42,7 @@
 		getMediaTemplate : function()
 		{
 
-			var html =	''+
-							'<img src="<%=src%>" title="<%=title%>" alt="<%=title%>"/>'+
-						'';
+			var html =	'<img src="<%=src%>" title="<%=title%>" alt="<%=title%>"/>';
 
 			return html;
 		}
