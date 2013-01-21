@@ -11,12 +11,12 @@
 
 require (
 	[
-	//data 
+	//data
 	
 	'order!../data/map-layers',
 	
 	
-	//libraries	
+	//libraries
 	//'text!../app/views/items/templates.html',
 	
 	
@@ -91,6 +91,8 @@ require (
 	'order!../app/views/fancybox/jda.view.fancybox.soundcloud',
 	'order!../app/views/fancybox/jda.view.fancybox.video',
 	'order!../app/views/fancybox/jda.view.fancybox.website',
+	'order!../app/views/fancybox/jda.view.fancybox.article',
+	'order!../app/views/fancybox/jda.view.fancybox.bookmark',
 
 
 	
@@ -101,7 +103,7 @@ require (
 
 	//custom
 	'order!../helpers/utils',
-	'order!../ux/jda.ux.search',
+	'order!../ux/jda.ux.search'
 
 	
 	//core

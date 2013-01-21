@@ -380,11 +380,11 @@ $(document).ready(function(){
           
           this.fancyView = null;
 
-
+         
         //Bookmark refers to all items that must be accessed through external site
           
         if(thisModel.get("layer_type")=="Bookmark"){
-          this.fancyView = new Browser.Views.FancyBox.Image({model:thisModel});
+          this.fancyView = new Browser.Views.FancyBox.Bookmark({model:thisModel});
         }
 
         else {
@@ -413,6 +413,8 @@ $(document).ready(function(){
             case 'Article':
               this.fancyView = new Browser.Views.FancyBox.Article({model:thisModel});
               break;
+            default:
+              this.fancyView = new Browser.Views.FancyBox.Default({model:thisModel});
           }
         }
 
