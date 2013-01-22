@@ -37,11 +37,12 @@
 			$(this.el).append( template( values ) );
 
 			if (!this.model.get('editable')){
+				console.log('not editable');
 				$(this.el).find('.edit').hide();
-				
 			}
 			if (!this.geoLocated){
 				$(this.el).find('.no-geo-data').show();
+
 			}
 		},
 	
@@ -63,40 +64,40 @@
 	
 		addMap:function()
 		{
+			if(this.model.get('editable')||this.geoLocated){
+				$(this.el).find('.item-lat-lng').fadeIn();
+				$(this.el).find('.locator-map').fadeIn();
+				this.mapRendered=true;
 
-			$(this.el).find('.item-lat-lng').fadeIn();
-			$(this.el).find('.locator-map').fadeIn();
-			this.mapRendered=true;
-
-			var _this = this;
-			this.geocoder.geocode( { 'latLng' : new google.maps.LatLng(this.latlng.lat,this.latlng.lng) }, function(results, status) {
-				if (status == google.maps.GeocoderStatus.OK) {
-					if (results[0].formatted_address){
-						$(_this.el).find('.item-address-text').text( results[0].formatted_address );
-						$(_this.el).find('.item-address-text').show();
+				var _this = this;
+				this.geocoder.geocode( { 'latLng' : new google.maps.LatLng(this.latlng.lat,this.latlng.lng) }, function(results, status) {
+					if (status == google.maps.GeocoderStatus.OK) {
+						if (results[0].formatted_address){
+							$(_this.el).find('.item-address-text').text( results[0].formatted_address );
+							$(_this.el).find('.item-address-text').show();
+						}
 					}
+				});
+
+				var div = $(this.el).find('.locator-map').get(0);
+
+				this.map = new L.Map(div);
+				this.map.setView(this.latlng, 13).addLayer(this.cloudmade);
+				$('.leaflet-control-attribution').hide();
+
+				var that=this;
+				//this.circle = new L.CircleMarker(this.latlng, 100, this.circleOptions);
+				if(this.model.get('editable')){
+					this.marker = new L.Marker(this.latlng,{draggable:true});
+					this.marker.addEventListener( 'drag', that.updateLatLng, that );
+					this.marker.addEventListener( 'dragend', that.updateItem, that );
+					
 				}
-			});
-
-			var div = $(this.el).find('.locator-map').get(0);
-
-			this.map = new L.Map(div);
-			this.map.setView(this.latlng, 13).addLayer(this.cloudmade);
-			$('.leaflet-control-attribution').hide();
-
-			var that=this;
-    
-			//this.circle = new L.CircleMarker(this.latlng, 100, this.circleOptions);
-			if(this.model.get('editable')){
-				this.marker = new L.Marker(this.latlng,{draggable:true});
-				this.marker.addEventListener( 'drag', that.updateLatLng, that );
-				this.marker.addEventListener( 'dragend', that.updateItem, that );
-				
+				else{
+					this.marker = new L.Marker(this.latlng,{draggable:false});
+				}
+				this.map.addLayer(this.marker);
 			}
-			else{
-				this.marker = new L.Marker(this.latlng,{draggable:false});
-			}
-			this.map.addLayer(this.marker);
 		},
 		updateMap:function(){
 			this.map.setView(this.latlng, 13);
@@ -160,6 +161,7 @@
 		getTemplate : function()
 		{
 			var html =	'<p class="map-title">'+l.fancybox_map+'</p><div class="locator-map"></div><span class="edit edit-geo-location"><a>'+l.fancybox_editlocation+'</a></span>'+
+				'<div class="no-geo-data jda-collection-map jda-no-geo-info" style="display:none;width:280px;height:150px;"></div>'+
 				'<span class="no-geo-data" style="display:none;font-size:11px">'+l.fancybox_nolocation+'</span>'+
 				'<span class="item-address-text" style="display:none;font-size:11px"></span>'+
 				'<div class="item-lat-lng"><span class="item-latitude"><%= latitude %></span><span class="item-longitude"><%= longitude %></span></div>'+

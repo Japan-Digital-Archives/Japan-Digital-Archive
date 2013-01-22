@@ -18,11 +18,10 @@
 			
 			//Call parent class to do captioning and metadata
 			Browser.Views._Fancybox.prototype.render.call(this, obj); //This is like calling super()
-			
-			
+
 			this.unique =Math.floor(Math.random() *10000);
-			$(this.el).find('.fancybox-media-item').append($('<div style="padding-top:400px">').attr({id:'fancybox-video-'+this.unique}));
-			
+			$(this.el).find('.fancybox-media-item').append($('<div id="fancybox-video-'+this.unique+'">'));
+			$(this.el).find('.text-wrapper').hide();
 
 
 			//set fancybox content

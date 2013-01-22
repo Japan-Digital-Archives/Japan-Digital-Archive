@@ -362,51 +362,64 @@ $(document).ready(function(){
 
       beforeLoad : function() {
   
-      //deactivate keyboard controls for OL map so arrow scrolling doesn't scroll map too
-      /*
-      if (!_.isUndefined(jda.app.map)){
-      var keyboardControls = jda.app.map.getControlsByClass('OpenLayers.Control.KeyboardDefaults');
-      keyboardControls[0].deactivate();
-      }
-      */
-      
-    var Browser = jda.module("browser");
-    $('#fancybox-document-cloud').remove();
-  
-  
-    var elementID = $(this.element).attr('id');
-      console.log(jda.app,elementID);
-      var thisModel = jda.app.currentView == 'list' || jda.app.currentView == 'thumb' ? jda.app.resultsView.collection.get(elementID) : jda.app.eventMap.mapViewCollection.collection.get(elementID);
-      
-      this.fancyView = null;
-
-    switch(thisModel.get("media_type")){
-      case 'Image':
-        this.fancyView = new Browser.Views.FancyBox.Image({model:thisModel});
-        break;
-      case 'Video':
-        this.fancyView = new Browser.Views.FancyBox.Video({model:thisModel});
-        break;
-      case 'Audio':
-        this.fancyView = new Browser.Views.FancyBox.Audio({model:thisModel});
-        break;
-      case 'Tweet':
-        this.fancyView = new Browser.Views.FancyBox.Tweet({model:thisModel});
-        break;
-      case 'Text':
-        this.fancyView = new Browser.Views.FancyBox.Testimonial({model:thisModel});
-        break;
-      case 'Document':
-        this.fancyView = new Browser.Views.FancyBox.DocumentCloud({model:thisModel});
-        break;
-      case 'Website':
-        this.fancyView = new Browser.Views.FancyBox.Website({model:thisModel});
-        break;
-      
-      }
-        
-          this.fancyView.render(this);
+        //deactivate keyboard controls for OL map so arrow scrolling doesn't scroll map too
+        /*
+        if (!_.isUndefined(jda.app.map)){
+        var keyboardControls = jda.app.map.getControlsByClass('OpenLayers.Control.KeyboardDefaults');
+        keyboardControls[0].deactivate();
         }
+        */
+        
+        var Browser = jda.module("browser");
+        $('#fancybox-document-cloud').remove();
+      
+      
+        var elementID = $(this.element).attr('id');
+          console.log(jda.app,elementID);
+          var thisModel = jda.app.currentView == 'list' || jda.app.currentView == 'thumb' ? jda.app.resultsView.collection.get(elementID) : jda.app.eventMap.mapViewCollection.collection.get(elementID);
+          
+          this.fancyView = null;
+
+         
+        //Bookmark refers to all items that must be accessed through external site
+          
+        if(thisModel.get("layer_type")=="Bookmark"){
+          this.fancyView = new Browser.Views.FancyBox.Bookmark({model:thisModel});
+        }
+
+        else {
+          switch(thisModel.get("media_type")){
+            case 'Image':
+              this.fancyView = new Browser.Views.FancyBox.Image({model:thisModel});
+              break;
+            case 'Video':
+              this.fancyView = new Browser.Views.FancyBox.Video({model:thisModel});
+              break;
+            case 'Audio':
+              this.fancyView = new Browser.Views.FancyBox.Audio({model:thisModel});
+              break;
+            case 'Tweet':
+              this.fancyView = new Browser.Views.FancyBox.Tweet({model:thisModel});
+              break;
+            case 'Text':
+              this.fancyView = new Browser.Views.FancyBox.Testimonial({model:thisModel});
+              break;
+            case 'Document':
+              this.fancyView = new Browser.Views.FancyBox.Document({model:thisModel});
+              break;
+            case 'Website':
+              this.fancyView = new Browser.Views.FancyBox.Website({model:thisModel});
+              break;
+            case 'Article':
+              this.fancyView = new Browser.Views.FancyBox.Article({model:thisModel});
+              break;
+            default:
+              this.fancyView = new Browser.Views.FancyBox.Default({model:thisModel});
+          }
+        }
+
+        this.fancyView.render(this);
+      }
         
   });
   

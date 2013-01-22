@@ -23,7 +23,7 @@
 		
 		this.unique =Math.floor(Math.random() *10000);
 		$(this.el).find('.fancybox-media-item').append($('<div>').attr({id:'fancybox-video-'+this.unique}).addClass('fancybox-shrinkable'));
-		
+		$(this.el).find('.text-wrapper').hide();
 
 		//set fancybox content
 		obj.content = $(this.el);
@@ -39,11 +39,11 @@
 
 				case 'Video':
 					source = this.model.get('uri');
-					this.plyr = new Plyr('fancybox-video-'+this.unique,{url:source,controls:1});
+					this.plyr = new Plyr('fancybox-video-'+this.unique,{url:source});
 					break;
 				case 'Youtube':
 					source = "http://www.youtube.com/watch?v="+this.model.get('uri');
-					this.plyr = new Plyr('fancybox-video-'+this.unique,{url:source,controls:1});
+					this.plyr = new Plyr('fancybox-video-'+this.unique,{url:source});
 					
 					break;
 				case 'Vimeo':
