@@ -179,7 +179,7 @@ require(loadFiles, function () {
 
         $("#submitContributeBtn").click(function () {
             if ($("#contributeForm").valid()) {
-                var baseApiUrl = "http://" + document.domain + "/zeega/api/items"
+                var baseApiUrl = "http://" + document.domain + "/zeega/api/items?api_key=9bIRe71qSeHeVQIcb54NNqY-y"
                 var postObj = {};
 
                 postObj.title = $("#pageTitleTxt").val();
@@ -209,7 +209,6 @@ require(loadFiles, function () {
                 postObj.attributes.push("frequency:" + $("#frequencyDDL > option:selected").val());
                 postObj.attributes.push("scope:" + $("#scopeDDL > option:selected").val());
                 postObj.published = 0;
-                postObj.api_key = "9bIRe71qSeHeVQIcb54NNqY-y";
                 postObj.archive = "Seeds";
                 
                 $.post(baseApiUrl, postObj, function (response) {
@@ -239,7 +238,7 @@ require(loadFiles, function () {
 
         $("#submitTestimonialBtn").click(function () {
             if ($("#testimonialForm").valid()) {
-                var baseApiUrl = "http://" + document.domain + "/zeega/api/items"
+                var baseApiUrl = "http://" + document.domain + "/zeega/api/items?api_key=9bIRe71qSeHeVQIcb54NNqY-y"
                 var postObj = {};
 
                 postObj.title = $("#titleTxt").val();
