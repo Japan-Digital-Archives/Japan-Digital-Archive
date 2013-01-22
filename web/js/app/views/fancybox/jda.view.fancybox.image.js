@@ -18,7 +18,7 @@
 			//console.log('this model id is'+this.model.id);
 			//Call parent class to do captioning and metadata
 			Browser.Views._Fancybox.prototype.render.call(this, obj); //This is like calling super()
-
+			$(this.el).find('.text-wrapper').hide();
 
 			//Fill in image-specific stuff
 			var blanks = {
@@ -42,10 +42,7 @@
 		getMediaTemplate : function()
 		{
 
-			var html =	''+
-							'<img src="<%=src%>" title="<%=title%>" alt="<%=title%>"/>'+
-						'';
-
+			var html =	'<img src="<%=src%>" title="<%=title%>" alt="<%=title%>"/>';
 			return html;
 		}
 	});

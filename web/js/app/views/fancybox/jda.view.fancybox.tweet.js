@@ -30,8 +30,10 @@
 			//copy the cloned item into the el
 			var tweetHTML =  template( blanks ) ;
 
-			$(this.el).find('.fancybox-media-item').html(tweetHTML);
-
+			$(this.el).find('.description-wrapper').html(tweetHTML);
+			$(this.el).find('.fancybox-media-item').css({"height":"5px"});
+			$(this.el).find('.text-wrapper').hide();
+			$(this.el).find('.title').html(l.fancybox_tweet);
 			//set fancybox content
 			obj.content = $(this.el);
 
@@ -41,7 +43,7 @@
 		getMediaTemplate : function()
 		{
 
-			var html =	'<p class="fancybox-tweet"><%= tweet %></p>';
+			var html =	'<p class="more subheader" style="">'+l.fancybox_text+'</p><p class="fancybox-tweet"><%= tweet %></p>';
 
 			return html;
 		}

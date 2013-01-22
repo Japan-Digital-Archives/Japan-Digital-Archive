@@ -12,7 +12,7 @@
 require (
 	[
 	
-	//libraries	
+	//libraries
 	//'text!../app/views/items/templates.html',
 	
 	
@@ -26,7 +26,7 @@ require (
 
 	
 	
-	'order!../lib/popcorn_flash',
+	'order!../lib/popcorn-flash',
 	
 	//plugins
 	'order!../plugins/players/plyr',
@@ -36,7 +36,7 @@ require (
 	//custom
 	
 	'order!../helpers/utils',
-	'order!../ux/jda.ux.item',
+	'order!../ux/jda.ux.item'
 
 	
 	//core

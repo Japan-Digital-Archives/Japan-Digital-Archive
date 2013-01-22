@@ -3,7 +3,7 @@
 	Browser.Views = Browser.Views || {};
 	Browser.Views.FancyBox = Browser.Views.FancyBox || {};
 	
-	Browser.Views.FancyBox.Default = Browser.Views._Fancybox.extend({
+	Browser.Views.FancyBox.Bookmark = Browser.Views._Fancybox.extend({
 		
 		initialize: function()
 		{
@@ -19,32 +19,13 @@
 			//Call parent class to do captioning and metadata
 			Browser.Views._Fancybox.prototype.render.call(this, obj); //This is like calling super()
 
-			//console.log(this.model);
-			//Fill in image-specific stuff
-			var blanks = {
-				src : this.model.get('thumbnail_url'),
-				title : this.model.get('title')
-			};
-
-			//use template to clone the database items into
-			var template = _.template( this.getMediaTemplate() );
-
-			//copy the cloned item into the el
-			var imageHTML =  template( blanks ) ;
-			$(this.el).find('.description-wrapper').hide();
-			$(this.el).find('.fancybox-media-item').html(imageHTML);
+			$(this.el).find('.text-wrapper').hide();
+			$(this.el).find('.fancybox-media-item').css({"height":"5px"});
 
 			//set fancybox content
 			obj.content = $(this.el);
 
 			return this;
-		},
-		getMediaTemplate : function()
-		{
-
-			var html =	'<img src="<%=src%>" title="<%=title%>" alt="<%=title%>"/>';
-
-			return html;
 		}
 	});
 	

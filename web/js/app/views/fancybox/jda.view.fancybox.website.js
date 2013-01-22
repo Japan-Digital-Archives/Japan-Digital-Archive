@@ -54,7 +54,7 @@
 		var mediaHTML =  template( blanks ) ;
 
 		$(this.el).find('.fancybox-media-item').html(mediaHTML);
-
+		$(this.el).find('.text-wrapper').hide();
 		//set fancybox content
 		obj.content = $(this.el);
 		

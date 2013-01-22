@@ -18,37 +18,17 @@
 
 			//Call parent class to do captioning and metadata
 			Browser.Views._Fancybox.prototype.render.call(this, obj); //This is like calling super()
-			var text = this.model.get('text').replace(/\r\n/gi, '<br/>');
 
-
-			//Fill in text-specific stuff
-			var blanks = {
-				text : text
-			};
-
-			//use template to clone the database items into
-			var template = _.template( this.getMediaTemplate() );
-
-			//copy the cloned item into the el
-			var tweetHTML =  template( blanks ) ;
-
-			$(this.el).find('.fancybox-media-item').html(tweetHTML);
-
+			
+			$(this.el).find('.fancybox-media-item').css({"height":"5px"});
+			$(this.el).find('.description-wrapper').hide();
+			$(this.el).find('.title').html(l.fancybox_testimonial);
 			//set fancybox content
 			obj.content = $(this.el);
 
-
-
-
 			return this;
-		},
-		getMediaTemplate : function()
-		{
-
-			var html =	'<p class="fancybox-testimonial"><i class="jdicon-testimonial" style="margin-right:20px;margin-bottom:20px"></i><%= text %></p>';
-
-			return html;
 		}
+
 	});
 
 })(jda.module("browser"));

@@ -3,7 +3,7 @@
 	Browser.Views = Browser.Views || {};
 	Browser.Views.FancyBox = Browser.Views.FancyBox || {};
 	
-	Browser.Views.FancyBox.Mapbox = Browser.Views._Fancybox.extend({
+	Browser.Views.FancyBox.Article = Browser.Views._Fancybox.extend({
 		
 		initialize: function()
 		{
@@ -15,14 +15,14 @@
 		{
 
 			sessionStorage.setItem('currentItemId', this.model.id);
-			console.log('this model id is'+this.model.id);
+			//console.log('this model id is'+this.model.id);
 			//Call parent class to do captioning and metadata
 			Browser.Views._Fancybox.prototype.render.call(this, obj); //This is like calling super()
+			
 
-			console.log(this.model);
 			//Fill in image-specific stuff
 			var blanks = {
-				src : this.model.get('thumbnail_url'),
+				src : this.model.get('uri'),
 				title : this.model.get('title')
 			};
 
@@ -42,10 +42,7 @@
 		getMediaTemplate : function()
 		{
 
-			var html =	''+
-							'<img src="<%=src%>" title="<%=title%>" alt="<%=title%>"/>'+
-						'';
-
+			var html =	'<img src="<%=src%>" title="<%=title%>" alt="<%=title%>"/>';
 			return html;
 		}
 	});
