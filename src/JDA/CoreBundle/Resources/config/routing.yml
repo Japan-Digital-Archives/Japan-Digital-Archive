@@ -59,3 +59,9 @@ testimonial:
     defaults:  { _controller: JDACoreBundle:SeedSubmit:testimonial, _locale: ja }
     requirements:
         _locale: en|ja
+export:
+    pattern:   /export-seeds/
+    defaults:  { _controller: JDACoreBundle:Exporter:index }
+export_update:
+    pattern:   /export-seeds/update/
+    defaults:  { _controller: JDACoreBundle:Exporter:update }

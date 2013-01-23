@@ -1,0 +1,52 @@
+﻿<html>
+<head>
+    <title>Export Seeds</title>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript">
+        var lastExport = "{{ lastExport }}";
+        $("document").ready(function () {
+            $("#submitBtn").val($("#submitBtn").val() + lastExport);
+            //alert(lastExport);
+            $("#submitBtn").click(function () {
+                getResultsByPage(1);
+                $("#submitBtn").hide();
+            });
+        });
+
+        function getResultsByPage(pageNum) {
+            $.ajax({
+                url: "http://jdarchive.org/zeega/api/items/search?&type=Website&sort=relevant&limit=500&page=" + pageNum + "&published=1&after=" + lastExport,
+                dataType: "json",
+                type: "GET",
+                success: function (r) {
+                    $.each(r.items, function (index, val) {
+                        if (val.id >= 890497) {
+                            var line = val.date_created + ", website, " + val.uri.replace("http://wayback.archive-it.org/2438/20110301000000/", "")
+                                + ", " + (val.attributes.frequency || "once") + ", " + (val.attributes.scope || "page") + ", Seed Id: " + val.id;
+                            $("#resultsDiv").html($("#resultsDiv").html() + line + "</br>");
+                        }
+                    });
+                    var lastItem = r.returned_items_count * r.request.query.limit;
+                    
+                    if (lastItem < r.item_count) {
+                        getResultsByPage(pageNum + 1);
+                    } else {
+                        $.ajax({
+                            url: document.location.href + "update/",
+                            dataType: "json",
+                            type: "GET",
+                            success: function (r) {
+                               
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+    <body>
+        <input type="button" id="submitBtn" value="Export Seeds created after " />
+        <div id="resultsDiv"></div>
+    </body>
+</html>

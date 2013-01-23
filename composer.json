@@ -20,7 +20,7 @@
         "jms/di-extra-bundle": "1.1.*",
         "kriswallsmith/assetic": "1.1.*@dev",
         "friendsofsymfony/user-bundle": "1.3.1",
-        "sonata-project/admin-bundle": "dev-master",
+        "sonata-project/admin-bundle": "master",
         "sonata-project/doctrine-orm-admin-bundle": "dev-master",
         "friendsofsymfony/rest-bundle": "0.9.0"
     },
@@ -38,7 +38,6 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ]
     },
-    "minimum-stability": "dev",
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web"
