@@ -405,7 +405,7 @@ $(document).ready(function(){
               this.fancyView = new Browser.Views.FancyBox.Testimonial({model:thisModel});
               break;
             case 'Document':
-              this.fancyView = new Browser.Views.FancyBox.Document({model:thisModel});
+              this.fancyView = new Browser.Views.FancyBox.DocumentCloud({model:thisModel});
               break;
             case 'Website':
               this.fancyView = new Browser.Views.FancyBox.Website({model:thisModel});
