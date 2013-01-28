@@ -721,7 +721,7 @@ class Item
         return $this->parent_items;
     }
     /**
-     * @ORM\prePersist
+     * @ORM\PrePersist
      */
     public function onPrePersist()
     {
