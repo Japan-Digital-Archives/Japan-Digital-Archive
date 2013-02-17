@@ -32,7 +32,7 @@ class ItemAdmin extends Admin
 			->add('tags', NULL, array('allow_add' => true, 'allow_delete' => true))
 			->add('attributes', NULL, array('allow_add' => true, 'allow_delete' => true))
 			->add('published')
-            ->add('date_created', 'date', array('required' => false, 'widget' => 'single_text', 'help' => 'Last Export Date: ' . $lastExport . '\n If created after this date, has not been sent to IA', 
+            ->add('date_created', 'date', array('required' => false, 'widget' => 'single_text', 'help' => 'Last Export Date: ' . $fileLoc . ' If created after this date, has not been sent to IA', 
                   'attr' => array('readonly' => true)))
 
         ;
