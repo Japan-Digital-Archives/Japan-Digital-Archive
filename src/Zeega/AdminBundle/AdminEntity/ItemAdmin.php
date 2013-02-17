@@ -30,6 +30,7 @@ class ItemAdmin extends Admin
 			->add('tags', NULL, array('allow_add' => true, 'allow_delete' => true))
 			->add('attributes', NULL, array('allow_add' => true, 'allow_delete' => true))
 			->add('published')
+            ->add('data_created', null, array('readonly' => true))
         ;
     }
 
@@ -61,7 +62,7 @@ class ItemAdmin extends Admin
     {
         switch ($name) {
             case 'edit':
-                return 'ZeegaAdminBundle::edit3.html.twig';
+                return 'ZeegaAdminBundle::edit.html.twig';
                 break;
             default:
                 return parent::getTemplate($name);
