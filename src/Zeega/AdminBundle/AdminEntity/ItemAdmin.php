@@ -30,7 +30,8 @@ class ItemAdmin extends Admin
 			->add('tags', NULL, array('allow_add' => true, 'allow_delete' => true))
 			->add('attributes', NULL, array('allow_add' => true, 'allow_delete' => true))
 			->add('published')
-            //->add('date_created', null, array('readonly' => true))
+            ->add('date_created', 'date', array('required' => false, 'widget' => 'single_text', 'attr' => array('readonly' => true)))
+
         ;
     }
 
