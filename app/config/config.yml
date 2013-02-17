@@ -119,4 +119,4 @@ sensio_framework_extra:
 
 sonata_admin:
     templates:
-        edit:    ZeegaAdminBundle:edit.html.twig
+        edit:    ZeegaAdminBundle:edit2.html.twig
