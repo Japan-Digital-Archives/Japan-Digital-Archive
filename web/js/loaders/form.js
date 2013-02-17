@@ -129,14 +129,11 @@ function removeImg(btn) {
 require(loadFiles, function () {
     $(document).ready(function () {
         var layerMediaMap = {
-            YouTube: "Video",
-            Website: "Website",
-            DocumentCloud: "Document",
-            PDF: "Document",
-            Testimonial: "Text",
-            Image: "Image",
-            Audio: "Audio",
-            Tweet: "Tweet"
+            video: "YouTube",
+            website: "Website",
+            document: "PDF",
+            image: "Image",
+            audio: "Audio",
         };
         $("#tagsSelect").chosen({
             create_option_text: 'Add New Tag',
