@@ -14,6 +14,11 @@
             <a class="btn sonata-action-element" href="{{ admin.generateUrl('list') }}">{{ 'link_action_list'|trans({}, 'SonataAdminBundle') }}</a>
         {% endif %}
     </div>
+    <script type="text/javascript">
+        $("document").ready(function() {
+            alert('test');
+        });
+    </script>
 {% endblock %}
 
 
