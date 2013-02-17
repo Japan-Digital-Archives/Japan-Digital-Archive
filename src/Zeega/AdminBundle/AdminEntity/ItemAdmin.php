@@ -56,4 +56,16 @@ class ItemAdmin extends Admin
 			->add('media_creator_username')
         ;
     }
+
+	public function getTemplate($name)
+    {
+        switch ($name) {
+            case 'edit':
+                return 'ZeegaAdminBundle::edit.html.twig';
+                break;
+            default:
+                return parent::getTemplate($name);
+                break;
+        }
+    }
 }
