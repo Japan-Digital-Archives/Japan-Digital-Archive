@@ -16,7 +16,7 @@ class ItemAdmin extends Admin
 			'Text' => 'Text','Image' => 'Image','Tweet' => 'Tweet','Document' => 'Document',
 			'Website' => 'Website');
         $fileLoc = realpath("lastExport.txt");
-		$lastExport = strtotime(file_get_contents($fileLoc));
+		$lastExport = file_get_contents($fileLoc);
         $formMapper
             ->add('title')
             ->add('description')
@@ -32,7 +32,7 @@ class ItemAdmin extends Admin
 			->add('tags', NULL, array('allow_add' => true, 'allow_delete' => true))
 			->add('attributes', NULL, array('allow_add' => true, 'allow_delete' => true))
 			->add('published')
-            ->add('date_created', 'date', array('required' => false, 'widget' => 'single_text', 'help' => 'Last Export Date: ' . $fileLoc . ' If created after this date, has not been sent to IA', 
+            ->add('date_created', 'date', array('required' => false, 'widget' => 'single_text', 'help' => 'Last Export Date: ' . $lastExport . ' If created after this date, has not been sent to IA', 
                   'attr' => array('readonly' => true)))
 
         ;
