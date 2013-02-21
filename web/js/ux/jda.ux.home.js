@@ -257,7 +257,7 @@ $(document).ready(function(){
 	
 	
 	
-	
+ 	
 	
 	
 	$('.jda-home-featured-collection').height(Math.max($(window).height()-50, 600));
