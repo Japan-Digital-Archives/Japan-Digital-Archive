@@ -32,15 +32,48 @@
 	
 	<script type="text/javascript">
 
+	function setCookie(c_name,value,exdays)
+        {
+                var exdate=new Date();
+                exdate.setDate(exdate.getDate() + exdays);
+                var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+                document.cookie=c_name + "=" + c_value;
+        }
+
+
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-34158612-1']);
 	  _gaq.push(['_trackPageview']);
-	
+                var userLang = (navigator.language) ? navigator.language : navigator.userLanguage;
+
+		
+		if ((document.cookie.split(';')[0].split('=')[1] == "en") && (window.location=="http://dev.jdarchive.org/hikari/web/ja/home"))
+			{
+			window.location = 'http://dev.jdarchive.org/hikari/web/en/home';
+			//setCookie("username","en",365);
+			}
+		if ((document.cookie.split(';')[0].split('=')[1] == "ja") && (window.location=="http://dev.jdarchive.org/hikari/web/en/home"))
+			{
+			window.location = 'http://dev.jdarchive.org/hikari/web/ja/home';	
+			}
+		if (document.cookie.split(';')[0].split('=')[1] != "en" && document.cookie.split(';')[0].split('=')[1] != "ja")
+		{
+                	if ( userLang=="en-US" && window.location=="http://dev.jdarchive.org/hikari/web/ja/home")
+			{
+                        	
+				window.location = 'http://dev.jdarchive.org/hikari/web/en/home';
+                	}
+			else if ( userLang=="ja" && window.location=="http://dev.jdarchive.org/hikari/web/en/home")
+			{
+          
+				window.location = 'http://dev.jdarchive.org/hikari/web/ja/home';
+			}
+		}
 	  (function() {
 		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
+ 		 })();
 	
 	</script>
 

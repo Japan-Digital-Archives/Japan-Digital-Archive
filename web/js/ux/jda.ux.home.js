@@ -213,21 +213,51 @@ $(document).ready(function(){
 	
 
 	/*************** LANGUAGE TOGGLE ************************/
+
+	function getCookie(c_name)
+	{
+		var i,x,y,ARRcookies=document.cookie.split(";");
+		for (i=0;i<ARRcookies.length;i++)
+  		{
+  			x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+ 			y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+  			x=x.replace(/^\s+|\s+$/g,"");
+  		if (x==c_name)
+    		{
+    			return unescape(y);
+    		}
+  		}
+	}	
+
+	function setCookie(c_name,value,exdays)
+	{
+		var exdate=new Date();
+		exdate.setDate(exdate.getDate() + exdays);
+		var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+		document.cookie=c_name + "=" + c_value;
+	}
 	$('#jda-language-toggle').find('.btn').click(function(){
 		if(!$(this).hasClass('active')){
 			console.log('switching languages');
 			$('#jda-language-toggle').find('.btn').removeClass('active');
 			$(this).addClass('active');
+			console.log($(this))
 			console.log($(this).data('language'));
-			if($(this).data('language')=='en') window.location =  window.location.href.replace('/ja/','/en/');
-			else window.location =  window.location.href.replace('/en/','/ja/');
+			var target_page_language = $(this).data('language');
+			if( target_page_language =='en'){
+				setCookie("username","ja",365);
+				 window.location =  window.location.href.replace('/ja/','/en/');
+			}
+			else {
+				setCookie("username","en",365);
+				window.location =  window.location.href.replace('/en/','/ja/');
+			}	
 		}
-		
 	});
 	
 	
 	
-	
+ 	
 	
 	
 	$('.jda-home-featured-collection').height(Math.max($(window).height()-50, 600));
@@ -259,10 +289,26 @@ $(document).ready(function(){
 					$(this).css('width', '3px');
 				});
 
-				$('#jda-go-button').click(function(){
+				/*$('#jda-go-button').click(function(){
+					alert("clicked");
+					console.log("clicked");
 					var query = VisualSearch.searchBox.value();
-					window.location = 'search#q=' + query;
-				});
+					var re1 = new RegExp("^[\u4E00-\uFA29]*$"); //Chinese character range
+					var re2 = new RegExp("^[\uE7C7-\uE7F3]*$"); //Chinese character range
+					query = query.replace(/(^\s*)|(\s*$)/g,'');
+					if (!(re1.test(query) && (! re2.test(query))))
+					{
+						
+						window.location = 'http://www.jdarchive.org/ja/search#q=' + query;
+					}
+					else
+					{
+						window.location = 'http://www.jdarchive.org/ja/search#q=' + query;
+					}
+					
+				
+					//window.location = 'search#q=' + query;
+				});*/
 			},
 
 			search : function(){ 
@@ -296,7 +342,20 @@ $(document).ready(function(){
 			
 			var query = textQuery + (textQuery.length > 0 && tagQuery.length > 4 ? " " : "") + (tagQuery.length > 4 ? tagQuery : "");
 	
-			window.location = 'search#q=' + query;
+			//var query = VisualSearch.searchBox.value();
+                        var re1 = new RegExp("^[\u4E00-\uFA29]*$"); //Chinese character range
+                        var re2 = new RegExp("^[\uE7C7-\uE7F3]*$"); //Chinese character range
+                        query = query.replace(/(^\s*)|(\s*$)/g,'');
+                        if (!(re1.test(query) && (! re2.test(query))))
+                        {
+                             window.location = 'http://www.jdarchive.org/en/search#q=' + query;
+                       	}
+                        else
+                        {
+                             window.location = 'http://www.jdarchive.org/ja/search#q=' + query;
+                        }
+
+			// window.location = 'search#q=' + query;
 				
 			},
 
@@ -337,6 +396,7 @@ $(document).ready(function(){
 	});
 
 	$('#jda-go-button').click(function(){
+
 	  	var e = jQuery.Event("keydown");
 		e.which = 13;
 
