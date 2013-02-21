@@ -411,7 +411,7 @@ require(loadFiles, function () {
 	/*************** USER LOGIN ************************/
 	
 	$('#sign-in').click(function(){
-		$('#user-modal-body').empty().append('<iframe class="login" src="/'+sessionStorage.getItem('directory')+'login?_locale='+sessionStorage.getItem('locale')+'"></iframe>');
+	    $('#user-modal-body').empty().append('<iframe class="login" src="' + document.location.href.replace("advsearch", "") + 'login?_locale=' + sessionStorage.getItem('locale') + '"></iframe>');
 		$('#user-modal').modal('show'); 
 		return false;
 	});
