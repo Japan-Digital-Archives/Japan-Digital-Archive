@@ -52,4 +52,13 @@ class UserAdmin extends Admin
             ->end()
         ;
     }
+
+    public function getTemplate($name)
+    {
+        switch ($name) {
+            default:
+                return parent::getTemplate($name);
+                break;
+        }
+    }
 }
