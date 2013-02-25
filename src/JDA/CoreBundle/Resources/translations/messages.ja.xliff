@@ -1055,7 +1055,7 @@
             </trans-unit>
             <trans-unit id="262">
                 <source>jda.search.article</source>
-                <target>News Article</target>
+                <target>news article</target>
             </trans-unit>
         </body>
     </file>
