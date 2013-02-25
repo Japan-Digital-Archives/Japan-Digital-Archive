@@ -1053,6 +1053,10 @@
                 <source>fancybox.text</source>
                 <target>Text</target>
             </trans-unit>
+            <trans-unit id="262">
+                <source>jda.search.article</source>
+                <target>News Article</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -1042,9 +1042,17 @@
                 <source>jda.team.interaction</source>
                 <target>Interaction Design</target>
             </trans-unit>
-             <trans-unit id="260">
+            <trans-unit id="260">
+                <source>jda.form.testimonial.title</source>
+                <target>Title</target>
+            </trans-unit>
+            <trans-unit id="261">
                 <source>fancybox.text</source>
                 <target>Text</target>
+            </trans-unit>
+            <trans-unit id="262">
+                <source>jda.search.article</source>
+                <target>News Article</target>
             </trans-unit>
         </body>
     </file>
