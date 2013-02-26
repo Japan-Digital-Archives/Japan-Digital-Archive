@@ -180,9 +180,9 @@ require(loadFiles, function () {
                 var postObj = {};
 
                 postObj.title = $("#pageTitleTxt").val();
-                postObj.description = $("#pageTitleTxt").val();
-                postObj.media_type = layerMediaMap[$("#categoryDDL > option:selected").val()]; // fix this based on https://github.com/Zeega/Zeega-Core/wiki/Database-schema
-                postObj.layer_type = $("#categoryDDL > option:selected").val();
+                postObj.description = $("#descriptionTxt").val();
+                postObj.layer_type = layerMediaMap[$("#categoryDDL > option:selected").val()]; // fix this based on https://github.com/Zeega/Zeega-Core/wiki/Database-schema
+                postObj.media_type = $("#categoryDDL > option:selected").val();
                 postObj.uri = $("#urlTxt").val();
                 postObj.attribution_uri = $("#urlTxt").val();
                 postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
@@ -205,6 +205,7 @@ require(loadFiles, function () {
                 postObj.attributes = [];
                 postObj.attributes.push("frequency:" + $("#frequencyDDL > option:selected").val());
                 postObj.attributes.push("scope:" + $("#scopeDDL > option:selected").val());
+                postObj.attributes.push("scope:" + $("#emailTxt").val());
                 postObj.published = 0;
                 postObj.archive = "Seeds";
                 
