@@ -202,10 +202,10 @@ require(loadFiles, function () {
                 postObj.language += $("#chineseChk").is(":checked") ? "Chinese|" : "";
                 postObj.language += $("#koreanChk").is(":checked") ? "Korean|" : "";
 
-                postObj.attributes = [];
-                postObj.attributes.push("frequency:" + $("#frequencyDDL > option:selected").val());
-                postObj.attributes.push("scope:" + $("#scopeDDL > option:selected").val());
-                postObj.attributes.push("scope:" + $("#emailTxt").val());
+                postObj.attributes = {};
+                postObj.attributes.frequency = $("#frequencyDDL > option:selected").val();
+                postObj.attributes.scope = $("#scopeDDL > option:selected").val();
+                postObj.attributes.email = $("#emailTxt").val();
                 postObj.published = 0;
                 postObj.archive = "Seeds";
                 
@@ -273,7 +273,7 @@ require(loadFiles, function () {
                     //postObj.attributes.to_date = toDate;
                 }
 
-                postObj.attributes["year of birth"] = $("#yearDDL > option:selected").val();
+                postObj.attributes["year-of-birth"] = $("#yearDDL > option:selected").val();
                 postObj.attributes.occupation = $("#occupationTxt").val();
                 postObj.attributes.images = [];
                 $("#imgTbl").find("input[type='text']").each(function () {
