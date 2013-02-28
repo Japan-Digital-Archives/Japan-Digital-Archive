@@ -727,6 +727,14 @@ class Item
     {
         // Add your code here
     }
+    
+    /**
+     * @ORM\PreUpdate
+     */
+    public function onPreUpdate()
+    {
+        $this->setDateUpdated(new \DateTime("now"));
+    }
     /**
      * @var \DateTime $date_updated
      */
