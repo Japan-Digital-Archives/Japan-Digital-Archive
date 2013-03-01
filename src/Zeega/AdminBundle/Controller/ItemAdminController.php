@@ -3,6 +3,7 @@ namespace Zeega\AdminBundle\Controller;
 
 use Sonata\DoctrineORMAdminBundle\Datagrid\ProxyQuery as ProxyQueryInterface;
 use Sonata\AdminBundle\Controller\CRUDController as Controller;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class ItemAdminController extends Controller
 {
@@ -15,7 +16,7 @@ class ItemAdminController extends Controller
 
         $em = $this->getDoctrine()->getEntityManager();
 
-        foreach ($query->getQuery()->iterate() as $entity) {
+        foreach ($selectedModelQuery->getQuery()->iterate() as $entity) {
             $entity[0]->setPublished(true);
             $em->persist($entity[0]);
         }
