@@ -1,5 +1,4 @@
-﻿<?php
-// src/Tutorial/BlogBundle/Controller/TagAdminController.php
+<?php
 namespace Zeega\AdminBundle\Controller;
 
 use Sonata\AdminBundle\Controller\CRUDController as Controller;
@@ -25,4 +24,4 @@ class ItemAdminController extends Controller
 
         return new RedirectResponse($this->admin->generateUrl('list', array('filter' => $this->admin->getFilterParameters())));
     }
-} 
+}
