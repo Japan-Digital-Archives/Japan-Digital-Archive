@@ -80,7 +80,7 @@ class ItemAdmin extends Admin
         if($this->hasRoute('edit') && $this->isGranted('EDIT') && $this->hasRoute('delete') && $this->isGranted('DELETE')){
             $actions['publish'] = array(
                 'label'            => "Publish",
-                'ask_confirmation' => true 
+                'ask_confirmation' => false 
             );
 
         }

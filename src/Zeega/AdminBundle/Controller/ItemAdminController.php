@@ -22,7 +22,7 @@ class ItemAdminController extends Controller
         }
         $em->flush();
 
-        $this->get('session')->setFlash('sonata_flash_success', 'flash_batch_merge_success');
+        $this->get('session')->setFlash('sonata_flash_success', 'Items Published!');
 
         return new RedirectResponse($this->admin->generateUrl('list', array('filter' => $this->admin->getFilterParameters())));
     }
