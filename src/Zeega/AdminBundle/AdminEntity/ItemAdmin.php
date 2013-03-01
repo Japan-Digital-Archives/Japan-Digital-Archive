@@ -73,4 +73,18 @@ class ItemAdmin extends Admin
                 break;
         }
     }
+
+    public function getBatchActions()
+    {
+        $actions = parent::getBatchActions();
+        if($this->hasRoute('edit') && $this->isGranted('EDIT') && $this->hasRoute('delete') && $this->isGranted('DELETE')){
+            $actions['publish']=[
+                'label'            => "Publish",
+                'ask_confirmation' => true // If true, a confirmation will be asked before performing the action
+            ];
+
+        }
+
+        return $actions;
+    }
 }
