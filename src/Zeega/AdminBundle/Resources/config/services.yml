@@ -10,7 +10,7 @@ services:
     
     zeega.admin.item:
         class: Zeega\AdminBundle\AdminEntity\ItemAdmin
-        arguments: [null, Zeega\DataBundle\Entity\Item, SonataAdminBundle:CRUD]
+        arguments: [null, Zeega\DataBundle\Entity\Item, ZeegaAdminBundle:ItemAdminController]
         tags:
             - { name: sonata.admin, alias: zeega_admin_item, manager_type: orm, group: General, label: Items}
     
