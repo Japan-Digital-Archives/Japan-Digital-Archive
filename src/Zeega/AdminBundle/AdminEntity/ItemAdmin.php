@@ -78,10 +78,10 @@ class ItemAdmin extends Admin
     {
         $actions = parent::getBatchActions();
         if($this->hasRoute('edit') && $this->isGranted('EDIT') && $this->hasRoute('delete') && $this->isGranted('DELETE')){
-            $actions['publish']=[
+            $actions['publish'] = array(
                 'label'            => "Publish",
-                'ask_confirmation' => true // If true, a confirmation will be asked before performing the action
-            ];
+                'ask_confirmation' => true 
+            );
 
         }
 
