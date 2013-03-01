@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 namespace Zeega\AdminBundle\Controller;
 
 use Sonata\DoctrineORMAdminBundle\Datagrid\ProxyQuery as ProxyQueryInterface;
