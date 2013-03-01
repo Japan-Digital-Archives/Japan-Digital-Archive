@@ -66,7 +66,7 @@ class ItemAdmin extends Admin
     {
         switch ($name) {
             case 'edit':
-                return 'ZeegaAdminBundle::edit.html.twig';
+                return 'ZeegaAdminBundle::edit_custom.html.twig';
                 break;
             default:
                 return parent::getTemplate($name);
