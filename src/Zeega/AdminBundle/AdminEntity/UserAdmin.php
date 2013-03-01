@@ -31,8 +31,8 @@ class UserAdmin extends Admin
 
 	public function preUpdate($user)
     {
-        $this->getUserManager()->updateCanonicalFields($user);
-        $this->getUserManager()->updatePassword($user);
+        //$this->getUserManager()->updateCanonicalFields($user);
+        //$this->getUserManager()->updatePassword($user);
     }
 
     protected function configureListFields(ListMapper $listMapper)
