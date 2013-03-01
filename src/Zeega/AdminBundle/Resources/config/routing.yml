@@ -1,5 +1,6 @@
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    defaults:  { _locale: ja }
     prefix: /admin
 
 _sonata_admin:
