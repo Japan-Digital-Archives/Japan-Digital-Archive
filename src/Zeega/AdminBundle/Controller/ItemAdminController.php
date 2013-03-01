@@ -4,7 +4,7 @@ namespace Zeega\AdminBundle\Controller;
 
 use Sonata\AdminBundle\Controller\CRUDController as Controller;
 
-class ItemAdmin2Controller extends Controller
+class ItemAdminController extends Controller
 {
     public function batchActionPublish(ProxyQueryInterface $selectedModelQuery)
     {
