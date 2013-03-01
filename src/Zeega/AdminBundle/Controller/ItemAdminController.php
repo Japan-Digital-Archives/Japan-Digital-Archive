@@ -1,6 +1,7 @@
-<?php
+﻿<?php
 namespace Zeega\AdminBundle\Controller;
 
+use Sonata\DoctrineORMAdminBundle\Datagrid\ProxyQuery as ProxyQueryInterface;
 use Sonata\AdminBundle\Controller\CRUDController as Controller;
 
 class ItemAdminController extends Controller
