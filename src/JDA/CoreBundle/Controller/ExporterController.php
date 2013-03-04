@@ -56,6 +56,7 @@ class ExporterController extends Controller
         //$lastExport = date_create(file_get_contents($fileLoc));
         $lastExport = date_create('2/11/2013 1:51:00 pm');
         $em = $this->getDoctrine()->getEntityManager();
+        // the > id thing is because of the initial import from the old site, after the first export, it should be unnecessary
         $q = $em->createQuery("select i from ZeegaDataBundle:Item i where i.id > 890497 and i.published=1 and i.media_type='website' and i.date_created >= '" . $lastExport->format('Y-m-d H:i:s') . "'");
         $items = $q->getResult();
         //$items = $em->getRepository('ZeegaDataBundle:Item')->findBy(array('date_created' => $lastExport));
