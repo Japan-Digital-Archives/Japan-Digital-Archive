@@ -1,5 +1,5 @@
 ﻿{% for item in items %}
-    {{ item.getDateCreated }}, website, {{ item.uri }}, {{ item.attributes.frequency ? item.attributes.frequency : 'Once' }}, {{ item.attributes.scope ? item.attributes.scope : 'page' }}, Seed Id: {{ item.id }} <br/> 
+    {{ item.getDateCreated|date('m/d/Y H:i') }}, website, {{ item.uri }}, {{ item.attributes.frequency ? item.attributes.frequency : 'Once' }}, {{ item.attributes.scope ? item.attributes.scope : 'page' }}, Seed Id: {{ item.id }} <br/> 
 {% endfor %}
 {{ items|length }}
 {{ dt }}
