@@ -35,7 +35,7 @@ class ExporterController extends Controller
         }        
         $fileLoc = realpath("lastExport.txt");
         if(file_exists($fileLoc)) {
-            //file_put_contents($fileLoc, date('m/d/Y h:i:s a', time()));
+            file_put_contents($fileLoc, date('m/d/Y h:i:s a', time()));
         }
         
 		return $this->render('JDACoreBundle:SeedExport:ok.html.twig', array(
@@ -55,7 +55,9 @@ class ExporterController extends Controller
         }
         $lastExport = date_create(file_get_contents($fileLoc));
         $em = $this->getDoctrine()->getEntityManager();
-        $items = $em->getRepository('ZeegaDataBundle:Item')->findBy(array('date_created' => $lastExport));
+        $q = $em->createQuery("select i from ZeegaDataBundle:Item i where i.date_created > " . $lastExport->format('Y-m-d H:i:s'));
+        $items = $q.getResult();
+        //$items = $em->getRepository('ZeegaDataBundle:Item')->findBy(array('date_created' => $lastExport));
         return $this->render('JDACoreBundle:SeedExport:items.html.twig', array(
                     'page'=> 'export',
                     'items'=> $items,
