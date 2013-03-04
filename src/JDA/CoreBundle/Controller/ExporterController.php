@@ -59,7 +59,7 @@ class ExporterController extends Controller
         return $this->render('JDACoreBundle:SeedExport:items.html.twig', array(
                     'page'=> 'export',
                     'items'=> $items,
-                    'dt'=> $lastExport
+                    'dt'=> $lastExport->format('Y-m-d H:i:s')
                 ));
     }
 }
