@@ -31,8 +31,8 @@ class UserAdmin extends Admin
 
 	public function preUpdate($user)
     {
-        $this->getUserManager()->updateCanonicalFields($user);
-        $this->getUserManager()->updatePassword($user);
+        //$this->getUserManager()->updateCanonicalFields($user);
+        //$this->getUserManager()->updatePassword($user);
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -56,6 +56,9 @@ class UserAdmin extends Admin
     public function getTemplate($name)
     {
         switch ($name) {
+            case 'edit':
+                return 'ZeegaAdminBundle::edit_custom.html.twig';
+                break;
             default:
                 return parent::getTemplate($name);
                 break;

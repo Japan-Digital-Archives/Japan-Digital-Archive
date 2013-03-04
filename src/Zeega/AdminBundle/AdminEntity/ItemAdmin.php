@@ -31,7 +31,7 @@ class ItemAdmin extends Admin
 			->add('media_creator_realname')
 			->add('tags', NULL, array('allow_add' => true, 'allow_delete' => true))
 			->add('attributes', NULL, array('allow_add' => true, 'allow_delete' => true))
-			->add('published')
+			->add('published', NULL, array('required' => false))
             ->add('date_created', 'date', array('required' => false, 'widget' => 'single_text', 'help' => 'Last Export Date: ' . $lastExport . ' If created after this date, has not been sent to IA', 
                   'attr' => array('readonly' => true)))
 
@@ -66,11 +66,25 @@ class ItemAdmin extends Admin
     {
         switch ($name) {
             case 'edit':
-                return 'ZeegaAdminBundle::edit.html.twig';
+                return 'ZeegaAdminBundle::edit_custom.html.twig';
                 break;
             default:
                 return parent::getTemplate($name);
                 break;
         }
+    }
+
+    public function getBatchActions()
+    {
+        $actions = parent::getBatchActions();
+        if($this->hasRoute('edit') && $this->isGranted('EDIT') && $this->hasRoute('delete') && $this->isGranted('DELETE')){
+            $actions['publish'] = array(
+                'label'            => "Publish",
+                'ask_confirmation' => false 
+            );
+
+        }
+
+        return $actions;
     }
 }
