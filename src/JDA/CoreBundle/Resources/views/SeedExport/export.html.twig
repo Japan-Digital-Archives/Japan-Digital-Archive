@@ -5,12 +5,12 @@
     <script type="text/javascript">
         var lastExport = "{{ lastExport }}";
         $("document").ready(function () {
-            $("#submitBtn").val($("#submitBtn").val() + lastExport);
+            //$("#submitBtn").val($("#submitBtn").val() + lastExport);
             //alert(lastExport);
-            $("#submitBtn").click(function () {
-                getResultsByPage(1);
-                $("#submitBtn").hide();
-            });
+            //$("#submitBtn").click(function () {
+                //getResultsByPage(1);
+                //$("#submitBtn").hide();
+            //});
         });
 
         function getResultsByPage(pageNum) {
@@ -46,7 +46,8 @@
     </script>
 </head>
     <body>
-        <input type="button" id="submitBtn" value="Export Seeds created after " />
+        <!--<input type="button" id="submitBtn" value="Export Seeds" />-->
+        <a href="/exported/">Export Seeds</a>
         <div id="resultsDiv"></div>
     </body>
 </html>

@@ -59,6 +59,9 @@ class ExporterController extends Controller
         $q = $em->createQuery("select i from ZeegaDataBundle:Item i where i.published=1 and i.media_type='website' and i.date_created >= '" . $lastExport->format('Y-m-d H:i:s') . "'");
         $items = $q->getResult();
         //$items = $em->getRepository('ZeegaDataBundle:Item')->findBy(array('date_created' => $lastExport));
+        if(file_exists($fileLoc)) {
+            file_put_contents($fileLoc, date('m/d/Y h:i:s a', time()));
+        }
         return $this->render('JDACoreBundle:SeedExport:items.html.twig', array(
                     'page'=> 'export',
                     'items'=> $items
