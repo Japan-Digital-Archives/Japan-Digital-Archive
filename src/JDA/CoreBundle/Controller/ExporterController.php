@@ -53,7 +53,8 @@ class ExporterController extends Controller
         if(!file_exists($fileLoc)) {
             file_put_contents($fileLoc, date('m/d/Y h:i:s a', strtotime('12/11/2012 1:51:00 pm')));
         }
-        $lastExport = date_create(file_get_contents($fileLoc));
+        //$lastExport = date_create(file_get_contents($fileLoc));
+        $lastExport = date_create('2/11/2013 1:51:00 pm');
         $em = $this->getDoctrine()->getEntityManager();
         $q = $em->createQuery("select i from ZeegaDataBundle:Item i where i.date_created >= '" . $lastExport->format('Y-m-d H:i:s') . "'");
         $items = $q->getResult();
