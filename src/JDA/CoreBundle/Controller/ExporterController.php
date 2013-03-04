@@ -56,7 +56,7 @@ class ExporterController extends Controller
         $lastExport = date_create(file_get_contents($fileLoc));
         $em = $this->getDoctrine()->getEntityManager();
         $items = $em->getRepository('ZeegaDataBundle:Item')->findBy(array('date_created' => $lastExport));
-        return $this->render('JDACoreBundle:SeedExport:item.html.twig', array(
+        return $this->render('JDACoreBundle:SeedExport:items.html.twig', array(
                     'page'=> 'export',
                     'items'=> $items
                 ));
