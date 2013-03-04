@@ -55,7 +55,7 @@ class ExporterController extends Controller
         }
         $lastExport = date_create(file_get_contents($fileLoc));
         $em = $this->getDoctrine()->getEntityManager();
-        $q = $em->createQuery("select i from ZeegaDataBundle:Item i where i.date_created > " . $lastExport->format('Y-m-d H:i:s'));
+        $q = $em->createQuery("select i from ZeegaDataBundle:Item i where i.date_created > '" . $lastExport->format('Y-m-d H:i:s')+"'");
         $items = $q->getResult();
         //$items = $em->getRepository('ZeegaDataBundle:Item')->findBy(array('date_created' => $lastExport));
         return $this->render('JDACoreBundle:SeedExport:items.html.twig', array(
