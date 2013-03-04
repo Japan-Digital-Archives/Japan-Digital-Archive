@@ -1,0 +1,3 @@
+﻿{% for item in items %}
+    {{ item.date_created }}, website, {{ item.uri }}, {{ item.attributes.frequency ? item.attributes.frequency : 'Once' }}, {{ item.attributes.scope ? item.attributes.scope : 'page' }}, Seed Id: {{ item.id }} <br/> 
+{% endfor %}

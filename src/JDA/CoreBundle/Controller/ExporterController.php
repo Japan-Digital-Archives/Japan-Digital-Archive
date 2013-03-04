@@ -42,5 +42,24 @@ class ExporterController extends Controller
                     'page'=> 'export',
                 ));
     }
+
+    public function getItemsAction()
+    {
+        $loggedUser = $this->get('security.context')->getToken()->getUser();
+        if(!is_object($loggedUser)){
+            return $this->redirect('/web/login');
+        }
+        $fileLoc = realpath("lastExport.txt");
+        if(!file_exists($fileLoc)) {
+            file_put_contents($fileLoc, date('m/d/Y h:i:s a', strtotime('12/11/2012 1:51:00 pm')));
+        }
+        $lastExport = strtotime(file_get_contents($fileLoc));
+        $em = $this->getDoctrine()->getEntityManager();
+        $items = $em->getRepository('ZeegaDataBundle:Item')->findBy(array('date_created' => $lastExport));
+        return $this->render('JDACoreBundle:SeedExport:item.html.twig', array(
+                    'page'=> 'export',
+                    'items'=> $items
+                ));
+    }
 }
 

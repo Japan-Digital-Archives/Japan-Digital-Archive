@@ -65,3 +65,6 @@ export:
 export_update:
     pattern:   /export-seeds/update/
     defaults:  { _controller: JDACoreBundle:Exporter:update }
+export_new:
+    pattern:   /export-new/
+    defaults:  { _controller: JDACoreBundle:Exporter:getItems }
