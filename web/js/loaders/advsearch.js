@@ -200,7 +200,7 @@ function initMap() {
 
 function DoSearch() {
 
-    var baseURL = window.location.href.replace('en/advsearch','')  + 'en/search?#';
+    var baseURL = window.location.href.replace('/advsearch','')  + '/search?#';
     if($("#searchTerms").val()) {
         baseURL += "q=" + $("#searchTerms").val();
     }
