@@ -19,12 +19,25 @@
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', '{{ google_analytics }}']);
 	  _gaq.push(['_trackPageview']);
-	
+          var userLang = (navigator.language) ? navigator.language : navigator.userLanguage;
+
 	  (function() {
 		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
+               	
+		if ( userLang=="en-US")
+		{
+                      	
+			window.location = 'http://dev.jdarchive.org/hikari/web/en/home';
+                }
+		else if ( userLang=="ja" && window.location=="http://dev.jdarchive.org/hikari/web/en/home")
+		{
+          
+			window.location = 'http://dev.jdarchive.org/hikari/web/ja/home';
+		}
+
+	})();
 	
 	</script>
 	
