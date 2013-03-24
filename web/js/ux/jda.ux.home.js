@@ -1,9 +1,29 @@
-
 $(document).ready(function(){
 	
 
 	var BrowserDetect = {
 	init: function () {
+		
+/**************************************************/
+
+    var cookie_value = document.cookie.match('cookie=.*?;')
+
+        if (cookie_value != "cookie=on;")
+        {
+                var userLang = (navigator.language) ? navigator.language : navigator.userLanguage;
+
+                if ( ( userLang=="en-us" || userLang=="en-US" )&& window.location.pathname == '/hikari/web/ja/home')
+                {
+                        window.location = window.location.href.replace('/ja/','/en/');
+                }
+                else if ( userLang=="ja" && window.location.pathname == '/hikari/web/en/home' )
+                {
+                        window.location = window.location.href.replace('/en/','/ja/');
+                }
+        }
+
+/**************************************************/
+		
 		this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
 		this.version = this.searchVersion(navigator.userAgent)
 			|| this.searchVersion(navigator.appVersion)
@@ -212,52 +232,31 @@ $(document).ready(function(){
 	
 	
 
-	/*************** LANGUAGE TOGGLE ************************/
+        /*************** LANGUAGE TOGGLE ************************/
+        $('#jda-language-toggle').find('.btn').click(function(){
 
-	function getCookie(c_name)
-	{
-		var i,x,y,ARRcookies=document.cookie.split(";");
-		for (i=0;i<ARRcookies.length;i++)
-  		{
-  			x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
- 			y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
-  			x=x.replace(/^\s+|\s+$/g,"");
-  		if (x==c_name)
-    		{
-    			return unescape(y);
-    		}
-  		}
-	}	
+                function set_cookie ( cookie_name, cookie_value, lifespan_in_days, valid_domain )
+                {
+                        // http://www.thesitewizard.com/javascripts/cookies.shtml
+                        var domain_string = valid_domain ? ("; domain=" + valid_domain) : '' ;
+                        document.cookie = cookie_name + "=" + encodeURIComponent( cookie_value ) + "; max-age=" + 60 * 60 * 24 * lifespan_in_days + "; path=/" + domain_string ;
+                }
 
-	function setCookie(c_name,value,exdays)
-	{
-		var exdate=new Date();
-		exdate.setDate(exdate.getDate() + exdays);
-		var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
-		document.cookie=c_name + "=" + c_value;
-	}
-	$('#jda-language-toggle').find('.btn').click(function(){
-		if(!$(this).hasClass('active')){
-			console.log('switching languages');
-			$('#jda-language-toggle').find('.btn').removeClass('active');
-			$(this).addClass('active');
-			console.log($(this))
-			console.log($(this).data('language'));
-			var target_page_language = $(this).data('language');
-			if( target_page_language =='en'){
-				setCookie("username","ja",365);
-				 window.location =  window.location.href.replace('/ja/','/en/');
-			}
-			else {
-				setCookie("username","en",365);
-				window.location =  window.location.href.replace('/en/','/ja/');
-			}	
-		}
-	});
+                if(!$(this).hasClass('active')){
+                        set_cookie("cookie","on", "365","dev.jdarchive.org");
+                        console.log('switching languages');
+                        $('#jda-language-toggle').find('.btn').removeClass('active');
+                        $(this).addClass('active');
+                        console.log($(this).data('language'));
+                        if($(this).data('language')=='en') window.location =  window.location.href.replace('/ja/','/en/');
+                        else window.location =  window.location.href.replace('/en/','/ja/');
+                }
+
+        });
 	
 	
 	
- 	
+	
 	
 	
 	$('.jda-home-featured-collection').height(Math.max($(window).height()-50, 600));
@@ -289,26 +288,10 @@ $(document).ready(function(){
 					$(this).css('width', '3px');
 				});
 
-				/*$('#jda-go-button').click(function(){
-					alert("clicked");
-					console.log("clicked");
+				$('#jda-go-button').click(function(){
 					var query = VisualSearch.searchBox.value();
-					var re1 = new RegExp("^[\u4E00-\uFA29]*$"); //Chinese character range
-					var re2 = new RegExp("^[\uE7C7-\uE7F3]*$"); //Chinese character range
-					query = query.replace(/(^\s*)|(\s*$)/g,'');
-					if (!(re1.test(query) && (! re2.test(query))))
-					{
-						
-						window.location = 'http://www.jdarchive.org/ja/search#q=' + query;
-					}
-					else
-					{
-						window.location = 'http://www.jdarchive.org/ja/search#q=' + query;
-					}
-					
-				
-					//window.location = 'search#q=' + query;
-				});*/
+					window.location = 'search#q=' + query;
+				});
 			},
 
 			search : function(){ 
@@ -342,20 +325,7 @@ $(document).ready(function(){
 			
 			var query = textQuery + (textQuery.length > 0 && tagQuery.length > 4 ? " " : "") + (tagQuery.length > 4 ? tagQuery : "");
 	
-			//var query = VisualSearch.searchBox.value();
-                        var re1 = new RegExp("^[\u4E00-\uFA29]*$"); //Chinese character range
-                        var re2 = new RegExp("^[\uE7C7-\uE7F3]*$"); //Chinese character range
-                        query = query.replace(/(^\s*)|(\s*$)/g,'');
-                        if (!(re1.test(query) && (! re2.test(query))))
-                        {
-                             window.location = 'http://www.jdarchive.org/en/search#q=' + query;
-                       	}
-                        else
-                        {
-                             window.location = 'http://www.jdarchive.org/ja/search#q=' + query;
-                        }
-
-			// window.location = 'search#q=' + query;
+			window.location = 'search#q=' + query;
 				
 			},
 
@@ -396,7 +366,6 @@ $(document).ready(function(){
 	});
 
 	$('#jda-go-button').click(function(){
-
 	  	var e = jQuery.Event("keydown");
 		e.which = 13;
 
