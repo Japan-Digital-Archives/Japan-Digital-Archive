@@ -183,10 +183,10 @@ require(loadFiles, function () {
                 postObj.description = $("#descriptionTxt").val();
                 postObj.layer_type = layerMediaMap[$("#categoryDDL > option:selected").val()]; // fix this based on https://github.com/Zeega/Zeega-Core/wiki/Database-schema
                 postObj.media_type = $("#categoryDDL > option:selected").val();
-                postObj.uri = $("#urlTxt").val();
+                postObj.uri = "http://wayback.archive-it.org/2438/20110301000000/" + $("#urlTxt").val();
                 postObj.attribution_uri = $("#urlTxt").val();
-                postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
-                postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                postObj.media_creator_username = "rijs"; //$("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                postObj.media_creator_realname = "rijs"; //$("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
 
                 if ($("#lat").val() != "") {
                     postObj.media_geo_latitude = parseFloat($("#lat").val());
