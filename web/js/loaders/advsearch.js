@@ -228,11 +228,11 @@ function DoSearch() {
     var endDate = $("#endDateTxt").val();
     if (startDate != "") {
         var sDate = new Date(startDate);
-        baseURL += "&media_after=" + sDate.getTime();
+        baseURL += "&media_after=" + (sDate.getTime() / 1000);
     }
     if (endDate != "") {
         var eDate = new Date(endDate);
-        baseURL += "&media_before=" + eDate.getTime();
+        baseURL += "&media_before=" + (eDate.getTime() / 1000);
     }
     var usersVal = $("#userDDL option:selected").val();
     if (usersVal == -1) {
