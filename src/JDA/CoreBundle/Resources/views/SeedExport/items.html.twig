@@ -1,0 +1,3 @@
+﻿{% for item in items %}
+    {{ item.getDateCreated|date('m/d/Y H:i') }}, website, {{ item.uri }}, {{ item.getAttributes.frequency is defined ? item.getAttributes.frequency : 'Once' }}, {{ item.getAttributes.scope is defined ? item.getAttributes.scope : 'page' }}, Seed Id: {{ item.id }} <br/> 
+{% endfor %}

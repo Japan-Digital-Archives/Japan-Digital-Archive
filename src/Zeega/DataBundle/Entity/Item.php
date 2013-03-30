@@ -721,11 +721,19 @@ class Item
         return $this->parent_items;
     }
     /**
-     * @ORM\prePersist
+     * @ORM\PrePersist
      */
     public function onPrePersist()
     {
         // Add your code here
+    }
+    
+    /**
+     * @ORM\PreUpdate
+     */
+    public function onPreUpdate()
+    {
+        $this->setDateUpdated(new \DateTime("now"));
     }
     /**
      * @var \DateTime $date_updated

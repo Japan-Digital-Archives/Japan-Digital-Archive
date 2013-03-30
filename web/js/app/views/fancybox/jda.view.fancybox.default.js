@@ -13,7 +13,6 @@
 		/* Pass in the element that the user clicked on from fancybox. */
 		render: function(obj)
 		{
-
 			sessionStorage.setItem('currentItemId', this.model.id);
 			//console.log('this model id is'+this.model.id);
 			//Call parent class to do captioning and metadata

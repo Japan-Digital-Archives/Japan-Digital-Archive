@@ -22,8 +22,8 @@
             if( !_.isUndefined(this.search.published) ) url += '&published=' + this.search.published;
             if( !_.isUndefined(this.search.data_source) ) url += '&data_source=' + this.search.data_source;
             if( !_.isUndefined(this.search.times)&&!_.isNull(this.search.times) ){
-                if( !_.isUndefined(this.search.times.start) ) url += '&since=' + this.search.times.start;
-                if( !_.isUndefined(this.search.times.end) ) url += '&before=' + this.search.times.end;
+                if( !_.isUndefined(this.search.times.start) ) url += '&media_since=' + this.search.times.start;
+                if( !_.isUndefined(this.search.times.end) ) url += '&media_before=' + this.search.times.end;
             }
             if( !_.isUndefined(this.search.user) && this.search.user>=-1&& this.search.user!=="") url += '&user=' + this.search.user;
             if(jda.app.currentView=='event') url+='&geo_located=1';
