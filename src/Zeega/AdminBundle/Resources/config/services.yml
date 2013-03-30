@@ -7,3 +7,15 @@ services:
         arguments: [null, Zeega\DataBundle\Entity\User, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, alias: zeega_admin_user, manager_type: orm, group: General, label: Users}
+    
+    zeega.admin.item:
+        class: Zeega\AdminBundle\AdminEntity\ItemAdmin
+        arguments: [null, Zeega\DataBundle\Entity\Item, ZeegaAdminBundle:ItemAdmin]
+        tags:
+            - { name: sonata.admin, alias: zeega_admin_item, manager_type: orm, group: General, label: Items}
+    
+  #  zeega.admin.tag:
+   #     class: Zeega\AdminBundle\AdminEntity\TagAdmin
+    #    arguments: [null, Zeega\DataBundle\Entity\Tag, SonataAdminBundle:CRUD]
+     #   tags:
+      #      - { name: sonata.admin, alias: zeega_admin_tag, manager_type: orm, group: General, label: Tags}

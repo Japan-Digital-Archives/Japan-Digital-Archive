@@ -200,7 +200,7 @@ function initMap() {
 
 function DoSearch() {
 
-    var baseURL = window.location.href.replace('en/advsearch','')  + 'en/search?#';
+    var baseURL = window.location.href.replace('/advsearch','')  + '/search?#';
     if($("#searchTerms").val()) {
         baseURL += "q=" + $("#searchTerms").val();
     }
@@ -228,11 +228,11 @@ function DoSearch() {
     var endDate = $("#endDateTxt").val();
     if (startDate != "") {
         var sDate = new Date(startDate);
-        baseURL += "&min_date=" + sDate.getTime();
+        baseURL += "&media_after=" + (sDate.getTime() / 1000);
     }
     if (endDate != "") {
         var eDate = new Date(endDate);
-        baseURL += "&max_date=" + eDate.getTime();
+        baseURL += "&media_before=" + (eDate.getTime() / 1000);
     }
     var usersVal = $("#userDDL option:selected").val();
     if (usersVal == -1) {
@@ -411,7 +411,7 @@ require(loadFiles, function () {
 	/*************** USER LOGIN ************************/
 	
 	$('#sign-in').click(function(){
-		$('#user-modal-body').empty().append('<iframe class="login" src="/'+sessionStorage.getItem('directory')+'login?_locale='+sessionStorage.getItem('locale')+'"></iframe>');
+	    $('#user-modal-body').empty().append('<iframe class="login" src="' + document.location.href.replace("advsearch", "") + 'login?_locale=' + sessionStorage.getItem('locale') + '"></iframe>');
 		$('#user-modal').modal('show'); 
 		return false;
 	});

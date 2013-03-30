@@ -5,6 +5,7 @@ Zeega\DataBundle\Entity\Item:
     repositoryClass: Zeega\DataBundle\Repository\ItemRepository
     lifecycleCallbacks:
        prePersist: [onPrePersist]
+       preUpdate: [onPreUpdate]
     manyToMany:
         child_items: 
             targetEntity: Item
