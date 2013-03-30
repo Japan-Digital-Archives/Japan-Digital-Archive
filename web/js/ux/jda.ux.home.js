@@ -1,9 +1,48 @@
-
 $(document).ready(function(){
-	
+
 
 	var BrowserDetect = {
 	init: function () {
+
+/**************************************************/
+
+/*    var cookie_value = document.cookie.match('cookie=on')
+	
+	if (cookie_value != "cookie=on")
+	{
+		var userLang = (navigator.language) ? navigator.language : navigator.userLanguage;
+
+		if ( ( userLang=="en-us" || userLang=="en-US" )&& window.location.pathname == '/hikari/web/ja/home')
+		{
+			window.location = window.location.href.replace('/ja/','/en/');
+        	}
+		else if ( userLang=="ja" && window.location.pathname == '/hikari/web/en/home' )
+		{
+			window.location = window.location.href.replace('/en/','/ja/');
+		}
+	}*/
+
+var cookie_value = document.cookie.match('cookie=.n')
+
+        if (cookie_value == "cookie=jn" && window.location.pathname != '/hikari/web/ja/home')
+                window.location = window.location.href.replace('/en/','/ja/');
+        else if (cookie_value == "cookie=en" && window.location.pathname != '/hikari/web/en/home')
+                window.location = window.location.href.replace('/ja/','/en/');
+	else if (cookie_value != "cookie=en" && cookie_value != "cookie=jn"){ 
+                var userLang = (navigator.language) ? navigator.language : navigator.userLanguage;
+
+                if ( ( userLang=="en-us" || userLang=="en-US" )&& window.location.pathname == '/hikari/web/ja/home')
+                {
+                        window.location = window.location.href.replace('/ja/','/en/');
+                }
+                else if ( userLang=="ja" && window.location.pathname == '/hikari/web/en/home' )
+                {
+                        window.location = window.location.href.replace('/en/','/ja/');
+                }
+        }
+
+/**************************************************/
+
 		this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
 		this.version = this.searchVersion(navigator.userAgent)
 			|| this.searchVersion(navigator.appVersion)
@@ -119,8 +158,8 @@ $(document).ready(function(){
 
 	};
 		BrowserDetect.init();
-		
-		
+
+
 
 		if((BrowserDetect.browser=='Firefox'&&BrowserDetect.version<12)||(BrowserDetect.browser=='Explorer'&&BrowserDetect.version<9)) {
 			$('#browserModal').modal('show');
@@ -138,14 +177,14 @@ $(document).ready(function(){
 
 
 	/*************** USER LOGIN ************************/
-	
+
 	$('#sign-in').click(function(){
 		$('#user-modal-body').empty().append('<iframe class="login" src="'+$('#sign-in').data('link')+'"></iframe>');
 		$('#user-modal').modal('show'); 
 		return false;
 	});
-	
-	
+
+
 	$('#user-modal').bind('authenticated',function(){
 		$('#sign-in').hide(); 
 		$('#user-dropdown').show();
@@ -153,43 +192,43 @@ $(document).ready(function(){
 		if(!_.isUndefined(window.jda))jda.app.userAuthenticated();
 		return false;
 	});
-	
-	
-	$('#user-modal').bind('close',function(){$("#user-modal-close").trigger('click');});
-	
 
-	
+
+	$('#user-modal').bind('close',function(){$("#user-modal-close").trigger('click');});
+
+
+
 	/*************** ACCOUNT SETTINGS ************************/
-	
+
 	$('#account-settings').click(function(){
 		$('#user-modal-body').empty().append('<iframe class="login" src="'+sessionStorage.getItem('hostname')+sessionStorage.getItem('directory')+'profile/change-password?_locale='+sessionStorage.getItem('locale')+'"></iframe>');
 		$('#user-modal').modal('show'); 
 		return false;
-		
-	});
-	
 
-	
-	
+	});
+
+
+
+
 	/************  BUG REPORT **********************/
-	
-	
+
+
 	$('.bug-report').click(function(e){e.stopPropagation();});
-	
+
 	$('.bug-report').parent().click(function(){
 		$('.bug-unsubmitted').show();
 		$('.bug-submitted').hide();
 	});
-	
+
 	$('.close-bug').click(function(){
 		$('.bug-report').parent().trigger('click');
 	});
-	
-	
+
+
 	$('.submit-bug').click(function(){
-		
+
 		var bug = new Backbone.Model({
-		
+
 			url:window.location.href,
 			hash: window.location.hash.substr(1),
 			description: $('.bug-description').val(),
@@ -198,40 +237,55 @@ $(document).ready(function(){
 			version: BrowserDetect.version,
 			os:BrowserDetect.OS,
 			login:sessionStorage.getItem('user')
-		
+
 		});
-		
+
 		bug.url="../bugs/report.php";
 		bug.save();
 		$('.bug-description').attr('value','');
 		$('.bug-unsubmitted').fadeOut('fast',function(){
 				$('.bug-submitted').fadeIn();
 		});
-	
+
 	});
-	
-	
+
+
 
 	/*************** LANGUAGE TOGGLE ************************/
 	$('#jda-language-toggle').find('.btn').click(function(){
+
+		function set_cookie ( cookie_name, cookie_value, lifespan_in_days, valid_domain )
+		{
+    			// http://www.thesitewizard.com/javascripts/cookies.shtml
+    			var domain_string = valid_domain ? ("; domain=" + valid_domain) : '' ;
+    			document.cookie = cookie_name + "=" + encodeURIComponent( cookie_value ) + "; max-age=" + 60 * 60 * 24 * lifespan_in_days + "; path=/" + domain_string ;
+		}
+
 		if(!$(this).hasClass('active')){
+	//		set_cookie("cookie","on", "365","dev.jdarchive.org");
 			console.log('switching languages');
 			$('#jda-language-toggle').find('.btn').removeClass('active');
 			$(this).addClass('active');
 			console.log($(this).data('language'));
-			if($(this).data('language')=='en') window.location =  window.location.href.replace('/ja/','/en/');
-			else window.location =  window.location.href.replace('/en/','/ja/');
+			if($(this).data('language')=='en'){
+				set_cookie("cookie","en", "365","dev.jdarchive.org"); 
+				window.location =  window.location.href.replace('/ja/','/en/');
+			}
+			else {
+				set_cookie("cookie","jn", "365","dev.jdarchive.org");
+				window.location =  window.location.href.replace('/en/','/ja/');
+			}
 		}
-		
+
 	});
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	$('.jda-home-featured-collection').height(Math.max($(window).height()-50, 600));
-	
+
 	$(window).resize(function() { $('.jda-home-featured-collection').height(Math.max($(window).height()-50, 600));});
   
 	// Shorthand the application namespace
@@ -240,7 +294,7 @@ $(document).ready(function(){
 		container : $('.visual_search'),
 		query     : '',
 		callbacks : {
-			
+
 			loaded	: function(){ 
 
 				if($(location).attr('href').indexOf('home')>=0){
@@ -252,7 +306,7 @@ $(document).ready(function(){
 				}
 				$("#jda-home-search-div, #search-bar").fadeTo('slow',1); 
 				$('#VS-search input').attr('placeholder', 'Explore the Archive');
-				
+
 				$('#VS-search input').css('padding-top', '9px');
 				$('#VS-search input').focus(function(){
 					//$(this).attr('placeholder', '');
@@ -266,14 +320,14 @@ $(document).ready(function(){
 			},
 
 			search : function(){ 
-			
+
 			var facets = VisualSearch.searchQuery.models;
-			
-			
+
+
 			var tagQuery = "tag:";
 			var textQuery = "";
 			//var usernameQuery = "";
-			
+
 			_.each(facets, function(facet){
 				console.log(facet.get('category'));
 				switch ( facet.get('category') )
@@ -293,11 +347,11 @@ $(document).ready(function(){
 					*/
 			    }
 			});
-			
+
 			var query = textQuery + (textQuery.length > 0 && tagQuery.length > 4 ? " " : "") + (tagQuery.length > 4 ? tagQuery : "");
-	
+
 			window.location = 'search#q=' + query;
-				
+
 			},
 
 			clearSearch : function(){ $('input').val('');},
@@ -347,7 +401,7 @@ $(document).ready(function(){
 		} else{
 			VisualSearch.searchBox.searchEvent(e);
 		}
-		
+
   		return false;
   	});
 

@@ -13,40 +13,40 @@
 	<link href="{{ asset('css/zeega-jda.css')}}" rel="stylesheet" type="text/css">
 	<link href="{{ asset('css/jda.css')}}" rel="stylesheet" type="text/css">
 	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/jda.ico')}}"> 
-	
+
 	{% if app.environment == 'prod' %}
 	<script type="text/javascript">
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', '{{ google_analytics }}']);
 	  _gaq.push(['_trackPageview']);
-	
+
 	  (function() {
 		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
-	
+
 	</script>
-	
+
 	{% else %}
-	
+
 	<script type="text/javascript">
 
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-34158612-1']);
 	  _gaq.push(['_trackPageview']);
-	
+
 	  (function() {
 		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
-	
+
 	</script>
 
 
 	{% endif %}
-	
+
 	{% block stylesheets %}
 
 	{% endblock %}
@@ -57,14 +57,16 @@
 		sessionStorage.setItem('apiUrl','{{api_url}}');
 		sessionStorage.setItem('japanMapUrl','{{japan_map_url}}');
 		sessionStorage.setItem('geoServerUrl','{{geoserver_url}}');
-		sessionStorage.setItem('locale','{{app.request.locale}}');
 		
+		//sessionStorage.setItem('locale','en');
+		sessionStorage.setItem('locale','{{app.request.locale}}');
+
 		{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 		sessionStorage.setItem('user',{{app.user.getId}});
 		{% else %}
 		sessionStorage.setItem('user',0);
 		{% endif %}		
-		
+
 	</script>
 
 
@@ -72,11 +74,11 @@
 
 
 	{% block scripts %}
-	
-	
-	
-	
-	
+
+
+
+
+
 	{% endblock %}
 
 
@@ -93,7 +95,7 @@
 		<div class="navbar navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container" style="width:98%">
-				
+
 						<div>
 							{% if locale == 'ja' %}
 							<a class="brand" href="{{path('home', { '_locale': locale })}}"><img id="logo" alt="Logo Japanese" class="home-english" src="{{ asset('images/jda_jp_logo_white.png')}}"></a>
@@ -132,7 +134,7 @@
 										<li class='bug-submitted'>
 											<button class='btn btn-success close-bug '>{% trans %}jda.close{% endtrans %}</button>
 										</li>
-										
+
 									</ul>
 							</li>
 							<li class="divider-vertical"></li>
@@ -141,7 +143,7 @@
 										<ul class="dropdown-menu">
 											<li><a href="{{path('seedSubmit', { '_locale': locale}) }}">{% trans %}jda.header.addwebsite{% endtrans %}</a></li>
 											<li><a href="{{path('testimonial', { '_locale': locale}) }}">{% trans %}jda.header.addtestimonial{% endtrans %}</a></li>
-											
+
 										</ul>
 							</li>
 							<li class="divider-vertical"></li>
@@ -150,11 +152,11 @@
 										<ul class="dropdown-menu">
 											<li><a href="{{path('about', { '_locale': locale })}}">{% trans %}jda.about.project{% endtrans %}</a></li>
 											<li><a href="{{path('team', { '_locale': locale })}}">{% trans %}jda.about.team{% endtrans %}</a></li>
-											
+
 										</ul>
 							</li>
-							
-							
+
+
 							<li class="divider-vertical"></li>
 							{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 								<li class="dropdown">
@@ -176,9 +178,9 @@
 								</li>
 								<li><a id="sign-in" data-link="{{path('fos_user_security_login')}}" href="#">{% trans %}jda.header.signin{% endtrans %}</a></li>
 							{% endif %}
-							
-							
-							
+
+
+
 							<li class="divider-vertical"></li>
 							<li>
 								<div id='jda-language-toggle' class="btn-group">
@@ -207,7 +209,7 @@
 		<a id="user-modal-close" class="close" style="padding-right:5px;" data-dismiss="modal">×</a>
 		<div id="user-modal-body" class="user-modal-body"></div>
 	</div>
-	
+
 
 
 	<div class="modal" id="myModal" style='display:none'>
@@ -231,8 +233,8 @@
 		</div>
 
 	</div>
-	
-	
+
+
 
 
 </body>
