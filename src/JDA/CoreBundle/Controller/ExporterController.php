@@ -68,5 +68,23 @@ class ExporterController extends Controller
                     'items'=> $items
                 ));
     }
+
+    public function getItemsSpecialAction()
+    {
+        $loggedUser = $this->get('security.context')->getToken()->getUser();
+        if(!is_object($loggedUser)){
+            return $this->redirect('/web/login');
+        }
+        $em = $this->getDoctrine()->getEntityManager();
+        // this is a special export function to handle the stuff in the beginning
+        $q = $em->createQuery("select i from ZeegaDataBundle:Item i where i.id >= 890449 and i.id <= 891255 and i.published=1 and i.media_type='website'");
+        $items = $q->getResult();
+
+        
+        return $this->render('JDACoreBundle:SeedExport:items.html.twig', array(
+                    'page'=> 'export',
+                    'items'=> $items
+                ));
+    }
 }
 

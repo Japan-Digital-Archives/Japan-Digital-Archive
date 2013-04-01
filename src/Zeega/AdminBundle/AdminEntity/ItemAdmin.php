@@ -60,6 +60,7 @@ class ItemAdmin extends Admin
             ->add('date_created')
             ->add('published')
 			->add('media_creator_username')
+            ->add('media_creator_realname')
         ;
     }
 

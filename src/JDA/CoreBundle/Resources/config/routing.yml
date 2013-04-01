@@ -65,3 +65,6 @@ export:
 exported:
     pattern:   /exported/
     defaults:  { _controller: JDACoreBundle:Exporter:getItems }
+export-special:
+    pattern:   /export-special/
+    defaults:  { _controller: JDACoreBundle:Exporter:getItemsSpecial }
