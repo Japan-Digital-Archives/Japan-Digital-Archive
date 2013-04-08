@@ -8,8 +8,11 @@
 						{% trans %}jda.login.savecollection{% endtrans %} 
 					{% endif %} 
 				{% endif %} 
-				{% trans %}jda.login.header{% endtrans %} 
-				<a href="{{path('fos_user_registration_register',{ '_locale': locale})}}">{% trans %}jda.login.register{% endtrans %}</a>
+				<img style="margin-left:200px; width:120px; margin-bottom: 20px;" src="/corinne/web/images/logo.png">
+				<br>	
+				<span style="padding-left: 75px;">{% trans %}jda.login.header{% endtrans %}</span>
+				<span style="padding-left: 160px;">{% trans %}jda.register.title{% endtrans %}</span> 
+				
 {% endblock header %}
 
 

@@ -7,13 +7,14 @@
     	<meta name="description" content="">
     	<meta name="keywords" content="">
     	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="/corinne/web/css/jda.css" rel="stylesheet" type="text/css">
     	<link href="{{ asset('js/lib/bootstrap-2.0.2/css/bootstrap.css')}}" rel="stylesheet" type="text/css">
     	<link href="{{ asset('js/lib/bootstrap-2.0.2/css/bootstrap-responsive.css')}}" rel="stylesheet">
     </head>
 
     <body>
-    	<div class="login-modal-header">
-        	<h2 style="padding-top:20px;padding-bottom:30px;">	
+    	<div class="login-modal-header">	
+        	<h2 style="padding-top:10px;padding-bottom:20px;">
         		{% block header %}
         		{% endblock header %}
         	</h2>
@@ -30,7 +31,7 @@
             <div id="authorization-content">
                 {% block fos_user_content %}
                 {% endblock fos_user_content %}
-            </div>
+	    </div>
     	   </div>
             {% endblock content %}
     </body>

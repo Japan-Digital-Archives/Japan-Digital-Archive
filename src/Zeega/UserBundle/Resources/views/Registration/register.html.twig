@@ -1,5 +1,8 @@
 {% extends "ZeegaUserBundle::layout.html.twig" %}
+{% block header %}
 
+				<span style="padding-left: 165px;">{% trans %}jda.login.register{% endtrans %}</span>
+{% endblock header %}
 {% block fos_user_content %}
 {% include "ZeegaUserBundle:Registration:register_content.html.twig" %}
 {% endblock fos_user_content %}

@@ -204,7 +204,7 @@
             </trans-unit>
             <trans-unit id="51">
                 <source>jda.login.username</source>
-                <target>Email</target>
+                <target>Email/Username</target>
             </trans-unit>
             <trans-unit id="52">
                 <source>jda.login.password</source>
@@ -344,7 +344,7 @@
             </trans-unit>
             <trans-unit id="87">
                 <source>jda.login.register</source>
-                <target>Create an account</target>
+                <target>Create an Account</target>
             </trans-unit>
             <trans-unit id="88">
                 <source>jda.login.savecollection</source>
@@ -400,11 +400,11 @@
             </trans-unit>
             <trans-unit id="101">
                 <source>jda.login.header</source>
-                <target>Sign in or</target>
+                <target>Sign in</target>
             </trans-unit>
             <trans-unit id="102">
                 <source>jda.login.forgot</source>
-                <target>forgot password?</target>
+                <target>forgot your password?</target>
             </trans-unit>
             <trans-unit id="103">
                 <source>jda.login.back</source>
@@ -1058,6 +1058,22 @@
                 <source>jda.search.broadcast</source>
                 <target>broadcast</target>
             </trans-unit>
+	    <trans-unit id="264">
+		<source>jda.login.registergroup</source>
+		<target>Want to Register as a Group?</target>
+	    </trans-unit>
+	    <trans-unit id="265">
+		<source>jda.login.registergroupinfo</source>
+		<target>A group of users wishing to work together on collaborative projects should create a single account for the group using a shared ground username and group email address.</target>
+	    </trans-unit>
+	    <trans-unit id="266">
+		<source>jda.register.title</source>
+		<target>Register</target>
+	    </trans-unit>
+	    <trans-unit id="267">
+		<source>jda.register.displayname</source>
+		<target>Display Name</target>
+	    </trans-unit>
         </body>
     </file>
 </xliff>
