@@ -186,7 +186,7 @@ require(loadFiles, function () {
                 postObj.uri = "http://wayback.archive-it.org/2438/20110301000000/" + $("#urlTxt").val();
                 postObj.attribution_uri = $("#urlTxt").val();
                 postObj.media_creator_username = "rijs"; //$("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
-                postObj.media_creator_realname = "rijs"; //$("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
 
                 if ($("#lat").val() != "") {
                     postObj.media_geo_latitude = parseFloat($("#lat").val());

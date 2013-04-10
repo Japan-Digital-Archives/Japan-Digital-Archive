@@ -46,6 +46,7 @@ class ItemAdmin extends Admin
 			->add('published')
             ->add('media_type')
 			->add('media_creator_username')
+            ->add('media_creator_realname')
 			->add('id')
         ;
     }
@@ -59,6 +60,7 @@ class ItemAdmin extends Admin
             ->add('date_created')
             ->add('published')
 			->add('media_creator_username')
+            ->add('media_creator_realname')
         ;
     }
 
