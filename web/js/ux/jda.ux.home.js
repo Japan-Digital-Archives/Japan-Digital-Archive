@@ -21,7 +21,7 @@ $(document).ready(function(){
 			window.location = window.location.href.replace('/en/','/ja/');
 		}
 	}*/
-	    alert('testing');
+
 var cookie_value = document.cookie.match('cookie=.n')
 
         if (cookie_value == "cookie=jn" && window.location.pathname != '/hikari/web/ja/home')
