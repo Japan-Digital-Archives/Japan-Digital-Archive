@@ -103,9 +103,7 @@
 			
 			if (this.model.get("media_type") == "Website"){
 			    var parts = this.model.get('attribution_uri').split('http');
-			    alert(this.model.get('attribution_uri'));
-			    alert(parts);
-				blanks["original_url"] = "http"+parts[2];
+			    blanks["original_url"] = parts[2] != undefined ? "http" + parts[2] : this.model.get('attribution_uri');
 			}
 			
 			
