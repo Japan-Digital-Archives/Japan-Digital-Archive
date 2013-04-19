@@ -102,7 +102,9 @@
 			}
 			
 			if (this.model.get("media_type") == "Website"){
-				var parts = this.model.get('attribution_uri').split('http');
+			    var parts = this.model.get('attribution_uri').split('http');
+			    alert(this.model.get('attribution_uri'));
+			    alert(parts);
 				blanks["original_url"] = "http"+parts[2];
 			}
 			
