@@ -1,13 +1,15 @@
 
-{% block fos_user_content %}		
-				
+{% block fos_user_content %}	
+			<div style="width:44%; float:left;">		
 				<form action="{{ path("fos_user_security_check") }}" method="post">
 					<div class="box">
-				    	<label for="username">{% trans %}jda.login.username{% endtrans %}
-					    <input tabindex="1" type="text" id="username" name="_username" value="{{ last_username }}" class="input_text" /></label>
-					    <label for="password">{% trans %}jda.login.password{% endtrans %} <a style="font-size: 9px; padding-left: 85px;" href="{{path('fos_user_resetting_request', { '_locale': locale})}}" >{% trans %}jda.login.forgot{% endtrans %}</a>
-					    <input  tabindex="2" type="password" id="password" name="_password" class="input_text" /></label>
-				    	<input tabindex="3"  class="btn" type="submit" id="_submit" name="_submit" value="{% trans %}jda.login.button{% endtrans %}" class="btn btn-info"/>
+					<input style="border:2px solid #E7E7E7; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; padding: 5px 20px; background-color:#F3F3F3; width:190px;" tabindex="1" onfocus="if (this.value=={% trans %}jda.login.username{% endtrans %}) {this.value='';}" onblur="if (this.value == '') {this.value = {% trans %}jda.login.username{% endtrans %};}" type="text" id="username" name="_username" value={% trans %}jda.login.username{% endtrans %} class="input_text" />
+					 <br>  
+					<input style="border:2px solid #E7E7E7; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; padding: 5px 20px; background-color:#F3F3F3; width:190px;"  tabindex="2" value={% trans %}jda.login.password{% endtrans %}  onfocus="if (this.value=={% trans %}jda.login.password{% endtrans %}) {this.type='password'; this.value='';}" onblur="if (this.value=='') {this.type='text'; this.value={% trans %}jda.login.password{% endtrans %};}" id="password" name="_password" class="input_text" />
+				    	<br>
+					<a style="font-size: 10px; color: #999;" href="{{path('fos_user_resetting_request', { '_locale': locale})}}" >{% trans %}jda.login.forgot{% endtrans %}</a>
+					<br>
+					<input tabindex="3" style="margin-left:70px; margin-top:20px; color:#fff; background-color:#16BCE6; padding:15px 35px; font-size:22px; line-height: 30px; background-image:none; border:none; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px;" class="btn" type="submit" id="_submit" name="_submit" value="{% trans %}jda.login.header{% endtrans %}" class="btn btn-info"/>
 						<br>	
 						{% if error %}
 						    <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
@@ -15,7 +17,13 @@
 	    				<br>
 					</div>
 				</form>
-				
+			</div>
+			<div style="width:44%; margin-left:20px; float:left; padding-top: 20px; border-left:1px solid #999; height: 250px;" >	
+				<form action="{{path('fos_user_registration_register',{ '_locale': locale})}}">
+					<input class="btn" style="margin-left: 50px; color:#fff; background-color:#16BCE6; padding:15px 25px; font-size:18px; line-height: 30px; background-image:none; border:none; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px;" value={%trans%} jda.register.title{% endtrans %} type="submit"; />
+				</form>
+			</div>			
+			<div style="clear:both;"></div>
 				<script type="text/javascript" language="javascript">
                		document.getElementById("username").focus();
           		</script>

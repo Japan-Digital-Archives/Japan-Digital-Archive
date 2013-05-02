@@ -68,3 +68,9 @@ exported:
 export_special:
     pattern:   /export_special/
     defaults:  { _controller: JDACoreBundle:Exporter:getItemsSpecial }
+batchtag:
+    pattern:	/batch-tag/
+    defaults:	{ _controller: JDACoreBundle:BatchTag:index }
+batchtagged:
+    pattern:	/batch-tagged/
+    defaults:	{ _controller: JDACoreBundle:BatchTag:update}

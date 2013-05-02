@@ -1061,6 +1061,22 @@
                 <source>jda.search.broadcast</source>
                 <target>broadcast</target>
             </trans-unit>
+			 <trans-unit id="264">
+                <source>jda.login.registergroup</source>
+                <target>グループとして登録しますか？</target>
+            </trans-unit>
+			 <trans-unit id="265">
+                <source>jda.login.registergroupinfo</source>
+                <target>複数のユーザによる共同プロジェクトにおいては、グループとして一つのグループ・ユーザネームと共同Eメールアドレスを利用することを奨励致します。</target>
+            </trans-unit>
+			 <trans-unit id="266">
+                <source>jda.register.title</source>
+                <target>アカウント登録</target>
+            </trans-unit>
+			 <trans-unit id="267">
+                <source>jda.register.displayname</source>
+                <target>表示名</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
