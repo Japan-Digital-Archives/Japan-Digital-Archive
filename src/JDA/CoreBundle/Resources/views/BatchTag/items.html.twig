@@ -1,3 +1,6 @@
 ﻿{% for item in items %}
-    {{ item.getDateCreated|date('m/d/Y H:i') }}, Item ID: {{ item.id }} <br/> 
+    {{ item.getDateCreated|date('m/d/Y H:i') }}, Item ID: {{ item.id }}, <br/> 
+	{% for tag in {{ item.getTags }} %}
+		{{ tag.getName }} <br />
+	{% endfor %}
 {% endfor %}

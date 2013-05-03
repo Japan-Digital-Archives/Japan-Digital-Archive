@@ -79,10 +79,11 @@ class BatchTagController extends Controller
 			$item->addItemTags($db_tags);
 		}
 		
-        return $this->render('JDACoreBundle:BatchTag:ok.html.twig', array(
+        return $this->render('JDACoreBundle:BatchTag:items.html.twig', array(
 			'tag' => $tag,
 			'userid' => $userid,
-			'items' => $items
+			'items' => $items,
+
         ));
 		
     }

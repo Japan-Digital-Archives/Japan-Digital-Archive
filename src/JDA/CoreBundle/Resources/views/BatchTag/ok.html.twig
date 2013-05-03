@@ -8,7 +8,10 @@
 		<div>
 		<?php foreach ({{items}} as $item)
 		{
+			$tags = $item->getTags();
 			echo $item;
+			echo $tags;
+			
 		} ?>
 		</div>
 	</body>
