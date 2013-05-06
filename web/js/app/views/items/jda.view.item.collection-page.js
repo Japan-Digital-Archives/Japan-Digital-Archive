@@ -474,7 +474,7 @@
 							'<div class="btn-toolbar">'+
 								
 
-									'<a class="btn btn-info btn-mini play pull-left" title="'+l.jda_collection_play+'"><i class="icon-play icon-white"></i></a>&nbsp;'+
+									//'<a class="btn btn-info btn-mini play pull-left" title="'+l.jda_collection_play+'"><i class="icon-play icon-white"></i></a>&nbsp;'+
 
 		
 								'<div class="btn-group save-data">'+
