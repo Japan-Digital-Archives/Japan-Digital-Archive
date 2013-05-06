@@ -3,9 +3,21 @@
 			<div style="width:44%; float:left;">		
 				<form action="{{ path("fos_user_security_check") }}" method="post">
 					<div class="box">
-					<input style="border:2px solid #E7E7E7; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; padding: 5px 20px; background-color:#F3F3F3; width:190px;" tabindex="1" onfocus="if (this.value=={% trans %}jda.login.username{% endtrans %}) {this.value='';}" onblur="if (this.value == '') {this.value = {% trans %}jda.login.username{% endtrans %};}" type="text" id="username" name="_username" value={% trans %}jda.login.username{% endtrans %} class="input_text" />
+					<input style="border:2px solid #E7E7E7; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; padding: 5px 20px; background-color:#F3F3F3; width:190px;" 
+					tabindex="1" 
+					type="text" 
+					id="username" 
+					name="_username" 
+					placeholder={% trans %}jda.login.username{% endtrans %} 
+					class="input_text" />
 					 <br>  
-					<input style="border:2px solid #E7E7E7; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; padding: 5px 20px; background-color:#F3F3F3; width:190px;"  tabindex="2" value={% trans %}jda.login.password{% endtrans %}  onfocus="if (this.value=={% trans %}jda.login.password{% endtrans %}) {this.type='password'; this.value='';}" onblur="if (this.value=='') {this.type='text'; this.value={% trans %}jda.login.password{% endtrans %};}" id="password" name="_password" class="input_text" />
+					<input style="border:2px solid #E7E7E7 -moz-border-radius: 10px; -webkit-border-radius: 10px;  border-radius: 10px;  padding: 5px 20px; background-color:#F3F3F3;width:190px;"
+						tabindex="2" 
+						type="password"
+						id="password" 
+						name="_password" 
+						class="input_text"
+						placeholder={% trans %}jda.login.password{% endtrans %}>
 				    	<br>
 					<a style="font-size: 10px; color: #999;" href="{{path('fos_user_resetting_request', { '_locale': locale})}}" >{% trans %}jda.login.forgot{% endtrans %}</a>
 					<br>
@@ -18,7 +30,7 @@
 					</div>
 				</form>
 			</div>
-			<div style="width:44%; margin-left:20px; float:left; padding-top: 20px; border-left:1px solid #999; height: 250px;" >	
+			<div style="width:44%; margin-left:20px; float:left; padding-top: 20px; height: 250px;" >	
 				<form action="{{path('fos_user_registration_register',{ '_locale': locale})}}">
 					<input class="btn" style="margin-left: 50px; color:#fff; background-color:#16BCE6; padding:15px 25px; font-size:18px; line-height: 30px; background-image:none; border:none; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px;" value={%trans%} jda.register.title{% endtrans %} type="submit"; />
 				</form>
