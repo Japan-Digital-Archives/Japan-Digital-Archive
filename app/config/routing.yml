@@ -35,11 +35,13 @@ fos_user_change_password:
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
     prefix: /admin
+    defaults:  { _locale: en } 
 
 _sonata_admin:
     resource: .
     type: sonata_admin
     prefix: /admin
+    defaults:  { _locale: en } 
     
 #maint:
 #    pattern:   /
