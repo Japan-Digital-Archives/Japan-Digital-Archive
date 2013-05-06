@@ -326,7 +326,9 @@
 
 				
 				for(var i=0;i<textQueries.length;i++){
-					textQueries[i]="full_text ILIKE '"+textQueries[i]+"'";
+					//textQueries[i]="full_text ILIKE '"+textQueries[i]+"'";
+
+					textQueries[i]="( title ILIKE '"+textQueries[i]+"' OR description ILIKE  '"+textQueries[i]+"'  OR full_text ILIKE  '"+textQueries[i]+"' )";
 				}
 				
 				textFilter = "("+textQueries.join(" AND ")+")";
