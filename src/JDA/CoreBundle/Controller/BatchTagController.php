@@ -11,7 +11,10 @@ class BatchTagController extends Controller
 
     public function indexAction()
     {
-		$tag;
+        $loggedUser = $this->get('security.context')->getToken()->getUser();
+        if(!is_object($loggedUser)){
+            return $this->redirect('/web/login');
+        }        
         $form = $this->createFormBuilder()
             ->add('username', 'text')
             ->add('tag', 'text')
@@ -61,28 +64,33 @@ class BatchTagController extends Controller
 	*/
 	public function updateAction()
 	{
+        $loggedUser = $this->get('security.context')->getToken()->getUser();
+        if(!is_object($loggedUser)){
+            return $this->redirect('/web/login');
+        }        
 		// $_POST parameters
 		$request = $this->getRequest();
 		$userid = $request->request->get('userid');
 		$tag = $request->request->get('tag');
 		
-		$db_tag = new \Zeega\DataBundle\Entity\Tag();
-		$db_tag->setName($tag);
-		$db_tags = new \Zeega\DataBundle\Entity\ItemTags();
-		$db_tags->setTag($db_tag);
 		
 		$em = $this->getDoctrine()->getEntityManager();
         $q = $em->createQuery("select i from ZeegaDataBundle:Item i where i.user_id = " . $userid);
         $items = $q->getResult();
 		$results = array();
 		foreach ($items as $item) {
-			$item->addItemTags($db_tags);
+            $tags = $item->getTags();
+            array_push($tags, $tag);
+            $item->setTags($tags);
+            $em->persist($item);
+			$results[] = $item->getTags();
 		}
-		
+	    $em->flush();	
         return $this->render('JDACoreBundle:BatchTag:items.html.twig', array(
 			'tag' => $tag,
 			'userid' => $userid,
 			'items' => $items,
+			'results' => $results,
 
         ));
 		
