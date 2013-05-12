@@ -316,8 +316,10 @@ $(document).ready(function(){
 					'</iframe>'+
 					'</div>');
        
-        break;
-      
+      	break;
+        case 'Headline':
+            $('#item').append('<p class="fancybox-testimonial">' + linkifyTweet($('#item').data('text')) + '</p>'); //TODO: change this
+            break;
       }
 
 });
