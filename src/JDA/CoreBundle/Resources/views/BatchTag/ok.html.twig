@@ -1,0 +1,19 @@
+﻿<html>
+<head>
+    
+    <title>Batch Tags</title>
+</head>
+    <body>
+		You did it! You've updated all of {{userid}}'s posts with the tag "{{tag}}". 
+		<div>
+		<?php foreach ({{items}} as $item)
+		{
+			$tags = $item->getTags();
+			echo $item;
+			echo $tags;
+			
+		} ?>
+		</div>
+	</body>
+	
+</html>
