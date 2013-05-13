@@ -1,3 +1,4 @@
+/// <reference path="jda.ux.item.js" />
 
 $(document).ready(function(){
 	
@@ -318,7 +319,7 @@ $(document).ready(function(){
        
       	break;
         case 'Headline':
-            $('#item').append('<p class="fancybox-testimonial">' + linkifyTweet($('#item').data('text')) + '</p>'); //TODO: change this
+            // currently, nothing happens for news articles, so nothing happens here.
             break;
       }
 
