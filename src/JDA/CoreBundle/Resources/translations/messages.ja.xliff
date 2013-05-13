@@ -1055,11 +1055,11 @@
             </trans-unit>
             <trans-unit id="262">
                 <source>jda.search.article</source>
-                <target>news article</target>
+                <target>ニューズ記事</target>
             </trans-unit>
              <trans-unit id="263">
                 <source>jda.search.broadcast</source>
-                <target>broadcast</target>
+                <target>放送</target>
             </trans-unit>
 			 <trans-unit id="264">
                 <source>jda.login.registergroup</source>
@@ -1079,7 +1079,7 @@
             </trans-unit>
             <trans-unit id="268">
               <source>jda.search.headline</source>
-              <target>News Headline</target>
+              <target>ニューズ見出し</target>
             </trans-unit>
         </body>
     </file>
