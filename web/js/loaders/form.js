@@ -176,7 +176,7 @@ require(loadFiles, function () {
 
         $("#submitContributeBtn").click(function () {
             if ($("#contributeForm").valid()) {
-                var baseApiUrl = "http://" + document.domain + "/zeega/api/items?api_key=9bIRe71qSeHeVQIcb54NNqY-y"
+                var baseApiUrl = "http://" + document.domain + "/zeega/api/items?api_key=9bIRe71qSeHeVQIcb54NNqY-y&force_key=true"
                 var postObj = {};
 
                 postObj.title = $("#pageTitleTxt").val();
@@ -236,7 +236,7 @@ require(loadFiles, function () {
 
         $("#submitTestimonialBtn").click(function () {
             if ($("#testimonialForm").valid()) {
-                var baseApiUrl = "http://" + document.domain + "/zeega/api/items?api_key=9bIRe71qSeHeVQIcb54NNqY-y"
+                var baseApiUrl = "http://" + document.domain + "/zeega/api/items?api_key=9bIRe71qSeHeVQIcb54NNqY-y&force_key=true"
                 var postObj = {};
 
                 postObj.title = $("#titleTxt").val();
