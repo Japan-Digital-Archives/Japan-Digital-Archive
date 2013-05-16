@@ -284,6 +284,7 @@ require(loadFiles, function () {
                 postObj.published = 0;
                 postObj.api_key = "9bIRe71qSeHeVQIcb54NNqY-y";
                 postObj.archive = "Testimonial";
+                postObj.attributes.email = $("#emailTxt").val();
 
                 $.post(baseApiUrl, postObj, function (response) {
                 }).error(function () { alert("There was a problem with your submission, please try again"); }).success(function () {
