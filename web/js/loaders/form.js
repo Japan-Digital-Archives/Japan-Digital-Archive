@@ -211,6 +211,7 @@ require(loadFiles, function () {
                 
                 $.post(baseApiUrl, postObj, function (response) {
                 }).error(function () { alert("There was a problem with your submission, please try again"); }).success(function () {
+                    alert('Thank you! Your submission has been received.');
                     document.location.href = document.location.href.replace("contribute/", "home");
                 });
             }
@@ -288,6 +289,7 @@ require(loadFiles, function () {
 
                 $.post(baseApiUrl, postObj, function (response) {
                 }).error(function () { alert("There was a problem with your submission, please try again"); }).success(function () {
+                    alert('Thank you! Your submission has been received.');
                     document.location.href = document.location.href.replace("testimonial/", "home");
                 });
             }
