@@ -1,3 +1,4 @@
+/// <reference path="jda.ux.item.js" />
 
 $(document).ready(function(){
 	
@@ -316,8 +317,10 @@ $(document).ready(function(){
 					'</iframe>'+
 					'</div>');
        
-        break;
-      
+      	break;
+        case 'Headline':
+            // currently, nothing happens for news articles, so nothing happens here.
+            break;
       }
 
 });
