@@ -22,7 +22,7 @@
 
 			//Fill in image-specific stuff
 			var blanks = {
-				src : this.model.get('uri'),
+			    src: this.model.get('thumbnail_url'),
 				title : this.model.get('title')
 			};
 
