@@ -2,14 +2,14 @@
 
 	Browser.Views = Browser.Views || {};
 	Browser.Views.FancyBox = Browser.Views.FancyBox || {};
-	
+
 	Browser.Views.FancyBox.Article = Browser.Views._Fancybox.extend({
-		
+
 		initialize: function()
 		{
 			Browser.Views._Fancybox.prototype.initialize.call(this); //This is like calling super()
 		},
-		
+
 		/* Pass in the element that the user clicked on from fancybox. */
 		render: function(obj)
 		{
@@ -18,7 +18,7 @@
 			//console.log('this model id is'+this.model.id);
 			//Call parent class to do captioning and metadata
 			Browser.Views._Fancybox.prototype.render.call(this, obj); //This is like calling super()
-			
+
 
 			//Fill in image-specific stuff
 			var blanks = {
@@ -46,5 +46,5 @@
 			return html;
 		}
 	});
-	
+
 })(jda.module("browser"));
