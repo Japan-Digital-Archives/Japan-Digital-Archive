@@ -37,6 +37,11 @@ item:
     defaults:  { _controller: JDACoreBundle:Item:index, _locale: ja }
     requirements:
         _locale: en|ja
+partners:
+    pattern:	/{_locale}/partners
+    defaults:	{ _controller: JDACoreBundle:Partners:index, _locale: ja }
+    requirements:
+        _locale: en|ja   
 user:
     pattern:   /{_locale}/user/{id}
     defaults:  { _controller: JDACoreBundle:User:index}

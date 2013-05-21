@@ -1076,8 +1076,145 @@
           </trans-unit>
           <trans-unit id="268">
             <source>jda.search.headline</source>
-            <target>News Headline</target>
+            <target>news headline</target>
           </trans-unit>
+            <trans-unit id="269">
+    			<source>jda.aboutpartners.title</source>
+    			<target>About Our Partners</target>
+    		</trans-unit>
+    		<trans-unit id="270">
+    			<source>jda.aboutpartners.paragraph1</source>
+    			<target>The Digital Archive of Japan's 2011 Disasters would not be possible without our partners. The JDArchive does not store any material itself, but rather links to the content made available by international partners, who provide archived websites, photos, videos, news articles and headlines, and more. Other partners have created maps and instructional guides for our archive. Please learn more about our partners below.</target>
+    		</trans-unit>
+    		<trans-unit id="271">
+    			<source>jda.aboutpartners.311memoriestitle</source>
+    			<target>311 Memories (National Institute of Informatics)</target>
+    		</trans-unit>
+    		<trans-unit id="272">
+    			<source>jda.aboutpartners.311memories</source>
+    			<target>From online news (Yahoo! News) the 311 Memories project collects articles related to the disasters of March 11, 2011, and uses computer analysis and visualization to present a "quiet moving chronology" in order to look back at the flow of time after the earthquakes.</target>
+    		</trans-unit>
+    		<trans-unit id="273">
+    			<source>jda.aboutpartners.311marugototitle</source>
+    			<target>All 311 Comprehensive Archiving Project</target>
+    		</trans-unit>
+    		<trans-unit id="274">
+    			<source>jda.aboutpartners.311marugoto</source>
+    			<target>Collaborating with citizens and local governments affected by the disaster as well as research institutions, universities, NPOs, volunteers, and commercial companies, 311 Marugoto Archive offers an e-community platform to support disaster recovery and rebuilding efforts. The project aims to restore and regenerate a memory of the lost past by offering digitization of memory while recording the recovery process and valuable information resources produced in the process for future disaster education, disaster prevention and research as a whole.</target>
+    		</trans-unit>
+    		<trans-unit id="275">
+    			<source>jda.aboutpartners.asahititle</source>
+    			<target>Asahi Shimbun AJW</target>
+    		</trans-unit>
+    		<trans-unit id="276">
+    			<source>jda.aboutpartners.asahi</source>
+    			<target>The Asahi Shimbun AJW (Asia and Japan Watch) is the English-language digital version of The Asahi Shimbun, Japan's leading daily newspaper. AJW offers in-depth coverage of Japan, China, Korea and other Asian nations. International scoops, in-depth analyses and features, plus daily news and many Op-ed articles constitute a highly useful news package. AJW also prides itself on its exhaustive coverage of the March 11, 2011 earthquake, massive tsunami and ongoing nuclear crisis at the Fukushima No. 1 nuclear power plant. It also offers extensive  coverage on cultural trends and fashion as well as the latest in the world of anime and manga.</target>
+    		</trans-unit>
+    		<trans-unit id="277">
+    			<source>jda.aboutpartners.cgatitle</source>
+    			<target>Harvard Center for Geographic Analysis</target>
+    		</trans-unit>
+    		<trans-unit id="278">
+    			<source>jda.aboutpartners.cga</source>
+    			<target>The Center for Geographic Analysis (CGA) at Harvard University was established in 2006 to support research and teaching of all disciplines across the University with emerging geospatial technologies. The Center's goal has been to work with entities across the university to strengthen university-wide geographic information systems (GIS) infrastructure and services; provide a common platform for the integration of spatial data from diverse sources and knowledge from multiple disciplines; enable scholarly research that would use, improve or study geospatial analysis techniques; and improve the ability to teach GIS and spatial analysis at all levels across the university.</target>
+    		</trans-unit>
+    		<trans-unit id="279">
+    			<source>jda.aboutpartners.hypercitiestitle</source>
+    			<target>Hypercities</target>
+    		</trans-unit>
+    		<trans-unit id="280">
+    			<source>jda.aboutpartners.hypercities</source>
+    			<target>Built on the Google Maps and Google Earth APIs, HyperCities Sendai provides active digital media space with Twitters and has accumulated interactive communications on the Eastern Japan Great Earthquake Disaster along with geographical data.</target>
+    		</trans-unit>
+    		<trans-unit id="281">
+    			<source>jda.aboutpartners.internetarchivetitle</source>
+    			<target>Internet Archive</target>
+    		</trans-unit>
+    		<trans-unit id="282">
+    			<source>jda.aboutpartners.internetarchive</source>
+    			<target>The Internet Archive, is a digital library founded in 1996 with the mission of universal access to human knowledge.  Like a paper library, we provide free access to researchers, historians, scholars, and the general public.  The web content that is part of the Digital Archive of Japan's 2011 Disasters is captured and archived using Archive-It, a web archiving service from the Internet Archive. Archive-It allows institutions around the world to harvest and preserve collections of web content and create digital archives.</target>
+    		</trans-unit>
+    		<trans-unit id="283">
+    			<source>jda.aboutpartners.metalabtitle</source>
+    			<target>metaLAB (at) Harvard</target>
+    		</trans-unit>
+    		<trans-unit id="284">
+    			<source>jda.aboutpartners.metalab</source>
+    			<target>metaLAB (at) Harvard is a hub for innovation in the arts, media and humanities hosted at the Berkman Center for Internet and Society. The lab is founded on the belief that some of the key research challenges and opportunities of the new millennium, not to mention crucial questions about experience in a connected world, about the boundaries of culture and nature, about democracy and social justice, transcend divisions between the arts, sciences, and humanities; between the academy, industry, and the public sphere; between theoretical and applied knowledge.</target>
+    		</trans-unit>
+    		<trans-unit id="285">
+    			<source>jda.aboutpartners.michinokutitle</source>
+    			<target>Michinoku Shinrokuden</target>
+    		</trans-unit>
+    		<trans-unit id="286">
+    			<source>jda.aboutpartners.michinoku</source>
+    			<target>As a leading national university in the region, Tohoku University recently launched a digital archiving project on the Eastern Japan Great Earthquake Disaster. Collaborating with the government, industry, and academe, the project aims to build a comprehensive archive on disasters in the region, with a broad spectrum of memory, records, case studies. It aims to record the recovery and rebuilding process of the disaster and to disseminate information on a near real-time basis. As of this writing, details of the project are unknown since this archiving project has been released only recently.</target>
+    		</trans-unit>
+    		<trans-unit id="287">
+    			<source>jda.aboutpartners.ncctitle</source>
+    			<target>North American Coordinating Council on Japanese Library Resources (NCC)</target>
+    		</trans-unit>
+    		<trans-unit id="288">
+    			<source>jda.aboutpartners.ncc</source>
+    			<target>NCC provides access to information from and about Japan to support  teaching, research, and general education.  NCC’s Website www.nccjapan.org is a distribution hub for online resources and a platform for global collaboration.</target>
+    		</trans-unit>
+    		<trans-unit id="289">
+    			<source>jda.aboutpartners.ndltitle</source>
+    			<target>National Diet Library of Japan</target>
+    		</trans-unit>
+    		<trans-unit id="290">
+    			<source>jda.aboutpartners.ndl</source>
+    			<target>The National Diet Library (NDL) was established in 1948 as the only national library in Japan. Under a system of comprehensive submission of works published within Japan, the library's collected materials are preserved for the long-term as a national cultural heritage. The NDL uses its collections to offer its service to the National Diet, the judiciary, administrative agencies, and the Japanese people. The NDL also collects and archives a wide array of websites and other digital materials. In 2002, the NDL began harvesting selected websites with the permission of website owners.  Following an amendment to the NDL Law, the NDL began harvesting all government websites in April 2010, including the websites of local governments affected by the disasters in Eastern Japan.</target>
+    		</trans-unit>
+    		<trans-unit id="291">
+    			<source>jda.aboutpartners.nhktitle</source>
+    			<target>NHK</target>
+    		</trans-unit>
+    		<trans-unit id="292">
+    			<source>jda.aboutpartners.nhk</source>
+    			<target>NHK (Japan Broadcasting Corporation), Japan’s only public broadcaster, introduced a radio service in 1925 and a television service in 1953. NHK is financed by the receiving fee paid by each household that owns a
+television set. This system enables the Corporation to maintain independence from any governmental and private organization, and ensures that the opinions of viewers and listeners are assigned top priority. More details: http://www.nhk.or.jp/pr/koho-e.htm. NHK is presenting a series of TV programs and and a digital archive service which collects testimonials of many eyewitnesses and news clips of Japan's March 11th, 2011, disasters.</target>
+    		</trans-unit>
+    		<trans-unit id="293">
+    			<source>jda.aboutpartners.sakuratitle</source>
+    			<target>Sakura on Project</target>
+    		</trans-unit>
+    		<trans-unit id="294">
+    			<source>jda.aboutpartners.sakura</source>
+    			<target>The Sakura on Project regards the discovery, reorganization, and creation of every "story" as a great value looking toward the future. Within this, using the planting of cherry trees (sakura) as one tool, it produces a program and location for the important, long-term cultivation of the "stories" of both participants' own as well as the areas they encounter. As a digital archive, it records, edits, transmits, and preserves growth and broadening of the "new multiplicity of stories" born from this effort, for a better future.</target>
+    		</trans-unit>
+    		<trans-unit id="295">
+    			<source>jda.aboutpartners.sendaimediathequetitle</source>
+    			<target>Sendai Mediatheque</target>
+    		</trans-unit>
+    		<trans-unit id="296">
+    			<source>jda.aboutpartners.sendaimediatheque</source>
+    			<target>In view of the belief that the disaster relief effort can be supported by information dissemination and that records of the disaster can be priceless assets for the future, Sendai Mediatheque (SMT), one of the cutting-edge information centers in Japan, is leading a unique disaster recovery archiving project. In collaboration with citizens, experts, and SMT staff, this archive project focuses on recording the recovery and rebuilding process from the disaster while disseminating thoughts and information through various media, such as images, photos, sounds, and text.</target>
+    		</trans-unit>
+    		<trans-unit id="297">
+    			<source>jda.aboutpartners.tokyofoundationtitle</source>
+    			<target>Tokyo Foundation</target>
+    		</trans-unit>
+    		<trans-unit id="298">
+    			<source>jda.aboutpartners.tokyofoundation</source>
+    			<target></target>
+    		</trans-unit>
+    		<trans-unit id="299">
+    			<source>jda.aboutpartners.yahootitle</source>
+    			<target>Yahoo! JAPAN</target>
+    		</trans-unit>
+    		<trans-unit id="300">
+    			<source>jda.aboutpartners.yahoo</source>
+    			<target>This site is a damaged photo recovery project by Yahoo! JAPAN. Easy to use various ways of search, one can search by keywords, geographical points (e.g., latitude, longitude), time period (pre-disaster, post-disaster), type, prefecture, and community. Yahoo’s recent release on their free-of-charge API platform to access Yahoo Photo Archiving Project on the Japanese Earthquake and Tsunami March 11th 2011 may lead to a more collaborated image archive development for open access to society.</target>
+    		</trans-unit>
+    		<trans-unit id="301">
+    			<source>jda.aboutpartners.zeegatitle</source>
+    			<target>Zeega</target>
+    		</trans-unit>
+    		<trans-unit id="302">
+    			<source>jda.aboutpartners.zeega</source>
+    			<target>Zeega is revolutionizing interactive storytelling for a future beyond blogs. Zeegas are a new form of interactive media, enabling anyone to easily combine animated GIFs, audio, images, text and video from across the web. We’re living in a unique moment. More media than ever is recorded and shared. But the web today is dominated by a few platforms - all stories start to feel the same, trapped in rigid boxes and long lists. Zeega is ushering in an era when the web truly becomes an interactive, audiovisual medium made by everyone.</target>
+    		</trans-unit>
         </body>
     </file>
 </xliff>
