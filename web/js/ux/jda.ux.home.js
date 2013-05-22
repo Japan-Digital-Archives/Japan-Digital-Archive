@@ -8,9 +8,9 @@ $(document).ready(function () {
 
             var cookie_value = document.cookie.match('cookie=.n')
 
-            if (cookie_value == "cookie=jn" && window.location.pathname != '/ja/home')
+            if (cookie_value == "cookie=jn" && window.location.href.indexOf("/en/") != -1)
                 window.location = window.location.href.replace('/en/', '/ja/');
-            else if (cookie_value == "cookie=en" && window.location.pathname != '/en/home')
+            else if (cookie_value == "cookie=en" && window.location.href.indexOf("/ja/") != -1)
                 window.location = window.location.href.replace('/ja/', '/en/');
             else if (cookie_value != "cookie=en" && cookie_value != "cookie=jn") {
                 var userLang = (navigator.language) ? navigator.language : navigator.userLanguage;
@@ -250,11 +250,15 @@ $(document).ready(function () {
             console.log($(this).data('language'));
             if ($(this).data('language') == 'en') {
                 set_cookie("cookie", "en", "365", "jdarchive.org");
-                window.location = window.location.href.replace('/ja/', '/en/');
+                if (window.location.href.indexOf("/en/") == -1) {
+                    window.location.href = window.location.href.replace('/ja/', '/en/');
+                }
             }
             else {
                 set_cookie("cookie", "jn", "365", "jdarchive.org");
-                window.location = window.location.href.replace('/en/', '/ja/');
+                if (window.location.href.indexOf("/ja/") == -1) {
+                    window.location = window.location.href.replace('/en/', '/ja/');
+                }
             }
         }
 
