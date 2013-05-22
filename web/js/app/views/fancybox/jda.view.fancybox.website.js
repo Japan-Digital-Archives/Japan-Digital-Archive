@@ -43,7 +43,7 @@
 		//Fill in media-specific stuff
 		var blanks = {
 			original_src :"http"+parts[parts.length-1],
-			src: this.model.get("attribution_uri"),
+			src: this.model.get("uri"),
 			type : this.model.get("type")
 		};
 		
