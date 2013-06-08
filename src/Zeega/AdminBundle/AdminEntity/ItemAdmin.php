@@ -14,7 +14,8 @@ class ItemAdmin extends Admin
     {
 		$itemTypes = array('Video' => 'Video', 'Audio' => 'Audio',
 			'Text' => 'Text','Image' => 'Image','Tweet' => 'Tweet','Document' => 'Document',
-			'Website' => 'Website');
+			'Website' => 'Website', 'News Article' => 'News Article', 'Testimonial' => 'Testimonial'
+            'Broadcast' => 'Broadcast', 'News Headline' => 'News Headline');
         $fileLoc = realpath("lastExport.txt");
 		$lastExport = file_get_contents($fileLoc);
         $formMapper
@@ -29,6 +30,7 @@ class ItemAdmin extends Admin
 			->add('location')
 			->add('media_creator_username')
 			->add('media_creator_realname')
+            ->add('user_id')
 			->add('tags', NULL, array('allow_add' => true, 'allow_delete' => true))
 			->add('attributes', NULL, array('allow_add' => true, 'allow_delete' => true))
 			->add('published', NULL, array('required' => false))

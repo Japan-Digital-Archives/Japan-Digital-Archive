@@ -146,6 +146,7 @@ require(loadFiles, function () {
 
         $('#toTxt').datetimepicker();
         $('#fromTxt').datetimepicker();
+        $('#dateCreatedTxt').datetimepicker();
 
         for (var i = 1900; i <= new Date().getFullYear(); i++) {
             $("#yearDDL").append("<option value='" + i.toString() + "'>" + i.toString() + "</option>");
@@ -185,8 +186,14 @@ require(loadFiles, function () {
                 postObj.media_type = $("#categoryDDL > option:selected").val();
                 postObj.uri = "http://wayback.archive-it.org/2438/20110301000000/" + $("#urlTxt").val();
                 postObj.attribution_uri = $("#urlTxt").val();
-                postObj.media_creator_username = "rijs"; //$("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
                 postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                if ($("#dateCreatedTxt").val().trim() != "") {
+                    var created_date = new Date(Date.parse($("#dateCreatedTxt").val(), "m/d/Y H:i"));
+                    postObj.media_date_created = created_date;
+                } else {
+                    postObj.media_date_created = new Date();
+                }
 
                 if ($("#lat").val() != "") {
                     postObj.media_geo_latitude = parseFloat($("#lat").val());
@@ -248,6 +255,7 @@ require(loadFiles, function () {
                 postObj.attribution_uri = $("#titleTxt").val().replace(" ", "-");
                 postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
                 postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                postObj.media_date_created = new Date();
 
                 if ($("#lat").val() != "") {
                     postObj.media_geo_latitude = parseFloat($("#lat").val());

@@ -1052,11 +1052,11 @@
             </trans-unit>
             <trans-unit id="262">
                 <source>jda.search.article</source>
-                <target>news article</target>
+                <target>News Article</target>
             </trans-unit>
             <trans-unit id="263">
                 <source>jda.search.broadcast</source>
-                <target>broadcast</target>
+                <target>Broadcast</target>
             </trans-unit>
           <trans-unit id="264">
             <source>jda.login.registergroup</source>
