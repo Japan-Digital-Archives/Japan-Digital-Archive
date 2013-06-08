@@ -23,9 +23,11 @@
 			$(this.el).find('.fancybox-media-item').css({"height":"5px"});
 			$(this.el).find('.description-wrapper').hide();
 			$(this.el).find('.title').html(this.model.get("title"));
-			if (this.model.get('attributes').privacy) {
-			    if (this.model.get('attributes').privacy == 'Hide') {
-			        $(this.el).find('.creator').html("Anonymous");
+			if (this.model.get('attributes')) {
+			    if (this.model.get('attributes').privacy) {
+			        if (this.model.get('attributes').privacy == 'Hide') {
+			            $(this.el).find('.creator').html("Anonymous");
+			        }
 			    }
 			}
 			//set fancybox content

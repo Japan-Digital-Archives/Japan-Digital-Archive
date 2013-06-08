@@ -97,9 +97,11 @@
 			} else {
 				blanks["author"] = this.model.get("media_creator_realname");
 			}
-			if (this.model.get('attributes').privacy) {
-			    if (this.model.get('attributes').privacy == 'Hide') {
-			        blanks["author"] = "Anonymous";
+			if (this.model.get('attributes')) {
+			    if (this.model.get('attributes').privacy) {
+			        if (this.model.get('attributes').privacy == 'Hide') {
+			            blanks["author"] = "Anonymous";
+			        }
 			    }
 			}
 			if (this.model.get("media_creator_username").trim() == "Anonymous" || this.model.get("media_creator_realname").trim() == "Anonymous") {
