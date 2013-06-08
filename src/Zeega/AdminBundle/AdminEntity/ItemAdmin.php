@@ -30,6 +30,7 @@ class ItemAdmin extends Admin
 			->add('location')
 			->add('media_creator_username')
 			->add('media_creator_realname')
+            ->add('user_id')
 			->add('tags', NULL, array('allow_add' => true, 'allow_delete' => true))
 			->add('attributes', NULL, array('allow_add' => true, 'allow_delete' => true))
 			->add('published', NULL, array('required' => false))
