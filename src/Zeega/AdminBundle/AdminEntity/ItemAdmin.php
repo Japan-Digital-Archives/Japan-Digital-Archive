@@ -14,7 +14,7 @@ class ItemAdmin extends Admin
     {
 		$itemTypes = array('Video' => 'Video', 'Audio' => 'Audio',
 			'Text' => 'Text','Image' => 'Image','Tweet' => 'Tweet','Document' => 'Document',
-			'Website' => 'Website', 'News Article' => 'News Article', 'Testimonial' => 'Testimonial',
+			'Website' => 'Website', 'News Article' => 'News Article', 'Testimonial' => 'Text',
             'Broadcast' => 'Broadcast', 'News Headline' => 'News Headline');
         $fileLoc = realpath("lastExport.txt");
 		$lastExport = file_get_contents($fileLoc);
