@@ -19,7 +19,6 @@ var loadFiles = [
     'order!../lib/jquery.validate.min',
     'order!../lib/spin',
     'order!../lib/spin-jquery',
-    'order!../lib/date.format',
 
     'order!../lib/bootstrap-2.0.2/js/bootstrap.min',
     'order!../lib/leaflet/leaflet',
