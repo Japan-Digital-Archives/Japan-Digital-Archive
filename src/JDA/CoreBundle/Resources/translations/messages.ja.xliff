@@ -1222,6 +1222,10 @@
     			<source>jda.aboutpartners.zeega</source>
     			<target></target>
     		</trans-unit>
+          <trans-unit id="303">
+            <source>jda.form.contribute.dateCreated</source>
+            <target>Website Date</target>
+          </trans-unit>
         </body>
     </file>
 </xliff>

@@ -1215,6 +1215,11 @@ television set. This system enables the Corporation to maintain independence fro
     			<source>jda.aboutpartners.zeega</source>
     			<target>Zeega is revolutionizing interactive storytelling for a future beyond blogs. Zeegas are a new form of interactive media, enabling anyone to easily combine animated GIFs, audio, images, text and video from across the web. We’re living in a unique moment. More media than ever is recorded and shared. But the web today is dominated by a few platforms - all stories start to feel the same, trapped in rigid boxes and long lists. Zeega is ushering in an era when the web truly becomes an interactive, audiovisual medium made by everyone.</target>
     		</trans-unit>
+          <trans-unit id="303">
+            <source>jda.form.contribute.dateCreated</source>
+            <target>Website Date</target>
+          </trans-unit>
+          
         </body>
     </file>
 </xliff>
