@@ -187,6 +187,7 @@ require(loadFiles, function () {
                 postObj.attribution_uri = $("#urlTxt").val();
                 postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
                 postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                postObj.media_date_created = new Date();
 
                 if ($("#lat").val() != "") {
                     postObj.media_geo_latitude = parseFloat($("#lat").val());
@@ -248,6 +249,7 @@ require(loadFiles, function () {
                 postObj.attribution_uri = $("#titleTxt").val().replace(" ", "-");
                 postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
                 postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                postObj.media_date_created = new Date();
 
                 if ($("#lat").val() != "") {
                     postObj.media_geo_latitude = parseFloat($("#lat").val());
