@@ -19,13 +19,13 @@ var loadFiles = [
     'order!../lib/jquery.validate.min',
     'order!../lib/spin',
     'order!../lib/spin-jquery',
+    'order!../lib/date.format',
 
     'order!../lib/bootstrap-2.0.2/js/bootstrap.min',
     'order!../lib/leaflet/leaflet',
 
     'order!../lib/jquery.tagsinput.min',
     'order!../lib/jeditable.min',
-    'order!../lib/dateformat/date.format',
     'order!../lib/visualsearch/visualsearch',
     'order!../lib/modestmaps.min',
     'order!../lib/chosen/chosen.jquery.min',
