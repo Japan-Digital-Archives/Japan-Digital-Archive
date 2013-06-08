@@ -254,7 +254,7 @@ require(loadFiles, function () {
                 postObj.attribution_uri = $("#titleTxt").val().replace(" ", "-");
                 postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
                 postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
-                postObj.media_date_created = new Date();
+                postObj.media_date_created = new Date().toDateString();
 
                 if ($("#lat").val() != "") {
                     postObj.media_geo_latitude = parseFloat($("#lat").val());
