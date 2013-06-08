@@ -185,7 +185,7 @@ require(loadFiles, function () {
                 postObj.media_type = $("#categoryDDL > option:selected").val();
                 postObj.uri = "http://wayback.archive-it.org/2438/20110301000000/" + $("#urlTxt").val();
                 postObj.attribution_uri = $("#urlTxt").val();
-                postObj.media_creator_username = "rijs"; //$("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
                 postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
 
                 if ($("#lat").val() != "") {
