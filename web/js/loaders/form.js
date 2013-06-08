@@ -188,10 +188,10 @@ require(loadFiles, function () {
                 postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
                 postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
                 if ($("#dateCreatedTxt").val().trim() != "") {
-                    var created_date = new Date(Date.parse($("#dateCreatedTxt").val(), "m/d/Y H:i"));
+                    var created_date = new Date(Date.parse($("#dateCreatedTxt").val(), "m/d/Y H:i")).toDateString();
                     postObj.media_date_created = created_date;
                 } else {
-                    postObj.media_date_created = new Date();
+                    postObj.media_date_created = new Date().toDateString();
                 }
 
                 if ($("#lat").val() != "") {
