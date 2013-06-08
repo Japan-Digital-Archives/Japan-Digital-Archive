@@ -1081,6 +1081,10 @@
               <source>jda.search.headline</source>
               <target>ニューズ見出し</target>
             </trans-unit>
+          <trans-unit id="269">
+            <source>jda.form.contribute.dateCreated</source>
+            <target>Website Date</target>
+          </trans-unit>
         </body>
     </file>
 </xliff>
