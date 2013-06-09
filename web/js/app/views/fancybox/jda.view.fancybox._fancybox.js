@@ -8,17 +8,19 @@
 		id:'fancybox-media-container',
 		
 		initialize: function(){
+			console.log(this.model,'initialize')
 			var _this = this;
 			this.collection = jda.app.myCollectionsDrawer.collection;
 			if(!_.isUndefined(_gaq)) _gaq.push(["_trackEvent", "JDA-Item", "View", this.model.id.toString()]);
 		},
 
 		events : {
+			'click .show-translate' : 'showTranslate',
+			'click .submitTranslation' : 'submitTranslation',
 			'click .jda-share-link input' : function(){
 				$('.jda-share-link input').select();
 			}
-		},
-		
+		},	
 		beforeClose: function(){
 
 		},
@@ -40,12 +42,19 @@
 				'maxChars' : 0,
 				'placeholderColor' : '#C0C0C0'
 			});
-			
-			
+		
 			$(this.el).find('.jda-show-share-link').click(function(){_this.shareLink();});
 			
-			
 			if(!this.model.get('editable')){$('.tag').find('a').hide();}
+
+			if(this.model.get('attributes')==""){
+				console.log(this.model.get('attributes'));
+				$('.translationheader').hide();
+				$('.submittranslationheader').show();
+				$('.translation-wrapper').show();
+                        	$('.show-translate').hide();
+                        	$('.translationtext-wrapper').hide();
+			}
 
 			/***********************************
 				ADD TO COLLECTION LINK
@@ -55,7 +64,6 @@
 				$('.jda-add-to-menu').hide();
 
 			} else{
-
 				 
 					var myCollections = $(_this.el).find('.fancybox-my-collections-list');
 
@@ -123,6 +131,16 @@
 				
 			}
 		},
+		showTranslate: function(e)
+		{
+			$('.translationheader').hide();
+                        $('.submittranslationheader').show();
+                	$('.translation-wrapper').show();
+                        $('.show-translate').hide();
+			$('.translationtext-wrapper').hide();
+			e.preventDefault(); 
+                },
+
 		updateTags:function(name, _this)
 		{
 			model = _this.model;
@@ -134,9 +152,39 @@
 			}
 			_this.model.save({tags : tags});
 		},
-		
-		
-		
+		submitTranslation:function()
+		{
+			// I'm not sure what this line is doing, probably delete it.
+            // look at how the model is selected above on line 145 
+            window.thiss = this;
+
+            // attributes are an object. ie {}
+			var attributes = [];
+			//var translation = $('.translationinsert')[0].value;
+                       	var translation = $('.translationinsert').val();
+			console.log(translation);
+            // see above, don't use push on objects. you might also need to
+            // check if the attributes object is init'd
+			attributes.push(translation);
+			//attributes.set(translation);
+			console.log(attributes);
+			console.log(this.model.get('attributes'));
+            // this is also probably wrong, look at updateTags to see why
+			this.model.save({'title':'testing'});
+			if (translation == ""){alert ("Please submit translation");}
+                        else {
+
+			this.model.save({attributes : attributes});
+			console.log(this.model.get('attributes'));
+			console.log(this.model.get('tags'));
+			$('.translationtext-wrapper').html('<p>'+attributes+'</p>');
+			//blanks.set({translation : attributes});
+			$('.translationheader').show();
+                        $('.submittranslationheader').hide();
+			$('.show-translate').show();
+ 			$('.translationtext-wrapper').show();	
+		 	$('.translation-wrapper').hide();
+		}},
 		more : function(){
 
 			var _this=this;
@@ -194,9 +242,11 @@
 				creator : this.model.get('media_creator_username'),
 				tags : this.model.get('tags'),
 				text : this.model.get('text').replace(/\r\n/gi, '<br/>'),
-				randId: this.elemId
+				randId: this.elemId,
+
+translation : this.model.get('attributes'),
+translationtext : this.model.get('attributes')
 			};
-			
 			
 			/*
 			if(this.model.get('attribution_uri').indexOf('flickr')>-1) blanks.sourceText = 'View on Flickr';
@@ -219,8 +269,6 @@
 			var Browser = jda.module('browser');
 			this.locatorMapView = new Browser.Views.LocatorMap({ model : this.model });
 			$(this.el).find('.geo').append(this.locatorMapView.render());
-
-			
 
 			//Fancybox will remember if user was in MORE or LESS view
 			//if (sessionStorage.getItem('moreFancy') == "true") this.more(this.el);
@@ -308,7 +356,7 @@
 						width : 150,
 						cssclass : 'fancybox-form'
 				});
-	
+
 				$(this.el).find('.no-do-not-delete').click(function(e){
 					$('.fancybox-delete-button').show();
 					$('.fancybox-confirm-delete-button').hide();
@@ -395,11 +443,24 @@
 									'<div id="zeega-tag-container" class="more zeega-tags">'+
 										'<input name="tags" class="more fancybox-editable tagsedit" id="<%=randId%>" value="<%=tags%>" />'+
 									'</div>'+
-								'</div>'+
+							'</div>'+
 								'<div class="text-wrapper">'+
 									'<p class="more subheader">'+l.fancybox_text+'</p><p class="more description fancybox-editable"><%= text %></p>'+
 								'</div>'+
-							'</div>'+
+
+'<p class="translationheader">'+"Translation"+'</p>'+
+'<p class="submittranslationheader">'+"Submit Translation"+'</p>'+
+'<div class="translationtext-wrapper">'+
+'<p class="more description fancybox-editable"><%= translation %></p>'+
+'</div >'+
+'<div style="text-align:left">'+
+'<button class="show-translate" hef=".">'+"edit translation"+'</button>'+ 
+'</div >'+
+'<div style="display: none; text-align:left" class="translation-wrapper">'+
+'<textarea style="width : 100%" class="translationinsert"><%= translationtext %></textarea>' + '<button class="submitTranslation">'+"submit"+'</button>'+
+'</div>'+
+
+	'</div>'
 						'</div>'+
 						'<div class="fancybox-buttons" class="clearfix">'+
 							'<p class="fancybox-delete-button more" style="display:none"><a href=".">delete</a></p>'+
