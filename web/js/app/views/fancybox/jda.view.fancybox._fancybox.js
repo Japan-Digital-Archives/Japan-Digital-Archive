@@ -63,6 +63,7 @@
 			        $(this.el).find('.translation-wrapper').hide();
 			        $(this.el).find('.show-translate').show();
 			        $(this.el).find('.translationtext-wrapper').show();
+			        $(this.el).find('.translationtext-wrapper > p').html('None Submitted');
 			    }
 			} else {
 			    this.model.save({ attributes: {} });
@@ -71,6 +72,7 @@
 			    $(this.el).find('.translation-wrapper').hide();
 			    $(this.el).find('.show-translate').show();
 			    $(this.el).find('.translationtext-wrapper').show();
+			    $(this.el).find('.translationtext-wrapper > p').html('None Submitted');
 			}
 
 			/***********************************
@@ -464,8 +466,8 @@ translationtext : this.model.get('attributes')
 								'<div class="text-wrapper">'+
 									'<p class="more subheader">'+l.fancybox_text+'</p><p class="more description fancybox-editable"><%= text %></p>'+
 								'</div>'+
-'<p class="translationheader">'+"Translation"+'</p>'+
-'<p class="submittranslationheader">'+"Submit Translation"+'</p>'+
+'<p class="translationheader more subheader">' + "Translation" + '</p>' +
+'<p class="submittranslationheader more subheader">' + "Submit Translation" + '</p>' +
 '<div class="translationtext-wrapper">'+
 '<p class="more description fancybox-editable"><%= translation %></p>'+
 '</div >'+
@@ -473,7 +475,7 @@ translationtext : this.model.get('attributes')
 '<button class="show-translate" hef=".">'+"edit translation"+'</button>'+ 
 '</div >'+
 '<div style="display: none; text-align:left" class="translation-wrapper">'+
-'<textarea style="width : 100%" class="translationinsert"><%= translationtext %></textarea>' + '<button class="submitTranslation">'+"submit"+'</button>'+
+'<textarea style="width : 100%" class="translationinsert"><%= translationtext %></textarea>' + '<button class="submitTranslation btn btn-info btn-medium">' + "submit" + '</button>' +
 '</div>'+
 
 	'</div>'
