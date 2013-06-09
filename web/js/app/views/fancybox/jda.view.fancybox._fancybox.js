@@ -56,14 +56,12 @@
 			        $(this.el).find('.translation-wrapper').show();
 			        $(this.el).find('.show-translate').hide();
 			        $(this.el).find('.translationtext-wrapper').hide();
-			        $(this.el).find('.translationtext-wrapper > p').html(attributes.translation);
 			    } else {
 			        $(this.el).find('.translationheader').show();
 			        $(this.el).find('.submittranslationheader').hide();
 			        $(this.el).find('.translation-wrapper').hide();
 			        $(this.el).find('.show-translate').show();
 			        $(this.el).find('.translationtext-wrapper').show();
-			        $(this.el).find('.translationtext-wrapper > p').html('None Submitted');
 			    }
 			} else {
 			    this.model.save({ attributes: {} });
@@ -72,7 +70,6 @@
 			    $(this.el).find('.translation-wrapper').hide();
 			    $(this.el).find('.show-translate').show();
 			    $(this.el).find('.translationtext-wrapper').show();
-			    $(this.el).find('.translationtext-wrapper > p').html('None Submitted');
 			}
 
 			/***********************************
@@ -261,11 +258,18 @@
 				creator : this.model.get('media_creator_username'),
 				tags : this.model.get('tags'),
 				text : this.model.get('text').replace(/\r\n/gi, '<br/>'),
-				randId: this.elemId,
-
-translation : this.model.get('attributes'),
-translationtext : this.model.get('attributes')
+				randId: this.elemId
 			};
+
+			var attributes = this.model.get('attributes');
+
+			if (attributes.translation) {
+			    blanks.translation = attributes.translation;
+			    blanks.translationEditText = attributes.translation;
+			} else {
+			    blanks.translation = "None Submitted";
+			    blanks.translationEditText = "";
+			}
 			
 			/*
 			if(this.model.get('attribution_uri').indexOf('flickr')>-1) blanks.sourceText = 'View on Flickr';
@@ -472,10 +476,10 @@ translationtext : this.model.get('attributes')
 '<p class="more description fancybox-editable"><%= translation %></p>'+
 '</div >'+
 '<div style="text-align:left">'+
-'<button class="show-translate" hef=".">'+"edit translation"+'</button>'+ 
+'<button class="show-translatebtn btn-info btn-medium">' + "edit translation" + '</button>' +
 '</div >'+
 '<div style="display: none; text-align:left" class="translation-wrapper">'+
-'<textarea style="width : 100%" class="translationinsert"><%= translationtext %></textarea>' + '<button class="submitTranslation btn btn-info btn-medium">' + "submit" + '</button>' +
+'<textarea style="width : 100%" class="translationinsert"><%= translationEditText %></textarea>' + '<button class="submitTranslation btn btn-info btn-medium">' + "submit" + '</button>' +
 '</div>'+
 
 	'</div>'
