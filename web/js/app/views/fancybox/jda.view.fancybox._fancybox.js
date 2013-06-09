@@ -49,28 +49,14 @@
 
 			var attributes = this.model.get('attributes');
 
-			if (attributes instanceof Object) {
-			    if (attributes.translation) {
-			        $(this.el).find('.translationheader').hide();
-			        $(this.el).find('.submittranslationheader').show();
-			        $(this.el).find('.translation-wrapper').show();
-			        $(this.el).find('.show-translate').hide();
-			        $(this.el).find('.translationtext-wrapper').hide();
-			    } else {
-			        $(this.el).find('.translationheader').show();
-			        $(this.el).find('.submittranslationheader').hide();
-			        $(this.el).find('.translation-wrapper').hide();
-			        $(this.el).find('.show-translate').show();
-			        $(this.el).find('.translationtext-wrapper').show();
-			    }
-			} else {
+			if (!(attributes instanceof Object)) {
 			    this.model.save({ attributes: {} });
-			    $(this.el).find('.translationheader').show();
-			    $(this.el).find('.submittranslationheader').hide();
-			    $(this.el).find('.translation-wrapper').hide();
-			    $(this.el).find('.show-translate').show();
-			    $(this.el).find('.translationtext-wrapper').show();
 			}
+			$(this.el).find('.translationheader').show();
+			$(this.el).find('.submittranslationheader').hide();
+			$(this.el).find('.translation-wrapper').hide();
+			$(this.el).find('.show-translate').show();
+			$(this.el).find('.translationtext-wrapper').show();
 
 			/***********************************
 				ADD TO COLLECTION LINK
@@ -150,13 +136,12 @@
 		showTranslate: function(e)
 		{
 			$('.translationheader').hide();
-                        $('.submittranslationheader').show();
-                	$('.translation-wrapper').show();
-                        $('.show-translate').hide();
+            $('.submittranslationheader').show();
+            $('.translation-wrapper').show();
+            $('.show-translate').hide();
 			$('.translationtext-wrapper').hide();
 			e.preventDefault(); 
-                },
-
+        },
 		updateTags:function(name, _this)
 		{
 			model = _this.model;
@@ -184,6 +169,7 @@
 		        attributes = { translation: translation };
 		    }
 		    this.model.save({ attributes: attributes });
+		    $(this.el).find('.translationtext-wrapper > p').text(translation);
 
 			$('.translationheader').show();
             $('.submittranslationheader').hide();
