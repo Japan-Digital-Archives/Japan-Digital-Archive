@@ -26,7 +26,6 @@ var loadFiles = [
 
     'order!../lib/jquery.tagsinput.min',
     'order!../lib/jeditable.min',
-    'order!../lib/dateformat/date.format',
     'order!../lib/visualsearch/visualsearch',
     'order!../lib/modestmaps.min',
     'order!../lib/chosen/chosen.jquery.min',
@@ -146,6 +145,7 @@ require(loadFiles, function () {
 
         $('#toTxt').datetimepicker();
         $('#fromTxt').datetimepicker();
+        $('#dateCreatedTxt').datetimepicker();
 
         for (var i = 1900; i <= new Date().getFullYear(); i++) {
             $("#yearDDL").append("<option value='" + i.toString() + "'>" + i.toString() + "</option>");
@@ -176,7 +176,7 @@ require(loadFiles, function () {
 
         $("#submitContributeBtn").click(function () {
             if ($("#contributeForm").valid()) {
-                var baseApiUrl = "http://" + document.domain + "/zeega/api/items?api_key=9bIRe71qSeHeVQIcb54NNqY-y"
+                var baseApiUrl = "http://" + document.domain + "/zeega/api/items?api_key=9bIRe71qSeHeVQIcb54NNqY-y&force_key=true"
                 var postObj = {};
 
                 postObj.title = $("#pageTitleTxt").val();
@@ -185,8 +185,14 @@ require(loadFiles, function () {
                 postObj.media_type = $("#categoryDDL > option:selected").val();
                 postObj.uri = "http://wayback.archive-it.org/2438/20110301000000/" + $("#urlTxt").val();
                 postObj.attribution_uri = $("#urlTxt").val();
-                postObj.media_creator_username = "rijs"; //$("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
-                postObj.media_creator_realname = "rijs"; //$("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                if ($("#dateCreatedTxt").val().trim() != "") {
+                    var created_date = new Date(Date.parse($("#dateCreatedTxt").val(), "m/d/Y H:i")).toDateString();
+                    postObj.media_date_created = created_date;
+                } else {
+                    postObj.media_date_created = new Date().toDateString();
+                }
 
                 if ($("#lat").val() != "") {
                     postObj.media_geo_latitude = parseFloat($("#lat").val());
@@ -211,6 +217,7 @@ require(loadFiles, function () {
                 
                 $.post(baseApiUrl, postObj, function (response) {
                 }).error(function () { alert("There was a problem with your submission, please try again"); }).success(function () {
+                    alert('Thank you! Your submission has been received.');
                     document.location.href = document.location.href.replace("contribute/", "home");
                 });
             }
@@ -236,7 +243,7 @@ require(loadFiles, function () {
 
         $("#submitTestimonialBtn").click(function () {
             if ($("#testimonialForm").valid()) {
-                var baseApiUrl = "http://" + document.domain + "/zeega/api/items?api_key=9bIRe71qSeHeVQIcb54NNqY-y"
+                var baseApiUrl = "http://" + document.domain + "/zeega/api/items?api_key=9bIRe71qSeHeVQIcb54NNqY-y&force_key=true"
                 var postObj = {};
 
                 postObj.title = $("#titleTxt").val();
@@ -247,6 +254,7 @@ require(loadFiles, function () {
                 postObj.attribution_uri = $("#titleTxt").val().replace(" ", "-");
                 postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
                 postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                postObj.media_date_created = new Date().toDateString();
 
                 if ($("#lat").val() != "") {
                     postObj.media_geo_latitude = parseFloat($("#lat").val());
@@ -284,9 +292,11 @@ require(loadFiles, function () {
                 postObj.published = 0;
                 postObj.api_key = "9bIRe71qSeHeVQIcb54NNqY-y";
                 postObj.archive = "Testimonial";
+                postObj.attributes.email = $("#emailTxt").val();
 
                 $.post(baseApiUrl, postObj, function (response) {
                 }).error(function () { alert("There was a problem with your submission, please try again"); }).success(function () {
+                    alert('Thank you! Your submission has been received.');
                     document.location.href = document.location.href.replace("testimonial/", "home");
                 });
             }

@@ -326,7 +326,9 @@
 
 				
 				for(var i=0;i<textQueries.length;i++){
-					textQueries[i]="full_text ILIKE '"+textQueries[i]+"'";
+					//textQueries[i]="full_text ILIKE '"+textQueries[i]+"'";
+
+					textQueries[i]="( title ILIKE '"+textQueries[i]+"' OR description ILIKE  '"+textQueries[i]+"'  OR text ILIKE  '"+textQueries[i]+"' )";
 				}
 				
 				textFilter = "("+textQueries.join(" AND ")+")";
@@ -384,9 +386,9 @@
 
 			if(lat&&lng){
 				if(sqlFilterstring===null) {
-					sqlFilterstring='select id, site_id, user_id, title, description, text, uri, thumbnail_url, attribution_uri, date_created, date_updated, archive, media_type, layer_type, child_items_count, media_geo_latitude, media_geo_longitude, media_date_created, media_date_created_end, media_creator_username, media_creator_realname, license, attributes, tags from jda where dist(point(media_geo_longitude,media_geo_latitude),point('+lng+','+lat+')) < '+dist+' LIMIT 50';
+					sqlFilterstring='select id from jda where dist(point(media_geo_longitude,media_geo_latitude),point('+lng+','+lat+')) < '+dist+' LIMIT 50';
 				} else {
-					sqlFilterstring='select id, site_id, user_id, title, description, text, uri, thumbnail_url, attribution_uri, date_created, date_updated, archive, media_type, layer_type, child_items_count, media_geo_latitude, media_geo_longitude, media_date_created, media_date_created_end, media_creator_username, media_creator_realname, license, attributes, tags from jda where '+sqlFilterstring+' AND dist(point(media_geo_longitude,media_geo_latitude),point('+lng+','+lat+')) < '+dist+' LIMIT 50';
+					sqlFilterstring='select id from jda where '+sqlFilterstring+' AND dist(point(media_geo_longitude,media_geo_latitude),point('+lng+','+lat+')) < '+dist+' LIMIT 50';
 				}
 			}
 			else{
@@ -394,7 +396,9 @@
 				else sqlFilterstring='select goog_x, goog_y from jda where '+sqlFilterstring;
 			}
 			
-			console.log(search, "sqlstring: "+sqlFilterstring);
+			sqlFilterstring = sqlFilterstring +"&COLUMNS=all";
+
+			
 			return sqlFilterstring;
 		},
 

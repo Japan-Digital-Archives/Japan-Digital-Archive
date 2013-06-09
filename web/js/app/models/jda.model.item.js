@@ -11,7 +11,8 @@
             'uri': 'default',
             'archive': 'default',
             'media_type': 'Collection',
-            'layer_type': 'Collection'
+            'layer_type': 'Collection',
+            'attributes': {}
 		},
 		initialize : function()
 		{

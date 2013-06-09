@@ -1,0 +1,4 @@
+﻿<h2>The following items were updated:</h2>
+{% for item in items %}
+    <div>Created On: {{ item.getDateCreated|date('m/d/Y H:i') }}, Item ID: {{ item.id }}</div> 
+{% endfor %}

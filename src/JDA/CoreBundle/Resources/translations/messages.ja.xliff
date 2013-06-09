@@ -1055,12 +1055,177 @@
             </trans-unit>
             <trans-unit id="262">
                 <source>jda.search.article</source>
-                <target>news article</target>
+                <target>ニューズ記事</target>
             </trans-unit>
              <trans-unit id="263">
                 <source>jda.search.broadcast</source>
-                <target>broadcast</target>
+                <target>放送</target>
             </trans-unit>
+			 <trans-unit id="264">
+                <source>jda.login.registergroup</source>
+                <target>グループとして登録しますか？</target>
+            </trans-unit>
+			 <trans-unit id="265">
+                <source>jda.login.registergroupinfo</source>
+                <target>複数のユーザによる共同プロジェクトにおいては、グループとして一つのグループ・ユーザネームと共同Eメールアドレスを利用することを奨励致します。</target>
+            </trans-unit>
+			 <trans-unit id="266">
+                <source>jda.register.title</source>
+                <target>アカウント登録</target>
+            </trans-unit>
+			 <trans-unit id="267">
+                <source>jda.register.displayname</source>
+                <target>表示名</target>
+            </trans-unit>
+            <trans-unit id="268">
+              <source>jda.search.headline</source>
+              <target>ニューズ見出し</target>
+            </trans-unit>
+            <trans-unit id="269">
+    			<source>jda.aboutpartners.title</source>
+    			<target>パートナーについて</target>
+    		</trans-unit>
+    		<trans-unit id="270">
+    			<source>jda.aboutpartners.paragraph1</source>
+    			<target></target>
+    		</trans-unit>
+    		<trans-unit id="271">
+    			<source>jda.aboutpartners.311memoriestitle</source>
+    			<target>311メモリーズ (国立情報学研究所)</target>
+    		</trans-unit>
+    		<trans-unit id="272">
+    			<source>jda.aboutpartners.311memories</source>
+    			<target>311メモリーズは、東日本大震災以降のオンラインニュース（Yahoo!ニュース） の中から震災に関連する記事を収集し、その文章をコンピュータで解析し可視化 することで、震災以後の時の流れを振り返るための「静かに動く年表」を提供し ます。</target>
+    		</trans-unit>
+    		<trans-unit id="273">
+    			<source>jda.aboutpartners.311marugototitle</source>
+    			<target>３１１まるごとアーカイブス</target>
+    		</trans-unit>
+    		<trans-unit id="274">
+    			<source>jda.aboutpartners.311marugoto</source>
+    			<target>３１１まるごとアーカイブスは、市民や被災自治体、国の研究機関、大学、NPO、ボランティア、民間企業などと官民恊働で取り組む東日本大震災支援のe-コミュニティ・プラットフォームです。被災地の失われた「過去」の記憶をデジタルで再生し、被災した「現在」と復興に向けた「未来」の映像や資料をデジタルで記録、そして被災地の復興状況や将来の防災学習・防災研究等の貴重な資料をまるごとアーカイブすることを目的としています。</target>
+			</trans-unit>
+    		<trans-unit id="275">
+    			<source>jda.aboutpartners.asahititle</source>
+    			<target>朝日新(AJW)</target>
+    		</trans-unit>
+    		<trans-unit id="276">
+    			<source>jda.aboutpartners.asahi</source>
+    			<target>「Ｔｈｅ　Ａｓａｈｉ　Ｓｈｉｍｂｕｎ　ＡＪＷ（Asia and Japan Watch）」は、日本とアジアのニュースを世界に発信する朝日新聞社の英語総合ニュースサイト。政治、経済、社会なのどのニュースのほか、アニメや文化、ファション、クールジャパン系のコンテンツなどを中心に配信している。ニュースの背景を読み解く解説や検証記事、識者による多様なオピオニオンはどは、海外の識者から好評を得ている。東日本大震災に関する記事をまとめた震災・原発特集コーナー「３／１１　Disaster in Japan」は、大震災と福島原発事故のドキュメントとして世界の専門家から高く評価されている。</target>
+    		</trans-unit>
+    		<trans-unit id="277">
+    			<source>jda.aboutpartners.cgatitle</source>
+    			<target>ハーバード大学地理学分析センター</target>
+    		</trans-unit>
+    		<trans-unit id="278">
+    			<source>jda.aboutpartners.cga</source>
+    			<target>ハーバード大学地理学分析センター（CGA）は、地理空間に関する新しい技術により、ハーバード大学内におけるあらゆる学問分野の研究および教育を支えるべく、２００６年に創設されました。当センターは、学内のすべての人や組織と恊働することにより、地理情報システム（Geographic Information Systems : GIS）の基盤とサービスの充実を目指してきました。具体的には次のようなことが目標となります。第一に、異なる学問分野の多様な知識や資源から得られた空間データを統合するための、共通のプラットフォームを提供すること。第二に、地理空間を分析するための技術を使用し、向上させ、あるいは学ぶような学問的研究を可能にすること。そして第三に、GIS及び空間分析を指導するための能力を、学内のすべてのレベルにおいて改良すること、です。</target>
+    		</trans-unit>
+    		<trans-unit id="279">
+    			<source>jda.aboutpartners.hypercitiestitle</source>
+    			<target>Hypercities</target>
+    		</trans-unit>
+    		<trans-unit id="280">
+    			<source>jda.aboutpartners.hypercities</source>
+    			<target>Google MapsとGoogle EarthのAPIを利用して作られた同ウェブサイトは、地図情報プラットフォーム上にツイッターの呟きを重ねる双方向のハイパーメディア環境を特徴とするデジタル情報システムで、大震災直後からテキストメッセージを地図情報と共に随時発信しています。</target>
+    		</trans-unit>
+    		<trans-unit id="281">
+    			<source>jda.aboutpartners.internetarchivetitle</source>
+    			<target>インターネット・アーカイブ</target>
+    		</trans-unit>
+    		<trans-unit id="282">
+    			<source>jda.aboutpartners.internetarchive</source>
+    			<target>インターネット・アーカイブは、人類が持つ知識を誰でも利用できることを目指して１９９６年に設立されたデジタル図書館です。現実の図書館と同様に、研究者・歴史学者・学徒、そしてそれ以外の人々にも無料で情報を閲覧して頂けます。「２０１１東日本大震災デジタルアーカイブ」に収録された一部のウェブサイトは、インターネット・アーカイブによるアーカイブ・イット（Archive-It）というサービスを使用して探し当てられ、保存されたものです。アーカイブ・イットを活用することにより、世界中の諸機関が独自にウェブサイトを収集・保管してデジタルアーカイブを創ることが可能になります。</target>
+    		</trans-unit>
+    		<trans-unit id="283">
+    			<source>jda.aboutpartners.metalabtitle</source>
+    			<target>ハーバード大学メタ・ラボ</target>
+    		</trans-unit>
+    		<trans-unit id="284">
+    			<source>jda.aboutpartners.metalab</source>
+    			<target>ハーバード大学メタ・ラボは、バークマン・センター（Berkman Center for Internet and Society）によって主宰される、芸術・メディア・人文科学の革新の中枢となる存在です。このラボラトリーは次のような信念に基づいて創設されました。すなわち、現代の相互に結びついた世界で生じる事象への重要な問い、文化と自然の境界、また民主主義と社会正義の関係、などのテーマは言うまでもなく、新らしい世紀においては鍵となる諸研究が様々な課題に挑み、機会に臨むことになりますが、それらは芸術・科学・人文科学の垣根を超え、学問・産業・公的空間の仕切りをなくし、そして理論と応用を統合するであろうということです。</target>
+    		</trans-unit>
+    		<trans-unit id="285">
+    			<source>jda.aboutpartners.michinokutitle</source>
+    			<target>みちのく震録伝</target>
+    		</trans-unit>
+    		<trans-unit id="286">
+    			<source>jda.aboutpartners.michinoku</source>
+    			<target>国立大学として地域のリーダー的役割を担ってきた東北大学は、新たに東日本大震災のデジタルアーカイブプロジェクトを始動させました。今回の震災に関して「みちのく震録伝」は産官学の諸機関と連携しつつ、被災地を中心としたあらゆる記憶、記録、事例を集めた総合的なアーカイブの構築を目指しており、復旧や復興の過程も記録し、ほぼリアルタイムで公開することを目指しています。プロジェクトが動き始めて間もないため、詳細については今後明らかになるようです。</target>
+    		</trans-unit>
+    		<trans-unit id="287">
+    			<source>jda.aboutpartners.ncctitle</source>
+    			<target>北米日本研究資料調整協議会（NCC）</target>
+    		</trans-unit>
+    		<trans-unit id="288">
+    			<source>jda.aboutpartners.ncc</source>
+    			<target>北米日本研究資料調整協議会（NCC）は、授業・研究・一般教育への支援を目的として、日本研究資料・情報へのアクセスを提供している。NCCのウェブサイト www.nccjapan.org 電子資料の流通拠点である同時に、グローバルな協力に向けたプラットフォームとなっている。</target>
+    		</trans-unit>
+    		<trans-unit id="289">
+    			<source>jda.aboutpartners.ndltitle</source>
+    			<target>国立国会図書館</target>
+    		</trans-unit>
+    		<trans-unit id="290">
+    			<source>jda.aboutpartners.ndl</source>
+    			<target>国立国会図書館は、わが国における唯一の国立図書館として、1948年に設立されました。国立国会図書館は、日本国内で刊行される出版物を網羅的に収集する納本制度の下、収集資料を国民の文化的財産として永く保存し、これらの資料にもとづいて（1）国会（2）行政及び司法の各部門（3）国民に対してサービスを行っています。デジタル情報については、ウェブサイトや、電子化された所蔵資料等を広く収集・蓄積しています。このうち、ウェブサイトについては、2002年に発信者との許諾に基づく収集を開始し、2010年4月からは国立国会図書館法に基づき、公的機関の発信するものを網羅的に収集しています。東日本大震災に関連するウェブサイトについても、被災地の地方自治体等を中心に収集しています。</target>
+    		</trans-unit>
+    		<trans-unit id="291">
+    			<source>jda.aboutpartners.nhktitle</source>
+    			<target>日本放送協会</target>
+    		</trans-unit>
+    		<trans-unit id="292">
+    			<source>jda.aboutpartners.nhk</source>
+    			<target>NHK（日本放送協会）は日本の唯一の公共放送で、1925年にラジオを、また1953
+年にtれ1テレビ放送を開始しました。NHKはテレビ受信機を持つ一般の家庭からの受信料によって資金を得ておりこの方法により政府や企業からの独立性を
+たもち視聴者の判断のよりどころとなる信頼できる放送をお届けしています。より詳しい説明はhttp://www.nhk.or.jp/pr/koho-e.htmをご覧下さい。NHKは2011年3月11日に発生した「東日本大震災」の被災者による被災体験を複数の番組シリーズとインターネットアーカイブで提供しています。</target>
+    		</trans-unit>
+    		<trans-unit id="293">
+    			<source>jda.aboutpartners.sakuratitle</source>
+    			<target>Sakura on Project</target>
+    		</trans-unit>
+    		<trans-unit id="294">
+    			<source>jda.aboutpartners.sakura</source>
+    			<target>私 たち桜onプロジェクトは、あらゆる「物語」の発見、再編、創出を未来への重要な価値と捉えて います。
+中 でも、桜の植樹をひとつのツールにして、参加者が自身と、出会った地域の「物語」を長く大切に 育てていくための
+プ ログラムと場をプロデュースします。 そして、そこから生まれた「新たな数々の物語」の成長と広がりを
+デ ジタルアーカイブスとして記録し、編纂、発信、保存していきます。より良き未来の為に。</target>
+    		</trans-unit>
+    		<trans-unit id="295">
+    			<source>jda.aboutpartners.sendaimediathequetitle</source>
+    			<target>Sendai Mediatheque</target>
+    		</trans-unit>
+    		<trans-unit id="296">
+    			<source>jda.aboutpartners.sendaimediatheque</source>
+    			<target>「情報発信は支援活動を応援し、記録は未来への財産となるように」との理念のもと、日本における最先端の情報センターの一つであるせんだいメディアテークは、型にはまらないアーカイブプロジェクトを牽引してきました。市民、専門家、スタッフが恊働しながら復旧・復興プロセスを記録することに注力する一方、映像、写真、音声、テキストなどの多様なメディアを通じて発信し続けています。</target>
+    		</trans-unit>
+    		<trans-unit id="297">
+    			<source>jda.aboutpartners.tokyofoundationtitle</source>
+    			<target>東京財団</target>
+    		</trans-unit>
+    		<trans-unit id="298">
+    			<source>jda.aboutpartners.tokyofoundation</source>
+    			<target></target>
+    		</trans-unit>
+    		<trans-unit id="299">
+    			<source>jda.aboutpartners.yahootitle</source>
+    			<target>Yahoo! JAPAN</target>
+    		</trans-unit>
+    		<trans-unit id="300">
+    			<source>jda.aboutpartners.yahoo</source>
+    			<target>このウェブサイトはYahoo! JAPANによるもので、東日本大震災の被災地の姿や思い出の品物の写真などを保存していくプロジェクトです。様々な方法での検索が簡単に行え、キーワード、位置情報（経度・緯度など）、撮影時期（震災前、震災後）、種類、都道府県、そして市町村などの条件により写真を探すことができます。APIプラットフォームへの公開アクセスが先頃発表され、社会に開かれたオープン・アクセスに向けたより幅広い協力を得ながらの写真アーカイブへとつながることでしょう。</target>
+    		</trans-unit>
+    		<trans-unit id="301">
+    			<source>jda.aboutpartners.zeegatitle</source>
+    			<target>ジーガ</target>
+    		</trans-unit>
+    		<trans-unit id="302">
+    			<source>jda.aboutpartners.zeega</source>
+    			<target></target>
+    		</trans-unit>
+          <trans-unit id="303">
+            <source>jda.form.contribute.dateCreated</source>
+            <target>Website Date</target>
+          </trans-unit>
         </body>
     </file>
 </xliff>

@@ -9,7 +9,7 @@
 		tagName : 'div',
 		className: 'event-map',
 		minTime : 1293840000,
-		maxTime : 1330095357,
+		maxTime : (new Date().getTime() / 1000),
 		mapLoaded : false,
 		timeSliderLoaded : false,
 		japanMapUrl : sessionStorage.getItem("japanMapUrl"),

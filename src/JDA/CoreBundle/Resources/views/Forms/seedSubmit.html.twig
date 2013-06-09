@@ -60,7 +60,11 @@
                     <tr>                   
                         <th>{% trans %}jda.form.contribute.description{% endtrans %}</th>
                         <td><textarea name="descriptionTxt" id="descriptionTxt"></textarea></td>          
-                    </tr>                  
+                    </tr>     
+                    <tr>                   
+                        <th>{% trans %}jda.form.contribute.dateCreated{% endtrans %}</th>
+                        <td><input type="text" name="dateCreatedTxt" id="dateCreatedTxt"/></td>          
+                    </tr>               
                     <tr>                   
                         <th>{% trans %}jda.form.contribute.frequency{% endtrans %}</th>
                         <td>
@@ -86,9 +90,6 @@
                         <th>{% trans %}jda.form.contribute.tags{% endtrans %}</th>
                         <td>
                             <select name="tagsSelect" id="tagsSelect" multiple>
-                                <option value="test1">test1</option>
-                                <option value="test2">test2</option>
-                                <option value="test3">test3</option>
                             </select>
                         </td>          
                     </tr>                  
@@ -108,10 +109,10 @@
                         <td>
                             <select name="categoryDDL" id="categoryDDL">
                                 <option value="Website">{% trans %}jda.search.website{% endtrans %}</option>
-                                <option value="Image">{% trans %}jda.search.image{% endtrans %}</option>
+                                <!--<option value="Image">{% trans %}jda.search.image{% endtrans %}</option>
                                 <option value="Video">{% trans %}jda.search.video{% endtrans %}</option>
                                 <option value="Audio">{% trans %}jda.search.audio{% endtrans %}</option>
-                                <option value="Document">{% trans %}jda.search.document{% endtrans %}</option>
+                                <option value="Document">{% trans %}jda.search.document{% endtrans %}</option>-->
                             </select>
                         </td>          
                     </tr>                  
@@ -123,13 +124,12 @@
                             <input type="checkbox" name="languageChk" id="chineseChk" value="Chinese" /> {% trans %}jda.form.contribute.language.chinese{% endtrans %}
                             <input type="checkbox" name="languageChk" id="koreanChk" value="Korean" /> {% trans %}jda.form.contribute.language.korean{% endtrans %}
                         </td>          
-                    </tr> 
-                    <!--                 
+                    </tr>               
                     <tr>                   
                         <th>{% trans %}jda.form.contribute.name{% endtrans %}</th>
                         <td><input type="text" name="nameTxt" id="nameTxt" value="" /></td>
                     </tr>
-                    -->
+
                     <tr>                   
                         <th>{% trans %}jda.form.contribute.email{% endtrans %}</th>
                         <td><input type="text" name="emailTxt" id="emailTxt" value="" /></td>

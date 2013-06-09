@@ -97,13 +97,25 @@
 			} else {
 				blanks["author"] = this.model.get("media_creator_realname");
 			}
+			if (this.model.get('attributes')) {
+			    if (this.model.get('attributes').privacy) {
+			        if (this.model.get('attributes').privacy == 'Hide') {
+			            blanks["author"] = "Anonymous";
+			        }
+			    }
+			}
+			if (this.model.get("media_creator_username") && this.model.get("media_creator_realname")) {
+			    if (this.model.get("media_creator_username").trim() == "Anonymous" || this.model.get("media_creator_realname").trim() == "Anonymous") {
+			        blanks["author"] = "Anonymous";
+			    }
+			}
 			if (this.model.get("media_type") == "Text" && this.model.get('description').length < this.model.get('text').length){
 				blanks["description"] = this.model.get('description') + '...';
 			}
 			
 			if (this.model.get("media_type") == "Website"){
 				var parts = this.model.get('attribution_uri').split('http');
-				blanks["original_url"] = "http"+parts[2];
+				blanks["original_url"] = parts[2] !== undefined ? "http" + parts[2] : this.model.get('attribution_uri');
 			}
 			
 			
@@ -149,7 +161,13 @@
 			});
 			}
 			$(this.el).find(".jdicon-small-drag").tooltip({'title':'Drag to add to your collection','placement':'bottom', delay: { show: 600, hide: 100 }});
-			$(this.el).find(".jda-user-link").click(function(){jda.app.goToUser(_this.model.get('user_id')); return false;});
+			
+			if( blanks["display_name"] === ""){
+				$(this.el).find(".jda-user-link").hide();
+			} else {
+				$(this.el).find(".jda-user-link").click(function(){jda.app.goToUser(_this.model.get('user_id')); return false;});
+			}
+			
 			return this;
 		},
 		

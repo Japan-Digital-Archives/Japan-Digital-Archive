@@ -37,6 +37,11 @@ item:
     defaults:  { _controller: JDACoreBundle:Item:index, _locale: ja }
     requirements:
         _locale: en|ja
+partners:
+    pattern:	/{_locale}/partners
+    defaults:	{ _controller: JDACoreBundle:Partners:index, _locale: ja }
+    requirements:
+        _locale: en|ja   
 user:
     pattern:   /{_locale}/user/{id}
     defaults:  { _controller: JDACoreBundle:User:index}
@@ -65,3 +70,12 @@ export:
 exported:
     pattern:   /exported/
     defaults:  { _controller: JDACoreBundle:Exporter:getItems }
+export_special:
+    pattern:   /export_special/
+    defaults:  { _controller: JDACoreBundle:Exporter:getItemsSpecial }
+batchtag:
+    pattern:	/batch-tag/
+    defaults:	{ _controller: JDACoreBundle:BatchTag:index }
+batchtagged:
+    pattern:	/batch-tagged/
+    defaults:	{ _controller: JDACoreBundle:BatchTag:update}

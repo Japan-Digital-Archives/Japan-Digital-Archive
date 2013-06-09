@@ -57,11 +57,29 @@ class ExporterController extends Controller
         //$lastExport = date_create('2/11/2013 1:51:00 pm');
         $em = $this->getDoctrine()->getEntityManager();
         // the > id thing is because of the initial import from the old site, after the first export, it should be unnecessary
-        $q = $em->createQuery("select i from ZeegaDataBundle:Item i where i.id > 890497 and i.published=1 and i.media_type='website' and i.date_created >= '" . $lastExport->format('Y-m-d H:i:s') . "'");
+        $q = $em->createQuery("select i from ZeegaDataBundle:Item i where i.id > 890497 and i.published=1 and i.media_type='website' and i.user_id!=469 and i.date_created >= '" . $lastExport->format('Y-m-d H:i:s') . "'");
         $items = $q->getResult();
         //$items = $em->getRepository('ZeegaDataBundle:Item')->findBy(array('date_created' => $lastExport));
 
         file_put_contents($fileLoc, date('m/d/Y h:i:s a', time()));
+        
+        return $this->render('JDACoreBundle:SeedExport:items.html.twig', array(
+                    'page'=> 'export',
+                    'items'=> $items
+                ));
+    }
+
+    public function getItemsSpecialAction()
+    {
+        $loggedUser = $this->get('security.context')->getToken()->getUser();
+        if(!is_object($loggedUser)){
+            return $this->redirect('/web/login');
+        }
+        $em = $this->getDoctrine()->getEntityManager();
+        // this is a special export function to handle the stuff in the beginning
+        $q = $em->createQuery("select i from ZeegaDataBundle:Item i where i.id >= 1475601 and i.id <= 1475855 and i.media_type='website'");
+        $items = $q->getResult();
+
         
         return $this->render('JDACoreBundle:SeedExport:items.html.twig', array(
                     'page'=> 'export',
