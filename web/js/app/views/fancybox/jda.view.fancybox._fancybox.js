@@ -170,37 +170,27 @@
 		},
 		submitTranslation:function()
 		{
-			// I'm not sure what this line is doing, probably delete it.
-            // look at how the model is selected above on line 145 
-            window.thiss = this;
+		    var translation = $(this.el).find('.translationinsert').val().trim();
 
-            // attributes are an object. ie {}
-			var attributes = [];
-			//var translation = $('.translationinsert')[0].value;
-                       	var translation = $('.translationinsert').val();
-			console.log(translation);
-            // see above, don't use push on objects. you might also need to
-            // check if the attributes object is init'd
-			attributes.push(translation);
-			//attributes.set(translation);
-			console.log(attributes);
-			console.log(this.model.get('attributes'));
-            // this is also probably wrong, look at updateTags to see why
-			this.model.save({'title':'testing'});
-			if (translation == ""){alert ("Please submit translation");}
-                        else {
+		    if (translation == "") {
+		        alert('Please enter a translation before submitting');
+		        return;
+		    }
 
-			this.model.save({attributes : attributes});
-			console.log(this.model.get('attributes'));
-			console.log(this.model.get('tags'));
-			$('.translationtext-wrapper').html('<p>'+attributes+'</p>');
-			//blanks.set({translation : attributes});
+		    var attributes = this.model.get('attrbiutes');
+		    if (attributes instanceof Object) {
+		        attributes.translation = translation;
+		    } else {
+		        attributes = { translation: translation };
+		    }
+		    this.model.save({ attributes: attributes });
+
 			$('.translationheader').show();
-                        $('.submittranslationheader').hide();
+            $('.submittranslationheader').hide();
 			$('.show-translate').show();
  			$('.translationtext-wrapper').show();	
 		 	$('.translation-wrapper').hide();
-		}},
+		},
 		more : function(){
 
 			var _this=this;
@@ -479,7 +469,7 @@
 '<button class="show-translate btn btn-info btn-medium">' + "edit translation" + '</button>' +
 '</div >'+
 '<div style="display: none; text-align:left" class="translation-wrapper">'+
-'<textarea style="width : 100%" class="translationinsert"><%= translationEditText %></textarea>' + '<button class="submitTranslation btn btn-info btn-medium">' + "submit" + '</button>' +
+'<textarea style="width : 90%" class="translationinsert"><%= translationEditText %></textarea>' + '<button class="submitTranslation btn btn-info btn-medium">' + "submit" + '</button>' +
 '</div>'+
 
 	'</div>'
