@@ -447,7 +447,6 @@ translationtext : this.model.get('attributes')
 								'<div class="text-wrapper">'+
 									'<p class="more subheader">'+l.fancybox_text+'</p><p class="more description fancybox-editable"><%= text %></p>'+
 								'</div>'+
-
 '<p class="translationheader">'+"Translation"+'</p>'+
 '<p class="submittranslationheader">'+"Submit Translation"+'</p>'+
 '<div class="translationtext-wrapper">'+
