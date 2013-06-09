@@ -129,14 +129,11 @@ function removeImg(btn) {
 require(loadFiles, function () {
     $(document).ready(function () {
         var layerMediaMap = {
-            YouTube: "Video",
+            Video: "YouTube",
             Website: "Website",
-            DocumentCloud: "Document",
-            PDF: "Document",
-            Testimonial: "Text",
+            Document: "PDF",
             Image: "Image",
             Audio: "Audio",
-            Tweet: "Tweet"
         };
         $("#tagsSelect").chosen({
             create_option_text: 'Add New Tag',
@@ -183,13 +180,13 @@ require(loadFiles, function () {
                 var postObj = {};
 
                 postObj.title = $("#pageTitleTxt").val();
-                postObj.description = $("#pageTitleTxt").val();
-                postObj.media_type = layerMediaMap[$("#categoryDDL > option:selected").val()]; // fix this based on https://github.com/Zeega/Zeega-Core/wiki/Database-schema
-                postObj.layer_type = $("#categoryDDL > option:selected").val();
-                postObj.uri = $("#urlTxt").val();
+                postObj.description = $("#descriptionTxt").val();
+                postObj.layer_type = layerMediaMap[$("#categoryDDL > option:selected").val()]; // fix this based on https://github.com/Zeega/Zeega-Core/wiki/Database-schema
+                postObj.media_type = $("#categoryDDL > option:selected").val();
+                postObj.uri = "http://wayback.archive-it.org/2438/20110301000000/" + $("#urlTxt").val();
                 postObj.attribution_uri = $("#urlTxt").val();
-                postObj.media_creator_username = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
-                postObj.media_creator_realname = $("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                postObj.media_creator_username = "rijs"; //$("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
+                postObj.media_creator_realname = "rijs"; //$("#nameTxt").val().trim() != "" ? $("#nameTxt").val().trim() : "Not Given";
 
                 if ($("#lat").val() != "") {
                     postObj.media_geo_latitude = parseFloat($("#lat").val());
@@ -205,15 +202,16 @@ require(loadFiles, function () {
                 postObj.language += $("#chineseChk").is(":checked") ? "Chinese|" : "";
                 postObj.language += $("#koreanChk").is(":checked") ? "Korean|" : "";
 
-                postObj.attributes = [];
-                postObj.attributes.push("frequency:" + $("#frequencyDDL > option:selected").val());
-                postObj.attributes.push("scope:" + $("#scopeDDL > option:selected").val());
+                postObj.attributes = {};
+                postObj.attributes.frequency = $("#frequencyDDL > option:selected").val();
+                postObj.attributes.scope = $("#scopeDDL > option:selected").val();
+                postObj.attributes.email = $("#emailTxt").val();
                 postObj.published = 0;
                 postObj.archive = "Seeds";
                 
                 $.post(baseApiUrl, postObj, function (response) {
                 }).error(function () { alert("There was a problem with your submission, please try again"); }).success(function () {
-                    document.location.href = document.location.href.replace("contribute", "home");
+                    document.location.href = document.location.href.replace("contribute/", "home");
                 });
             }
         });
@@ -275,7 +273,7 @@ require(loadFiles, function () {
                     //postObj.attributes.to_date = toDate;
                 }
 
-                postObj.attributes["year of birth"] = $("#yearDDL > option:selected").val();
+                postObj.attributes["year-of-birth"] = $("#yearDDL > option:selected").val();
                 postObj.attributes.occupation = $("#occupationTxt").val();
                 postObj.attributes.images = [];
                 $("#imgTbl").find("input[type='text']").each(function () {
@@ -289,7 +287,7 @@ require(loadFiles, function () {
 
                 $.post(baseApiUrl, postObj, function (response) {
                 }).error(function () { alert("There was a problem with your submission, please try again"); }).success(function () {
-                    document.location.href = document.location.href.replace("contribute", "home");
+                    document.location.href = document.location.href.replace("testimonial/", "home");
                 });
             }
         });
@@ -426,7 +424,7 @@ require(loadFiles, function () {
         /*************** USER LOGIN ************************/
 
         $('#sign-in').click(function () {
-            $('#user-modal-body').empty().append('<iframe class="login" src="/' + sessionStorage.getItem('directory') + 'login?_locale=' + sessionStorage.getItem('locale') + '"></iframe>');
+            $('#user-modal-body').empty().append('<iframe class="login" src="' + document.location.href.replace("testimonial/", "").replace("contribute/", "") + 'login?_locale=' + sessionStorage.getItem('locale') + '"></iframe>');
             $('#user-modal').modal('show');
             return false;
         });

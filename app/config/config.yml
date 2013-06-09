@@ -116,3 +116,7 @@ swiftmailer:
 sensio_framework_extra:
     view:
         annotations: false
+
+sonata_admin:
+    templates:
+        edit:    ZeegaAdminBundle:edit.html.twig
