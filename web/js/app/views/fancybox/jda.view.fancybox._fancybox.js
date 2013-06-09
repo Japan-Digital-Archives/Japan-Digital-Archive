@@ -47,13 +47,30 @@
 			
 			if(!this.model.get('editable')){$('.tag').find('a').hide();}
 
-			if(this.model.get('attributes')==""){
-				console.log(this.model.get('attributes'));
-				$('.translationheader').hide();
-				$('.submittranslationheader').show();
-				$('.translation-wrapper').show();
-                        	$('.show-translate').hide();
-                        	$('.translationtext-wrapper').hide();
+			var attributes = this.model.get('attributes');
+
+			if (attributes instanceof Object) {
+			    if (attributes.translation) {
+			        $(this.el).find('.translationheader').hide();
+			        $(this.el).find('.submittranslationheader').show();
+			        $(this.el).find('.translation-wrapper').show();
+			        $(this.el).find('.show-translate').hide();
+			        $(this.el).find('.translationtext-wrapper').hide();
+			        $(this.el).find('.translationtext-wrapper > p').html(attributes.translation);
+			    } else {
+			        $(this.el).find('.translationheader').show();
+			        $(this.el).find('.submittranslationheader').hide();
+			        $(this.el).find('.translation-wrapper').hide();
+			        $(this.el).find('.show-translate').show();
+			        $(this.el).find('.translationtext-wrapper').show();
+			    }
+			} else {
+			    this.model.save({ attributes: {} });
+			    $(this.el).find('.translationheader').show();
+			    $(this.el).find('.submittranslationheader').hide();
+			    $(this.el).find('.translation-wrapper').hide();
+			    $(this.el).find('.show-translate').show();
+			    $(this.el).find('.translationtext-wrapper').show();
 			}
 
 			/***********************************
