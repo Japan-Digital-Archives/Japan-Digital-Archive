@@ -476,7 +476,7 @@
 '<p class="more description fancybox-editable"><%= translation %></p>'+
 '</div >'+
 '<div style="text-align:left">'+
-'<button class="show-translatebtn btn-info btn-medium">' + "edit translation" + '</button>' +
+'<button class="show-translate btn btn-info btn-medium">' + "edit translation" + '</button>' +
 '</div >'+
 '<div style="display: none; text-align:left" class="translation-wrapper">'+
 '<textarea style="width : 100%" class="translationinsert"><%= translationEditText %></textarea>' + '<button class="submitTranslation btn btn-info btn-medium">' + "submit" + '</button>' +
