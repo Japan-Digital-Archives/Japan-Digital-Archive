@@ -37,7 +37,7 @@
 			if(_.isUndefined(this.id)) {
 				var url = jda.app.apiLocation + 'api/items';	
 			} else {
-				var url = jda.app.apiLocation + 'api/items/' + this.id + '?result_type=recursive&data_source=db';
+			    var url = jda.app.apiLocation + 'api/items/' + this.id + '?result_type=recursive&data_source=db&api_key=9bIRe71qSeHeVQIcb54NNqY-y';
 			} 
 			return url;
 		}
