@@ -162,9 +162,7 @@
 		        return;
 		    }
 
-		    var attributes = this.model.get('attrbiutes');
-		    console.log(attributes);
-		    console.log(attributes instanceof Object);
+		    var attributes = this.model.get('attributes');
 		    if (attributes instanceof Object) {
 		        attributes.translation = translation;
 		    } else {
