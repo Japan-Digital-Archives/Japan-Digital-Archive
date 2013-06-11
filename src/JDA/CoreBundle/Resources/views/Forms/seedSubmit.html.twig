@@ -62,10 +62,6 @@
                         <td><textarea name="descriptionTxt" id="descriptionTxt"></textarea></td>          
                     </tr>     
                     <tr>                   
-                        <th>{% trans %}jda.form.contribute.dateCreated{% endtrans %}</th>
-                        <td><input type="text" name="dateCreatedTxt" id="dateCreatedTxt"/></td>          
-                    </tr>               
-                    <tr>                   
                         <th>{% trans %}jda.form.contribute.frequency{% endtrans %}</th>
                         <td>
                             <select name="frequencyDDL" id="frequencyDDL">
@@ -85,7 +81,11 @@
                                 <option value="Site">{% trans %}jda.form.contribute.scope.site{% endtrans %}</option>
                             </select>
                         </td>          
-                    </tr>                  
+                    </tr>
+                    <tr>                   
+                        <th>{% trans %}jda.form.contribute.dateCreated{% endtrans %}</th>
+                        <td><input type="text" name="dateCreatedTxt" id="dateCreatedTxt"/></td>          
+                    </tr>             
                     <tr>                   
                         <th>{% trans %}jda.form.contribute.tags{% endtrans %}</th>
                         <td>
