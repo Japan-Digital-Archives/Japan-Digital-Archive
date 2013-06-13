@@ -104,11 +104,7 @@
 			        }
 			    }
 			}
-			if (this.model.get("media_creator_username") && this.model.get("media_creator_realname")) {
-			    if (this.model.get("media_creator_username").trim() == "Anonymous" || this.model.get("media_creator_realname").trim() == "Anonymous") {
-			        blanks["author"] = "Anonymous";
-			    }
-			}
+
 			if (this.model.get("media_type") == "Text" && this.model.get('description').length < this.model.get('text').length){
 				blanks["description"] = this.model.get('description') + '...';
 			}
