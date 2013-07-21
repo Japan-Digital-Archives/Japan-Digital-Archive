@@ -5,7 +5,7 @@ namespace JDA\CoreBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
-class ContributeController extends Controller
+class ContributearchiveController extends Controller
 {
     
     public function indexAction()

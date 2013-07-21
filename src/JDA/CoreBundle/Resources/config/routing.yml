@@ -27,7 +27,7 @@ team:
     requirements:
         _locale: en|ja
 contributearchive:
-    pattern:   /{_locale}/team
+    pattern:   /{_locale}/contributeArchive
     defaults:  { _controller: JDACoreBundle:Contributearchive:index, _locale: ja }
     requirements:
         _locale: en|ja
