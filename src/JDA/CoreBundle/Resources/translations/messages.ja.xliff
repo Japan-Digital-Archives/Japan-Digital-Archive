@@ -935,7 +935,7 @@
             </trans-unit>
             <trans-unit id="232">
                 <source>jda.team.interaction</source>
-                <target>Interaction Design</target>
+                <target>Interaction Design and Development</target>
             </trans-unit>
             <trans-unit id="233">
                 <source>jda.team.alumni</source>
@@ -1087,7 +1087,7 @@
     		</trans-unit>
     		<trans-unit id="270">
     			<source>jda.aboutpartners.paragraph1</source>
-    			<target></target>
+    			<target>2011年東日本大震災デジタルアーカイブ（以下、当デジタルアーカイブ）にとってパートナーの存在は欠くことのできないものです。当デジタルアーカイブそれ自体にはデジタル情報が所蔵されておらず、国際的なパートナーが扱っているコンテンツ（アーカイブされたウェブサイト、写真、動画、報道記事、見出しなど）へのリンクを提供しています。また当デジタルアーカイブの地図機能やインターフェースの構築は、その他のパートナーが担っています。各パートナーについては下記をご覧下さい。</target>
     		</trans-unit>
     		<trans-unit id="271">
     			<source>jda.aboutpartners.311memoriestitle</source>
@@ -1095,7 +1095,7 @@
     		</trans-unit>
     		<trans-unit id="272">
     			<source>jda.aboutpartners.311memories</source>
-    			<target>311メモリーズは、東日本大震災以降のオンラインニュース（Yahoo!ニュース） の中から震災に関連する記事を収集し、その文章をコンピュータで解析し可視化 することで、震災以後の時の流れを振り返るための「静かに動く年表」を提供し ます。</target>
+    			<target>311メモリーズは、東日本大震災以降のオンラインニュース（Yahoo!ニュース）の中から震災に関連する記事を収集し、その文章をコンピュータで解析し可視化することで、震災以後の時の流れを振り返るための「静かに動く年表」を提供します。また311メモリーズからは、当デジタルアーカイブに数十万の記事見出しが収蔵されています。</target>
     		</trans-unit>
     		<trans-unit id="273">
     			<source>jda.aboutpartners.311marugototitle</source>
@@ -1111,7 +1111,7 @@
     		</trans-unit>
     		<trans-unit id="276">
     			<source>jda.aboutpartners.asahi</source>
-    			<target>「Ｔｈｅ　Ａｓａｈｉ　Ｓｈｉｍｂｕｎ　ＡＪＷ（Asia and Japan Watch）」は、日本とアジアのニュースを世界に発信する朝日新聞社の英語総合ニュースサイト。政治、経済、社会なのどのニュースのほか、アニメや文化、ファション、クールジャパン系のコンテンツなどを中心に配信している。ニュースの背景を読み解く解説や検証記事、識者による多様なオピオニオンはどは、海外の識者から好評を得ている。東日本大震災に関する記事をまとめた震災・原発特集コーナー「３／１１　Disaster in Japan」は、大震災と福島原発事故のドキュメントとして世界の専門家から高く評価されている。</target>
+    			<target>「The Asahi Shimbun AJW (Asia and Japan Watch))は、日本とアジアのニュースを世界に発信する朝日新聞社の英語総合ニュースサイト。政治、経済、社会などのニュースのほか、アニメや文化、ファション、クールジャパン系のコンテンツなどを中心に配信しています。ニュースの背景を読み解く解説や検証記事、識者による多様なオピオニオンなどは、海外の識者から好評を得ています。東日本大震災に関する記事をまとめた震災・原発特集コーナー「３／１１　Disaster in Japan」は、大震災と福島原発事故のドキュメントとして世界の専門家から高く評価されています。The Asahi Shimbun AJW からは、数千に及ぶ震災関連英語記事の全文が当デジタルアーカイブに収められています。</target>
     		</trans-unit>
     		<trans-unit id="277">
     			<source>jda.aboutpartners.cgatitle</source>
@@ -1119,7 +1119,7 @@
     		</trans-unit>
     		<trans-unit id="278">
     			<source>jda.aboutpartners.cga</source>
-    			<target>ハーバード大学地理学分析センター（CGA）は、地理空間に関する新しい技術により、ハーバード大学内におけるあらゆる学問分野の研究および教育を支えるべく、２００６年に創設されました。当センターは、学内のすべての人や組織と恊働することにより、地理情報システム（Geographic Information Systems : GIS）の基盤とサービスの充実を目指してきました。具体的には次のようなことが目標となります。第一に、異なる学問分野の多様な知識や資源から得られた空間データを統合するための、共通のプラットフォームを提供すること。第二に、地理空間を分析するための技術を使用し、向上させ、あるいは学ぶような学問的研究を可能にすること。そして第三に、GIS及び空間分析を指導するための能力を、学内のすべてのレベルにおいて改良すること、です。</target>
+    			<target>ハーバード大学地理学分析センター（CGA）は、地理空間に関する新しい技術により、ハーバード大学内におけるあらゆる学問分野の研究および教育を支えるべく、２００６年に創設されました。同センターは、学内のすべての人や組織と恊働することにより、地理情報システム（Geographic Information Systems : GIS）の基盤とサービスの充実を目指してきました。具体的には次のようなことが目標となります。第一に、異なる学問分野の多様な知識や資源から得られた空間データを統合するための、共通のプラットフォームを提供すること。第二に、地理空間を分析するための技術を使用し、向上させ、あるいは学べるような学問的研究を可能にすること。そして第三に、GIS及び空間分析を指導するための能力を、学内のすべてのレベルにおいて改良すること、です。当デジタルアーカイブの「アーカイブ情報の地図表示」はCGA によって開発・運用されています。</target>
     		</trans-unit>
     		<trans-unit id="279">
     			<source>jda.aboutpartners.hypercitiestitle</source>
@@ -1127,7 +1127,7 @@
     		</trans-unit>
     		<trans-unit id="280">
     			<source>jda.aboutpartners.hypercities</source>
-    			<target>Google MapsとGoogle EarthのAPIを利用して作られた同ウェブサイトは、地図情報プラットフォーム上にツイッターの呟きを重ねる双方向のハイパーメディア環境を特徴とするデジタル情報システムで、大震災直後からテキストメッセージを地図情報と共に随時発信しています。</target>
+    			<target>Google MapsとGoogle EarthのAPIを利用して作られた同ウェブサイトは、地図情報プラットフォーム上にツイートを重ねるという、双方向のハイパーメディア環境を特徴とするデジタル情報システムで、大震災直後からテキストメッセージを地図情報と共に随時発信しています。当デジタルアーカイブ には、Hypercitiesから提供された震災に関連する数十万のツイートが収められています。</target>
     		</trans-unit>
     		<trans-unit id="281">
     			<source>jda.aboutpartners.internetarchivetitle</source>
@@ -1135,7 +1135,7 @@
     		</trans-unit>
     		<trans-unit id="282">
     			<source>jda.aboutpartners.internetarchive</source>
-    			<target>インターネット・アーカイブは、人類が持つ知識を誰でも利用できることを目指して１９９６年に設立されたデジタル図書館です。現実の図書館と同様に、研究者・歴史学者・学徒、そしてそれ以外の人々にも無料で情報を閲覧して頂けます。「２０１１東日本大震災デジタルアーカイブ」に収録された一部のウェブサイトは、インターネット・アーカイブによるアーカイブ・イット（Archive-It）というサービスを使用して探し当てられ、保存されたものです。アーカイブ・イットを活用することにより、世界中の諸機関が独自にウェブサイトを収集・保管してデジタルアーカイブを創ることが可能になります。</target>
+    			<target>インターネット・アーカイブは、人類が持つ知識を誰でも利用できることを目指して１９９６年に設立されたデジタル図書館です。現実の図書館と同様に、研究者・歴史学者・学徒、そしてそれ以外の人々にも無料で情報を閲覧して頂けます。当デジタルアーカイブに収録された一部のウェブサイトは、インターネット・アーカイブによるアーカイブ・イット（Archive-It）というサービスを使用して見つけられ、保存されたものです。アーカイブ・イットを活用することにより、世界中の諸機関が独自にウェブサイトを収集・保管してデジタルアーカイブを創ることが可能になります。インターネット・アーカイブからは、震災に関連した数万のウェブサイトが当デジタルアーカイブに保存されています。</target>
     		</trans-unit>
     		<trans-unit id="283">
     			<source>jda.aboutpartners.metalabtitle</source>
@@ -1143,7 +1143,8 @@
     		</trans-unit>
     		<trans-unit id="284">
     			<source>jda.aboutpartners.metalab</source>
-    			<target>ハーバード大学メタ・ラボは、バークマン・センター（Berkman Center for Internet and Society）によって主宰される、芸術・メディア・人文科学の革新の中枢となる存在です。このラボラトリーは次のような信念に基づいて創設されました。すなわち、現代の相互に結びついた世界で生じる事象への重要な問い、文化と自然の境界、また民主主義と社会正義の関係、などのテーマは言うまでもなく、新らしい世紀においては鍵となる諸研究が様々な課題に挑み、機会に臨むことになりますが、それらは芸術・科学・人文科学の垣根を超え、学問・産業・公的空間の仕切りをなくし、そして理論と応用を統合するであろうということです。</target>
+    			<target>ハーバード大学メタ・ラボは、バークマン・センター（Berkman Center for Internet and Society）によって主宰される、芸術・メディア・人文科学の革新の中枢となる存在です。このラボラトリーは次のような信念に基づいて創設されました。すなわち、相互に結びついた現代世界で生じる事象への重要な問い、文化と自然の境界、民主主義と社会正義の関係などのテーマはもちろんのこと、新しい世紀においては、鍵となる諸研究が様々な課題に挑み、機会に臨むことになりますが、それらは芸術・科学・人文科学の垣根を超え、学問・産業・公的空間の仕切りをなくし、理論と応用を統合するであろうということです。ハーバード大学メタ・ラボは当デジタルアーカイブ の構想と開発におけるプロジェクト開始時からの重要なパートナーです。
+</target>
     		</trans-unit>
     		<trans-unit id="285">
     			<source>jda.aboutpartners.michinokutitle</source>
@@ -1151,15 +1152,15 @@
     		</trans-unit>
     		<trans-unit id="286">
     			<source>jda.aboutpartners.michinoku</source>
-    			<target>国立大学として地域のリーダー的役割を担ってきた東北大学は、新たに東日本大震災のデジタルアーカイブプロジェクトを始動させました。今回の震災に関して「みちのく震録伝」は産官学の諸機関と連携しつつ、被災地を中心としたあらゆる記憶、記録、事例を集めた総合的なアーカイブの構築を目指しており、復旧や復興の過程も記録し、ほぼリアルタイムで公開することを目指しています。プロジェクトが動き始めて間もないため、詳細については今後明らかになるようです。</target>
+    			<target>国立大学として地域のリーダー的役割を担ってきた東北大学は、新たに東日本大震災のデジタルアーカイブプロジェクトを始動させました。今回の震災に関して「みちのく震録伝」は産官学の諸機関と連携しつつ、被災地を中心としたあらゆる記憶、記録、事例を集めた総合的なアーカイブの構築を目指しており、復旧や復興の過程も記録し、ほぼリアルタイムで公開することを目指しています。みちのく震録伝からは数万の写真が当デジタルアーカイブに提供されています。</target>
     		</trans-unit>
     		<trans-unit id="287">
     			<source>jda.aboutpartners.ncctitle</source>
-    			<target>北米日本研究資料調整協議会（NCC）</target>
+    			<target>北米日本研究資料調整協議会（NCC)</target>
     		</trans-unit>
     		<trans-unit id="288">
     			<source>jda.aboutpartners.ncc</source>
-    			<target>北米日本研究資料調整協議会（NCC）は、授業・研究・一般教育への支援を目的として、日本研究資料・情報へのアクセスを提供している。NCCのウェブサイト www.nccjapan.org 電子資料の流通拠点である同時に、グローバルな協力に向けたプラットフォームとなっている。</target>
+    			<target>北米日本研究資料調整協議会（NCC）は、授業・研究・一般教育への支援を目的として、日本研究資料・情報へのアクセスを提供しています。NCCのウェブサイト(www.nccjapan.org)は電子資料の流通拠点である同時に、グローバルな協力に向けたプラットフォームとなっています。NCCのウェブサイト上では、当デジタルアーカイブについての解説と、その利用法についての詳細なオンラインガイドを見ることができます。</target>
     		</trans-unit>
     		<trans-unit id="289">
     			<source>jda.aboutpartners.ndltitle</source>
@@ -1167,7 +1168,7 @@
     		</trans-unit>
     		<trans-unit id="290">
     			<source>jda.aboutpartners.ndl</source>
-    			<target>国立国会図書館は、わが国における唯一の国立図書館として、1948年に設立されました。国立国会図書館は、日本国内で刊行される出版物を網羅的に収集する納本制度の下、収集資料を国民の文化的財産として永く保存し、これらの資料にもとづいて（1）国会（2）行政及び司法の各部門（3）国民に対してサービスを行っています。デジタル情報については、ウェブサイトや、電子化された所蔵資料等を広く収集・蓄積しています。このうち、ウェブサイトについては、2002年に発信者との許諾に基づく収集を開始し、2010年4月からは国立国会図書館法に基づき、公的機関の発信するものを網羅的に収集しています。東日本大震災に関連するウェブサイトについても、被災地の地方自治体等を中心に収集しています。</target>
+    			<target>国立国会図書館は、日本における唯一の国立図書館として、1948年に設立されました。国立国会図書館は、日本国内で刊行される出版物を網羅的に収集する納本制度の下、収集資料を国民の文化的財産として永く保存し、これらの資料にもとづいて（1）国会（2）行政及び司法の各部門（3）国民に対してサービスを行っています。デジタル情報については、ウェブサイトや、電子化された所蔵資料等を広く収集・蓄積しています。このうち、ウェブサイトについては、2002年に発信者との許諾に基づく収集を開始し、2010年4月からは国立国会図書館法に基づき、公的機関の発信するものを網羅的に収集しています。東日本大震災に関連するウェブサイトについても、被災地の地方自治体等を中心に収集しています。当デジタルアーカイブ には、国会図書館によりアーカイブされた数千の震災関連のウェブサイトが収蔵されています。</target>
     		</trans-unit>
     		<trans-unit id="291">
     			<source>jda.aboutpartners.nhktitle</source>
@@ -1175,9 +1176,7 @@
     		</trans-unit>
     		<trans-unit id="292">
     			<source>jda.aboutpartners.nhk</source>
-    			<target>NHK（日本放送協会）は日本の唯一の公共放送で、1925年にラジオを、また1953
-年にtれ1テレビ放送を開始しました。NHKはテレビ受信機を持つ一般の家庭からの受信料によって資金を得ておりこの方法により政府や企業からの独立性を
-たもち視聴者の判断のよりどころとなる信頼できる放送をお届けしています。より詳しい説明はhttp://www.nhk.or.jp/pr/koho-e.htmをご覧下さい。NHKは2011年3月11日に発生した「東日本大震災」の被災者による被災体験を複数の番組シリーズとインターネットアーカイブで提供しています。</target>
+    			<target>NHK（日本放送協会）は日本の唯一の公共放送で、1925年にラジオを、また1953 年にテレビ放送を開始しました。NHKはテレビ受信機を持つ一般の家庭からの受信料によって資金を得ており、この方法により政府や企業からの独立性をたもち、視聴者の判断のよりどころとなる信頼できる放送をお届けしています。より詳しい説明はhttp://www.nhk.or.jp/pr/koho-e.htmをご覧下さい。NHKは2011年3月11日に発生した「東日本大震災」の被災者による被災体験を複数の番組シリーズとインターネットアーカイブで提供しています。NHKによって制作・提供・デジタルアーカイブされた数百のニュース映像が、当デジタルアーカイブに収められています。</target>
     		</trans-unit>
     		<trans-unit id="293">
     			<source>jda.aboutpartners.sakuratitle</source>
@@ -1185,10 +1184,7 @@
     		</trans-unit>
     		<trans-unit id="294">
     			<source>jda.aboutpartners.sakura</source>
-    			<target>私 たち桜onプロジェクトは、あらゆる「物語」の発見、再編、創出を未来への重要な価値と捉えて います。
-中 でも、桜の植樹をひとつのツールにして、参加者が自身と、出会った地域の「物語」を長く大切に 育てていくための
-プ ログラムと場をプロデュースします。 そして、そこから生まれた「新たな数々の物語」の成長と広がりを
-デ ジタルアーカイブスとして記録し、編纂、発信、保存していきます。より良き未来の為に。</target>
+    			<target>桜onプロジェクトは、あらゆる「物語」の発見、再編、創出を未来のための重要な価値と捉えています。 中でも、桜の植樹をひとつのツールにして、参加者が自身と、出会った地域の「物語」を長く大切に育てていくための プ ログラムと場をプロデュースします。 そして、そこから生まれた「新たな数々の物語」の成長と広がりをデジタルアーカイブスとして記録し、編纂、発信、保存していきます。より良き未来のために。桜onプロジェクトからは、その活動に関する解説付きの写真や動画をはじめとして、多岐にわたる情報が当デジタルアーカイブに収蔵されています。</target>
     		</trans-unit>
     		<trans-unit id="295">
     			<source>jda.aboutpartners.sendaimediathequetitle</source>
@@ -1196,7 +1192,7 @@
     		</trans-unit>
     		<trans-unit id="296">
     			<source>jda.aboutpartners.sendaimediatheque</source>
-    			<target>「情報発信は支援活動を応援し、記録は未来への財産となるように」との理念のもと、日本における最先端の情報センターの一つであるせんだいメディアテークは、型にはまらないアーカイブプロジェクトを牽引してきました。市民、専門家、スタッフが恊働しながら復旧・復興プロセスを記録することに注力する一方、映像、写真、音声、テキストなどの多様なメディアを通じて発信し続けています。</target>
+    			<target>「情報発信は支援活動を応援し、記録は未来への財産となるように」との理念のもと、日本における最先端の情報センターの一つであるせんだいメディアテークは、型にはまらないアーカイブプロジェクトを牽引してきました。市民、専門家、スタッフが恊働しながら復旧・復興プロセスを記録することに注力する一方、映像、写真、音声、テキストなどの多様なメディアを通じて発信し続けています。Sendai Mediathequeからは多くの動画や音声が当デジタルアーカイブに提供されています。</target>
     		</trans-unit>
     		<trans-unit id="297">
     			<source>jda.aboutpartners.tokyofoundationtitle</source>
@@ -1204,7 +1200,8 @@
     		</trans-unit>
     		<trans-unit id="298">
     			<source>jda.aboutpartners.tokyofoundation</source>
-    			<target></target>
+    			<target>この取り組みは、公益財団法人東京財団とNPO法人共存の森ネットワークの共催で、学生や社会人47人が聞き手となり、2011年7月より約1年かけ、東日本大震災で被災された101人の方々に、震災前の暮らしの様子や今後への思いなどを一対一で聞き、その話し手の言葉で文章にまとめたものです。
+特徴は、震災前の普段の暮らしや生活文化（家族、仕事、地域の行事など）がどのようなものだったのかを、これまで歩んできた人生とともに丁寧に聞いていること、また「聞き書き」という手法で、話を要約したり足したりせず、方言もそのまま活かし、話し手が一人語りしているように文章にまとめているという点にあります。さらに、史的資料を失った地域では、これまで育んできた生活文化を後世に伝える貴重な記録にもなっています。「被災地の聞き書き101」は、この取り組みを通じて被災地の暮らしの再生だけではなく、それとつながる私たち一人ひとりの生活や価値観、日本社会のあり方を改めて見直し考えるきっかけにしていくことを目的としています。東京財団の被災地の聞き書き１０１による被災者への数百のインタビューがフル・テキストとなって当デジタルアーカイブに収められています。</target>
     		</trans-unit>
     		<trans-unit id="299">
     			<source>jda.aboutpartners.yahootitle</source>
@@ -1212,7 +1209,7 @@
     		</trans-unit>
     		<trans-unit id="300">
     			<source>jda.aboutpartners.yahoo</source>
-    			<target>このウェブサイトはYahoo! JAPANによるもので、東日本大震災の被災地の姿や思い出の品物の写真などを保存していくプロジェクトです。様々な方法での検索が簡単に行え、キーワード、位置情報（経度・緯度など）、撮影時期（震災前、震災後）、種類、都道府県、そして市町村などの条件により写真を探すことができます。APIプラットフォームへの公開アクセスが先頃発表され、社会に開かれたオープン・アクセスに向けたより幅広い協力を得ながらの写真アーカイブへとつながることでしょう。</target>
+    			<target>このウェブサイトはYahoo! JAPANによるもので、東日本大震災の被災地の姿や思い出の品物の写真などを保存していくプロジェクトです。様々な方法での検索が簡単に行うことができ、キーワード、位置情報（経度・緯度など）、撮影時期（震災前、震災後）、種類、都道府県、そして市町村などの条件により写真を探すことができます。APIプラットフォームへの公開アクセスが先頃発表され、社会に開かれたオープン・アクセスに向けたより幅広い協力を得ながらの写真アーカイブへとつながることでしょう。 Yahoo! JAPANからは数千枚に及ぶ被災地の写真が提供されています。</target>
     		</trans-unit>
     		<trans-unit id="301">
     			<source>jda.aboutpartners.zeegatitle</source>
@@ -1225,6 +1222,273 @@
           <trans-unit id="303">
             <source>jda.form.contribute.dateCreated</source>
             <target>Website Date</target>
+          </trans-unit>
+          <trans-unit id="304">
+          	<source>jda.team.contentdevelopment</source>
+          	<target>Content Development</target>
+          </trans-unit>
+                    <trans-unit id="305">
+          	<source>jda.contribute.contributeheader</source>
+          	<target>Contribute to the Archive</target>
+          </trans-unit>
+          <trans-unit id="306">
+          	<source>jda.contribute.paragraph1</source>
+          	<target>We need your help! The Digital Archive of Japan’s 2011 Disasters is an interactive resource that depends on its users to make it a valuable and lasting repository of digital information related to the disasters. Please consider contributing to the archive in the following ways.</target>
+          </trans-unit>
+          <trans-unit id="307">
+          	<source>jda.contribute.addwebsite</source>
+          	<target>Add a Website</target>
+          </trans-unit>
+          <trans-unit id="308">
+          	<source>jda.contribute.addwebsitep1</source>
+          	<target>You can submit relevant websites through our website submission form. Please submit websites in any language that relate to the disasters and their aftermath. Fill out the form as completely as possible, including choosing the appropriate scope and frequency for our harvesting of the site. Scope refers to the depth of the harvesting - should we only harvest the front page, or the entire site? Frequency determines how often we harvest the site. For example, if the site is updated often, please choose a weekly or monthly frequency so we can keep our preservation of the website up to date.</target>
+          </trans-unit>
+          <trans-unit id="309">
+          	<source>jda.contribute.addtestimonial</source>
+          	<target>Add a Testimonial</target>
+          </trans-unit>
+          <trans-unit id="310">
+          	<source>jda.contribute.addtestimonialp1</source>
+          	<target>We are collecting testimonials from people affected by the disasters, whether they were in the disaster area at the time or elsewhere. Please submit your personal story to the archive. You can submit your testimonial anonymously, but we ask that you fill out the biographical information that you are comfortable with, even if you don’t provide your name.</target>
+          </trans-unit>
+          <trans-unit id="311">
+          	<source>jda.contribute.tag</source>
+          	<target>Tag an Item</target>
+          </trans-unit>
+          <trans-unit id="312">
+          	<source>jda.contribute.tagp1</source>
+          	<target>Our search is only as good as the information we have about the items in our archive. Tagging an item with keywords helps users find items in the archive that are relevant to their searches. Tags are especially valuable for items like photos, audio, and video, that do not have “full text” that can be searched. Please tag the items you find in your searches and help us improve our archive!</target>
+          </trans-unit>
+          <trans-unit id="313">
+          	<source>jda.contribute.translate</source>
+          	<target>Translate an Item</target>
+          </trans-unit>
+          <trans-unit id="314">
+          	<source>jda.contribute.translatep1</source>
+          	<target>Every item in the archive can be translated by our users. To translate, click “Translate This” on the item’s pop-up page, and enter your translation. It will then appear on the item’s page in the future. If a translation already exists and you would like to add to or fix it, click on “Edit Translation,” then make and save your changes. Every translation contributed by our users adds value to the archive, and especially assists English-language users. However, any item can be translated into any language. Feel free to add a translation in your native language!</target>
+          </trans-unit>
+                    <trans-unit id="315">
+          	<source>jda.faq.title</source>
+          	<target>2011年東日本大震災デジタルアーカイブよくある質問</target>
+          </trans-unit>
+          <trans-unit id="316">
+          	<source>jda.faq.by</source>
+          	<target>草稿：和田杏奈 (ブラウン大学)</target>
+          </trans-unit>
+          <trans-unit id="317">
+          	<source>jda.faq.general</source>
+          	<target>概要</target>
+          </trans-unit>
+          <trans-unit id="318">
+          	<source>jda.faq.q1</source>
+          	<target>「2011年東日本大震災デジタルアーカイブ」とは？アーカイブに掲載されている資料はどのように収集されているのですか？</target>
+          </trans-unit>
+          <trans-unit id="319">
+          	<source>jda.faq.q1answer</source>
+          	<target>東日本大震災以降、様々なデジタル・アーカイブが震災関連の記録を保存する事業に取り組んでいます。「2011年東日本大震災デジタルアーカイブ」は、インターネットを通じてこれらのサイトが集めた電子資料へのアクセスを提供しているポータルサイトです。本アーカイブを通して、インターネット・アーカイブ
+の集めたウェブサイト、Yahoo! JAPANの集めた写真、Hypercitiesの集めたツイート、そしてユーザーが投稿した震災体験談など、様々な形態の資料を閲覧できます。</target>
+          </trans-unit>
+          <trans-unit id="320">
+          	<source>jda.faq.q2</source>
+          	<target>掲載されている資料は全てこのアーカイブに保管されているのですか？</target>
+          </trans-unit>
+          <trans-unit id="321">
+          	<source>jda.faq.q2answer</source>
+          	<target>このアーカイブには資料を保存する機能はありません。その代わり協力団体が集めた電子資料に直接リンクし、ユーザーが複数のアーカイブの資料をスムーズに
+一括検索・閲覧・整理できるようにデザインされています。</target>
+          </trans-unit>
+          <trans-unit id="322">
+          	<source>jda.faq.q3</source>
+          	<target>個人がこのアーカイブに資料を提供することはできますか？</target>
+          </trans-unit>
+          <trans-unit id="323">
+          	<source>jda.faq.q3answer</source>
+          	<target>本アーカイブはサイトの作り手、情報提供者、そしてユーザーの間の敷居をなくすことを目指した参加型プロジェクトなので、誰にでも新しい資料を加えること
+ができます。スクリーンの上部にある「アーカイブに情報を加える」ボタンをクリックすれば、インターネット・アーカイブによって保存されるべきウェブサイトを提案（「ウェブサイト」ボタン）、あるいは震災に関連した個人的な体験談や思いを投稿（「わたしの『東日本大震災』」ボタン）する事ができます。表示されたフォームに入力することにより、投稿した資料が他のユーザーにも東日本大震災デジタルアーカイブを通して検索できるようになります。</target>
+          </trans-unit>
+          <trans-unit id="324">
+          	<source>jda.faq.q4</source>
+          	<target>このアーカイブはいつまで公開される予定ですか？</target>
+          </trans-unit>
+          <trans-unit id="325">
+          	<source>jda.faq.q4answer</source>
+          	<target>特に期限はありません。本アーカイブは震災に関連した電子資料を永久保存することを目的として設計されています。</target>
+          </trans-unit>
+          <trans-unit id="326">
+          	<source>jda.faq.searching</source>
+          	<target>検索について</target>
+          </trans-unit>
+          <trans-unit id="327">
+          	<source>jda.faq.q5</source>
+          	<target>ウェブサイト・写真・経験談など、資料の形態によって検索を絞ることはできますか？</target>
+          </trans-unit>
+          <trans-unit id="328">
+          	<source>jda.faq.q5answer</source>
+          	<target>検索バーの右端にある「すべて検索」矢印をクリックすれば、検索したい資料のカテゴリを選択するができます。</target>
+          </trans-unit>
+          <trans-unit id="329">
+          	<source>jda.faq.q6</source>
+          	<target>ウェブサイトの全文を検索することはできますか？</target>
+          </trans-unit>
+          <trans-unit id="330">
+          	<source>jda.faq.q6answer</source>
+          	<target>体験談とツイート以外の資料は全文検索をすることができません。ウェブサイト等その他の資料に関しては、本アーカイブのスタッフ、ボランティア、そして投
+稿者によって入力されたタイトル、説明、タグ等の情報が検索対象となります。アーカイブに新たな資料を投稿する際、これらの情報を的確に入力すればする程検索結果に表示されやすくなります。</target>
+          </trans-unit>
+          <trans-unit id="331">
+          	<source>jda.faq.q7</source>
+          	<target>日本語で検索をした場合、英語の資料も検索対象に入りますか？</target>
+          </trans-unit>
+          <trans-unit id="332">
+          	<source>jda.faq.q7answer</source>
+          	<target>資料のタイトルや説明等が投稿者によって両言語で入力されているかによります。本アーカイブのスタッフが、なるべく日本語（元の言語によっては中国語、
+韓国語）と英語で説明が入力されているように確認作業を行っています。</target>
+          </trans-unit>
+          <trans-unit id="333">
+          	<source>jda.faq.q8</source>
+          	<target>地図機能の使い方を教えて下さい。</target>
+          </trans-unit>
+          <trans-unit id="334">
+          	<source>jda.faq.q8answer</source>
+          	<target>位置情報が入力されている資料は地図上で閲覧できます。表示されるアイテムを絞り込むには、検索バーを使ってキーワード検索したり、その下にある時間軸を
+移動することによって日時を指定して検索することができます。地図にレイヤーを追加するには、スクリーンの右端にある灰色のアイコンをクリックして下さい。「レイヤー」タブで地図上に表示したい追加情報を選択することが出来、「凡例」タブでは追加情報の色分けが表示されます。</target>
+          </trans-unit>
+          <trans-unit id="335">
+          	<source>jda.faq.q9</source>
+          	<target>とても興味深いコレクションを見つけたので作成者のお話を伺いたいのですが、連絡を取る方法はありますか？</target>
+          </trans-unit>
+          <trans-unit id="336">
+          	<source>jda.faq.q9answer</source>
+          	<target>現在はコレクションの作成者に直接コンタクトを取ることは出来ませんが、今後そのような機能を追加することを検討しています。</target>
+          </trans-unit>
+          <trans-unit id="337">
+          	<source>jda.faq.q10</source>
+          	<target>アーカイブされているウェブサイトがリンク切れしていました。リンクを直すことはできますか？</target>
+          </trans-unit>
+          <trans-unit id="338">
+          	<source>jda.faq.q10answer</source>
+          	<target>リンク切れやその他のバグを見つけた場合、info@jdarchive.org　に直接メールを送信するか、スクリーン上部のお問い合わせフォームを通して不具合をお伝えください。</target>
+          </trans-unit>
+          <trans-unit id="339">
+          	<source>jda.faq.q11</source>
+          	<target>アーカイブで見つけた資料を学術論文に引用しようと思います。資料の出典はどのように表記すれば良いでしょうか？</target>
+          </trans-unit>
+          <trans-unit id="340">
+          	<source>jda.faq.q11answer</source>
+          	<target>もとの資料は、通常のウェブサイト、文書、画像等と同じ方法で引用してください。本アーカイブも参考文献に入れる場合、下記の表記を推奨します：
+2011年東日本大震災デジタルアーカイブ. http://www.jdarchive.org. (20XX/XX/XXアクセス).</target>
+          </trans-unit>
+          <trans-unit id="341">
+          	<source>jda.faq.q11answer2</source>
+          	<target>また、体験談を引用する場合は投稿者の名前、アドレス（体験談左上の「リンク」ボタンをクリックすると常設リンクのアドレスが表示されます）、そして本
+アーカイブを上記に書かれた通り引用して下さい。</target>
+          </trans-unit>
+          <trans-unit id="342">
+          	<source>jda.faq.contributing</source>
+          	<target>新しい資料の投稿について</target>
+          </trans-unit>
+          <trans-unit id="343">
+          	<source>jda.faq.q12</source>
+          	<target>アーカイブに投稿するための条件はありますか？</target>
+          </trans-unit>
+          <trans-unit id="344">
+          	<source>jda.faq.q12answer</source>
+          	<target>本アーカイブはユーザーアカウントを作成しなくても、誰にでも投稿することができます。ただし、自分の「コレクション」を作成するためにはアカウントを作
+成することが必要となります（下記「コレクションの作成について」参照）。</target>
+          </trans-unit>
+          <trans-unit id="345">
+          	<source>jda.faq.q13</source>
+          	<target>ツイートを投稿することはできますか？</target>
+          </trans-unit>
+          <trans-unit id="346">
+          	<source>jda.faq.q13answer</source>
+          	<target>現在は個人ユーザーによるツイートの投稿は受け付けておりません。</target>
+          </trans-unit>
+          <trans-unit id="347">
+          	<source>jda.faq.q14</source>
+          	<target>投稿が推奨されていない資料はありますか？</target>
+          </trans-unit>
+          <trans-unit id="348">
+          	<source>jda.faq.q14answer</source>
+          	<target>2011年の東日本大震災に関連していない情報の投稿はお控えください。ユーザーが投稿したウェブサイトや体験談は、本アーカイブのスタッフによって適切な内容か、あるいは以前に同じものが投稿されていないかどうか確認させていただきます。</target>
+          </trans-unit>
+          <trans-unit id="349">
+          	<source>jda.faq.q15</source>
+          	<target>ウェブサイトを投稿をするためにフォームの入力をしています。タグ付けをする際に定型の言葉はありますか？それとも自分が適切だと思う言葉を入力しても
+良いのでしょうか？</target>
+          </trans-unit>
+          <trans-unit id="350">
+          	<source>jda.faq.q15answer</source>
+          	<target>定型の言葉はありませんが、タグを入力し始めた時に自動的に表示される、既にアーカイブで使用されている言葉を優先してお使いください。</target>
+          </trans-unit>
+          <trans-unit id="351">
+          	<source>jda.faq.q15answer2</source>
+          	<target>また、タグ付けをする際は検索する側のユーザーがどのようなキーワードを使って検索するかご想像ください。出来るだけたくさんの検索結果に表示されるた
+めには、似ている単語でもたくさんのタグを入力することをお勧めします。ただし、日時をタグとして入力する必要はありません。例：福島第一、福島第一原子力発電所、原子力発電、など</target>
+          </trans-unit>
+          <trans-unit id="352">
+          	<source>jda.faq.q16</source>
+          	<target>アーカイブに新しい資料を投稿できる期間は限られていますか？</target>
+          </trans-unit>
+          <trans-unit id="353">
+          	<source>jda.faq.q16answer</source>
+          	<target>特に締め切りはありません。本アーカイブは常にウェブサイトと体験談の投稿を受け付けております。特にウェブ上の情報は不安定でいつ消去されるか分からないため、早期の収集を必要としています。見つけた際はなるべく早くご投稿いただけるよう、ご協力お願い致します。</target>
+          </trans-unit>
+          <trans-unit id="354">
+          	<source>jda.faq.collections</source>
+          	<target>コレクションの作成について</target>
+          </trans-unit>
+          <trans-unit id="355">
+          	<source>jda.faq.q17</source>
+          	<target>「コレクション」機能はどのように使えば良いのでしょうか？</target>
+          </trans-unit>
+          <trans-unit id="356">
+          	<source>jda.faq.q17answer</source>
+          	<target>ユーザーは「マイ・コレクション」機能を通して自分の興味ある資料を選択・整理し、テーマ別にサイト上に展示することができます。ユーザーが自ら情報のキュレーションを行うことによって資料に新たなつながりや価値を付与でき、震災を様々な角度から見ることが可能となります。テーマ、場所、時間等、様々な条件を基に資料を整理してコレクションを作成することができます。また、この機能を使って興味のある資料を後にアクセスしやすいように保存することもできます。</target>
+          </trans-unit>
+          <trans-unit id="357">
+          	<source>jda.faq.q18</source>
+          	<target>自分のコレクションを他のユーザーに検索できるよう設定したいのですが、公開の手順を教えてください。</target>
+          </trans-unit>
+          <trans-unit id="358">
+          	<source>jda.faq.q18answer</source>
+          	<target>コレクションのプライバシー設定は、「設定」の鉛筆アイコンをクリックすることで調整できます。「パブリック」を選択すると、他のユーザーもコレクションを閲覧できるようになります。「制限あり」を選択すると、自分で設定を変えない限り、コレクションが検索結果に表示されることや他のユーザーに公開される事はありません。</target>
+          </trans-unit>
+          <trans-unit id="359">
+          	<source>jda.faq.q19</source>
+          	<target>コレクションのまとめ方教えてください。また、コレクションはいつまで保存されるのでしょうか？</target>
+          </trans-unit>
+          <trans-unit id="360">
+          	<source>jda.faq.q19answer</source>
+          	<target>ユーザー登録した方しかコレクションを作成できません。登録を済ませてから、スクリーン右上の「ログイン」ボタンからサイトにログインして下さい。アーカイブを検索して興味のある資料を見つけたら、スクリーン右端の「マイ・コレクション」ボックスに資料をドラッグしてください。「コレクションに移動する」を選択し、次に表示されるスクリーンで鉛筆アイコンをクリックすることにより、新しいコレクションのタイトルや説明書きを編集することができます。ご自分で消去することを選ばない限り、コレクションはアーカイブと共に無期限で保存されます。</target>
+          </trans-unit>
+          <trans-unit id="361">
+          	<source>jda.faq.q20</source>
+          	<target>コレクションの編集や消去はどのように行えるのでしょうか？</target>
+          </trans-unit>
+          <trans-unit id="362">
+          	<source>jda.faq.q20answer</source>
+          	<target>「コレクションの説明」横にある鉛筆アイコンをクリックしてください。タイトルや説明を編集したり、コレクション自体を消去することができます。</target>
+          </trans-unit>
+          <trans-unit id="363">
+          	<source>jda.faq.q21</source>
+          	<target>コレクションを複数作ることはできますか？</target>
+          </trans-unit>
+          <trans-unit id="364">
+          	<source>jda.faq.q21answer</source>
+          	<target>可能です。「マイ・コレクション」ボックスの矢印をクリックし、「コレクションを新規作成」を選択して下さい。</target>
+          </trans-unit>
+          <trans-unit id="365">
+          	<source>jda.about.partners</source>
+          	<target>パートナー</target>
+          </trans-unit>
+          <trans-unit id="366">
+          	<source>jda.about.faq</source>
+          	<target>よくある質問</target>
+          </trans-unit>
+          <trans-unit id="367">
+          	<source>jda.aboutpartners.paragraph2</source>
+          	<target>Not all partners are digital archives; others have created maps and instructional guides for the JDArchive. Our partners are thus a crucial part of our effort to provide and add value to digital content related to Japan’s 2011 disasters. Please learn more about our partners below.</target>
           </trans-unit>
         </body>
     </file>

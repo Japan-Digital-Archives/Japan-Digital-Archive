@@ -404,7 +404,7 @@
             </trans-unit>
             <trans-unit id="102">
                 <source>jda.login.forgot</source>
-                <target>forgot your password?</target>
+                <target>Forgot your password?</target>
             </trans-unit>
             <trans-unit id="103">
                 <source>jda.login.back</source>
@@ -416,7 +416,7 @@
             </trans-unit>
             <trans-unit id="105">
                 <source>jda.login.confirm</source>
-                <target>you've successfully logged in!</target>
+                <target>You've successfully logged in!</target>
             </trans-unit>
             <trans-unit id="106">
                 <source>jda.header.me</source>
@@ -460,7 +460,7 @@
             </trans-unit>
              <trans-unit id="116">
                 <source>jda.report.buglinknote</source>
-                <target> a link to the current view will be included automatically</target>
+                <target>A link to the current view will be included automatically.</target>
             </trans-unit>
              <trans-unit id="117">
                 <source>jda.report.bugemail</source>
@@ -583,15 +583,15 @@
             </trans-unit>
             <trans-unit id="146">
                 <source>jda.browser.modalheader</source>
-                <target>You are using an unsupported Browser</target>
+                <target>You are using an unsupported browser.</target>
             </trans-unit>
             <trans-unit id="147">
                 <source>jda.browser.modalbody</source>
-                <target>The Japan Digital Archive is currently optimized for the latest versions of Chrome, Internet Explorer, Firefox and Safari.  Please upgrade your browser to best experience the Japan Digital Archive</target>
+                <target>The Japan Digital Archive is currently optimized for the latest versions of Chrome, Internet Explorer, Firefox and Safari. Please upgrade your browser to best experience the Japan Digital Archive</target>
             </trans-unit>
             <trans-unit id="148">
                 <source>jda.collection.play</source>
-                <target>Play collection in Zeega Player </target>
+                <target>Play collection in Zeega Player</target>
             </trans-unit>
             <trans-unit id="149">
                 <source>jda.collection.editdetails</source>
@@ -655,7 +655,7 @@
             </trans-unit>
             <trans-unit id="164">
                 <source>jda.collection.limiteddesc</source>
-                <target>Will not show up in search results</target>
+                <target>Will not show up in search results.</target>
             </trans-unit>
               <trans-unit id="165">
                 <source>jda.collection.editdesc</source>
@@ -932,7 +932,7 @@
             </trans-unit>
             <trans-unit id="232">
                 <source>jda.team.interaction</source>
-                <target>Interaction Design</target>
+                <target>Interaction Design and Development</target>
             </trans-unit>
             <trans-unit id="233">
                 <source>jda.team.alumni</source>
@@ -968,7 +968,7 @@
             </trans-unit>
             <trans-unit id="241">
                 <source>jda.about.paragraph2</source>
-                <target>Over the remainder of 2012 and into 2012, we will be introducing improvements to our current site, with particular attention to mapping and  collection building. We welcome your suggestions and feedback.</target>
+                <target>In 2013, we will be introducing improvements to our current site, with particular attention to mapping and collection building. We welcome your suggestions and feedback.</target>
             </trans-unit>
             <trans-unit id="242">
                 <source>jda.about.paragraph3</source>
@@ -1052,11 +1052,11 @@
             </trans-unit>
             <trans-unit id="262">
                 <source>jda.search.article</source>
-                <target>News Article</target>
+                <target>news article</target>
             </trans-unit>
             <trans-unit id="263">
                 <source>jda.search.broadcast</source>
-                <target>Broadcast</target>
+                <target>broadcast</target>
             </trans-unit>
           <trans-unit id="264">
             <source>jda.login.registergroup</source>
@@ -1084,7 +1084,7 @@
     		</trans-unit>
     		<trans-unit id="270">
     			<source>jda.aboutpartners.paragraph1</source>
-    			<target>The Digital Archive of Japan's 2011 Disasters would not be possible without our partners. The JDArchive does not store any material itself, but rather links to the content made available by international partners, who provide archived websites, photos, videos, news articles and headlines, and more. Other partners have created maps and instructional guides for our archive. Please learn more about our partners below.</target>
+    			<target>The Digital Archive of Japan's 2011 Disasters would not be possible without our partners. The JDArchive stores some materials itself, including tweets, testimonials, full-text English news articles, and news headlines, but also links to a large number of items such as archived websites, photos, videos, audio, and more. In all cases, this content is provided by both our users and partners, and we aim to bring together material from these various digital archives in one search interface that provides access to all of them at once.</target>
     		</trans-unit>
     		<trans-unit id="271">
     			<source>jda.aboutpartners.311memoriestitle</source>
@@ -1092,7 +1092,7 @@
     		</trans-unit>
     		<trans-unit id="272">
     			<source>jda.aboutpartners.311memories</source>
-    			<target>From online news (Yahoo! News) the 311 Memories project collects articles related to the disasters of March 11, 2011, and uses computer analysis and visualization to present a "quiet moving chronology" in order to look back at the flow of time after the earthquakes.</target>
+    			<target>From online news (Yahoo! News) the 311 Memories project collects articles related to the disasters of March 11, 2011, and uses computer analysis and visualization to present a "quiet moving chronology" in order to look back at the flow of time after the earthquakes. 311 Memories has contributed hundreds of thousands of news article headlines to the JDArchive.</target>
     		</trans-unit>
     		<trans-unit id="273">
     			<source>jda.aboutpartners.311marugototitle</source>
@@ -1108,7 +1108,7 @@
     		</trans-unit>
     		<trans-unit id="276">
     			<source>jda.aboutpartners.asahi</source>
-    			<target>The Asahi Shimbun AJW (Asia and Japan Watch) is the English-language digital version of The Asahi Shimbun, Japan's leading daily newspaper. AJW offers in-depth coverage of Japan, China, Korea and other Asian nations. International scoops, in-depth analyses and features, plus daily news and many Op-ed articles constitute a highly useful news package. AJW also prides itself on its exhaustive coverage of the March 11, 2011 earthquake, massive tsunami and ongoing nuclear crisis at the Fukushima No. 1 nuclear power plant. It also offers extensive  coverage on cultural trends and fashion as well as the latest in the world of anime and manga.</target>
+    			<target>The Asahi Shimbun AJW (Asia and Japan Watch) is the English-language digital version of The Asahi Shimbun, Japan's leading daily newspaper. AJW offers in-depth coverage of Japan, China, Korea and other Asian nations. International scoops, in-depth analyses and features, plus daily news and many Op-ed articles constitute a highly useful news package. AJW also prides itself on its exhaustive coverage of the March 11, 2011 earthquake, massive tsunami and ongoing nuclear crisis at the Fukushima No. 1 nuclear power plant. It also offers extensive  coverage on cultural trends and fashion as well as the latest in the world of anime and manga. The JDArchive contains thousands of full-text English news articles on the disasters from Asahi Shimbun AJW.</target>
     		</trans-unit>
     		<trans-unit id="277">
     			<source>jda.aboutpartners.cgatitle</source>
@@ -1116,7 +1116,7 @@
     		</trans-unit>
     		<trans-unit id="278">
     			<source>jda.aboutpartners.cga</source>
-    			<target>The Center for Geographic Analysis (CGA) at Harvard University was established in 2006 to support research and teaching of all disciplines across the University with emerging geospatial technologies. The Center's goal has been to work with entities across the university to strengthen university-wide geographic information systems (GIS) infrastructure and services; provide a common platform for the integration of spatial data from diverse sources and knowledge from multiple disciplines; enable scholarly research that would use, improve or study geospatial analysis techniques; and improve the ability to teach GIS and spatial analysis at all levels across the university.</target>
+    			<target>The Center for Geographic Analysis (CGA) at Harvard University was established in 2006 to support research and teaching of all disciplines across the University with emerging geospatial technologies. The Center's goal has been to work with entities across the university to strengthen university-wide geographic information systems (GIS) infrastructure and services; provide a common platform for the integration of spatial data from diverse sources and knowledge from multiple disciplines; enable scholarly research that would use, improve or study geospatial analysis techniques; and improve the ability to teach GIS and spatial analysis at all levels across the university. CGA has developed and powers the map view of items in the JDArchive.</target>
     		</trans-unit>
     		<trans-unit id="279">
     			<source>jda.aboutpartners.hypercitiestitle</source>
@@ -1124,7 +1124,7 @@
     		</trans-unit>
     		<trans-unit id="280">
     			<source>jda.aboutpartners.hypercities</source>
-    			<target>Built on the Google Maps and Google Earth APIs, HyperCities Sendai provides active digital media space with Twitters and has accumulated interactive communications on the Eastern Japan Great Earthquake Disaster along with geographical data.</target>
+    			<target>Built on the Google Maps and Google Earth APIs, HyperCities Sendai provides active digital media space with Twitters and has accumulated interactive communications on the Eastern Japan Great Earthquake Disaster along with geographical data. Hypercities has contributed hundreds of thousands of tweets related to the disasters to the archive.</target>
     		</trans-unit>
     		<trans-unit id="281">
     			<source>jda.aboutpartners.internetarchivetitle</source>
@@ -1132,7 +1132,7 @@
     		</trans-unit>
     		<trans-unit id="282">
     			<source>jda.aboutpartners.internetarchive</source>
-    			<target>The Internet Archive, is a digital library founded in 1996 with the mission of universal access to human knowledge.  Like a paper library, we provide free access to researchers, historians, scholars, and the general public.  The web content that is part of the Digital Archive of Japan's 2011 Disasters is captured and archived using Archive-It, a web archiving service from the Internet Archive. Archive-It allows institutions around the world to harvest and preserve collections of web content and create digital archives.</target>
+    			<target>The Internet Archive, is a digital library founded in 1996 with the mission of universal access to human knowledge.  Like a paper library, we provide free access to researchers, historians, scholars, and the general public.  The web content that is part of the Digital Archive of Japan's 2011 Disasters is captured and archived using Archive-It, a web archiving service from the Internet Archive. Archive-It allows institutions around the world to harvest and preserve collections of web content and create digital archives. The Internet Archive holds tens of thousands of websites related to the disasters for use in the JDArchive.</target>
     		</trans-unit>
     		<trans-unit id="283">
     			<source>jda.aboutpartners.metalabtitle</source>
@@ -1140,7 +1140,7 @@
     		</trans-unit>
     		<trans-unit id="284">
     			<source>jda.aboutpartners.metalab</source>
-    			<target>metaLAB (at) Harvard is a hub for innovation in the arts, media and humanities hosted at the Berkman Center for Internet and Society. The lab is founded on the belief that some of the key research challenges and opportunities of the new millennium, not to mention crucial questions about experience in a connected world, about the boundaries of culture and nature, about democracy and social justice, transcend divisions between the arts, sciences, and humanities; between the academy, industry, and the public sphere; between theoretical and applied knowledge.</target>
+    			<target>metaLAB (at) Harvard is a hub for innovation in the arts, media and humanities hosted at the Berkman Center for Internet and Society. The lab is founded on the belief that some of the key research challenges and opportunities of the new millennium, not to mention crucial questions about experience in a connected world, about the boundaries of culture and nature, about democracy and social justice, transcend divisions between the arts, sciences, and humanities; between the academy, industry, and the public sphere; between theoretical and applied knowledge. metaLAB (at) Harvard has been a major partner in the conception and development of the JDArchive since its inception.</target>
     		</trans-unit>
     		<trans-unit id="285">
     			<source>jda.aboutpartners.michinokutitle</source>
@@ -1148,7 +1148,7 @@
     		</trans-unit>
     		<trans-unit id="286">
     			<source>jda.aboutpartners.michinoku</source>
-    			<target>As a leading national university in the region, Tohoku University recently launched a digital archiving project on the Eastern Japan Great Earthquake Disaster. Collaborating with the government, industry, and academe, the project aims to build a comprehensive archive on disasters in the region, with a broad spectrum of memory, records, case studies. It aims to record the recovery and rebuilding process of the disaster and to disseminate information on a near real-time basis. As of this writing, details of the project are unknown since this archiving project has been released only recently.</target>
+    			<target>As the leading national university in the region, Tohoku University  in 2011 launched a digital archiving project on the Eastern Japan Great Earthquake Disaster. Collaborating with the government, industry, and academe, the project aims to build a comprehensive archive on disasters in the region, with a broad spectrum of memory, records, case studies. It aims to record the recovery and rebuilding process of the disaster and to disseminate information on a near real-time basis. The Michinoku Shinrokuden project contains a variety of ways to display photographs and other digital information about the disasters, with a special focus on innovative, interactive maps. Tohoku University has contributed tens of thousands of photographs from the Michinoku Shinrokuden project to the JDArchive and plans to contribute about 100,000 photos by the summer of 2013.</target>
     		</trans-unit>
     		<trans-unit id="287">
     			<source>jda.aboutpartners.ncctitle</source>
@@ -1156,7 +1156,7 @@
     		</trans-unit>
     		<trans-unit id="288">
     			<source>jda.aboutpartners.ncc</source>
-    			<target>NCC provides access to information from and about Japan to support  teaching, research, and general education.  NCC’s Website www.nccjapan.org is a distribution hub for online resources and a platform for global collaboration.</target>
+    			<target>NCC provides access to information from and about Japan to support  teaching, research, and general education. NCC’s website (www.nccjapan.org) is a distribution hub for online resources and a platform for global collaboration. NCC has developed and hosts a detailed online guide to the JDArchive and its use.</target>
     		</trans-unit>
     		<trans-unit id="289">
     			<source>jda.aboutpartners.ndltitle</source>
@@ -1164,7 +1164,7 @@
     		</trans-unit>
     		<trans-unit id="290">
     			<source>jda.aboutpartners.ndl</source>
-    			<target>The National Diet Library (NDL) was established in 1948 as the only national library in Japan. Under a system of comprehensive submission of works published within Japan, the library's collected materials are preserved for the long-term as a national cultural heritage. The NDL uses its collections to offer its service to the National Diet, the judiciary, administrative agencies, and the Japanese people. The NDL also collects and archives a wide array of websites and other digital materials. In 2002, the NDL began harvesting selected websites with the permission of website owners.  Following an amendment to the NDL Law, the NDL began harvesting all government websites in April 2010, including the websites of local governments affected by the disasters in Eastern Japan.</target>
+    			<target>The National Diet Library (NDL) was established in 1948 as the only national library in Japan. Under a system of comprehensive submission of works published within Japan, the library's collected materials are preserved for the long-term as a national cultural heritage. The NDL uses its collections to offer its service to the National Diet, the judiciary, administrative agencies, and the Japanese people. The NDL also collects and archives a wide array of websites and other digital materials. In 2002, the NDL began harvesting selected websites with the permission of website owners.  Following an amendment to the NDL Law, the NDL began harvesting all government websites in April 2010, including the websites of local governments affected by the disasters in Eastern Japan. The JDArchive contains thousands of websites harvested in the NDL's web archiving efforts related to the disasters.</target>
     		</trans-unit>
     		<trans-unit id="291">
     			<source>jda.aboutpartners.nhktitle</source>
@@ -1173,7 +1173,7 @@
     		<trans-unit id="292">
     			<source>jda.aboutpartners.nhk</source>
     			<target>NHK (Japan Broadcasting Corporation), Japan’s only public broadcaster, introduced a radio service in 1925 and a television service in 1953. NHK is financed by the receiving fee paid by each household that owns a
-television set. This system enables the Corporation to maintain independence from any governmental and private organization, and ensures that the opinions of viewers and listeners are assigned top priority. More details: http://www.nhk.or.jp/pr/koho-e.htm. NHK is presenting a series of TV programs and and a digital archive service which collects testimonials of many eyewitnesses and news clips of Japan's March 11th, 2011, disasters.</target>
+television set. This system enables the Corporation to maintain independence from any governmental and private organization, and ensures that the opinions of viewers and listeners are assigned top priority. More details: http://www.nhk.or.jp/pr/koho-e.htm. NHK is presenting a series of TV programs and and a digital archive service which collects testimonials of many eyewitnesses and news clips of Japan's March 11th, 2011, disasters. The JDArchive contains hundreds of news broadcast videos created and hosted by NHK in their digital archive.</target>
     		</trans-unit>
     		<trans-unit id="293">
     			<source>jda.aboutpartners.sakuratitle</source>
@@ -1181,7 +1181,7 @@ television set. This system enables the Corporation to maintain independence fro
     		</trans-unit>
     		<trans-unit id="294">
     			<source>jda.aboutpartners.sakura</source>
-    			<target>The Sakura on Project regards the discovery, reorganization, and creation of every "story" as a great value looking toward the future. Within this, using the planting of cherry trees (sakura) as one tool, it produces a program and location for the important, long-term cultivation of the "stories" of both participants' own as well as the areas they encounter. As a digital archive, it records, edits, transmits, and preserves growth and broadening of the "new multiplicity of stories" born from this effort, for a better future.</target>
+    			<target>The Sakura on Project regards the discovery, reorganization, and creation of every "story" as a great value looking toward the future. Within this, using the planting of cherry trees (sakura) as one tool, it produces a program and location for the important, long-term cultivation of the "stories" of both participants' own as well as the areas they encounter. As a digital archive, it records, edits, transmits, and preserves growth and broadening of the "new multiplicity of stories" born from this effort, for a better future. The JDArchive contains a variety of materials from the Sakura on Project, including photographs and videos of their activities with accompanying descriptions.</target>
     		</trans-unit>
     		<trans-unit id="295">
     			<source>jda.aboutpartners.sendaimediathequetitle</source>
@@ -1189,7 +1189,7 @@ television set. This system enables the Corporation to maintain independence fro
     		</trans-unit>
     		<trans-unit id="296">
     			<source>jda.aboutpartners.sendaimediatheque</source>
-    			<target>In view of the belief that the disaster relief effort can be supported by information dissemination and that records of the disaster can be priceless assets for the future, Sendai Mediatheque (SMT), one of the cutting-edge information centers in Japan, is leading a unique disaster recovery archiving project. In collaboration with citizens, experts, and SMT staff, this archive project focuses on recording the recovery and rebuilding process from the disaster while disseminating thoughts and information through various media, such as images, photos, sounds, and text.</target>
+    			<target>In view of the belief that the disaster relief effort can be supported by information dissemination and that records of the disaster can be priceless assets for the future, Sendai Mediatheque (SMT), one of the cutting-edge information centers in Japan, is leading a unique disaster recovery archiving project. In collaboration with citizens, experts, and SMT staff, this archive project focuses on recording the recovery and rebuilding process from the disaster while disseminating thoughts and information through various media, such as images, photos, sounds, and text. Sendai Mediatheque has contributed a number of video and audio segments to the JDArchive.</target>
     		</trans-unit>
     		<trans-unit id="297">
     			<source>jda.aboutpartners.tokyofoundationtitle</source>
@@ -1197,7 +1197,9 @@ television set. This system enables the Corporation to maintain independence fro
     		</trans-unit>
     		<trans-unit id="298">
     			<source>jda.aboutpartners.tokyofoundation</source>
-    			<target></target>
+    			<target>The “101 Voices from Tohoku” Project (Hisaichi no Kikigaki 101) documents the lives and experiences of people affected by the March 2011 earthquake and tsunami in their own words. This project, employing a unique interviewing style called kikigaki, was launched in July 2011 jointly by the Tokyo Foundation and the Kyouzon no Mori Network, an NPO dedicated to promoting sustainable lifestyles. Over the course of a year, 47 interviewers—members of the two groups, along with students and other project members—visited 101 people living in evacuation centers and temporary homes to 
+conduct one-on-one interviews. These accounts are told entirely in the first person and have been transcribed verbatim (in the local dialect). Focusing on people’s work, family life, and community activities prior to the March 2011 disaster, they also serve as an important archive of information on community life in areas whose historical records were washed away. They not only provide insights into how lives should be rebuilt in tsunami-affected areas but also 
+prompt those of us who were not affected to reflect on the way we live our lives and the values we hold, and could shed new light on the essential qualities of our society.The JDArchive contains hundreds of full-text Japanese interviews with disaster victims conducted by the "101 Voices from Tohoku" Project.</target>
     		</trans-unit>
     		<trans-unit id="299">
     			<source>jda.aboutpartners.yahootitle</source>
@@ -1205,7 +1207,7 @@ television set. This system enables the Corporation to maintain independence fro
     		</trans-unit>
     		<trans-unit id="300">
     			<source>jda.aboutpartners.yahoo</source>
-    			<target>This site is a damaged photo recovery project by Yahoo! JAPAN. Easy to use various ways of search, one can search by keywords, geographical points (e.g., latitude, longitude), time period (pre-disaster, post-disaster), type, prefecture, and community. Yahoo’s recent release on their free-of-charge API platform to access Yahoo Photo Archiving Project on the Japanese Earthquake and Tsunami March 11th 2011 may lead to a more collaborated image archive development for open access to society.</target>
+    			<target>This site is a damaged photo recovery project by Yahoo! JAPAN. Easy to use various ways of search, one can search by keywords, geographical points (e.g., latitude, longitude), time period (pre-disaster, post-disaster), type, prefecture, and community. Yahoo’s recent release on their free-of-charge API platform to access Yahoo Photo Archiving Project on the Japanese Earthquake and Tsunami March 11th 2011 may lead to a more collaborated image archive development for open access to society. Yahoo! JAPAN has contributed thousands of photographs of the disaster region to the JDArchive.</target>
     		</trans-unit>
     		<trans-unit id="301">
     			<source>jda.aboutpartners.zeegatitle</source>
@@ -1219,7 +1221,262 @@ television set. This system enables the Corporation to maintain independence fro
             <source>jda.form.contribute.dateCreated</source>
             <target>Website Date</target>
           </trans-unit>
-          
+          <trans-unit id="304">
+          	<source>jda.team.contentdevelopment</source>
+          	<target>Content Development</target>
+          </trans-unit>
+          <trans-unit id="305">
+          	<source>jda.contribute.contributeheader</source>
+          	<target>Contribute to the Archive</target>
+          </trans-unit>
+          <trans-unit id="306">
+          	<source>jda.contribute.paragraph1</source>
+          	<target>We need your help! The Digital Archive of Japan’s 2011 Disasters is an interactive resource that depends on its users to make it a valuable and lasting repository of digital information related to the disasters. Please consider contributing to the archive in the following ways.</target>
+          </trans-unit>
+          <trans-unit id="307">
+          	<source>jda.contribute.addwebsite</source>
+          	<target>Add a Website</target>
+          </trans-unit>
+          <trans-unit id="308">
+          	<source>jda.contribute.addwebsitep1</source>
+          	<target>You can submit relevant websites through our website submission form. Please submit websites in any language that relate to the disasters and their aftermath. Fill out the form as completely as possible, including choosing the appropriate scope and frequency for our harvesting of the site. Scope refers to the depth of the harvesting - should we only harvest the front page, or the entire site? Frequency determines how often we harvest the site. For example, if the site is updated often, please choose a weekly or monthly frequency so we can keep our preservation of the website up to date.</target>
+          </trans-unit>
+          <trans-unit id="309">
+          	<source>jda.contribute.addtestimonial</source>
+          	<target>Add a Testimonial</target>
+          </trans-unit>
+          <trans-unit id="310">
+          	<source>jda.contribute.addtestimonialp1</source>
+          	<target>We are collecting testimonials from people affected by the disasters, whether they were in the disaster area at the time or elsewhere. Please submit your personal story to the archive. You can submit your testimonial anonymously, but we ask that you fill out the biographical information that you are comfortable with, even if you don’t provide your name.</target>
+          </trans-unit>
+          <trans-unit id="311">
+          	<source>jda.contribute.tag</source>
+          	<target>Tag an Item</target>
+          </trans-unit>
+          <trans-unit id="312">
+          	<source>jda.contribute.tagp1</source>
+          	<target>Our search is only as good as the information we have about the items in our archive. Tagging an item with keywords helps users find items in the archive that are relevant to their searches. Tags are especially valuable for items like photos, audio, and video, that do not have “full text” that can be searched. Please tag the items you find in your searches and help us improve our archive!</target>
+          </trans-unit>
+          <trans-unit id="313">
+          	<source>jda.contribute.translate</source>
+          	<target>Translate an Item</target>
+          </trans-unit>
+          <trans-unit id="314">
+          	<source>jda.contribute.translatep1</source>
+          	<target>Every item in the archive can be translated by our users. To translate, click “Translate This” on the item’s pop-up page, and enter your translation. It will then appear on the item’s page in the future. If a translation already exists and you would like to add to or fix it, click on “Edit Translation,” then make and save your changes. Every translation contributed by our users adds value to the archive, and especially assists English-language users. However, any item can be translated into any language. Feel free to add a translation in your native language!</target>
+          </trans-unit>
+          <trans-unit id="315">
+          	<source>jda.faq.title</source>
+          	<target>Digital Archive of Japan's 2011 Disaster (Japan Disaster Archive) FAQ</target>
+          </trans-unit>
+          <trans-unit id="316">
+          	<source>jda.faq.by</source>
+          	<target>Originally drafted by Anna Wada (Brown University)</target>
+          </trans-unit>
+          <trans-unit id="317">
+          	<source>jda.faq.general</source>
+          	<target>General</target>
+          </trans-unit>
+          <trans-unit id="318">
+          	<source>jda.faq.q1</source>
+          	<target>What is the Digital Archive of Japan's 2011 Disasters? Where do the materials in the archive come from?</target>
+          </trans-unit>
+          <trans-unit id="319">
+          	<source>jda.faq.q1answer</source>
+          	<target>The Digital Archive of Japan’s 2011 Disasters is an online portal offering access to a wide range of digital materials collected by various digital archiving projects focused on the March 11 disasters. These include websites archived by Internet Archive, photographs archived by Yahoo! Japan, tweets collected by Hypercities, testimonials from visitors to the site, and much more.</target>
+          </trans-unit>
+          <trans-unit id="320">
+          	<source>jda.faq.q2</source>
+          	<target>Does the Digital Archive store all the items that it lists?</target>
+          </trans-unit>
+          <trans-unit id="321">
+          	<source>jda.faq.q2answer</source>
+          	<target>The archive interface that you are using does not store copies of the items; it instead links as seamlessly as possible to digital materials archived by one of these partner projects, allowing you to search, view, and sort items across these separate archives.</target>
+          </trans-unit>
+          <trans-unit id="322">
+          	<source>jda.faq.q3</source>
+          	<target>Can I contribute materials to the Archive?</target>
+          </trans-unit>
+          <trans-unit id="323">
+          	<source>jda.faq.q3answer</source>
+          	<target>The archive is a participatory project, which seeks to break down the barrier between archive creators and users. To contribute use the “Add to the Archive” function (at the top of the home page), which allows any user to submit a testimonial about personal experience during or after the disaster, or suggest additional websites that should be harvested and preserved by the Internet Archive. This will make the site searchable through the Japan Disaster Archive search engine.</target>
+          </trans-unit>
+          <trans-unit id="324">
+          	<source>jda.faq.q4</source>
+          	<target>How long will the archive last?</target>
+          </trans-unit>
+          <trans-unit id="325">
+          	<source>jda.faq.q4answer</source>
+          	<target>The archive aims to be a permanent repository for digital records of the disaster.</target>
+          </trans-unit>
+          <trans-unit id="326">
+          	<source>jda.faq.searching</source>
+          	<target>Searching the Archive</target>
+          </trans-unit>
+          <trans-unit id="327">
+          	<source>jda.faq.q5</source>
+          	<target>I only want to search testimonials. How do I limit my search to a certain category of material?</target>
+          </trans-unit>
+          <trans-unit id="328">
+          	<source>jda.faq.q5answer</source>
+          	<target>You can select categories from the drop-down list to the right of the search bar to limit your search.</target>
+          </trans-unit>
+          <trans-unit id="329">
+          	<source>jda.faq.q6</source>
+          	<target>Can I search through the full text of websites?</target>
+          </trans-unit>
+          <trans-unit id="330">
+          	<source>jda.faq.q6answer</source>
+          	<target>Not for websites. For all items except the testimonials and tweets, the search engine will search through the title, description, and tags that were provided by Japan Disaster Archive staff, volunteers, and contributors. It will search through the full text of the testimonials and tweets. This makes it important to provide a thorough description if you are contributing new items to the archive – the more information, the more likely it will be to turn up in a search.</target>
+          </trans-unit>
+          <trans-unit id="331">
+          	<source>jda.faq.q7</source>
+          	<target>Will searching in English turn up Japanese links, or vice-versa?</target>
+          </trans-unit>
+          <trans-unit id="332">
+          	<source>jda.faq.q7answer</source>
+          	<target>This depends on whether the item descriptions are written in both languages. The Archive makes an effort to make sure the information is provided in Japanese and English, as well as Chinese or Korean if the source is in any of those languages.</target>
+          </trans-unit>
+          <trans-unit id="333">
+          	<source>jda.faq.q8</source>
+          	<target>How do I use the map?</target>
+          </trans-unit>
+          <trans-unit id="334">
+          	<source>jda.faq.q8answer</source>
+          	<target>The map displays items that have geographical information included in their descriptions. You can limit the items by a keyword search in the search bar, or by date and time by using the scroll bar below. To add map layers, click on the gray icon on the right of the map. The “layers” tab will let you select additional types of information that you would like to display on the map, and the "legend" tab will tell you how this information is color-coded.</target>
+          </trans-unit>
+          <trans-unit id="335">
+          	<source>jda.faq.q9</source>
+          	<target>I found a particularly interesting collection, and would like to talk to the person who put it together. Is there a way of getting in touch?</target>
+          </trans-unit>
+          <trans-unit id="336">
+          	<source>jda.faq.q9answer</source>
+          	<target>At present there is no means of directly contacting the creator of an individual collection. However, we are investigating the possibility of adding this functionality in the future.</target>
+          </trans-unit>
+          <trans-unit id="337">
+          	<source>jda.faq.q10</source>
+          	<target>What if I find a link that is not active anymore?</target>
+          </trans-unit>
+          <trans-unit id="338">
+          	<source>jda.faq.q10answer</source>
+          	<target>To report dead links (or any other bugs or errors) you can either send an e-mail directly to info@jdarchive.org, or send a message through the contact form, under the “Give us feedback” tab in the menu bar at the top of the page.</target>
+          </trans-unit>
+          <trans-unit id="339">
+          	<source>jda.faq.q11</source>
+          	<target>I would like to reference a source in an academic paper. How do I cite sources in the archive?</target>
+          </trans-unit>
+          <trans-unit id="340">
+          	<source>jda.faq.q11answer</source>
+          	<target>Cite the original source of the items in the same way you would for any website, document, image, etc. To include the archive in your citation, include the title of the archive, the archive URL, and the date accessed, as follows: “Digital Archive of Japan’s 2011 Disasters. http://www.jdarchive.org. Accessed Month XX, 20XX.”</target>
+          </trans-unit>
+          <trans-unit id="341">
+          	<source>jda.faq.q11answer2</source>
+          	<target>For testimonials, include the name of the person who submitted the testimonial, the permanent link (click on the “link” button in the upper left), and the citation for the archive itself as described above.</target>
+          </trans-unit>
+          <trans-unit id="342">
+          	<source>jda.faq.contributing</source>
+          	<target>Contributing New Materials to the Archive</target>
+          </trans-unit>
+          <trans-unit id="343">
+          	<source>jda.faq.q12</source>
+          	<target>Who is allowed to add materials to the archive?</target>
+          </trans-unit>
+          <trans-unit id="344">
+          	<source>jda.faq.q12answer</source>
+          	<target>Who is allowed to add materials to the archive? Anyone can add materials to the archive, even if you are not a registered user. However, only registered users may create "Collections" (see below).</target>
+          </trans-unit>
+          <trans-unit id="345">
+          	<source>jda.faq.q13</source>
+          	<target>How can I add tweets to the archive? Should I add re-tweets?</target>
+          </trans-unit>
+          <trans-unit id="346">
+          	<source>jda.faq.q13answer</source>
+          	<target>At present we do not allow users to submit individual tweets to the archive.</target>
+          </trans-unit>
+          <trans-unit id="347">
+          	<source>jda.faq.q14</source>
+          	<target>What should I &lt;i&gt;not&lt;/i&gt; add to the archive?</target>
+          </trans-unit>
+          <trans-unit id="348">
+          	<source>jda.faq.q14answer</source>
+          	<target>Any material that is not related to the 3.11 disaster in Japan should not be submitted. After you contribute a website or testimonial, the archive staff review them to make sure that they are relevant material and have not been previously submitted.</target>
+          </trans-unit>
+          <trans-unit id="349">
+          	<source>jda.faq.q15</source>
+          	<target>I would like to add a website, and am filling in the description form. Is there a specific vocabulary for the tags, or could I think of my own terms?</target>
+          </trans-unit>
+          <trans-unit id="350">
+          	<source>jda.faq.q15answer</source>
+          	<target>There is no specific vocabulary, but consider the list of suggested terms that appear when you start typing a tag – these are terms that have already been entered in the archive. For reference, see http://jdarchive.org/tags for a list of all existing tags.</target>
+          </trans-unit>
+          <trans-unit id="351">
+          	<source>jda.faq.q15answer2</source>
+          	<target>When tagging an item, consider what keywords you would use to search for it. List as many different ways to describe an item as you can. Even similar terms should be included to make the item more likely to show up in different search results (for example: Fukushima Daiichi, nuclear plant, Fukushima nuclear power plant). You do not need to add dates to the tags.</target>
+          </trans-unit>
+          <trans-unit id="352">
+          	<source>jda.faq.q16</source>
+          	<target>Is there a deadline for adding websites and testimonials to the archive?</target>
+          </trans-unit>
+          <trans-unit id="353">
+          	<source>jda.faq.q16answer</source>
+          	<target>There is no deadline. The archive will always be open to new contributions of both websites and testimonials. The harvesting of websites is particularly urgent, as they are ephemeral material and may disappear quickly.</target>
+          </trans-unit>
+          <trans-unit id="354">
+          	<source>jda.faq.collections</source>
+          	<target>Creating and Curating Collections</target>
+          </trans-unit>
+          <trans-unit id="355">
+          	<source>jda.faq.q17</source>
+          	<target>What are collections and how should I use them?</target>
+          </trans-unit>
+          <trans-unit id="356">
+          	<source>jda.faq.q17answer</source>
+          	<target>The “My Collection” feature allows users to organize materials discovered in the archive into a miniature “exhibition” of materials under a certain topic or theme. By curating a collection, you are establishing connections between the items according your own criteria, and offering others a new perspective on the disaster. You might organize items by theme, place, time, or any other criteria you can imagine. You can also use the function to save items of personal interest to make it easier for you to access them later on.</target>
+          </trans-unit>
+          <trans-unit id="357">
+          	<source>jda.faq.q18</source>
+          	<target>I want my collection to be searchable by other people. Are collections public or private?</target>
+          </trans-unit>
+          <trans-unit id="358">
+          	<source>jda.faq.q18answer</source>
+          	<target>You can click on the “Archive Settings” pencil to set the collection to “Public”  or “Limited.” Choosing the “Public” setting means that other users will be able to see your collection. Choosing “Limited” means your collection will not show up in search results or be publicly viewable unless you change the settings.</target>
+          </trans-unit>
+          <trans-unit id="359">
+          	<source>jda.faq.q19</source>
+          	<target>How do I create a collection? How long will it stay up?</target>
+          </trans-unit>
+          <trans-unit id="360">
+          	<source>jda.faq.q19answer</source>
+          	<target>Only signed in users can make collections, so make sure you have signed into the site using the “Sign in” link in the upper left. Search for items of interest, then drag any item to the "my collection" box on the right. If you click “Go to Collection” and click on the pencil icons, you will be able to edit the title and description of your collection. Your collection will stay up permanently, until such time as you choose to delete it.</target>
+          </trans-unit>
+          <trans-unit id="361">
+          	<source>jda.faq.q20</source>
+          	<target>How do I edit or delete a collection?</target>
+          </trans-unit>
+          <trans-unit id="362">
+          	<source>jda.faq.q20answer</source>
+          	<target>Click on the pencil icon next to “Collection Description”. This will allow you to edit the title of your collection, edit the collection description, or delete the collection entirely.</target>
+          </trans-unit>
+          <trans-unit id="363">
+          	<source>jda.faq.q21</source>
+          	<target>Can I create multiple collections?</target>
+          </trans-unit>
+          <trans-unit id="364">
+          	<source>jda.faq.q21answer</source>
+          	<target>Yes. Click on the arrow in the “My Collection” box, then select “Create a New Collection” from the pull-down list.</target>
+          </trans-unit>
+          <trans-unit id="365">
+          	<source>jda.about.partners</source>
+          	<target>Partners</target>
+          </trans-unit>
+          <trans-unit id="366">
+          	<source>jda.about.faq</source>
+          	<target>FAQ</target>
+          </trans-unit>
+          <trans-unit id="367">
+          	<source>jda.aboutpartners.paragraph2</source>
+          	<target>Not all partners are digital archives; others have created maps and instructional guides for the JDArchive. Our partners are thus a crucial part of our effort to provide and add value to digital content related to Japan’s 2011 disasters. Please learn more about our partners below.</target>
+          </trans-unit>
         </body>
     </file>
 </xliff>

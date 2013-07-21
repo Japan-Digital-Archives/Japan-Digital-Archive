@@ -26,7 +26,11 @@ team:
     defaults:  { _controller: JDACoreBundle:Team:index, _locale: ja }
     requirements:
         _locale: en|ja
-
+contributearchive:
+    pattern:   /{_locale}/team
+    defaults:  { _controller: JDACoreBundle:Contributearchive:index, _locale: ja }
+    requirements:
+        _locale: en|ja
 collections:
     pattern:   /{_locale}/collections
     defaults:  { _controller: JDACoreBundle:Collections:index, _locale: ja }
@@ -40,6 +44,11 @@ item:
 partners:
     pattern:	/{_locale}/partners
     defaults:	{ _controller: JDACoreBundle:Partners:index, _locale: ja }
+    requirements:
+        _locale: en|ja   
+faq:
+    pattern:	/{_locale}/faq
+    defaults:	{ _controller: JDACoreBundle:FAQ:index, _locale: ja }
     requirements:
         _locale: en|ja   
 user:
