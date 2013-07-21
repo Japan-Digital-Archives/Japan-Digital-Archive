@@ -3,21 +3,22 @@
 }
 #zeega-view-navigation{
 	
-	background-color: #444;
-	padding:4px 0;
-	z-index:50;
-	position: fixed;
-	top: 43px;
-	width:100%;
-	min-width:900px;
+	background-color: #ffffff;
+	z-index: 50;
+	position: absolute;
+	height: 0px;
+	top: 50px;
+	width: 100%;
+	min-width: 900px;
 }
 
 #jda-home-search-div{
-	margin-left: 15px;
-	margin-top: 15px;
-	margin-bottom: 15px;
+	margin-left: 425px;
+	margin-top: 100px;
+	margin-bottom: 50px;
 	display:none;
 }
+
 #zeega-view-buttons{
 	width: 108px;
 	float: left;
@@ -184,7 +185,6 @@
 	-moz-opacity: 0;
 	filter:alpha(opacity=0);
 	padding: 0 !important;
-	float:left;
 }
 
 #search-bar h5
