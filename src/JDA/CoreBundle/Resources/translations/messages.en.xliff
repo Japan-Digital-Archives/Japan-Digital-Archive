@@ -184,7 +184,7 @@
             </trans-unit>                       
             <trans-unit id="46">
                 <source>jda.home.go</source>
-                <target>go</target>
+                <target>search</target>
             </trans-unit>
             <trans-unit id="47">
                 <source>jda.about.paragraph1</source>

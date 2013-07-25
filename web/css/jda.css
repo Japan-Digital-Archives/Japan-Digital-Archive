@@ -175,6 +175,12 @@
 	display: inline-block;
 }
 
+.jda-home-button:hover{
+	color:#ffffff;
+	text-decoration:none;
+	background-color: #E60045;
+}
+
 li{
 	list-style:none;
 }
