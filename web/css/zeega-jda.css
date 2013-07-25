@@ -3,6 +3,17 @@
 }
 #zeega-view-navigation{
 	
+	background-color: #444;
+	padding: 4px 0;
+	z-index: 50;
+	position: fixed;
+	top: 43px;
+	width: 100%;
+	min-width: 900px;
+}
+
+#home-view-navigation{
+	
 	background-color: #ffffff;
 	z-index: 50;
 	position: absolute;
@@ -16,6 +27,7 @@
 	margin-left: 23%;
 	margin-top: 5%;
 	margin-bottom: 50px;
+	min-width: 600px;
 }
 
 #zeega-view-buttons{

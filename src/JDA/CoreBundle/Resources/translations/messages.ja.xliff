@@ -1093,7 +1093,157 @@
 				<source>jda.home.recentcollections</source>
 				<target>新しいコレクション</target>
 			</trans-unit>
-			
+			<trans-unit id="272">
+				<source>jda.howtouse.title</source>
+				<target>アーカイブの使い方</target>
+			</trans-unit>
+			<trans-unit id="273">
+				<source>jda.howtouse.intro</source>
+				<target>2011年東日本大震災デジタルアーカイブ (JDA) は、2011年3月11日から続く自然・人工災害を記録したデジタル情報へのアクセスを提供する、ポータルサイトです。
+当アーカイブはハーバード大学のライシャワー日本研究所がデザイン・運営していますが、ウェブサイト、ツイート、音声、ニュース記事等のコンテンツは世界中のパートナー団体に提供いただいています。ＪＤＡ自体にはデータを保存する機能はありません。パートナー団体が各自アーカイブした電子資料に直接リンクし、ユーザが複数のアーカイブの資料を一元的に検索・閲覧・整理できるようにデザインされています。
+
+このページではアーカイブのインターフェイスを使った情報検索の方法をご紹介します。ご自分でアーカイブにウェブ情報等を投稿する場合は、</target>
+			</trans-unit>
+			<trans-unit id="274">
+				<source>jda.howtouse.contributepage</source>
+				<target>「アーカイブへの投稿の仕方」をご覧下さい。</target>
+			</trans-unit>
+			<trans-unit id="275">
+				<source>jda.howtouse.searching</source>
+				<target>簡易検索について</target>
+			</trans-unit>
+			<trans-unit id="276">
+				<source>jda.howtouse.searchingp1</source>
+				<target>アーカイブを検索するには、画面の左上に表示されている検索バーに単語を入力し、青い「検索」ボタンをクリックするかキーボードのEnterキーを入力して下さい。
+ 
+言語によって検索結果を絞る場合は、該当する言語で検索をして下さい。例えば、英語で検索をすると主に英語の検索結果が表示され、日本語で検索をすると主に日本語の検索結果が表示されます。
+ 
+複数の単語を検索する場合、単語をスペースで区切って入力して下さい。また、ブール型演算子を使って詳細検索をすることも出来ます：
+
+				</target>
+			</trans-unit>
+			<trans-unit id="278">
+				<source>jda.howtouse.searchingp2</source>
+				<target>体験談とツイート以外の資料は全文検索をすることができません。その他の資料に関しては、JDAのスタッフ、ボランティア、そしてユーザによって入力された題名、説明、タグ等の項目が検索対象となります。体験談とツイートの全文検索は可能です。
+英語でタグを検索する場合、２語以上のフレーズには "cherry blossoms" のように単語の周りに引用符を入力して下さい。引用符がなければ正しい検索結果が表示されません。</target>
+			</trans-unit>
+			<trans-unit id="279">
+				<source>jda.howtouse.limit</source>
+				<target>検索フィールドを選択する</target>
+			</trans-unit>
+			<trans-unit id="281">
+				<source>jda.howtouse.limitp1</source>
+				<target>タグ項目のみを検索する場合、キーワードの前に tag と入力して下さい。検索バーにポップアップメニューが表示され、tag 項目を選択する事が出来ます。全ての項目をを同時に検索する場合は、検索バーに直接キーワードを入力するか、キーワードの前に text と入力し、ポップアップメニューでtext 項目を選択して下さい。</target>
+			</trans-unit>
+			<trans-unit id="283">
+				<source>jda.howtouse.limit2</source>
+				<target>メディア形式を選択する</target>
+			</trans-unit>
+			<trans-unit id="284">
+				<source>jda.howtouse.limitp2</source>
+				<target>資料種別に検索をする場合、ホームページの左上にある「検索」リンクをクリックし、検索バーの右端のドロップダウンメニューから該当するカテゴリーを選択して下さい。また、詳細検索の画面から資料の種類、場所、日付、ユーザ名、検索範囲を同時に指定する事も出来ます。</target>
+			</trans-unit>
+			<trans-unit id="286">
+				<source>jda.howtouse.advanced</source>
+				<target>詳細検索について</target>
+			</trans-unit>
+			<trans-unit id="287">
+				<source>jda.howtouse.advancedp1</source>
+				<target>詳細検索ではキーワード、資料の種類、タグ、ユーザ、日付、そして位置情報が入力されているアイテムに関しては場所を指定することができます。複数のメディア形式を選択する場合、コントロールキー (Windows) か アップルキー (Mac) を押しながら該当するカテゴリーをクリックして下さい。日付を指定する場合、「〜日から」「〜日まで」のフィールドをそれぞれクリックし、表示されたカレンダーから該当する日付をクリックして下さい。位置を指定する場合は、シフトキーを押しながら地図上の該当領域にカーサーをドラッグして下さい。
+検索条件を指定した後は、画面の下にある「検索」ボタンをクリックして下さい。</target>
+			</trans-unit>
+			<trans-unit id="289">
+				<source>jda.howtouse.map</source>
+				<target>地図機能を使う</target>
+			</trans-unit>
+			<trans-unit id="290">
+				<source>jda.howtouse.mapp1</source>
+				<target>検索地域を指定する場合、地図画面の検索バーからキーワード検索をするか、検索バーの下にあるスクロールバーを使って日時を指定することができます。また、詳細検索の画面から場所と日時を絞ることもできます。</target>
+			</trans-unit>
+			<trans-unit id="292">
+				<source>jda.howtouse.mapp2</source>
+				<target>地図にレイヤーを加える場合、マップの右端にある灰色のアイコンをクリックして下さい。レイヤーのタブから人口密度、避難地域等の情報を地図に重ねて表示することができます。また、凡例のタブからはレイヤーの色コードの説明を見ることが出来ます。写真、動画、ツイート等の様々な形式のデータを、位置情報を通じて関連付けて見ることが出来ます。</target>
+			</trans-unit>
+			<trans-unit id="293">
+				<source>jda.howtocontribute.title</source>
+				<target>アーカイブに投稿する</target>
+			</trans-unit>
+			<trans-unit id="294">
+				<source>jda.howtocontribute.intro</source>
+				<target>2011年東日本大震災デジタルアーカイブは、ユーザの皆様のご協力で更に発展するように設計された、対話型のプロジェクトです。ユーザ同士で情報を発掘・共有・説明し合う事により、永くデジタル資料の貴重な情報源となります。新たなコンテンツを加える他に、投稿済みコンテンツのタグ付けや翻訳、また「コレクション」機能を使って皆様だけのミニ展示のキュレーションを行うなど、様々な形でアーカイブを充実させる事が出来ます。
+皆様のご協力をお待ちしております！
+
+以下では、アーカイブへのご協力方法の詳細をご説明します。検索方法に関しては、</target>
+			</trans-unit>
+			<trans-unit id="295">
+				<source>jda.howtocontribute.searchpage</source>
+				<target>「アーカイブの使い方」をご覧下さい。</target>
+			</trans-unit>
+			<trans-unit id="296">
+				<source>jda.howtocontribute.adding</source>
+				<target>ウェブサイトを投稿する</target>
+			</trans-unit>
+			<trans-unit id="297">
+				<source>jda.howtocontribute.addingp1</source>
+				<target>ウェブ情報を投稿するには、スクリーン右上にある「アーカイブに情報を加える」メニューから「ウェブサイト」を選択して下さい。震災に関連する内容であれば、どの言語で投稿されても結構です。「収録回数」と「範囲」の項目を含め、出来る限り多くの情報をフォームにご記入下さい。
+「収録回数」とは、投稿されたウェブサイトがアーカイブに回収される頻度を示します。頻繁に更新されるウェブサイトの場合、「毎週」や「毎月」の回収頻度を選択する事により、常にそのサイトの最新情報がアーカイブされることになります。
+また、「範囲」とは、回収の対象範囲を示します。例えばウェブサイトのトップページ、あるいはブログの記事の一日分のみが震災に関連した内容であれば、「１ページのみ」。震災関連特設ページなど、ある程度の震災関連情報がまとめられている場合は「ディレクトリーを含む」。震災のために作られたウェブサイトであれば「サイト全て」をお選び下さい。
+皆様によって投稿されたウェブサイトは、アーキビストが確認の上、当デジタルアーカイブで閲覧可能となります。</target>
+			</trans-unit>
+			<trans-unit id="298">
+				<source>jda.howtocontribute.testimonial</source>
+				<target>証言を投稿する</target>
+			</trans-unit>
+			<trans-unit id="299">
+				<source>jda.howtocontribute.testimonialp1</source>
+				<target>皆様の体験談を投稿するには、スクリーン右上にある「アーカイブに情報を加える」メニューから「わたしの『東日本大震災』」を選択して下さい。当アーカイブでは、被災地内外の皆様から、震災に関連する直接的・間接的な体験談の投稿をお願いしております。他の誰のものでもない、皆様のお話しを、差し支えがないと思われる範囲内で共有していただければと思います。ご希望であれば匿名での投稿も可能です。投稿内容はアーキビストが確認の上、当デジタルアーカイブで閲覧可能となります。</target>
+			</trans-unit>
+			<trans-unit id="300">
+				<source>jda.howtocontribute.tagging</source>
+				<target>タグ付けをする</target>
+			</trans-unit>
+			<trans-unit id="301">
+				<source>jda.howtocontribute.taggingp1</source>
+				<target>アーカイブに投稿された資料は、追加情報が的確に入力されている程、検索結果に表示されやすくなります。資料のキーワードを「タグ」として入力すると、写真、音声、動画など、検索可能な文面を持たないアイテムを見つけるために特に役立ちます。
+ 
+タグを加えるには、閲覧したいアイテムをクリックし、表示されたポップアップ画面からオレンジ色の「タグを加える」ボタンをクリックします。新しく表示された空欄にキーワードを入力し、キーボードのエンターキーを押して下さい。
+ 
+一度付けられたタグは削除できませんので、入力する前に綴りなどをもう一度ご確認下さい。検索した情報にタグを加えて、アーカイブをより良いものに育てて下さい！</target>
+			</trans-unit>
+			<trans-unit id="302">
+				<source>jda.howtocontribute.translate</source>
+				<target>翻訳をする</target>
+			</trans-unit>
+			<trans-unit id="303">
+				<source>jda.howtocontribute.translatep1</source>
+				<target>ユーザは当アーカイブの全てのアイテムに、翻訳を加える事ができます。翻訳を始めるには、閲覧したいアイテムをクリックし、表示されたポップアップ画面の青い「翻訳を編集する (Edit translation)」ボタンをクリックし、訳文の入力後「翻訳を投稿する (Submit Translation)」を選択して、内容を保存して下さい。入力した文章がアーカイブ上に表示されるまでに、少しお時間がかかることを予めご了解下さい。既存の訳文を編集する場合も、同じ「翻訳を編集する」ボタンをクリックして変更を保存して下さい。ユーザの皆様が翻訳して下さることで、資料の内容を理解することの出来るユーザが増え、より多くの方にとって有用な情報源となります。資料のもとの言語に関わらず、どの言語での翻訳も受け付けています！</target>
+			</trans-unit>
+			<trans-unit id="304">
+				<source>jda.howtocontribute.create</source>
+				<target>コレクションをつくる</target>
+			</trans-unit>
+			<trans-unit id="305">
+				<source>jda.howtocontribute.createp1</source>
+				<target>ユーザは「マイ・コレクション」機能により、自分の興味ある資料を選択・整理し、テーマ別にサイト上に展示することができます。ユーザが自ら情報のキュレーションを行うことによって資料同士に様々なつながりや価値を付与でき、他のユーザにも新しい角度から震災を見ることを提案できます。
+テーマ、場所、時間など、様々な条件を基に資料を整理してコレクションを作ることが可能です。また、この機能を使って興味のある資料を後にアクセスしやすいように保存することもできます。</target>
+			</trans-unit>
+			<trans-unit id="306">
+				<source>jda.howtocontribute.createp2</source>
+				<target>当アーカイブにはどなたでもウェブサイト、証言、タグ、そして翻訳を加える事が出来ますが、「マイ・コレクション」は登録済みユーザのみが作成出来ます。ユーザ登録は簡単に無料で行えます。画面右上の「サインイン」をクリックし、アカウント登録のリンクからユーザ名、メールアドレス等を入力して下さい。
+登録・サインインをした後、関心のある情報を検索し、保存したいアイテムを画面右側にある「マイ・コレクション」ボックスにドラッグして下さい。</target>
+			</trans-unit>
+			<trans-unit id="307">
+				<source>jda.howtocontribute.createp3</source>
+				<target>アイテムをドラッグした後、「コレクションを保存する」そして「コレクションに移動する」をクリックし、表示されたページで鉛筆マークをクリックすることにより、ご自分のコレクションのタイトルや説明等を編集できます。意図的に削除しない限り、コレクションは失われません。</target>
+			</trans-unit>
+			<trans-unit id="308">
+				<source>jda.howtocontribute.createp4</source>
+				<target>コレクションを修正・削除するには、「コレクションの説明」の隣にある鉛筆マークをクリックして下さい。コレクションの題名や説明を入力したり、コレクション自体を削除する事ができます。</target>
+			</trans-unit>
+			<trans-unit id="309">
+				<source>jda.howtocontribute.createp5</source>
+				<target>プライバシー設定を変更する事により、コレクションを他のユーザと共有することもできます。「アーカイブ設定」の鉛筆マークをクリックして、「公開」か「限定」をお選びください。「公開」を選択すると、他のユーザもコレクションを閲覧することができるようになります。「限定」を選択すると、他のユーザは見ることができず、設定を変えない限り検索結果に表示されることもありません。</target>
+			</trans-unit>
         </body>
     </file>
 </xliff>

@@ -597,6 +597,22 @@ footer img{
 	height:50px;
 	clear:both;
 }
+
+#instructional {
+	margin-bottom:50px;
+}
+
+#instructional p{
+	margin: 10px 10px;
+}
+
+#instructional h4{
+	margin-top: 10px;
+}
+
+#instructional img{
+	margin-bottom: 20px;
+}
 /********************
 
 	OPEN LAYERS MAP

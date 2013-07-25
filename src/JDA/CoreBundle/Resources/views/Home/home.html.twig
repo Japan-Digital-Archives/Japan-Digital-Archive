@@ -50,7 +50,7 @@ jQuery(document).ready(function() {
 
 {% block extra %}
 {% endblock %}
-<div class="container" id="zeega-view-navigation" style="min-height:100%;position:relative;height:100%">
+<div class="container" id="home-view-navigation" style="min-height:100%;position:relative;height:100%">
 
 	<!-- facebook and twitter icons -->
 	<div style="float:right;">
@@ -69,11 +69,11 @@ jQuery(document).ready(function() {
   	<!-- intro buttons -->
 		
 	<div id="intro-nav">
-		<a href="#" class="home-button gray"><i class="homeicon-search"></i>
+		<a href="{{path('howtouse')}}" class="home-button gray"><i class="homeicon-search"></i>
 			<span class="home-button-text">{% trans %}jda.home.howtouse{% endtrans %}</span></a>
-		<a href="#" class="home-button gray"><i class="homeicon-pencil"></i>
+		<a href="{{path('howtocontribute')}}" class="home-button gray"><i class="homeicon-pencil"></i>
 			<span class="home-button-text">{% trans %}jda.home.contributeto{% endtrans %}</span></a>
-		<a href="#" class="home-button gray"><i class="homeicon-group"></i>
+		<a href="{{path('partners')}}" class="home-button gray"><i class="homeicon-group"></i>
 			<span class="home-button-text">{% trans %}jda.home.meetpartners{% endtrans %}</span></a>
 		<div style="clear:both"></div>
 	</div>
