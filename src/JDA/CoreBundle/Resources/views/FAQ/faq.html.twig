@@ -1,0 +1,107 @@
+{# src/Zeega/CoreBundle/Resources/views/About/partners.html.twig #}
+
+{% extends '::base.html.twig' %}
+
+{% block title %}<title>{% trans %}jda.home.title{% endtrans %}</title>{% endblock %}
+{% block stylesheets %}
+<!-- Visual Search --> 
+<!--[if (!IE)|(gte IE 8)]><!-->
+<link href="{{ asset('js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+<!--[if lte IE 7]><!-->
+<link href="{{ asset('js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+{% endblock %}
+{% block scripts %}
+{% if app.environment == 'dev' %}
+<!-- to load JS libraries separately -->
+	<script data-main="{{ asset('js/loaders/about') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
+{% else %}
+	<!-- to load single aggregated JS library --> 
+	<script data-main="{{ asset('js_min/about') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="container" id="zeega-view-navigation" style="background-color:rgba(0,0,0,0.7)">
+
+
+	<div id="jda-home-search-div" class="pull-left" style="margin-right:17px;margin-top:5px;margin-left:5%;margin-bottom:5px;display:none">
+		<div id="search-bar" style="margin-right:10px">
+			<div class="visual_search pull-left"></div>
+		</div>
+		<a href="#" id="jda-go-button" class="btn btn-info btn-large">go</a>
+	</div>
+
+
+
+</div><!-- end container -->
+
+<div id="jda-about-faq-container" style="margin:0 5%;position:relative;top:115px">
+
+	<h2 style="color:#666;letter-spacing:1px;margin-bottom:7px">{% trans %}jda.faq.title{% endtrans %}</h2>
+	<h4 style="margin-bottom:20px">{% trans %}jda.faq.by{% endtrans %}</h4>
+	<!--<ul class="nav nav-pills" style="padding-bottom: 10px;border-bottom: 1px solid #DDD;">
+		<li><a href="#mission"  data-toggle="tab">{% trans %}jda.about.mission{% endtrans %}</a></li>
+		<li><a href="#team" data-toggle="tab">{% trans %}jda.about.team{% endtrans %}</a></li>
+		<li><a href="#news" data-toggle="tab">{% trans %}jda.about.news{% endtrans %}</a></li>
+		<li><a href="#faq" data-toggle="tab">{% trans %}jda.about.faq{% endtrans %}</a></li>
+		<li><a href="#terms" data-toggle="tab">{% trans %}jda.about.terms{% endtrans %}</a></li>
+
+	</ul>-->
+	<div class="tab-content">
+		<div id="faq" class="tab-pane active">
+			<div id="jda-faq">
+				<h2 style="margin-bottom:15px">{% trans %}jda.faq.general{% endtrans %}</h2>
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q1{% endtrans %}</h4>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q1answer{% endtrans %}</p>
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q2{% endtrans %}</h4>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q2answer{% endtrans %}</p>
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q3{% endtrans %}</h4>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q3answer{% endtrans %}</p>
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q4{% endtrans %}</h4>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q4answer{% endtrans %}</p>
+				<h2 style="margin-bottom:15px">{% trans %}jda.faq.searching{% endtrans %}</h3>
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q5{% endtrans %}</h4>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q5answer{% endtrans %}</p>
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q6{% endtrans %}</h4>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q6answer{% endtrans %}</p>
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q7{% endtrans %}</h4>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q7answer{% endtrans %}</p>
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q8{% endtrans %}</h4>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q8answer{% endtrans %}</p>
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q9{% endtrans %}</h4>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q9answer{% endtrans %}</p>
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q10{% endtrans %}</h4>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q10answer{% endtrans %}</p>
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q11{% endtrans %}</h4>
+				<p>{% trans %}jda.faq.q11answer{% endtrans %}</p>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q11answer2{% endtrans %}</p>
+				<h2 style="margin-bottom:15px">{% trans %}jda.faq.contributing{% endtrans %}</h2>
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q12{% endtrans %}</h4>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q12answer{% endtrans %}</p>
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q13{% endtrans %}</h4>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q13answer{% endtrans %}</p>
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q14{% endtrans %}</h4>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q14answer{% endtrans %}</p>
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q15{% endtrans %}</h4>
+				<p>{% trans %}jda.faq.q15answer{% endtrans %}</p>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q15answer2{% endtrans %}
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q16{% endtrans %}</h4>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q16answer{% endtrans %}</p>
+				<h2 style="margin-bottom:15px">{% trans %}jda.faq.collections{% endtrans %}</h2>
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q17{% endtrans %}</h4>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q17answer{% endtrans %}</p>
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q18{% endtrans %}</h4>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q18answer{% endtrans %}</p>
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q19{% endtrans %}</h4>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q19answer{% endtrans %}</p>
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q20{% endtrans %}</h4>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q20answer{% endtrans %}</p>
+				<h4 style="margin-bottom:7px">{% trans %}jda.faq.q21{% endtrans %}</h4>
+				<p style="margin-bottom:10px">{% trans %}jda.faq.q21answer{% endtrans %}</p>
+			</div>
+		</div>
+	</div><!-- end tab content -->
+{% endblock %}	

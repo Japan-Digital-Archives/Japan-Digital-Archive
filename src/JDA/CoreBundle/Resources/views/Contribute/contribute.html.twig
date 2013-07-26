@@ -1,0 +1,67 @@
+{# src/Zeega/CoreBundle/Resources/views/About/partners.html.twig #}
+
+{% extends '::base.html.twig' %}
+
+{% block title %}<title>{% trans %}jda.home.title{% endtrans %}</title>{% endblock %}
+{% block stylesheets %}
+<!-- Visual Search --> 
+<!--[if (!IE)|(gte IE 8)]><!-->
+<link href="{{ asset('js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+<!--[if lte IE 7]><!-->
+<link href="{{ asset('js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+{% endblock %}
+{% block scripts %}
+{% if app.environment == 'dev' %}
+<!-- to load JS libraries separately -->
+	<script data-main="{{ asset('js/loaders/about') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
+{% else %}
+	<!-- to load single aggregated JS library --> 
+	<script data-main="{{ asset('js_min/about') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="container" id="zeega-view-navigation" style="background-color:rgba(0,0,0,0.7)">
+
+
+	<div id="jda-home-search-div" class="pull-left" style="margin-right:17px;margin-top:5px;margin-left:5%;margin-bottom:5px;display:none">
+		<div id="search-bar" style="margin-right:10px">
+			<div class="visual_search pull-left"></div>
+		</div>
+		<a href="#" id="jda-go-button" class="btn btn-info btn-large">go</a>
+	</div>
+
+
+
+</div><!-- end container -->
+
+<div id="jda-about-contribute-container" style="margin:0 5%;position:relative;top:115px">
+
+	<h2 style="color:#666;letter-spacing:1px;margin-bottom:7px">{% trans %}jda.contribute.contributeheader{% endtrans %}</h2>
+	<!--<ul class="nav nav-pills" style="padding-bottom: 10px;border-bottom: 1px solid #DDD;">
+		<li><a href="#mission"  data-toggle="tab">{% trans %}jda.about.mission{% endtrans %}</a></li>
+		<li><a href="#team" data-toggle="tab">{% trans %}jda.about.team{% endtrans %}</a></li>
+		<li><a href="#news" data-toggle="tab">{% trans %}jda.about.news{% endtrans %}</a></li>
+		<li><a href="#faq" data-toggle="tab">{% trans %}jda.about.faq{% endtrans %}</a></li>
+		<li><a href="#terms" data-toggle="tab">{% trans %}jda.about.terms{% endtrans %}</a></li>
+
+	</ul>-->
+	<div class="tab-content">
+		<div id="contribute" class="tab-pane active">
+			<div id="jda-contribute">
+				<p style="margin-bottom:15px">{% trans %}jda.contribute.paragraph1{% endtrans %}</p>
+				<h3 style="margin-bottom:10px">{% trans %}jda.contribute.addwebsite{% endtrans %}</h3>
+				<p style="margin-bottom:15px">{% trans %}jda.contribute.addwebsitep1{% endtrans %}</p>
+				<h3 style="margin-bottom:10px">{% trans %}jda.contribute.addtestimonial{% endtrans %}</h3>
+				<p style="margin-bottom:15px">{% trans %}jda.contribute.addtestimonialp1{% endtrans %}</p>
+				<h3 style="margin-bottom:10px">{% trans %}jda.contribute.tag{% endtrans %}</h3>
+				<p style="margin-bottom:15px">{% trans %}jda.contribute.tagp1{% endtrans %}</p>
+				<h3 style="margin-bottom:10px">{% trans %}jda.contribute.translate{% endtrans %}</h3>
+				<p style="margin-bottom:15px">{% trans %}jda.contribute.translatep1{% endtrans %}</p>
+			</div>
+		</div>
+	</div><!-- end tab content -->
+{% endblock %}	
