@@ -88,3 +88,13 @@ batchtag:
 batchtagged:
     pattern:	/batch-tagged/
     defaults:	{ _controller: JDACoreBundle:BatchTag:update}
+howtouse:
+    pattern:	/{_locale}/howtouse/
+    defaults:  { _controller: JDACoreBundle:HowToUse:index, _locale: ja }
+    requirements:
+        _locale: en|ja
+howtocontribute:
+    pattern:	/{_locale}/howtocontribute/
+    defaults:  { _controller: JDACoreBundle:HowToContribute:index, _locale: ja }
+    requirements:
+        _locale: en|ja

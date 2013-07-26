@@ -184,7 +184,7 @@
             </trans-unit>                       
             <trans-unit id="46">
                 <source>jda.home.go</source>
-                <target>go</target>
+                <target>search</target>
             </trans-unit>
             <trans-unit id="47">
                 <source>jda.about.paragraph1</source>
@@ -1477,6 +1477,164 @@ prompt those of us who were not affected to reflect on the way we live our lives
           	<source>jda.aboutpartners.paragraph2</source>
           	<target>Not all partners are digital archives; others have created maps and instructional guides for the JDArchive. Our partners are thus a crucial part of our effort to provide and add value to digital content related to Japan’s 2011 disasters. Please learn more about our partners below.</target>
           </trans-unit>
+		  <trans-unit id="368">
+				<source>jda.home.howtouse</source>
+				<target>how to use the archive</target>
+			</trans-unit>
+			<trans-unit id="369">
+				<source>jda.home.contributeto</source>
+				<target>contribute to the archive</target>
+			</trans-unit>
+			<trans-unit id="370">
+				<source>jda.home.meetpartners</source>
+				<target>meet our partners</target>
+			</trans-unit>
+			<trans-unit id="371">
+				<source>jda.home.recentcollections</source>
+				<target>RECENT COLLECTIONS</target>
+			</trans-unit>
+			<trans-unit id="372">
+				<source>jda.howtouse.title</source>
+				<target>How to Use the Archive</target>
+			</trans-unit>
+			<trans-unit id="373">
+				<source>jda.howtouse.intro</source>
+				<target>The Digital Archive of Japan’s 2011 Disasters (JDA) is an online portal to digital materials documenting the cascading series of natural and man-made disasters that began in Japan on March 11, 2011. Designed and maintained by the Reischauer Institute of Japanese Studies at Harvard University, the JDA relies on the support of partner organizations around the world to supply digital contents, including websites, tweets, video, audio, news articles, and much more. The JDA does not store copies of the data; rather it seamlessly links to digital materials archived by partner projects, allowing you to search, view, and sort items across separate archives and collections in one interface.
+
+				This page provides information on how to use the archive interface for information retrieval. For more information on how to contribute to the archive yourself, please visit the </target>
+			</trans-unit>
+			<trans-unit id="374">
+				<source>jda.howtouse.contributepage</source>
+				<target>“How to Contribute to the Archive” page.</target>
+			</trans-unit>
+			<trans-unit id="375">
+				<source>jda.howtouse.searching</source>
+				<target>Searching the Archive</target>
+			</trans-unit>
+			<trans-unit id="376">
+				<source>jda.howtouse.searchingp1</source>
+				<target>To search the archive, simply type text into the search box on the front page or the box that appears at the top of any other page and then either click the blue “go” button to the right of the search box or press the Enter/Return button on your keyboard.
+				
+				To find documents predominantly in a certain language, simply type in that language. For example, typing English into the search box yields predominantly English search results, and typing Japanese into the search box yields predominantly Japanese search results.
+
+				To search for multiple keywords, place space between the words. It is also possible to use Boolean Operators for your search:
+				</target>
+			</trans-unit>
+			<trans-unit id="378">
+				<source>jda.howtouse.searchingp2</source>
+				<target>For all items except the testimonials and Tweets, the search engine will search through the title, description, and tags that were provided by the JDA staff, volunteers, and contributors. It will search through the full text of the testimonials and tweets.
+				
+				When searching for tags, make sure to include quotes around phrases with more than one word, for instance: "cherry tree"
+				
+				Without the quotes, the search engine will not return results.</target>
+			</trans-unit>
+			<trans-unit id="379">
+				<source>jda.howtouse.limit</source>
+				<target>Limit search field</target>
+			</trans-unit>
+			<trans-unit id="381">
+				<source>jda.howtouse.limitp1</source>
+				<target>To search for tags only, begin typing "tag" before your keywords. A popup in the search bar will allow you to select the "tag" field. To search for all fields, simply type in your keyword, or begin typing "text" and select it in the popup.</target>
+			</trans-unit>
+			<trans-unit id="383">
+				<source>jda.howtouse.limit2</source>
+				<target>Limit media format</target>
+			</trans-unit>
+			<trans-unit id="384">
+				<source>jda.howtouse.limitp2</source>
+				<target>To search by media format, click “Browse” and select categories from the drop-down list on the right of the search bar. You can also click on “Advanced Search” to specify the media, location, time range, user, and search field on one screen.</target>
+			</trans-unit>
+			<trans-unit id="386">
+				<source>jda.howtouse.advanced</source>
+				<target>Advanced search</target>
+			</trans-unit>
+			<trans-unit id="387">
+				<source>jda.howtouse.advancedp1</source>
+				<target>The advanced search allows you to specify the keywords, media type, tags, user, dates, and location of geotagged items. To select multiple media formats, hold the Control key (Windows) or Apple key (Mac), then click on the preferred media. To specify the time range, click on the Start/End date fields. A calendar will pop up, allowing you to select specific dates. To limit by geographic location, hold the Shift key and drag your cursor around the map to create a box around the area.
+				When you are ready to search, click on the "go" button at the bottom of the screen.</target>
+			</trans-unit>
+			<trans-unit id="389">
+				<source>jda.howtouse.map</source>
+				<target>Using the Map Feature</target>
+			</trans-unit>
+			<trans-unit id="390">
+				<source>jda.howtouse.mapp1</source>
+				<target>To search items by location, you can switch to the map screen and do a keyword search in the toolbar, or search by date and time by using the scroll bar directly below. You can also use the Advanced Search feature to limit the time and space of your search.</target>
+			</trans-unit>
+			<trans-unit id="392">
+				<source>jda.howtouse.mapp2</source>
+				<target>To add map layers, click on the gray icon on the right of the map. The “layers” tab will let you select additional types of information that you would like to display on the map, and the "legend" tab will tell you how this information is color-coded. Photographs, videos, tweets, and other data that contain geodata can all be linked in that way.</target>
+			</trans-unit>
+			<trans-unit id="393">
+				<source>jda.howtocontribute.title</source>
+				<target>How to Contribute to the Archive</target>
+			</trans-unit>
+			<trans-unit id="394">
+				<source>jda.howtocontribute.intro</source>
+				<target>We need your help! The Digital Archive of Japan’s 2011 Disasters is an interactive resource that encourages users to help it grow and make it a valuable and lasting repository of digital information. You can contribute to the archive by adding new content, tagging or translating existing content, and creating and curating mini-exhibitions known as “Collections”.
+
+				This page describes how to contribute to the archive in more detail. For information on how to retrieve information from the archive, please visit the </target>
+			</trans-unit>
+			<trans-unit id="395">
+				<source>jda.howtocontribute.searchpage</source>
+				<target>“How to Use the Archive” page.</target>
+			</trans-unit>
+			<trans-unit id="396">
+				<source>jda.howtocontribute.adding</source>
+				<target>Add a Website</target>
+			</trans-unit>
+			<trans-unit id="397">
+				<source>jda.howtocontribute.addingp1</source>
+				<target>You can submit relevant websites through by clicking on the “Add Website” link in the “Add to the Archive” menu. Please submit websites in any language that relate to the disasters and their aftermath. Fill out the form as completely as possible, including choosing the appropriate scope and frequency for our harvesting of the site. Scope refers to the depth of the harvesting - should we only harvest the front page, or the entire site? Frequency determines how often we harvest the site. For example, if the site is updated often, please choose a weekly or monthly frequency so we can keep our preservation of the website up to date. Upon submission, websites will be reviewed by an archivist before appearing in the archive.</target>
+			</trans-unit>
+			<trans-unit id="398">
+				<source>jda.howtocontribute.testimonial</source>
+				<target>Add a Testimonial</target>
+			</trans-unit>
+			<trans-unit id="399">
+				<source>jda.howtocontribute.testimonialp1</source>
+				<target>You can add a testimonial to the archive by clicking on the “Add Testimonial” link in the “Add to the Archive” We are collecting testimonials from people affected by the disasters, whether they were in the disaster area at the time or elsewhere. Please submit your personal story to the archive. You can submit your testimonial anonymously if you wish, adding as much or as little biographical information as you feel comfortable with. Upon submission, testimonials will be reviewed by an archivist before appearing in the archive.</target>
+			</trans-unit>
+			<trans-unit id="400">
+				<source>jda.howtocontribute.tagging</source>
+				<target>Tag an Item</target>
+			</trans-unit>
+			<trans-unit id="401">
+				<source>jda.howtocontribute.taggingp1</source>
+				<target>Our search is only as good as the information we have about the items in our archive. Tagging an item with keywords helps users find items in the archive that are relevant to their searches. Tags are especially valuable for items like photos, audio, and video, that do not have “full text” that can be searched. To add a tag, simply click on the red “add a tag” link in the item’s pop-up page, enter your tag, and press Enter/Return on your keyboard. Tags cannot be deleted once added, so please double check your spelling before entering. Please tag the items you find in your searches and help us improve our archive!</target>
+			</trans-unit>
+			<trans-unit id="402">
+				<source>jda.howtocontribute.translate</source>
+				<target>Translate an Item</target>
+			</trans-unit>
+			<trans-unit id="403">
+				<source>jda.howtocontribute.translatep1</source>
+				<target>Every item in the archive can be translated by our users. To translate, click “edit translation” on the item’s pop-up page, and enter your translation into the box. It will then appear on the item’s page in the future. If a translation already exists and you would like to add to or fix it, click on “edit translation” to make and save your changes. Every translation contributed by our users adds value to the archive by allowing speakers of other languages to understand that item. Any item can be translated into any language, so please feel free to add a translation in your native language!</target>
+			</trans-unit>
+			<trans-unit id="404">
+				<source>jda.howtocontribute.create</source>
+				<target>Create a “Collection”</target>
+			</trans-unit>
+			<trans-unit id="405">
+				<source>jda.howtocontribute.createp1</source>
+				<target>The “My Collection” feature allows users to organize materials discovered in the archive into a miniature “exhibition” of materials under a certain topic or theme. By curating a collection, you are establishing connections between the items according to your own criteria, and offering others a new perspective on the disaster. You might organize items by theme, place, time, or any other criteria you can imagine. You can also use the function to save items of personal interest to make it easier for you to access them later on.</target>
+			</trans-unit>
+			<trans-unit id="406">
+				<source>jda.howtocontribute.createp2</source>
+				<target>While anyone can add materials to the archive, only registered users may create curated collections of the archived items. Registration is easy, simply sign into the site using the “Sign in” link in the upper right. Search for items of interest, then drag any item to the "my collection" box on the right.</target>
+			</trans-unit>
+			<trans-unit id="407">
+				<source>jda.howtocontribute.createp3</source>
+				<target>If you click "Save Collection," then “Go to Collection” and click on the pencil icons, you will be able to edit the title and description of your collection. Your collection will stay up permanently, until you choose to delete it.</target>
+			</trans-unit>
+			<trans-unit id="408">
+				<source>jda.howtocontribute.createp4</source>
+				<target>To edit or delete a collection, click on the pencil icon next to “Collection Description.” This will allow you to edit the title of your collection, edit the collection description, or delete the collection entirely.</target>
+			</trans-unit>
+			<trans-unit id="409">
+				<source>jda.howtocontribute.createp5</source>
+				<target>It is possible to share individual collections with others by using the privacy setting. Click on the “Archive Settings” pencil to set the collection to “Public”  or “Limited.” Choosing the “Public” setting means that other users will be able to see your collection. Choosing “Limited” means your collection will only be visible to you and those who have a link to the collection. It not show up in search results unless you change the settings.</target>
+			</trans-unit>
         </body>
     </file>
 </xliff>

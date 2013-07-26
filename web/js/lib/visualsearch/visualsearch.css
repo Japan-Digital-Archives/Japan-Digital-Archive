@@ -2,19 +2,20 @@
   background-repeat: no-repeat;
   background-position: center center;
   vertical-align: middle;
-  width: 16px; height: 16px;
+  width: 20px; height: 20px;
 }
   .VS-search .VS-icon-cancel {
-    width: 11px; height: 11px;
+    width: 12px; height: 11px;
     background-position: center 0;
     background-image: url(images/cancel_search.png?1311104738);
+	background-repeat: no-repeat;
     cursor: pointer;
   }
     .VS-search .VS-icon-cancel:hover {
       background-position: center -11px;
     }
   .VS-search .VS-icon-search {
-    width: 12px; height: 12px;
+    width: 20px; height: 20px;
     background-image: url(images/search_glyph.png?1311104738);
   }
 
@@ -56,7 +57,7 @@ Source: http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
 .VS-search {
   font-family: Arial, sans-serif;
   color: #373737;
-  font-size: 12px;
+  font-size: 16px;
 }
 .VS-search input {
   display: block;
@@ -68,7 +69,7 @@ Source: http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
   margin: 0; padding: 4px;
   background: transparent;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 24px;
   width: 100%;
   
 }
@@ -85,13 +86,13 @@ Source: http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
   cursor: text;
   position: relative;
   background: transparent;
-  border: 2px solid #ccc;
+  border: 2px solid #000;
   border-radius: 16px; -webkit-border-radius: 16px; -moz-border-radius: 16px;
   background-color: #fafafa;
   -webkit-box-shadow: inset 0px 0px 3px #ccc;
   -moz-box-shadow: inset 0px 0px 3px #ccc;
   box-shadow: inset 0px 0px 3px #ccc;
-  min-height: 28px;
+  min-height: 35px;
   height: auto;
 }
   .VS-search .VS-search-box.VS-focus {
@@ -102,7 +103,7 @@ Source: http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
   }
   .VS-search .VS-search-inner {
     position: relative;
-    margin: 0 20px 0 22px;
+    margin: 5px 30px 0 32px;
     overflow: hidden;
   }
   .VS-search input {
@@ -113,7 +114,7 @@ Source: http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
     padding: 6px 0;
     float: left;
     color: #808080;
-    font: 13px/17px Helvetica, Arial;
+    font: 15px/19px Helvetica, Arial;
   }
   .VS-search.VS-focus input {
     color: #606060;

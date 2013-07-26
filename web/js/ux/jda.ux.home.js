@@ -283,8 +283,8 @@ $(document).ready(function () {
             loaded: function () {
 
                 if ($(location).attr('href').indexOf('home') >= 0) {
-                    $('.VS-search-box').css('width', '270px');
-                    $('#VS-search input').css('width', '200px');
+                    $('.VS-search-box').css('width', '600px');
+                    $('#VS-search input').css('width', '330px');
                 } else {
                     $('.VS-search-box').css('width', '500px');
                     $('#VS-search input').css('width', '430px');
