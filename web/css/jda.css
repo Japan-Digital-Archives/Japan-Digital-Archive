@@ -14,6 +14,31 @@
 		
 **************************************/
 
+#home-facebook-button{
+	background-image: url(../images/facebooklogo.png);
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+	float:right;
+	display:inline-block;
+	height:40px;
+	width:40px;
+	margin-right:20px;
+	border:none;
+}
+
+#home-twitter-button{
+	background-image: url(../images/twitterlogo.png);
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+	float:right;
+	display:inline-block;
+	height:40px;
+	width:40px;
+	margin-right:20px;
+	border:none;
+}
+
+
 [class^="jdicon-"]
 {
 	display: inline-block;
@@ -26,6 +51,35 @@
 	float:left;
 	margin-right:5px;
 }
+
+[class^="homeicon-"]
+{
+	display: inline-block;
+	width: 40px;
+	height: 35px;
+	vertical-align: text-top;
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+	float:left;
+	margin-right:60px;
+	margin-top:5px;
+}
+
+.homeicon-search{
+
+	background-image: url(../images/search.png);
+}
+
+.homeicon-pencil{
+
+	background-image: url(../images/pencil.png);
+}
+
+.homeicon-group{
+
+	background-image: url(../images/group.png);
+}
+
 .jdicon-lightgrey{
 	background-image: url(../images/jdicons-lightgrey-50.png);
 }
@@ -106,6 +160,26 @@
 	position: absolute;top: 35px;left: 55px;
 }
 
+.jda-home-button{
+	margin-left: 30px;
+	background-color: #A60032;
+	padding: 7px 35px;
+	font-size: 22px;
+	line-height: 30px;
+	background-image: none;
+	border: none;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	color: #ffffff;
+	display: inline-block;
+}
+
+.jda-home-button:hover{
+	color:#ffffff;
+	text-decoration:none;
+	background-color: #E60045;
+}
 
 li{
 	list-style:none;
@@ -393,7 +467,7 @@ margin-left: -20px;
 	background-position:center;
 	/*display:inline-block;*/
 	float:left;
-	height:100%;
+	height:33%;
 	width:33%;
 	border-right:2px solid white;
 	background-repeat:no-repeat;
@@ -419,6 +493,60 @@ background-color:#444;position:relative;top:76px;color:whiteSmoke;padding-top:10
 	padding:10px;
 	width:60%;
 	margin-right:30px;
+}
+
+#intro-nav{
+	margin-left: 22%;
+	margin-top: 5%;
+	padding-bottom: 260px;
+	
+}
+
+.home-button-text{
+	display: inline-block;
+	padding: 0px 10px 10px 5px;
+}
+
+.home-button{
+	display: inline-block;
+	float: left;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font-size:22px;
+	line-height: 30px;
+	width: 20%;
+	height: 110px;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px; 
+	border-radius: 10px;
+	margin-right: 80px;
+	color: #ffffff;
+}
+
+.gray {
+	color: #e9e9e9
+	border: solid 2px #444444;
+	background: #6e6e6e;
+	background: -webkit-gradient(linear, left top, left bottom, from(#696969), to(#333333));
+	background: -moz-linear-gradient(top,  #696969,  #333333);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#696969', endColorstr='#333333');
+}
+.gray:hover {
+	color: #e9e9e9;
+	text-decoration: none;
+	background: #616161;
+	background: -webkit-gradient(linear, left top, left bottom, from(#757575), to(#4b4b4b));
+	background: -moz-linear-gradient(top,  #757575,  #4b4b4b);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#757575', endColorstr='#4b4b4b');
+}
+.gray:active {
+	color: #e9e9e9;
+	background: -webkit-gradient(linear, left top, left bottom, from(#575757), to(#888));
+	background: -moz-linear-gradient(top,  #575757,  #888);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#575757', endColorstr='#888888');
 }
 
 footer {
@@ -474,6 +602,22 @@ footer img{
 #jda-about-mission div{
 	height:50px;
 	clear:both;
+}
+
+#instructional {
+	margin-bottom:50px;
+}
+
+#instructional p{
+	margin: 10px 10px;
+}
+
+#instructional h4{
+	margin-top: 10px;
+}
+
+#instructional img{
+	margin-bottom: 20px;
 }
 /********************
 
