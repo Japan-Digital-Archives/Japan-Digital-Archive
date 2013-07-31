@@ -6,6 +6,8 @@
 
 
 {% block stylesheets %}
+
+<link href="{{ asset('js/lib/jcarousel/skins/tango/skin.css')}}" media="screen" rel="stylesheet" type="text/css" />
 <!-- Visual Search --> 
 <!--[if (!IE)|(gte IE 8)]><!-->
 <link href="{{ asset('js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
@@ -27,13 +29,12 @@
 
 <script type="text/javascript" src="{{ asset('js/lib/jcarousel/lib/jquery-1.9.1.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('js/lib/jcarousel/lib/jquery.jcarousel.min.js')}}"></script>
-<link href="{{ asset('js/lib/jcarousel/skins/tango/skin.css')}}" media="screen" rel="stylesheet" type="text/css" />
 
 <!-- Carousel scripts -->
 <script type="text/javascript">
-
-jQuery(document).ready(function() {
-    jQuery('#mycarousel').jcarousel({
+var jQuery_1_9_1 = $.noConflict(true);
+jQuery_1_9_1(document).ready(function() {
+    jQuery_1_9_1('#mycarousel').jcarousel({
     	wrap: 'circular'
     });
 });
