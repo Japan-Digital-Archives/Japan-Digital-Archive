@@ -24,10 +24,8 @@
 }
 
 #jda-home-search-div{
-	margin-left: 23%;
 	margin-top: 5%;
 	margin-bottom: 50px;
-	min-width: 600px;
 }
 
 #zeega-view-buttons{
@@ -196,6 +194,8 @@
 	-moz-opacity: 0;
 	filter:alpha(opacity=0);
 	padding: 0 !important;
+	width:780px;
+	margin: 0 auto;
 }
 
 #search-bar h5

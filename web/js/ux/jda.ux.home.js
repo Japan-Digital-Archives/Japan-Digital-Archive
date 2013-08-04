@@ -284,7 +284,9 @@ $(document).ready(function () {
 
                 if ($(location).attr('href').indexOf('home') >= 0) {
                     $('.VS-search-box').css('width', '600px');
-                    $('#VS-search input').css('width', '330px');
+					$('.VS-search-box').css('margin-left', 'auto');
+					$('.VS-search-box').css('margin-right', 'auto');
+                    $('#VS-search input').css('width', '550px');
                 } else {
                     $('.VS-search-box').css('width', '500px');
                     $('#VS-search input').css('width', '430px');
