@@ -504,6 +504,11 @@ background-color:#444;position:relative;top:76px;color:whiteSmoke;padding-top:10
 	color: #ffffff;
 }
 
+.home-button:hover{
+	opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
 
 footer {
 	position: absolute;
