@@ -482,9 +482,11 @@ background-color:#444;position:relative;top:76px;color:whiteSmoke;padding-top:10
 }
 
 #intro-nav{
-	margin-left: 22%;
 	margin-top: 5%;
 	padding-bottom: 260px;
+	width:1000px;
+	margin-left:auto;
+	margin-right:auto;
 	
 }
 
@@ -498,9 +500,9 @@ background-color:#444;position:relative;top:76px;color:whiteSmoke;padding-top:10
 	float: left;
 	outline: none;
 	cursor: pointer;
-	width: 20%;
-	height: 110px;
-	margin-right: 80px;
+	width: 25%;
+	margin-right: 40px;
+	margin-left:40px;
 	color: #ffffff;
 }
 
