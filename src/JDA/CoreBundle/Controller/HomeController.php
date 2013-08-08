@@ -33,6 +33,11 @@ class HomeController extends Controller
     		$displayName='none';
     		$userId=0;	
     	}
+		
+		$em = $this->getDoctrine()->getEntityManager();
+        $q = $em->createQuery("select i from ZeegaDataBundle:Item i where i.media_type='collection' and i.thumbnail_url<>'' ORDER BY i.date_created DESC");
+        $q->setMaxResults(20);
+		$items = $q->getResult();
     	
     	$request = $this->getRequest();
     	if($request->request->get('search-text')) return $this->redirect(sprintf('%s#%s', $this->generateUrl('search'), 'text='.$request->request->get('search-text')));
@@ -42,7 +47,7 @@ class HomeController extends Controller
 					'page'=> 'home',
 					'displayname'=>$displayName,
 					'userId'=>$userId,
-					
+					'items'=>$items,
 				));
     
     }

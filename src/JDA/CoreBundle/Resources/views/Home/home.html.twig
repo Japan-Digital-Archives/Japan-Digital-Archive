@@ -6,6 +6,8 @@
 
 
 {% block stylesheets %}
+
+<link href="{{ asset('js/lib/jcarousel/skins/tango/skin.css')}}" media="screen" rel="stylesheet" type="text/css" />
 <!-- Visual Search --> 
 <!--[if (!IE)|(gte IE 8)]><!-->
 <link href="{{ asset('js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
@@ -27,13 +29,12 @@
 
 <script type="text/javascript" src="{{ asset('js/lib/jcarousel/lib/jquery-1.9.1.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('js/lib/jcarousel/lib/jquery.jcarousel.min.js')}}"></script>
-<link href="{{ asset('js/lib/jcarousel/skins/tango/skin.css')}}" media="screen" rel="stylesheet" type="text/css" />
 
 <!-- Carousel scripts -->
 <script type="text/javascript">
-
-jQuery(document).ready(function() {
-    jQuery('#mycarousel').jcarousel({
+var jQuery_1_9_1 = $.noConflict(true);
+jQuery_1_9_1(document).ready(function() {
+    jQuery_1_9_1('#mycarousel').jcarousel({
     	wrap: 'circular'
     });
 });
@@ -69,12 +70,24 @@ jQuery(document).ready(function() {
   	<!-- intro buttons -->
 		
 	<div id="intro-nav">
-		<a href="{{path('howtouse')}}" class="home-button gray"><i class="homeicon-search"></i>
-			<span class="home-button-text">{% trans %}jda.home.howtouse{% endtrans %}</span></a>
-		<a href="{{path('howtocontribute')}}" class="home-button gray"><i class="homeicon-pencil"></i>
-			<span class="home-button-text">{% trans %}jda.home.contributeto{% endtrans %}</span></a>
-		<a href="{{path('partners')}}" class="home-button gray"><i class="homeicon-group"></i>
-			<span class="home-button-text">{% trans %}jda.home.meetpartners{% endtrans %}</span></a>
+		<a href="{{path('howtouse')}}"><img class="home-button" 
+			{% if locale == 'ja' %}
+				src="{{ asset('images/button1ja.png')}}">
+			{% else %}
+				src="{{ asset('images/button1.png')}}">
+			{% endif %}</a>
+		<a href="{{path('howtocontribute')}}"><img class="home-button" 
+			{% if locale == 'ja' %}
+				src="{{ asset('images/button2ja.png')}}">
+			{% else %}
+				src="{{ asset('images/button2.png')}}">
+			{% endif %}</a>
+		<a href="{{path('partners')}}"><img class="home-button" 
+			{% if locale == 'ja' %}
+				src="{{ asset('images/button3ja.png')}}">
+			{% else %}
+				src="{{ asset('images/button3.png')}}">
+			{% endif %}</a>
 		<div style="clear:both"></div>
 	</div>
 
@@ -87,26 +100,9 @@ jQuery(document).ready(function() {
 		</div>
 		
 	<ul id="mycarousel" class="jcarousel-skin-tango">
-		<li style="background-image:url('http://archive.shinsai.c.yimg.jp/v1/resource/emgphoto-0807/093/27807_sr.jpg');"><a href="{{path('collection', { '_locale': locale,'id':1532509 })}}">The World Bank Institute</a></li>
-		
-		<li style="background-image:url('http://archive.shinsai.c.yimg.jp/v1/resource/emgphoto-0702/063/27702_sr.jpg');"><a href="{{path('collection', { '_locale': locale,'id':1532501 })}}">NPO: AMDA</a></li>
-		
-		<li style="background-image:url('http://archive.shinsai.c.yimg.jp/v1/resource/emgphoto-0629/072/59629_sr.jpg');"><a href="{{path('collection', { '_locale': locale,'id':1532065 })}}">子ども被災者支援法・ Child Victim Support Law</a></li>
-		
-		<li style="background-image:url('http://michinoku.irides.tohoku.ac.jp/michinoku-archive/photo/11/285667571184358.jpg');"><a href="{{path('collection', { '_locale': locale,'id':1493365 })}}">震災体験談 Blog：JIYUZINE</a></li>
-		
-		<li style="background-image:url('http://michinoku.irides.tohoku.ac.jp/michinoku-archive/photo/71/247711007118146.jpg');"><a href="{{path('collection', { '_locale': locale,'id':1493338 })}}">Building Research Institute</a></li>
-		
-		<li style="background-image:url('http://archive.shinsai.c.yimg.jp/v1/resource/emgphoto-0744/029/55744_sr.jpg');"><a href="{{path('collection', { '_locale': locale,'id':1493317 })}}">高校野球</a></li>
-		
-		<li style="background-image:url('http://archive.shinsai.c.yimg.jp/v1/resource/emgphoto-0068/024/11068_sr.jpg');"><a href="{{path('collection', { '_locale': locale,'id':1493316 })}}">Kirin・キリンビール</a></li>
-		
-		<li style="background-image:url('http://archive.shinsai.c.yimg.jp/v1/resource/emgphoto-0771/015/16771_sr.jpg');"><a href="{{path('collection', { '_locale': locale,'id':1493315 })}}">経団連： Keidanren</a></li>
-		
-		<li style="background-image:url('http://archive.shinsai.c.yimg.jp/v1/resource/emgphoto-0457/087/10457_sr.jpg');"><a href="{{path('collection', { '_locale': locale,'id':1493275 })}}">動物愛護： dog actually</a></li>
-		
-		<li style="background-image:url('http://archive.shinsai.c.yimg.jp/v1/resource/emgphoto-0292/015/13292_sr.jpg');"><a href="{{path('collection', { '_locale': locale,'id':1493274 })}}">ペット支援：今日もわんにゃん日和</a></li>
-		
+		{% for item in items %}
+				<li style="background-image:url({{item.getThumbnailUrl}});"><a href="{{path('collection', { '_locale': locale,'id':item.getId })}}">{{item.getTitle}}</a></li>
+        {% endfor %}
 		
 	  </ul>
 	</div>

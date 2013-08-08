@@ -65,20 +65,6 @@
 	margin-top:5px;
 }
 
-.homeicon-search{
-
-	background-image: url(../images/search.png);
-}
-
-.homeicon-pencil{
-
-	background-image: url(../images/pencil.png);
-}
-
-.homeicon-group{
-
-	background-image: url(../images/group.png);
-}
 
 .jdicon-lightgrey{
 	background-image: url(../images/jdicons-lightgrey-50.png);
@@ -496,9 +482,11 @@ background-color:#444;position:relative;top:76px;color:whiteSmoke;padding-top:10
 }
 
 #intro-nav{
-	margin-left: 22%;
 	margin-top: 5%;
 	padding-bottom: 260px;
+	width:1000px;
+	margin-left:auto;
+	margin-right:auto;
 	
 }
 
@@ -512,42 +500,17 @@ background-color:#444;position:relative;top:76px;color:whiteSmoke;padding-top:10
 	float: left;
 	outline: none;
 	cursor: pointer;
-	text-align: center;
-	text-decoration: none;
-	font-size:22px;
-	line-height: 30px;
-	width: 20%;
-	height: 110px;
-	text-shadow: 0 1px 1px rgba(0,0,0,.3);
-	-moz-border-radius: 10px; 
-	-webkit-border-radius: 10px; 
-	border-radius: 10px;
-	margin-right: 80px;
+	width: 25%;
+	margin-right: 40px;
+	margin-left:40px;
 	color: #ffffff;
 }
 
-.gray {
-	color: #e9e9e9
-	border: solid 2px #444444;
-	background: #6e6e6e;
-	background: -webkit-gradient(linear, left top, left bottom, from(#696969), to(#333333));
-	background: -moz-linear-gradient(top,  #696969,  #333333);
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#696969', endColorstr='#333333');
+.home-button:hover{
+	opacity: 0.8;
+    filter: alpha(opacity=80);
 }
-.gray:hover {
-	color: #e9e9e9;
-	text-decoration: none;
-	background: #616161;
-	background: -webkit-gradient(linear, left top, left bottom, from(#757575), to(#4b4b4b));
-	background: -moz-linear-gradient(top,  #757575,  #4b4b4b);
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#757575', endColorstr='#4b4b4b');
-}
-.gray:active {
-	color: #e9e9e9;
-	background: -webkit-gradient(linear, left top, left bottom, from(#575757), to(#888));
-	background: -moz-linear-gradient(top,  #575757,  #888);
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#575757', endColorstr='#888888');
-}
+
 
 footer {
 	position: absolute;
