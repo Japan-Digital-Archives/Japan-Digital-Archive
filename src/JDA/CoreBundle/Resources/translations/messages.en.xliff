@@ -1542,7 +1542,7 @@ prompt those of us who were not affected to reflect on the way we live our lives
 			</trans-unit>
 			<trans-unit id="384">
 				<source>jda.howtouse.limitp2</source>
-				<target>To search by media format, click “Browse” and select categories from the drop-down list on the right of the search bar. You can also click on “Advanced Search” to specify the media, location, time range, user, and search field on one screen.</target>
+				<target>To search by media format, click “Explore” and select categories from the drop-down list on the right of the search bar. You can also click on “Advanced Search” to specify the media, location, time range, user, and search field on one screen.</target>
 			</trans-unit>
 			<trans-unit id="386">
 				<source>jda.howtouse.advanced</source>
