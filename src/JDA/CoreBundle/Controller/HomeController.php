@@ -35,7 +35,7 @@ class HomeController extends Controller
     	}
 		
 		$em = $this->getDoctrine()->getEntityManager();
-        $q = $em->createQuery("select i from ZeegaDataBundle:Item i where i.media_type='collection' and i.thumbnail_url<>'' ORDER BY i.date_created DESC");
+        $q = $em->createQuery("select i from ZeegaDataBundle:Item i where i.media_type='collection' and i.thumbnail_url<>'' and i.published=true ORDER BY i.date_created DESC");
         $q->setMaxResults(20);
 		$items = $q->getResult();
     	
