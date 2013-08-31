@@ -322,8 +322,12 @@
 
 				for(var k=0;k<tempQueries.length;k++){
           // make sure to split by both english and Japanese space characters. UTF-8 is funnn
-					textQueries=_.union(textQueries, tempQueries[k].split(" "));
-          textQueries=_.union(textQueries, tempQueries[k].split("　"));
+          if (tempQueries[k].indexOf("　") != -1) {
+            textQueries=_.union(textQueries, tempQueries[k].split("　"));
+          } else {
+            textQueries=_.union(textQueries, tempQueries[k].split(" "));
+          }
+
 				}
 
 
