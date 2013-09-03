@@ -23,7 +23,7 @@ var loadFiles = [
 	'order!../lib/bootstrap-2.0.2/js/bootstrap.min',
 	'order!../lib/leaflet/leaflet',
 	
-	'order!../lib/jquery.tagsinput.min',
+	'order!../lib/jquery.tagsinput',
 	'order!../lib/jeditable.min',
 	'order!../lib/dateformat/date.format',
     'order!../lib/visualsearch/visualsearch',
