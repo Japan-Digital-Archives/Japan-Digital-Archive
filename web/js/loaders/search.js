@@ -33,7 +33,7 @@ require (
 	'order!../lib/bootstrap-2.0.2/js/bootstrap.min',
 	'order!../lib/ajaxfileuploader/ajaxfileupload',
 	
-	'order!../lib/jquery.tagsinput.min',
+	'order!../lib/jquery.tagsinput',
 	'order!../lib/fancybox/jquery.easing-1.3.pack',
 	'order!../lib/fancybox/jquery.mousewheel-3.0.6.pack',
 	'order!../lib/fancybox/jquery.fancybox',
