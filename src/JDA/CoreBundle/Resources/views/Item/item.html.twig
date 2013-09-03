@@ -94,11 +94,11 @@
         
         <div class="row-fluid">
           <div class="span8">
-         	 <div id="item" class='jda-item-container' data-layer_type="{{item.layer_type}}" data-attribution_uri="{{item.attribution_uri}}" data-text="{{item.text}}" data-media_type="{{item.media_type}}" data-uri="{{item.uri}}" ></div>
+         	 <div id="item" class='jda-item-container' data-layer_type="{{item.layer_type}}" data-attribution_uri="{{item.attribution_uri}}" data-text="{{item.text}}" data-media_type="{{item.media_type}}" data-uri="{{item.uri}}" >{{item.text|replace({'<p>': '', '</p>': ''})}}</div>
           </div>
           <div class="span4">
           	<h3>Description</h3>
-          	<p>{{item.description}}</p>
+          	<p>{{item.description|replace({'<p>':'','</p>':''})}}</p>
           	
           	<div class="map-wrapper" style="margin-top:15px;position:relative">
           		<h3>Map</h3>
