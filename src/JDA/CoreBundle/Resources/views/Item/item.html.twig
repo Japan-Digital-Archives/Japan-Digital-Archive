@@ -98,7 +98,7 @@
           </div>
           <div class="span4">
           	<h3>Description</h3>
-          	<p>{{item.description}}</p>
+          	<p>{{item.description|replace({'<p>':'','</p>':''})}}</p>
           	
           	<div class="map-wrapper" style="margin-top:15px;position:relative">
           		<h3>Map</h3>
