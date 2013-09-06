@@ -74,3 +74,13 @@ batchtag:
 batchtagged:
     pattern:	/batch-tagged/
     defaults:	{ _controller: JDACoreBundle:BatchTag:update}
+    
+widget:
+    pattern:   /widget/
+    defaults:  { _controller: JDACoreBundle:Widget:open, _locale: en }
+    requirements:
+        _locale: en|ja   
+            
+widget_persist:
+    pattern: /widget/persist
+    defaults: { _controller:  JDACoreBundle:Widget:persist }
