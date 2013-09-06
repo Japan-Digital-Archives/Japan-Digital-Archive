@@ -74,8 +74,6 @@ batchtag:
 batchtagged:
     pattern:	/batch-tagged/
     defaults:	{ _controller: JDACoreBundle:BatchTag:update}
-    
-    
 widget:
     pattern:   /widget/
     defaults:  { _controller: JDACoreBundle:Widget:open, _locale: en }
