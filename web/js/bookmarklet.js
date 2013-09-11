@@ -25,7 +25,7 @@ getZeegaHost = function() {
     srcUrlIdx = script.src.indexOf("/js/widget/");
     localUrlPrefix = script.src.substring(0,srcUrlIdx);
   } else{
-    localUrlPrefix = script.src.substring(0,srcUrlIdx);
+    localUrlPrefix = script.src.substring(0,srcUrlIdx) + "/web/";
   }
 
   return localUrlPrefix;

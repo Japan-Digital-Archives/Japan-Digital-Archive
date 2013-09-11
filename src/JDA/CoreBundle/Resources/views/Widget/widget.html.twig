@@ -115,7 +115,7 @@
         Audio: "Audio",
     };
         
-    sessionStorage.apiUrl = "http://jdarchive.org/zeega/";	
+    sessionStorage.apiUrl = "http://dev.jdarchive.org/zeega/web";	
     sessionStorage.user = {{ userId }};
 
     initializeMap();
@@ -148,7 +148,7 @@
           console.log(model);
           //save new item to archive
   
-          var baseApiUrl = "http://jdarchive.org/zeega/api/items?api_key=9bIRe71qSeHeVQIcb54NNqY-y&force_key=true"
+          var baseApiUrl = sessionStorage.apiUrl+"/api/items?api_key=9bIRe71qSeHeVQIcb54NNqY-y&force_key=true"
 
           postObj.title = $("#widget-title").val();
           postObj.description = $("#widget-description").val();
@@ -179,7 +179,7 @@
             .success(function (newitem) {
               console.log("created new item "+newitem.items[0].id);
                   
-              activeCollection.url="http://dev.jdarchive.org/zeega/web/api/items/"+trayId+"/items";
+              activeCollection.url= sessionStorage.apiUrl + "/api/items/"+trayId+"/items";
               activeCollection.save({new_items:[newitem.items[0].id]}, {
                 success : function(model, tray_update_response) {
                   console.log(tray_update_response);
