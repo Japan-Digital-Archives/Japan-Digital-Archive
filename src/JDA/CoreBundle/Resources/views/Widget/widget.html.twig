@@ -122,11 +122,10 @@
 
     var postObj = {};
     $.get(sessionStorage.apiUrl+"api/items/parser?url={{ thumbnail_url }}", function(data) {
-    	console.log(data);
     	postObj = data.items[0];
     	postObj.user_id = {{ userId }};
-    	if(postObj.title == null || postObj.title == "") postObj.title = "{{ title }}"; 
-		if(postObj.media_type == null) postObj.media_type = "Website";
+    	if(postObj.title == null || postObj.title == "") postObj.title = "{{ title }}";
+    	if(postObj.media_type == null) postObj.media_type = "Website";
     	postObj.username = "{{ displayname }}";
     	$("#widget-description").val(postObj.description);
     	$("#widget-title").val(postObj.title);
