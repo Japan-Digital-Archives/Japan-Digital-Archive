@@ -125,16 +125,20 @@
     	postObj = data.items[0];
     	postObj.user_id = {{ userId }};
     	if(postObj.title == null || postObj.title == "") postObj.title = "{{ title }}";
-    	if(postObj.media_type == null) postObj.media_type = "Website";
+    	if(postObj.media_type == null) {
+    		postObj.media_type = "Website";
+    		postObj.archive = "Internet Archive";
+
+    	}
     	postObj.username = "{{ displayname }}";
     	$("#widget-description").val(postObj.description);
     	$("#widget-title").val(postObj.title);
     	$("#item-image").attr("src", postObj.thumbnail_url);
-    	if(postObj.thumbnail_url == null) postObj.thumbnail_url = "{{ parent_url }}";    	
+    	postObj.uri = decodeURIComponent("{{ parent_url }}");  
     	$("#widget-media option[value$='"+postObj.media_type+"']").attr('selected', true);
-      if(postObj.media_creator_realname) {
-        $("#widget-creator").val(postObj.media_creator_realname);
-      }
+		if(postObj.media_creator_realname) {
+        	$("#widget-creator").val(postObj.media_creator_realname);
+      	}
     });
     
     $("#add-item-new").click(function() {
@@ -163,7 +167,6 @@
             mediaPrefix = "outside-";
           }
           postObj.media_type = mediaPrefix + $("#widget-media > option:selected").val(); 
-          postObj.uri = "{{ thumbnail_url }}";
           
           postObj.media_date_created = new Date().toDateString();
           
