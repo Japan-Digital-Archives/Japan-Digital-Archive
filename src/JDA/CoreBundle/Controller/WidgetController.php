@@ -38,6 +38,7 @@ class WidgetController extends Controller
             
     $widgetId = $request->query->get('widget-id');
     $itemUrl = $request->query->get('url');
+	$itemTitle = $request->query->get('title');
     
     $parserResponse = $this->forward('JDACoreBundle:Item:getItemsParser', array(), array("url" => $itemUrl))->getContent();
   
@@ -60,7 +61,9 @@ class WidgetController extends Controller
                     'update'=>0,
                    	'archive'=>$parsedItem["archive"],
                     'thumbnail_url'=>$itemUrl,
-                    'child_items_count'=>$parsedItem["child_items_count"]		
+                    'child_items_count'=>$parsedItem["child_items_count"],
+                    'parent_url'=>$itemUrl,
+                    'title'=>$itemTitle	
 				));
   }
     
