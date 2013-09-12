@@ -19,18 +19,16 @@
     <link rel="stylesheet" media="screen" type="text/css" href="{{ asset('css/zeega.widget.css')}}" /> 
     <link rel="icon" type="image/png" href="{{asset('images/zeega.ico')}}"> 
   
+  
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="{{ asset('js/lib/OpenLayers-2.11/OpenLayers.js')}}"></script>
     <script type="text/javascript" src="{{ asset('js//lib/leaflet/leaflet.js')}}"></script>
     <script type="text/javascript" src="http://s3.documentcloud.org/viewer/loader.js"></script>
-	  {% if app.environment == 'dev' %}
-      <!-- to load JS libraries separately -->
-		  <script data-main="http://dev.jdarchive.org//jessica/web/js/loaders/widget.js" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
-		{% else %}
-			<!-- to load single aggregated JS library --> 
-			<script data-main="{{ asset('js_min/search') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
-		{% endif %}
+
+	<script data-main="{{hostname}}{{directory}}/js/loaders/widget.js" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
+
 		{% endblock %}
+		
 		<script type="text/javascript"> 
 			sessionStorage.setItem('directory', '{{directory}}');
 			sessionStorage.setItem('hostname','{{hostname}}');
