@@ -25,7 +25,7 @@ getZeegaHost = function() {
     srcUrlIdx = script.src.indexOf("/js/widget/");
     localUrlPrefix = script.src.substring(0,srcUrlIdx);
   } else{
-    localUrlPrefix = script.src.substring(0,srcUrlIdx) + "/web/";
+    localUrlPrefix = script.src.substring(0,srcUrlIdx) + "/web";
   }
 
   return localUrlPrefix;
@@ -75,10 +75,16 @@ var bm = new bookmarklet({
         {
           // if facebook or other OAuth source, use popup
           zeegaBM.specialCases.facebook.launchPopupWindow(localUrlPrefix, this.url);
+        } else if(window.location.host.indexOf('facebook')>-1) {
+        
+        
+        
+        
         } else {
+        
           // use iFrame
           $('#zeega-overlay').remove();
-
+			console.log("HEY");
           var overlay=$('<div>').css({
             'position':'fixed',
             'right': 0,
@@ -137,7 +143,7 @@ var bm = new bookmarklet({
             .append(
               "<iframe id='zeega-widget-iframe' style='padding: 0px; height: 100%;" +
               "width:470px; height: 100%; border:solid 1px gray' " +
-              "src='" + localUrlPrefix + "/widget?url="+ encodeURIComponent(this.url)+ "' />"
+              "src='" + localUrlPrefix + "/widget?url="+ encodeURIComponent(this.url)+ "&title="+document.title+ "' />"
             )
             .animate({
               'width': 470
@@ -161,6 +167,8 @@ var bm = new bookmarklet({
               $('#zeega-widget-iframe').attr('src',localUrlPrefix +'/widget?url='+encodeURIComponent(src));
             }
           });
+          
+          
 
           $('body img').draggable({
             cursorAt: { left: 5, top:5},
