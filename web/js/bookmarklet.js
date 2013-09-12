@@ -75,11 +75,10 @@ var bm = new bookmarklet({
         {
           // if facebook or other OAuth source, use popup
           zeegaBM.specialCases.facebook.launchPopupWindow(localUrlPrefix, this.url);
-        
         } else {
-        
           // use iFrame
           $('#zeega-overlay').remove();
+
           var overlay=$('<div>').css({
             'position':'fixed',
             'right': 0,
@@ -162,8 +161,6 @@ var bm = new bookmarklet({
               $('#zeega-widget-iframe').attr('src',localUrlPrefix +'/widget?url='+encodeURIComponent(src));
             }
           });
-          
-          
 
           $('body img').draggable({
             cursorAt: { left: 5, top:5},
