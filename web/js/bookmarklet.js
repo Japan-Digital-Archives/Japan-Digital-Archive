@@ -75,16 +75,11 @@ var bm = new bookmarklet({
         {
           // if facebook or other OAuth source, use popup
           zeegaBM.specialCases.facebook.launchPopupWindow(localUrlPrefix, this.url);
-        } else if(window.location.host.indexOf('facebook')>-1) {
-        
-        
-        
         
         } else {
         
           // use iFrame
           $('#zeega-overlay').remove();
-			console.log("HEY");
           var overlay=$('<div>').css({
             'position':'fixed',
             'right': 0,
