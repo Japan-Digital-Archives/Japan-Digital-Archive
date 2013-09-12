@@ -115,19 +115,23 @@
         Audio: "Audio",
     };
         
-    sessionStorage.apiUrl = "http://dev.jdarchive.org/zeega/web";	
+    sessionStorage.apiUrl = "http://dev.jdarchive.org/zeega/web/";	
     sessionStorage.user = {{ userId }};
 
     initializeMap();
 
     var postObj = {};
     $.get(sessionStorage.apiUrl+"api/items/parser?url={{ thumbnail_url }}", function(data) {
+    	console.log(data);
     	postObj = data.items[0];
     	postObj.user_id = {{ userId }};
+    	if(postObj.title == null || postObj.title == "") postObj.title = "{{ title }}"; 
+		if(postObj.media_type == null) postObj.media_type = "Website";
     	postObj.username = "{{ displayname }}";
     	$("#widget-description").val(postObj.description);
     	$("#widget-title").val(postObj.title);
     	$("#item-image").attr("src", postObj.thumbnail_url);
+    	if(postObj.thumbnail_url == null) postObj.thumbnail_url = "{{ parent_url }}";    	
     	$("#widget-media option[value$='"+postObj.media_type+"']").attr('selected', true);
       if(postObj.media_creator_realname) {
         $("#widget-creator").val(postObj.media_creator_realname);
