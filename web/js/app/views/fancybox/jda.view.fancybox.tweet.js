@@ -2,16 +2,16 @@
 
 	Browser.Views = Browser.Views || {};
 	Browser.Views.FancyBox = Browser.Views.FancyBox || {};
-	
+
 	Browser.Views.FancyBox.Tweet = Browser.Views._Fancybox.extend({
-		
+
 		initialize: function()
 		{
 			Browser.Views._Fancybox.prototype.initialize.call(this); //This is like calling super()
 		},
-		
-		
-		
+
+
+
 		/* Pass in the element that the user clicked on from fancybox. */
 		render: function(obj)
 		{
@@ -21,7 +21,8 @@
 
 			//Fill in tweet-specific stuff
 			var blanks = {
-				tweet : linkifyTweet(tweet)
+				tweet : linkifyTweet(tweet),
+        src: this.model.get("attribution_uri")
 			};
 
 			//use template to clone the database items into
@@ -39,7 +40,7 @@
 
 			return this;
 		},
-		
+
 		getMediaTemplate : function()
 		{
 
@@ -47,7 +48,7 @@
 
 			return html;
 		}
-		
+
 	});
-	
+
 })(jda.module("browser"));
