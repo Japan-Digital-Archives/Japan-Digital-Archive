@@ -22,7 +22,6 @@
 			//Fill in tweet-specific stuff
 			var blanks = {
 				tweet : linkifyTweet(tweet),
-        src: this.model.get("attribution_uri")
 			};
 
 			//use template to clone the database items into
@@ -35,6 +34,7 @@
 			$(this.el).find('.fancybox-media-item').css({"height":"5px"});
 			$(this.el).find('.text-wrapper').hide();
 			$(this.el).find('.title').html(l.fancybox_tweet);
+      $(this.el).find('span.source > a').attr("href", this.model.get("attribution_uri"));
 			//set fancybox content
 			obj.content = $(this.el);
 

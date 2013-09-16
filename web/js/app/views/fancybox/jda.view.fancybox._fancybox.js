@@ -1,12 +1,12 @@
 (function(Browser) {
 
 	Browser.Views = Browser.Views || {};
-	
+
 	Browser.Views._Fancybox = Backbone.View.extend({
-		
+
 		tagName:'div',
 		id:'fancybox-media-container',
-		
+
 		initialize: function(){
 			console.log(this.model,'initialize')
 			var _this = this;
@@ -20,18 +20,18 @@
 			'click .jda-share-link input' : function(){
 				$('.jda-share-link input').select();
 			}
-		},	
+		},
 		beforeClose: function(){
 
 		},
-		
+
 		afterShow:function()
 		{
 
 			this.locatorMapView.addMap();
 
 			var _this = this;
-			
+
 			$(this.el).find('.tagsedit').empty().tagsInput({
 				'interactive':true,
 				'defaultText':l.fancybox_addtag,
@@ -42,9 +42,9 @@
 				'maxChars' : 0,
 				'placeholderColor' : '#C0C0C0'
 			});
-		
+
 			$(this.el).find('.jda-show-share-link').click(function(){_this.shareLink();});
-			
+
 			if(!this.model.get('editable')){$('.tag').find('a').hide();}
 
 			var attributes = this.model.get('attributes');
@@ -66,17 +66,17 @@
 				$('.jda-add-to-menu').hide();
 
 			} else{
-				 
+
 					var myCollections = $(_this.el).find('.fancybox-my-collections-list');
 
 					_.each( _.toArray(this.collection), function(item){
 						var id,title;
 						if(!_.isUndefined(item.id)) id =item.id;
 						else id = -1;
-						
+
 						if(item.get('title').length>25) title = item.get('title').substr(0,23)+'...';
 						else title = item.get('title');
-						
+
 						var itemView = '<li class="zeega-collection-list-item" id="'+id+'"><a href=".">'+title+'</a></li>';
 						myCollections.append(itemView);
 
@@ -109,16 +109,16 @@
 											//_this.collection.reset();
 											$(_this.el).find('.jda-saving').hide();
 											$(_this.el).find('.jda-added').show().delay(800).fadeOut(400);
-											
+
 											//update my collection drawer preview
 											if (collection.id == jda.app.myCollectionsDrawer.activeCollectionID){
 												jda.app.myCollectionsDrawer.renderCollectionPreview(collection);
 											}
-											
+
 										},
 										error : function(model, response){
 											console.log(response);
-			
+
 										}
 									}
 								);
@@ -129,8 +129,8 @@
 						}
 						return false;
 					});
-					
-				
+
+
 			}
 		},
 		showTranslate: function(e)
@@ -140,7 +140,7 @@
             $('.translation-wrapper').show();
             $('.show-translate').hide();
 			$('.translationtext-wrapper').hide();
-			e.preventDefault(); 
+			e.preventDefault();
         },
 		updateTags:function(name, _this)
 		{
@@ -174,7 +174,7 @@
 			$('.translationheader').show();
             $('.submittranslationheader').hide();
 			$('.show-translate').show();
- 			$('.translationtext-wrapper').show();	
+ 			$('.translationtext-wrapper').show();
 		 	$('.translation-wrapper').hide();
 		},
 		more : function(){
@@ -193,7 +193,7 @@
 			//Show delete button in More view if user added this item
 			console.log(sessionStorage.getItem("userid") + ' is session nid');
 			console.log(this.model.get("user_id") + ' is mode; nid');
-			
+
 			if(this.model.get("editable")){
 				$(this.el).find('.fancybox-delete-button').show();
 			} else{
@@ -202,7 +202,7 @@
 
 			return false;
 		},
-		
+
 		less : function()
 		{
 			sessionStorage.setItem('moreFancy', false);
@@ -216,15 +216,15 @@
 			return false;
 		},
 		shareLink : function(){
-			
+
 			$('.jda-share-link').toggle();
 			$('.jda-show-share-link').toggleClass('active');
 			$('.jda-share-link').find('input').select();
-			
+
 		},
 		render: function(obj)
 		{
-			
+
             this.elemId = Math.floor(Math.random()*10000);
 			/** Temp Fix **/
 			var blanks = {
@@ -246,7 +246,7 @@
 			    blanks.translation = "None Submitted";
 			    blanks.translationEditText = "";
 			}
-			
+
 			/*
 			if(this.model.get('attribution_uri').indexOf('flickr')>-1) blanks.sourceText = 'View on Flickr';
 			else if(this.model.get('attribution_uri').indexOf('youtube')>-1) blanks.sourceText = 'View on Youtube';
@@ -257,7 +257,7 @@
 			blanks.sourceText = l.fancybox_source;
 
 			blanks.itemShareLink = sessionStorage.getItem('hostname')+sessionStorage.getItem('locale')+'/item/'+ this.model.id;
-			
+
 			//use template to clone the database items into
 			var template = _.template( this.getTemplate() );
 
@@ -274,7 +274,7 @@
 			//else this.less(this.el);
 
 			this.more(this.el);
-		
+
 			if(this.model.get('editable')){
 
 				var _this=this;
@@ -288,7 +288,7 @@
 										console.log("Updated item title for item " + model.id);
 									},
 									error: function(model, response){
-	
+
 										console.log("Error updating item title.");
 										console.log(response);
 									}
@@ -314,7 +314,7 @@
 										console.log("Updated item description for item " + _this.model.id);
 									},
 									error: function(model, response){
-	
+
 										console.log("Error updating item description.");
 										console.log(response);
 									}
@@ -340,7 +340,7 @@
 										console.log("Updated item creator for item " + _this.model.id);
 									},
 									error: function(model, response){
-	
+
 										console.log("Error updating item creator.");
 										console.log(response);
 									}
@@ -362,9 +362,9 @@
 					e.preventDefault();
 				});
 				$(this.el).find('.yes-confirm-delete').click(function(e){
-	
+
 					var deleteURL = sessionStorage.getItem('hostname')+sessionStorage.getItem('directory') + "api/items/" + _this.model.id;
-	
+
 					//DESTROYYYYYYYY
 					_this.model.destroy({
 										url : deleteURL,
@@ -373,7 +373,7 @@
 											console.log("Deleted item " + _this.model.id);
 											//close fancy box window
 											jQuery.fancybox.close();
-	
+
 										},
 										error: function(model, response)
 										{
@@ -383,7 +383,7 @@
 									});
 					e.preventDefault();
 				});
-				
+
 				//DELETE button
 				$(this.el).find('.fancybox-delete-button').click(function(e){
 					$(this).hide();
@@ -427,13 +427,13 @@
 
 								/* Map */
 								'<div id = "fancybox-map" class="more geo"></div>'+
-								
-								
+
+
 							'</div>'+
 							'<p class="fancybox-editable title" style="text-transform: uppercase;"><%= title %></p>'+
 							'<p><span class=" creator fancybox-editable"><%= creator %></span> <span class="source"><a href="<%= sourceLink %>" target="_blank"><%= sourceText %></a></span></p>'+
 							'<div class="fancybox-right-column">'+
-								
+
 								'<div class="description-wrapper">'+
 									'<p class="more subheader">'+l.fancybox_description+'</p><p class="more description fancybox-editable"><%= description %></p>'+
 								'</div>'+
@@ -446,19 +446,19 @@
 								'<div class="text-wrapper">'+
 									'<p class="more subheader">'+l.fancybox_text+'</p><p class="more description fancybox-editable"><%= text %></p>'+
 								'</div>'+
-'<p class="translationheader more subheader">' + "Translation" + '</p>' +
-'<p class="submittranslationheader more subheader">' + "Submit Translation" + '</p>' +
-'<div class="translationtext-wrapper">'+
-'<p class="more description fancybox-editable"><%= translation %></p>'+
-'</div >'+
-'<div style="text-align:left">'+
-'<button class="show-translate btn btn-info btn-medium">' + "edit translation" + '</button>' +
-'</div >'+
-'<div style="display: none; text-align:left" class="translation-wrapper">'+
-'<textarea style="width : 90%" class="translationinsert"><%= translationEditText %></textarea>' + '<button class="submitTranslation btn btn-info btn-medium">' + "submit" + '</button>' +
-'</div>'+
+              '<p class="translationheader more subheader">' + "Translation" + '</p>' +
+              '<p class="submittranslationheader more subheader">' + "Submit Translation" + '</p>' +
+              '<div class="translationtext-wrapper">'+
+              '<p class="more description fancybox-editable"><%= translation %></p>'+
+              '</div >'+
+              '<div style="text-align:left">'+
+              '<button class="show-translate btn btn-info btn-medium">' + "edit translation" + '</button>' +
+              '</div >'+
+              '<div style="display: none; text-align:left" class="translation-wrapper">'+
+              '<textarea style="width : 90%" class="translationinsert"><%= translationEditText %></textarea>' + '<button class="submitTranslation btn btn-info btn-medium">' + "submit" + '</button>' +
+              '</div>'+
 
-	'</div>'
+                '</div>'
 						'</div>'+
 						'<div class="fancybox-buttons" class="clearfix">'+
 							'<p class="fancybox-delete-button more" style="display:none"><a href=".">delete</a></p>'+
@@ -470,5 +470,5 @@
 			return html;
 		}
 	});
-	
+
 })(jda.module("browser"));
