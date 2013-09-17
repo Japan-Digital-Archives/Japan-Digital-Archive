@@ -156,7 +156,9 @@
           postObj.description = $("#widget-description").val();
           postObj.layer_type = layerMediaMap[$("#widget-media > option:selected").val()]; 
           postObj.media_creator_username = "{{ displayname }}";
-          postObj.media_creator_realname = "{{ userId }}";
+          postObj.media_creator_realname = "{{ displayname }}";
+          postObj.attributes = {};
+          postObj.attributes.submitterId = "{{ userId }}";
 
           var mediaPrefix = "";
           if(!$("#add-to-archive").prop("checked")) {
