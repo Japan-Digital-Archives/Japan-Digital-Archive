@@ -96,7 +96,7 @@
 				}
 				
 				if (value !='' && skipTag != true) { 
-                    $('<a />').attr('href', 'http://jdarchive.org/en/search#tags=' + encodeURI(value) + '&media_type=&sort=relevant&').append($('<span>').addClass('tag').append(
+                    $('<a />').attr('href', 'http://jdarchive.org/en/search#tags="' + encodeURI(value) + '"&media_type=&sort=relevant&').append($('<span>').addClass('tag').append(
                         $('<span>').text(value).append('&nbsp;&nbsp;'),
                         $('<a>', {
                             href  : '#',
