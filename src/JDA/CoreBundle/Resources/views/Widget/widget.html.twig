@@ -73,8 +73,6 @@
 				
 			<h3>Title:</h3>
 			<div class='ingest-info'><input type="text" id="widget-title"></div>
-			<h3>Media Creator:</h3>
-			<div class='ingest-info'><input type="text" id="widget-creator"></div>
 			<h3>Description:</h3>
 			<div id="description">
         <div class="widget-textbox ingest-info">
@@ -115,7 +113,7 @@
         Audio: "Audio",
     };
         
-    sessionStorage.apiUrl = "http://dev.jdarchive.org/zeega/web/";	
+    sessionStorage.apiUrl = "http://jdarchive.org/zeega/";	
     sessionStorage.user = {{ userId }};
 
     initializeMap();
@@ -136,9 +134,6 @@
     	$("#item-image").attr("src", postObj.thumbnail_url);
     	postObj.uri = decodeURIComponent("{{ parent_url }}");  
     	$("#widget-media option[value$='"+postObj.media_type+"']").attr('selected', true);
-		if(postObj.media_creator_realname) {
-        	$("#widget-creator").val(postObj.media_creator_realname);
-      	}
     });
     
     $("#add-item-new").click(function() {
@@ -160,7 +155,10 @@
           postObj.title = $("#widget-title").val();
           postObj.description = $("#widget-description").val();
           postObj.layer_type = layerMediaMap[$("#widget-media > option:selected").val()]; 
-          postObj.media_creator_realname = $("#widget-creator").val();
+          postObj.media_creator_username = "{{ displayname }}";
+          postObj.media_creator_realname = "{{ displayname }}";
+          postObj.attributes = {};
+          postObj.attributes.submitterId = "{{ userId }}";
 
           var mediaPrefix = "";
           if(!$("#add-to-archive").prop("checked")) {
