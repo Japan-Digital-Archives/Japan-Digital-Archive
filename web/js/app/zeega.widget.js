@@ -45,5 +45,31 @@ jQuery(function($) {
     $.each(data.items, function(i, val) {
       $("#widget-collection").append("<option value='"+val.id+"'>"+val.title+"</option>");
     });
+    
+	if (data.items.length == 0){
+		var activeCollection = {};
+		activeCollection.title = "outside media "+Math.floor(Math.random()*1000);
+		activeCollection.child_items = [];
+		activeCollection.new_items = [];
+		activeCollection.editable = true;
+		activeCollection.media_type = "Collection";
+		activeCollection.layer_type = "Collection";
+		activeCollection.published= false;
+		activeCollection.attribution_uri= 'default';
+		activeCollection.uri= 'default';
+		activeCollection.archive= 'default';
+	
+	
+		var baseApiUrl = sessionStorage.apiUrl + 'api/items';
+		$.post(baseApiUrl, activeCollection)
+			.error(function (res) { 
+				console.log(res);
+			})
+			.success(function (newitem) {
+				console.log(newitem);
+				$("#widget-collection").append("<option value='"+newitem.items[0].id+"'>"+newitem.items[0].title+"</option>");
+		});
+	} 
+	   
   });
 });
