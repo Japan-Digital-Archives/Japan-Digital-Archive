@@ -16,10 +16,10 @@ class ExporterController extends Controller
             return $this->redirect('/web/login');
         }        
         $fileLoc = realpath("lastExport.txt");
-        if(!file_exists($fileLoc)) {
-            file_put_contents($fileLoc, date('m/d/Y h:i:s a', strtotime('12/11/2012 1:51:00 pm')));
+        $lastExport = 0;
+        if(file_exists($fileLoc)){
+          $lastExport = file_get_contents($fileLoc);
         }
-		$lastExport = strtotime(file_get_contents($fileLoc));
         return $this->render('JDACoreBundle:SeedExport:export.html.twig', array(
                     'page'=> 'export',
                     'lastExport' => $lastExport,
@@ -50,18 +50,33 @@ class ExporterController extends Controller
             return $this->redirect('/web/login');
         }
         $fileLoc = realpath("lastExport.txt");
-        if(!file_exists($fileLoc)) {
-            file_put_contents($fileLoc, date('m/d/Y h:i:s a', strtotime('12/11/2012 1:51:00 pm')));
+        $lastExport = 0;
+        if(file_exists($fileLoc)) {
+          $lastExport = file_get_contents($fileLoc);
         }
-        $lastExport = date_create(file_get_contents($fileLoc));
-        //$lastExport = date_create('2/11/2013 1:51:00 pm');
-        $em = $this->getDoctrine()->getEntityManager();
-        // the > id thing is because of the initial import from the old site, after the first export, it should be unnecessary
-        $q = $em->createQuery("select i from ZeegaDataBundle:Item i where i.id > 890497 and i.published=1 and i.media_type='website' and i.user_id!=469 and i.date_created >= '" . $lastExport->format('Y-m-d H:i:s') . "'");
-        $items = $q->getResult();
-        //$items = $em->getRepository('ZeegaDataBundle:Item')->findBy(array('date_created' => $lastExport));
 
-        file_put_contents($fileLoc, date('m/d/Y h:i:s a', time()));
+        if($lastExport == 0) {
+          return $this->render('JDACoreBundle:SeedExport:failure.html.twig', array(
+                      'page'=> 'export failure'
+                  ));
+        }
+
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $q = $em->createQuery("select i from ZeegaDataBundle:Item i where " .
+          "i.published=1 and i.media_type='website' and i.user_id!=469 and i.id " .
+          "> '" . $lastExport . "'")->setMaxResults(1000);
+        $items = $q->getResult();
+
+        // terrible way to do this, but whatever, it'll work
+        $max = 0;
+        foreach($items as $item) {
+          if ($item->getId() > $max) {
+            $max = $item->getId();
+          }
+        }
+
+        file_put_contents($fileLoc, $max);
         
         return $this->render('JDACoreBundle:SeedExport:items.html.twig', array(
                     'page'=> 'export',
