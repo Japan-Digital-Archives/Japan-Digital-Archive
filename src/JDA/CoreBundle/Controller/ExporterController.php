@@ -75,8 +75,10 @@ class ExporterController extends Controller
             $max = $item->getId();
           }
         }
-
-        file_put_contents($fileLoc, $max);
+        
+        if($max != 0) {
+          file_put_contents($fileLoc, $max);
+        }
         
         return $this->render('JDACoreBundle:SeedExport:items.html.twig', array(
                     'page'=> 'export',
