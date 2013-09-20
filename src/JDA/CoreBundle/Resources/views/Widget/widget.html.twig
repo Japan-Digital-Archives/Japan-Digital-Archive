@@ -13,86 +13,93 @@
     }
   </style>
 	<div id="widget-wrapper" data-id="{{widget_id}}"> 
-		
-		{% if archive == 'Dropbox' %}
-			{% if child_items_count == 0 %} <div id="results-count"><h3>Nothing new to add from Dropbox!</h3></div> 		
-			{% elseif child_items_count == 1 %} <div id="results-count"><h3>1 New Item Found</h3></div> 
-			{% else %} <div id="results-count"><h3>{{child_items_count}} New Items Found</h3></div>
-			{% endif %}
+		{%if userId == 0 %}
+			<div class='widget-message'>Please login at <a href="http://jdarchive.org">jdarchive.org</a> to add content.</div>
 		{% else %}
-			{% if child_items_count == 0 %} <div id="results-count"><h3>1 Item Found</h3></div> 
-			{% else %} <div id="results-count"><h3>{{child_items_count}} Items Found</h3></div>
-			{% endif %}
-		{% endif %}
 		
-		<div id="item-view">
-			<div style="height:150px;">
-			
-        <img style="max-width:150px; max-height:150px;" id="item-image" class="item-image"  />
-			
-        <div id="item-add" class="add-button">
-				
-          {% if archive == 'Dropbox' %}  
-            {% if child_items_count != 0 %}  <button id="add-item" class='btn btn-success'><i class="icon-inbox icon-white"></i>Add Dropbox Media  </i></button>{% endif %}
-          {% elseif update == '1' %} 
-            <button id="add-item" class='btn btn-success'><i class="icon-inbox icon-white"></i> Update Media </button>
-          {% else %} 
-            <input type='checkbox' id='add-to-archive' value='add-to-archive'>Add to Archive</input>
-              <br />
-            <button id="add-item-new" class='btn btn-success'><i class="icon-inbox icon-white"></i> Add Media </button>
-          {% endif %}
-
-        </div>
-			</div>
-			<div style="clear:both;">&nbsp;</div>
-			<div class='widget-message' id="begin-message"></div>
-			
+		
 			{% if archive == 'Dropbox' %}
-        <div class='widget-message' id="message">Dropbox media successfully added to your JDA Collection.</div>
+				{% if child_items_count == 0 %} <div id="results-count"><h3>Nothing new to add from Dropbox!</h3></div> 		
+				{% elseif child_items_count == 1 %} <div id="results-count"><h3>1 New Item Found</h3></div> 
+				{% else %} <div id="results-count"><h3>{{child_items_count}} New Items Found</h3></div>
+				{% endif %}
 			{% else %}
-        <div class='widget-message' id="message">Media successfully added to your JDA Collection.</div>
-        <div style="clear:both;">&nbsp;</div>
-        <div id="message"></div>
+				{% if child_items_count == 0 %} <div id="results-count"><h3>1 Item Found</h3></div> 
+				{% else %} <div id="results-count"><h3>{{child_items_count}} Items Found</h3></div>
+				{% endif %}
 			{% endif %}
+		
+			<div id="item-view">
+				<div style="height:150px;">
+			
+			<img style="max-width:150px; max-height:150px;" id="item-image" class="item-image"  />
+			
+			<div id="item-add" class="add-button">
+				
+			  {% if archive == 'Dropbox' %}  
+				{% if child_items_count != 0 %}  <button id="add-item" class='btn btn-success'><i class="icon-inbox icon-white"></i>Add Dropbox Media  </i></button>{% endif %}
+			  {% elseif update == '1' %} 
+				<button id="add-item" class='btn btn-success'><i class="icon-inbox icon-white"></i> Update Media </button>
+			  {% else %} 
+				<input type='checkbox' id='add-to-archive' value='add-to-archive'>Add to Archive</input>
+				  <br />
+				<button id="add-item-new" class='btn btn-success'><i class="icon-inbox icon-white"></i> Add Media </button>
+			  {% endif %}
+
+			</div>
+				</div>
+				<div style="clear:both;">&nbsp;</div>
+				<div class='widget-message' id="begin-message"></div>
+			
+				{% if archive == 'Dropbox' %}
+			<div class='widget-message' id="message">Dropbox media successfully added to your JDA Collection.</div>
+				{% else %}
+			<div class='widget-message' id="message">Media successfully added to your JDA Collection.</div>
+			<div style="clear:both;">&nbsp;</div>
+			<div id="message"></div>
+				{% endif %}
 						
-			<h3>Media-type</h3>
+				<h3>Media-type</h3>
+				<div class="ingest-info">
+			<select id="widget-media">
+					<option value="Image">Image</option>
+					<option value="Website">Website</option>
+			  <option value="Audio">Audio</option>
+					<option value="Video">Video</option>
+					<option value="Tweet">Tweet</option>
+			</select>
+				</div>
+			
+				<h3>Collection</h3>
+				<div class="ingest-info">
+			<select id="widget-collection"></select>
+				</div>
+				
+				<h3>Title:</h3>
+				<div class='ingest-info'><input type="text" id="widget-title"></div>
+				<h3>Description:</h3>
+				<div id="description">
+			<div class="widget-textbox ingest-info">
+			  <textarea id="widget-description" ></textarea>
+			</div>
+
+			<h3>Location:</h3>
 			<div class="ingest-info">
-        <select id="widget-media">
-  				<option value="Image">Image</option>
-  				<option value="Website">Website</option>
-          <option value="Audio">Audio</option>
-   				<option value="Video">Video</option>
-   				<option value="Tweet">Tweet</option>
-        </select>
+			  <input type="text" id="address" name="location" size="60" /> &nbsp;&nbsp;
+			  <button type="button" onclick="showAddress();" class="btn">Find on Map!</button>
+			  <div>
+				<span class="hint">{% trans %}jda.form.contribute.map.hint{% endtrans %}</span>
+			  </div>
+			  <div id="map_canvas" style="width: 250px; height: 200px"></div>
+			  <div id="latlng"></div>
+			  <input type="hidden" id="lat" name="lat" value="" />
+			  <input type="hidden" id="lng" name="lng" value="" />
+			</div>
+				</div>
 			</div>
 			
-			<h3>Collection</h3>
-			<div class="ingest-info">
-        <select id="widget-collection"></select>
-			</div>
-				
-			<h3>Title:</h3>
-			<div class='ingest-info'><input type="text" id="widget-title"></div>
-			<h3>Description:</h3>
-			<div id="description">
-        <div class="widget-textbox ingest-info">
-          <textarea id="widget-description" ></textarea>
-        </div>
-
-        <h3>Location:</h3>
-        <div class="ingest-info">
-          <input type="text" id="address" name="location" size="60" /> &nbsp;&nbsp;
-          <button type="button" onclick="showAddress();" class="btn">Find on Map!</button>
-          <div>
-            <span class="hint">{% trans %}jda.form.contribute.map.hint{% endtrans %}</span>
-          </div>
-          <div id="map_canvas" style="width: 250px; height: 200px"></div>
-          <div id="latlng"></div>
-          <input type="hidden" id="lat" name="lat" value="" />
-          <input type="hidden" id="lng" name="lng" value="" />
-        </div>
-			</div>
-		</div>
+		{% endif %}
+			
 	</div><!--widget-wrapper-->
 
 	<script type="text/javascript" language="Javascript">
