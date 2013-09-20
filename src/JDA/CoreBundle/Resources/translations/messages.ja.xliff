@@ -372,7 +372,7 @@
             </trans-unit>
             <trans-unit id="94">
                 <source>jda.about.news</source>
-                <target>ブログ</target>
+                <target>ニュース</target>
             </trans-unit>
             <trans-unit id="95">
                 <source>jda.about.faq</source>
