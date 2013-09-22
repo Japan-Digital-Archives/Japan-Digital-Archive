@@ -1,9 +1,9 @@
 ﻿/********************************************
 
     MAIN.JS
-    
+
     VERSION 0.1
-    
+
     LOADS JS FILES
 
 
@@ -203,18 +203,20 @@ require(loadFiles, function () {
                     postObj.tags.push($(this).val());
                 });
 
-                postObj.language = $("#englishChk").is(":checked") ? "English|" : "";
-                postObj.language += $("#japaneseChk").is(":checked") ? "Japanese|" : "";
-                postObj.language += $("#chineseChk").is(":checked") ? "Chinese|" : "";
-                postObj.language += $("#koreanChk").is(":checked") ? "Korean|" : "";
 
                 postObj.attributes = {};
                 postObj.attributes.frequency = $("#frequencyDDL > option:selected").val();
                 postObj.attributes.scope = $("#scopeDDL > option:selected").val();
                 postObj.attributes.email = $("#emailTxt").val();
+
+                postObj.attributes.language = $("#englishChk").is(":checked") ? "English|" : "";
+                postObj.attributes.language += $("#japaneseChk").is(":checked") ? "Japanese|" : "";
+                postObj.attributes.language += $("#chineseChk").is(":checked") ? "Chinese|" : "";
+                postObj.attributes.language += $("#koreanChk").is(":checked") ? "Korean|" : "";
+
                 postObj.published = 0;
                 postObj.archive = "Seeds";
-                
+
                 $.post(baseApiUrl, postObj, function (response) {
                 }).error(function () { alert("There was a problem with your submission, please try again"); }).success(function () {
                     alert('Thank you! Your submission has been received.');
