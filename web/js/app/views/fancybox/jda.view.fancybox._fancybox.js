@@ -147,10 +147,8 @@
 			model = _this.model;
 			var tags = [];
       // use .find() go as deep as needed in the DOM
-			$("#"+_this.elemId+"_tagsinput").find(".tag").contents().filter(function() {
-        return this.nodeType == Node.TEXT_NODE;
-      }).each(function () {
-			  tags.push($(this).text().trim());
+			$("#"+_this.elemId+"_tagsinput").find(".tag").each(function () {
+			  tags.push($(this).contents().eq(0).text().trim());
 			});
 			_this.model.save({tags : tags});
 		},
