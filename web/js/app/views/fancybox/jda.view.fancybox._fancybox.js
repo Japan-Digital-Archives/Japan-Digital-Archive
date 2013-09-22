@@ -147,7 +147,8 @@
 			model = _this.model;
 			var tags = [];
       console.log("#"+_this.elemId+"_tagsinput");
-			$("#"+_this.elemId+"_tagsinput").children(".tag").each(function () {
+      // use .find() go as deep as needed in the DOM
+			$("#"+_this.elemId+"_tagsinput").find(".tag").each(function () {
 			  tags.push($(this).text().trim());
 			});
       console.log(tags);
