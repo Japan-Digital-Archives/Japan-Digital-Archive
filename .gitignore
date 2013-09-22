@@ -22,3 +22,4 @@ web/.htaccess
 web/bugs/php/config.php
 ._.DS_Store*
 web/images/content/*
+*.swp
