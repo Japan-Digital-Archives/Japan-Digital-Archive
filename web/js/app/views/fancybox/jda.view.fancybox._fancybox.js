@@ -147,7 +147,7 @@
 			model = _this.model;
 			var tags = [];
       // use .find() go as deep as needed in the DOM
-			$("#"+_this.elemId+"_tagsinput").find(".tag").filter(function() {
+			$("#"+_this.elemId+"_tagsinput").find(".tag").contents().filter(function() {
         return this.nodeType == Node.TEXT_NODE;
       }).each(function () {
 			  tags.push($(this).text().trim());
