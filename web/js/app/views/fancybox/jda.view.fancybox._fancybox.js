@@ -146,12 +146,10 @@
 		{
 			model = _this.model;
 			var tags = [];
-      console.log("#"+_this.elemId+"_tagsinput");
       // use .find() go as deep as needed in the DOM
 			$("#"+_this.elemId+"_tagsinput").find(".tag").each(function () {
-			  tags.push($(this).text().trim());
+			  tags.push($(this).text().replace("  x", "").trim());
 			});
-      console.log(tags);
 			_this.model.save({tags : tags});
 		},
 		submitTranslation:function()
