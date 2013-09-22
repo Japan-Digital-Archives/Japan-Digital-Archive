@@ -146,6 +146,7 @@
 		{
 			model = _this.model;
 			var tags = [];
+      console.log("#"+_this.elemId+"_tagsinput");
 			$("#"+_this.elemId+"_tagsinput").children(".tag").each(function () {
 			  tags.push($(this).text().trim());
 			});
