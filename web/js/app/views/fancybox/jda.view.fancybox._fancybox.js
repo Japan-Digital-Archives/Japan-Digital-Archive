@@ -145,12 +145,11 @@
 		updateTags:function(name, _this)
 		{
 			model = _this.model;
-			var $t = $("#"+_this.elemId+"_tagsinput").children(".tag");
 			var tags = [];
-			for (var i = $t.length; i--;)
-			{
-				tags.push($($t[i]).text().substring(0, $($t[i]).text().length -  1).trim());
-			}
+			$("#"+_this.elemId+"_tagsinput").children(".tag").each(function () {
+			  tags.push($(this).text().trim());
+			});
+      console.log(tags);
 			_this.model.save({tags : tags});
 		},
 		submitTranslation:function()
@@ -172,7 +171,7 @@
 		    $(this.el).find('.translationtext-wrapper > p').text(translation);
 
 			$('.translationheader').show();
-            $('.submittranslationheader').hide();
+      $('.submittranslationheader').hide();
 			$('.show-translate').show();
  			$('.translationtext-wrapper').show();
 		 	$('.translation-wrapper').hide();
