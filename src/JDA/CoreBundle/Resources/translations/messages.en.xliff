@@ -1635,6 +1635,10 @@ prompt those of us who were not affected to reflect on the way we live our lives
 				<source>jda.howtocontribute.createp5</source>
 				<target>It is possible to share individual collections with others by using the privacy setting. Click on the “Archive Settings” pencil to set the collection to “Public”  or “Limited.” Choosing the “Public” setting means that other users will be able to see your collection. Choosing “Limited” means your collection will only be visible to you and those who have a link to the collection. It not show up in search results unless you change the settings.</target>
 			</trans-unit>
+			<trans-unit id="410">
+				<source>jda.search.removert</source>
+				<target>Exclude Re-Tweets</target>
+			</trans-unit>
         </body>
     </file>
 </xliff>
