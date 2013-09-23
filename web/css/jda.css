@@ -38,6 +38,18 @@
 	border:none;
 }
 
+#home-tumblr-button{
+	background-image: url(../images/tumblrlogo.png);
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+	float:right;
+	display:inline-block;
+	height:40px;
+	width:40px;
+	margin-right:20px;
+	border:none;
+}
+
 
 [class^="jdicon-"]
 {

@@ -372,7 +372,7 @@
             </trans-unit>
             <trans-unit id="94">
                 <source>jda.about.news</source>
-                <target>ニュース</target>
+                <target>ブログ</target>
             </trans-unit>
             <trans-unit id="95">
                 <source>jda.about.faq</source>
@@ -1656,6 +1656,10 @@
 			<trans-unit id="409">
 				<source>jda.howtocontribute.createp5</source>
 				<target>プライバシー設定を変更する事により、コレクションを他のユーザと共有することもできます。「アーカイブ設定」の鉛筆マークをクリックして、「公開」か「限定」をお選びください。「公開」を選択すると、他のユーザもコレクションを閲覧することができるようになります。「限定」を選択すると、他のユーザは見ることができず、設定を変えない限り検索結果に表示されることもありません。</target>
+			</trans-unit>
+			<trans-unit id="410">
+				<source>jda.search.removert</source>
+				<target>Exclude Re-Tweets</target>
 			</trans-unit>
         </body>
     </file>
