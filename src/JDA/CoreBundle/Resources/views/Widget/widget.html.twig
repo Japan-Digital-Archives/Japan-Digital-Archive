@@ -193,7 +193,7 @@
 
           postObj.title = $("#widget-title").val();
           postObj.description = $("#widget-description").val();
-          postObj.layer_type = layerMediaMap[$("#widget-media > option:selected").val()]; 
+          postObj.layer_type = mediaPrefix + layerMediaMap[$("#widget-media > option:selected").val()]; 
           postObj.media_creator_username = "{{ displayname }}";
           postObj.media_creator_realname = "{{ displayname }}";
           postObj.attributes = {};
@@ -203,7 +203,7 @@
           if(!$("#add-to-archive").prop("checked")) {
             mediaPrefix = "outside-";
           }
-          postObj.media_type = mediaPrefix + $("#widget-media > option:selected").val(); 
+          postObj.media_type = $("#widget-media > option:selected").val(); 
           
           postObj.media_date_created = new Date().toDateString();
           
