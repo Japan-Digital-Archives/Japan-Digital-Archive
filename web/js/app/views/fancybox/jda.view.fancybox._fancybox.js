@@ -12,6 +12,23 @@
 			var _this = this;
 			this.collection = jda.app.myCollectionsDrawer.collection;
 			if(!_.isUndefined(_gaq)) _gaq.push(["_trackEvent", "JDA-Item", "View", this.model.id.toString()]);
+      if (window.location.href.indexOf("/ja/") != -1) {
+        this.language = "ja";
+      } else {
+        this.language = "en";
+      }
+      this.translations = {
+        "ja" : {
+          translation : "翻訳",
+          editTranslation : "翻訳を修正する",
+          submitTranslation : "翻訳する"
+        },
+        "en" : {
+          translation : "Translation",
+          editTranslation : "Edit Translation",
+          submitTranslation : "Submit Translation"
+        }
+      };
 		},
 
 		events : {
@@ -135,13 +152,13 @@
 		},
 		showTranslate: function(e)
 		{
-			$('.translationheader').hide();
-            $('.submittranslationheader').show();
-            $('.translation-wrapper').show();
-            $('.show-translate').hide();
-			$('.translationtext-wrapper').hide();
-			e.preventDefault();
-        },
+      $('.translationheader').hide();
+      $('.submittranslationheader').show();
+      $('.translation-wrapper').show();
+      $('.show-translate').hide();
+      $('.translationtext-wrapper').hide();
+      e.preventDefault();
+    },
 		updateTags:function(name, _this)
 		{
 			model = _this.model;
@@ -154,21 +171,21 @@
 		},
 		submitTranslation:function()
 		{
-		    var translation = $(this.el).find('.translationinsert').val().trim();
+      var translation = $(this.el).find('.translationinsert').val().trim();
 
-		    if (translation == "") {
-		        alert('Please enter a translation before submitting');
-		        return;
-		    }
+      if (translation == "") {
+          alert('Please enter a translation before submitting');
+          return;
+      }
 
-		    var attributes = this.model.get('attributes');
-		    if (attributes instanceof Object) {
-		        attributes.translation = translation;
-		    } else {
-		        attributes = { translation: translation };
-		    }
-		    this.model.save({ attributes: attributes });
-		    $(this.el).find('.translationtext-wrapper > p').text(translation);
+      var attributes = this.model.get('attributes');
+      if (attributes instanceof Object) {
+          attributes.translation = translation;
+      } else {
+          attributes = { translation: translation };
+      }
+      this.model.save({ attributes: attributes });
+      $(this.el).find('.translationtext-wrapper > p').text(translation);
 
 			$('.translationheader').show();
       $('.submittranslationheader').hide();
@@ -215,16 +232,14 @@
 			return false;
 		},
 		shareLink : function(){
-
 			$('.jda-share-link').toggle();
 			$('.jda-show-share-link').toggleClass('active');
 			$('.jda-share-link').find('input').select();
-
 		},
 		render: function(obj)
 		{
 
-            this.elemId = Math.floor(Math.random()*10000);
+      this.elemId = Math.floor(Math.random()*10000);
 			/** Temp Fix **/
 			var blanks = {
 				sourceLink : this.model.get('uri'),
@@ -239,19 +254,12 @@
 			var attributes = this.model.get('attributes');
 
 			if (attributes.translation) {
-			    blanks.translation = attributes.translation;
-			    blanks.translationEditText = attributes.translation;
+        blanks.translation = attributes.translation;
+        blanks.translationEditText = attributes.translation;
 			} else {
-			    blanks.translation = "None Submitted";
-			    blanks.translationEditText = "";
+        blanks.translation = "None Submitted";
+        blanks.translationEditText = "";
 			}
-
-			/*
-			if(this.model.get('attribution_uri').indexOf('flickr')>-1) blanks.sourceText = 'View on Flickr';
-			else if(this.model.get('attribution_uri').indexOf('youtube')>-1) blanks.sourceText = 'View on Youtube';
-			else if(this.model.get('attribution_uri').indexOf('soundcloud')>-1) blanks.sourceText = 'Listen on Soundcloud';
-			else blanks.sourceText = l.fancybox_source;
-			*/
 
 			blanks.sourceText = l.fancybox_source;
 
@@ -445,13 +453,14 @@
 								'<div class="text-wrapper">'+
 									'<p class="more subheader">'+l.fancybox_text+'</p><p class="more description fancybox-editable"><%= text %></p>'+
 								'</div>'+
-              '<p class="translationheader more subheader">' + "Translation" + '</p>' +
-              '<p class="submittranslationheader more subheader">' + "Submit Translation" + '</p>' +
+                // translation stuff
+              '<p class="translationheader more subheader">' + this.translations[this.language].translation + '</p>' +
+              '<p class="submittranslationheader more subheader">' + this.translations[this.language].submitTranslation + '</p>' +
               '<div class="translationtext-wrapper">'+
               '<p class="more description fancybox-editable"><%= translation %></p>'+
               '</div >'+
               '<div style="text-align:left">'+
-              '<button class="show-translate btn btn-info btn-medium">' + "edit translation" + '</button>' +
+              '<button class="show-translate btn btn-info btn-medium">' + this.translations[this.language].editTranslation + '</button>' +
               '</div >'+
               '<div style="display: none; text-align:left" class="translation-wrapper">'+
               '<textarea style="width : 90%" class="translationinsert"><%= translationEditText %></textarea>' + '<button class="submitTranslation btn btn-info btn-medium">' + "submit" + '</button>' +
