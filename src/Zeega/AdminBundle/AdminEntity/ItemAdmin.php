@@ -12,31 +12,36 @@ class ItemAdmin extends Admin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-		$itemTypes = array('Video' => 'Video', 'Audio' => 'Audio',
-			'Text' => 'Text','Image' => 'Image','Tweet' => 'Tweet','Document' => 'Document',
-			'Website' => 'Website', 'News Article' => 'News Article', 'Testimonial' => 'Text',
-            'Broadcast' => 'Broadcast', 'News Headline' => 'Headline');
-        $fileLoc = realpath("lastExport.txt");
-		$lastExport = file_get_contents($fileLoc);
-        $formMapper
-            ->add('title')
-            ->add('description')
-			->add('text')
-			->add('uri')
-			->add('attribution_uri')
-			->add('media_type', 'choice', array('choices' => $itemTypes, 'multiple' => false))
-			->add('media_geo_latitude')
-			->add('media_geo_longitude')
-			->add('location')
-			->add('media_creator_username')
-			->add('media_creator_realname')
-            ->add('user_id')
-			->add('tags', NULL, array('allow_add' => true, 'allow_delete' => true))
-			->add('attributes', NULL, array('allow_add' => true, 'allow_delete' => true))
-			->add('published', NULL, array('required' => false))
-            ->add('media_date_created')
-            ->add('date_created', 'date', array('required' => false, 'widget' => 'single_text', 'help' => 'Last Export Date: ' . $lastExport . ' If created after this date, has not been sent to IA', 
-                  'attr' => array('readonly' => true)))
+      $itemTypes = array('Video' => 'Video', 'Audio' => 'Audio',
+        'Text' => 'Text','Image' => 'Image','Tweet' => 'Tweet','Document' => 
+        'Document',
+        'Website' => 'Website', 'News Article' => 'News Article', 'Testimonial' 
+        => 'Text',
+              'Broadcast' => 'Broadcast', 'News Headline' => 'Headline');
+      $fileLoc = realpath("lastExport.txt");
+      $lastExport = file_get_contents($fileLoc);
+      $formMapper
+          ->add('title')
+          ->add('description')
+          ->add('text')
+          ->add('uri')
+          ->add('attribution_uri')
+          ->add('media_type', 'choice', array('choices' => $itemTypes, 'multiple' => false))
+          ->add('layer_type')
+          ->add('media_geo_latitude')
+          ->add('media_geo_longitude')
+          ->add('location')
+          ->add('media_creator_username')
+          ->add('media_creator_realname')
+          ->add('user_id')
+          ->add('tags', NULL, array('allow_add' => true, 'allow_delete' => true))
+          ->add('attributes', NULL, array('allow_add' => true, 'allow_delete' => true))
+          ->add('published', NULL, array('required' => false))
+          ->add('media_date_created')
+          ->add('date_created', 'date', array('required' => false, 'widget' => 
+          'single_text', 'help' => 'Last Exported Seed ID: ' . $lastExport . 
+          ' If it has a higher ID, it has not been sent to IA', 'attr' => 
+          array('readonly' => true)))
 
         ;
     }
@@ -46,11 +51,12 @@ class ItemAdmin extends Admin
         $datagridMapper
             ->add('title')
             ->add('uri')
-			->add('published')
+            ->add('published')
             ->add('media_type')
-			->add('media_creator_username')
+            ->add('layer_type')
+            ->add('media_creator_username')
             ->add('media_creator_realname')
-			->add('id')
+            ->add('id')
             ->add('user_id')
         ;
     }
@@ -61,9 +67,10 @@ class ItemAdmin extends Admin
             ->addIdentifier('id')
             ->add('title')
             ->add('media_type')
+            ->add('layer_type')
             ->add('date_created')
             ->add('published')
-			->add('media_creator_username')
+            ->add('media_creator_username')
             ->add('media_creator_realname')
             ->add('user_id')
         ;
