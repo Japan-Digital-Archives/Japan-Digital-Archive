@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  
+
     var BrowserDetect = {
     init: function () {
         this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
@@ -117,7 +117,7 @@ $(document).ready(function(){
     };
 
         BrowserDetect.init();
-        
+
 
         if((BrowserDetect.browser=='Firefox'&&BrowserDetect.version<12)||(BrowserDetect.browser=='Explorer'&&BrowserDetect.version<9)) {
             $('#browserModal').modal('show');
@@ -133,14 +133,14 @@ $(document).ready(function(){
 
 
     /*************** USER LOGIN ************************/
-    
+
     $('#sign-in').click(function(){
         $('#user-modal-body').empty().append('<iframe class="login" src="'+$('#sign-in').data('link')+'"></iframe>');
         $('#user-modal').modal('show');
         return false;
     });
-    
-    
+
+
     $('#user-modal').bind('authenticated',function(){
         $('#sign-in').hide();
         $('#user-dropdown').show();
@@ -148,42 +148,42 @@ $(document).ready(function(){
         if(!_.isUndefined(window.jda))jda.app.userAuthenticated();
         return false;
     });
-    
-    
-    $('#user-modal').bind('close',function(){$("#user-modal-close").trigger('click');});
-    
 
-    
+
+    $('#user-modal').bind('close',function(){$("#user-modal-close").trigger('click');});
+
+
+
     /*************** ACCOUNT SETTINGS ************************/
-    
+
     $('#account-settings').click(function(){
         $('#user-modal-body').empty().append('<iframe class="login" src="'+sessionStorage.getItem('hostname')+sessionStorage.getItem('directory')+'profile/change-password?_locale='+sessionStorage.getItem('locale')+'"></iframe>');
         $('#user-modal').modal('show');
         return false;
-        
+
     });
-    
-    
-    
+
+
+
     /************  BUG REPORT **********************/
-    
-    
+
+
     $('.bug-report').click(function(e){e.stopPropagation();});
-    
+
     $('.bug-report').parent().click(function(){
         $('.bug-unsubmitted').show();
         $('.bug-submitted').hide();
     });
-    
+
     $('.close-bug').click(function(){
         $('.bug-report').parent().trigger('click');
     });
-    
-    
+
+
     $('.submit-bug').click(function(){
-        
+
         var bug = new Backbone.Model({
-        
+
             url:window.location.href,
             hash: window.location.hash.substr(1),
             description: $('.bug-description').val(),
@@ -192,19 +192,19 @@ $(document).ready(function(){
             version: BrowserDetect.version,
             os:BrowserDetect.OS,
             login:sessionStorage.getItem('user')
-        
+
         });
-        
+
         bug.url="../bugs/report.php";
         bug.save();
         $('.bug-description').attr('value','');
         $('.bug-unsubmitted').fadeOut('fast',function(){
                 $('.bug-submitted').fadeIn();
         });
-    
+
     });
-    
-    
+
+
 
     /*************** LANGUAGE TOGGLE ************************/
     $('#jda-language-toggle').find('.btn').click(function(){
@@ -216,26 +216,26 @@ $(document).ready(function(){
             if($(this).data('language')=='en') window.location =  window.location.href.replace('/ja/','/en/');
             else window.location =  window.location.href.replace('/en/','/ja/');
         }
-        
-    });
-    
-    
-    
-    
-    
-    
-    
-    /*********** SEARCH SPECIFIC GO TO PROFILE PAGE ****************/
-    
-    
-    
 
-  
+    });
+
+
+
+
+
+
+
+    /*********** SEARCH SPECIFIC GO TO PROFILE PAGE ****************/
+
+
+
+
+
   $("#jda-search-button-group,#search-bar").fadeTo('fast',1);
 
   //View buttons toggle
   $("#zeega-view-buttons button").tooltip({'placement':'bottom', delay: { show: 600, hide: 100 }});
-  
+
   $('#zeega-view-buttons a').click(function(){ jda.app.switchViewTo( $(this).data('goto-view') , true); return false; });
 
   $('#zeega-search-help').popover({'title':l.jda_searching,'placement':'bottom'});
@@ -245,11 +245,11 @@ $(document).ready(function(){
     jda.app.parseSearchUI();
     return false;
   });
-  
+
   $('#zeega-sort').change(function(){
         jda.app.sort();
      });
-  
+
 
   $(window).resize(function() {
     if (jda.app.currentView == "event"){
@@ -268,11 +268,16 @@ $(document).ready(function(){
         } else{
             VisualSearch.searchBox.searchEvent(e);
         }
-        
+
         return false;
-    });
- 
-  
+  });
+  $('#noRTChk').click(function () {
+    var e = jQuery.Event("keydown");
+    e.which = 13;
+    VisualSearch.searchBox.searchEvent(e);
+  });
+
+
   //Infinite Scroll
   jda.app.killScroll = false;
   $(window).scroll(function(){
@@ -288,9 +293,9 @@ $(document).ready(function(){
       }
     }
   });
-  
 
-  
+
+
 
   //Sets variable for Fancybox "more" view to false each time the page is reloaded
   sessionStorage.setItem('moreFancy', false);
@@ -331,7 +336,7 @@ $(document).ready(function(){
       helpers : {
         title : false,
         buttons: {}
-        
+
       },
       beforeClose : function() {
 
@@ -343,7 +348,7 @@ $(document).ready(function(){
           $('video').attr("src", null);
 
           //reactivate keyboard controls for OL map so arrow scrolling works again
-       
+
        /*
        if (!_.isUndefined(jda.app.map)){
           var keyboardControls = jda.app.map.getControlsByClass('OpenLayers.Control.KeyboardDefaults');
@@ -351,7 +356,7 @@ $(document).ready(function(){
         }
 
     */
-    
+
       },
       afterShow : function(){
         this.fancyView.afterShow();
@@ -361,7 +366,7 @@ $(document).ready(function(){
     /* This is where we decide which kind of content to put in the fancybox */
 
       beforeLoad : function() {
-  
+
         //deactivate keyboard controls for OL map so arrow scrolling doesn't scroll map too
         /*
         if (!_.isUndefined(jda.app.map)){
@@ -369,20 +374,20 @@ $(document).ready(function(){
         keyboardControls[0].deactivate();
         }
         */
-        
+
         var Browser = jda.module("browser");
         $('#fancybox-document-cloud').remove();
-      
-      
+
+
         var elementID = $(this.element).attr('id');
           console.log(jda.app,elementID);
           var thisModel = jda.app.currentView == 'list' || jda.app.currentView == 'thumb' ? jda.app.resultsView.collection.get(elementID) : jda.app.eventMap.mapViewCollection.collection.get(elementID);
-          
+
           this.fancyView = null;
 
-         
+
         //Bookmark refers to all items that must be accessed through external site
-          
+
         if(thisModel.get("layer_type")=="Bookmark"){
           this.fancyView = new Browser.Views.FancyBox.Bookmark({model:thisModel});
         }
@@ -420,7 +425,7 @@ $(document).ready(function(){
 
         this.fancyView.render(this);
       }
-        
+
   });
-  
+
 });
