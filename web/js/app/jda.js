@@ -24,16 +24,16 @@ this.jda = {
     apiLocation : sessionStorage.getItem("apiUrl"),
     currentView : 'list',
     resultsPerPage : 100,
-    
+
     init : function(){
         // make item collection
         this.currentFilter=null;
         var Browser = jda.module("browser");
-        
+
         this.resultsView = new Browser.Items.Collections.Views.Results();
         this.eventMap = new Browser.Views.EventMap();
         this.initCollectionsDrawer();
-        
+
         this.startRouter();
         var _this=this;
     },
@@ -52,12 +52,12 @@ this.jda = {
                 ""                : 'search',
                 ":query"        : 'search'
             },
-    
+
             search : function( query ){
                 _this.parseURLHash(query);
             }
         });
-    
+
         this.router = new Router();
         Backbone.history.start();
     },
@@ -92,13 +92,13 @@ this.jda = {
 
         return query_obj;
     },
-    
+
     parseURLHash  : function (query){
-    
+
         var _this=this;
         var Browser = jda.module("browser");
         //Update Search Object
-        
+
         if (!_.isUndefined(query)){
             this.searchObject =  this.queryStringToHash(query);
         } else {
@@ -107,22 +107,22 @@ this.jda = {
 
         console.log("searchObject",this.searchObject);
         //Update interface
-        
+
         this.updateSearchUI(this.searchObject);
-        
+
         //Load filter if nec, carry out search
-        
+
         if(sessionStorage.getItem('filterType')=='none'||!_.isUndefined(this.filterModel)) {
-        
+
             if (!_.isUndefined(this.searchObject.view_type)) this.switchViewTo(this.searchObject.view_type,true) ;
             else this.search(this.searchObject);
         }
         else{
-        
+
             $('.tab-content').find('.btn-group').hide();
             $('#jda-related-tags').hide();
             $('#event-button').hide();
-            
+
             if(sessionStorage.getItem('filterType')=='user'){
                 this.filterType ="user";
                 this.filterModel = new Browser.Users.Model({id:sessionStorage.getItem('filterId')});
@@ -134,12 +134,12 @@ this.jda = {
                     },
                     error : function(model, response){
                         console.log('Failed to fetch the user object.');
-                        
+
                     }
                 });
             }
             else if(sessionStorage.getItem('filterType')=='collection'){
-                
+
                 this.filterType ="collection";
                 this.filterModel = new Browser.Items.Model({id:sessionStorage.getItem('filterId')});
                 this.filterModel.fetch({
@@ -150,15 +150,15 @@ this.jda = {
                     },
                     error : function(model, response){
                         console.log('Failed to fetch the user object.');
-                        
+
                     }
-        
+
                 });
-            
+
             }
         }
     },
-    
+
     sort : function(){
         this.searchObject.sort = $('#zeega-sort').val();
         this.updateURLHash(this.searchObject);
@@ -167,7 +167,7 @@ this.jda = {
 
     parseSearchUI : function(){
         var facets = VisualSearch.searchQuery.models;
-            
+
         var obj={};
         var tagQuery = "";
         var textQuery = "";
@@ -180,7 +180,7 @@ this.jda = {
                 facet.remove();
             }
         });
-        
+
         _.each(facets, function(facet){
             switch ( facet.get('category') )
             {
@@ -194,26 +194,32 @@ this.jda = {
                     break;
             }
         });
-            
+
         obj.q = textQuery;
         obj.tags = tagQuery;
         obj.view_type = this.currentView;
 
         obj.media_type = $('#zeega-content-type').val();
+
+        // remove retweets
+        if ($("#noRTChk").is(":checked")) {
+          obj.nq = "RT";
+        }
+
         obj.sort = $('#zeega-sort').val();
-        
+
         obj.times = this.searchObject.times;
-        
+
         this.searchObject=obj;
-        
-        
+
+
         this.updateURLHash(obj);
         this.search(obj);
-    
+
     },
-    
+
     updateSearchUI : function(obj){
-        
+
 
         VisualSearch.searchBox.disableFacets();
         VisualSearch.searchBox.value('');
@@ -238,24 +244,25 @@ this.jda = {
                 VisualSearch.searchBox.addFacet('tag', tags[i], 0);
             }
         }
-        
-        
+
+
         if (!_.isUndefined(obj.media_type)) $('#zeega-content-type').val(obj.media_type);
         else $('#zeega-content-type').val("");
-        
-        
+
+
         if (!_.isUndefined(obj.sort)) $('#zeega-sort').val(obj.sort);
         else $('#zeega-sort').val("relevant");
-        
+
         $('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
-        
-        
+
+
     },
-    
+
     updateURLHash : function(obj){
 		var hash = '';
         if( !_.isUndefined(this.viewType)) hash += 'view_type=' + this.viewType + '&';
         if( !_.isUndefined(obj.q) && obj.q.length > 0) hash += 'q=' + obj.q + '&';
+        if( !_.isUndefined(obj.nq)) hash += 'nq=' + obj.nq + '&';
         if( !_.isUndefined(obj.tags) && obj.tags.length > 0) hash += 'tags=' + obj.tags + '&';
         if( !_.isUndefined(obj.media_type) )hash += 'media_type='+ obj.media_type + '&';
 
@@ -268,7 +275,7 @@ this.jda = {
         }
         jda.app.router.navigate(hash,{trigger:false});
     },
-    
+
     search : function(obj){
         if(!_.isUndefined(this.filterType)){
             if(this.filterType=="user"){
@@ -278,25 +285,25 @@ this.jda = {
                 obj.itemId = sessionStorage.getItem('filterId');
             }
         }
-        
-    
+
+
         this.resultsView.search( obj,true );
-        
+
         if (this.currentView == 'event') this.eventMap.load();
-        
+
     },
-    
+
     switchViewTo : function( view , refresh ){
         var _this=this;
 
         if( view != this.currentView&&(view=="event"||this.currentView=="event"))refresh = true;
-    
-         
+
+
         this.currentView = view;
         $('.tab-pane').removeClass('active');
         $('#zeega-'+view+'-view').addClass('active');
-        
-    
+
+
         switch( this.currentView )
         {
             case 'list':
@@ -311,13 +318,13 @@ this.jda = {
             default:
             console.log('view type not recognized');
         }
-        
+
     },
 
     showListView : function(refresh){
         $('#zeega-view-buttons .btn').removeClass('active');
         $('#list-button').addClass('active');
-        
+
 
         $('#jda-right').show();
         $('#event-time-slider').hide();
@@ -337,16 +344,16 @@ this.jda = {
             this.search(this.searchObject);
         }
         this.updateURLHash(this.searchObject);
-        
+
     },
-    
+
     showThumbnailView : function(refresh){
-        
-        
-    
+
+
+
         $('#zeega-view-buttons .btn').removeClass('active');
         $('#thumb-button').addClass('active');
-        
+
         $('#jda-right').show();
         $('#event-time-slider').hide();
         $('#zeega-results-count').removeClass('zeega-results-count-event');
@@ -354,7 +361,7 @@ this.jda = {
         $('#zeega-results-count').css('z-index', 0);
 
         $('#zeega-results-count-text-with-date').hide();
-        
+
         if(this.resultsView.updated)
         {
             this.resultsView.render();
@@ -366,11 +373,11 @@ this.jda = {
         }
                 this.updateURLHash(this.searchObject);
     },
-    
+
     showEventView : function(refresh){
         $('#zeega-view-buttons .btn').removeClass('active');
         $('#event-button').addClass('active');
-        
+
         $('#jda-right').hide();
         $('#event-time-slider').show();
         $('#zeega-results-count').addClass('zeega-results-count-event');
@@ -388,8 +395,8 @@ this.jda = {
                 facet.model.set({'value': null });
                 facet.remove();
                 removedFilters += facet.model.get('category') + ": " + facet.model.get('value') + " ";
-                
-                
+
+
             }
             if( facet.model.get('category') == 'tag'){
                 _this.resultsView.clearTags();
@@ -397,9 +404,9 @@ this.jda = {
             if( facet.model.get('category') == 'collection' ||
                 facet.model.get('category') == 'user') {
                 _this.removeFilter(facet.model.get('category'),_this.resultsView.getSearch());
-                
+
             }
-            
+
         });
         if (removedFilters.length > 0){
             $('#removed-tag-name').text(removedFilters);
@@ -414,8 +421,8 @@ this.jda = {
 
         //this is the hacky way to update the search count properly on the map
         $("#zeega-results-count").fadeTo(100,0);
-        
-        
+
+
         this.viewType='event';
         //this.parseSearchUI();
         this.updateURLHash(this.searchObject);
@@ -423,11 +430,11 @@ this.jda = {
 
 
     },
-    
+
     setEventViewTimePlace : function(obj){
         this.eventMap.updateTimePlace(obj);
     },
-        
+
     clearSearchFilters : function(doSearch){
         $('#zeega-content-type').val("all");
         $('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
@@ -438,31 +445,31 @@ this.jda = {
         VisualSearch.searchBox.flags.allSelected = false;
         if(doSearch) this.search({ page:1});
     },
-    
+
     goToCollection: function (id){
         window.location=$('#zeega-main-content').data('collection-link')+"/"+id;
-    
+
     },
-    
+
     goToUser: function (id){
         window.location=$('#zeega-main-content').data('user-link')+"/"+id;
-    
+
     },
 
     /***************************************************************************
         - called when user authentication has occured
     ***************************************************************************/
-    
+
     userAuthenticated: function(){
-    
-        
+
+
         $('#zeega-my-collections-share-and-organize').html('Saving collection...');
         var _this=this;
-        
+
         if(this.myCollectionsDrawer.activeCollection.get('new_items').length>0){
             this.myCollectionsDrawer.activeCollection.save({},{
                 success:function(model,response){
-                    
+
                     _this.initCollectionsDrawer();
                 }
             });
