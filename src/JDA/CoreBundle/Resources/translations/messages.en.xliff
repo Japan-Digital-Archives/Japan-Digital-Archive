@@ -1383,7 +1383,7 @@ prompt those of us who were not affected to reflect on the way we live our lives
           </trans-unit>
           <trans-unit id="344">
           	<source>jda.faq.q12answer</source>
-          	<target>Who is allowed to add materials to the archive? Anyone can add materials to the archive, even if you are not a registered user. However, only registered users may create "Collections" (see below).</target>
+          	<target>Anyone can add materials to the archive, even if you are not a registered user. However, only registered users may create "Collections" (see below).</target>
           </trans-unit>
           <trans-unit id="345">
           	<source>jda.faq.q13</source>
