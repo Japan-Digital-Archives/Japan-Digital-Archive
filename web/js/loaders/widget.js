@@ -33,17 +33,18 @@ require (
 	'order!../lib/bootstrap-2.0.2/js/bootstrap.min',
 	'order!../lib/ajaxfileuploader/ajaxfileupload',
 	
-	'order!../lib/jquery.tagsinput',
-	'order!../lib/fancybox/jquery.easing-1.3.pack',
-	'order!../lib/fancybox/jquery.mousewheel-3.0.6.pack',
-	'order!../lib/fancybox/jquery.fancybox',
-	
-	'order!../lib/fancybox/helpers/jquery.fancybox-buttons',
+	'order!../lib/jquery.tagsinput.min',
+
 	'order!../lib/jeditable.min',
+	'order!../lib/jquery/plugins/jeditable.min',
+
 	'order!../lib/dateformat/date.format',
 	'order!../lib/visualsearch/visualsearch',
-	'order!../lib/popcorn-flash',
+
 	'order!../lib/wax.ol.min',
+	
+	'order!../lib/maps',
+
 	//mvc
 	'order!../app/jda',
 	
@@ -78,32 +79,21 @@ require (
 	
 	'order!../app/views/modals/jda.view.modal.archive-settings',
 	
-	
-	//fancybox
-	
-	'order!../app/views/fancybox/jda.view.fancybox._fancybox',
-	'order!../app/views/fancybox/jda.view.fancybox.audio',
-	'order!../app/views/fancybox/jda.view.fancybox.testimonial',
-	'order!../app/views/fancybox/jda.view.fancybox.document-cloud',
-	'order!../app/views/fancybox/jda.view.fancybox.image',
-	'order!../app/views/fancybox/jda.view.fancybox.default',
-	'order!../app/views/fancybox/jda.view.fancybox.tweet',
-	'order!../app/views/fancybox/jda.view.fancybox.soundcloud',
-	'order!../app/views/fancybox/jda.view.fancybox.video',
-	'order!../app/views/fancybox/jda.view.fancybox.website',
-	'order!../app/views/fancybox/jda.view.fancybox.article',
-	'order!../app/views/fancybox/jda.view.fancybox.bookmark',
 
 
 	
-	
-	
+	'order!../app/zeega.widget',
+		
+	'order!../app/models/widget.model.item',
+
+	'order!../app/collections/widget.collections.item',
+
+	'order!../app/views/widget.item/widget.view.item.ingesting',
 	
 	'order!../app/index',
 
 	//custom
 	'order!../helpers/utils',
-	'order!../ux/jda.ux.search'
 
 	
 	//core

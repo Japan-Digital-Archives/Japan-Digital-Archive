@@ -20,7 +20,7 @@ class ItemController extends Controller
 	    
     	$locale=$this->getRequest()->getLocale();
     	$request = $this->getRequest();
-	 	$query=$request->query->get('query');
+      $query=$request->query->get('query');
     	
     	
     	if($item['description']=="")$item['description']="none given";

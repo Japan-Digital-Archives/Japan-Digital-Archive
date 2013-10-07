@@ -38,6 +38,18 @@
 	border:none;
 }
 
+#home-tumblr-button{
+	background-image: url(../images/tumblrlogo.png);
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+	float:right;
+	display:inline-block;
+	height:40px;
+	width:40px;
+	margin-right:20px;
+	border:none;
+}
+
 
 [class^="jdicon-"]
 {
@@ -648,6 +660,8 @@ border-radius: 0px 4px 0px 0px;
 	top : 100px;
 }
 
+
+
 .legend-entry{
 	border-bottom : 1px solid #999;
 }
@@ -661,7 +675,12 @@ border-radius: 0px 4px 0px 0px;
 	display : inline-block;
 	width : 200px;
 	height : 786px;
-	padding-right:50px;
+	padding-right:25px;
+}
+
+#layer-checkboxes{
+	overflow-y:scroll;
+	height:450px;
 }
 
 #layer-control>ul{
