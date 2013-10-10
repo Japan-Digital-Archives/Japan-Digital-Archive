@@ -1640,8 +1640,12 @@ prompt those of us who were not affected to reflect on the way we live our lives
 				<target>Exclude Re-Tweets</target>
 			</trans-unit>
 			<trans-unit id="411">
-				<source>jda.presentation.link</source>
+				<source>jda.presentation.view</source>
 				<target>View Presentation</target>
+			</trans-unit>
+			<trans-unit id="412">
+				<source>jda.presentation.edit</source>
+				<target>Edit Presentation</target>
 			</trans-unit>
         </body>
     </file>
