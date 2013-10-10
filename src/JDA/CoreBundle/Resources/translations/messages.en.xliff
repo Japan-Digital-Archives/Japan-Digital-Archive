@@ -1639,6 +1639,10 @@ prompt those of us who were not affected to reflect on the way we live our lives
 				<source>jda.search.removert</source>
 				<target>Exclude Re-Tweets</target>
 			</trans-unit>
+			<trans-unit id="411">
+				<source>jda.presentation.link</source>
+				<target>View Presentation</target>
+			</trans-unit>
         </body>
     </file>
 </xliff>
