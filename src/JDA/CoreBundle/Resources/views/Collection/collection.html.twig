@@ -17,7 +17,13 @@
     </div>
     <div class="row-fluid">
       {% if userId != 0 %}
-        <span><a _target="blank" href="http://jdaeditor.herokuapp.com/#/{{ filterId }}">{% trans %}jda.presentation.link{% endtrans %}</a></span>
+      <span>
+        <a _target="blank" href="http://jdaeditor.herokuapp.com/#/{{ filterId }}/view">{% trans %}jda.presentation.view{% endtrans %}</a>
+      </span>
+      &nbsp;|&nbsp;
+      <span>
+        <a _target="blank" href="http://jdaeditor.herokuapp.com/#/{{ filterId }}">{% trans %}jda.presentation.edit{% endtrans %}</a>
+      </span>
       {% endif %}
     </div>
 
