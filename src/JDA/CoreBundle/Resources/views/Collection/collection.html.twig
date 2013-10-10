@@ -16,7 +16,9 @@
 			<div id="jda-collection-filter-new" class="span9"></div>
     </div>
     <div class="row-fluid">
-      <span><a _target="blank" href="http://jdaeditor.herokuapp.com/#/{{ filterId }}">{% trans %}jda.presentation.link{% endtrans %}</a></span>
+      {% if userId != 0 %}
+        <span><a _target="blank" href="http://jdaeditor.herokuapp.com/#/{{ filterId }}">{% trans %}jda.presentation.link{% endtrans %}</a></span>
+      {% endif %}
     </div>
 
 {% endblock %}
