@@ -198,6 +198,10 @@
   
           var baseApiUrl = sessionStorage.apiUrl+"api/items?api_key=9bIRe71qSeHeVQIcb54NNqY-y&force_key=true"
 
+          var mediaPrefix = "";
+          if(!$("#add-to-archive").prop("checked")) {
+            mediaPrefix = "outside-";
+          }
           postObj.title = $("#widget-title").val();
           postObj.description = $("#widget-description").val();
           postObj.layer_type = mediaPrefix + layerMediaMap[$("#widget-media > option:selected").val()]; 
@@ -212,10 +216,6 @@
           	postObj.tags.push(tag.trim());
           });
 
-          var mediaPrefix = "";
-          if(!$("#add-to-archive").prop("checked")) {
-            mediaPrefix = "outside-";
-          }
           postObj.media_type = $("#widget-media > option:selected").val(); 
           
           postObj.media_date_created = new Date().toDateString();
