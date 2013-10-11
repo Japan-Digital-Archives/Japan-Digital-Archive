@@ -17,7 +17,8 @@ class ItemAdmin extends Admin
         'Document',
         'Website' => 'Website', 'News Article' => 'News Article', 'Testimonial' 
         => 'Text',
-              'Broadcast' => 'Broadcast', 'News Headline' => 'Headline');
+              'Broadcast' => 'Broadcast', 'News Headline' => 'Headline', 
+              'Collection' => 'Collection');
       $fileLoc = realpath("lastExport.txt");
       $lastExport = file_get_contents($fileLoc);
       $formMapper
