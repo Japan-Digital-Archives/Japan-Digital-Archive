@@ -660,6 +660,8 @@ border-radius: 0px 4px 0px 0px;
 	top : 100px;
 }
 
+
+
 .legend-entry{
 	border-bottom : 1px solid #999;
 }
@@ -673,7 +675,12 @@ border-radius: 0px 4px 0px 0px;
 	display : inline-block;
 	width : 200px;
 	height : 786px;
-	padding-right:50px;
+	padding-right:25px;
+}
+
+#layer-checkboxes{
+	overflow-y:scroll;
+	height:68%;
 }
 
 #layer-control>ul{
