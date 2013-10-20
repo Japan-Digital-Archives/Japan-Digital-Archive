@@ -658,6 +658,7 @@ border-radius: 0px 4px 0px 0px;
 	position : absolute;
 	right : -50px;
 	top : 100px;
+	height:100%
 }
 
 
@@ -674,13 +675,13 @@ border-radius: 0px 4px 0px 0px;
 	z-index:-1;
 	display : inline-block;
 	width : 200px;
-	height : 786px;
+	height : 100%;
 	padding-right:25px;
 }
 
 #layer-checkboxes{
 	overflow-y:scroll;
-	height:450px;
+	height:67%;
 }
 
 #layer-control>ul{
