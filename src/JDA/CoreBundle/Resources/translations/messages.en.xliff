@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
@@ -252,31 +252,31 @@
             </trans-unit>
             <trans-unit id="64">
                 <source>jda.advsearch.video</source>
-                <target>Video</target>
+                <target>video</target>
             </trans-unit>
             <trans-unit id="65">
                 <source>jda.advsearch.audio</source>
-                <target>Audio</target>
+                <target>audio</target>
             </trans-unit>
             <trans-unit id="66">
                 <source>jda.advsearch.image</source>
-                <target>Image</target>
+                <target>image</target>
             </trans-unit>
             <trans-unit id="67">
                 <source>jda.advsearch.website</source>
-                <target>Website</target>
+                <target>website</target>
             </trans-unit>
             <trans-unit id="68">
                 <source>jda.advsearch.tweet</source>
-                <target>Tweet</target>
+                <target>tweet</target>
             </trans-unit>
             <trans-unit id="69">
                 <source>jda.advsearch.document</source>
-                <target>Document</target>
+                <target>document</target>
             </trans-unit>
             <trans-unit id="70">
                 <source>jda.advsearch.all</source>
-                <target>All</target>
+                <target>all formats</target>
             </trans-unit>
             <trans-unit id="71">
                 <source>jda.advsearch.contentType</source>
@@ -1383,7 +1383,7 @@ prompt those of us who were not affected to reflect on the way we live our lives
           </trans-unit>
           <trans-unit id="344">
           	<source>jda.faq.q12answer</source>
-          	<target>Who is allowed to add materials to the archive? Anyone can add materials to the archive, even if you are not a registered user. However, only registered users may create "Collections" (see below).</target>
+          	<target>Anyone can add materials to the archive, even if you are not a registered user. However, only registered users may create "Collections" (see below).</target>
           </trans-unit>
           <trans-unit id="345">
           	<source>jda.faq.q13</source>
@@ -1638,6 +1638,14 @@ prompt those of us who were not affected to reflect on the way we live our lives
 			<trans-unit id="410">
 				<source>jda.search.removert</source>
 				<target>Exclude Re-Tweets</target>
+			</trans-unit>
+			<trans-unit id="411">
+				<source>jda.presentation.view</source>
+				<target>View Presentation</target>
+			</trans-unit>
+			<trans-unit id="412">
+				<source>jda.presentation.edit</source>
+				<target>Edit Presentation</target>
 			</trans-unit>
         </body>
     </file>

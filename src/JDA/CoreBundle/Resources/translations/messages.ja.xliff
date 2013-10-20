@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
@@ -372,7 +372,7 @@
             </trans-unit>
             <trans-unit id="94">
                 <source>jda.about.news</source>
-                <target>ブログ</target>
+                <target>ニュース</target>
             </trans-unit>
             <trans-unit id="95">
                 <source>jda.about.faq</source>
@@ -1055,7 +1055,7 @@
             </trans-unit>
             <trans-unit id="262">
                 <source>jda.search.article</source>
-                <target>ニューズ記事</target>
+                <target>ニュース記事</target>
             </trans-unit>
              <trans-unit id="263">
                 <source>jda.search.broadcast</source>
@@ -1079,7 +1079,7 @@
             </trans-unit>
             <trans-unit id="268">
               <source>jda.search.headline</source>
-              <target>ニューズ見出し</target>
+              <target>ニュース見出し</target>
             </trans-unit>
             <trans-unit id="269">
     			<source>jda.aboutpartners.title</source>
@@ -1660,6 +1660,14 @@
 			<trans-unit id="410">
 				<source>jda.search.removert</source>
 				<target>Exclude Re-Tweets</target>
+			</trans-unit>
+			<trans-unit id="411">
+				<source>jda.presentation.view</source>
+				<target>View Presentation</target>
+			</trans-unit>
+			<trans-unit id="412">
+				<source>jda.presentation.edit</source>
+				<target>Edit Presentation</target>
 			</trans-unit>
         </body>
     </file>

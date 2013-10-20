@@ -108,7 +108,7 @@ body {
 
 				<a href="#" id="jda-go-button" class="btn btn-info btn-large">{% trans %}jda.home.go{% endtrans %}</a>
 				<span class="badge badge-inverse" id="zeega-search-help" data-content='{% trans %}jda.search.tips1{% endtrans %}<br><br>{% trans %}jda.search.tips2{% endtrans %}<br><br>{% trans %}jda.search.tips3{% endtrans %}'>?</span>
-				<a href="{{path('advsearch', { '_locale': locale })}}" id="jda-search-advancedoptions" >{% trans %}jda.advanced.search{% endtrans %}</a>
+        <a href="{{path('advsearch', { '_locale': locale })}}" id="jda-search-advancedoptions" >{% trans %}jda.advanced.search{% endtrans %}</a>
 			</div>
 
 		</div>
@@ -142,9 +142,11 @@ body {
 
 					<div id="results-count-row" class="row-fluid">
 					  <div id="zeega-results-count" class="span4">
-					  	<span id="zeega-results-count-number"></span><span id="zeega-results-count-text">{% trans %}jda.search.items{% endtrans %}</span><br><span id="zeega-results-count-text-with-date">{% trans %}jda.search.withtimeplace{% endtrans %}</span>
+              <span id="zeega-results-count-number"></span><span id="zeega-results-count-text">{% trans %}jda.search.items{% endtrans %}</span>
+              <br><span id="zeega-results-count-text-with-date">{% trans %}jda.search.withtimeplace{% endtrans %}</span>
 					  </div>
 					<div class="pull-right" style="margin-top:8px;">
+            <span class="" style="padding-right:20px;"><input type="checkbox" id="noRTChk" /> {% trans %}jda.search.removert{% endtrans %}</span>
 						<span id="sort-wrap">
 							<select id="zeega-sort" style="width:130px">
 								<option value="relevant">{% trans %}jda.search.relevant{% endtrans %}</option>

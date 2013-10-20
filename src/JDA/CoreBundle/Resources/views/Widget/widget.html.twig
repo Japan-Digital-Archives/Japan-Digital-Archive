@@ -30,7 +30,7 @@
 			{% endif %}
 		
 			<div id="item-view">
-				<div style="height:150px;">
+				<div>
 			
 			<img style="max-width:150px; max-height:150px;" id="item-image" class="item-image"  />
 			
@@ -82,6 +82,13 @@
 			<div class="widget-textbox ingest-info">
 			  <textarea id="widget-description" ></textarea>
 			</div>
+			
+			<h3>Tags (comma separated):</h3>
+			<div id="tags">
+				<div class="widget-textbox ingest-info">
+				  <textarea id="widget-tags" ></textarea>
+				</div>
+			</div>
 
 			<h3>Location:</h3>
 			<div class="ingest-info">
@@ -118,6 +125,7 @@
         Document: "PDF",
         Image: "Image",
         Audio: "Audio",
+        Tweet: "Tweet"
     };
         
     sessionStorage.apiUrl = "http://jdarchive.org/zeega/";	
@@ -140,6 +148,37 @@
     	$("#widget-title").val(postObj.title);
     	$("#item-image").attr("src", postObj.thumbnail_url);
     	postObj.uri = decodeURIComponent("{{ parent_url }}");  
+
+    	if(postObj.uri.indexOf("twitter.com") > -1) {
+    		postObj.media_type = "Tweet";
+
+    		var url_array = postObj.uri.split("/");
+    		var id = url_array.pop();
+    		postObj.attribution_uri = postObj.uri;
+    		postObj.uri = id;
+			var cb = new Codebird;
+			cb.setConsumerKey("D31EL4VBtCk6TSiwG2MAw", "QUzeHgHSweIC3wSDLUu8Y3jEzkgvYfYkXyTqeg5MSs");
+			cb.setBearerToken("AAAAAAAAAAAAAAAAAAAAAAvCTQAAAAAAM%2FIZB80G7W1l2QpDZfN11HuoWVI%3DSTyXQGeOjTbf49FcCrs1Mil1PhCreVOlzaSN6Sl3g");
+			cb.__call(
+				"statuses_show_ID",
+				"id="+id,
+				function (reply) {
+					postObj.media_date_created = "";
+					postObj.description = reply.text;
+					postObj.text = reply.text;
+					postObj.title = "";
+    				$("#widget-description").val(postObj.description);
+    				$("#widget-title").val(postObj.title);
+    				var created_date = new Date(Date.parse(reply.created_at, "m/d/Y H:i")).toDateString();
+    				postObj.media_date_created = created_date;
+    				postObj.thumbnail_url = reply.user.profile_image_url;
+					$("#item-image").attr("src", postObj.thumbnail_url);
+					$("#item-image").css("width", "48px");
+				},
+				true // this parameter required
+			);
+		}	
+			
     	$("#widget-media option[value$='"+postObj.media_type+"']").attr('selected', true);
     });
     
@@ -159,19 +198,25 @@
   
           var baseApiUrl = sessionStorage.apiUrl+"api/items?api_key=9bIRe71qSeHeVQIcb54NNqY-y&force_key=true"
 
-          postObj.title = $("#widget-title").val();
-          postObj.description = $("#widget-description").val();
-          postObj.layer_type = layerMediaMap[$("#widget-media > option:selected").val()]; 
-          postObj.media_creator_username = "{{ displayname }}";
-          postObj.media_creator_realname = "{{ displayname }}";
-          postObj.attributes = {};
-          postObj.attributes.submitterId = "{{ userId }}";
-
           var mediaPrefix = "";
           if(!$("#add-to-archive").prop("checked")) {
             mediaPrefix = "outside-";
           }
-          postObj.media_type = mediaPrefix + $("#widget-media > option:selected").val(); 
+          postObj.title = $("#widget-title").val();
+          postObj.description = $("#widget-description").val();
+          postObj.layer_type = mediaPrefix + layerMediaMap[$("#widget-media > option:selected").val()]; 
+          postObj.media_creator_username = "{{ displayname }}";
+          postObj.media_creator_realname = "{{ displayname }}";
+          postObj.attributes = {};
+          postObj.attributes.submitterId = "{{ userId }}";
+          
+          postObj.tags = [];
+          var tags = $("#widget-tags").val().split(",");
+          $.each(tags, function(i, tag) {
+          	postObj.tags.push(tag.trim());
+          });
+
+          postObj.media_type = $("#widget-media > option:selected").val(); 
           
           postObj.media_date_created = new Date().toDateString();
           

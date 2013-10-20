@@ -28,9 +28,9 @@
 
 	<script type="text/javascript">
         // add new filter types here, format 'translated name' : 'english/system counterpart' 
-	    var contentTypes = {'{% trans %}jda.advsearch.video {% endtrans %}':'Video', '{% trans %}jda.advsearch.audio {% endtrans %}':'Audio',
-	        '{% trans %}jda.advsearch.image {% endtrans %}':'Image', '{% trans %}jda.advsearch.website {% endtrans %}':'Website',
-	        '{% trans %}jda.advsearch.tweet {% endtrans %}': 'Tweet', '{% trans %}jda.advsearch.document {% endtrans %}': 'Document', 
+	    var contentTypes = {'{% trans %}jda.search.video {% endtrans %}':'Video', '{% trans %}jda.search.audio {% endtrans %}':'Audio',
+	        '{% trans %}jda.search.image {% endtrans %}':'Image', '{% trans %}jda.search.website {% endtrans %}':'Website',
+	        '{% trans %}jda.search.tweet {% endtrans %}': 'Tweet', '{% trans %}jda.search.document {% endtrans %}': 'Document', 
             '{% trans %}jda.search.headline {% endtrans %}': 'News Headline', '{% trans %}jda.search.article {% endtrans %}' : 'News Article',
             '{% trans %}jda.search.broadcast {% endtrans %}': 'Broadcast', '{% trans %}jda.search.testimonial {% endtrans %}' : 'Text'
 	    };
@@ -56,7 +56,7 @@
                 </td>
                 <td>
                     <select id="contentTypeDDL" multiple="multiple">
-                        <option value="0">{% trans %}jda.advsearch.all{% endtrans %}</option>
+                        <option value="0">{% trans %}jda.search.allformats{% endtrans %}</option>
                     </select>
                 </td>
                 <td class="advFormTitle">
