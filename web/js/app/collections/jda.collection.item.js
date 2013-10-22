@@ -26,6 +26,8 @@
                 if( !_.isUndefined(this.search.times.start) ) url += '&media_since=' + this.search.times.start;
                 if( !_.isUndefined(this.search.times.end) ) url += '&media_before=' + this.search.times.end;
             }
+            if( !_.isUndefined(this.search.media_before) ) url += '&media_before=' + this.search.media_before;
+            if( !_.isUndefined(this.search.media_after) ) url += '&media_after=' + this.search.media_after;
             if( !_.isUndefined(this.search.user) && this.search.user>=-1&& this.search.user!=="") url += '&user=' + this.search.user;
             if(jda.app.currentView=='event') url+='&geo_located=1';
             console.log(url);
