@@ -1647,6 +1647,10 @@ prompt those of us who were not affected to reflect on the way we live our lives
 				<source>jda.presentation.edit</source>
 				<target>Edit Presentation</target>
 			</trans-unit>
+			<trans-unit id="413">
+				<source>jda.advsearch.searchTermsExclude</source>
+				<target>Excluded Terms</target>
+			</trans-unit>
         </body>
     </file>
 </xliff>
