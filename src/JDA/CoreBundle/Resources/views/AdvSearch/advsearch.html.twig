@@ -43,85 +43,120 @@
 {% block content %}
 
 <div class='container' id='zeega-main-content'>
-	<div class="mainContPadding">
-		<h3>{% trans %}jda.advanced.search{% endtrans %}</h3>
-		<table cellpadding="5" cellspacing="0">
-			<tr>
-				<td class="advFormTitle">{% trans %}jda.advsearch.searchTerms{% endtrans %}</td>
-				<td colspan="3"><input type="text" id="searchTerms" class="searchTermsField" /></td>
-			</tr>
-            <tr>
-                <td class="advFormTitle">
-                    {% trans %}jda.advsearch.contentType {% endtrans %}
-                </td>
-                <td>
-                    <select id="contentTypeDDL" multiple="multiple">
-                        <option value="0">{% trans %}jda.search.allformats{% endtrans %}</option>
-                    </select>
-                </td>
-                <td class="advFormTitle">
-                    {% trans %}jda.advsearch.user{% endtrans %}
-                </td>
-                <td>
-                    <!-- not sure how to get the current users ID, ask -->
-                    <select id="userDDL">
-                        <option value="0">{% trans %}jda.advsearch.allusers{% endtrans %}</option>
-                        <option value="-1">{% trans %}jda.advsearch.onlyCurrentUser{% endtrans %}</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td class="advFormTitle">
-                    {% trans %}jda.advsearch.tags{% endtrans %}
-                </td>
-                <td>
-                    <input id="tagTxt" /><br />
-                    <div id="tagListDiv">
-                    </div>
-                </td>
-                <td class="advFormTitle">
-                    {% trans %}jda.advsearch.startDate{% endtrans %}
-                </td>
-                <td>
-                    <input type="text" id="startDateTxt" value="" />
-                </td>
-            </tr>
-            <tr>
-                <td class="advFormTitle">
-                    {% trans %}jda.advsearch.incCollections{% endtrans %}
-                </td>
-                <td>
-                    <input type="radio" name="collRbl" value="0" /> {% trans %}jda.advsearch.noCollections{% endtrans %}
-                    <input type="radio" name="collRbl" value="1" /> {% trans %}jda.advsearch.onlyCollections{% endtrans %}
-                    <input type="radio" name="collRbl" value="2" /> {% trans %}jda.advsearch.both{% endtrans %}
-                </td>
-                <td class="advFormTitle">
-                    {% trans %}jda.advsearch.endDate{% endtrans %}
-                </td>
-                <td>
-                    <input type="text" id="endDateTxt" value="" />
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <div id='container' style="width:400px; height:400px;">
-                        <div id="map">
-                        </div>
-                    </div>
-                </td>
-                <td colspan="2">
-                    <b>{% trans %}jda.advsearch.mapInstructions{% endtrans %}:</b>{% trans %}jda.advsearch.mapInstructionsTxt{% endtrans %}
-                    <div id="info"></div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="4">
-                    <center>
-                        <input type="button" id="submitBtn" value="{% trans %}jda.home.go{% endtrans %}" onclick="DoSearch();" />
-                    </center>
-                </td>
-            </tr>
-		</table>
-	</div>
+	<div class="row">
+    <span class="span12">
+      <h3>{% trans %}jda.advanced.search{% endtrans %}</h3>
+    </span>
+  </div>
+  <div class="row">
+    <span class="span12">
+      <form class="form-horizontal">
+        <div class="control-group">
+          <label class="control-label" for="searchTerms">
+            {% trans %}jda.advsearch.searchTerms{% endtrans %}
+          </label>
+          <div class="controls">
+            <input type="text" id="searchTerms" />
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="excludeTermsTxt">
+            {% trans %}jda.advsearch.searchTermsExclude{% endtrans %}
+          </label>
+          <div class="controls">
+            <input type="text" id="excludeTermsTxt" />
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="contentTypeDDL">
+            {% trans %}jda.advsearch.contentType {% endtrans %}
+          </label>
+          <div class="controls">
+            <select id="contentTypeDDL" multiple="multiple">
+              <option value="0">{% trans %}jda.search.allformats{% endtrans %}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="tagTxt">
+            {% trans %}jda.advsearch.tags{% endtrans %}
+          </label>
+          <div class="controls">
+            <input id="tagTxt" type="text" /><br />
+            <div id="tagListDiv">
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="collRbl">
+            {% trans %}jda.advsearch.incCollections{% endtrans %}
+          </label>
+          <div class="controls">
+            <label class="radio inline">
+              <input type="radio" name="collRbl" value="0" /> {% trans %}jda.advsearch.noCollections{% endtrans %}
+            </label>
+            <label class="radio inline">
+              <input type="radio" name="collRbl" value="1" /> {% trans %}jda.advsearch.onlyCollections{% endtrans %}
+            </label>
+            <label class="radio inline">
+              <input type="radio" name="collRbl" value="2" /> {% trans %}jda.advsearch.both{% endtrans %}
+            </label>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="userDDL">
+            {% trans %}jda.advsearch.user{% endtrans %}
+          </label>
+          <div class="controls">
+            <select id="userDDL">
+              <option value="0">{% trans %}jda.advsearch.allusers{% endtrans %}</option>
+              <option value="-1">{% trans %}jda.advsearch.onlyCurrentUser{% endtrans %}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="startDateTxt">
+            {% trans %}jda.advsearch.startDate{% endtrans %}
+          </label>
+          <div class="controls">
+            <input type="text" id="startDateTxt" value="" />
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="endDateTxt">
+            {% trans %}jda.advsearch.endDate{% endtrans %}
+          </label>
+          <div class="controls">
+            <input type="text" id="endDateTxt" value="" />
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="searchTerms">
+            <b>{% trans %}jda.advsearch.mapInstructions{% endtrans %}:</b>{% trans %}jda.advsearch.mapInstructionsTxt{% endtrans %}
+            <div id="info"></div>
+          </label>
+          <div class="controls">
+            <div id='container' style="width:400px; height:400px;">
+              <div id="map">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <input type="button" id="submitBtn" value="{% trans %}jda.home.go{% endtrans %}" onclick="DoSearch();" />
+          </div>
+        </div>
+      </form>
+    </span>
+  </div>
 </div>
 {% endblock %}

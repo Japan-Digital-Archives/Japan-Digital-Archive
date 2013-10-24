@@ -265,6 +265,8 @@ this.jda = {
         if( !_.isUndefined(obj.nq)) hash += 'nq=' + obj.nq + '&';
         if( !_.isUndefined(obj.tags) && obj.tags.length > 0) hash += 'tags=' + obj.tags + '&';
         if( !_.isUndefined(obj.media_type) )hash += 'media_type='+ obj.media_type + '&';
+        if( !_.isUndefined(obj.media_after) )hash += 'media_after='+ obj.media_after + '&';
+        if( !_.isUndefined(obj.media_before) )hash += 'media_before='+ obj.media_before + '&';
 
         if( !_.isUndefined(obj.sort) )  hash += 'sort='+ obj.sort + '&';
         if( !_.isUndefined(obj.mapBounds) )  hash += 'map_bounds='+ encodeURIComponent(obj.mapBounds) + '&';
