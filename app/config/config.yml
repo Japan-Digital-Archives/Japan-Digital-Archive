@@ -95,7 +95,7 @@ fos_user:
     user_class: Zeega\DataBundle\Entity\User
     from_email:
         address: noreply@jdarchive.org
-        sender_name: Zeega
+        sender_name: JDA
     resetting:
         email:
             template: ZeegaUserBundle:Email:resetting.email.twig
