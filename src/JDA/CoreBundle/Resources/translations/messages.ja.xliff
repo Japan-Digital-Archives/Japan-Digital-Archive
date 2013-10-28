@@ -43,7 +43,7 @@
                 <target>logo-jp</target>
             </trans-unit>
             <trans-unit id="11">
-                <source>jda.about.mission</source>
+                <source>jda.about.missiontext</source>
                 <target>2011年東日本大震災デジタルアーカイブには3つの使命があります</target>
             </trans-unit>
             <trans-unit id="12">
@@ -52,7 +52,7 @@
             </trans-unit>
             <trans-unit id="13">
                 <source>jda.about.two</source>
-                <target>皆様お一人おひとりが、そして研究者や政策に携わる方が、情報を共有し、協力し合い、対話することができる公共空間を提供すること。</target>
+                <target>皆様お一人おひとりが、そして研究者、学生や政策に携わる方が、情報を共有し、協力し合い、対話することができる公共空間を提供すること。</target>
             </trans-unit>
             <trans-unit id="14">
                 <source>jda.about.three</source>
@@ -188,7 +188,7 @@
             </trans-unit>           
              <trans-unit id="47">
                 <source>jda.about.paragraph1</source>
-                <target>2012 年の後半から2013年にかけて、このベータ版は継続的に改良されてまいります。特に地理空間上での操作やコレクション作成機能の充実を優先的な課題とし、ユーザは自らのコレクションに収めたアーカイブ資料を活用して幅広いプレゼンテーションを行うことが可能になるでしょう。皆様のご提案・ご感想を、ぜひお聞かせ下さい。</target>
+                <target>私たちは「参加性の高い」アーカイブを目指して、特に地理空間上での操作やコレクション作成機能の充実を優先的な課題とし、ユーザは自らのコレクションに収めたアーカイブ資料を活用して幅広いプレゼンテーションを行うことが可能になるでしょう。皆様のご提案・ご感想を、ぜひお聞かせ下さい。</target>
             </trans-unit>
             <trans-unit id="48">
                 <source>jda.search.items</source>
@@ -935,11 +935,11 @@
             </trans-unit>
             <trans-unit id="232">
                 <source>jda.team.interaction</source>
-                <target>Interaction Design and Development</target>
+                <target>アーカイブのデザイン・開発</target>
             </trans-unit>
             <trans-unit id="233">
                 <source>jda.team.alumni</source>
-                <target>Team Alumni</target>
+                <target>チームの卒業者</target>
             </trans-unit>
             <trans-unit id="234">
                 <source>jda.team.inquiries</source>
@@ -971,7 +971,7 @@
             </trans-unit>
             <trans-unit id="241">
                 <source>jda.about.paragraph2</source>
-                <target>Over the remainder of 2012 and into 2012, we will be introducing improvements to our current site, with particular attention to mapping and  collection building. We welcome your suggestions and feedback.</target>
+                <target>In 2013, we will be introducing improvements to our current site, with particular attention to mapping and collection building. We welcome your suggestions and feedback.</target>
             </trans-unit>
             <trans-unit id="242">
                 <source>jda.about.paragraph3</source>
@@ -1003,7 +1003,7 @@
             </trans-unit>
             <trans-unit id="249">
                 <source>jda.team.additional</source>
-                <target>Reischauer Institute Faculty and Staff providing additional support</target>
+                <target>ライシャワー日本研究所　協力教員・スタッフ</target>
             </trans-unit>
              <trans-unit id="250">
                 <source>jda.team.zeega</source>
@@ -1221,11 +1221,11 @@
     		</trans-unit>
           <trans-unit id="303">
             <source>jda.form.contribute.dateCreated</source>
-            <target>Website Date</target>
+            <target>ウェブサイトの日時</target>
           </trans-unit>
           <trans-unit id="304">
           	<source>jda.team.contentdevelopment</source>
-          	<target>Content Development</target>
+          	<target>コンテンツ開発</target>
           </trans-unit>
                     <trans-unit id="305">
           	<source>jda.contribute.contributeheader</source>
@@ -1546,7 +1546,7 @@
 			</trans-unit>
 			<trans-unit id="381">
 				<source>jda.howtouse.limitp1</source>
-				<target>タグ項目のみを検索する場合、キーワードの前に tag と入力して下さい。検索バーにポップアップメニューが表示され、tag 項目を選択する事が出来ます。全ての項目をを同時に検索する場合は、検索バーに直接キーワードを入力するか、キーワードの前に text と入力し、ポップアップメニューでtext 項目を選択して下さい。</target>
+				<target>タグ項目のみを検索する場合、キーワードの前に tag と入力して下さい。検索バーにポップアップメニューが表示され、tag 項目を選択する事が出来ます。複数語を１つのタグとして検索するためには、フレーズ前後に引用符(“ ”)を入れて下さい。全ての項目をを同時に検索する場合は、検索バーに直接キーワードを入力するか、キーワードの前に text と入力し、ポップアップメニューでtext 項目を選択して下さい。</target>
 			</trans-unit>
 			<trans-unit id="383">
 				<source>jda.howtouse.limit2</source>
@@ -1659,7 +1659,7 @@
 			</trans-unit>
 			<trans-unit id="410">
 				<source>jda.search.removert</source>
-				<target>Exclude Re-Tweets</target>
+				<target>リツイートを除く</target>
 			</trans-unit>
 			<trans-unit id="411">
 				<source>jda.presentation.view</source>
@@ -1672,6 +1672,14 @@
 			<trans-unit id="413">
 				<source>jda.advsearch.searchTermsExclude</source>
 				<target>Excluded Terms</target>
+			</trans-unit>
+			<trans-unit id="414">
+				<source>jda.howtouse.sort</source>
+				<target>検索結果を並び替える</target>
+			</trans-unit>
+			<trans-unit id="415">
+				<source>jda.howtouse.sortp1</source>
+				<target>検索結果はデフォルトで「関連性」（検索用語が各アイテムの題名・説明・メタデータに含まれている回数）によって表示されますが、時系列に表示することも出来ます。アイテム作成日時の順に並び替えるためには、検索バー右端のドロップダウン・メニューから「最新」「最古」を選択して下さい。</target>
 			</trans-unit>
         </body>
     </file>
