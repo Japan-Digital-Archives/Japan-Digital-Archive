@@ -43,8 +43,8 @@
                 <target>logo</target>
             </trans-unit>
             <trans-unit id="11">
-                <source>jda.about.mission</source>
-                <target>The Digital Archive of Japan's 2011 Disasters' core missions</target>
+                <source>jda.about.missiontext</source>
+                <target>The Digital Archive of Japan's 2011 Disasters' core missions are:</target>
             </trans-unit>
             <trans-unit id="12">
                 <source>jda.about.one</source>
@@ -52,7 +52,7 @@
             </trans-unit>
             <trans-unit id="13">
                 <source>jda.about.two</source>
-                <target>to provide a public space of information sharing, collaboration and conversation for citizens, researchers and policy makers</target>
+                <target>to provide a public space of information sharing, collaboration and conversation for citizens, researchers, students, and policy makers</target>
             </trans-unit>
             <trans-unit id="14">
                 <source>jda.about.three</source>
@@ -188,7 +188,7 @@
             </trans-unit>
             <trans-unit id="47">
                 <source>jda.about.paragraph1</source>
-                <target>The archive is not limited to simple search of materials. In addition to user collections, there is also a map that visualizes all materials that are tagged with geographic information, especially tweets. The archive also actively solicits user submissions of resources such as Web sites, and user testimonials about personal experiences of the disasters and their aftermath. Thus, the archive is an interactive space encouraging, and indeed thriving on, user participation.</target>
+                <target>The archive actively solicits user submissions of resources such as websites, videos and photographs, and user testimonials about personal experiences of the disasters and their aftermath. Thus, the archive is an interactive space encouraging, and indeed thriving on, user participation.</target>
             </trans-unit>
             <trans-unit id="48">
                 <source>jda.search.items</source>
@@ -972,7 +972,7 @@
             </trans-unit>
             <trans-unit id="242">
                 <source>jda.about.paragraph3</source>
-                <target>The Digital Archive of Japan's 2011 Disasters is an evolving, collaborative space for citizens, researchers, and policy makers, and a site of shared memory for those most directly affected by these events. The digital archive is an advanced search engine for materials from all over the Web, individuals’ testimonials, tweets, and content from international partners who are building digital repositories about the disasters. The site not only facilitates searching of materials, but allows users to create their own curated collections on topics of interest to them. The collections can be shared publicly and add value to the items accessible through the archive.</target>
+                <target>A project of Harvard University’s Reischauer Institute of Japanese Studies, the Digital Archive of Japan's 2011 Disasters is an evolving, collaborative space for citizens, researchers, students, and policy makers, and a site of shared memory for those most directly affected by these events. The digital archive is an advanced search engine for materials from all over the web, individuals’ testimonials, tweets, and content from international partners who are building digital repositories about the disasters. The site not only facilitates searching of materials, but allows users to create curated collections and interactive presentations on topics of interest to them. Collections and presentations can be shared publicly and enhance the value of the various items accessible through the archive. The archive also features an innovative map feature that visualizes all materials that are tagged with geographic information in real time.</target>
             </trans-unit>
             <trans-unit id="243">
                 <source>jda.form.testimonial.titleTxt</source>
@@ -1040,7 +1040,7 @@
             </trans-unit>
              <trans-unit id="259">
                 <source>jda.team.interaction</source>
-                <target>Interaction Design</target>
+                <target>Interaction Design and Development</target>
             </trans-unit>
             <trans-unit id="260">
                 <source>jda.form.testimonial.title</source>
@@ -1534,7 +1534,7 @@ prompt those of us who were not affected to reflect on the way we live our lives
 			</trans-unit>
 			<trans-unit id="381">
 				<source>jda.howtouse.limitp1</source>
-				<target>To search for tags only, begin typing "tag" before your keywords. A popup in the search bar will allow you to select the "tag" field. To search for all fields, simply type in your keyword, or begin typing "text" and select it in the popup.</target>
+				<target>To search for tags only, begin typing "tag" before your keywords. A popup in the search bar will allow you to select the "tag" field. To treat multiple words as a single tag, place the entire phrase in quotation marks. To search for all fields, simply type in your keyword, or begin typing "text" and select it in the popup.</target>
 			</trans-unit>
 			<trans-unit id="383">
 				<source>jda.howtouse.limit2</source>
@@ -1650,6 +1650,14 @@ prompt those of us who were not affected to reflect on the way we live our lives
 			<trans-unit id="413">
 				<source>jda.advsearch.searchTermsExclude</source>
 				<target>Excluded Terms</target>
+			</trans-unit>
+			<trans-unit id="414">
+				<source>jda.howtouse.sort</source>
+				<target>Sort search results</target>
+			</trans-unit>
+			<trans-unit id="415">
+				<source>jda.howtouse.sortp1</source>
+				<target>By default, search results are sorted by “relevance,” which returns results in order of the number of times the search terms appear in the title, description, and metadata of each item. You can also sort search results chronologically by media creation date, using the drop down menu on the right.</target>
 			</trans-unit>
         </body>
     </file>
