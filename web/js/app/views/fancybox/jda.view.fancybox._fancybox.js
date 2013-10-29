@@ -157,6 +157,7 @@
       $('.translation-wrapper').show();
       $('.show-translate').hide();
       $('.translationtext-wrapper').hide();
+      jQuery.fancybox.toggleKeys();
       e.preventDefault();
     },
 		updateTags:function(name, _this)
@@ -192,6 +193,7 @@
 			$('.show-translate').show();
  			$('.translationtext-wrapper').show();
 		 	$('.translation-wrapper').hide();
+      jQuery.fancybox.toggleKeys();
 		},
 		more : function(){
 
