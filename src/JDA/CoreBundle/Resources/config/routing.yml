@@ -74,7 +74,7 @@ testimonial:
     requirements:
         _locale: en|ja
 export:
-    pattern:   /export-seeds/
+    pattern:   /export/
     defaults:  { _controller: JDACoreBundle:Exporter:index }
 exported:
     pattern:   /exported/
