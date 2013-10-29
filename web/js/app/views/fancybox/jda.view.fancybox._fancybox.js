@@ -179,7 +179,7 @@
       }
 
       var attributes = this.model.get('attributes');
-      if (attributes instanceof Object) {
+      if (attributes instanceof Object && !Array.isArray(attributes)) {
           attributes.translation = translation;
       } else {
           attributes = { translation: translation };
