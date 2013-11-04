@@ -121,7 +121,6 @@ $(document).ready(function(){
 
         if((BrowserDetect.browser=='Firefox'&&BrowserDetect.version<12)||(BrowserDetect.browser=='Explorer'&&BrowserDetect.version<9)) {
             $('#browserModal').modal('show');
-            console.log(BrowserDetect.version);
         }
 
 
@@ -209,10 +208,8 @@ $(document).ready(function(){
     /*************** LANGUAGE TOGGLE ************************/
     $('#jda-language-toggle').find('.btn').click(function(){
         if(!$(this).hasClass('active')){
-            console.log('switching languages');
             $('#jda-language-toggle').find('.btn').removeClass('active');
             $(this).addClass('active');
-            console.log($(this).data('language'));
             if($(this).data('language')=='en') window.location =  window.location.href.replace('/ja/','/en/');
             else window.location =  window.location.href.replace('/en/','/ja/');
         }
@@ -380,7 +377,6 @@ $(document).ready(function(){
 
 
         var elementID = $(this.element).attr('id');
-          console.log(jda.app,elementID);
           var thisModel = jda.app.currentView == 'list' || jda.app.currentView == 'thumb' ? jda.app.resultsView.collection.get(elementID) : jda.app.eventMap.mapViewCollection.collection.get(elementID);
 
           this.fancyView = null;
