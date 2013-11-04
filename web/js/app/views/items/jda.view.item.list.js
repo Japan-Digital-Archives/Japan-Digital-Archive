@@ -2,18 +2,15 @@
 
 	Browser.Items = Browser.Items || {};
 	Browser.Items.Views = Browser.Items || {};
-	
+
 	Browser.Items.Views.List = Backbone.View.extend({
-		
+
 		tagName : 'tr',
 		className : 'list-media list-fancymedia',
-		
+
 		initialize: function () {
 
 			this.el.id = this.model.id;
-
-			//this is for fancy box to know to group these into a gallery
-			$(this.el).attr("rel", "group");
 
 			//list item has a thumbnail item with same model as a subview
 			this.thumbnailView = new Browser.Items.Views.Thumb({
@@ -30,7 +27,7 @@
 		render: function ( done )
 		{
 			var _this = this;
-			
+
 			var template;
 			switch( this.model.get('media_type') )
 			{
@@ -62,15 +59,15 @@
 					$(this.el).removeClass('list-fancymedia');
 					template = this.getCollectionTemplate();
 					break;
-				
+
 				default:
 					template = this.getDefaultTemplate();
 			}
-			
-			
-		
+
+
+
 			var blanks = this.model.attributes;
-				
+
 			if (!_.isUndefined(this.model.get("media_date_created"))&&!_.isNull(this.model.get("media_date_created"))){
 				blanks["media_date"] = new Date(this.model.get("media_date_created").replace(" ", "T"));
 				blanks["media_date"]=blanks["media_date"].format("mmmm dS, yyyy<br/>h:MM TT");
@@ -108,15 +105,15 @@
 			if (this.model.get("media_type") == "Text" && this.model.get('description').length < this.model.get('text').length){
 				blanks["description"] = this.model.get('description') + '...';
 			}
-			
+
 			if (this.model.get("media_type") == "Website"){
 				var parts = this.model.get('attribution_uri').split('http');
 				blanks["original_url"] = parts[2] !== undefined ? "http" + parts[2] : this.model.get('attribution_uri');
 			}
-			
-			
+
+
 			$(this.el).html( _.template( template, blanks ) );
-			
+
 			$(this.el).find('.zeega-item-thumbnail').append(this.thumbnailView.render().el);
 
 			if (blanks["author"] === ""){
@@ -157,16 +154,16 @@
 			});
 			}
 			$(this.el).find(".jdicon-small-drag").tooltip({'title':'Drag to add to your collection','placement':'bottom', delay: { show: 600, hide: 100 }});
-			
+
 			if( blanks["display_name"] === ""){
 				$(this.el).find(".jda-user-link").hide();
 			} else {
 				$(this.el).find(".jda-user-link").click(function(){jda.app.goToUser(_this.model.get('user_id')); return false;});
 			}
-			
+
 			return this;
 		},
-		
+
 		/* formats tweet text, doesn't linkify bc tweet is already linked to fancybox */
 		linkifyTweet : function(tweet){
 
@@ -186,7 +183,7 @@
 
 			return tweet;
 		},
-		
+
 		getImageTemplate : function()
 		{
 			html =
@@ -202,9 +199,9 @@
 			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 				'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
 			'</td>';
-			
 
-			
+
+
 			return html;
 		},
 
@@ -223,16 +220,16 @@
 			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 			'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
 			'</td>';
-			
 
-			
+
+
 			return html;
 		},
 
 		getDocumentTemplate : function()
 		{
 			html =
-			
+
 
 
 			'<td class="span2">'+
@@ -248,7 +245,7 @@
 				'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
 			'</td>';
 
-			
+
 			return html;
 		},
 
@@ -268,8 +265,8 @@
 				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 				'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
 			'</td>';
-			
-			
+
+
 			return html;
 		},
 
@@ -286,7 +283,7 @@
 			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 				'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
 			'</td>';
-			
+
 			return html;
 		},
 
@@ -320,13 +317,13 @@
 				'<td class="zeega-list-right-column jda-item-date"><%= media_date %>'+
 					'<input class="jda-item-checkbox" type="checkbox">'+
 				'</td>';
-				
 
 
-			
+
+
 			return html;
 		}
-		
+
 	});
-	
+
 })(jda.module("browser"));

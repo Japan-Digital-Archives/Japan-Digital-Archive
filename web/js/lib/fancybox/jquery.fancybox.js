@@ -274,7 +274,6 @@
 			if (!F.current) {
 				return;
 			}
-
 			index = parseInt(index, 10);
 
 			if (F.group.length > 1 && F.current.loop) {
