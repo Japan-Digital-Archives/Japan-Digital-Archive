@@ -88,7 +88,7 @@
 		getCollectionTemplate : function()
 		{
 			html =
-			'<a  id="<%= id %>" href="#view_type=list&collection=885025&content=all&" rel="group">'+
+			'<a  id="<%= id %>" href="collection/<%= id %>" rel="group">'+
 			'<div class="map-popup-icon-container" style="float:left;">'+
 				'<i class="jdicon-<%=media_type%>"></i>'+
 			'</div>'+
