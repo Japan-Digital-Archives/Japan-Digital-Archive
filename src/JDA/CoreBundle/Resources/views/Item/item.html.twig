@@ -81,8 +81,13 @@
 		<div id="jda-main-content" class="container">
       	<h2>{{item.title}}</h2>
 		
-		{% if item.layer_type == 'Testimonial' %}
-			<h4>by Anonymous</h4>
+		
+		{% if item.layer_type == 'Testimonial' and not item.attributes == null  %}
+			{% if item.attributes.privacy == 'Hide' %}
+				<h4>by Anonymous</h4>
+			{% else %}
+				<h4>by {{item.media_creator_realname}}</h4>
+			{% endif %}
 		{% else %}
 			<h4>by {{item.media_creator_realname}}</h4>
 		{% endif %}
