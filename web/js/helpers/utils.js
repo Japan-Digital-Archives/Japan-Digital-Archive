@@ -80,7 +80,7 @@ var linkifyTweet = function(tweet){
 
 	//linkify tags
 	tweet = tweet.replace(/(^|)#(\w+)/gi, function (s) {
-    	return '<a target="_blank" href="http://search.twitter.com/search?q=' + s.replace(/#/,'%23') + '">' + s + '</a>';
+    	return '<a target="_blank" href="http://twitter.com/search?q=' + s.replace(/#/,'%23') + '">' + s + '</a>';
  	});
 
 	return tweet;
