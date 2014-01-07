@@ -1681,6 +1681,42 @@
 				<source>jda.howtouse.sortp1</source>
 				<target>検索結果はデフォルトで「関連性」（検索用語が各アイテムの題名・説明・メタデータに含まれている回数）によって表示されますが、時系列に表示することも出来ます。アイテム作成日時の順に並び替えるためには、検索バー右端のドロップダウン・メニューから「最新」「最古」を選択して下さい。</target>
 			</trans-unit>
+			<trans-unit id="416">
+				<source>jda.bookmarklet.title</source>
+				<target>JDA ブックマークレット</target>
+			</trans-unit>
+			<trans-unit id="417">
+				<source>jda.bookmarklet.touse</source>
+				<target>ブックマークレットの使い方：</target>
+			</trans-unit>
+			<trans-unit id="418">
+				<source>jda.bookmarklet.bullet1</source>
+				<target>ブラウザのツールバーに上記のアイコンをドラッグする。</target>
+			</trans-unit>
+			<trans-unit id="419">
+				<source>jda.bookmarklet.bullet2</source>
+				<target>jdarchive.org/ja/homeにログインする。ログインをせずにブックマークレットを使用すると、コンテンツが正しく追加されません。</target>
+			</trans-unit>
+			<trans-unit id="420">
+				<source>jda.bookmarklet.bullet3</source>
+				<target>ご自身のマイ・コレクションに追加したいコンテンツを見つけた際、そのウェブサイトを開いたままブラウザのツールバーの「JDAに投稿」リンクをクリックする。</target>
+			</trans-unit>
+			<trans-unit id="421">
+				<source>jda.bookmarklet.bullet4</source>
+				<target>表示された投稿フォームから対象のマイ・コレクションを選択し、適切な情報を記入する。事前にコレクションを作成していない場合、新しいコレクションが自動的に作成されます。</target>
+			</trans-unit>
+			<trans-unit id="422">
+				<source>jda.bookmarklet.bullet5</source>
+				<target>コンテンツをマイ・コレクションだけでなくアーカイブ自体に追加する場合、「アーカイブに投稿」ボックスをクリックする。JDAのスタッフが投稿されたコンテンツを確認後、適切な内容であればアーカイブに追加します。「アーカイブに投稿」ボックスをクリックしていない場合、コンテンツは一般公開をされないままユーザのマイ・コレクションのみに追加され、アーカイブの検索結果には表示されません。アーカイブに投稿する際は、同じコンテンツが既に保存されていないか、アーカイブを検索して確認して下さい。</target>
+			</trans-unit>
+			<trans-unit id="423">
+				<source>jda.bookmarklet.bullet6</source>
+				<target>最後に、「メディアを投稿」ボタンをクリックし、コンテンツをマイ・コレクションまたはアーカイブに追加する。</target>
+			</trans-unit>
+			<trans-unit id="424">
+				<source>jda.bookmarklet.browser</source>
+				<target>* このブックマークレットはGoogle Chrome のブラウザーに最適化されています。</target>
+			</trans-unit>
         </body>
     </file>
 </xliff>
