@@ -108,3 +108,8 @@ howtocontribute:
     defaults:  { _controller: JDACoreBundle:HowToContribute:index, _locale: ja }
     requirements:
         _locale: en|ja
+bookmarklet:
+    pattern:	/{_locale}/bookmarklet/
+    defaults:  { _controller: JDACoreBundle:Bookmarklet:index, _locale: ja }
+    requirements:
+        _locale: en|ja

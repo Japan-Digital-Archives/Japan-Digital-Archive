@@ -1659,6 +1659,42 @@ prompt those of us who were not affected to reflect on the way we live our lives
 				<source>jda.howtouse.sortp1</source>
 				<target>By default, search results are sorted by “relevance,” which returns results in order of the number of times the search terms appear in the title, description, and metadata of each item. You can also sort search results chronologically by media creation date, using the drop down menu on the right.</target>
 			</trans-unit>
+			<trans-unit id="416">
+				<source>jda.bookmarklet.title</source>
+				<target>JDA Bookmarklet</target>
+			</trans-unit>
+			<trans-unit id="417">
+				<source>jda.bookmarklet.touse</source>
+				<target>To use:</target>
+			</trans-unit>
+			<trans-unit id="418">
+				<source>jda.bookmarklet.bullet1</source>
+				<target>Drag button above onto your browser's bookmark toolbar.</target>
+			</trans-unit>
+			<trans-unit id="419">
+				<source>jda.bookmarklet.bullet2</source>
+				<target>Log in at jdarchive.org. If you are not logged in, you will not be able to add content.</target>
+			</trans-unit>
+			<trans-unit id="420">
+				<source>jda.bookmarklet.bullet3</source>
+				<target>When you are on a website with content you wish to add to one of your collections, click on the "Add to JDA" link on your browser toolbar. A content submission form will appear.</target>
+			</trans-unit>
+			<trans-unit id="421">
+				<source>jda.bookmarklet.bullet4</source>
+				<target>Pick the collection you wish to add the content to and fill in relevant fields. If you have not yet made any collections, a new collection will automatically be generated.</target>
+			</trans-unit>
+			<trans-unit id="422">
+				<source>jda.bookmarklet.bullet5</source>
+				<target>If you would also like the content to be added to the public archive, check "Add to Archive." JDA staff will review the material and include it in the archive if appropriate.  If you do not check “Add to Archive,” the material will only be added to the indicated collection and will not be searchable in the public archive. Before adding the item, search the archive to see if it has already been submitted.</target>
+			</trans-unit>
+			<trans-unit id="423">
+				<source>jda.bookmarklet.bullet6</source>
+				<target>Finally, click "Add Media" to complete the process of adding the content to your collection and/or the archive.</target>
+			</trans-unit>
+			<trans-unit id="424">
+				<source>jda.bookmarklet.browser</source>
+				<target>* Best supported by the Chrome browser *</target>
+			</trans-unit>
         </body>
     </file>
 </xliff>
