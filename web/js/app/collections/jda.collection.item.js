@@ -1,18 +1,19 @@
 (function(Browser) {
     Browser.Items = Browser.Items ||{};
     Browser.Items.Collection = Backbone.Collection.extend({
-        
+
         model:Browser.Items.Model,
         base : jda.app.apiLocation + 'api/items/search?',
         search : {  page:1
                 },
-    
+
         url : function()
         {
             //constructs the search URL
             var url = this.base;
             console.log(this.search);
             if( !_.isUndefined(this.search.q) && this.search.q.length > 0) url += '&q=' + this.search.q.toString();
+            if( !_.isUndefined(this.search.nq) ) url += '&nq=' + this.search.nq;
             if( !_.isUndefined(this.search.tags) && this.search.tags.length > 0) url += '&tags=' + this.search.tags.toString();
             if( !_.isUndefined(this.search.viewType) ) url += '&view_type=' + this.search.viewType;
             if( !_.isUndefined(this.search.media_type) && this.search.media_type !== "") url += '&type=' + this.search.media_type;
@@ -25,12 +26,14 @@
                 if( !_.isUndefined(this.search.times.start) ) url += '&media_since=' + this.search.times.start;
                 if( !_.isUndefined(this.search.times.end) ) url += '&media_before=' + this.search.times.end;
             }
+            if( !_.isUndefined(this.search.media_before) ) url += '&media_before=' + this.search.media_before;
+            if( !_.isUndefined(this.search.media_after) ) url += '&media_after=' + this.search.media_after;
             if( !_.isUndefined(this.search.user) && this.search.user>=-1&& this.search.user!=="") url += '&user=' + this.search.user;
             if(jda.app.currentView=='event') url+='&geo_located=1';
             console.log(url);
             return url;
         },
-    
+
         setSearch : function(obj, reset)
         {
             if(reset){
@@ -49,40 +52,40 @@
                     this.search.data_source="db";
                 }
             }
-            
+
             _.extend(this.search,obj);
             if(jda.app.currentView=="event") console.log("Range slider values",$("#range-slider").slider( "option", "values" ));
         },
-        
+
         getSearch : function()
         {
             return this.search;
         },
-    
+
         parse : function(response)
         {
-        
+
             this.tags=response.tags;
             this.count = response.items_count;
             return response.items;
         }
     });
-    
-    
+
+
     Browser.Items.MapCollection = Backbone.Collection.extend({
-        
+
         model:Browser.Items.Model,
         base : sessionStorage.getItem("geoServerUrl"),
         initialize : function(models,options){
             _.extend(this,options);
-        
+
         },
         url : function()
         {
             return this.base+'getFeatureInfo&SQL='+this.SQL;
-        
+
         },
-    
+
         parse : function(response)
         {
             if(!_.isNull(response)){
@@ -91,7 +94,7 @@
             else{
                 return [];
             }
-            
+
         }
     });
 

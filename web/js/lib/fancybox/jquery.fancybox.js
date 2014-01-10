@@ -1,8 +1,8 @@
-/*! 
+/*!
  * fancyBox 2.0
  * Copyright 2011, Janis Skarnelis (www.fancyapps.com)
  * License: www.fancyapps.com/fancybox/#license
- *	
+ *
  */
 (function (window, document, $) {
 	var W = $(window),
@@ -46,6 +46,7 @@
 
 			loop: true,
 			ajax: {},
+      keyEnabled : true,
 			keys: {
 				next: [13, 32, 34, 39, 40], // enter, space, page down, right arrow, down arrow
 				prev: [8, 33, 37, 38], // backspace, page up, left arrow, up arrow
@@ -273,7 +274,6 @@
 			if (!F.current) {
 				return;
 			}
-
 			index = parseInt(index, 10);
 
 			if (F.group.length > 1 && F.current.loop) {
@@ -364,7 +364,9 @@
 			D.unbind('.fb');
 			W.unbind('.fb');
 		},
-
+    toggleKeys : function() {
+      F.current.keyEnabled = !F.current.keyEnabled;
+    },
 		bindEvents: function () {
 			var current = F.current,
 				keys = current.keys;
@@ -386,11 +388,11 @@
 						F.close();
 						e.preventDefault();
 
-					} else if ($.inArray(e.keyCode, keys.next) > -1) {
+					} else if ($.inArray(e.keyCode, keys.next) > -1 && current.keyEnabled) {
 						F.next();
 						e.preventDefault();
 
-					} else if ($.inArray(e.keyCode, keys.prev) > -1) {
+					} else if ($.inArray(e.keyCode, keys.prev) > -1 && current.keyEnabled) {
 						F.prev();
 						e.preventDefault();
 					}
@@ -486,7 +488,7 @@
 					url = element;
 				}
 
-				//If we have source path we can use it to load content ... 
+				//If we have source path we can use it to load content ...
 				if (url) {
 					if (isDom) {
 						rez = $(element).data('fancybox-type');
@@ -524,7 +526,7 @@
 						type = 'inline';
 						coming.content = element;
 
-						// .. or assume that we have HTML 
+						// .. or assume that we have HTML
 					} else if (coming.content) {
 						type = 'html';
 					}
@@ -660,7 +662,7 @@
 		_setContent: function () {
 			var content, loadingBay, current = F.current,
 				type = current.type;
-			
+
 			switch (type) {
 			case 'inline':
 			case 'ajax':
@@ -1197,7 +1199,7 @@
 			//This is catherine modifying fancybox source code
 			this.rel = $(this).attr('rel');
 			//END This is catherine modifying fancybox source code
-			
+
 			if (this.rel && this.rel !== '' && this.rel !== 'nofollow') {
 				group = selector.length ? $(selector).filter('[rel="' + this.rel + '"]') : $('[rel="' + this.rel + '"]');
 			}

@@ -74,7 +74,7 @@ testimonial:
     requirements:
         _locale: en|ja
 export:
-    pattern:   /export-seeds/
+    pattern:   /export/
     defaults:  { _controller: JDACoreBundle:Exporter:index }
 exported:
     pattern:   /exported/
@@ -82,6 +82,16 @@ exported:
 export_special:
     pattern:   /export_special/
     defaults:  { _controller: JDACoreBundle:Exporter:getItemsSpecial }
+widget:
+    pattern:   /widget/
+    defaults:  { _controller: JDACoreBundle:Widget:open, _locale: en }
+    requirements:
+        _locale: en|ja   
+            
+widget_persist:
+    pattern: /widget/persist
+    defaults: { _controller:  JDACoreBundle:Widget:persist }
+
 batchtag:
     pattern:	/batch-tag/
     defaults:	{ _controller: JDACoreBundle:BatchTag:index }
@@ -96,5 +106,10 @@ howtouse:
 howtocontribute:
     pattern:	/{_locale}/howtocontribute/
     defaults:  { _controller: JDACoreBundle:HowToContribute:index, _locale: ja }
+    requirements:
+        _locale: en|ja
+bookmarklet:
+    pattern:	/{_locale}/bookmarklet/
+    defaults:  { _controller: JDACoreBundle:Bookmarklet:index, _locale: ja }
     requirements:
         _locale: en|ja

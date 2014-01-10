@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
@@ -43,8 +43,8 @@
                 <target>logo</target>
             </trans-unit>
             <trans-unit id="11">
-                <source>jda.about.mission</source>
-                <target>The Digital Archive of Japan's 2011 Disasters' core missions</target>
+                <source>jda.about.missiontext</source>
+                <target>The Digital Archive of Japan's 2011 Disasters' core missions are:</target>
             </trans-unit>
             <trans-unit id="12">
                 <source>jda.about.one</source>
@@ -52,7 +52,7 @@
             </trans-unit>
             <trans-unit id="13">
                 <source>jda.about.two</source>
-                <target>to provide a public space of information sharing, collaboration and conversation for citizens, researchers and policy makers</target>
+                <target>to provide a public space of information sharing, collaboration and conversation for citizens, researchers, students, and policy makers</target>
             </trans-unit>
             <trans-unit id="14">
                 <source>jda.about.three</source>
@@ -188,7 +188,7 @@
             </trans-unit>
             <trans-unit id="47">
                 <source>jda.about.paragraph1</source>
-                <target>The archive is not limited to simple search of materials. In addition to user collections, there is also a map that visualizes all materials that are tagged with geographic information, especially tweets. The archive also actively solicits user submissions of resources such as Web sites, and user testimonials about personal experiences of the disasters and their aftermath. Thus, the archive is an interactive space encouraging, and indeed thriving on, user participation.</target>
+                <target>The archive actively solicits user submissions of resources such as websites, videos and photographs, and user testimonials about personal experiences of the disasters and their aftermath. Thus, the archive is an interactive space encouraging, and indeed thriving on, user participation.</target>
             </trans-unit>
             <trans-unit id="48">
                 <source>jda.search.items</source>
@@ -252,31 +252,31 @@
             </trans-unit>
             <trans-unit id="64">
                 <source>jda.advsearch.video</source>
-                <target>Video</target>
+                <target>video</target>
             </trans-unit>
             <trans-unit id="65">
                 <source>jda.advsearch.audio</source>
-                <target>Audio</target>
+                <target>audio</target>
             </trans-unit>
             <trans-unit id="66">
                 <source>jda.advsearch.image</source>
-                <target>Image</target>
+                <target>image</target>
             </trans-unit>
             <trans-unit id="67">
                 <source>jda.advsearch.website</source>
-                <target>Website</target>
+                <target>website</target>
             </trans-unit>
             <trans-unit id="68">
                 <source>jda.advsearch.tweet</source>
-                <target>Tweet</target>
+                <target>tweet</target>
             </trans-unit>
             <trans-unit id="69">
                 <source>jda.advsearch.document</source>
-                <target>Document</target>
+                <target>document</target>
             </trans-unit>
             <trans-unit id="70">
                 <source>jda.advsearch.all</source>
-                <target>All</target>
+                <target>all formats</target>
             </trans-unit>
             <trans-unit id="71">
                 <source>jda.advsearch.contentType</source>
@@ -972,7 +972,7 @@
             </trans-unit>
             <trans-unit id="242">
                 <source>jda.about.paragraph3</source>
-                <target>The Digital Archive of Japan's 2011 Disasters is an evolving, collaborative space for citizens, researchers, and policy makers, and a site of shared memory for those most directly affected by these events. The digital archive is an advanced search engine for materials from all over the Web, individuals’ testimonials, tweets, and content from international partners who are building digital repositories about the disasters. The site not only facilitates searching of materials, but allows users to create their own curated collections on topics of interest to them. The collections can be shared publicly and add value to the items accessible through the archive.</target>
+                <target>A project of Harvard University’s Reischauer Institute of Japanese Studies, the Digital Archive of Japan's 2011 Disasters is an evolving, collaborative space for citizens, researchers, students, and policy makers, and a site of shared memory for those most directly affected by these events. The digital archive is an advanced search engine for materials from all over the web, individuals’ testimonials, tweets, and content from international partners who are building digital repositories about the disasters. The site not only facilitates searching of materials, but allows users to create curated collections and interactive presentations on topics of interest to them. Collections and presentations can be shared publicly and enhance the value of the various items accessible through the archive. The archive also features an innovative map feature that visualizes all materials that are tagged with geographic information in real time.</target>
             </trans-unit>
             <trans-unit id="243">
                 <source>jda.form.testimonial.titleTxt</source>
@@ -1040,7 +1040,7 @@
             </trans-unit>
              <trans-unit id="259">
                 <source>jda.team.interaction</source>
-                <target>Interaction Design</target>
+                <target>Interaction Design and Development</target>
             </trans-unit>
             <trans-unit id="260">
                 <source>jda.form.testimonial.title</source>
@@ -1383,7 +1383,7 @@ prompt those of us who were not affected to reflect on the way we live our lives
           </trans-unit>
           <trans-unit id="344">
           	<source>jda.faq.q12answer</source>
-          	<target>Who is allowed to add materials to the archive? Anyone can add materials to the archive, even if you are not a registered user. However, only registered users may create "Collections" (see below).</target>
+          	<target>Anyone can add materials to the archive, even if you are not a registered user. However, only registered users may create "Collections" (see below).</target>
           </trans-unit>
           <trans-unit id="345">
           	<source>jda.faq.q13</source>
@@ -1534,7 +1534,7 @@ prompt those of us who were not affected to reflect on the way we live our lives
 			</trans-unit>
 			<trans-unit id="381">
 				<source>jda.howtouse.limitp1</source>
-				<target>To search for tags only, begin typing "tag" before your keywords. A popup in the search bar will allow you to select the "tag" field. To search for all fields, simply type in your keyword, or begin typing "text" and select it in the popup.</target>
+				<target>To search for tags only, begin typing "tag" before your keywords. A popup in the search bar will allow you to select the "tag" field. To treat multiple words as a single tag, place the entire phrase in quotation marks. To search for all fields, simply type in your keyword, or begin typing "text" and select it in the popup.</target>
 			</trans-unit>
 			<trans-unit id="383">
 				<source>jda.howtouse.limit2</source>
@@ -1634,6 +1634,66 @@ prompt those of us who were not affected to reflect on the way we live our lives
 			<trans-unit id="409">
 				<source>jda.howtocontribute.createp5</source>
 				<target>It is possible to share individual collections with others by using the privacy setting. Click on the “Archive Settings” pencil to set the collection to “Public”  or “Limited.” Choosing the “Public” setting means that other users will be able to see your collection. Choosing “Limited” means your collection will only be visible to you and those who have a link to the collection. It not show up in search results unless you change the settings.</target>
+			</trans-unit>
+			<trans-unit id="410">
+				<source>jda.search.removert</source>
+				<target>Exclude Re-Tweets</target>
+			</trans-unit>
+			<trans-unit id="411">
+				<source>jda.presentation.view</source>
+				<target>View Presentation</target>
+			</trans-unit>
+			<trans-unit id="412">
+				<source>jda.presentation.edit</source>
+				<target>Edit Presentation</target>
+			</trans-unit>
+			<trans-unit id="413">
+				<source>jda.advsearch.searchTermsExclude</source>
+				<target>Excluded Terms</target>
+			</trans-unit>
+			<trans-unit id="414">
+				<source>jda.howtouse.sort</source>
+				<target>Sort search results</target>
+			</trans-unit>
+			<trans-unit id="415">
+				<source>jda.howtouse.sortp1</source>
+				<target>By default, search results are sorted by “relevance,” which returns results in order of the number of times the search terms appear in the title, description, and metadata of each item. You can also sort search results chronologically by media creation date, using the drop down menu on the right.</target>
+			</trans-unit>
+			<trans-unit id="416">
+				<source>jda.bookmarklet.title</source>
+				<target>JDA Bookmarklet</target>
+			</trans-unit>
+			<trans-unit id="417">
+				<source>jda.bookmarklet.touse</source>
+				<target>To use:</target>
+			</trans-unit>
+			<trans-unit id="418">
+				<source>jda.bookmarklet.bullet1</source>
+				<target>Drag button above onto your browser's bookmark toolbar.</target>
+			</trans-unit>
+			<trans-unit id="419">
+				<source>jda.bookmarklet.bullet2</source>
+				<target>Log in at jdarchive.org. If you are not logged in, you will not be able to add content.</target>
+			</trans-unit>
+			<trans-unit id="420">
+				<source>jda.bookmarklet.bullet3</source>
+				<target>When you are on a website with content you wish to add to one of your collections, click on the "Add to JDA" link on your browser toolbar. A content submission form will appear.</target>
+			</trans-unit>
+			<trans-unit id="421">
+				<source>jda.bookmarklet.bullet4</source>
+				<target>Pick the collection you wish to add the content to and fill in relevant fields. If you have not yet made any collections, a new collection will automatically be generated.</target>
+			</trans-unit>
+			<trans-unit id="422">
+				<source>jda.bookmarklet.bullet5</source>
+				<target>If you would also like the content to be added to the public archive, check "Add to Archive." JDA staff will review the material and include it in the archive if appropriate.  If you do not check “Add to Archive,” the material will only be added to the indicated collection and will not be searchable in the public archive. Before adding the item, search the archive to see if it has already been submitted.</target>
+			</trans-unit>
+			<trans-unit id="423">
+				<source>jda.bookmarklet.bullet6</source>
+				<target>Finally, click "Add Media" to complete the process of adding the content to your collection and/or the archive.</target>
+			</trans-unit>
+			<trans-unit id="424">
+				<source>jda.bookmarklet.browser</source>
+				<target>* Best supported by the Chrome browser *</target>
 			</trans-unit>
         </body>
     </file>
