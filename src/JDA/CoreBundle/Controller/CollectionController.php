@@ -10,13 +10,13 @@ class CollectionController extends Controller
     
     public function indexAction($id)
     {
-		$author = $this->getUser();
-		if(is_object($author)){
-			$authorId = $author->getId();
-		}
-		else{
-			$authorId = 0;
-		}
+		$em = $this->getDoctrine()->getEntityManager();
+		$query = "select i from ZeegaDataBundle:Item i where i.id =".$id;
+        $q = $em->createQuery($query);
+		$items = $q->getResult();
+		$collection = $items[0];
+		$authorId = $collection->getUserId();
+
     	$locale=$this->getRequest()->getLocale();
     	$user = $this->get('security.context')->getToken()->getUser();
     	if(is_object($user)){
