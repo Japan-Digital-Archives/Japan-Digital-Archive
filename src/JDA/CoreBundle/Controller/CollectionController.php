@@ -10,7 +10,13 @@ class CollectionController extends Controller
     
     public function indexAction($id)
     {
-    
+		$author = $this->getUser();
+		if(is_object($author)){
+			$authorId = $author->getId();
+		}
+		else{
+			$authorId = 0;
+		}
     	$locale=$this->getRequest()->getLocale();
     	$user = $this->get('security.context')->getToken()->getUser();
     	if(is_object($user)){
@@ -27,6 +33,7 @@ class CollectionController extends Controller
 					'displayname'=>$displayName,
 					'filterId'=>$id,
 					'userId'=>$userId,
+					'authorId'=>$authorId,
 				));
     }
 }
