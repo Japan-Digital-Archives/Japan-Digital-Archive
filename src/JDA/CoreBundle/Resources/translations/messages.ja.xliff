@@ -188,7 +188,7 @@
             </trans-unit>           
              <trans-unit id="47">
                 <source>jda.about.paragraph1</source>
-                <target>私たちは「参加性の高い」アーカイブを目指して、特に地理空間上での操作やコレクション作成機能の充実を優先的な課題とし、ユーザは自らのコレクションに収めたアーカイブ資料を活用して幅広いプレゼンテーションを行うことが可能になるでしょう。皆様のご提案・ご感想を、ぜひお聞かせ下さい。</target>
+                <target>当アーカイブは積極的にユーザーが投稿したウェブサイト、動画、写真、そして経験談などの資料を集めています。皆様のご参加をお待ちしております。</target>
             </trans-unit>
             <trans-unit id="48">
                 <source>jda.search.items</source>
@@ -686,7 +686,7 @@
             </trans-unit>
              <trans-unit id="171">
                 <source>jda.team</source>
-                <target>the jda team</target>
+                <target>アーカイブ開発チーム</target>
             </trans-unit>
              <trans-unit id="172">
                 <source>fancybox.addto</source>
@@ -923,11 +923,11 @@
             </trans-unit>
              <trans-unit id="229">
                 <source>jda.team.leader</source>
-                <target>This project is led by the Reischauer Institute of Japanese Studies</target>
+                <target>このアーカイブはハーバード大学エドウィン・O・ライシャワー日本研究所によるプロジェクトです</target>
             </trans-unit>
             <trans-unit id="230">
                 <source>jda.team.additional</source>
-                <target>Reischauer Institute Faculty and Staff providing additional support</target>
+                <target>ライシャワー日本研究所　協力教員・スタッフ</target>
             </trans-unit>
              <trans-unit id="231">
                 <source>jda.team.zeega</source>
@@ -943,7 +943,7 @@
             </trans-unit>
             <trans-unit id="234">
                 <source>jda.team.inquiries</source>
-                <target>Please direct inquiries to </target>
+                <target>お問い合わせは、</target>
             </trans-unit>
              <trans-unit id="235">
                 <source>jda.header.add</source>
@@ -975,7 +975,7 @@
             </trans-unit>
             <trans-unit id="242">
                 <source>jda.about.paragraph3</source>
-                <target>The Digital Archive of Japan's 2011 Disasters is an evolving, collaborative space for citizens, researchers, and policy makers, and a site of shared memory for those most directly affected by these events. The digital archive is an advanced search engine for materials from all over the Web, individuals’ testimonials, tweets, and content from international partners who are building digital repositories about the disasters. The site not only facilitates searching of materials, but allows users to create their own curated collections on topics of interest to them. The collections can be shared publicly and add value to the items accessible through the archive.</target>
+                <target>2011年東日本大震災デジタルアーカイブは、常に成長し続ける参加型のアーカイブとしてハーバード大学のライシャワー日本研究所で構想されたプロジェクトです。一般市民、研究者、学生、そして政策担当者のための情報交換の場である一方、震災の影響を身近に受けている方々にとっては自らの経験を振り返り、記憶を共有する場でもあります。当デジタルアーカイブは、ウェブ上の様々な資料や個人の経験談、ツイート、そして世界中のパートナーによって収集された震災に関するデジタル資料へのアクセスが出来る、高度な検索エンジンです。また、このサイトでは検索だけでなく、ユーザーが自ら選択した資料から「コレクション」を作成したり、興味のあるテーマに基づいてインタラクティブなプレゼンテーションを作ることも可能です。このような「マイ・コレクション」や「プレゼンテーション」をサイト上で公開する事により、収集された資料に様々な角度から意味付けをし、新たな価値を付加する事が出来ます。アーカイブには他にも位置情報付きの資料をリアル・タイムで表示する、画期的な地図機能もあります。</target>
             </trans-unit>
             <trans-unit id="243">
                 <source>jda.form.testimonial.titleTxt</source>
@@ -1011,11 +1011,11 @@
             </trans-unit>
             <trans-unit id="251">
                 <source>jda.team.alumni</source>
-                <target>Team Alumni</target>
+                <target>チームの卒業者</target>
             </trans-unit>
             <trans-unit id="252">
                 <source>jda.team.inquiries</source>
-                <target>Please direct inquiries to </target>
+                <target>お問い合わせは、</target>
             </trans-unit>
              <trans-unit id="253">
                 <source>jda.header.add</source>
@@ -1043,7 +1043,7 @@
             </trans-unit>
              <trans-unit id="259">
                 <source>jda.team.interaction</source>
-                <target>Interaction Design</target>
+                <target>アーカイブのデザイン・開発</target>
             </trans-unit>
             <trans-unit id="260">
             	<source>jda.form.testimonial.title</source>
@@ -1488,7 +1488,7 @@
           </trans-unit>
           <trans-unit id="367">
           	<source>jda.aboutpartners.paragraph2</source>
-          	<target>Not all partners are digital archives; others have created maps and instructional guides for the JDArchive. Our partners are thus a crucial part of our effort to provide and add value to digital content related to Japan’s 2011 disasters. Please learn more about our partners below.</target>
+          	<target>検索マニュアルや地図機能の制作を担った団体を含め、全てのパートナーがデジタル・アーカイブであるとは限りません。こうした様々なパートナーの協力があってこそ、当アーカイブを通して東日本大震災に関する価値あるデジタル・コンテンツを提供する事が可能となります。各パートナーについての詳細は下記をご覧下さい。</target>
           </trans-unit>
 		  <trans-unit id="368">
 				<source>jda.home.howtouse</source>
@@ -1671,7 +1671,7 @@
 			</trans-unit>
 			<trans-unit id="413">
 				<source>jda.advsearch.searchTermsExclude</source>
-				<target>Excluded Terms</target>
+				<target>検索から除外する言葉</target>
 			</trans-unit>
 			<trans-unit id="414">
 				<source>jda.howtouse.sort</source>
@@ -1699,7 +1699,7 @@
 			</trans-unit>
 			<trans-unit id="420">
 				<source>jda.bookmarklet.bullet3</source>
-				<target>ご自身のマイ・コレクションに追加したいコンテンツを見つけた際、そのウェブサイトを開いたままブラウザのツールバーの「JDAに投稿」リンクをクリックする。</target>
+				<target>ご自身のマイ・コレクションに追加したいコンテンツを見つけた際、そのウェブサイトを開いたままブラウザのツールバーの「Add to JDA」リンクをクリックする。</target>
 			</trans-unit>
 			<trans-unit id="421">
 				<source>jda.bookmarklet.bullet4</source>
@@ -1707,11 +1707,11 @@
 			</trans-unit>
 			<trans-unit id="422">
 				<source>jda.bookmarklet.bullet5</source>
-				<target>コンテンツをマイ・コレクションだけでなくアーカイブ自体に追加する場合、「アーカイブに投稿」ボックスをクリックする。JDAのスタッフが投稿されたコンテンツを確認後、適切な内容であればアーカイブに追加します。「アーカイブに投稿」ボックスをクリックしていない場合、コンテンツは一般公開をされないままユーザのマイ・コレクションのみに追加され、アーカイブの検索結果には表示されません。アーカイブに投稿する際は、同じコンテンツが既に保存されていないか、アーカイブを検索して確認して下さい。</target>
+				<target>コンテンツをマイ・コレクションだけでなくアーカイブ自体に追加する場合、「Add to Archive」ボックスをクリックする。JDAのスタッフが投稿されたコンテンツを確認後、適切な内容であればアーカイブに追加します。「Add to Archive」ボックスをクリックしていない場合、コンテンツは一般公開をされないままユーザのマイ・コレクションのみに追加され、アーカイブの検索結果には表示されません。アーカイブに投稿する際は、同じコンテンツが既に保存されていないか、アーカイブを検索して確認して下さい。</target>
 			</trans-unit>
 			<trans-unit id="423">
 				<source>jda.bookmarklet.bullet6</source>
-				<target>最後に、「メディアを投稿」ボタンをクリックし、コンテンツをマイ・コレクションまたはアーカイブに追加する。</target>
+				<target>最後に、「Add Media」ボタンをクリックし、コンテンツをマイ・コレクションまたはアーカイブに追加する。</target>
 			</trans-unit>
 			<trans-unit id="424">
 				<source>jda.bookmarklet.browser</source>
