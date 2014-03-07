@@ -230,7 +230,7 @@ $(document).ready(function(){
 	
 	if($('#map').data('lat')!=""){
 		$('.map-wrapper').show();
-		var baseLayer= new L.TileLayer('http://{s}.tiles.mapbox.com/v2/zeega.map-2w4y8pj8/{z}/{x}/{y}.png', {maxZoom: 18, attribution:""});
+		var baseLayer= new L.TileLayer('http://{s}.tiles.mapbox.com/v3/jdarchive.he805gp4/{x}/{y}/{z}.png', {maxZoom: 18, attribution:""});
 		var div = $('.jda-item-map-container').get(0);
 		var map = new L.Map(div);
 		var latLng= new L.LatLng(parseFloat($('#map').data('lat')),parseFloat($('#map').data('lng')));
