@@ -161,7 +161,7 @@
 		{
 			var html =
 			
-				'<a href="#" class="thumbnail zeega-collection rotated-left">'+
+				'<a href=/'+sessionStorage.getItem('locale') +'/collection/<%=id%> class="thumbnail zeega-collection rotated-left">'+
 				//	'<i class="jdicon-small-drag" style="z-index:2"></i>'+
 				//	'<span class="label label-inverse" style="display:none;position: absolute;top: 91px;left:126px;z-index:2" rel="tooltip" title="Go to Collection View">'+
 				//	'<i class="icon-share-alt icon-white"></i></span>'+
