@@ -116,7 +116,7 @@
 			
 
 			
-			this.cloudmadeUrl = 'http://a.tiles.mapbox.com/v3/jdarchive.he805gp4/{z}/{x}/{y}.png',
+			this.cloudmadeUrl = 'http://api.tiles.mapbox.com/v3/jdarchive.he805gp4/0/0/0.png',
 			this.cloudmadeAttrib = '',
 			this.cloudmade = new L.TileLayer(this.cloudmadeUrl, {maxZoom: 18, attribution: this.cloudmadeAttrib});
 		
