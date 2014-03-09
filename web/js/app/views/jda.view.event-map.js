@@ -26,7 +26,7 @@
 					var targetWidth = curWidth +  (16 - (curWidth % 16));
 					this.newRatio = targetWidth/size.w;
 					size.h = parseInt(Math.round(size.h * this.newRatio),10);
-					size.w = parseInt(Math.round(size.w * this.newRatio),10);
+					size.w = parseInt(Math.round(size.w * this.nezwRatio),10);
 				}
 				OpenLayers.Layer.HTTPRequest.prototype.setTileSize.apply(this, [size]);
 			};
