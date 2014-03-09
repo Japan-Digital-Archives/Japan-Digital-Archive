@@ -114,7 +114,7 @@ bookmarklet:
     requirements:
         _locale: en|ja
 bookmarkletapp:
-    pattern:	/widget/?url=
+    pattern:	/widget/\?url=
     defaults:  { _controller: JDACoreBundle:Bookmarklet:index, _locale: ja }
     requirements:
         _locale: en|ja
