@@ -262,7 +262,7 @@
         blanks.translation = "None Submitted";
         blanks.translationEditText = "";
 			}
-			if (1.fancybox_testimonial) == testimonial)
+			if (1.fancybox_testimonial) == "testimonial")
 			{
 			blanks.sourceText = "";
 			}
