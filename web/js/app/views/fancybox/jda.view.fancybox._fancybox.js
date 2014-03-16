@@ -265,6 +265,9 @@
 			
 			blanks.sourceText = l.fancybox_source;
 			
+			console.log(this.model.get('id'));
+			console.log(this.get('id'));
+			
 			if (this.model.get('id') == "zeega-items-thumbnails")
 			{
 			blanks.sourceText = "";
