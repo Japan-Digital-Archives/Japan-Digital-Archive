@@ -245,7 +245,6 @@
 			/** Temp Fix **/
 			var blanks = {
 				sourceLink : this.model.get('uri'),
-				
 				title : this.model.get('title') == "none" ? this.model.get('layer_type') : this.model.get('title'),
 				description : this.model.get('description'),
 				creator : this.model.get('media_creator_username'),
@@ -263,8 +262,14 @@
         blanks.translation = "None Submitted";
         blanks.translationEditText = "";
 			}
-			if (this
+			if (1.fancybox_testimonial) == testimonial)
+			{
+			blanks.sourceText = "";
+			}
+			else
+			{
 			blanks.sourceText = l.fancybox_source;
+			}
 			blanks.itemShareLink = sessionStorage.getItem('hostname')+sessionStorage.getItem('locale')+'/item/'+ this.model.id;
 
 			//use template to clone the database items into
