@@ -266,9 +266,11 @@
 			blanks.sourceText = l.fancybox_source;
 			
 			console.log(this.model.get('id'));
-			console.log(this.get('id'));
+			console.log(this.model.get('class'));
+			console.log(this.model.get('media-item'));
+			console.log(this.model.get('layer_type'));
 			
-			if (this.model.get('id') == "zeega-items-thumbnails")
+			if (this.model.get('class') == "zeega-items-thumbnails")
 			{
 			blanks.sourceText = "";
 			}
