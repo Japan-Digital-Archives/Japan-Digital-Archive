@@ -262,9 +262,13 @@
         blanks.translation = "None Submitted";
         blanks.translationEditText = "";
 			}
-			//blanks.sourceText = l.fancybox_source;
 			
+			blanks.sourceText = l.fancybox_source;
+			
+			if (this.model.get('id') == "zeega-items-thumbnails")
+			{
 			blanks.sourceText = "";
+			}
 			blanks.itemShareLink = sessionStorage.getItem('hostname')+sessionStorage.getItem('locale')+'/item/'+ this.model.id;
 
 			//use template to clone the database items into
