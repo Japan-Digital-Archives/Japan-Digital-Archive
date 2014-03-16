@@ -244,10 +244,9 @@
       this.elemId = Math.floor(Math.random()*10000);
 			/** Temp Fix **/
 			var blanks = {
-				if (this.model.get('media_type') == Testimonial)
-				{
+				
 				sourceLink : this.model.get('uri'),
-				}
+				
 				title : this.model.get('title') == "none" ? this.model.get('layer_type') : this.model.get('title'),
 				description : this.model.get('description'),
 				creator : this.model.get('media_creator_username'),
