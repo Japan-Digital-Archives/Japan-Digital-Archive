@@ -264,14 +264,8 @@
         blanks.translationEditText = "";
 			}
 			if (this
-			if (1.fancybox_testimonial != testimonial)
-			{
-			blanks.sourceText = l.fancybox_source;
-			}
-			else
-			{
 			blanks.sourceText = "";
-			}
+			//l.fancybox_source;
 			blanks.itemShareLink = sessionStorage.getItem('hostname')+sessionStorage.getItem('locale')+'/item/'+ this.model.id;
 
 			//use template to clone the database items into
