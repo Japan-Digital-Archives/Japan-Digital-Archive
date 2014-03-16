@@ -244,7 +244,6 @@
       this.elemId = Math.floor(Math.random()*10000);
 			/** Temp Fix **/
 			var blanks = {
-				
 				sourceLink : this.model.get('uri'),
 				
 				title : this.model.get('title') == "none" ? this.model.get('layer_type') : this.model.get('title'),
@@ -264,9 +263,15 @@
         blanks.translation = "None Submitted";
         blanks.translationEditText = "";
 			}
-
+			if (this
+			if (1.fancybox_testimonial != testimonial)
+			{
 			blanks.sourceText = l.fancybox_source;
-
+			}
+			else
+			{
+			blanks.sourceText = "";
+			}
 			blanks.itemShareLink = sessionStorage.getItem('hostname')+sessionStorage.getItem('locale')+'/item/'+ this.model.id;
 
 			//use template to clone the database items into
