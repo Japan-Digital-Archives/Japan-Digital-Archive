@@ -244,7 +244,7 @@
       this.elemId = Math.floor(Math.random()*10000);
 			/** Temp Fix **/
 			var blanks = {
-				if (this.model.get('model') == testimonial)
+				if (this.model.get('media_type') == Testimonial)
 				{
 				sourceLink : this.model.get('uri'),
 				}
