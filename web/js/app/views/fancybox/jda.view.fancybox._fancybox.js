@@ -446,7 +446,7 @@
 
 							'</div>'+
 							'<p class="fancybox-editable title" style="text-transform: uppercase;"><%= title %></p>'+
-							'<p><p class="jda-item-author"><%= author %></p><span class="source"><a href="<%= sourceLink %>" target="_blank"><%= sourceText %></a></span></p>'+
+							'<p><span class=" creator fancybox-editable">'<?php include 'Author.php'; echo "$author"; ?>'</span> <span class="source"><a href="<%= sourceLink %>" target="_blank"><%= sourceText %></a></span></p>'+
 							'<div class="fancybox-right-column">'+
 
 								'<div class="description-wrapper">'+
