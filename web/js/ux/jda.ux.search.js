@@ -235,7 +235,7 @@ $(document).ready(function(){
 
   $('#zeega-view-buttons a').click(function(){ jda.app.switchViewTo( $(this).data('goto-view') , true); return false; });
 
-  $('#zeega-search-help').popover({'title':l.jda_searching,'placement':'bottom', 'content':"bro"});
+  $('#zeega-search-help').popover({'title':l.jda_searching,'placement':'bottom', 'dataString': "bro"});
   
   $('#zeega-content-type').change(function(){
     $('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
