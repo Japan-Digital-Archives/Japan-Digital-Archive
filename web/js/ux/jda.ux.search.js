@@ -237,7 +237,7 @@ $(document).ready(function(){
 
   $('#zeega-search-help').popover({'title':l.jda_searching,'placement':'bottom', 'dataString': "bro"});
 	var searchHelp = $("#zeega-search-help");
-	searchHelp.attr("data-content","Enter your keyword search in the box to the left. <br> To search only tags, begin your search with &quot;t&quot; and select &quot;tag:&quot;").data('popover').setContent();
+	searchHelp.attr("data-content","Enter your keyword search in the box to the left. <br><br> To search only tags, begin your search with &quot;t&quot; and select &quot;tag:&quot;").data('popover').setContent();
 	searchHelp.data('popover').$tip.addClass(searchHelp.data('popover').options.placement);
 
   $('#zeega-content-type').change(function(){
