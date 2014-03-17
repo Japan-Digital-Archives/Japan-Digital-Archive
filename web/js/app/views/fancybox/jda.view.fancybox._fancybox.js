@@ -247,7 +247,7 @@
 				sourceLink : this.model.get('uri'),
 				title : this.model.get('title') == "none" ? this.model.get('layer_type') : this.model.get('title'),
 				description : this.model.get('description'),
-				creator : this.model.get('media_creator_username'),
+				creator : this.model.get('attributes').author,
 				tags : this.model.get('tags'),
 				text : this.model.get('text').replace(/\r\n/gi, '<br/>'),
 				randId: this.elemId
