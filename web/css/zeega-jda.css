@@ -90,6 +90,7 @@
 }
 #zeega-list-view .zeega-list-middle-column{
 	width:-webkit-calc(100% -  220px);
+	text-overflow: ellipsis
 	word-break:break-all;
 }
 #zeega-list-view .zeega-list-right-column{
