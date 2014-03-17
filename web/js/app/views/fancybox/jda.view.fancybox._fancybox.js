@@ -247,7 +247,7 @@
 				sourceLink : this.model.get('uri'),
 				title : this.model.get('title') == "none" ? this.model.get('layer_type') : this.model.get('title'),
 				description : this.model.get('description'),
-				creator : this.model.get('attributes').author,
+				creator : this.model.get('author'),
 				tags : this.model.get('tags'),
 				text : this.model.get('text').replace(/\r\n/gi, '<br/>'),
 				randId: this.elemId
@@ -349,7 +349,7 @@
 				$(this.el).find('.creator').editable(
 					function(value, settings)
 					{
-						_this.model.save({ "media_creator_username":value },
+						_this.model.save({ "media_creator_realname":value },
 								{
 									success: function(model, response) {
 										console.log("Updated item creator for item " + _this.model.id);
