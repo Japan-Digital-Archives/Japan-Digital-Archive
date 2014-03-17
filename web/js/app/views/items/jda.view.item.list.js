@@ -67,6 +67,7 @@
 
 
 			var blanks = this.model.attributes;
+			
 
 			if (!_.isUndefined(this.model.get("media_date_created"))&&!_.isNull(this.model.get("media_date_created"))){
 				blanks["media_date"] = new Date(this.model.get("media_date_created").replace(" ", "T"));
@@ -89,6 +90,10 @@
 				blanks["title"] = "";
 			}
 
+			if (this.model.get("media_creator_username") === "rijs"){
+				blanks["media_creator_username"] = this.model.get("media_creator_realname"); 
+			}
+			
 			if (this.model.get("media_creator_realname") === null || this.model.get("media_creator_realname") === "" || this.model.get("media_creator_realname") == "Unknown" || this.model.get("media_creator_realname") == "unknown"){
 				blanks["author"] = this.model.get("media_creator_username");
 			} else {
