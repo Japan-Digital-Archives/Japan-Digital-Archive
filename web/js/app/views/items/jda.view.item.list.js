@@ -89,7 +89,7 @@
 			if (this.model.get("title") === null || this.model.get("title") == "none" || this.model.get("title") === ""){
 				blanks["title"] = "";
 			}
-
+			// Checks if the media username is rijs and switches it to media creator username 
 			if (this.model.get("media_creator_username") === "rijs"){
 				blanks["media_creator_username"] = this.model.get("media_creator_realname"); 
 			}
