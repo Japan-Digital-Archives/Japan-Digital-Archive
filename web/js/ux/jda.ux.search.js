@@ -235,9 +235,7 @@ $(document).ready(function(){
 
   $('#zeega-view-buttons a').click(function(){ jda.app.switchViewTo( $(this).data('goto-view') , true); return false; });
 
-  //$('#zeega-search-help').popover({'title':l.jda_searching,'placement':'bottom'});
-
-	$('#zeega-search-help').popover({'title': "Yup bro",'placement':'bottom'});
+  $('#zeega-search-help').popover({'title':l.jda_searching,'placement':'bottom', data-content="Enter your keyword search in the box to the left. &lt;br&gt;&lt;br&gt;To search only tags, begin your search with &quot;t&quot; and select &quot;tag:&quot; &lt;br&gt;&lt;br&gt;To search by user, begin your search with &quot;u&quot; and select &quot;user:&quot;});
   
   $('#zeega-content-type').change(function(){
     $('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
