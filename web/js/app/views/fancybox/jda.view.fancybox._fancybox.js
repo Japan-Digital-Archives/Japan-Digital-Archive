@@ -247,7 +247,7 @@
 				sourceLink : this.model.get('uri'),
 				title : this.model.get('title') == "none" ? this.model.get('layer_type') : this.model.get('title'),
 				description : this.model.get('description'),
-				creator : this.model.get('media_creator_username'),
+				creator : this.model.get('author'),
 				tags : this.model.get('tags'),
 				text : this.model.get('text').replace(/\r\n/gi, '<br/>'),
 				randId: this.elemId
@@ -262,9 +262,15 @@
         blanks.translation = "None Submitted";
         blanks.translationEditText = "";
 			}
-
+			
 			blanks.sourceText = l.fancybox_source;
-
+			
+			
+			
+			if (this.model.get('layer_type') == "Testimonial")
+			{
+			blanks.sourceText = "";
+			}
 			blanks.itemShareLink = sessionStorage.getItem('hostname')+sessionStorage.getItem('locale')+'/item/'+ this.model.id;
 
 			//use template to clone the database items into
@@ -343,7 +349,7 @@
 				$(this.el).find('.creator').editable(
 					function(value, settings)
 					{
-						_this.model.save({ "media_creator_username":value },
+						_this.model.save({ "media_creator_realname":value },
 								{
 									success: function(model, response) {
 										console.log("Updated item creator for item " + _this.model.id);

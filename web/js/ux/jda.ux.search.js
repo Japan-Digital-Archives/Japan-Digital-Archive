@@ -235,7 +235,10 @@ $(document).ready(function(){
 
   $('#zeega-view-buttons a').click(function(){ jda.app.switchViewTo( $(this).data('goto-view') , true); return false; });
 
-  $('#zeega-search-help').popover({'title':l.jda_searching,'placement':'bottom'});
+  $('#zeega-search-help').popover({'title':l.jda_searching,'placement':'bottom', 'dataString': "bro"});
+	var searchHelp = $("#zeega-search-help");
+	searchHelp.attr("data-content","Enter your keyword search in the box to the left. <br><br> To search only tags, begin your search with &quot;t&quot; and select &quot;tag:&quot;").data('popover').setContent();
+	searchHelp.data('popover').$tip.addClass(searchHelp.data('popover').options.placement);
 
   $('#zeega-content-type').change(function(){
     $('#select-wrap-text').text( $('#zeega-content-type option[value=\''+$('#zeega-content-type').val()+'\']').text() );
