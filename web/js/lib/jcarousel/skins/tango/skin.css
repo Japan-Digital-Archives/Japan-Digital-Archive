@@ -36,22 +36,53 @@
     height: 150px;
 	background-size:200px 150px;
 	padding: 0px !important;
+	
 }
 
 .jcarousel-skin-tango .jcarousel-item a{
+	overflow:hidden;
 	color: #000000;
 	font-weight: bold;
 	font-size: 16px;
 	background-color: #ffffff;
 	opacity: 0.8;
 	filter: alpha(opacity=80);
-	text-align: center;
 	width: 200px;
 	display: block;
 	height: 35px;
 	padding-top: 10px;
 	margin-top: 90px;
 }
+
+.jcarousel-skin-tango .jcarousel-item a:before{
+	content:"";
+    float: left;
+    width: 5px; height: 200px;
+}
+
+.jcarousel-skin-tango .jcarousel-item a > *:first-child{
+	float: right;
+    width: 100%;
+    margin-left: -5px;
+}
+
+.jcarousel-skin-tango .jcarousel-item a :after {
+    content: "\02026";  
+    width: 200px;
+	display: block;
+	height: 35px;
+	padding-top: 10px;
+	margin-top: 90px;
+    
+    text-align: center;
+    
+    background: -webkit-gradient(linear, left top, right top,
+        from(rgba(255, 255, 255, 0)), to(white), color-stop(50%, white));
+    background: -moz-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);			
+    background: -o-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+    background: -ms-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white); 
+	}
 
 .jcarousel-skin-tango .jcarousel-item-horizontal {
 	margin-left: 40px;
