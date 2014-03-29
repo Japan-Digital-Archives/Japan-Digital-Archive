@@ -11,6 +11,7 @@
 <!--[if lte IE 7]><!-->
 <link href="{{ asset('js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
 <!--<![endif]-->
+<link rel="stylesheet" type="text/css" href="{{ asset('js/lib/jquery.tagsinput.css')}}" />
 {% endblock %}
 {% block scripts %}
 {% if app.environment == 'dev' %}
@@ -46,7 +47,6 @@
 	<div id="instructional" style="font-size: 15px; width:80%">
 
 		<a type="button" class="jda-home-button" draggable="true" href="javascript:window.open('http://jdarchive.org/widget?url='+window.location.href+'&title='+document.title, 'JDA Bookmarklet', 'status=no,directories=no,location=no,resizable=no,menubar=no,width=400,height='+window.innerHeight+',toolbar=no');">Add to JDA</a>
-
 		<h3 style="margin-bottom:20px; margin-top:20px;">{% trans %}jda.bookmarklet.touse{% endtrans %}</h3>
 
 		<p style="padding-top:7px; font-size:15px"><b>1. </b>{% trans %}jda.bookmarklet.bullet1{% endtrans %}</p>
