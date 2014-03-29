@@ -129,6 +129,7 @@
         Audio: "Audio",
         Tweet: "Tweet"
     };
+	
 	$("#tagsSelect").chosen({
             create_option_text: 'Add New Tag',
             create_option: true,
@@ -219,8 +220,8 @@
           
           postObj.tags = [];
           $("#tagsSelect option:selected").each(function () {
-               postObj.tags.push($(this).val());
-           });
+                    postObj.tags.push($(this).val());
+            });
 
           postObj.media_type = $("#widget-media > option:selected").val(); 
           
