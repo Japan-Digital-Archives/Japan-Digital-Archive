@@ -129,6 +129,11 @@
         Audio: "Audio",
         Tweet: "Tweet"
     };
+	$("#tagsSelect").chosen({
+            create_option_text: 'Add New Tag',
+            create_option: true,
+            persistent_create_option: true
+        });
         
     sessionStorage.apiUrl = "http://jdarchive.org/zeega/";	
     sessionStorage.user = {{ userId }};
