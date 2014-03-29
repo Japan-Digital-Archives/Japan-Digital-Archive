@@ -18,7 +18,6 @@
     <link rel="stylesheet" media="screen" type="text/css" href="{{ asset('css/zeega.css')}}" /> 
     <link rel="stylesheet" media="screen" type="text/css" href="{{ asset('css/zeega.widget.css')}}" /> 
     <link rel="icon" type="image/png" href="{{asset('images/zeega.ico')}}"> 
-	<link rel="stylesheet" type="text/css" href="{{ asset('js/lib/jquery.tagsinput.css')}}" />
 	<script type="text/javascript" src="../js/lib/sha1.js"></script>
 	<script type="text/javascript" src="../js/lib/codebird.js"></script>  
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -27,7 +26,8 @@
     <script type="text/javascript" src="http://s3.documentcloud.org/viewer/loader.js"></script>
 
 	<script data-main="{{hostname}}js/loaders/widget.js" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
-
+	<script data-main="{{ asset('js/loaders/form') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
+	
 		{% endblock %}
 		
 		<script type="text/javascript"> 
