@@ -272,10 +272,9 @@ div.olControlSaveFeaturesItemInactive {
  -khtml-user-select: none;
 }
 
-.olImageLoadError {
-    background-color: pink;
-    opacity: 0.5;
-    filter: alpha(opacity=50); /* IE */
+.olImageLoadError { 
+    /* when OL encounters a 404, don't display the pink image */
+    display: none !important;
 }
 
 /**
