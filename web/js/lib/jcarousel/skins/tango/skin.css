@@ -57,7 +57,7 @@
 
 .jcarousel-skin-tango .jcarousel-item a:before{
 	content:"";
-    float: left
+    float: left;
     width: 5px; height: 200px;
 }
 
