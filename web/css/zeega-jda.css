@@ -91,6 +91,8 @@
 #zeega-list-view .zeega-list-middle-column{
 	width:-webkit-calc(100% - 220px);
 	white-space: nowrap;
+	text-overflow:ellipsis;
+	word-break:break-all;
 }
 #zeega-list-view .zeega-list-right-column{
 	width:115px;
