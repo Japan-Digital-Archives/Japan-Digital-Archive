@@ -374,11 +374,6 @@ h2 small {
 h3 {
   line-height: 27px;
   font-size: 18px;
-  white-space: nowrap;
-  overflow:hidden;
-  text-overflow: ellipsis;
-  -o-text-overflow: ellipsis;
-  -ms-text-overflow: ellipsis
 }
 h3 small {
   font-size: 14px;
