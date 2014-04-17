@@ -33,7 +33,7 @@ require (
 	'order!../lib/bootstrap-2.0.2/js/bootstrap.min',
 	'order!../lib/ajaxfileuploader/ajaxfileupload',
 	
-	'order!../lib/jquery.tagsinput.min',
+	'order!../lib/jquery.tagsinput',
 
 	'order!../lib/jeditable.min',
 	'order!../lib/jquery/plugins/jeditable.min',
@@ -102,4 +102,3 @@ require (
 
 	
 	],function(){});
-

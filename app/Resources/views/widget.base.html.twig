@@ -17,8 +17,19 @@
     <link rel="stylesheet" media="screen" type="text/css" href="{{ asset('css/zeega-bootstrap.css')}}" /> 
     <link rel="stylesheet" media="screen" type="text/css" href="{{ asset('css/zeega.css')}}" /> 
     <link rel="stylesheet" media="screen" type="text/css" href="{{ asset('css/zeega.widget.css')}}" /> 
+	<link type="text/css" href="{{ asset('js/lib/jquery-ui-1.8.18.custom/css/smoothness/jquery-ui-1.8.18.custom.css')}}" rel="Stylesheet" />
+	<link href="{{ asset('js/lib/jquerySVG/jquery.svg.css')}}" rel="stylesheet" type="text/css">
+
+	<!-- Leaflet CSS --> 
+	<link rel="stylesheet" href="{{ asset('js/lib/leaflet/leaflet.css')}}" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="{{ asset('js/lib/leaflet/leaflet.ie.css')}}" /><![endif]-->
+
+	<!-- Tags --> 
+	<link rel="stylesheet" type="text/css" href="{{ asset('js/lib/jquery.tagsinput.css')}}" />
+
+    <!-- chosen -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('js/lib/chosen/chosen.css')}}" />
     <link rel="icon" type="image/png" href="{{asset('images/zeega.ico')}}"> 
-  
 	<script type="text/javascript" src="../js/lib/sha1.js"></script>
 	<script type="text/javascript" src="../js/lib/codebird.js"></script>  
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -27,7 +38,7 @@
     <script type="text/javascript" src="http://s3.documentcloud.org/viewer/loader.js"></script>
 
 	<script data-main="{{hostname}}js/loaders/widget.js" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
-
+	
 		{% endblock %}
 		
 		<script type="text/javascript"> 

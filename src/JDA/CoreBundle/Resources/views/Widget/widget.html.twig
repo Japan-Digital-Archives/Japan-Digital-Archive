@@ -1,8 +1,9 @@
 
-
 {# src/Zeega/\CoreBundle\/Resources/views/Widget/fail.widget.html.twig #}
 
 {% extends '::widget.base.html.twig' %}
+
+
 
 {% block title %} {% endblock %}
 
@@ -85,10 +86,9 @@
 			
 			<h3>Tags (comma separated):</h3>
 			<div id="tags">
-				<td>
-          <select name="tagsSelect" id="tagsSelect" multiple>
-          </select>
-        </td>
+				<div class="widget-textbox ingest-info">
+				<textarea id="widget-tags" ></textarea>
+				</div>
 			</div>
 
 			<h3>Location:</h3>
@@ -128,6 +128,12 @@
         Audio: "Audio",
         Tweet: "Tweet"
     };
+	
+	$("#tagsSelect").chosen({
+            create_option_text: 'Add New Tag',
+            create_option: true,
+            persistent_create_option: true
+        });
         
     sessionStorage.apiUrl = "http://jdarchive.org/zeega/";	
     sessionStorage.user = {{ userId }};
@@ -212,10 +218,9 @@
           postObj.attributes.submitterId = "{{ userId }}";
           
           postObj.tags = [];
-          var tags = $("#widget-tags").val().split(",");
-          $.each(tags, function(i, tag) {
-          	postObj.tags.push(tag.trim());
-          });
+          $("#tagsSelect option:selected").each(function () {
+                    postObj.tags.push($(this).val());
+            });
 
           postObj.media_type = $("#widget-media > option:selected").val(); 
           
