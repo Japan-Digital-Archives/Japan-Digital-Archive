@@ -39,6 +39,10 @@
 	
 }
 
+*{
+	@include box-sizing(border-box)
+}
+
 .jcarousel-skin-tango .jcarousel-item a{
 	color: #000000;
 	font-weight: bold;
