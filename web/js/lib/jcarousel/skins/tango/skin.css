@@ -36,22 +36,32 @@
     height: 150px;
 	background-size:200px 150px;
 	padding: 0px !important;
+	
 }
 
 .jcarousel-skin-tango .jcarousel-item a{
 	color: #000000;
 	font-weight: bold;
-	font-size: 16px;
 	background-color: #ffffff;
 	opacity: 0.8;
 	filter: alpha(opacity=80);
+	max-width: 200px;
 	text-align: center;
 	width: 200px;
 	display: block;
+	display: -webkit-box;
+	font-size: 16px;
+	line-height: 18px;
+	margin: 0 auto;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow:hidden;
+	text-overflow:ellipsis;
 	height: 35px;
 	padding-top: 10px;
 	margin-top: 90px;
 }
+
 
 .jcarousel-skin-tango .jcarousel-item-horizontal {
 	margin-left: 40px;
