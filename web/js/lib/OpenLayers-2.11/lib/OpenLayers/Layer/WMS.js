@@ -121,6 +121,10 @@ OpenLayers.Layer.WMS = OpenLayers.Class(OpenLayers.Layer.Grid, {
     initialize: function(name, url, params, options) {
         var newArguments = [];
         //uppercase params
+		
+		if (isNaN(params.WIDTH)) {
+			params.WIDTH = 2048;
+		}
         params = OpenLayers.Util.upperCaseObject(params);
         if (parseFloat(params.VERSION) >= 1.3 && !params.EXCEPTIONS) {
             params.EXCEPTIONS = "INIMAGE";
