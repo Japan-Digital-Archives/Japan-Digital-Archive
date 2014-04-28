@@ -231,8 +231,7 @@ OpenLayers.Util.createDiv = function(id, px, sz, imgURL, position,
 
     var dom = document.createElement('div');
 	
-	var str = imgURL;
-	var res = str.replace(/width=nan/gi,"width=2048");
+	var imgURL = imgURL.replace(/width=nan/gi,"width=2048");
 
     if (imgURL) {
         dom.style.backgroundImage = 'url(' + res + ')';
@@ -274,6 +273,7 @@ OpenLayers.Util.createImage = function(id, px, sz, imgURL, position, border,
                                        opacity, delayDisplay) {
 
     var image = document.createElement("img");
+	var imgURL = imgURL.replace(/width=nan/gi,"width=2048");
 
     //set generic properties
     if (!id) {
