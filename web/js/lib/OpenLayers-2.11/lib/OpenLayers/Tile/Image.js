@@ -287,11 +287,13 @@ OpenLayers.Tile.Image = OpenLayers.Class(OpenLayers.Tile, {
             // 'this', setting the 'url' property of the layer itself, and running
             // the callback 'positionFrame' when the image request returns.
             this.layer.getURLasync(this.bounds, this, "url", this.positionImage);
+			this.url = this.url.replace(/width=nan/gi,"width=2048");
         } else {
             // syncronous image requests get the url and position the frame immediately,
             // and don't wait for an image request to come back.
           
             this.url = this.layer.getURL(this.bounds);
+			this.url = this.url.replace(/width=nan/gi,"width=2048");
 
             this.initImgDiv();
           
@@ -319,11 +321,13 @@ OpenLayers.Tile.Image = OpenLayers.Class(OpenLayers.Tile, {
 
         var imageSize = this.layer.getImageSize(this.bounds); 
         if (this.layerAlphaHack) {
+			this.url = this.url.replace(/width=nan/gi,"width=2048");
             OpenLayers.Util.modifyAlphaImageDiv(this.imgDiv,
                     null, null, imageSize, this.url);
         } else {
             OpenLayers.Util.modifyDOMElement(this.imgDiv,
                     null, null, imageSize) ;
+			this.url = this.url.replace(/width=nan/gi,"width=2048");
             this.imgDiv.src = this.url;
         }
     },
@@ -378,6 +382,7 @@ OpenLayers.Tile.Image = OpenLayers.Class(OpenLayers.Tile, {
             }
       
             this.imgDiv.className = 'olTileImage';
+			this.imgDiv.src = this.imgDiv.src.replace(/width=nan/gi,"width=2048");
 
             /* checkImgURL used to be used to called as a work around, but it
                ended up hiding problems instead of solving them and broke things
