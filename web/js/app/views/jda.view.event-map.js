@@ -121,7 +121,7 @@
 
 					var dataLayer =  new OpenLayers.Layer.WMS(
 						"cite:item - Tiled",
-						_this.geoUrl + "?LAYERS=pointy&",
+						_this.geoUrl + "?LAYERS=point&",
 							{
 
 								'SQL' : function(){ return this.resultsView.getSQLSearchString(); },
@@ -129,7 +129,7 @@
 								WIDTH : 250,
 								HEIGHT : 250,
 								RADIUS : 2,
-								R : 255,
+								R : 225,
 								G : 0,
 								B : 0
 							},
