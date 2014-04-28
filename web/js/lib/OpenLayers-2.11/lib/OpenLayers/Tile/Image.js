@@ -321,11 +321,13 @@ OpenLayers.Tile.Image = OpenLayers.Class(OpenLayers.Tile, {
 
         var imageSize = this.layer.getImageSize(this.bounds); 
         if (this.layerAlphaHack) {
+			this.url = this.url.replace(/width=nan/gi,"width=2048");
             OpenLayers.Util.modifyAlphaImageDiv(this.imgDiv,
                     null, null, imageSize, this.url);
         } else {
             OpenLayers.Util.modifyDOMElement(this.imgDiv,
                     null, null, imageSize) ;
+			this.url = this.url.replace(/width=nan/gi,"width=2048");
             this.imgDiv.src = this.url;
         }
     },
@@ -380,6 +382,7 @@ OpenLayers.Tile.Image = OpenLayers.Class(OpenLayers.Tile, {
             }
       
             this.imgDiv.className = 'olTileImage';
+			this.imgDiv.src = this.imgDiv.src.replace(/width=nan/gi,"width=2048");
 
             /* checkImgURL used to be used to called as a work around, but it
                ended up hiding problems instead of solving them and broke things
