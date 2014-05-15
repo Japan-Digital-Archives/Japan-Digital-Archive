@@ -6,9 +6,6 @@
 
 {% block title %} {% endblock %}
 
-{% block stylesheets %}
-
-<link rel="stylesheet" type="text/css" href="{{ asset('js/lib/jquery.tagsinput.css')}}" />
 
 {% block body %}
   <style>
@@ -89,7 +86,6 @@
 			
 			<h3>Tags (comma separated):</h3>
 			<div id="tags">
-        <th>{% trans %}jda.form.contribute.tags{% endtrans %}</th>
 				<td>
           <select name="tagsSelect" id="tagsSelect" multiple>
           </select>
