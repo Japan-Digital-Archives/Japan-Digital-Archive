@@ -1,11 +1,14 @@
 
+
 {# src/Zeega/\CoreBundle\/Resources/views/Widget/fail.widget.html.twig #}
 
 {% extends '::widget.base.html.twig' %}
 
-
-
 {% block title %} {% endblock %}
+
+{% block stylesheets %}
+
+<link rel="stylesheet" type="text/css" href="{{ asset('js/lib/jquery.tagsinput.css')}}" />
 
 {% block body %}
   <style>
@@ -86,9 +89,11 @@
 			
 			<h3>Tags (comma separated):</h3>
 			<div id="tags">
-				<div class="widget-textbox ingest-info">
-				<textarea id="widget-tags" ></textarea>
-				</div>
+        <th>{% trans %}jda.form.contribute.tags{% endtrans %}</th>
+				<td>
+          <select name="tagsSelect" id="tagsSelect" multiple>
+          </select>
+        </td>
 			</div>
 
 			<h3>Location:</h3>
@@ -128,12 +133,6 @@
         Audio: "Audio",
         Tweet: "Tweet"
     };
-	
-	$("#tagsSelect").chosen({
-            create_option_text: 'Add New Tag',
-            create_option: true,
-            persistent_create_option: true
-        });
         
     sessionStorage.apiUrl = "http://jdarchive.org/zeega/";	
     sessionStorage.user = {{ userId }};
@@ -218,9 +217,10 @@
           postObj.attributes.submitterId = "{{ userId }}";
           
           postObj.tags = [];
-          $("#tagsSelect option:selected").each(function () {
-                    postObj.tags.push($(this).val());
-            });
+          var tags = $("#widget-tags").val().split(",");
+          $.each(tags, function(i, tag) {
+          	postObj.tags.push(tag.trim());
+          });
 
           postObj.media_type = $("#widget-media > option:selected").val(); 
           
