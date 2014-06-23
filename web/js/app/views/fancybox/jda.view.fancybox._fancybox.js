@@ -244,7 +244,7 @@
       this.elemId = Math.floor(Math.random()*10000);
 			/** Temp Fix **/
 			var blanks = {
-				sourceLink : this.model.get('uri'),
+				sourceLink : this.model.get('attribution_uri'),
 				title : this.model.get('title') == "none" ? this.model.get('layer_type') : this.model.get('title'),
 				description : this.model.get('description'),
 				creator : this.model.get('author'),
