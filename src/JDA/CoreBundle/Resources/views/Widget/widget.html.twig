@@ -238,10 +238,7 @@
           postObj.media_creator_realname = "{{ displayname }}";
           postObj.attributes = {};
           postObj.attributes.submitterId = "{{ userId }}";
-          if(postObj.media_type == "Website") {
-			  postObj.attributes.scope = $("#widget-scope").val();
-			  postObj.attributes.frequency = $("#widget-frequency").val();
-       	  }
+
        	  
           postObj.tags = [];
           var tags = $("#widget-tags").val().split(",");
@@ -250,7 +247,12 @@
           });
 
           postObj.media_type = $("#widget-media > option:selected").val(); 
-          
+        
+          if(postObj.media_type == "Website") {
+			  postObj.attributes.scope = $("#widget-scope").val();
+			  postObj.attributes.frequency = $("#widget-frequency").val();
+       	  }    
+       	       
           postObj.media_date_created = new Date().toDateString();
           
           if ($("#lat").val() != "") {
