@@ -158,7 +158,11 @@
     $.get(sessionStorage.apiUrl+"api/items/parser?url={{ thumbnail_url }}", function(data) {
     	postObj = data.items[0];
     	postObj.user_id = {{ userId }};
-    	postObj.uri = decodeURIComponent("{{ parent_url }}");  
+    	
+    	var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    	var hash = hashes[0].split('=');
+    	
+    	postObj.uri = decodeURIComponent(hash[1]);  
     	postObj.attribution_uri = postObj.uri;
 
     	if(postObj.title == null || postObj.title == "") postObj.title = "{{ title }}";
