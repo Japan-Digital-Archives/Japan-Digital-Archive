@@ -207,6 +207,11 @@
     });
     
     $("#add-item-new").click(function() {
+    	if($("#widget-title").val() == "" || $("#widget-title").val() == " ") {
+    		alert("Please fill in a title field before submitting.");
+    		return;
+    	}
+    	
     	var Browser = jda.module("browser");
     	
     	var trayId = $("#widget-collection > option:selected").val();
