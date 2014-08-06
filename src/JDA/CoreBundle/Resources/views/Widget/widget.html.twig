@@ -160,9 +160,14 @@
     	postObj.user_id = {{ userId }};
     	
     	var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    	var hash = hashes[0].split('=');
+    	var newhash = {};
+    	$.each(hashes, function(i, val) { 
+    		var hash = val.split("="); 
+    		newhash[hash[0]]= hash[1];
+    	})
     	
-    	postObj.uri = decodeURIComponent(hash[1]);  
+    	
+    	postObj.uri = decodeURIComponent(newhash.url);  
     	postObj.attribution_uri = postObj.uri;
 
     	if(postObj.title == null || postObj.title == "") postObj.title = "{{ title }}";
