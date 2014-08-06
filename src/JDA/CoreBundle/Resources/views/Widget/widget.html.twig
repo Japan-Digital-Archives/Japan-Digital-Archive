@@ -158,7 +158,11 @@
     $.get(sessionStorage.apiUrl+"api/items/parser?url={{ thumbnail_url }}", function(data) {
     	postObj = data.items[0];
     	postObj.user_id = {{ userId }};
-    	postObj.uri = decodeURIComponent("{{ parent_url }}");  
+    	
+    	var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    	var hash = hashes[0].split('=');
+    	
+    	postObj.uri = decodeURIComponent(hash[1]);  
     	postObj.attribution_uri = postObj.uri;
 
     	if(postObj.title == null || postObj.title == "") postObj.title = "{{ title }}";
@@ -207,6 +211,11 @@
     });
     
     $("#add-item-new").click(function() {
+    	if($("#widget-title").val() == "" || $("#widget-title").val() == " ") {
+    		alert("Please fill in a title field before submitting.");
+    		return;
+    	}
+    	
     	var Browser = jda.module("browser");
     	
     	var trayId = $("#widget-collection > option:selected").val();
@@ -233,9 +242,8 @@
           postObj.media_creator_realname = "{{ displayname }}";
           postObj.attributes = {};
           postObj.attributes.submitterId = "{{ userId }}";
-          postObj.attributes.scope = $("#widget-scope").val();
-          postObj.attributes.frequency = $("#widget-frequency").val();
-       
+
+       	  
           postObj.tags = [];
           var tags = $("#widget-tags").val().split(",");
           $.each(tags, function(i, tag) {
@@ -243,7 +251,12 @@
           });
 
           postObj.media_type = $("#widget-media > option:selected").val(); 
-          
+        
+          if(postObj.media_type == "Website") {
+			  postObj.attributes.scope = $("#widget-scope").val();
+			  postObj.attributes.frequency = $("#widget-frequency").val();
+       	  }    
+       	       
           postObj.media_date_created = new Date().toDateString();
           
           if ($("#lat").val() != "") {
