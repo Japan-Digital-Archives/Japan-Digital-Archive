@@ -43,19 +43,6 @@
 	@include box-sizing(border-box)
 }
 
-.jcarousel-skin-tango .jcarousel-item a::before {
-context:"";
-float:left;
-width:5px;
-height:40px;
-}
-
-.jcarousel-skin-tango .jcarousel-item a > *::first-child {
-float:right;
-width: 100%;
-margin-left: -5px;
-}
-
 .jcarousel-skin-tango .jcarousel-item a::after{
 	content: "\02026";  
 
@@ -64,14 +51,11 @@ margin-left: -5px;
 	-moz-box-sizing: content-box;
 
 	float: right; 
-	position: relative;
-	top: -25px; 
-	left: 100%; 
-	width: 3em; 
-	margin-left: -3em;
-	padding-right: 5px;
-	
-	text-align: right;
+	position: absolute;
+	bottom: 0px; 
+	right: 0px; 
+	width: 70%;
+	height: 1.2em;
 
   background: -webkit-gradient(linear, left top, right top,
 		from(rgba(255, 255, 255, 0)), to(white), color-stop(50%, white));
