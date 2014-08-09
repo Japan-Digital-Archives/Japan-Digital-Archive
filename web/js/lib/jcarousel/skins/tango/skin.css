@@ -81,14 +81,12 @@ margin-left: -5px;
 
 
 .jcarousel-skin-tango .jcarousel-item a {
-height: 5.6em;
 opacity: 0.8;
 	color: #000000;
 	font-weight: bold;
 	background-color: #ffffff;
 line-height: 1.2em;
 overflow:hidden;
-position:relative;
 filter: alpha(opacity=80);
 	width: 200px;
 	display: block;
@@ -102,6 +100,7 @@ filter: alpha(opacity=80);
 	height: 35px;
 	padding-top: 10px;
 	margin-top: 90px;
+	margin: 20px;
 	
 }
 
