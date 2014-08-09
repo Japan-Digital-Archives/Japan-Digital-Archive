@@ -43,14 +43,16 @@
 	@include box-sizing(border-box)
 }
 
-.jcarousel-skin-tango .jcarousel-item a {
+.jcarousel-skin-tango .jcarousel-item a::after{
 background: linear-gradient(to right, rgba(255, 255, 255, 0), #FFFFFF 50%) repeat scroll 0 0 rgba(0, 0, 0, 0);
 bottom: 0;
 content: "...";
 font-weight: bold;
-padding: 0 0px 0px 0px;
+padding: 0px 0px 0px 0px;
 position: absolute;
-right: 0;}
+right: 0;
+text-align: center;
+}
 .jcarousel-skin-tango .jcarousel-item a {
 height: 5.6em;
 opacity: 0.8;
@@ -61,7 +63,6 @@ line-height: 1.4em;
 overflow:hidden;
 position:relative;
 filter: alpha(opacity=80);
-	text-align: center;
 	width: 200px;
 	display: block;
 	display: -webkit-box;
