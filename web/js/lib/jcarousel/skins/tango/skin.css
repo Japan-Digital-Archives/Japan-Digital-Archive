@@ -49,7 +49,7 @@ bottom: 0;
 content: "...";
 font-weight: bold;
 padding: 0px 0px 0px 0px;
-position: absolute;
+position: relative;
 right: 0;
 text-align: center;
 }
