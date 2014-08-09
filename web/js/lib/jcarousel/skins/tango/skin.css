@@ -44,12 +44,14 @@
 }
 
 .jcarousel-skin-tango .jcarousel-item a::after{
-background: linear-gradient(to right, rgba(255, 255, 255, 0), #FFFFFF 50%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
 bottom: 0;
-content: "...";
+content: "";
 font-weight: bold;
 padding: 0px 0px 0px 0px;
-position: relative;
+position: absolute;
+width:70%;
+height:1.2em;
 right: 0;
 text-align: center;
 }
