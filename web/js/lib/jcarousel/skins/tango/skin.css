@@ -44,12 +44,12 @@
 }
 
 .jcarousel-skin-tango .jcarousel-item a::after{
-	content: "\02026";  
+	content: "";  
 
 	box-sizing: content-box;
 	-webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
-
+	text-align: right;
 	float: right; 
 	position: absolute;
 	bottom: 0px; 
@@ -63,7 +63,6 @@
 	background: -o-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
 	background: -ms-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
 	background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
-  background-size: 100% 100%;
 }
 
 
@@ -86,6 +85,7 @@ filter: alpha(opacity=80);
 	height: 40px;
 	padding-top: 10px;
 	margin-top: 90px;
+	position: relative;
 	
 }
 
