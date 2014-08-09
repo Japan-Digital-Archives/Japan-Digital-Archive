@@ -47,7 +47,7 @@
 context:"";
 float:left;
 width:5px;
-height:35px;
+height:40px;
 }
 
 .jcarousel-skin-tango .jcarousel-item a > *:first-child{
@@ -63,9 +63,12 @@ margin-left: -5px;
 	-webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
 
-	float: right; position: relative;
-	top: -25px; left: 100%; 
-	width: 3em; margin-left: -3em;
+	float: right; 
+	position: relative;
+	top: -25px; 
+	left: 100%; 
+	width: 3em; 
+	margin-left: -3em;
 	padding-right: 5px;
 	
 	text-align: right;
@@ -81,24 +84,22 @@ margin-left: -5px;
 
 
 .jcarousel-skin-tango .jcarousel-item a {
-height: 5.6em;
 opacity: 0.8;
 	color: #000000;
 	font-weight: bold;
 	background-color: #ffffff;
-line-height: 1.2em;
 overflow:hidden;
 filter: alpha(opacity=80);
 	width: 200px;
 	display: block;
 	display: -webkit-box;
 	font-size: 16px;
-	line-height: 18px;
+	line-height: 20px;
 	margin: 0 auto;
 	max-width: 200px;
 	overflow:hidden;
 	text-overflow:ellipsis;
-	height: 35px;
+	height: 40px;
 	padding-top: 10px;
 	margin-top: 90px;
 	
