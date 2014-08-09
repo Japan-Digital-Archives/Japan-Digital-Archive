@@ -43,12 +43,6 @@
 	@include box-sizing(border-box)
 }
 
-.jcarousel-skin-tango .jcarousel-item a:before{
-content:"";
-float: left;
-width:5px;
-height:200px;
-}
 
 .jcarousel-skin-tango .jcarousel-item a::after{
 background: linear-gradient(to right, rgba(255, 255, 255, 0), #FFFFFF 50%) repeat scroll 0 0 rgba(0, 0, 0, 0);
