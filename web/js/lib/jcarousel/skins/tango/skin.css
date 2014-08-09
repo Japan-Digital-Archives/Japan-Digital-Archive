@@ -31,26 +31,15 @@
     height: 245px;
 }
 
+
 .jcarousel-skin-tango .jcarousel-item {
-    width: 200px;
-    height: 150px;
-	background-size:200px 150px;
-	padding: 0px !important;
-	
-}
-
-*{
-	@include box-sizing(border-box)
-}
-
-.jcarousel-skin-tango .jcarousel-item a{
 	color: #000000;
 	font-weight: bold;
 	background-color: #ffffff;
 	opacity: 0.8;
 	filter: alpha(opacity=80);
 	text-align: center;
-	width: 100px;
+	width: 200px;
 	display: block;
 	display: -webkit-box;
 	font-size: 16px;
