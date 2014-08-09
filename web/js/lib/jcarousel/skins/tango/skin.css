@@ -43,36 +43,13 @@
 	@include box-sizing(border-box)
 }
 
-.jcarousel-skin-tango .jcarousel-item a::before{
-content:"";
-float:left;
-width:5px;
-height:200px;
-}
-
-.jcarousel-skin-tango .jcarousel-item a > *:first-child{
-float:right;
-width:100%;
-margin-left:-5px;
-}
-
 .jcarousel-skin-tango .jcarousel-item a::after{
 background: linear-gradient(to right, rgba(255, 255, 255, 0), #FFFFFF 50%) repeat scroll 0 0 rgba(0, 0, 0, 0);
 bottom: 0;
-content: "\02026";
--webkit-box-sizing: content-box;
-	-moz-box-sizing: content-box;
-
-	float: right; position: relative;
-	top: -25px; left: 100%; 
+content: "...";
 font-weight: bold;
 padding: 0px 0px 0px 0px;
 position: relative;
-float: right;
-top:-25px;
-left:100%;
-width:3em;
-margin-left:-3em;
 right: 0;
 text-align: center;
 }
@@ -93,6 +70,7 @@ filter: alpha(opacity=80);
 	line-height: 18px;
 	margin: 0 auto;
 	max-width: 200px;
+	overflow:hidden;
 	text-overflow:ellipsis;
 	height: 35px;
 	padding-top: 10px;
