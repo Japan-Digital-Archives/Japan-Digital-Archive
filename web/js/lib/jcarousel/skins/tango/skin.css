@@ -59,7 +59,12 @@ margin-left:-5px;
 .jcarousel-skin-tango .jcarousel-item a::after{
 background: linear-gradient(to right, rgba(255, 255, 255, 0), #FFFFFF 50%) repeat scroll 0 0 rgba(0, 0, 0, 0);
 bottom: 0;
-content: "...";
+content: "\02026";
+-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+
+	float: right; position: relative;
+	top: -25px; left: 100%; 
 font-weight: bold;
 padding: 0px 0px 0px 0px;
 position: relative;
