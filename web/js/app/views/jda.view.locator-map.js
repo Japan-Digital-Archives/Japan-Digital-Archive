@@ -36,14 +36,16 @@
 			//copy the cloned item into the el
 			$(this.el).append( template( values ) );
 
-			/*if (!this.model.get('editable')){ 
+			if (!this.model.get('editable')){ 
 				console.log('not editable');
 				$(this.el).find('.edit').hide();
-			}*/
+			}
+			/*
 			if (!this.geoLocated){
 				$(this.el).find('.no-geo-data').show();
 
 			}
+			*/
 		},
 	
 		events : {
