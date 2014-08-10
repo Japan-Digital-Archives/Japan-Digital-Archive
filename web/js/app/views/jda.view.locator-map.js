@@ -36,10 +36,10 @@
 			//copy the cloned item into the el
 			$(this.el).append( template( values ) );
 
-			if (!this.model.get('editable')){
+			/*if (!this.model.get('editable')){ 
 				console.log('not editable');
 				$(this.el).find('.edit').hide();
-			}
+			}*/
 			if (!this.geoLocated){
 				$(this.el).find('.no-geo-data').show();
 
@@ -64,9 +64,9 @@
 	
 		addMap:function()
 		{
-			console.log("Got it");
+			
 			if(this.model.get('editable')||this.geoLocated){
-				console.log(this.geoLocated);
+				
 				$(this.el).find('.item-lat-lng').fadeIn();
 				$(this.el).find('.locator-map').fadeIn();
 				this.mapRendered=true;
@@ -74,7 +74,7 @@
 				var _this = this;
 				this.geocoder.geocode( { 'latLng' : new google.maps.LatLng(this.latlng.lat,this.latlng.lng) }, function(results, status) {
 					if (status == google.maps.GeocoderStatus.OK) {
-						console.log("GeocoderStatus OK");
+						
 						if (results[0].formatted_address){
 							console.log("results");
 							$(_this.el).find('.item-address-text').text( results[0].formatted_address );
