@@ -66,7 +66,7 @@
 		{
 			console.log("Got it");
 			if(this.model.get('editable')||this.geoLocated){
-				console.log("GeoLocated");
+				console.log(this.geoLocated);
 				$(this.el).find('.item-lat-lng').fadeIn();
 				$(this.el).find('.locator-map').fadeIn();
 				this.mapRendered=true;
