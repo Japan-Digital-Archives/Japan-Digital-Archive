@@ -64,8 +64,9 @@
 	
 		addMap:function()
 		{
-			console.log("sup");
+			console.log("Got it");
 			if(this.model.get('editable')||this.geoLocated){
+				console.log("GeoLocated");
 				$(this.el).find('.item-lat-lng').fadeIn();
 				$(this.el).find('.locator-map').fadeIn();
 				this.mapRendered=true;
@@ -73,7 +74,9 @@
 				var _this = this;
 				this.geocoder.geocode( { 'latLng' : new google.maps.LatLng(this.latlng.lat,this.latlng.lng) }, function(results, status) {
 					if (status == google.maps.GeocoderStatus.OK) {
+						console.log("GeocoderStatus OK");
 						if (results[0].formatted_address){
+							console.log("results");
 							$(_this.el).find('.item-address-text').text( results[0].formatted_address );
 							$(_this.el).find('.item-address-text').show();
 						}
@@ -89,6 +92,7 @@
 				var that=this;
 				//this.circle = new L.CircleMarker(this.latlng, 100, this.circleOptions);
 				if(this.model.get('editable')){
+					console.log("editable");
 					this.marker = new L.Marker(this.latlng,{draggable:true});
 					this.marker.addEventListener( 'drag', that.updateLatLng, that );
 					this.marker.addEventListener( 'dragend', that.updateItem, that );
