@@ -64,6 +64,7 @@
 	
 		addMap:function()
 		{
+			console.log("sup");
 			if(this.model.get('editable')||this.geoLocated){
 				$(this.el).find('.item-lat-lng').fadeIn();
 				$(this.el).find('.locator-map').fadeIn();
