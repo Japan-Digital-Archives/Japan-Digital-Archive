@@ -23,7 +23,7 @@
 			else this.geoLocated=false;
 		
 			this.latlng = new L.LatLng(parseFloat(this.model.get('media_geo_latitude')),parseFloat(this.model.get('media_geo_longitude')));
-		
+			console.log(latlng);
 			var values = {
 				latitude : this.model.get('media_geo_latitude'),
 				longitude : this.model.get('media_geo_longitude')
