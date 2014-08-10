@@ -237,6 +237,7 @@ $(document).ready(function(){
 		var marker = new L.Marker(latLng,{draggable:false});
 		map.setView( latLng, 13).addLayer(baseLayer).addLayer(marker);
 		$('.leaflet-control-attribution').hide();
+		console.print("found map");
     } else{
     	//greyed out map image
     	$('#map').addClass('jda-no-geo-info');
