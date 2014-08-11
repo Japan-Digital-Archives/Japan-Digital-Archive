@@ -90,6 +90,7 @@
 				console.log("start");
 				console.log(div);
 				this.map = new L.Map(div);
+				console.log(map);
 				this.map.setView(this.latlng, 13).addLayer(this.cloudmade);
 				
 				$('.leaflet-control-attribution').hide();
