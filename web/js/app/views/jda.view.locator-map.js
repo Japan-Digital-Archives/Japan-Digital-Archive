@@ -16,7 +16,7 @@
 			
 			
 			
-			this.cloudmadeUrl = 'http://{s}.tiles.mapbox.com/v3/jdarchive.he805gp4/{x}/{y}/{z}.png',
+			this.cloudmadeUrl = 'http://{s}.tile.mapbox.com/v3/jdarchive.he805gp4/{x}/{y}/{z}.png',
 			this.cloudmadeAttrib = '',
 			this.cloudmade = new L.TileLayer(this.cloudmadeUrl, {maxZoom: 18, attribution: this.cloudmadeAttrib});
 			if(parseFloat(this.model.get('media_geo_latitude'))) this.geoLocated=true;
@@ -90,7 +90,6 @@
 				console.log("start");
 				console.log(div);
 				this.map = new L.Map(div);
-				console.log(map);
 				this.map.setView(this.latlng, 13).addLayer(this.cloudmade);
 				
 				$('.leaflet-control-attribution').hide();
@@ -171,8 +170,7 @@
 	
 		getTemplate : function()
 		{
-			var html =	'<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />' +
-				'<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>' +
+			var html =	
 				'<p class="map-title">'+l.fancybox_map+'</p><div class="locator-map"></div><span class="edit edit-geo-location"><a>'+l.fancybox_editlocation+'</a></span>'+
 				'<div class="no-geo-data jda-collection-map jda-no-geo-info" style="display:none;width:280px;height:150px;"></div>'+
 				'<span class="no-geo-data" style="display:none;font-size:11px">'+l.fancybox_nolocation+'</span>'+
