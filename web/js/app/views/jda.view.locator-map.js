@@ -91,7 +91,7 @@
 				console.log(div);
 				this.map = new L.Map(div);
 				this.map.setView(this.latlng, 13).addLayer(this.cloudmade);
-				console.log(map);
+				
 				$('.leaflet-control-attribution').hide();
 
 				var that=this;
