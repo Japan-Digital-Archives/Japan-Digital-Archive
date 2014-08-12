@@ -18,7 +18,7 @@
 			
 			this.cloudmadeUrl = 'http://{s}.tiles.mapbox.com/v3/jdarchive.he805gp4/{x}/{y}/{z}.png',
 			this.cloudmadeAttrib = '',
-			this.cloudmade = new L.TileLayer(this.cloudmadeUrl, {attribution: this.cloudmadeAttrib, maxZoom:18});
+			this.cloudmade = new L.TileLayer(this.cloudmadeUrl, {maxZoom: 18, attribution: this.cloudmadeAttrib});
 			if(parseFloat(this.model.get('media_geo_latitude'))) this.geoLocated=true;
 			else this.geoLocated=false;
 		
@@ -89,8 +89,8 @@
 				var div = $(this.el).find('.locator-map').get(0);
 				console.log("start");
 				console.log(div);
-				this.map = new L.map('item-map').setView([this.latlng.lat,this.latlng.lng], 13);
-				L.tileLayer(this.cloudmade).addTo(this.map);
+				this.itemmap = new L.map(div);
+				this.itemmap.setView(this.latlng, 13).addLayer(this.cloudmade);
 				
 				$('.leaflet-control-attribution').hide();
 
@@ -106,11 +106,11 @@
 				else{
 					this.marker = new L.Marker(this.latlng,{draggable:false});
 				}
-				this.map.addLayer(this.marker);
+				this.itemmap.addLayer(this.marker);
 			}
 		},
 		updateMap:function(){
-			this.map.setView(this.latlng, 13);
+			this.itemmap.setView(this.latlng, 13);
 			this.marker.setLatLng(this.latlng);
 		},
 
