@@ -86,7 +86,7 @@
 					}
 				});
 
-				var div = $(this.el).find('.locator-map').get('context');
+				var div = $(this.el).find('.locator-map').get(0);
 				console.log($(this.el).find('.locator-map')
 				console.log("start");
 				console.log(div);
