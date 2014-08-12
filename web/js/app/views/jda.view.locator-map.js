@@ -89,7 +89,7 @@
 				var div = $(this.el).find('.locator-map').get(0);
 				console.log("start");
 				console.log(div);
-				this.map = new L.Map(div);
+				this.map = new L.Map('item-map');
 				this.map.setView(this.latlng, 13).addLayer(this.cloudmade);
 				
 				$('.leaflet-control-attribution').hide();
