@@ -82,6 +82,7 @@
 							console.log("results");
 							$(_this.el).find('.item-address-text').text( results[0].formatted_address );
 							$(_this.el).find('.item-address-text').show();
+							console.log($(_this.el).find('.item-address-text'));
 						}
 					}
 				});
