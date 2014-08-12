@@ -18,7 +18,7 @@
 			
 			this.cloudmadeUrl = 'http://{s}.tiles.mapbox.com/v3/jdarchive.he805gp4/{x}/{y}/{z}.png',
 			this.cloudmadeAttrib = '',
-			this.cloudmade = new L.TileLayer(this.cloudmadeUrl, {maxZoom: 18, attribution: this.cloudmadeAttrib});
+			this.cloudmade = new L.TileLayer(this.cloudmadeUrl, {attribution: this.cloudmadeAttrib, maxZoom:18});
 			if(parseFloat(this.model.get('media_geo_latitude'))) this.geoLocated=true;
 			else this.geoLocated=false;
 		
@@ -89,8 +89,8 @@
 				var div = $(this.el).find('.locator-map').get(0);
 				console.log("start");
 				console.log(div);
-				this.map = new L.map(div);
-				this.map.setView(this.latlng, 13).addLayer(this.cloudmade);
+				this.map = new L.map('item-map').setView([this.latlng.lat,this.latlng.lng], 13);
+				L.tileLayer(this.cloudmade).addTo(this.map);
 				
 				$('.leaflet-control-attribution').hide();
 
