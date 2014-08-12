@@ -89,8 +89,8 @@
 				var div = $(this.el).find('.locator-map').get(0);
 				console.log("start");
 				console.log(div);
-				this.itemmap = new L.map(div);
-				this.itemmap.setView(this.latlng, 13).addLayer(this.cloudmade);
+				this.map = new L.map(div);
+				this.map.setView(this.latlng, 13).addLayer(this.cloudmade);
 				
 				$('.leaflet-control-attribution').hide();
 
@@ -106,11 +106,11 @@
 				else{
 					this.marker = new L.Marker(this.latlng,{draggable:false});
 				}
-				this.itemmap.addLayer(this.marker);
+				this.map.addLayer(this.marker);
 			}
 		},
 		updateMap:function(){
-			this.itemmap.setView(this.latlng, 13);
+			this.map.setView(this.latlng, 13);
 			this.marker.setLatLng(this.latlng);
 		},
 
