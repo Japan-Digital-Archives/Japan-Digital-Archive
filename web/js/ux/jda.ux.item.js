@@ -237,8 +237,10 @@ $(document).ready(function(){
 		var marker = new L.Marker(latLng,{draggable:false});
 		map.setView( latLng, 13).addLayer(baseLayer).addLayer(marker);
 		$('.leaflet-control-attribution').hide();
+		console.log("found map");
     } else{
     	//greyed out map image
+		console.log("didn't work");
     	$('#map').addClass('jda-no-geo-info');
     	$('.jda-no-geo-location-message').show();
     }
