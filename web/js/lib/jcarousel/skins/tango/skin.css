@@ -39,27 +39,54 @@
 	
 }
 
-.jcarousel-skin-tango .jcarousel-item a{
+*{
+	@include box-sizing(border-box)
+}
+
+.jcarousel-skin-tango .jcarousel-item a::after{
+	content: "";  
+
+	box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	text-align: right;
+	float: right; 
+	position: absolute;
+	bottom: 0px; 
+	right: 0px; 
+	width: 70%;
+	height: 1.2em;
+
+  background: -webkit-gradient(linear, left top, right top,
+		from(rgba(255, 255, 255, 0)), to(white), color-stop(90%, white));
+	background: -moz-linear-gradient(to right, rgba(255, 255, 255, 0), white 90%, white);			
+	background: -o-linear-gradient(to right, rgba(255, 255, 255, 0), white 90%, white);
+	background: -ms-linear-gradient(to right, rgba(255, 255, 255, 0), white 90%, white);
+	background: linear-gradient(to right, rgba(255, 255, 255, 0), white 90%, white);
+}
+
+
+.jcarousel-skin-tango .jcarousel-item a {
+opacity: 0.8;
 	color: #000000;
 	font-weight: bold;
 	background-color: #ffffff;
-	opacity: 0.8;
-	filter: alpha(opacity=80);
-	max-width: 200px;
-	text-align: center;
+overflow:hidden;
+filter: alpha(opacity=80);
 	width: 200px;
 	display: block;
 	display: -webkit-box;
 	font-size: 16px;
-	line-height: 18px;
+	line-height: 20px;
 	margin: 0 auto;
-	-webkit-line-clamp: 3;
-	-webkit-box-orient: vertical;
+	max-width: 200px;
 	overflow:hidden;
 	text-overflow:ellipsis;
-	height: 35px;
+	height: 40px;
 	padding-top: 10px;
 	margin-top: 90px;
+	position: relative;
+	
 }
 
 
