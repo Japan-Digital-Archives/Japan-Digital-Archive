@@ -244,7 +244,7 @@
       this.elemId = Math.floor(Math.random()*10000);
 			/** Temp Fix **/
 			var blanks = {
-				sourceLink : this.model.get('attribution_uri'),
+				sourceLink : this.model.get('uri'),
 				title : this.model.get('title') == "none" ? this.model.get('layer_type') : this.model.get('title'),
 				description : this.model.get('description'),
 				creator : this.model.get('author'),
@@ -253,8 +253,8 @@
 				randId: this.elemId
 			};
 			
-			if (this.model.get('user_id') == 469) {
-				blanks.sourceLink = this.model.get('uri');
+			if (this.model.get('user_id') == 429) {
+				blanks.sourceLink = this.model.get('attribution_uri');
 			}
 
 			var attributes = this.model.get('attributes');
