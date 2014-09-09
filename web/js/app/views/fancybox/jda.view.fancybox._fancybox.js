@@ -252,6 +252,10 @@
 				text : this.model.get('text').replace(/\r\n/gi, '<br/>'),
 				randId: this.elemId
 			};
+			
+			if (this.model.get('user_id') == 469) {
+				blanks.sourceLink = this.model.get('uri');
+			}
 
 			var attributes = this.model.get('attributes');
 
