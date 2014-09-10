@@ -18,7 +18,7 @@ var streets = new OpenLayers.Layer.XYZ(
 );
 
 var map = new OpenLayers.Map({
-    div: "map",
+    div: "locator-map",
     layers: [streets],
     controls: [
         new OpenLayers.Control.Attribution(),
