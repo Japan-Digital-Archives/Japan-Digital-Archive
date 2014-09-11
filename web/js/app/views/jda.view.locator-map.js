@@ -15,8 +15,7 @@
 			this.isEditable = !_.isUndefined(this.options.isEditable) ? this.options.isEditable : true;
 			
 			
-			
-			this.cloudmadeUrl = 'http://{s}.tiles.mapbox.com/v4/hakug.j7iibd8h/{x}/{y}/{z}.png',
+			this.cloudmadeUrl = 'http://{s}.tiles.mapbox.com/v4/jdarchive.he805gp4/{x}/{y}/{z}.png',
 			this.cloudmadeAttrib = '',
 			this.cloudmade = new L.TileLayer(this.cloudmadeUrl, {maxZoom: 18, attribution: this.cloudmadeAttrib});
 			if(parseFloat(this.model.get('media_geo_latitude'))) this.geoLocated=true;
@@ -90,6 +89,7 @@
 				var div = $(this.el).find('.locator-map').get(0);
 				console.log("start");
 				console.log(div);
+				console.log(div.ids);
 				this.map = new L.Map(div);
 				this.map.setView(this.latlng, 13).addLayer(this.cloudmade);
 				
