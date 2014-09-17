@@ -111,6 +111,7 @@
 				}
 				console.log("2");
 				this.map.addLayer(this.marker);
+				console.log("after2");
 			}
 		},
 		updateMap:function(){
