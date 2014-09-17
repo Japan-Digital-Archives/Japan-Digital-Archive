@@ -66,14 +66,15 @@
 	
 		addMap:function()
 		{
-			
+			console.log("14");
 			if(this.model.get('editable')||this.geoLocated){
-				
+				console.log("13");
 				$(this.el).find('.item-lat-lng').fadeIn();
 				$(this.el).find('.locator-map').fadeIn();
 				this.mapRendered=true;
 
 				var _this = this;
+				console.log("12");
 				this.geocoder.geocode( { 'latLng' : new google.maps.LatLng(this.latlng.lat,this.latlng.lng) }, function(results, status) {
 					if (status == google.maps.GeocoderStatus.OK) {
 						
@@ -105,18 +106,22 @@
 					
 				}
 				else{
+				console.log("3");
 					this.marker = new L.Marker(this.latlng,{draggable:false});
 				}
+				console.log("2");
 				this.map.addLayer(this.marker);
 			}
 		},
 		updateMap:function(){
+		console.log("4");
 			this.map.setView(this.latlng, 13);
 			this.marker.setLatLng(this.latlng);
 		},
 
 		updateLatLng:function(e)
 		{
+		console.log("5");
 			$(this.el).find('.item-latitude').html(e.target.getLatLng().lat);
 			$(this.el).find('.item-longitude').html(e.target.getLatLng().lng);
 		},
