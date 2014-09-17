@@ -139,11 +139,13 @@
 			$(this.el).find('.locator-search-input').attr('value','');
 		},
 		displaySearch : function(){
+			console.log("124");
 			var that=this;
 			$(this.el).find('.edit-geo-location').fadeOut('fast',function(){$(that.el).find('.locator-search-bar').fadeIn();});
 			
 		},
 		runSearch : function(e){
+			console.log("123");
 			if(e.keyCode==13){
 				$(this.el).find('.locator-search-input').blur();
 				var that=this;
