@@ -116,7 +116,7 @@
 			
 
 			L.mapbox.accessToken = 'pk.eyJ1IjoiamRhcmNoaXZlIiwiYSI6IkllcmJZanMifQ.PVh8CRzG4gZ3WET8gAqmbA';
-			this.cloudmadeUrl = 'http://{s}.tiles.mapbox.com/v3/jdarchive.he805gp4/{x}/{y}/{z}.png',
+			this.cloudmadeUrl = 'http://{s}.tiles.mapbox.com/v4/jdarchive.he805gp4/{x}/{y}/{z}.png',
 			this.cloudmadeAttrib = '',
 			this.cloudmade = new L.TileLayer(this.cloudmadeUrl, {maxZoom: 18, attribution: this.cloudmadeAttrib});
 		
