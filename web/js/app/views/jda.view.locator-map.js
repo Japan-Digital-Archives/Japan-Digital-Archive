@@ -25,11 +25,11 @@
 			if (this.geoLocated == true)
 			{
 			this.latlng = new L.LatLng(parseFloat(this.model.get('media_geo_latitude')),parseFloat(this.model.get('media_geo_longitude')));
+			}
 			var values = {
 				latitude : this.model.get('media_geo_latitude'),
 				longitude : this.model.get('media_geo_longitude')
 			};
-			}
 			//use template to clone the database items into
 			var template = _.template( this.getTemplate() );
 
