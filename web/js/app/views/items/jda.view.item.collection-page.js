@@ -110,9 +110,9 @@
 			MAP
 			***********/
 			
-			//this.geocoder = new google.maps.Geocoder();
-			//this.mapRendered=false;
-			//this.isEditable = !_.isUndefined(this.options.isEditable) ? this.options.isEditable : true;
+			this.geocoder = new google.maps.Geocoder();
+			this.mapRendered=false;
+			this.isEditable = !_.isUndefined(this.options.isEditable) ? this.options.isEditable : true;
 			
 
 			L.mapbox.accessToken = 'pk.eyJ1IjoiamRhcmNoaXZlIiwiYSI6IkllcmJZanMifQ.PVh8CRzG4gZ3WET8gAqmbA';
