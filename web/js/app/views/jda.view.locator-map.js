@@ -21,6 +21,7 @@
 			if(parseFloat(this.model.get('media_geo_latitude'))) this.geoLocated=true;
 			else this.geoLocated=false;
 			console.log("Checking");
+			console.log(this.geoLocated);
 			if (this.geoLocated == true)
 			{
 			this.latlng = new L.LatLng(parseFloat(this.model.get('media_geo_latitude')),parseFloat(this.model.get('media_geo_longitude')));
