@@ -110,12 +110,12 @@
 			MAP
 			***********/
 			
-			this.geocoder = new google.maps.Geocoder();
-			this.mapRendered=false;
-			this.isEditable = !_.isUndefined(this.options.isEditable) ? this.options.isEditable : true;
+			//this.geocoder = new google.maps.Geocoder();
+			//this.mapRendered=false;
+			//this.isEditable = !_.isUndefined(this.options.isEditable) ? this.options.isEditable : true;
 			
 
-			L.mapbox.accessToken = 'pk.eyJ1IjoiamRhcmNoaXZlIiwiYSI6IkllcmJZanMifQ.PVh8CRzG4gZ3WET8gAqmbA';
+			//L.mapbox.accessToken = 'pk.eyJ1IjoiamRhcmNoaXZlIiwiYSI6IkllcmJZanMifQ.PVh8CRzG4gZ3WET8gAqmbA';
 			this.cloudmadeUrl = 'http://{s}.tiles.mapbox.com/v4/jdarchive.he805gp4/{x}/{y}/{z}.png',
 			this.cloudmadeAttrib = '',
 			this.cloudmade = new L.TileLayer(this.cloudmadeUrl, {maxZoom: 18, attribution: this.cloudmadeAttrib});
