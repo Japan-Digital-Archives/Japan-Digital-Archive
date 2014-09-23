@@ -1,9 +1,8 @@
 
+
 {# src/Zeega/\CoreBundle\/Resources/views/Widget/fail.widget.html.twig #}
 
 {% extends '::widget.base.html.twig' %}
-
-
 
 {% block title %} {% endblock %}
 
@@ -62,49 +61,70 @@
 						
 				<h3>Media-type</h3>
 				<div class="ingest-info">
-			<select id="widget-media">
-					<option value="Image">Image</option>
-					<option value="Website">Website</option>
-			  <option value="Audio">Audio</option>
-					<option value="Video">Video</option>
-					<option value="Tweet">Tweet</option>
-			</select>
+					<select id="widget-media">
+						<option value="Image">Image</option>
+						<option value="Website">Website</option>
+						<option value="Audio">Audio</option>
+						<option value="Video">Video</option>
+						<option value="Tweet">Tweet</option>
+					</select>
 				</div>
 			
-				<h3>Collection</h3>
-				<div class="ingest-info">
-			<select id="widget-collection"></select>
+				<div id="website-fields" style="display:none">
+					<h3>Archive Frequency</h3>
+					<div class="ingest-info">
+						<select id="widget-frequency">
+							<option value="Once">Archive Once</option>
+							<option value="Monthly">Monthly</option>
+						</select>
+					</div>
+
+					<h3>Archive Scope</h3>
+					<div class="ingest-info">
+						<select id="widget-scope">
+							<option value="Page">One Page</option>
+							<option value="Directory">Directory</option>
+							<option value="Site">Full Site</option>
+						</select>
+					</div>
 				</div>
 				
-				<h3>Title:</h3>
+				
+				<h3>Collection</h3>
+				<div class="ingest-info">
+					<select id="widget-collection"></select>
+				</div>
+				
+				<h3>Title</h3>
 				<div class='ingest-info'><input type="text" id="widget-title"></div>
 				<h3>Description:</h3>
 				<div id="description">
-			<div class="widget-textbox ingest-info">
-			  <textarea id="widget-description" ></textarea>
-			</div>
 			
-			<h3>Tags (comma separated):</h3>
-			<div id="tags">
 				<div class="widget-textbox ingest-info">
-				<textarea id="widget-tags" ></textarea>
+				  <textarea id="widget-description" ></textarea>
 				</div>
-			</div>
+			
+				<h3>Tags (comma separated):</h3>
+				<div id="tags">
+					<div class="widget-textbox ingest-info">
+					  <textarea id="widget-tags" ></textarea>
+					</div>
+				</div>
 
-			<h3>Location:</h3>
-			<div class="ingest-info">
-			  <input type="text" id="address" name="location" size="60" /> &nbsp;&nbsp;
-			  <button type="button" onclick="showAddress();" class="btn">Find on Map!</button>
-			  <div>
-				<span class="hint">{% trans %}jda.form.contribute.map.hint{% endtrans %}</span>
-			  </div>
-			  <div id="map_canvas" style="width: 250px; height: 200px"></div>
-			  <div id="latlng"></div>
-			  <input type="hidden" id="lat" name="lat" value="" />
-			  <input type="hidden" id="lng" name="lng" value="" />
-			</div>
+				<h3>Location:</h3>
+				<div class="ingest-info">
+				  <input type="text" id="address" name="location" size="60" /> &nbsp;&nbsp;
+				  <button type="button" onclick="showAddress();" class="btn">Find on Map!</button>
+				  <div>
+					<span class="hint">{% trans %}jda.form.contribute.map.hint{% endtrans %}</span>
+				  </div>
+				  <div id="map_canvas" style="width: 250px; height: 200px"></div>
+				  <div id="latlng"></div>
+				  <input type="hidden" id="lat" name="lat" value="" />
+				  <input type="hidden" id="lng" name="lng" value="" />
 				</div>
 			</div>
+		</div>
 			
 		{% endif %}
 			
@@ -128,12 +148,6 @@
         Audio: "Audio",
         Tweet: "Tweet"
     };
-	
-	$("#tagsSelect").chosen({
-            create_option_text: 'Add New Tag',
-            create_option: true,
-            persistent_create_option: true
-        });
         
     sessionStorage.apiUrl = "http://jdarchive.org/zeega/";	
     sessionStorage.user = {{ userId }};
@@ -144,17 +158,29 @@
     $.get(sessionStorage.apiUrl+"api/items/parser?url={{ thumbnail_url }}", function(data) {
     	postObj = data.items[0];
     	postObj.user_id = {{ userId }};
+    	
+    	var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    	var newhash = {};
+    	$.each(hashes, function(i, val) { 
+    		var hash = val.split("="); 
+    		newhash[hash[0]]= hash[1];
+    	})
+    	
+    	
+    	postObj.uri = decodeURIComponent(newhash.url);  
+    	postObj.attribution_uri = postObj.uri;
+
     	if(postObj.title == null || postObj.title == "") postObj.title = "{{ title }}";
     	if(postObj.media_type == null) {
     		postObj.media_type = "Website";
     		postObj.archive = "Internet Archive";
-
+    		$("#website-fields").show();
+			postObj.uri = "http://wayback.archive-it.org/2438/20110301000000/" + postObj.attribution_uri;
     	}
     	postObj.username = "{{ displayname }}";
     	$("#widget-description").val(postObj.description);
     	$("#widget-title").val(postObj.title);
     	$("#item-image").attr("src", postObj.thumbnail_url);
-    	postObj.uri = decodeURIComponent("{{ parent_url }}");  
 
     	if(postObj.uri.indexOf("twitter.com") > -1) {
     		postObj.media_type = "Tweet";
@@ -190,6 +216,11 @@
     });
     
     $("#add-item-new").click(function() {
+    	if($("#widget-title").val() == "" || $("#widget-title").val() == " ") {
+    		alert("Please fill in a title field before submitting.");
+    		return;
+    	}
+    	
     	var Browser = jda.module("browser");
     	
     	var trayId = $("#widget-collection > option:selected").val();
@@ -216,14 +247,21 @@
           postObj.media_creator_realname = "{{ displayname }}";
           postObj.attributes = {};
           postObj.attributes.submitterId = "{{ userId }}";
-          
+
+       	  
           postObj.tags = [];
-          $("#tagsSelect option:selected").each(function () {
-                    postObj.tags.push($(this).val());
-            });
+          var tags = $("#widget-tags").val().split(",");
+          $.each(tags, function(i, tag) {
+          	postObj.tags.push(tag.trim());
+          });
 
           postObj.media_type = $("#widget-media > option:selected").val(); 
-          
+        
+          if(postObj.media_type == "Website") {
+			  postObj.attributes.scope = $("#widget-scope").val();
+			  postObj.attributes.frequency = $("#widget-frequency").val();
+       	  }    
+       	       
           postObj.media_date_created = new Date().toDateString();
           
           if ($("#lat").val() != "") {

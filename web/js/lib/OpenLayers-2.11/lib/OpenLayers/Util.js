@@ -180,6 +180,9 @@ OpenLayers.Util.modifyDOMElement = function(element, id, px, sz, position,
         element.style.width = sz.w + "px";
         element.style.height = sz.h + "px";
     }
+	else if (isNaN(sz.w)) {
+		element.style.width = "2048px";
+	}
     if (position) {
         element.style.position = position;
     }
@@ -227,9 +230,11 @@ OpenLayers.Util.createDiv = function(id, px, sz, imgURL, position,
                                      border, overflow, opacity) {
 
     var dom = document.createElement('div');
+	
+	var imgURL = imgURL.replace(/width=nan/gi,"width=2048");
 
     if (imgURL) {
-        dom.style.backgroundImage = 'url(' + imgURL + ')';
+        dom.style.backgroundImage = 'url(' + res + ')';
     }
 
     //set generic properties
@@ -268,6 +273,7 @@ OpenLayers.Util.createImage = function(id, px, sz, imgURL, position, border,
                                        opacity, delayDisplay) {
 
     var image = document.createElement("img");
+	var imgURL = imgURL.replace(/width=nan/gi,"width=2048");
 
     //set generic properties
     if (!id) {
