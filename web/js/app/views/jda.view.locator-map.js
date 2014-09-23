@@ -20,9 +20,12 @@
 			this.cloudmade = new L.TileLayer(this.cloudmadeUrl, {maxZoom: 18, attribution: this.cloudmadeAttrib});
 			if(parseFloat(this.model.get('media_geo_latitude'))) this.geoLocated=true;
 			else this.geoLocated=false;
-		
+			console.log("Checking");
+			console.log(this.geoLocated);
+			if (this.geoLocated == true)
+			{
 			this.latlng = new L.LatLng(parseFloat(this.model.get('media_geo_latitude')),parseFloat(this.model.get('media_geo_longitude')));
-			
+			}
 			var values = {
 				latitude : this.model.get('media_geo_latitude'),
 				longitude : this.model.get('media_geo_longitude')
@@ -66,14 +69,15 @@
 	
 		addMap:function()
 		{
-			
+			console.log("14");
 			if(this.model.get('editable')||this.geoLocated){
-				
+				console.log("13");
 				$(this.el).find('.item-lat-lng').fadeIn();
 				$(this.el).find('.locator-map').fadeIn();
 				this.mapRendered=true;
 
 				var _this = this;
+				console.log("12");
 				this.geocoder.geocode( { 'latLng' : new google.maps.LatLng(this.latlng.lat,this.latlng.lng) }, function(results, status) {
 					if (status == google.maps.GeocoderStatus.OK) {
 						
@@ -92,7 +96,7 @@
 				console.log(div.ids);
 				this.map = new L.Map(div);
 				this.map.setView(this.latlng, 13).addLayer(this.cloudmade);
-				
+				console.log("Checkiinnnggg");
 				$('.leaflet-control-attribution').hide();
 
 				var that=this;
@@ -105,18 +109,23 @@
 					
 				}
 				else{
+				console.log("3");
 					this.marker = new L.Marker(this.latlng,{draggable:false});
 				}
+				console.log("2");
 				this.map.addLayer(this.marker);
+				console.log("after2");
 			}
 		},
 		updateMap:function(){
+		console.log("4");
 			this.map.setView(this.latlng, 13);
 			this.marker.setLatLng(this.latlng);
 		},
 
 		updateLatLng:function(e)
 		{
+		console.log("5");
 			$(this.el).find('.item-latitude').html(e.target.getLatLng().lat);
 			$(this.el).find('.item-longitude').html(e.target.getLatLng().lng);
 		},
@@ -133,11 +142,13 @@
 			$(this.el).find('.locator-search-input').attr('value','');
 		},
 		displaySearch : function(){
+			console.log("124");
 			var that=this;
 			$(this.el).find('.edit-geo-location').fadeOut('fast',function(){$(that.el).find('.locator-search-bar').fadeIn();});
 			
 		},
 		runSearch : function(e){
+			console.log("123");
 			if(e.keyCode==13){
 				$(this.el).find('.locator-search-input').blur();
 				var that=this;
