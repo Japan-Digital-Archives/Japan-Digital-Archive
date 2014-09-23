@@ -20,6 +20,7 @@
 			this.cloudmade = new L.TileLayer(this.cloudmadeUrl, {maxZoom: 18, attribution: this.cloudmadeAttrib});
 			if(parseFloat(this.model.get('media_geo_latitude'))) this.geoLocated=true;
 			else this.geoLocated=false;
+			console.log("Checking");
 			if (this.geoLocated == true)
 			{
 			this.latlng = new L.LatLng(parseFloat(this.model.get('media_geo_latitude')),parseFloat(this.model.get('media_geo_longitude')));
