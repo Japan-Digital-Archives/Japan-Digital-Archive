@@ -15,7 +15,7 @@ class UserAdmin extends Admin
 		$roles = array('ROLE_USER' => 'User','ROLE_ADMIN'=>'Admin');
         $formMapper
             ->add('username')
-			->add('user_id')
+			->add('id')
 			->add('display_name')
 			->add('email')
 			->add('roles', 'choice', array('choices' => $roles,'multiple' => true))
@@ -40,7 +40,7 @@ class UserAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('username')
-			->add('user_id')
+			->add('id')
 			->add('display_name')
 			->add('email')
         ;
