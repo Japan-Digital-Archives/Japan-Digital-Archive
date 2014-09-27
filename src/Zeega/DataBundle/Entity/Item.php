@@ -193,6 +193,19 @@ class Item
     {
         return $this->id;
     }
+	
+	/**
+     * Set id
+     *
+     * @param integer $id
+	 * @return Item
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+		
+		return $this;
+    }
 
     /**
      * Set title
