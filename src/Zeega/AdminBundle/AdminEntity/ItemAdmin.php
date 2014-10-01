@@ -27,6 +27,7 @@ class ItemAdmin extends Admin
           ->add('text')
           ->add('uri')
           ->add('attribution_uri')
+		  ->add('thumbnail_url')
           ->add('media_type', 'choice', array('choices' => $itemTypes, 'multiple' => false))
           ->add('layer_type')
           ->add('media_geo_latitude')
