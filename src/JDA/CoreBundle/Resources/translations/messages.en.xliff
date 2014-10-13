@@ -1695,6 +1695,10 @@ prompt those of us who were not affected to reflect on the way we live our lives
 				<source>jda.bookmarklet.browser</source>
 				<target>* Best supported by the Chrome browser *</target>
 			</trans-unit>
+			<trans-unit id="425">
+				<source>jda.waku.title</source>
+				<target>Waku Editor</target>
+			</trans-unit>
         </body>
     </file>
 </xliff>
