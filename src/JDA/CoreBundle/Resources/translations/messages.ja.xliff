@@ -1717,6 +1717,10 @@
 				<source>jda.bookmarklet.browser</source>
 				<target>* このブックマークレットはGoogle Chrome のブラウザーに最適化されています。</target>
 			</trans-unit>
+			<trans-unit id="425">
+				<source>jda.waku.title</source>
+				<target>Waku Editor</target>
+			</trans-unit>
         </body>
     </file>
 </xliff>
