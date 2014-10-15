@@ -47,7 +47,7 @@ class HomeController extends Controller
 					'page'=> 'home',
 					'displayname'=>$displayName,
 					'userId'=>$userId,
-					//'items'=>$items,
+					'items'=>$items,
 				));
     
     }
