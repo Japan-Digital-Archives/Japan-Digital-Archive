@@ -1,9 +1,9 @@
 /// <reference path="jda.ux.item.js" />
 
-function embedVideo(source) {
+function embedVideo(src,cntrls) {
     this.unique = Math.floor(Math.random() *10000)
         $('#item').append($('<div>').attr({id:'item-video-'+this.unique}));
-    this.plyr = new Plyr('item-video-'+this.unique,{url:source,controls:1});
+    this.plyr = new Plyr('item-video-'+this.unique,{url:src,controls:cntrls});
     $(window).unload(function() {
 	this.plyr.destroy();
     });
@@ -259,19 +259,23 @@ $(document).ready(function(){
         break;
       case 'Video':
 	var source;
+	var controls;
     	switch( $('#item').data("layer_type") )
     	{
             case 'Video':
 	        source = $('#item').data('uri');
+	        controls = 1;
 	        break;
             case 'Youtube':
 	        source = "http://www.youtube.com/watch?v="+$('#item').data('uri');
+	        controls = 1;
 	        break;
             case 'Vimeo':
 	        source = "http://vimeo.com/"+$('#item').data('uri');
+	        controls = 0;
 	        break;	
         }
-	embedVideo(source);
+	embedVideo(source, controls);
 	break;
       case 'Audio':
       	this.unique =Math.floor(Math.random() *10000)
@@ -309,8 +313,16 @@ $(document).ready(function(){
       
 	    var parts=$('#item').data('attribution_uri').split('http');
 	    var original_src = "http"+parts[parts.length-1];
-	    if (original_src.match(/^http:\/\/(www)?\.youtube\.com\/watch\?v=/)) {
-	        embedVideo(original_src);
+	    // Matches http://(www.)?youtube.com/watch?v=(.+)
+	    var yt_url = /^http:\/\/(?:www\.)?youtube\.com\/watch\?v=.+/;
+	    // Together, these two regexes match
+            // http://(www.)?vimeo.com(.*)/[0-9]+
+	    var vm_url_hd = /^http:\/\/(?:www\.)?vimeo.com/;
+	    var vm_url_tl = /\/\d+$/;
+	    if (original_src.match(yt_url)) {
+	        embedVideo(original_src, 1);
+	    } else if (original_src.match(vm_url_hd) && original_src.match(vm_url_tl)) {
+	        embedVideo(original_src, 0);
 	    } else {
 	        var src= $('#item').data('attribution_uri');
 
