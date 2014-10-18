@@ -1,5 +1,30 @@
 /// <reference path="jda.ux.item.js" />
 
+function embedVideo() {
+    this.unique =Math.floor(Math.random() *10000)
+        $('#item').append($('<div>').attr({id:'item-video-'+this.unique}));
+		
+    switch( $('#item').data("layer_type") )
+    {
+        case 'Video':
+	    var source = $('#item').data('uri');
+	    this.plyr = new Plyr('item-video-'+this.unique,{url:source,controls:1});
+	    break;
+        case 'Youtube':
+	    var source = "http://www.youtube.com/watch?v="+$('#item').data('uri');
+	    this.plyr = new Plyr('item-video-'+this.unique,{url:source,controls:1});
+	    break;
+        case 'Vimeo':
+	    var source = "http://vimeo.com/"+$('#item').data('uri');
+	    this.plyr = new Plyr('item-video-'+this.unique,{url:source,controls:0});
+	    break;	
+        }
+
+    $(window).unload(function() {
+	this.plyr.destroy();
+    });
+}
+
 $(document).ready(function(){
 	
 
@@ -249,32 +274,8 @@ $(document).ready(function(){
         $('#item').append('<img src="'+$('#item').data('uri')+'" class="jda-item-image"/>');
         break;
       case 'Video':
-      	this.unique =Math.floor(Math.random() *10000)
-		$('#item').append($('<div>').attr({id:'item-video-'+this.unique}));
-		
-      	switch( $('#item').data("layer_type") )
-		{
-
-			case 'Video':
-				var source = $('#item').data('uri');
-				this.plyr = new Plyr('item-video-'+this.unique,{url:source,controls:1});
-				break;
-			case 'Youtube':
-				var source = "http://www.youtube.com/watch?v="+$('#item').data('uri');
-				this.plyr = new Plyr('item-video-'+this.unique,{url:source,controls:1});
-				break;
-			case 'Vimeo':
-				var source = "http://vimeo.com/"+$('#item').data('uri');
-				this.plyr = new Plyr('item-video-'+this.unique,{url:source,controls:0});
-				break;
-		
-		}
-		$(window).unload(function() {
-		  	this.plyr.destroy();
-		});
-        
-        break;
-      
+	embedVideo();
+	break;
       case 'Audio':
       	this.unique =Math.floor(Math.random() *10000)
 		$('#item').append($('<div">').attr({id:'item-video-'+this.unique}));
