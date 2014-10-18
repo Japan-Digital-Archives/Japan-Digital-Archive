@@ -314,11 +314,11 @@ $(document).ready(function(){
 	    var parts=$('#item').data('attribution_uri').split('http');
 	    var original_src = "http"+parts[parts.length-1];
 	    // Matches http://(www.)?youtube.com/watch?v=(.+)
-	    var yt_url = /^http:\/\/(?:www\.)?youtube\.com\/watch\?v=.+/;
+	    var yt_url = /^http:\/\/(?:www\.)?youtube\.com\/watch\?v=.+$/;
 	    // Together, these two regexes match
             // http://(www.)?vimeo.com(.*)/[0-9]+
-	    var vm_url_hd = /^http:\/\/(?:www\.)?vimeo.com/;
-	    var vm_url_tl = /\/\d+$/;
+	    var vm_url_hd = /^http:\/\/(?:www\.)?vimeo.com\/.+$/;
+	    var vm_url_tl = /\d+$/;
 	    if (original_src.match(yt_url)) {
 	        embedVideo(original_src, 1);
 	    } else if (original_src.match(vm_url_hd) && original_src.match(vm_url_tl)) {
