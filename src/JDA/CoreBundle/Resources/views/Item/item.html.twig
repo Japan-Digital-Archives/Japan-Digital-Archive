@@ -91,7 +91,7 @@
 		{% else %}
 			<h4>by {{item.media_creator_realname}}</h4>
 		{% endif %}
-		{% if item.attribution_uri != 'Testimonial' %}
+		{% if item.layer_type != 'Testimonial' %}
         <p><a href="{{item.attribution_uri}}">View on {{item.archive}}</a></p>
         {% endif %}
         <!--
