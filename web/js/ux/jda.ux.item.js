@@ -1,25 +1,9 @@
 /// <reference path="jda.ux.item.js" />
 
-function embedVideo() {
-    this.unique =Math.floor(Math.random() *10000)
+function embedVideo(source) {
+    this.unique = Math.floor(Math.random() *10000)
         $('#item').append($('<div>').attr({id:'item-video-'+this.unique}));
-		
-    switch( $('#item').data("layer_type") )
-    {
-        case 'Video':
-	    var source = $('#item').data('uri');
-	    this.plyr = new Plyr('item-video-'+this.unique,{url:source,controls:1});
-	    break;
-        case 'Youtube':
-	    var source = "http://www.youtube.com/watch?v="+$('#item').data('uri');
-	    this.plyr = new Plyr('item-video-'+this.unique,{url:source,controls:1});
-	    break;
-        case 'Vimeo':
-	    var source = "http://vimeo.com/"+$('#item').data('uri');
-	    this.plyr = new Plyr('item-video-'+this.unique,{url:source,controls:0});
-	    break;	
-        }
-
+    this.plyr = new Plyr('item-video-'+this.unique,{url:source,controls:1});
     $(window).unload(function() {
 	this.plyr.destroy();
     });
@@ -274,7 +258,20 @@ $(document).ready(function(){
         $('#item').append('<img src="'+$('#item').data('uri')+'" class="jda-item-image"/>');
         break;
       case 'Video':
-	embedVideo();
+	var source;
+    	switch( $('#item').data("layer_type") )
+    	{
+            case 'Video':
+	        source = $('#item').data('uri');
+	        break;
+            case 'Youtube':
+	        source = "http://www.youtube.com/watch?v="+$('#item').data('uri');
+	        break;
+            case 'Vimeo':
+	        source = "http://vimeo.com/"+$('#item').data('uri');
+	        break;	
+        }
+	embedVideo(source);
 	break;
       case 'Audio':
       	this.unique =Math.floor(Math.random() *10000)
@@ -312,15 +309,18 @@ $(document).ready(function(){
       
 	    var parts=$('#item').data('attribution_uri').split('http');
 	    var original_src = "http"+parts[parts.length-1];
-		var src= $('#item').data('attribution_uri');
+	    if (original_src.match(/^http:\/\/(www)?\.youtube\.com\/watch\?v=/)) {
+	        embedVideo(original_src);
+	    } else {
+	        var src= $('#item').data('attribution_uri');
 
-      	$('#item').append('<div class="website-caption"><a href="'+original_src+'" target="_blank">'+original_src+'</a></div>'+
-					'<div id="jda-item-website">'+
-					'<iframe type="text/html" width="100%" height="400px" src="'+src+'" frameborder="0">'+
-					'</iframe>'+
-					'</div>');
-       
-      	break;
+      	        $('#item').append('<div class="website-caption"><a href="'+original_src+'" target="_blank">'+original_src+'</a></div>'+
+						'<div id="jda-item-website">'+
+						'<iframe type="text/html" width="100%" height="400px" src="'+src+'" frameborder="0">'+
+						'</iframe>'+
+						'</div>');
+	    }       
+      	    break;
         case 'Headline':
             // currently, nothing happens for news articles, so nothing happens here.
             break;
