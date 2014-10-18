@@ -314,15 +314,17 @@ $(document).ready(function(){
 	    var parts=$('#item').data('attribution_uri').split('http');
 	    var original_src = "http"+parts[parts.length-1];
 	    // Matches http://(www.)?youtube.com/watch?v=(.+)
-	    var yt_url = /^http:\/\/(?:www\.)?youtube\.com\/watch\?v=.+$/;
+	    var yt_url = /^https?:\/\/(?:www\.)?youtube\.com\/watch\?v=(.+)$/;
 	    // Together, these two regexes match
             // http://(www.)?vimeo.com(.*)/[0-9]+
-	    var vm_url_hd = /^http:\/\/(?:www\.)?vimeo.com\/.+$/;
+	    var vm_url_hd = /^https?:\/\/(?:www\.)?vimeo.com\/(.+)$/;
 	    var vm_url_tl = /\d+$/;
-	    if (original_src.match(yt_url)) {
-	        embedVideo(original_src, 1);
-	    } else if (original_src.match(vm_url_hd) && original_src.match(vm_url_tl)) {
-	        embedVideo(original_src, 0);
+	    var yt_match = original_src.match(yt_url);
+	    var vm_match_hd = original_src.match(vm_url_hd);
+	    if (yt_match) {
+	        embedVideo('http://www.youtube.com/watch?v=' + yt_match[1], 1);
+	    } else if (vm_match_hd && original_src.match(vm_url_tl)) {
+	        embedVideo('http://www.vimeo.com/' + vm_match_hd[1], 0);
 	    } else {
 	        var src= $('#item').data('attribution_uri');
 
