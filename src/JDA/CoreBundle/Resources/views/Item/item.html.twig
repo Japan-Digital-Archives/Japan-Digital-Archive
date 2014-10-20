@@ -82,7 +82,7 @@
       	<h2>{{item.title}}</h2>
 		
 		
-		{% if item.layer_type == 'Testimonial' and not item.attributes == null  %}
+		{% if item.layer_type == 'Testimonial' and item.privacy is defined  %}
 			{% if item.attributes.privacy == 'Hide' %}
 				<h4>by Anonymous</h4>
 			{% else %}
