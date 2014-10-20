@@ -412,7 +412,26 @@ $(document).ready(function(){
               this.fancyView = new Browser.Views.FancyBox.DocumentCloud({model:thisModel});
               break;
             case 'Website':
-              this.fancyView = new Browser.Views.FancyBox.Website({model:thisModel});
+	      var parts = thisModel.get('attribution_uri').split('http');
+	      var original_src = 'http'+parts[parts.length-1];
+	      var yt_url = /^https?:\/\/(?:www\.)?youtube\.com\/watch\?v=(.+)$/;
+	      var yt_match = original_src.match(yt_url);
+	      if (yt_match) {
+	          thisModel.set('uri', yt_match[1]);
+	          thisModel.set('layer_type', 'Youtube');
+                  this.fancyView = new Browser.Views.FancyBox.Video({model:thisModel});
+	      } else {
+	          var vm_url_hd = /^https?:\/\/(?:www\.)?vimeo.com\/(.+)$/;
+	          var vm_url_tl = /\d+$/
+	          var vm_match_hd = original_src.match(vm_url_hd);
+	          if (vm_match_hd && original_src.match(vm_url_tl)) {
+	              thisModel.set('uri', vm_match_hd[1]);
+	              thisModel.set('layer_type', 'Vimeo');
+	              this.fancyView = new Browser.Views.FancyBox.Video({model:thisModel});
+	          } else {
+	              this.fancyView = new Browser.Views.FancyBox.Website({model:thisModel});
+	          }
+              }
               break;
             case 'Article':
               this.fancyView = new Browser.Views.FancyBox.Article({model:thisModel});
