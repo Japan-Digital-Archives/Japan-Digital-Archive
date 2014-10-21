@@ -181,6 +181,7 @@
 										<ul class="dropdown-menu">
 											<!-- <li><a id="account-settings" href ="#">{% trans %}jda.user.settings{% endtrans %}</a></li> -->
 											<li><a href="{{path('user', { '_locale': locale,'id':userId })}}">{% trans %}jda.user.profile{% endtrans %}</a></li>
+											<li><a href="http://dev-editor.herokuapp.com" target="_blank">{% trans %}jda.waku.title{% endtrans %}</a></li>
 											<li><a href='{{ path('fos_user_security_logout',{ '_locale': locale })}}' >{% trans %}jda.user.logout{% endtrans %}</a></li>
 										</ul>
 								</li>
