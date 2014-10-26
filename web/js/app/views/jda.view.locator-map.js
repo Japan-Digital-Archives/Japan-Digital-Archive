@@ -46,6 +46,7 @@
 			if (!this.geoLocated){
 				console.log('not geolocated');
 				$(this.el).find('.no-geo-data').show();
+				$(this.el).find('.locator-map').hide();
 
 			}
 			
