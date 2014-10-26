@@ -46,7 +46,7 @@
 			if (!this.geoLocated){
 				console.log('not geolocated');
 				$(this.el).find('.no-geo-data').show();
-				$(this.el).find('.locator-map').hide();
+				//$(this.el).find('.locator-map').hide();
 
 			}
 			
@@ -71,7 +71,7 @@
 		addMap:function()
 		{
 			console.log("14");
-			if(this.model.get('editable')||this.geoLocated){
+			if(this.geoLocated){
 				console.log("13");
 				$(this.el).find('.item-lat-lng').fadeIn();
 				$(this.el).find('.locator-map').fadeIn();
