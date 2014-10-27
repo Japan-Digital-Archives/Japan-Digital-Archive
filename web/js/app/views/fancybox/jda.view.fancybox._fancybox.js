@@ -253,7 +253,7 @@
 				randId: this.elemId
 			};
 			
-			if (this.model.get('user_id') == 429) {
+			if (this.model.get('user_id') == 429 || this.model.get('media_type') == 'Video') {
 				blanks.sourceLink = this.model.get('attribution_uri');
 			}
 
