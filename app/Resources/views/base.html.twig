@@ -171,7 +171,11 @@
 										<ul class="dropdown-menu">
 											<!-- <li><a id="account-settings" href ="#">{% trans %}jda.user.settings{% endtrans %}</a></li> -->
 											<li><a id="user-profile" href="{{path('user', { '_locale': locale,'id':app.user.getId })}}">{% trans %}jda.user.profile{% endtrans %}</a></li>
-											<li><a href="http://dev-editor.herokuapp.com" target="_blank">{% trans %}jda.waku.title{% endtrans %}</a></li>
+											{% if locale == 'ja' %}
+												<li><a href="http://jdawaku.herokuapp.com/#ja/login" target="_blank">{% trans %}jda.waku.title{% endtrans %}</a></li>
+											{% else %}
+												<li><a href="http://jdawaku.herokuapp.com/#en/login" target="_blank">{% trans %}jda.waku.title{% endtrans %}</a></li>
+											{% endif %}
 											<li><a href='{{ path('fos_user_security_logout',{ '_locale': locale })}}' >{% trans %}jda.user.logout{% endtrans %}</a></li>
 										</ul>
 								</li>
