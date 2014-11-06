@@ -93,7 +93,7 @@ jQuery_1_9_1(document).ready(function() {
 	</div>
 
 	<!-- carousel -->
-	{#
+	
 	<div id="wrap" style="position: absolute;bottom:0;width:100%;height:250px;">
 		<!-- recent collections -->
 		<div style="margin-left:2%; position:relative; display:inline-block;">
@@ -102,12 +102,12 @@ jQuery_1_9_1(document).ready(function() {
 		
 	<ul id="mycarousel" class="jcarousel-skin-tango">
 		{% for item in items %}
-				<li style="background-image:url({{item.getThumbnailUrl}});"><a href="{{path('collection', { '_locale': locale,'id':item.getId })}}">{{item.getTitle}}</a></li>
+				<li style="background-image:url({{item.thumbnail_url}});"><a href="{{path('collection', { '_locale': locale,'id':item.id })}}">{{item.title}}</a></li>
         {% endfor %}
 		
 	  </ul>
 	</div>
-	#}
+	
 </div> <!-- end container -->
 
 <!-- HIDDEN FOR NOW ADD TO ARCHIVE grey bar-->
