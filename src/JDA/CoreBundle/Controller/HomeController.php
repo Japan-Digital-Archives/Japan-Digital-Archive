@@ -39,8 +39,7 @@ class HomeController extends Controller
         //$q->setMaxResults(25);
 		//$items = $q->getResult();
     	$response = json_decode(file_get_contents("http://api.jdarchive.org/api/items/search?&type=Collection&sort=date-desc&published=1&thumbnail_url%3C%3E%22%22&limit=50"), true);
-		$request = $response["request"];
-		$items = $request["items"];
+		$items = $response["items"];
 		
     	$request = $this->getRequest();
     	if($request->request->get('search-text')) return $this->redirect(sprintf('%s#%s', $this->generateUrl('search'), 'text='.$request->request->get('search-text')));
