@@ -102,7 +102,7 @@ jQuery_1_9_1(document).ready(function() {
 		
 	<ul id="mycarousel" class="jcarousel-skin-tango">
 		{% for item in items %}
-				<li style="background-image:url({{item.getThumbnailUrl}});"><a href="{{path('collection', { '_locale': locale,'id':item.getId })}}">{{item.getTitle}}</a></li>
+				<li style="background-image:url({{item.thumbnail_url}});"><a href="{{path('collection', { '_locale': locale,'id':item.id })}}">{{item.title}}</a></li>
         {% endfor %}
 		
 	  </ul>
