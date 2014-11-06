@@ -388,9 +388,7 @@ $(document).ready(function () {
         return false;
     });
 	
-	$('#mycarousel').jcarousel({
-			wrap: 'circular'
-    });
+
 });
 
 });

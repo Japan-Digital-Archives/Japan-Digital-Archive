@@ -15,6 +15,7 @@
 <!--[if lte IE 7]><!-->
 <link href="{{ asset('js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
 <!--<![endif]-->
+<link href="{{ asset('js/lib/jcarousel/skins/tango/skin.css')}}" media="screen" rel="stylesheet" type="text/css" />
  {% endblock %}
 
 {% block scripts %}
@@ -32,7 +33,12 @@
 
 <!-- Carousel scripts -->
 <script type="text/javascript">
-
+var jQuery_1_9_1 = $.noConflict(true);
+jQuery_1_9_1(document).ready(function() {
+    jQuery_1_9_1('#mycarousel').jcarousel({
+    	wrap: 'circular'
+    });
+});
 
 </script>
 
