@@ -182,7 +182,7 @@
 				'<a href="#" class="thumbnail" style="position:relative;width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px;background-color:white">'+
 					'<img src="<%=thumbnail_url%>" alt="<%=title%>" style="width:<%=thumbnail_width%>px;height:<%=thumbnail_height%>px">'+
 					
-					'<button class="btn btn-danger btn-mini jda-delete-item">x &nbsp;<%=remove_text%></button>'+
+					'<button class="btn btn-danger btn-mini jda-delete-item" style="z-index:42">x &nbsp;<%=remove_text%></button>'+
 				'</a><p class="jda-thumbnail-caption" style="max-width:<%=thumbnail_width%>px;"><%=title%></p>';
 
 			
