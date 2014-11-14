@@ -79,8 +79,7 @@
 
 				var _this = this;
 				console.log("12");
-				if (this.latlng != null)
-				{
+				
 				this.geocoder.geocode( { 'latLng' : new google.maps.LatLng(this.latlng.lat,this.latlng.lng) }, function(results, status) {
 					if (status == google.maps.GeocoderStatus.OK) {
 						
@@ -92,7 +91,7 @@
 						}
 					}
 				});
-				}
+				
 
 				var div = $(this.el).find('.locator-map').get(0);
 				console.log("start");
