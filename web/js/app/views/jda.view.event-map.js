@@ -174,7 +174,8 @@
 			this.map.events.register('click', map, function(e){
 				var event=e;
 				var lonlat =map.getLonLatFromViewPortPx(e.xy).transform(_this.map.getProjectionObject(),new OpenLayers.Projection("EPSG:4326"));
-				var mapSelections =  new Browser.Items.MapCollection([],{SQL:jda.app.resultsView.getSQLSearchString(lonlat.lon,lonlat.lat)});
+				if (lonlat.lat != null && lonlat.lat != null)
+				{var mapSelections =  new Browser.Items.MapCollection([],{SQL:jda.app.resultsView.getSQLSearchString(lonlat.lon,lonlat.lat)});
 				$('.olPopup').remove();
 				mapSelections.fetch({success:function(response,collection){
 
@@ -198,6 +199,8 @@
 						$('#map-popup').height($('#map-popup').height() - 50);
 					}
 				});
+				
+				}
 
 
 
