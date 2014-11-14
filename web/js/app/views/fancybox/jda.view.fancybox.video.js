@@ -58,8 +58,11 @@
 	},
 	
 	beforeClose: function(){
+		if (this.plyr != null)
+		{
 		this.plyr.pop.pause();
 		this.plyr.destroy();
+		}
 
 	}
 });
