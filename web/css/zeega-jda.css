@@ -468,3 +468,8 @@
 }
 
 .meta-head{ font-weight:bold; }
+
+#collection-drawer{
+	overflow: auto;
+	height: 300px;
+}
