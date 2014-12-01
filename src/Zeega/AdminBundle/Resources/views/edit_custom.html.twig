@@ -2,6 +2,8 @@
 
 {% block actions %}
     <div class="sonata-actions">
+			<a class="btn sonata-action-element" href="#" target="_blank" id="uri-link-btn">Uri Link</a>
+	
             <a class="btn sonata-action-element" href="#" target="_blank" id="link-link-btn">Live Link</a>
 			
         {% if admin.hasroute('show') and admin.id(object) and admin.isGranted('VIEW', object) and admin.show|length > 0 %}
@@ -14,6 +16,13 @@
         {% if admin.hasroute('list') and admin.isGranted('LIST')%}
             <a class="btn sonata-action-element" href="{{ admin.generateUrl('list') }}">{{ 'link_action_list'|trans({}, 'SonataAdminBundle') }}</a>
         {% endif %}
+		<script type="text/javascript">
+			$("document").ready(function() {
+			var baseUrl = document.getElementsByClass('span')
+			console.log(baseUrl);
+                $("#uri-link-btn").attr("href", baseUrl);
+            });
+		</script>
         <script type="text/javascript">
             $("document").ready(function() {
                 var rUrl = window.location.href;

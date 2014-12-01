@@ -106,13 +106,7 @@
         <div class="row-fluid">
           <div class="span8">
             <div id="item" class='jda-item-container' data-layer_type="{{item.layer_type}}" data-attribution_uri="{{item.attribution_uri}}" data-text="{{item.text}}" data-media_type="{{item.media_type}}" data-uri="{{item.uri}}" >
-            <a class="btn sonata-action-element" href="#" target="_blank" id="uri-link-btn">Attribution Link</a>
-				<script type="text/javascript">
-			$("document").ready(function() {
-			var baseUrl = item.attribution_uri
-                $("#uri-link-btn").attr("href", baseUrl);
-            });
-		</script>
+         
 			{% if item.layer_type != 'Testimonial' %}
             {{item.text|replace({'<p>': '', '</p>': ''})}}
             {% endif %}
