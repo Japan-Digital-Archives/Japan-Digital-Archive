@@ -2,7 +2,7 @@
 
 {% block actions %}
     <div class="sonata-actions">
-			<a class="btn sonata-action-element" href="#" target="_blank" id="uri-link-btn">Uri Link</a>
+			<a class="btn sonata-action-element" href="#" target="_blank" id="uri-link-btn">Internet Archive Link</a>
 	
             <a class="btn sonata-action-element" href="#" target="_blank" id="link-link-btn">Live Link</a>
 			
@@ -22,7 +22,7 @@
 			console.log("bae");
 			var baseUrl = document.getElementsByClassName('span5')[3].defaultValue;
 			console.log(baseUrl);
-			window.location.href=baseUrl;
+			window.location.replace(baseUrl);
             });
 			});
 		</script>
