@@ -20,8 +20,9 @@
 			$("document").ready(function() {
 			$('#uri-link-btn').click(function() {
 			console.log("bae");
-			var baseUrl = document.getElementsByClassName('span5');
+			var baseUrl = document.getElementsByClassName('span5')[3].defaultValue;
 			console.log(baseUrl);
+			window.location.href=baseUrl;
             });
 			});
 		</script>
