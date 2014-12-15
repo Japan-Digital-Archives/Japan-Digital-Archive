@@ -189,28 +189,32 @@
     		var id = url_array.pop();
     		postObj.attribution_uri = postObj.uri;
     		postObj.uri = id;
-			var cb = new Codebird;
-			cb.setConsumerKey("D31EL4VBtCk6TSiwG2MAw", "QUzeHgHSweIC3wSDLUu8Y3jEzkgvYfYkXyTqeg5MSs");
-			cb.setBearerToken("AAAAAAAAAAAAAAAAAAAAAAvCTQAAAAAAM%2FIZB80G7W1l2QpDZfN11HuoWVI%3DSTyXQGeOjTbf49FcCrs1Mil1PhCreVOlzaSN6Sl3g");
-			cb.__call(
-				"statuses_show_ID",
-				"id="+id,
-				function (reply) {
-					postObj.media_date_created = "";
-					postObj.description = reply.text;
-					postObj.text = reply.text;
-					postObj.title = "";
-    				$("#widget-description").val(postObj.description);
-    				$("#widget-title").val(postObj.title);
-    				var created_date = new Date(Date.parse(reply.created_at, "m/d/Y H:i")).toDateString();
-    				postObj.media_date_created = created_date;
-    				postObj.thumbnail_url = reply.user.profile_image_url;
-					$("#item-image").attr("src", postObj.thumbnail_url);
-					$("#item-image").css("width", "48px");
-				},
-				true // this parameter required
-			);
-		}	
+				var cb = new Codebird;
+				cb.setConsumerKey("D31EL4VBtCk6TSiwG2MAw", "QUzeHgHSweIC3wSDLUu8Y3jEzkgvYfYkXyTqeg5MSs");
+				cb.setBearerToken("AAAAAAAAAAAAAAAAAAAAAAvCTQAAAAAAM%2FIZB80G7W1l2QpDZfN11HuoWVI%3DSTyXQGeOjTbf49FcCrs1Mil1PhCreVOlzaSN6Sl3g");
+				cb.__call(
+					"statuses_show_ID",
+					"id="+id,
+					function (reply) {
+						postObj.media_date_created = "";
+						postObj.description = reply.text;
+						postObj.text = reply.text;
+						postObj.title = "";
+							$("#widget-description").val(postObj.description);
+							$("#widget-title").val(postObj.title);
+							var created_date = new Date(Date.parse(reply.created_at, "m/d/Y H:i")).toDateString();
+							postObj.media_date_created = created_date;
+							postObj.thumbnail_url = reply.user.profile_image_url;
+						$("#item-image").attr("src", postObj.thumbnail_url);
+						$("#item-image").css("width", "48px");
+					},
+					true // this parameter required
+				);
+			} else if(postObj.uri.indexOf("youtube.com") > -1) {
+				var id = postObj.split("v=")[1];
+				postObj.uri = id;
+		
+			}
 			
     	$("#widget-media option[value$='"+postObj.media_type+"']").attr('selected', true);
     });
