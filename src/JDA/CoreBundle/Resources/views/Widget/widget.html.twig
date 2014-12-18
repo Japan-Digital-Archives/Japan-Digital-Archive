@@ -211,7 +211,7 @@
 					true // this parameter required
 				);
 			} else if(postObj.uri.indexOf("youtube.com") > -1) {
-				var id = postObj.split("v=")[1];
+				var id = postObj.uri.split("v=")[1];
 				postObj.uri = id;
 		
 			}
