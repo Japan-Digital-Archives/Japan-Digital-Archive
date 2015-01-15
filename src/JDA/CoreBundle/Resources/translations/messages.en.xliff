@@ -368,7 +368,7 @@
             </trans-unit>
             <trans-unit id="93">
                 <source>jda.about.team</source>
-                <target>Team</target>
+                <target>Team TESTING!</target>
             </trans-unit>
             <trans-unit id="94">
                 <source>jda.about.news</source>
@@ -920,7 +920,7 @@
             </trans-unit>
              <trans-unit id="229">
                 <source>jda.team.leader</source>
-                <target>This project is led by the Reischauer Institute of Japanese Studies Hellooo!!!</target>
+                <target>This project is led by the Reischauer Institute of Japanese Studies</target>
             </trans-unit>
             <trans-unit id="230">
                 <source>jda.team.additional</source>
