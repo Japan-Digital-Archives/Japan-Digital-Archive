@@ -127,7 +127,7 @@
 				<h3>Tags</h3>
 			  
 				  {% for tag in item.tags %}
-					  {% if tag != '' and tag != NULL %}
+					  {% if tag != '' and tag!= ' ' and tag != NULL %}
 						<a href=http://jdarchive.org/en/search#tags="{{ tag|url_encode(true) }}"&media_type=&sort=relevant&><button class="btn btn-mini btn-danger">{{tag}}</button></a>
 				  {% endfor %}
 			  
