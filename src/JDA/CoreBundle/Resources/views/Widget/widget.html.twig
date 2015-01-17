@@ -258,6 +258,7 @@
           $.each(tags, function(i, tag) {
           	postObj.tags.push(tag.trim());
           });
+		  postObj.tags.filter(Boolean);
 
           postObj.media_type = $("#widget-media > option:selected").val(); 
         
