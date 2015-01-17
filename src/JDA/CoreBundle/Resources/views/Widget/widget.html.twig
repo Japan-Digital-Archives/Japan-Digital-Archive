@@ -252,7 +252,7 @@
           postObj.tags = [];
           var tags = $("#widget-tags").val().split(",");
           $.each(tags, function(i, tag) {
-			  if(tag != '' && tag!=' '){
+			  if(tag != '' && tag!=' ' && tag){
 				  postObj.tags.push(tag.trim());
 			  }
           });
