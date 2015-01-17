@@ -136,7 +136,7 @@
 	</script>	
 
 
-  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js" charset="UTF-8"></script>
 
 	<script type="text/javascript" language="Javascript">
 
@@ -252,8 +252,11 @@
           postObj.tags = [];
           var tags = $("#widget-tags").val().split(",");
           $.each(tags, function(i, tag) {
-          	postObj.tags.push(tag.trim());
+			  if(tag != '' && tag!=' '){
+				  postObj.tags.push(tag.trim());
+			  }
           });
+		  console.log('Filtering tags.');     
 		  postObj.tags.filter(Boolean);
 
           postObj.media_type = $("#widget-media > option:selected").val(); 
