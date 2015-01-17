@@ -20,7 +20,12 @@ class ItemAdmin extends Admin
               'Broadcast' => 'Broadcast', 'News Headline' => 'Headline', 
               'Collection' => 'Collection');
       $fileLoc = realpath("lastExport.txt");
-      $lastExport = file_get_contents($fileLoc);
+	  if ($fileLoc != "") { 
+		$lastExport = file_get_contents($fileLoc);
+	  }
+	  else {
+		$lastExport = "";
+	  }
       $formMapper
           ->add('title')
           ->add('description')

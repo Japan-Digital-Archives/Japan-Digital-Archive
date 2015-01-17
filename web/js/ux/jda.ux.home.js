@@ -390,5 +390,3 @@ $(document).ready(function () {
 	
 
 });
-
-});
