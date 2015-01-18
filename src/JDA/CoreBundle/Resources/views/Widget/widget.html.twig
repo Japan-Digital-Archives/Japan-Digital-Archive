@@ -116,6 +116,17 @@
         <div class='ingest-info'> <input  type="date" id = "widget-date"> </div>
         </div>
 
+        
+        <h3>Language:</h3>
+        <div id="Language">
+        <div class='ingest-info'>
+        <input type="checkbox" class="languageChk" value="English">English / 英語<br>
+        <input type="checkbox" class="languageChk" value="Japanese">Japanese / 日本語<br>
+        <input type="checkbox" class="languageChk" value="Korean">Korean / 韓国語<br>
+        <input type="checkbox" class="languageChk" value="Chinese">Chinese / 中国語<br>
+        </div>
+        </div>
+
 				<h3>Location:</h3>
 				<div class="ingest-info">
 				  <input type="text" id="address" name="location" size="60" /> &nbsp;&nbsp;
@@ -232,7 +243,12 @@
     		alert("Please fill in a title field before submitting.");
     		return;
     	}
-    	
+    	var checkedCount = $('input[class="languageChk"]:checked').length;
+      if (checkedCount == 0) {
+      alert("Please select a language before submitting.");
+      return;
+      }
+
     	var Browser = jda.module("browser");
     	
     	var trayId = $("#widget-collection > option:selected").val();
@@ -276,10 +292,22 @@
 			  postObj.attributes.scope = $("#widget-scope").val();
 			  postObj.attributes.frequency = $("#widget-frequency").val();
        	  }    
-       	       
-          postObj.media_date_created = $("#widget-date").val();
+		  
+		  var dateValue = $("#widget-date").val();
+		  if (!dateValue){ // true if empty 
+			  postObj.media_date_created = new Date().toDateString();
+		  }
+		  else { // true if not empty
+			  postObj.media_date_created = dateValue;
+		  }
+		  
           postObj.date_created = new Date().toDateString();
 
+
+          postObj.attributes.language = $("#englishChk").is(":checked") ? "English|" : "";
+          postObj.attributes.language += $("#japaneseChk").is(":checked") ? "Japanese|" : "";
+          postObj.attributes.language += $("#chineseChk").is(":checked") ? "Chinese|" : "";
+          postObj.attributes.language += $("#koreanChk").is(":checked") ? "Korean|" : "";
           
           if ($("#lat").val() != "") {
             postObj.media_geo_latitude = parseFloat($("#lat").val());
