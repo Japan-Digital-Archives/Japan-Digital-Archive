@@ -292,8 +292,15 @@
 			  postObj.attributes.scope = $("#widget-scope").val();
 			  postObj.attributes.frequency = $("#widget-frequency").val();
        	  }    
-       	       
-          postObj.media_date_created = $("#widget-date").val();
+		  
+		  var dateValue = $("#widget-date").val();
+		  if (!dateValue){ // true if empty 
+			  postObj.media_date_created = new Date().toDateString();
+		  }
+		  else { // true if not empty
+			  postObj.media_date_created = dateValue;
+		  }
+		  
           postObj.date_created = new Date().toDateString();
 
 
