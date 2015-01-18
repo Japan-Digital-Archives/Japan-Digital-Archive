@@ -92,8 +92,14 @@
 			<h4>by {{item.media_creator_realname}}</h4>
 		{% endif %}
 		{% if item.layer_type != 'Testimonial' %}
-        <p><a href="{{item.attribution_uri}}">View on {{item.archive}}</a></p>
-        {% endif %}
+			<p><a href=
+				{% if (item.media_type == 'Website' or item.media_type == 'Document') and item.uri[0:4] == 'http' %}
+					"{{item.uri}}"
+				{% else %}
+					"{{item.attribution_uri}}"
+				{% endif %}
+			>View on {{item.archive}}</a></p>
+        	{% endif %}
         <!--
         <div class="btn-group">
           <button class="btn btn-small btn-info active">Published</button>
@@ -106,7 +112,8 @@
         <div class="row-fluid">
           <div class="span8">
             <div id="item" class='jda-item-container' data-layer_type="{{item.layer_type}}" data-attribution_uri="{{item.attribution_uri}}" data-text="{{item.text}}" data-media_type="{{item.media_type}}" data-uri="{{item.uri}}" >
-            {% if item.layer_type != 'Testimonial' %}
+         
+			{% if item.layer_type != 'Testimonial' %}
             {{item.text|replace({'<p>': '', '</p>': ''})}}
             {% endif %}
             </div>
@@ -120,7 +127,7 @@
           	<div class="map-wrapper" style="margin-top:15px;position:relative">
           		<h3>Map</h3>
           		<div id ="map" class="jda-item-map-container" data-lat="{{item.media_geo_latitude}}" data-lng="{{item.media_geo_longitude}}"><h3 class="jda-no-geo-location-message">No location information</h3></div>
-          		
+        
           	</div>
          	
          	<div class="tags-wrapper" style="margin-top:15px">
