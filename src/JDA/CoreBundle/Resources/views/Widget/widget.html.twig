@@ -111,6 +111,11 @@
 					</div>
 				</div>
 
+        <h3>Date:</h3>
+        <div id="Date">
+        <div> <input type="date" id = "widget-date"></div>
+        </div>
+
 				<h3>Location:</h3>
 				<div class="ingest-info">
 				  <input type="text" id="address" name="location" size="60" /> &nbsp;&nbsp;
@@ -177,9 +182,12 @@
     		$("#website-fields").show();
 			postObj.uri = "http://wayback.archive-it.org/2438/20110301000000/" + postObj.attribution_uri;
     	}
+      if(postObj.media_date_created == null || postObj.media_date_created == "") postObj.media_date_created = "{{ date }}";
+
     	postObj.username = "{{ displayname }}";
     	$("#widget-description").val(postObj.description);
     	$("#widget-title").val(postObj.title);
+      $("widget-date").val(postObj.media_date_created);
     	$("#item-image").attr("src", postObj.thumbnail_url);
 
     	if(postObj.uri.indexOf("twitter.com") > -1) {
@@ -269,7 +277,9 @@
 			  postObj.attributes.frequency = $("#widget-frequency").val();
        	  }    
        	       
-          postObj.media_date_created = new Date().toDateString();
+          postObj.media_date_created = $("#widget-date").val();
+          postObj.date_created = new Date().toDateString();
+
           
           if ($("#lat").val() != "") {
             postObj.media_geo_latitude = parseFloat($("#lat").val());
