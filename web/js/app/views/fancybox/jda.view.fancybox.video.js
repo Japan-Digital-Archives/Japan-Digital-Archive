@@ -34,19 +34,19 @@
 		
 		Browser.Views._Fancybox.prototype.afterShow.call(this);
 		var source;
-		switch( this.model.get("layer_type") )
+		switch( this.model.get("layer_type").toLowerCase() )
 			{
 
-				case 'Video':
+				case 'video':
 					source = this.model.get('uri');
 					this.plyr = new Plyr('fancybox-video-'+this.unique,{url:source});
 					break;
-				case 'Youtube':
+				case 'youtube':
 					source = "http://www.youtube.com/watch?v="+this.model.get('uri');
 					this.plyr = new Plyr('fancybox-video-'+this.unique,{url:source});
 					
 					break;
-				case 'Vimeo':
+				case 'vimeo':
 					source = "http://vimeo.com/"+this.model.get('uri');
 					this.plyr = new Plyr('fancybox-video-'+this.unique,{url:source,controls:0});
 					break;

@@ -260,17 +260,17 @@ $(document).ready(function(){
       case 'Video':
 	var source;
 	var controls;
-    	switch( $('#item').data("layer_type") )
+    	switch( $('#item').data("layer_type").toLowerCase() )
     	{
-            case 'Video':
+            case 'video':
 	        source = $('#item').data('uri');
 	        controls = 1;
 	        break;
-            case 'Youtube':
+            case 'youtube':
 	        source = "http://www.youtube.com/watch?v="+$('#item').data('uri');
 	        controls = 1;
 	        break;
-            case 'Vimeo':
+            case 'vimeo':
 	        source = "http://vimeo.com/"+$('#item').data('uri');
 	        controls = 0;
 	        break;	
