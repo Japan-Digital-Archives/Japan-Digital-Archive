@@ -80,6 +80,8 @@ class ItemAdmin extends Admin
             ->add('media_creator_username')
             ->add('media_creator_realname')
             ->add('user_id')
+            ->add('media_date_created')
+            ->add('languageChk')
         ;
     }
 
