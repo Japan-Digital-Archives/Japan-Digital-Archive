@@ -66,7 +66,7 @@ class ItemAdmin extends Admin
             ->add('id')
             ->add('user_id')
             ->add('media_date_created')
-            ->add('languageChk')
+            ->add('language')
         ;
     }
 
