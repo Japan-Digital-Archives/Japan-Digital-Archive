@@ -22,6 +22,7 @@ class ItemAdmin extends Admin
 
       $itemLanguage = array('Japanese' => 'Japanese', 'English' => 'English', 
         'Korean' => 'Korean','Chinese' => 'Chinese');
+
       $fileLoc = realpath("lastExport.txt");
 	  if ($fileLoc != "") { 
 		$lastExport = file_get_contents($fileLoc);
@@ -86,7 +87,8 @@ class ItemAdmin extends Admin
             ->add('media_creator_username')
             ->add('media_creator_realname')
             ->add('user_id')
-
+            ->add('language')
+            ->add('media_date_created')
         ;
     }
 
