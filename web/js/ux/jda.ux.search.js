@@ -444,13 +444,17 @@ $(document).ready(function(){
               var attrib_uri = thisModel.get('attribution_uri');
               var yt_id = fixYoutubeUri(attrib_uri);
               if (yt_id !== false) {
+                  thisModel.set('attribution_uri', thisModel.get('uri'));
 	          thisModel.set('uri', yt_id);
+                  thisModel.set('media_type', 'Video');
 	          thisModel.set('layer_type', 'Youtube');
                   this.fancyView = new Browser.Views.FancyBox.Video({model:thisModel});
 	      } else {
                   var vm_id = fixVimeoUri(attrib_uri);
                   if (vm_id !== false) {
+                      thisModel.set('attribution_uri', thisModel.get('uri'));
 	              thisModel.set('uri', vm_id);
+                      thisModel.set('media_type', 'Video');
 	              thisModel.set('layer_type', 'Vimeo');
 	              this.fancyView = new Browser.Views.FancyBox.Video({model:thisModel});
 	          } else {
