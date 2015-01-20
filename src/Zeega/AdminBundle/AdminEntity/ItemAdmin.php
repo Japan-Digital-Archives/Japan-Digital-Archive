@@ -65,6 +65,9 @@ class ItemAdmin extends Admin
             ->add('media_creator_realname')
             ->add('id')
             ->add('user_id')
+			->add('media_date_created', 'doctrine_orm_datetime_range')
+			->add('date_created', 'doctrine_orm_datetime_range')
+			->add('attributes')
         ;
     }
 
