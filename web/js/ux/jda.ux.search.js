@@ -443,23 +443,17 @@ $(document).ready(function(){
             case 'Website':
               var attrib_uri = thisModel.get('attribution_uri');
               var yt_id = fixYoutubeUri(attrib_uri);
-              if (yt_id !== false) {
+              var vm_id = fixVimeoUri(attrib_uri);
+              var id = yt_id !== false ? yt_id : vm_id;
+              if (id !== false) {
                   thisModel.set('attribution_uri', thisModel.get('uri'));
-	          thisModel.set('uri', yt_id);
+	          thisModel.set('uri', id);
                   thisModel.set('media_type', 'Video');
-	          thisModel.set('layer_type', 'Youtube');
+	          thisModel.set('layer_type',
+                      id === yt_id ? 'Youtube' : 'Vimeo');
                   this.fancyView = new Browser.Views.FancyBox.Video({model:thisModel});
 	      } else {
-                  var vm_id = fixVimeoUri(attrib_uri);
-                  if (vm_id !== false) {
-                      thisModel.set('attribution_uri', thisModel.get('uri'));
-	              thisModel.set('uri', vm_id);
-                      thisModel.set('media_type', 'Video');
-	              thisModel.set('layer_type', 'Vimeo');
-	              this.fancyView = new Browser.Views.FancyBox.Video({model:thisModel});
-	          } else {
-	              this.fancyView = new Browser.Views.FancyBox.Website({model:thisModel});
-	          }
+                  this.fancyView = new Browser.Views.FancyBox.Website({model:thisModel});
               }
               break;
             case 'Article':
