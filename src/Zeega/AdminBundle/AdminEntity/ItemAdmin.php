@@ -65,6 +65,7 @@ class ItemAdmin extends Admin
             ->add('media_creator_realname')
             ->add('id')
             ->add('user_id')
+			->add('attributes')
         ;
     }
 
