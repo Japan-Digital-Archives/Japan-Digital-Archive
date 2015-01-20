@@ -19,6 +19,10 @@ class ItemAdmin extends Admin
         => 'Text',
               'Broadcast' => 'Broadcast', 'News Headline' => 'Headline', 
               'Collection' => 'Collection');
+
+      $itemLanguage = array('Japanese' => 'Japanese', 'English' => 'English', 
+        'Korean' => 'Korean','Chinese' => 'Chinese');
+
       $fileLoc = realpath("lastExport.txt");
 	  if ($fileLoc != "") { 
 		$lastExport = file_get_contents($fileLoc);
@@ -49,6 +53,7 @@ class ItemAdmin extends Admin
           'single_text', 'help' => 'Last Exported Seed ID: ' . $lastExport . 
           ' If it has a higher ID, it has not been sent to IA', 'attr' => 
           array('readonly' => true)))
+          ->add('language', 'choice', array('choices' => $itemLanguage, 'multiple' => false))
 
         ;
     }
@@ -65,6 +70,8 @@ class ItemAdmin extends Admin
             ->add('media_creator_realname')
             ->add('id')
             ->add('user_id')
+            ->add('media_date_created')
+            ->add('language')
         ;
     }
 
@@ -80,6 +87,8 @@ class ItemAdmin extends Admin
             ->add('media_creator_username')
             ->add('media_creator_realname')
             ->add('user_id')
+            ->add('language')
+            ->add('media_date_created')
         ;
     }
 
