@@ -19,10 +19,6 @@ class ItemAdmin extends Admin
         => 'Text',
               'Broadcast' => 'Broadcast', 'News Headline' => 'Headline', 
               'Collection' => 'Collection');
-
-      $itemLanguage = array('Japanese' => 'Japanese', 'English' => 'English', 
-        'Korean' => 'Korean','Chinese' => 'Chinese');
-
       $fileLoc = realpath("lastExport.txt");
 	  if ($fileLoc != "") { 
 		$lastExport = file_get_contents($fileLoc);
@@ -69,8 +65,6 @@ class ItemAdmin extends Admin
             ->add('media_creator_realname')
             ->add('id')
             ->add('user_id')
-            ->add('media_date_created', 'doctrine_orm_datetime_range', array('input_type' => 'timestamp'))
-            ->add('attributes.language')
         ;
     }
 
