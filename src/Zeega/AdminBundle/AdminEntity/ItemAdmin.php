@@ -53,7 +53,6 @@ class ItemAdmin extends Admin
           'single_text', 'help' => 'Last Exported Seed ID: ' . $lastExport . 
           ' If it has a higher ID, it has not been sent to IA', 'attr' => 
           array('readonly' => true)))
-          ->add('attributes.language')
 
         ;
     }
