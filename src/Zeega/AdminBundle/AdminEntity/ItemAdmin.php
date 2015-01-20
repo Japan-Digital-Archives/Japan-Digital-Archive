@@ -53,7 +53,7 @@ class ItemAdmin extends Admin
           'single_text', 'help' => 'Last Exported Seed ID: ' . $lastExport . 
           ' If it has a higher ID, it has not been sent to IA', 'attr' => 
           array('readonly' => true)))
-          ->add('language', 'choice', array('choices' => $itemLanguage, 'multiple' => false))
+          ->add('attributes.language')
 
         ;
     }
@@ -70,8 +70,8 @@ class ItemAdmin extends Admin
             ->add('media_creator_realname')
             ->add('id')
             ->add('user_id')
-            ->add('media_date_created')
-            ->add('language')
+            ->add('media_date_created', 'doctrine_orm_datetime_range', array('input_type' => 'timestamp'))
+            ->add('attributes.language')
         ;
     }
 
@@ -87,8 +87,6 @@ class ItemAdmin extends Admin
             ->add('media_creator_username')
             ->add('media_creator_realname')
             ->add('user_id')
-            ->add('language')
-            ->add('media_date_created')
         ;
     }
 
