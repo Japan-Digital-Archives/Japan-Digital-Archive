@@ -120,10 +120,10 @@
         <h3>Language:</h3>
         <div id="Language">
         <div class='ingest-info'>
-        <input type="checkbox" class="languageChk" value="English">English / 英語<br>
-        <input type="checkbox" class="languageChk" value="Japanese">Japanese / 日本語<br>
-        <input type="checkbox" class="languageChk" value="Korean">Korean / 韓国語<br>
-        <input type="checkbox" class="languageChk" value="Chinese">Chinese / 中国語<br>
+        <input type="checkbox" class="languageChk" id="englishChk" value="English">English / 英語<br>
+        <input type="checkbox" class="languageChk" id="japaneseChk" value="Japanese">Japanese / 日本語<br>
+        <input type="checkbox" class="languageChk" id="chineseChk" value="Chinese">Chinese / 中国語<br>
+		<input type="checkbox" class="languageChk" id="koreanChk" value="Korean">Korean / 韓国語<br>
         </div>
         </div>
 
@@ -305,9 +305,9 @@
 
 
           postObj.attributes.language = $("#englishChk").is(":checked") ? "English|" : "";
-          postObj.attributes.language += $("#japaneseChk").is(":checked") ? "Japanese|" : "";
-          postObj.attributes.language += $("#chineseChk").is(":checked") ? "Chinese|" : "";
-          postObj.attributes.language += $("#koreanChk").is(":checked") ? "Korean|" : "";
+		  postObj.attributes.language += $("#japaneseChk").is(":checked") ? "Japanese|" : "";
+		  postObj.attributes.language += $("#chineseChk").is(":checked") ? "Chinese|" : "";
+		  postObj.attributes.language += $("#koreanChk").is(":checked") ? "Korean|" : "";
           
           if ($("#lat").val() != "") {
             postObj.media_geo_latitude = parseFloat($("#lat").val());
