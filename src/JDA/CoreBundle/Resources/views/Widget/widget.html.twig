@@ -70,6 +70,7 @@
 					</select>
 				</div>
 			
+
 				<div id="website-fields" style="display:none">
 					<h3>Archive Frequency</h3>
 					<div class="ingest-info">
@@ -95,9 +96,13 @@
 					<select id="widget-collection"></select>
 				</div>
 				
+        <h3>URL</h3>
+        <div class="ingest-info"><input type="text" id="widget-url"></div>
+
 				<h3>Title</h3>
 				<div class='ingest-info'><input type="text" id="widget-title"></div>
-				<h3>Description:</h3>
+				
+        <h3>Description:</h3>
 				<div id="description">
 			
 				<div class="widget-textbox ingest-info">
@@ -243,6 +248,13 @@
     		alert("Please fill in a title field before submitting.");
     		return;
     	}
+
+      $("#add-item-new").click(function() {
+      if($("#widget-url").val() == "" || $("#widget-url").val() == " ") {
+        alert("Please fill in a url or type N/A.");
+        return;
+      }
+
     	var checkedCount = $('input[class="languageChk"]:checked').length;
       if (checkedCount == 0) {
       alert("Please select a language before submitting.");
@@ -273,6 +285,7 @@
           postObj.layer_type = mediaPrefix + layerMediaMap[$("#widget-media > option:selected").val()]; 
           postObj.media_creator_username = "{{ displayname }}";
           postObj.media_creator_realname = "{{ displayname }}";
+          postObj.URL = $("widget-url").val();
           postObj.attributes = {};
           postObj.attributes.submitterId = "{{ userId }}";
 
