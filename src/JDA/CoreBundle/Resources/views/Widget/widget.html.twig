@@ -96,8 +96,8 @@
 					<select id="widget-collection"></select>
 				</div>
 				
-        <h3>URL</h3>
-        <div class="ingest-info"><input type="text" id="widget-url"></div>
+        <h3>URI</h3>
+        <div class="ingest-info"><input type="text" id="widget-uri"></div>
 
 				<h3>Title</h3>
 				<div class='ingest-info'><input type="text" id="widget-title"></div>
@@ -155,6 +155,16 @@
 		//bootstrapping data
 		var itemJSON = "{{item|e('js')}}";
 	</script>	
+		
+<!-- cdn for modernizr, for making the date input work with firefox-->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+<!-- polyfiller file to detect and load polyfills -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+<script>
+  webshims.setOptions('waitReady', false);
+  webshims.setOptions('forms-ext', {types: 'date'});
+  webshims.polyfill('forms forms-ext');
+</script>
 
 
   <script src="http://code.jquery.com/jquery-1.10.1.min.js" charset="UTF-8"></script>
@@ -190,6 +200,7 @@
     	
     	postObj.uri = decodeURIComponent(newhash.url);  
     	postObj.attribution_uri = postObj.uri;
+		$("#widget-uri").val(postObj.uri);
 
     	if(postObj.title == null || postObj.title == "") postObj.title = "{{ title }}";
     	if(postObj.media_type == null) {
@@ -249,17 +260,17 @@
     		return;
     	}
 
-      $("#add-item-new").click(function() {
-      if($("#widget-url").val() == "" || $("#widget-url").val() == " ") {
-        alert("Please fill in a url or type N/A.");
-        return;
-      }
+      	if($("#widget-uri").val() == "" || $("#widget-uri").val() == " ") {
+        	alert("Please fill in a URI for your submission.");
+        	return;
+		}
+    
 
     	var checkedCount = $('input[class="languageChk"]:checked').length;
-      if (checkedCount == 0) {
-      alert("Please select a language before submitting.");
-      return;
-      }
+		if (checkedCount == 0) {
+			alert("Please select a language before submitting.");
+			return;
+		}
 
     	var Browser = jda.module("browser");
     	
@@ -285,7 +296,6 @@
           postObj.layer_type = mediaPrefix + layerMediaMap[$("#widget-media > option:selected").val()]; 
           postObj.media_creator_username = "{{ displayname }}";
           postObj.media_creator_realname = "{{ displayname }}";
-          postObj.URL = $("widget-url").val();
           postObj.attributes = {};
           postObj.attributes.submitterId = "{{ userId }}";
 
