@@ -58,6 +58,7 @@ class ItemAdmin extends Admin
         $datagridMapper
             ->add('title')
             ->add('uri')
+			->add('attribution_uri')
             ->add('published')
             ->add('media_type')
             ->add('layer_type')
