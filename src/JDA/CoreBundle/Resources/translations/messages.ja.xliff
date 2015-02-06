@@ -1721,6 +1721,22 @@
 				<source>jda.waku.title</source>
 				<target>Waku エディター</target>
 			</trans-unit>
+            <trans-unit id="426">
+                <source>jda.aboutpartners.hidenoriwatanavetitle</source>
+                <target>Hidenori Watanave</target>
+            </trans-unit>
+            <trans-unit id="427">
+                <source>jda.aboutpartners.hidenoriwatanave</source>
+                <target></target>
+            </trans-unit>
+            <trans-unit id="428">
+                <source>jda.aboutpartners.gejeatitle</source>
+                <target>Great East Japan Earthquake Archive</target>
+            </trans-unit>
+            <trans-unit id="429">
+                <source>jda.aboutpartners.gejea</source>
+                <target></target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

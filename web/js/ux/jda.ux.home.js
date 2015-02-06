@@ -1,27 +1,26 @@
+// Detect language immediately
+var cookie_value = document.cookie.match('cookie=.n')
+
+if (cookie_value == "cookie=jn" && window.location.href.indexOf("/en/") != -1)
+    window.location = window.location.href.replace('/en/', '/ja/');
+else if (cookie_value == "cookie=en" && window.location.href.indexOf("/ja/") != -1)
+    window.location = window.location.href.replace('/ja/', '/en/');
+else if (cookie_value != "cookie=en" && cookie_value != "cookie=jn") {
+    var userLang = (navigator.language) ? navigator.language : navigator.userLanguage;
+
+    if ((userLang == "en-us" || userLang == "en-US") && window.location.pathname == '/ja/home') {
+        window.location = window.location.href.replace('/ja/', '/en/');
+    }
+    else if (userLang == "ja" && window.location.pathname == '/en/home') {
+        window.location = window.location.href.replace('/en/', '/ja/');
+    }
+}
+
 $(document).ready(function () {
 
 
     var BrowserDetect = {
         init: function () {
-
-            /**************************************************/
-
-            var cookie_value = document.cookie.match('cookie=.n')
-
-            if (cookie_value == "cookie=jn" && window.location.href.indexOf("/en/") != -1)
-                window.location = window.location.href.replace('/en/', '/ja/');
-            else if (cookie_value == "cookie=en" && window.location.href.indexOf("/ja/") != -1)
-                window.location = window.location.href.replace('/ja/', '/en/');
-            else if (cookie_value != "cookie=en" && cookie_value != "cookie=jn") {
-                var userLang = (navigator.language) ? navigator.language : navigator.userLanguage;
-
-                if ((userLang == "en-us" || userLang == "en-US") && window.location.pathname == '/ja/home') {
-                    window.location = window.location.href.replace('/ja/', '/en/');
-                }
-                else if (userLang == "ja" && window.location.pathname == '/en/home') {
-                    window.location = window.location.href.replace('/en/', '/ja/');
-                }
-            }
 
             /**************************************************/
 

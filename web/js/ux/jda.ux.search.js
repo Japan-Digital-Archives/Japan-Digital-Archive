@@ -1,3 +1,32 @@
+// Extracts the video id from a YouTube link
+function fixYoutubeUri(uri) {
+  var parts = uri.split('http');
+  var original_src = "http"+parts[parts.length-1];
+  // Matches http://(www.)?youtube.com/watch?v=(.+)
+  var yt_url = /^https?:\/\/(?:www\.)?youtube\.com\/watch\?v=(.+)$/;
+  var yt_match = original_src.match(yt_url);
+  if (yt_match) {
+    return yt_match[1];
+  } else {
+    return false;
+  }
+}
+
+// Extracts the video id from a Vimeo link
+function fixVimeoUri(uri) {
+  var parts = uri.split('http');
+  var original_src = "http"+parts[parts.length-1];
+  // Together, these two regexes match http://(www.)?vimeo.com(.*)/[0-9]+
+  var vm_url_hd = /^https?:\/\/(?:www\.)?vimeo.com\/(.+)$/;
+  var vm_url_tl = /\d+$/;
+  var vm_match_hd = original_src.match(vm_url_hd);
+  if (vm_match_hd && original_src.match(vm_url_tl)) {
+    return vm_match_hd[1];
+  } else {
+    return false;
+  }
+}
+
 $(document).ready(function(){
 
 
@@ -412,25 +441,19 @@ $(document).ready(function(){
               this.fancyView = new Browser.Views.FancyBox.DocumentCloud({model:thisModel});
               break;
             case 'Website':
-	      var parts = thisModel.get('attribution_uri').split('http');
-	      var original_src = 'http'+parts[parts.length-1];
-	      var yt_url = /^https?:\/\/(?:www\.)?youtube\.com\/watch\?v=(.+)$/;
-	      var yt_match = original_src.match(yt_url);
-	      if (yt_match) {
-	          thisModel.set('uri', yt_match[1]);
-	          thisModel.set('layer_type', 'Youtube');
+              var attrib_uri = thisModel.get('attribution_uri');
+              var yt_id = fixYoutubeUri(attrib_uri);
+              var vm_id = fixVimeoUri(attrib_uri);
+              var id = yt_id !== false ? yt_id : vm_id;
+              if (id !== false) {
+                  thisModel.set('attribution_uri', thisModel.get('uri'));
+	          thisModel.set('uri', id);
+                  thisModel.set('media_type', 'Video');
+	          thisModel.set('layer_type',
+                      id === yt_id ? 'Youtube' : 'Vimeo');
                   this.fancyView = new Browser.Views.FancyBox.Video({model:thisModel});
 	      } else {
-	          var vm_url_hd = /^https?:\/\/(?:www\.)?vimeo.com\/(.+)$/;
-	          var vm_url_tl = /\d+$/
-	          var vm_match_hd = original_src.match(vm_url_hd);
-	          if (vm_match_hd && original_src.match(vm_url_tl)) {
-	              thisModel.set('uri', vm_match_hd[1]);
-	              thisModel.set('layer_type', 'Vimeo');
-	              this.fancyView = new Browser.Views.FancyBox.Video({model:thisModel});
-	          } else {
-	              this.fancyView = new Browser.Views.FancyBox.Website({model:thisModel});
-	          }
+                  this.fancyView = new Browser.Views.FancyBox.Website({model:thisModel});
               }
               break;
             case 'Article':

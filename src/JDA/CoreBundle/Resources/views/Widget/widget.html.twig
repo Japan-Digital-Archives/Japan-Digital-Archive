@@ -70,6 +70,7 @@
 					</select>
 				</div>
 			
+
 				<div id="website-fields" style="display:none">
 					<h3>Archive Frequency</h3>
 					<div class="ingest-info">
@@ -95,9 +96,13 @@
 					<select id="widget-collection"></select>
 				</div>
 				
+        <h3>URI</h3>
+        <div class="ingest-info"><input type="text" id="widget-uri"></div>
+
 				<h3>Title</h3>
 				<div class='ingest-info'><input type="text" id="widget-title"></div>
-				<h3>Description:</h3>
+				
+        <h3>Description:</h3>
 				<div id="description">
 			
 				<div class="widget-textbox ingest-info">
@@ -110,6 +115,22 @@
 					  <textarea id="widget-tags" ></textarea>
 					</div>
 				</div>
+
+        <h3>Date:</h3>
+        <div id="Date">
+        <div class='ingest-info'> <input  type="date" id = "widget-date"> </div>
+        </div>
+
+        
+        <h3>Language:</h3>
+        <div id="Language">
+        <div class='ingest-info'>
+        <input type="checkbox" class="languageChk" id="englishChk" value="English">English / 英語<br>
+        <input type="checkbox" class="languageChk" id="japaneseChk" value="Japanese">Japanese / 日本語<br>
+        <input type="checkbox" class="languageChk" id="chineseChk" value="Chinese">Chinese / 中国語<br>
+		<input type="checkbox" class="languageChk" id="koreanChk" value="Korean">Korean / 韓国語<br>
+        </div>
+        </div>
 
 				<h3>Location:</h3>
 				<div class="ingest-info">
@@ -134,14 +155,24 @@
 		//bootstrapping data
 		var itemJSON = "{{item|e('js')}}";
 	</script>	
+		
+<!-- cdn for modernizr, for making the date input work with firefox-->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+<!-- polyfiller file to detect and load polyfills -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+<script>
+  webshims.setOptions('waitReady', false);
+  webshims.setOptions('forms-ext', {types: 'date'});
+  webshims.polyfill('forms forms-ext');
+</script>
 
 
-  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js" charset="UTF-8"></script>
 
 	<script type="text/javascript" language="Javascript">
 
     var layerMediaMap = {
-        Video: "YouTube",
+        Video: "Youtube",
         Website: "Website",
         Document: "PDF",
         Image: "Image",
@@ -169,6 +200,7 @@
     	
     	postObj.uri = decodeURIComponent(newhash.url);  
     	postObj.attribution_uri = postObj.uri;
+		$("#widget-uri").val(postObj.uri);
 
     	if(postObj.title == null || postObj.title == "") postObj.title = "{{ title }}";
     	if(postObj.media_type == null) {
@@ -177,9 +209,12 @@
     		$("#website-fields").show();
 			postObj.uri = "http://wayback.archive-it.org/2438/20110301000000/" + postObj.attribution_uri;
     	}
+      if(postObj.media_date_created == null || postObj.media_date_created == "") postObj.media_date_created = "{{ date }}";
+
     	postObj.username = "{{ displayname }}";
     	$("#widget-description").val(postObj.description);
     	$("#widget-title").val(postObj.title);
+      $("widget-date").val(postObj.media_date_created);
     	$("#item-image").attr("src", postObj.thumbnail_url);
 
     	if(postObj.uri.indexOf("twitter.com") > -1) {
@@ -224,7 +259,19 @@
     		alert("Please fill in a title field before submitting.");
     		return;
     	}
-    	
+
+      	if($("#widget-uri").val() == "" || $("#widget-uri").val() == " ") {
+        	alert("Please fill in a URI for your submission.");
+        	return;
+		}
+    
+
+    	var checkedCount = $('input[class="languageChk"]:checked').length;
+		if (checkedCount == 0) {
+			alert("Please select a language before submitting.");
+			return;
+		}
+
     	var Browser = jda.module("browser");
     	
     	var trayId = $("#widget-collection > option:selected").val();
@@ -256,8 +303,11 @@
           postObj.tags = [];
           var tags = $("#widget-tags").val().split(",");
           $.each(tags, function(i, tag) {
-          	postObj.tags.push(tag.trim());
+			  if(tag != '' && tag!=' ' && tag){
+				  postObj.tags.push(tag.trim());
+			  }
           });
+		  postObj.tags.filter(Boolean);
 
           postObj.media_type = $("#widget-media > option:selected").val(); 
         
@@ -265,8 +315,22 @@
 			  postObj.attributes.scope = $("#widget-scope").val();
 			  postObj.attributes.frequency = $("#widget-frequency").val();
        	  }    
-       	       
-          postObj.media_date_created = new Date().toDateString();
+		  
+		  var dateValue = $("#widget-date").val();
+		  if (!dateValue){ // true if empty 
+			  postObj.media_date_created = new Date().toDateString();
+		  }
+		  else { // true if not empty
+			  postObj.media_date_created = dateValue;
+		  }
+		  
+          postObj.date_created = new Date().toDateString();
+
+
+          postObj.attributes.language = $("#englishChk").is(":checked") ? "English|" : "";
+		  postObj.attributes.language += $("#japaneseChk").is(":checked") ? "Japanese|" : "";
+		  postObj.attributes.language += $("#chineseChk").is(":checked") ? "Chinese|" : "";
+		  postObj.attributes.language += $("#koreanChk").is(":checked") ? "Korean|" : "";
           
           if ($("#lat").val() != "") {
             postObj.media_geo_latitude = parseFloat($("#lat").val());

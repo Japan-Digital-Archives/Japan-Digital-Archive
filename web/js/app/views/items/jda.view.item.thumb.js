@@ -1,3 +1,17 @@
+// Extracts the video id from a YouTube link
+function fixYoutubeUri(uri) {
+  var parts = uri.split('http');
+  var original_src = "http"+parts[parts.length-1];
+  // Matches http://(www.)?youtube.com/watch?v=(.+)
+  var yt_url = /^https?:\/\/(?:www\.)?youtube\.com\/watch\?v=(.+)$/;
+  var yt_match = original_src.match(yt_url);
+  if (yt_match) {
+    return yt_match[1];
+  } else {
+    return false;
+  }
+}
+
 (function(Browser) {
 
 	Browser.Items = Browser.Items || {};
@@ -37,6 +51,22 @@
 			else this.draggable=true;
 
 			this.model.set({thumbnail_width:this.options.thumbnail_width, thumbnail_height:this.options.thumbnail_height});
+
+                        // Thumbnail for YouTube video
+                        if (this.model.get("media_type") === "Video" &&
+                            this.model.get("layer_type").toLowerCase() ===
+                              "youtube" &&
+                            !this.model.get("thumbnail_url")) {
+                          var uri = this.model.get("uri");
+                          var yt_id = fixYoutubeUri(uri);
+                          if (yt_id === false) {
+                            yt_id = uri;
+                          }
+                          this.model.set({
+                            thumbnail_url:
+                            "http://i.ytimg.com/vi/" + yt_id + "/hqdefault.jpg"
+                          });
+                        }
 
 			//this is for fancy box to know to group these into a gallery
 			$(this.el).attr("rel", "group");

@@ -128,7 +128,7 @@ function removeImg(btn) {
 require(loadFiles, function () {
     $(document).ready(function () {
         var layerMediaMap = {
-            Video: "YouTube",
+            Video: "Youtube",
             Website: "Website",
             Document: "PDF",
             Image: "Image",
