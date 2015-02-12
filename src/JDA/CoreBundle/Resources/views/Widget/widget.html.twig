@@ -270,9 +270,10 @@
 		var checkedCount = 0;
 		for (i = 0; i < lent; i++) {
 			if (checkboxes[i].checked) {
-				checked+=1;
+				checkedCount+=1;
 			}
 		}
+
 		if (checkedCount == 0) {
 			alert("Please select a language before submitting.");
 			return;
