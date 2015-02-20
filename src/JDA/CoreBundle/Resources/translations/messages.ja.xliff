@@ -1741,6 +1741,22 @@
                 <source>team.project.manager</source>
                 <target>プロジェクトマネージャー：Ryo Morimoto, Fellow in Japanese Digital Humanities and Social Sciences (森本　涼　ハーバード大学　日本デジタルヒューマニティーズ・社会科学研究フェロー)</target>
             </trans-unit>
+            <trans-unit id="432">
+                <source>jda.team.additional.director</source>
+                <target>所長：Professor Ted Bestor（テッド・ベスター教授）</target>
+            </trans-unit>
+            <trans-unit id="433">
+                <source>jda.team.additional.executivedirector</source>
+                <target>副所長：Dr. Ted Gilman（テッド・Ｊ・ギルマン博士）</target>
+            </trans-unit>
+            <trans-unit id="434">
+                <source>jda.team.additional.librarian</source>
+                <target>ハーバード大学現代日本研究資料センター司書：Kazuko Sakaguchi（坂口和子）</target>
+            </trans-unit>
+            <trans-unit id="435">
+                <source>jda.team.additional.assistantdirector</source>
+                <target>所長補佐：Stacie Matsumoto（ステイシー・マツモト）</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
