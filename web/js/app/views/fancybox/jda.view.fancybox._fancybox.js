@@ -44,7 +44,7 @@
 
 		afterShow:function()
 		{
-
+			console.log("after show");
 			this.locatorMapView.addMap();
 
 			var _this = this;
@@ -52,9 +52,9 @@
 			var tags = [];
       	  	// use .find() go as deep as needed in the DOM
 			$("#"+_this.elemId+"_tagsinput").find(".tag").each(function () {
-				tag = $(this).contents().eq(0).text().trim();
+				var tag = $(this).contents().eq(0).text().trim();
 				if(tag == "N;"){
-					console.log("found N;");
+					//console.log("found N;");
 					$(this).hide();
 				}
 			});
