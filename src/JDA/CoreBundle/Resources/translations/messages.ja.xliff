@@ -1734,11 +1734,11 @@
                 <target></target>
             </trans-unit>
             <trans-unit id="430">
-                <source>team.project.director</source>
+                <source>jda.team.projectdirector</source>
                 <target>プロジェクト・ディレクター： Andrew Gordon, Professor of History（ハーバード大学歴史学部　アンドリュー・ゴードン教授）</target>
             </trans-unit>
             <trans-unit id="431">
-                <source>team.project.manager</source>
+                <source>jda.team.projectmanager</source>
                 <target>プロジェクトマネージャー：Ryo Morimoto, Fellow in Japanese Digital Humanities and Social Sciences (森本　涼　ハーバード大学　日本デジタルヒューマニティーズ・社会科学研究フェロー)</target>
             </trans-unit>
             <trans-unit id="432">
