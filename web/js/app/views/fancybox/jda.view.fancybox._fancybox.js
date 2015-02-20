@@ -49,16 +49,6 @@
 
 			var _this = this;
 			
-			var tags = [];
-      	  	// use .find() go as deep as needed in the DOM
-			$("#"+_this.elemId+"_tagsinput").find(".tag").each(function () {
-				var tag = $(this).contents().eq(0).text().trim();
-				console.log("tags: " + tag);
-				if(tag == "N;"){
-					console.log("found N;");
-					$(this).hide();
-				}
-			});
 
 			$(this.el).find('.tagsedit').empty().tagsInput({
 				'interactive':true,
@@ -78,6 +68,10 @@
 			var attributes = this.model.get('attributes');
 			
 			var tags = this.model.get('tags');
+			tags.each(function () {
+				console.log("tags");
+				console.log($(this).contents().eq(0).text().trim());
+			}
 
 			if (!(attributes instanceof Object)) {
 			    this.model.save({ attributes: {} });
