@@ -67,8 +67,7 @@
 
 			var attributes = this.model.get('attributes');
 			
-			var tags = this.model.get('tags');
-			tags.each(function () {
+			$('.tag').each(function () {
 				console.log("tags");
 				console.log($(this).contents().eq(0).text().trim());
 			});
