@@ -49,7 +49,13 @@
 
 			var _this = this;
 			
-			$(this.el).find('a[href$="search#tags="N;"&media_type=&sort=relevant&"]').hide();
+			var tags = [];
+      	  	// use .find() go as deep as needed in the DOM
+			$("#"+_this.elemId+"_tagsinput").find(".tag").each(function () {
+				tag = $(this).contents().eq(0).text().trim();
+				if(tag != "N;"){tags.push();} 
+			});
+			_this.model.save({tags : tags});
 
 			$(this.el).find('.tagsedit').empty().tagsInput({
 				'interactive':true,
@@ -67,6 +73,8 @@
 			if(!this.model.get('editable')){$('.tag').find('a').hide();}
 
 			var attributes = this.model.get('attributes');
+			
+			var tags = this.model.get('tags');
 
 			if (!(attributes instanceof Object)) {
 			    this.model.save({ attributes: {} });
