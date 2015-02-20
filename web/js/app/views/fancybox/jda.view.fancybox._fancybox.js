@@ -53,9 +53,10 @@
       	  	// use .find() go as deep as needed in the DOM
 			$("#"+_this.elemId+"_tagsinput").find(".tag").each(function () {
 				tag = $(this).contents().eq(0).text().trim();
-				if(tag != "N;"){tags.push();} 
+				if(tag == "N;"){
+					$(this).hide();
+				}
 			});
-			_this.model.save({tags : tags});
 
 			$(this.el).find('.tagsedit').empty().tagsInput({
 				'interactive':true,
