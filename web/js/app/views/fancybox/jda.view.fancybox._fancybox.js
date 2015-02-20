@@ -54,6 +54,7 @@
 			$("#"+_this.elemId+"_tagsinput").find(".tag").each(function () {
 				tag = $(this).contents().eq(0).text().trim();
 				if(tag == "N;"){
+					console.log("found N;");
 					$(this).hide();
 				}
 			});
