@@ -1715,6 +1715,14 @@ prompt those of us who were not affected to reflect on the way we live our lives
                 <source>jda.aboutpartners.gejea</source>
                 <target></target>
             </trans-unit>
+            <trans-unit id="430">
+                <source>team.project.director</source>
+                <target>Project Director: Andrew Gordon, Professor of History</target>
+            </trans-unit>
+            <trans-unit id="431">
+                <source>team.project.manager</source>
+                <target>Project Manager: Ryo Morimoto, Research Fellow</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
