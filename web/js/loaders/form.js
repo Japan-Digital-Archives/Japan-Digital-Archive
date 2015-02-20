@@ -247,7 +247,8 @@ require(loadFiles, function () {
             if ($("#testimonialForm").valid()) {
                 var baseApiUrl = "http://" + document.domain + "/zeega/api/items?api_key=9bIRe71qSeHeVQIcb54NNqY-y&force_key=true"
                 var postObj = {};
-
+				
+				postObj.tags = [];
                 postObj.title = $("#titleTxt").val();
                 postObj.description = $("#descriptionTxt").val();
                 postObj.media_type = "Text";

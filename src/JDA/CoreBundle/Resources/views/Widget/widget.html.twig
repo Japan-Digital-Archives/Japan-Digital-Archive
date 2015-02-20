@@ -264,9 +264,16 @@
         	alert("Please fill in a URI for your submission.");
         	return;
 		}
-    
+		
+		var checkboxes = document.getElementsByClassName("languageChk");
+		var lent = checkboxes.length;
+		var checkedCount = 0;
+		for (i = 0; i < lent; i++) {
+			if (checkboxes[i].checked) {
+				checkedCount+=1;
+			}
+		}
 
-    	var checkedCount = $('input[class="languageChk"]:checked').length;
 		if (checkedCount == 0) {
 			alert("Please select a language before submitting.");
 			return;
