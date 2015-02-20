@@ -48,6 +48,8 @@
 			this.locatorMapView.addMap();
 
 			var _this = this;
+			
+			$('a[href$="search#tags="N;"&media_type=&sort=relevant&"]').hide();
 
 			$(this.el).find('.tagsedit').empty().tagsInput({
 				'interactive':true,
