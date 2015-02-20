@@ -53,6 +53,7 @@
       	  	// use .find() go as deep as needed in the DOM
 			$("#"+_this.elemId+"_tagsinput").find(".tag").each(function () {
 				var tag = $(this).contents().eq(0).text().trim();
+				console.log("tags: " + tag);
 				if(tag == "N;"){
 					console.log("found N;");
 					$(this).hide();
