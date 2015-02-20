@@ -1716,12 +1716,28 @@ prompt those of us who were not affected to reflect on the way we live our lives
                 <target></target>
             </trans-unit>
             <trans-unit id="430">
-                <source>team.project.director</source>
+                <source>jda.team.leader.projectdirector</source>
                 <target>Project Director: Andrew Gordon, Professor of History</target>
             </trans-unit>
             <trans-unit id="431">
-                <source>team.project.manager</source>
+                <source>jda.team.leader.projectmanager</source>
                 <target>Project Manager: Ryo Morimoto, Research Fellow</target>
+            </trans-unit>
+            <trans-unit id="432">
+                <source>jda.team.additional.director</source>
+                <target>Professor Ted Bestor, Director</target>
+            </trans-unit>
+            <trans-unit id="433">
+                <source>jda.team.additional.executivedirector</source>
+                <target>Dr. Ted Gilman, Executive Director</target>
+            </trans-unit>
+            <trans-unit id="434">
+                <source>jda.team.additional.librarian</source>
+                <target>Kazuko Sakaguchi, Librarian, Documentation Center on Contemporary Japan</target>
+            </trans-unit>
+            <trans-unit id="435">
+                <source>jda.team.additional.assistantdirector</source>
+                <target>Stacie Matsumoto, Assistant Director</target>
             </trans-unit>
         </body>
     </file>
