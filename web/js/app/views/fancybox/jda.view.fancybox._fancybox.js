@@ -68,8 +68,10 @@
 			var attributes = this.model.get('attributes');
 			
 			$('.tag').each(function () {
-				console.log("tags");
-				console.log($(this).contents().eq(0).text().trim());
+				if($(this).contents().eq(0).text().trim() == "N;"){
+					console.log("found N;");
+					$(this).hide();
+				}
 			});
 
 			if (!(attributes instanceof Object)) {
