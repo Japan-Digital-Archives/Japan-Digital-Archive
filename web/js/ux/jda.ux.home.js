@@ -7,7 +7,7 @@ console.log(cookies);
 console.log(visited_value);
 if (visited_value != "visited=1"){
 	console.log("new");
-	document.cookie = "visited" + "=" + 1 + "; max-age=" + 60 * 60 * 24 * 365 + "; path=/" + "jdarchive.org";
+	document.cookie = "visited=1; max-age=" + 60 * 60 * 24 * 365 + "; path=/";
 }
 
 if (cookie_value == "cookie=jn" && window.location.href.indexOf("/en/") != -1)
