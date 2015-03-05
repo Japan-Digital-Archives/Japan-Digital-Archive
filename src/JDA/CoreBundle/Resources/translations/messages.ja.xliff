@@ -1917,6 +1917,14 @@
                 <source>jda.team.alumni.taisei</source>
                 <target>Taisei Wake: Web seed curation and SNS promotion</target>
             </trans-unit>
+			<trans-unit id="476">
+                <source>jda.firsttime.header</source>
+                <target>New Users</target>
+            </trans-unit>
+            <trans-unit id="477">
+                <source>jda.firsttime.body</source>
+                <target>Welcome to the Digital Archive of Japan's 2011 Disasters. For a video introduction to our archive, as well as detailed text and video instructions, please visit our </target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
