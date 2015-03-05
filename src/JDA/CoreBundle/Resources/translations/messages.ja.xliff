@@ -1761,6 +1761,10 @@
                 <source>jda.team.additional.assistantdirector</source>
                 <target>所長補佐：Stacie Matsumoto（ステイシー・マツモト）</target>
             </trans-unit>
+            <trans-unit id="436">
+                <source>jda.team.webdeveloper.corinne</source>
+                <target>プロジェクト技術部リーダー：Corinne Curcie　（コリン・カーシー）</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
