@@ -8,6 +8,7 @@ else if (cookie_value == "cookie=en" && window.location.href.indexOf("/ja/") != 
     window.location = window.location.href.replace('/ja/', '/en/');
 else if (cookie_value != "cookie=en" && cookie_value != "cookie=jn") {
     var userLang = (navigator.language) ? navigator.language : navigator.userLanguage;
+	console.log(userLang);
 
     if ((userLang == "en-us" || userLang == "en-US") && window.location.pathname == '/ja/home') {
         window.location = window.location.href.replace('/ja/', '/en/');
