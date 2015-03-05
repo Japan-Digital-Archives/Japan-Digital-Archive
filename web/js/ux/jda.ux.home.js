@@ -2,7 +2,7 @@
 var cookie_value = document.cookie.match('cookie=.n');
 var visited_value = document.cookie.match('visted=\d/;');
 console.log(visited_value);
-if (visted_value != "visited=1"){
+if (visited_value != "visited=1"){
 	console.log("new");
 	document.cookie = "visted=1"
 }
