@@ -4,7 +4,7 @@ var visited_value = document.cookie.match('visted=\d/;');
 console.log(visited_value);
 if (visited_value != "visited=1"){
 	console.log("new");
-	document.cookie = "visted=1"
+	document.cookie = "visited" + "=" + "1" + "; max-age=" + 60 * 60 * 24 * 365 + "; path=/" + "jdarchive.org";
 }
 
 if (cookie_value == "cookie=jn" && window.location.href.indexOf("/en/") != -1)
