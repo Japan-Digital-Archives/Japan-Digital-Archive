@@ -593,6 +593,7 @@ footer img{
 
 #instructional img{
 	margin-bottom: 20px;
+	width: 70%;
 }
 /********************
 
@@ -927,10 +928,6 @@ border-radius: 0px 4px 0px 0px;
 
 .container{
 	min-width:1000px;
-}
-
-.howtoimage{
-	width: 70%;
 }
 
 
