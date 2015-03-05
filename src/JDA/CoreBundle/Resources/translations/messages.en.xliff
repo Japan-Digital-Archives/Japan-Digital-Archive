@@ -1743,6 +1743,43 @@ prompt those of us who were not affected to reflect on the way we live our lives
                 <source>jda.team.webdeveloper.corinne</source>
                 <target>Project Technical Lead: Corinne Curcie</target>
             </trans-unit>
+            <trans-unit id="437">
+                <source>jda.team.webdeveloper.zahra</source>
+                <target>Interface Developer: Zahra Mahmood</target>
+            </trans-unit>
+            <trans-unit id="438">
+                <source>jda.team.webdeveloper.kara</source>
+                <target>Interface Developer: Kara Shen</target>
+            </trans-unit>
+            <trans-unit id="439">
+                <source>jda.team.webdeveloper.harnek</source>
+                <target>Interface Developer: Harnek Gulati</target>
+            </trans-unit>
+            <trans-unit id="440">
+                <source>jda.team.webdeveloper.rebecca</source>
+                <target>Interface Developer: Rebecca Chen</target>
+            </trans-unit>
+            <trans-unit id="441">
+                <source>jda.team.webdeveloper.annie</source>
+                <target>Interface Developer: Annie Lin</target>
+            </trans-unit>
+            <trans-unit id="442">
+                <source>jda.team.webdeveloper.javier</source>
+                <target>Interface Developer: Javier Cuan-Martinez</target>
+            </trans-unit>
+            <trans-unit id="443">
+                <source>jda.team.webdeveloper.tyreke</source>
+                <target>Interface Developer: Tyreke White</target>
+            </trans-unit>
+            <trans-unit id="444">
+                <source>jda.team.webdeveloper.kyle</source>
+                <target>Educational Design Coordinator: Kyle Parry, metaLAB (at) Harvard</target>
+            </trans-unit>
+            <trans-unit id="445">
+                <source>jda.team.webdeveloper.jessica</source>
+                <target>Interface Developer: Jessica Yurkofsky, metaLAB (at) Harvard</target>
+            </trans-unit>
+
         </body>
     </file>
 </xliff>
