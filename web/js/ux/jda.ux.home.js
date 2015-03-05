@@ -16,6 +16,7 @@ else if (cookie_value != "cookie=en" && cookie_value != "cookie=jn") {
         window.location = window.location.href.replace('/en/', '/ja/');
     }
 }
+console.log("browser done");
 
 $(document).ready(function () {
 
@@ -155,10 +156,6 @@ $(document).ready(function () {
 		$('#firstTimeModal').modal('show');
 		document.cookie = "visited=1; max-age=" + 60 * 60 * 24 * 365 + "; path=/";
 	}
-
-
-
-
 
 
     /***************************************************/
