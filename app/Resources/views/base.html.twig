@@ -155,7 +155,7 @@
 											<li><a href="{{path('team', { '_locale': locale })}}">{% trans %}jda.about.team{% endtrans %}</a></li>
 											<li><a href="{{path('partners', { '_locale': locale })}}">{% trans %}jda.about.partners{% endtrans %}</a></li>
 
-<li><a href="{{path('howtouse', { '_locale': locale })}}">{% trans %}jda.howtouse.title{% endtrans %}</a></li>
+<li><a href="{{path('howtouse', { '_locale': locale,'first':false})}}">{% trans %}jda.howtouse.title{% endtrans %}</a></li>
 											<li><a href="{{path('howtocontribute', { '_locale': locale })}}">{% trans %}jda.howtocontribute.title{% endtrans %}</a></li>
 
 <li><a href="{{path('faq', { '_locale': locale })}}">{% trans %}jda.about.faq{% endtrans %}</a></li>
@@ -249,6 +249,17 @@
 			<p>{% trans %}jda.browser.modalbody{% endtrans %}</p>
 		</div>
 
+	</div>
+	
+	<div class="modal"  id="firstTimeModal">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">×</a>
+			<h3>{% trans %}jda.firsttime.header{% endtrans %}</h3>
+		</div>
+		<div class="modal-body">
+			<p>{% trans %}jda.firsttime.body{% endtrans %}</p>
+			<p><li><a href="{{path('howtouse', { '_locale': locale,'first':true})}}">{% trans %}jda.howtouse.title{% endtrans %}</a></li></p>
+		</div>
 	</div>
 
 

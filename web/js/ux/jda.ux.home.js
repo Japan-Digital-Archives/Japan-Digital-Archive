@@ -1,5 +1,7 @@
 // Detect language immediately
-var cookie_value = document.cookie.match('cookie=.n')
+var cookie_value = document.cookie.match('cookie=.n');
+var cookies = document.cookie;
+console.log(cookies);
 
 if (cookie_value == "cookie=jn" && window.location.href.indexOf("/en/") != -1)
     window.location = window.location.href.replace('/en/', '/ja/');
