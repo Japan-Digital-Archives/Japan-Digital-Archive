@@ -1761,6 +1761,42 @@
                 <source>jda.team.webdeveloper.corinne</source>
                 <target>プロジェクト技術部リーダー：Corinne Curcie　（コリン・カーシー）</target>
             </trans-unit>
+            <trans-unit id="437">
+                <source>jda.team.webdeveloper.zahra</source>
+                <target>インターフェース開発：ザラ・マムッド</target>
+            </trans-unit>
+            <trans-unit id="438">
+                <source>jda.team.webdeveloper.kara</source>
+                <target>インターフェイス開発：カラ・シェン</target>
+            </trans-unit>
+            <trans-unit id="439">
+                <source>jda.team.webdeveloper.harnek</source>
+                <target>インターフェース開発：ハーニック・グラティ</target>
+            </trans-unit>
+            <trans-unit id="440">
+                <source>jda.team.webdeveloper.rebecca</source>
+                <target>インターフェース開発：レベッカ・チェン</target>
+            </trans-unit>
+            <trans-unit id="441">
+                <source>jda.team.webdeveloper.annie</source>
+                <target>インターフェース開発：アニー・リン</target>
+            </trans-unit>
+            <trans-unit id="442">
+                <source>jda.team.webdeveloper.javier</source>
+                <target>インターフェース開発：ハビアー　クアン・マルティネズ</target>
+            </trans-unit>
+            <trans-unit id="443">
+                <source>jda.team.webdeveloper.tyreke</source>
+                <target>インターフェース開発：タイリーク・ホワイト</target>
+            </trans-unit>
+            <trans-unit id="444">
+                <source>jda.team.webdeveloper.kyle</source>
+                <target>教育設計：Kyle Parry, metaLAB (at) Harvard（ハーバード大学メタラボ　カイル・パリー）</target>
+            </trans-unit>
+            <trans-unit id="445">
+                <source>jda.team.webdeveloper.jessica</source>
+                <target>インターフェース開発： Jessica Yurkofsky, metaLAB (at) Harvard（ハーバード大学メタラボ　ジェシカ・ユルコフスキー）</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
