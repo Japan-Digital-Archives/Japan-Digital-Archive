@@ -1,14 +1,10 @@
 // Detect language immediately
 var cookie_value = document.cookie.match('cookie=.n');
-var visited_value = document.cookie.match('visited=1');
-var cookies = document.cookie;
+
 console.log(cookies);
 
 console.log(visited_value);
-if (visited_value != "visited=1"){
-	console.log("new");
-	document.cookie = "visited=1; max-age=" + 60 * 60 * 24 * 365 + "; path=/";
-}
+
 
 if (cookie_value == "cookie=jn" && window.location.href.indexOf("/en/") != -1)
     window.location = window.location.href.replace('/en/', '/ja/');
@@ -156,6 +152,13 @@ $(document).ready(function () {
         $('#browserModal').modal('show');
         console.log(BrowserDetect.version);
     }
+	
+	var visited_value = document.cookie.match('visited=1');
+	if (visited_value != "visited=1"){
+		console.log("new");
+		$('#firstTimeModalModal').modal('show');
+		document.cookie = "visited=1; max-age=" + 60 * 60 * 24 * 365 + "; path=/";
+	}
 
 
 
