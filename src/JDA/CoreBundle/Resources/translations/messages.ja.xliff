@@ -1586,7 +1586,7 @@
 			</trans-unit>
 			<trans-unit id="395">
 				<source>jda.howtocontribute.searchpage</source>
-				<target>「アーカイブの使い方」をご覧下さい。</target>
+				<target>アーカイブの使い方のページにてご参照ください。</target>
 			</trans-unit>
 			<trans-unit id="396">
 				<source>jda.howtocontribute.adding</source>
@@ -1916,6 +1916,15 @@
             <trans-unit id="475">
                 <source>jda.team.alumni.taisei</source>
                 <target>Taisei Wake: Web seed curation and SNS promotion</target>
+            </trans-unit>
+			<trans-unit id="476">
+                <source>jda.firsttime.header</source>
+                <target>初めての方へ</target>
+            </trans-unit>
+            <trans-unit id="477">
+                <source>jda.firsttime.body</source>
+                <target>２０１１年東日本大震災デジタルアーカイブ（JDA) へようこそ。
+JDAの基本コンセプトの紹介ビデオ、及び使用説明ビデオ・テキストは、</target>
             </trans-unit>
         </body>
     </file>
