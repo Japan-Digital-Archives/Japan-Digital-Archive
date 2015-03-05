@@ -1576,7 +1576,7 @@ prompt those of us who were not affected to reflect on the way we live our lives
 				This page describes how to contribute to the archive in more detail. For information on how to retrieve information from the archive, please visit the </target>
 			</trans-unit>
 			<trans-unit id="395">
-				<source>jda.howtocontribute.searchpage</source>
+				<source></source>
 				<target>“How to Use the Archive” page.</target>
 			</trans-unit>
 			<trans-unit id="396">
@@ -1898,6 +1898,14 @@ prompt those of us who were not affected to reflect on the way we live our lives
             <trans-unit id="475">
                 <source>jda.team.alumni.taisei</source>
                 <target>Taisei Wake: Web seed curation and SNS promotion</target>
+            </trans-unit>            
+			<trans-unit id="476">
+                <source>jda.firsttime.header</source>
+                <target>New Users</target>
+            </trans-unit>
+            <trans-unit id="477">
+                <source>jda.firsttime.body</source>
+                <target>Please visit our "How To Use" page to see descriptions and videos for using the archive.</target>
             </trans-unit>
 
         </body>
