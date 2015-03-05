@@ -1,6 +1,6 @@
 // Detect language immediately
 var cookie_value = document.cookie.match('cookie=.n');
-var visited_value = document.cookie.match('visited=\d/;');
+var visited_value = document.cookie.match('visited=1;');
 
 console.log(visited_value);
 if (visited_value != "visited=1"){
