@@ -15,16 +15,15 @@
 {% block scripts %}
 <script type="text/javascript">
     $(document).ready(function(){
-        $('#instructional p').addClass("hidden");
+        $('#instructional h3').siblings().addClass("hidden");
 
         $('#instructional h3').click(function() {
             var $this = $(this);
-
-            if ($this.hasClass("hidden")) {
-                $(this).removeClass("hidden").addClass("visible");
-
+			
+            if ($this.siblings().hasClass("hidden")) {
+                $(this).siblings().removeClass("hidden");
             } else {
-                $(this).removeClass("visible").addClass("hidden");
+                $(this).siblings().addClass("hidden");
             }
         });
     });
