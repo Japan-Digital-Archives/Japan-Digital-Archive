@@ -152,7 +152,7 @@ $(document).ready(function () {
 	var visited_value = document.cookie.match('visited=1');
 	if (visited_value != "visited=1"){
 		console.log("new");
-		$('#firstTimeModalModal').modal('show');
+		$('#firstTimeModal').modal('show');
 		document.cookie = "visited=1; max-age=" + 60 * 60 * 24 * 365 + "; path=/";
 	}
 
