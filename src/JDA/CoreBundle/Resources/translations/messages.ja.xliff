@@ -1759,7 +1759,7 @@
             </trans-unit>
             <trans-unit id="436">
                 <source>jda.team.webdeveloper.corinne</source>
-                <target>プロジェクト技術部リーダー：Corinne Curcie　（コリン・カーシー）</target>
+                <target>プロジェクト技術部リーダー：Corinne Curcie（コリン・カーシー）</target>
             </trans-unit>
             <trans-unit id="437">
                 <source>jda.team.webdeveloper.zahra</source>
@@ -1796,6 +1796,18 @@
             <trans-unit id="445">
                 <source>jda.team.webdeveloper.jessica</source>
                 <target>インターフェース開発： Jessica Yurkofsky, metaLAB (at) Harvard（ハーバード大学メタラボ　ジェシカ・ユルコフスキー）</target>
+            </trans-unit>
+            <trans-unit id="446">
+                <source>jda.team.content.lead</source>
+                <target>デジタルコンテンツ部リーダー：Koko Howell（藤田公子）</target>
+            </trans-unit>
+            <trans-unit id="447">
+                <source>jda.team.content.developer</source>
+                <target>デジタルコンテンツ開発： Anna Wada（和田杏奈）</target>
+            </trans-unit>
+            <trans-unit id="448">
+                <source>jda.team.content.curation</source>
+                <target>ウェブシード　キュレーション：Momoko Howell (ハウエル・モモコ)</target>
             </trans-unit>
         </body>
     </file>

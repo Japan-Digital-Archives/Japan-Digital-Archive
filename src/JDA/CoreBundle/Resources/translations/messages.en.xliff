@@ -1775,6 +1775,18 @@ prompt those of us who were not affected to reflect on the way we live our lives
                 <source>jda.team.webdeveloper.jessica</source>
                 <target>Interface Developer: Jessica Yurkofsky, metaLAB (at) Harvard</target>
             </trans-unit>
+            <trans-unit id="446">
+                <source>jda.team.content.lead</source>
+                <target>Digital Content Lead: Koko Howell</target>
+            </trans-unit>
+            <trans-unit id="447">
+                <source>jda.team.content.developer</source>
+                <target>Digital Content Developer: Anna Wada</target>
+            </trans-unit>
+            <trans-unit id="448">
+                <source>jda.team.content.curation</source>
+                <target>Momoko Howell</target>
+            </trans-unit>
 
         </body>
     </file>
