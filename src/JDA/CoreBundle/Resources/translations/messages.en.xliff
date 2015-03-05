@@ -994,10 +994,6 @@
                 <source>jda.about.project</source>
                 <target>About</target>
             </trans-unit>
-             <trans-unit id="248">
-                <source>jda.team.leader</source>
-                <target>This project is led by the Reischauer Institute of Japanese Studies</target>
-            </trans-unit>
             <trans-unit id="249">
                 <source>jda.team.additional</source>
                 <target>Reischauer Institute Faculty and Staff providing additional support</target>
@@ -1715,6 +1711,191 @@ prompt those of us who were not affected to reflect on the way we live our lives
                 <source>jda.aboutpartners.gejea</source>
                 <target></target>
             </trans-unit>
+            <trans-unit id="430">
+                <source>jda.team.leader.projectdirector</source>
+                <target>Project Director: Andrew Gordon, Professor of History</target>
+            </trans-unit>
+            <trans-unit id="431">
+                <source>jda.team.leader.projectmanager</source>
+                <target>Project Manager: Ryo Morimoto, Research Fellow</target>
+            </trans-unit>
+            <trans-unit id="432">
+                <source>jda.team.additional.director</source>
+                <target>Professor Ted Bestor, Director</target>
+            </trans-unit>
+            <trans-unit id="433">
+                <source>jda.team.additional.executivedirector</source>
+                <target>Dr. Ted Gilman, Executive Director</target>
+            </trans-unit>
+            <trans-unit id="434">
+                <source>jda.team.additional.librarian</source>
+                <target>Kazuko Sakaguchi, Librarian, Documentation Center on Contemporary Japan</target>
+            </trans-unit>
+            <trans-unit id="435">
+                <source>jda.team.additional.assistantdirector</source>
+                <target>Stacie Matsumoto, Assistant Director</target>
+            </trans-unit>
+            <trans-unit id="436">
+                <source>jda.team.webdeveloper.corinne</source>
+                <target>Project Technical Lead: Corinne Curcie</target>
+            </trans-unit>
+            <trans-unit id="437">
+                <source>jda.team.webdeveloper.zahra</source>
+                <target>Interface Developer: Zahra Mahmood</target>
+            </trans-unit>
+            <trans-unit id="438">
+                <source>jda.team.webdeveloper.kara</source>
+                <target>Interface Developer: Kara Shen</target>
+            </trans-unit>
+            <trans-unit id="439">
+                <source>jda.team.webdeveloper.harnek</source>
+                <target>Interface Developer: Harnek Gulati</target>
+            </trans-unit>
+            <trans-unit id="440">
+                <source>jda.team.webdeveloper.rebecca</source>
+                <target>Interface Developer: Rebecca Chen</target>
+            </trans-unit>
+            <trans-unit id="441">
+                <source>jda.team.webdeveloper.annie</source>
+                <target>Interface Developer: Annie Lin</target>
+            </trans-unit>
+            <trans-unit id="442">
+                <source>jda.team.webdeveloper.javier</source>
+                <target>Interface Developer: Javier Cuan-Martinez</target>
+            </trans-unit>
+            <trans-unit id="443">
+                <source>jda.team.webdeveloper.tyreke</source>
+                <target>Interface Developer: Tyreke White</target>
+            </trans-unit>
+            <trans-unit id="444">
+                <source>jda.team.webdeveloper.kyle</source>
+                <target>Educational Design Coordinator: Kyle Parry, metaLAB (at) Harvard</target>
+            </trans-unit>
+            <trans-unit id="445">
+                <source>jda.team.webdeveloper.jessica</source>
+                <target>Interface Developer: Jessica Yurkofsky, metaLAB (at) Harvard</target>
+            </trans-unit>
+            <trans-unit id="446">
+                <source>jda.team.content.lead</source>
+                <target>Digital Content Lead: Koko Howell</target>
+            </trans-unit>
+            <trans-unit id="447">
+                <source>jda.team.content.developer</source>
+                <target>Digital Content Developer: Anna Wada</target>
+            </trans-unit>
+            <trans-unit id="448">
+                <source>jda.team.content.curation</source>
+                <target>Web Seed Curation: Momoko Howell</target>
+            </trans-unit>
+            <trans-unit id="449">
+                <source>jda.team.alumni.nick</source>
+                <target>Nick Kapur: Project Manager</target>
+            </trans-unit>
+            <trans-unit id="450">
+                <source>jda.team.alumni.ej</source>
+                <target>E.J. Bensing: Project Technical Lead</target>
+            </trans-unit>
+            <trans-unit id="451">
+                <source>jda.team.alumni.molly</source>
+                <target>Molly Des Jardin: Archive Development Manager</target>
+            </trans-unit>
+            <trans-unit id="452">
+                <source>jda.team.alumni.konrad</source>
+                <target>Konrad M. Lawson: Project management</target>
+            </trans-unit>
+            <trans-unit id="453">
+                <source>jda.team.alumni.yuhki</source>
+                <target>Yuhki Yamashita: Project development and design</target>
+            </trans-unit>
+            <trans-unit id="454">
+                <source>jda.team.alumni.arne</source>
+                <target>Arne Brasseur: Project development</target>
+            </trans-unit>
+            <trans-unit id="455">
+                <source>jda.team.alumni.jesse</source>
+                <target>Jesse Shapins: Zeega Platform design and development</target>
+            </trans-unit>
+            <trans-unit id="456">
+                <source>jda.team.alumni.hikari</source>
+                <target>Hikari Senju: Interface Developer</target>
+            </trans-unit>
+            <trans-unit id="457">
+                <source>jda.team.alumni.luis</source>
+                <target>Luis Filipe Brandao: Zeega Platform design and development</target>
+            </trans-unit>
+            <trans-unit id="458">
+                <source>jda.team.alumni.james</source>
+                <target>James Burns: Zeega Platform design and development</target>
+            </trans-unit>
+            <trans-unit id="459">
+                <source>jda.team.alumni.kara</source>
+                <target>Kara Oehler: Zeega Platform design and development</target>
+            </trans-unit>
+            <trans-unit id="460">
+                <source>jda.team.alumni.joseph</source>
+                <target>Joseph Bergen: Zeega Platform design and development</target>
+            </trans-unit>
+            <trans-unit id="461">
+                <source>jda.team.alumni.selena</source>
+                <target>Selena Kim: Interface design</target>
+            </trans-unit>
+            <trans-unit id="462">
+                <source>jda.team.alumni.eric</source>
+                <target>Eric Dinmore: Collection curation</target>
+            </trans-unit>
+            <trans-unit id="463">
+                <source>jda.team.alumni.julie</source>
+                <target>Julie Zhang: Interface Developer</target>
+            </trans-unit>
+            <trans-unit id="464">
+                <source>jda.team.alumni.kyoko</source>
+                <target>Kyoko Shiga: Web seed and testimonial curation</target>
+            </trans-unit>
+            <trans-unit id="465">
+                <source>jda.team.alumni.ray</source>
+                <target>Ray Kameda: GIS data curation</target>
+            </trans-unit>
+            <trans-unit id="466">
+                <source>jda.team.alumni.takamasa</source>
+                <target>Takamasa Nunogaki: Web seed curation</target>
+            </trans-unit>
+            <trans-unit id="467">
+                <source>jda.team.alumni.alicia</source>
+                <target>Alicia Zhao: Web seed curation</target>
+            </trans-unit>
+            <trans-unit id="468">
+                <source>jda.team.alumni.yeonjoo</source>
+                <target>Yeonjoo Kim: Web seed curation</target>
+            </trans-unit>
+            <trans-unit id="469">
+                <source>jda.team.alumni.ilsoo</source>
+                <target>Ilsoo Cho: Web seed curation</target>
+            </trans-unit>
+            <trans-unit id="470">
+                <source>jda.team.alumni.miho</source>
+                <target>Miho Segal: Web seed curation</target>
+            </trans-unit>
+            <trans-unit id="471">
+                <source>jda.team.alumni.grace</source>
+                <target>Grace Song: Web seed curation</target>
+            </trans-unit>
+            <trans-unit id="472">
+                <source>jda.team.alumni.sandy</source>
+                <target>Sandy Xu: Web seed and testimonial curation</target>
+            </trans-unit>
+            <trans-unit id="473">
+                <source>jda.team.alumni.atsuko</source>
+                <target>Atsuko Yamashita: Web seed curation</target>
+            </trans-unit>
+            <trans-unit id="474">
+                <source>jda.team.alumni.rei</source>
+                <target>Rei Yoshimine: Web seed curation</target>
+            </trans-unit>
+            <trans-unit id="475">
+                <source>jda.team.alumni.taisei</source>
+                <target>Taisei Wake: Web seed curation and SNS promotion</target>
+            </trans-unit>
+
         </body>
     </file>
 </xliff>
