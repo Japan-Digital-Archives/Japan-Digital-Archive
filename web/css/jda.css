@@ -585,6 +585,7 @@ footer img{
 
 #instructional p{
 	margin: 10px 10px;
+	padding-top:3px;
 }
 
 #instructional h4{
@@ -593,6 +594,7 @@ footer img{
 
 #instructional img{
 	margin-bottom: 20px;
+	width: 90%;
 }
 /********************
 
@@ -927,6 +929,10 @@ border-radius: 0px 4px 0px 0px;
 
 .container{
 	min-width:1000px;
+}
+
+.hidden{
+	display:none;
 }
 
 

@@ -13,6 +13,22 @@
 <!--<![endif]-->
 {% endblock %}
 {% block scripts %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#instructional h3').siblings().addClass("hidden");
+
+        $('#instructional h3').click(function() {
+            var $this = $(this);
+			
+            if ($this.siblings().hasClass("hidden")) {
+                $(this).siblings().removeClass("hidden");
+            } else {
+                $(this).siblings().addClass("hidden");
+            }
+        });
+    });
+</script>
 {% if app.environment == 'dev' %}
 <!-- to load JS libraries separately -->
 	<script data-main="{{ asset('js/loaders/about') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
@@ -43,50 +59,60 @@
 
 	<div class="tab-content">
 	<div id="mission" class="tab-pane active">
+	<div id="videos" stype="width:80%">
+		{% if locale == 'ja' %}
+			<iframe width="420" height="315" src="https://www.youtube.com/embed/SKk-JR3SQTg" frameborder="0" allowfullscreen></iframe>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/6V-KSZqaTWY" frameborder="0" allowfullscreen></iframe>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/uT6NqPZ1qJg" frameborder="0" allowfullscreen></iframe>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/rAQQwwyterw" frameborder="0" allowfullscreen></iframe>
+		{% else %}
+			<iframe width="420" height="315" src="https://www.youtube.com/embed/dvqN0R-zWTg" frameborder="0" allowfullscreen></iframe>
+			<iframe width="420" height="315" src="https://www.youtube.com/embed/LLTjn9pl-gs" frameborder="0" allowfullscreen></iframe>
+			<iframe width="420" height="315" src="https://www.youtube.com/embed/-iKVqJmmMrU" frameborder="0" allowfullscreen></iframe>
+			<iframe width="420" height="315" src="https://www.youtube.com/embed/UOahDi4wfVo" frameborder="0" allowfullscreen></iframe>
+		{% endif %}
+	</div>
 	<div id="instructional" style="width:80%">
 		<p><a href="http://guides.nccjapan.org/jdarchive?hs=a">{% trans %}jda.home.about.intro{% endtrans %}</a>
 		{% trans %}jda.howtouse.intro{% endtrans %}<a href="{{path('howtocontribute')}}">{% trans %}jda.howtouse.contributepage{% endtrans %}</a></p>
 		
-		<h3 style="margin-bottom:20px">{% trans %}jda.howtouse.searching{% endtrans %}</h3>
+		
 
 		<div>
-			<p style="padding-top:3px">{% trans %}jda.howtouse.searchingp1{% endtrans %}</p>
+			<h3 style="margin-bottom:20px">{% trans %}jda.howtouse.searching{% endtrans %}</h3>
+			<p>{% trans %}jda.howtouse.searchingp1{% endtrans %}</p>
 			{% if locale == 'ja' %}
 				<img src="{{ asset('images/howtouse1ja.png')}}"></a>
 			{% else %}
 				<img src="{{ asset('images/howtouse1.png')}}"></a>
 			{% endif %}
-		</div>
-		<div>
-			<p style="padding-top:3px">{% trans %}jda.howtouse.searchingp2{% endtrans %}</p>
-		</div>
-		<div>
+			<p>{% trans %}jda.howtouse.searchingp2{% endtrans %}</p>
+
 			<h4>{% trans %}jda.howtouse.limit{% endtrans %}</h4>
-			<p style="padding-top:3px">{% trans %}jda.howtouse.limitp1{% endtrans %}</p>
+			<p>{% trans %}jda.howtouse.limitp1{% endtrans %}</p>
 			{% if locale == 'ja' %}
 				<img src="{{ asset('images/howtouse2ja.png')}}">
 			{% else %}
 				<img src="{{ asset('images/howtouse2.png')}}">
 			{% endif %}
-		</div>
-		<div>
+
 			<h4>{% trans %}jda.howtouse.limit2{% endtrans %}</h4>
-			<p style="padding-top:3px">{% trans %}jda.howtouse.limitp2{% endtrans %}</p>
+			<p>{% trans %}jda.howtouse.limitp2{% endtrans %}</p>
 			{% if locale == 'ja' %}
 				<img src="{{ asset('images/howtouse3ja.png')}}">
 			{% else %}
 				<img src="{{ asset('images/howtouse3.png')}}">
 			{% endif %}
-		</div>
-		<div>
 			<h4>{% trans %}jda.howtouse.sort{% endtrans %}</h4>
-			<p style="padding-top:3px">{% trans %}jda.howtouse.sortp1{% endtrans %}</p>
+			<p>{% trans %}jda.howtouse.sortp1{% endtrans %}</p>
 		</div>
 		
-		<h3 style="margin-bottom:20px">{% trans %}jda.howtouse.advanced{% endtrans %}</h3>
+		
 		
 		<div>
-			<p style="padding-top:3px">{% trans %}jda.howtouse.advancedp1{% endtrans %}</p>
+			<h3 style="margin-bottom:20px">{% trans %}jda.howtouse.advanced{% endtrans %}</h3>
+			
+			<p>{% trans %}jda.howtouse.advancedp1{% endtrans %}</p>
 			{% if locale == 'ja' %}
 				<img src="{{ asset('images/howtouse4ja.png')}}">
 			{% else %}
@@ -94,16 +120,18 @@
 			{% endif %}
 		</div>
 
-		<h3 style="margin-bottom:20px">{% trans %}jda.howtouse.map{% endtrans %}</h3>
+		
 		
 		<div>
-			<p style="padding-top:3px">{% trans %}jda.howtouse.mapp1{% endtrans %}</p>
+			<h3 style="margin-bottom:20px">{% trans %}jda.howtouse.map{% endtrans %}</h3>
+			
+			<p>{% trans %}jda.howtouse.mapp1{% endtrans %}</p>
 			{% if locale == 'ja' %}
 				<img src="{{ asset('images/howtouse5ja.png')}}">
 			{% else %}
 				<img src="{{ asset('images/howtouse5.png')}}">
 			{% endif %}
-			<p style="padding-top:3px">{% trans %}jda.howtouse.mapp2{% endtrans %}</p>
+			<p>{% trans %}jda.howtouse.mapp2{% endtrans %}</p>
 			{% if locale == 'ja' %}
 				<img src="{{ asset('images/howtouse6ja.png')}}">
 			{% else %}
