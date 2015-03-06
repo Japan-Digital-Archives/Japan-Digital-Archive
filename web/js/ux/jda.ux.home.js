@@ -17,7 +17,6 @@ else if (cookie_value != "cookie=en" && cookie_value != "cookie=jn") {
     }
 }
 
-
 $(document).ready(function () {
 
 
@@ -152,9 +151,9 @@ $(document).ready(function () {
 	
 	var visited_value = document.cookie.match('visited=1');
 	if (visited_value != "visited=1"){
-		console.log("new");
-		$('#firstTimeModal').modal('show');
-		document.cookie = "visited=1; max-age=" + 60 * 60 * 24 * 365 + "; path=/";
+		//console.log("new");
+		//$('#firstTimeModal').modal('show');
+		//document.cookie = "visited=1; max-age=" + 60 * 60 * 24 * 365 + "; path=/";
 	}
 
 
