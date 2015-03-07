@@ -14,7 +14,7 @@
 {% endblock %}
 {% block scripts %}
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script>
+<!--<script>
     $(document).ready(function(){
         $('#instructional h3').siblings().addClass("hidden");
 
@@ -28,7 +28,7 @@
             }
         });
     });
-</script>
+</script>-->
 {% if app.environment == 'dev' %}
 <!-- to load JS libraries separately -->
 	<script data-main="{{ asset('js/loaders/about') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
