@@ -1911,6 +1911,22 @@ prompt those of us who were not affected to reflect on the way we live our lives
                 <source>jda.howtouse.waku</source>
                 <target>Using the Waku Editor</target>
             </trans-unit>
+            <trans-unit id="479">
+                <source>jda.howtouse.wakustart</source>
+                <target>Getting Started</target>
+            </trans-unit>
+            <trans-unit id="480">
+                <source>jda.howtouse.wakunavi</source>
+                <target>Navigating Waku</target>
+            </trans-unit>
+            <trans-unit id="481">
+                <source>jda.howtouse.wakuhakos</source>
+                <target>Building Waku</target>
+            </trans-unit>
+            <trans-unit id="482">
+                <source>jda.howtouse.wakuanno</source>
+                <target>Annotation</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
