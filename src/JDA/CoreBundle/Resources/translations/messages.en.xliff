@@ -1907,7 +1907,10 @@ prompt those of us who were not affected to reflect on the way we live our lives
                 <source>jda.firsttime.body</source>
                 <target>Welcome to the Digital Archive of Japan's 2011 Disasters. For a video introduction to our archive, as well as detailed text and video instructions, please visit our </target>
             </trans-unit>
-
+            <trans-unit id="478">
+                <source>jda.howtouse.waku</source>
+                <target>Using the Waku Editor</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

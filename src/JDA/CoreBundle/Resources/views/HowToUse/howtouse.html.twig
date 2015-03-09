@@ -55,12 +55,12 @@
 </div><!-- end container -->
 <div id="jda-about-container" style="margin:0 5%;position:relative;top:115px">
 
-	<h2 style="color:#666;letter-spacing:1px;margin-bottom:20px">{% trans %}jda.howtouse.title{% endtrans %}</h2>
+	<h2 style="color:#666;letter-spacing:1px;">{% trans %}jda.howtouse.title{% endtrans %}</h2>
 
 	<div class="tab-content">
 	<div id="mission" class="tab-pane active">
-	<div id="videos" stype="width:80%">
-		{#{% if locale == 'ja' %}
+	{#<div id="videos" stype="width:80%">
+		{% if locale == 'ja' %}
 			<iframe width="420" height="315" src="https://www.youtube.com/embed/SKk-JR3SQTg" frameborder="0" allowfullscreen></iframe>
 			<iframe width="560" height="315" src="https://www.youtube.com/embed/6V-KSZqaTWY" frameborder="0" allowfullscreen></iframe>
 			<iframe width="560" height="315" src="https://www.youtube.com/embed/uT6NqPZ1qJg" frameborder="0" allowfullscreen></iframe>
@@ -70,15 +70,20 @@
 			<iframe width="420" height="315" src="https://www.youtube.com/embed/LLTjn9pl-gs" frameborder="0" allowfullscreen></iframe>
 			<iframe width="420" height="315" src="https://www.youtube.com/embed/-iKVqJmmMrU" frameborder="0" allowfullscreen></iframe>
 			<iframe width="420" height="315" src="https://www.youtube.com/embed/UOahDi4wfVo" frameborder="0" allowfullscreen></iframe>
-		{% endif %}#}
-	</div>
+		{% endif %}
+	</div>#}
 	<div id="instructional" style="width:80%">
 		<p><a href="http://guides.nccjapan.org/jdarchive?hs=a">{% trans %}jda.home.about.intro{% endtrans %}</a>
 		{% trans %}jda.howtouse.intro{% endtrans %}<a href="{{path('howtocontribute')}}">{% trans %}jda.howtouse.contributepage{% endtrans %}</a></p>
 		
 		
-
 		<div>
+			<a href="#searching">jda.howtouse.searching</a>
+			<a href="#advanced">jda.howtouse.advanced</a>
+			<a href="#map">jda.howtouse.map</a>
+			
+		<div>
+			<a name="searching"></a> 
 			<h3 style="margin-bottom:20px">{% trans %}jda.howtouse.searching{% endtrans %}</h3>
 			<p>{% trans %}jda.howtouse.searchingp1{% endtrans %}</p>
 			{% if locale == 'ja' %}
@@ -110,6 +115,7 @@
 		
 		
 		<div>
+			<a name="advanced"></a> 
 			<h3 style="margin-bottom:20px">{% trans %}jda.howtouse.advanced{% endtrans %}</h3>
 			
 			<p>{% trans %}jda.howtouse.advancedp1{% endtrans %}</p>
@@ -123,6 +129,7 @@
 		
 		
 		<div>
+			<a name="map"></a> 
 			<h3 style="margin-bottom:20px">{% trans %}jda.howtouse.map{% endtrans %}</h3>
 			
 			<p>{% trans %}jda.howtouse.mapp1{% endtrans %}</p>
@@ -136,6 +143,21 @@
 				<img src="{{ asset('images/howtouse6ja.png')}}">
 			{% else %}
 				<img src="{{ asset('images/howtouse6.png')}}">
+			{% endif %}
+		</div>
+		<div>
+			<a name="waku"></a>
+			<h3 style="margin-bottom:20px">{% trans %}jda.howtouse.waku{% endtrans %}</h3>
+			{% if locale == 'ja' %}
+				<p><iframe width="420" height="315" src="https://www.youtube.com/embed/SKk-JR3SQTg" frameborder="0" allowfullscreen></iframe></p>
+				<p><iframe width="560" height="315" src="https://www.youtube.com/embed/6V-KSZqaTWY" frameborder="0" allowfullscreen></iframe></p>
+				<p><iframe width="560" height="315" src="https://www.youtube.com/embed/uT6NqPZ1qJg" frameborder="0" allowfullscreen></iframe></p>
+				<p><iframe width="560" height="315" src="https://www.youtube.com/embed/rAQQwwyterw" frameborder="0" allowfullscreen></iframe></p>
+			{% else %}
+				<p><iframe width="420" height="315" src="https://www.youtube.com/embed/dvqN0R-zWTg" frameborder="0" allowfullscreen></iframe></p>
+				<p><iframe width="420" height="315" src="https://www.youtube.com/embed/LLTjn9pl-gs" frameborder="0" allowfullscreen></iframe></p>
+				<p><iframe width="420" height="315" src="https://www.youtube.com/embed/-iKVqJmmMrU" frameborder="0" allowfullscreen></iframe></p>
+				<p><iframe width="420" height="315" src="https://www.youtube.com/embed/UOahDi4wfVo" frameborder="0" allowfullscreen></iframe></p>
 			{% endif %}
 		</div>
 
