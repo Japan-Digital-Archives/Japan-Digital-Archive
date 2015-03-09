@@ -83,8 +83,9 @@
 			<p><a href="#map">{% trans %}jda.howtouse.map{% endtrans %}</a></p>
 			<p><a href="#waku">{% trans %}jda.howtouse.waku{% endtrans %}</a></p>
 		</div>
+		
+		<a name="searching"></a> 
 		<div>
-			<a name="searching"></a> 
 			<h3 style="margin-bottom:10px; margin-top:10px">{% trans %}jda.howtouse.searching{% endtrans %}</h3>
 			<p>{% trans %}jda.howtouse.searchingp1{% endtrans %}</p>
 			{% if locale == 'ja' %}
@@ -114,9 +115,9 @@
 		</div>
 		
 		
-		
+		<a name="advanced"></a> 
 		<div>
-			<a name="advanced"></a> 
+			
 			<h3 style="margin-bottom:10px; margin-top:10px">{% trans %}jda.howtouse.advanced{% endtrans %}</h3>
 			
 			<p>{% trans %}jda.howtouse.advancedp1{% endtrans %}</p>
@@ -126,11 +127,9 @@
 				<img src="{{ asset('images/howtouse4.png')}}">
 			{% endif %}
 		</div>
-
 		
-		
+		<a name="map"></a> 
 		<div>
-			<a name="map"></a> 
 			<h3 style="margin-bottom:10px; margin-top:10px">{% trans %}jda.howtouse.map{% endtrans %}</h3>
 			
 			<p>{% trans %}jda.howtouse.mapp1{% endtrans %}</p>
@@ -146,18 +145,27 @@
 				<img src="{{ asset('images/howtouse6.png')}}">
 			{% endif %}
 		</div>
+		
+		<a name="waku"></a>
 		<div>
-			<a name="waku"></a>
 			<h3 style="margin-bottom:10px; margin-top:10px">{% trans %}jda.howtouse.waku{% endtrans %}</h3>
 			{% if locale == 'ja' %}
+				<h4>{% trans %}jda.howtouse.wakustart{% endtrans %}
 				<p><iframe width="420" height="315" src="https://www.youtube.com/embed/SKk-JR3SQTg" frameborder="0" allowfullscreen></iframe></p>
+				<h4>{% trans %}jda.howtouse.wakunavi{% endtrans %}
 				<p><iframe width="560" height="315" src="https://www.youtube.com/embed/6V-KSZqaTWY" frameborder="0" allowfullscreen></iframe></p>
+				<h4>{% trans %}jda.howtouse.wakuhakos{% endtrans %}
 				<p><iframe width="560" height="315" src="https://www.youtube.com/embed/uT6NqPZ1qJg" frameborder="0" allowfullscreen></iframe></p>
+				<h4>{% trans %}jda.howtouse.wakustart{% endtrans %}
 				<p><iframe width="560" height="315" src="https://www.youtube.com/embed/rAQQwwyterw" frameborder="0" allowfullscreen></iframe></p>
 			{% else %}
+				<h4>{% trans %}jda.howtouse.wakustart{% endtrans %}
 				<p><iframe width="420" height="315" src="https://www.youtube.com/embed/dvqN0R-zWTg" frameborder="0" allowfullscreen></iframe></p>
+				<h4>{% trans %}jda.howtouse.wakunavi{% endtrans %}
 				<p><iframe width="420" height="315" src="https://www.youtube.com/embed/LLTjn9pl-gs" frameborder="0" allowfullscreen></iframe></p>
+				<h4>{% trans %}jda.howtouse.wakuhakos{% endtrans %}
 				<p><iframe width="420" height="315" src="https://www.youtube.com/embed/-iKVqJmmMrU" frameborder="0" allowfullscreen></iframe></p>
+				<h4>{% trans %}jda.howtouse.wakuanno{% endtrans %}
 				<p><iframe width="420" height="315" src="https://www.youtube.com/embed/UOahDi4wfVo" frameborder="0" allowfullscreen></iframe></p>
 			{% endif %}
 		</div>
