@@ -1927,6 +1927,14 @@ prompt those of us who were not affected to reflect on the way we live our lives
                 <source>jda.howtouse.wakuanno</source>
                 <target>Annotation</target>
             </trans-unit>
+			<trans-unit id="483">
+				<source>jda.howtouse.wakutext1</source>
+				<target>JDA users can build collections of materials in the archive, for private use or public presentation.  The collection building function is described on the </target>
+			</trans-unit>
+			<trans-unit id="484">
+				<source>jda.howtouse.wakutext2</source>
+				<target> Once you have built a collection, you can curate that collection and create public presentations with our “Waku” tool.   Here are four instructional videos about the Waku tool.</target>
+			</trans-unit>
         </body>
     </file>
 </xliff>
