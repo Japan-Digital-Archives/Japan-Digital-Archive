@@ -1926,9 +1926,25 @@
                 <target>２０１１年東日本大震災デジタルアーカイブ（JDA) へようこそ。
 JDAの基本コンセプトの紹介ビデオ、及び使用説明ビデオ・テキストは、</target>
             </trans-unit>
-            <trans-unit id="477">
+            <trans-unit id="478">
                 <source>jda.howtouse.waku</source>
                 <target>わくエディターの利用について</target>
+            </trans-unit>
+            <trans-unit id="479">
+                <source>jda.howtouse.wakustart</source>
+                <target>はじめに</target>
+            </trans-unit>
+            <trans-unit id="480">
+                <source>jda.howtouse.wakunavi</source>
+                <target>Wakuの使い方</target>
+            </trans-unit>
+            <trans-unit id="481">
+                <source>jda.howtouse.wakuhakos</source>
+                <target>Hakoの作り方</target>
+            </trans-unit>
+            <trans-unit id="482">
+                <source>jda.howtouse.wakuanno</source>
+                <target>注釈のつけ方</target>
             </trans-unit>
         </body>
     </file>
