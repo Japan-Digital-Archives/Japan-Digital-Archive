@@ -1935,6 +1935,27 @@ prompt those of us who were not affected to reflect on the way we live our lives
 				<source>jda.howtouse.wakutext2</source>
 				<target> Once you have built a collection, you can curate that collection and create public presentations with our “Waku” tool.   Here are four instructional videos about the Waku tool.</target>
 			</trans-unit>
+			<trans-unit id="485">
+				<source>jda.about.videointro</source>
+				<target>Video Introduction</target>
+			</trans-unit>
+			</trans-unit>
+			<trans-unit id="486">
+				<source>jda.about.videoheader</source>
+				<target>Video Introduction to the Japan Disaster Archive</target>
+			</trans-unit>
+			<trans-unit id="487">
+				<source>jda.about.videoclick</source>
+				<target>Click here</target>
+			</trans-unit>
+			<trans-unit id="488">
+				<source>jda.about.videotext</source>
+				<target> to view a conceptual introduction to the Japanese Disaster Archive, prepared in March 2015 on the fourth anniversary of the disaster. Musical credit: "Senbazuru" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: </target>
+			</trans-unit>
+			<trans-unit id="489">
+				<source>jda.about.videocc</source>
+				<target>By Attribution 3.0.</target>
+			</trans-unit>
         </body>
     </file>
 </xliff>
