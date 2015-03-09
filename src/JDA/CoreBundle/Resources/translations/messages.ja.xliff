@@ -1946,6 +1946,31 @@ JDAの基本コンセプトの紹介ビデオ、及び使用説明ビデオ・�
                 <source>jda.howtouse.wakuanno</source>
                 <target>注釈のつけ方</target>
             </trans-unit>
+			<trans-unit id="483">
+				<source>jda.howtouse.wakutext1</source>
+				<target>JDA users can build collections of materials in the archive, for private use or public presentation.  The collection building function is described on the </target>
+			</trans-unit>
+			<trans-unit id="484">
+				<source>jda.howtouse.wakutext2</source>
+				<target> Once you have built a collection, you can curate that collection and create public presentations with our “Waku” tool.   Here are four instructional videos about the Waku tool.</target>
+			</trans-unit>
+			<trans-unit id="485">
+				<source>jda.about.videointro</source>
+				<target>ビデオ紹介</target>
+			</trans-unit>
+			</trans-unit>
+			<trans-unit id="486">
+				<source>jda.about.videoheader</source>
+				<target>Video Introduction to the Japan Disaster Archive</target>
+			</trans-unit>
+			<trans-unit id="487">
+				<source>jda.about.videoclick</source>
+				<target>Click here</target>
+			</trans-unit>
+			<trans-unit id="488">
+				<source>jda.about.videotext</source>
+				<target> to view a conceptual introduction to the Japanese Disaster Archive, prepared in March 2015 on the fourth anniversary of the disaster.</target>
+			</trans-unit>
         </body>
     </file>
 </xliff>
