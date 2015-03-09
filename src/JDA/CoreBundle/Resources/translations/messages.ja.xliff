@@ -1958,7 +1958,6 @@ JDAの基本コンセプトの紹介ビデオ、及び使用説明ビデオ・�
 				<source>jda.about.videointro</source>
 				<target>ビデオ紹介</target>
 			</trans-unit>
-			</trans-unit>
 			<trans-unit id="486">
 				<source>jda.about.videoheader</source>
 				<target>Video Introduction to the Japan Disaster Archive</target>
