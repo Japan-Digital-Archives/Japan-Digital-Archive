@@ -1926,6 +1926,50 @@
                 <target>２０１１年東日本大震災デジタルアーカイブ（JDA) へようこそ。
 JDAの基本コンセプトの紹介ビデオ、及び使用説明ビデオ・テキストは、</target>
             </trans-unit>
+            <trans-unit id="478">
+                <source>jda.howtouse.waku</source>
+                <target>わくエディターの利用について</target>
+            </trans-unit>
+            <trans-unit id="479">
+                <source>jda.howtouse.wakustart</source>
+                <target>はじめに</target>
+            </trans-unit>
+            <trans-unit id="480">
+                <source>jda.howtouse.wakunavi</source>
+                <target>Wakuの使い方</target>
+            </trans-unit>
+            <trans-unit id="481">
+                <source>jda.howtouse.wakuhakos</source>
+                <target>Hakoの作り方</target>
+            </trans-unit>
+            <trans-unit id="482">
+                <source>jda.howtouse.wakuanno</source>
+                <target>注釈のつけ方</target>
+            </trans-unit>
+			<trans-unit id="483">
+				<source>jda.howtouse.wakutext1</source>
+				<target>JDAのユーザは、個人的な整理方法あるいは公開プレゼンテーションとして、アーカイブの資料からコレクションを作ることができます。コレクションの作り方については、</target>
+			</trans-unit>
+			<trans-unit id="484">
+				<source>jda.howtouse.wakutext2</source>
+				<target> コレクションを作成した後JDA の「Waku」ツールを使うことにより、コレクションのキュレーションを行い、公開プレゼンテーションを作ることも可能です。以下はWakuツールの利用方法を紹介する、4 つの動画です。</target>
+			</trans-unit>
+			<trans-unit id="485">
+				<source>jda.about.videointro</source>
+				<target>ビデオ紹介</target>
+			</trans-unit>
+			<trans-unit id="486">
+				<source>jda.about.videoheader</source>
+				<target>東日本大震災デジタルアーカイブ紹介ムービー</target>
+			</trans-unit>
+			<trans-unit id="487">
+				<source>jda.about.videotext</source>
+				<target>2015年3月に震災の4周年を期に制作された、東日本大震災デジタルアーカイブを紹介するコンセプトムービーを閲覧するには、以下をご覧下さい。CCライセンス</target>
+			</trans-unit>
+			<trans-unit id="488">
+				<source>jda.about.videocc</source>
+				<target>表示3.0</target>
+			</trans-unit>
         </body>
     </file>
 </xliff>

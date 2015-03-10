@@ -1903,7 +1903,50 @@ prompt those of us who were not affected to reflect on the way we live our lives
                 <source>jda.firsttime.body</source>
                 <target>Welcome to the Digital Archive of Japan's 2011 Disasters. For a video introduction to our archive, as well as detailed text and video instructions, please visit our </target>
             </trans-unit>
-
+            <trans-unit id="478">
+                <source>jda.howtouse.waku</source>
+                <target>Using the Waku Editor</target>
+            </trans-unit>
+            <trans-unit id="479">
+                <source>jda.howtouse.wakustart</source>
+                <target>Getting Started</target>
+            </trans-unit>
+            <trans-unit id="480">
+                <source>jda.howtouse.wakunavi</source>
+                <target>Navigating Waku</target>
+            </trans-unit>
+            <trans-unit id="481">
+                <source>jda.howtouse.wakuhakos</source>
+                <target>Building Waku</target>
+            </trans-unit>
+            <trans-unit id="482">
+                <source>jda.howtouse.wakuanno</source>
+                <target>Annotation</target>
+            </trans-unit>
+			<trans-unit id="483">
+				<source>jda.howtouse.wakutext1</source>
+				<target>JDA users can build collections of materials in the archive, for private use or public presentation.  The collection building function is described on the </target>
+			</trans-unit>
+			<trans-unit id="484">
+				<source>jda.howtouse.wakutext2</source>
+				<target> Once you have built a collection, you can curate that collection and create public presentations with our “Waku” tool.   Here are four instructional videos about the Waku tool.</target>
+			</trans-unit>
+			<trans-unit id="485">
+				<source>jda.about.videointro</source>
+				<target>Video Introduction</target>
+			</trans-unit>
+			<trans-unit id="486">
+				<source>jda.about.videoheader</source>
+				<target>Video Introduction to the Japan Disaster Archive</target>
+			</trans-unit>
+			<trans-unit id="487">
+				<source>jda.about.videotext</source>
+				<target>Below is a conceptual introduction to the Japanese Disaster Archive, prepared in March 2015 on the fourth anniversary of the disaster. Musical credit: "Senbazuru" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: </target>
+			</trans-unit>
+			<trans-unit id="488">
+				<source>jda.about.videocc</source>
+				<target>By Attribution 3.0.</target>
+			</trans-unit>
         </body>
     </file>
 </xliff>
