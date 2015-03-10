@@ -1940,14 +1940,10 @@ prompt those of us who were not affected to reflect on the way we live our lives
 				<target>Video Introduction to the Japan Disaster Archive</target>
 			</trans-unit>
 			<trans-unit id="487">
-				<source>jda.about.videoclick</source>
-				<target>Click here</target>
-			</trans-unit>
-			<trans-unit id="488">
 				<source>jda.about.videotext</source>
 				<target>Below is a conceptual introduction to the Japanese Disaster Archive, prepared in March 2015 on the fourth anniversary of the disaster. Musical credit: "Senbazuru" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: </target>
 			</trans-unit>
-			<trans-unit id="489">
+			<trans-unit id="488">
 				<source>jda.about.videocc</source>
 				<target>By Attribution 3.0.</target>
 			</trans-unit>
