@@ -118,7 +118,7 @@
 
         <h3>Date:</h3>
         <div id="Date">
-        <div class='ingest-info'> <input  type="date" id = "widget-date"> </div>
+        <div class='ingest-info'> <input type="date" id="widget-date"> </div>
         </div>
 
         
@@ -199,7 +199,8 @@
     		$("#website-fields").show();
 			postObj.uri = "http://wayback.archive-it.org/2438/20110301000000/" + postObj.attribution_uri;
     	}
-      if(postObj.media_date_created == null || postObj.media_date_created == "") postObj.media_date_created = "{{ date }}";
+		var today = new Date().toDateString();
+		if(postObj.media_date_created == null || postObj.media_date_created == "") postObj.media_date_created = today;
 
     	postObj.username = "{{ displayname }}";
     	$("#widget-description").val(postObj.description);
