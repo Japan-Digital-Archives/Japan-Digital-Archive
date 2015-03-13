@@ -13,7 +13,7 @@
     }
   </style>
 	<div id="widget-wrapper" data-id="{{widget_id}}"> 
-		{%if userId == 0 %}
+		{%if userId == 0 and app.environment != 'dev' %}
 			<div class='widget-message'>Please login at <a href="http://jdarchive.org">jdarchive.org</a> to add content.</div>
 		{% else %}
 		
