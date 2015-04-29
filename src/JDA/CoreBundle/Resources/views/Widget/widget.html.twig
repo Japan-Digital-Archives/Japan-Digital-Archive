@@ -161,11 +161,9 @@
 
 	<script type="text/javascript" language="Javascript">
   
-   var $j = jQuery.noConflict();
-   $j("#datepicker").datepicker({
-  			changeMonth: true,
-  			changeYear: true
-  	});
+   $(function() {
+       $( "#datepicker" ).datepicker();
+   });
 
     var layerMediaMap = {
         Video: "Youtube",
