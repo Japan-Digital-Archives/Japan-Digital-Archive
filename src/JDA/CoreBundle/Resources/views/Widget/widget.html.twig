@@ -118,7 +118,7 @@
 
         <h3>Date:</h3>
         <div id="Date">
-        <div class='ingest-info'> <input type="date" id="widget-date"> </div>
+        <div class='ingest-info'> <input type="text" id="datepicker"> </div>
         </div>
 
         
@@ -158,8 +158,15 @@
 
 
   <script src="http://code.jquery.com/jquery-1.10.1.min.js" charset="UTF-8"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 
 	<script type="text/javascript" language="Javascript">
+    $(function() {
+     	$( "#datepicker" ).datepicker({
+     	changeMonth: true,
+     	changeYear: true
+     	});
+    });
 
     var layerMediaMap = {
         Video: "Youtube",
@@ -205,7 +212,7 @@
     	postObj.username = "{{ displayname }}";
     	$("#widget-description").val(postObj.description);
     	$("#widget-title").val(postObj.title);
-      $("widget-date").val(postObj.media_date_created);
+      //$("datepicker").val(postObj.media_date_created);
     	$("#item-image").attr("src", postObj.thumbnail_url);
 
     	if(postObj.uri.indexOf("twitter.com") > -1) {
@@ -314,7 +321,7 @@
 			  postObj.attributes.frequency = $("#widget-frequency").val();
        	  }    
 		  
-		  var dateValue = $("#widget-date").val();
+		  var dateValue = $("#datepicker").datepicker( "getDate" );
 		  if (!dateValue){ // true if empty 
 			  postObj.media_date_created = new Date().toDateString();
 		  }
