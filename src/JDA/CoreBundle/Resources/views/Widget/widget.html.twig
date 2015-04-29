@@ -161,9 +161,12 @@
    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 
 	<script type="text/javascript" language="Javascript">
-   
-   $( "#datepicker" ).datepicker();
-
+   $(function() {
+   		$( "#datepicker" ).datepicker({
+   			changeMonth: true,
+   			changeYear: true
+   		});
+   	});
     var layerMediaMap = {
         Video: "Youtube",
         Website: "Website",
