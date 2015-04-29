@@ -161,8 +161,8 @@
 
 	<script type="text/javascript" language="Javascript">
   
-  	$(function() {
-  		$( "#datepicker" ).datepicker({
+   var $j = jQuery.noConflict();
+   $j("#datepicker").datepicker();
   			changeMonth: true,
   			changeYear: true
   		});

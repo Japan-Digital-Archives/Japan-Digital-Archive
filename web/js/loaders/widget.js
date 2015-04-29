@@ -20,7 +20,7 @@ require (
 	//'text!../app/views/items/templates.html',
 	
 	
-
+	'order!../lib/jquery/jquery-1.7.1.min',
 	'order!../lib/underscore/underscore-min',
 	'order!../lib/backbone/backbone-0.9.1',
 	'order!../lib/jquery-easing/jquery.easing.1.3',
