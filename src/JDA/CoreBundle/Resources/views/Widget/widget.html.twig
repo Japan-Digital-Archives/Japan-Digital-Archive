@@ -317,7 +317,7 @@
 			  postObj.attributes.frequency = $("#widget-frequency").val();
        	  }    
 		  
-		  var dateValue = $("#datepicker").val();
+		  var dateValue = $("#datepicker").datepicker('getDate');
 		  if (!dateValue){ // true if empty 
 			  postObj.media_date_created = new Date().toDateString();
 		  }
