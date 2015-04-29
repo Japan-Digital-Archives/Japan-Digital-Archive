@@ -118,7 +118,7 @@
 
         <h3>Date:</h3>
         <div id="Date">
-        <div class='ingest-info'> <input type="date" id="widget-date"> </div>
+        <div class='ingest-info'> <input type="text" id="datepicker"> </div>
         </div>
 
         
@@ -320,7 +320,7 @@
 			  postObj.attributes.frequency = $("#widget-frequency").val();
        	  }    
 		  
-		  var dateValue = $("#widget-date").datepicker( "getDate" );
+		  var dateValue = $("#datepicker").datepicker( "getDate" );
 		  if (!dateValue){ // true if empty 
 			  postObj.media_date_created = new Date().toDateString();
 		  }
