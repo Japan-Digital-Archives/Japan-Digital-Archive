@@ -25,7 +25,6 @@ require (
 	'order!../lib/backbone/backbone-0.9.1',
 	'order!../lib/jquery-easing/jquery.easing.1.3',
 	'order!../lib/jquerySVG/jquery.svg',
-	'order!../lib/jquery-ui-1.8.18.custom/js/jquery-ui-1.8.18.custom.min',
 	'order!../lib/spin',
 	'order!../lib/spin-jquery',
 	'order!../lib/date.format',
