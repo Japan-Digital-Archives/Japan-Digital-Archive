@@ -1807,7 +1807,12 @@
             </trans-unit>
             <trans-unit id="448">
                 <source>jda.team.content.curation</source>
-                <target>ウェブシード　キュレーション：Momoko Howell (ハウエル・モモコ)</target>
+                <target>ウェブシード　キュレーション：Momoko Howell (ハウエル・モモコ)
+                    <![CDATA[<br />]]>
+                    ウェブシード　キュレーション：Kae Nakahashi（昭和ボストン　中橋佳恵）
+                    <![CDATA[<br />]]>
+                    ウェブシード　キュレーション：Yumiko Takeda（昭和ボストン　竹田有美子）
+                </target>
             </trans-unit>
             <trans-unit id="449">
                 <source>jda.team.alumni.nick</source>
