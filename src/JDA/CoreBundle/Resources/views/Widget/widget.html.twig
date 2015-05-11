@@ -13,7 +13,7 @@
     }
   </style>
 	<div id="widget-wrapper" data-id="{{widget_id}}"> 
-		{%if userId == 0 %}
+		{%if userId == 0 and app.environment != 'dev' %}
 			<div class='widget-message'>Please login at <a href="http://jdarchive.org">jdarchive.org</a> to add content.</div>
 		{% else %}
 		
@@ -118,7 +118,7 @@
 
         <h3>Date:</h3>
         <div id="Date">
-        <div class='ingest-info'> <input  type="date" id = "widget-date"> </div>
+        <div class='ingest-info'> <input type="date" id="datepicker"> </div>
         </div>
 
         
@@ -158,9 +158,17 @@
 
 
   <script src="http://code.jquery.com/jquery-1.10.1.min.js" charset="UTF-8"></script>
+  <!--<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>-->
 
 	<script type="text/javascript" language="Javascript">
-
+    /*$(function() {
+     	$( "#datepicker" ).datepicker({
+     	changeMonth: true,
+     	changeYear: true
+     	});
+    });
+		*/
+		
     var layerMediaMap = {
         Video: "Youtube",
         Website: "Website",
@@ -199,12 +207,13 @@
     		$("#website-fields").show();
 			postObj.uri = "http://wayback.archive-it.org/2438/20110301000000/" + postObj.attribution_uri;
     	}
-      if(postObj.media_date_created == null || postObj.media_date_created == "") postObj.media_date_created = "{{ date }}";
+		var today = new Date().toDateString();
+		if(postObj.media_date_created == null || postObj.media_date_created == "") postObj.media_date_created = today;
 
     	postObj.username = "{{ displayname }}";
     	$("#widget-description").val(postObj.description);
     	$("#widget-title").val(postObj.title);
-      $("widget-date").val(postObj.media_date_created);
+      //$("datepicker").val(postObj.media_date_created);
     	$("#item-image").attr("src", postObj.thumbnail_url);
 
     	if(postObj.uri.indexOf("twitter.com") > -1) {
@@ -313,7 +322,8 @@
 			  postObj.attributes.frequency = $("#widget-frequency").val();
        	  }    
 		  
-		  var dateValue = $("#widget-date").val();
+		  var dateValue = $("#datepicker").val();
+		  console.log(dateValue);
 		  if (!dateValue){ // true if empty 
 			  postObj.media_date_created = new Date().toDateString();
 		  }

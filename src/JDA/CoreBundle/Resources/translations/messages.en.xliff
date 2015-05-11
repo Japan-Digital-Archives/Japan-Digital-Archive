@@ -994,10 +994,6 @@
                 <source>jda.about.project</source>
                 <target>About</target>
             </trans-unit>
-             <trans-unit id="248">
-                <source>jda.team.leader</source>
-                <target>This project is led by the Reischauer Institute of Japanese Studies</target>
-            </trans-unit>
             <trans-unit id="249">
                 <source>jda.team.additional</source>
                 <target>Reischauer Institute Faculty and Staff providing additional support</target>
