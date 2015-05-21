@@ -1766,8 +1766,8 @@
                 <target>インターフェース開発：Zahra Mahmood (ザラ・マムッド)</target>
             </trans-unit>
             <trans-unit id="438">
-                <source>jda.team.webdeveloper.kara</source>
-                <target>インターフェイス開発：Kara Shen (カラ・シェン)</target>
+                <source>jda.team.alumni.kara</source>
+                <target>Kara Shen (カラ・シェン): インターフェイス開発</target>
             </trans-unit>
             <trans-unit id="439">
                 <source>jda.team.webdeveloper.harnek</source>
