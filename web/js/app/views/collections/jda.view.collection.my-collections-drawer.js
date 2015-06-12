@@ -95,7 +95,7 @@
 			}
 
 			$(this.el).find('#create-waku-from-collection').click(function(){
-				_this.createWakuFromCollection(this.collection.at(0).id);
+				_this.createWakuFromCollection(model.id);
 			})
 
 			$(this.el).find('#zeega-my-collections-items').droppable({
