@@ -93,8 +93,10 @@
 				var activeCollectionID = this.collection.at(0).id;
 				this.switchActiveCollection(activeCollectionID);
 			}
-			
-			
+
+			$(this.el).find('#create-waku-from-collection').click(function(){
+				_this.createWakuFromCollection(this.collection.at(0).id);
+			})
 
 			$(this.el).find('#zeega-my-collections-items').droppable({
 				accept : '.thumb-fancymedia, .list-media',
@@ -279,6 +281,11 @@
 					}));
 				this.render();
 			}
+		},
+
+		createWakuFromCollection : function(id){
+			console.log('create waku from collection');
+			console.log(id);
 		},
 		
 		createNewCollection : function(){
