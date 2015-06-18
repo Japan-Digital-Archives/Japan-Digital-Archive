@@ -1,30 +1,33 @@
 (function(Browser) {
   
   Browser.Items = Browser.Items || {};
-  Broswer.Items.Views = Browser.Items || {};
+  Browser.Items.Views = Browser.Items || {};
 
   Browser.Items.Views.WakuArea = Backbone.View.extend({
 
     el : $('#jda-collection-waku-area'),
 
     events: {
-      'click create-waku-from-collection' : 'createWakuFromCollection'
+      'click #create-waku-from-collection' : 'createWakuFromCollection'
     },
 
-    initialize: function ()
+    initialize: function()
     {
-      console.log("Creating Waku Area");
+      this.render();
     },
 
     render: function() 
     {
       var _this = this;
-      console.log(this.model);
     },
 
     createWakuFromCollection: function() 
     {
-      console.log("Clicked createWakuFromCollection button");
+      var WAKU_SOURCE_URL = "http://jdawaku.herokuapp.com/#en/dashboard/";
+      var collectionId    = this.model.id;
+      var url             = WAKU_SOURCE_URL + collectionId;
+
+      window.open(url, '_blank');
     }
 
   });
