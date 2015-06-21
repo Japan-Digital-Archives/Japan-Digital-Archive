@@ -343,7 +343,7 @@
 		},
 			
 		loadMap : function(){
-				if( !this.isGeoLocated )
+				if( typeof(this.map) == 'undefined' && !this.isGeoLocated )
 				{
 					this.latlng = new L.LatLng( 38.266667,140.866667 );
 					var div = $(this.el).find('.jda-collection-map').get(0);

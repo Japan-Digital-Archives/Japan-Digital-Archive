@@ -46,6 +46,7 @@
 			if (!this.geoLocated){
 				console.log('not geolocated');
 				$(this.el).find('.no-geo-data').show();
+				//$(this.el).find('.locator-map').hide();
 
 			}
 			
@@ -70,7 +71,7 @@
 		addMap:function()
 		{
 			console.log("14");
-			if(this.model.get('editable')||this.geoLocated){
+			if(this.geoLocated){
 				console.log("13");
 				$(this.el).find('.item-lat-lng').fadeIn();
 				$(this.el).find('.locator-map').fadeIn();
@@ -78,6 +79,7 @@
 
 				var _this = this;
 				console.log("12");
+				
 				this.geocoder.geocode( { 'latLng' : new google.maps.LatLng(this.latlng.lat,this.latlng.lng) }, function(results, status) {
 					if (status == google.maps.GeocoderStatus.OK) {
 						
@@ -89,6 +91,7 @@
 						}
 					}
 				});
+				
 
 				var div = $(this.el).find('.locator-map').get(0);
 				console.log("start");

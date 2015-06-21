@@ -44,10 +44,11 @@
 
 		afterShow:function()
 		{
-
+			console.log("after show");
 			this.locatorMapView.addMap();
 
 			var _this = this;
+			
 
 			$(this.el).find('.tagsedit').empty().tagsInput({
 				'interactive':true,
@@ -65,6 +66,13 @@
 			if(!this.model.get('editable')){$('.tag').find('a').hide();}
 
 			var attributes = this.model.get('attributes');
+			
+			$('.tag').each(function () {
+				if($(this).contents().eq(0).text().trim() == "N;"){
+					console.log("found N;");
+					$(this).hide();
+				}
+			});
 
 			if (!(attributes instanceof Object)) {
 			    this.model.save({ attributes: {} });
@@ -253,7 +261,7 @@
 				randId: this.elemId
 			};
 			
-			if (this.model.get('user_id') == 429) {
+			if (this.model.get('user_id') == 429 || this.model.get('media_type') == 'Video') {
 				blanks.sourceLink = this.model.get('attribution_uri');
 			}
 

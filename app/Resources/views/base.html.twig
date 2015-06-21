@@ -151,11 +151,12 @@
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans %}jda.header.about{% endtrans %}<b class="caret"></b></a>
 										<ul class="dropdown-menu">
 											<li><a href="{{path('about', { '_locale': locale })}}">{% trans %}jda.about.project{% endtrans %}</a></li>
+											<li><a href="{{path('howtouse', { '_locale': locale })}}#video">{% trans %}jda.about.videointro{% endtrans %}</a></li>
 											<li><a href="http://jdarchive-news.tumblr.com/">{% trans %}jda.about.news{% endtrans %}</a></li>
 											<li><a href="{{path('team', { '_locale': locale })}}">{% trans %}jda.about.team{% endtrans %}</a></li>
 											<li><a href="{{path('partners', { '_locale': locale })}}">{% trans %}jda.about.partners{% endtrans %}</a></li>
 
-<li><a href="{{path('howtouse', { '_locale': locale })}}">{% trans %}jda.howtouse.title{% endtrans %}</a></li>
+<li><a href="{{path('howtouse', { '_locale': locale,'first':false})}}">{% trans %}jda.howtouse.title{% endtrans %}</a></li>
 											<li><a href="{{path('howtocontribute', { '_locale': locale })}}">{% trans %}jda.howtocontribute.title{% endtrans %}</a></li>
 
 <li><a href="{{path('faq', { '_locale': locale })}}">{% trans %}jda.about.faq{% endtrans %}</a></li>
@@ -171,7 +172,11 @@
 										<ul class="dropdown-menu">
 											<!-- <li><a id="account-settings" href ="#">{% trans %}jda.user.settings{% endtrans %}</a></li> -->
 											<li><a id="user-profile" href="{{path('user', { '_locale': locale,'id':app.user.getId })}}">{% trans %}jda.user.profile{% endtrans %}</a></li>
-											<li><a href="http://dev-editor.herokuapp.com" target="_blank">{% trans %}jda.waku.title{% endtrans %}</a></li>
+											{% if locale == 'ja' %}
+												<li><a href="http://jdawaku.herokuapp.com/#ja/login" target="_blank">{% trans %}jda.waku.title{% endtrans %}</a></li>
+											{% else %}
+												<li><a href="http://jdawaku.herokuapp.com/#en/login" target="_blank">{% trans %}jda.waku.title{% endtrans %}</a></li>
+											{% endif %}
 											<li><a href='{{ path('fos_user_security_logout',{ '_locale': locale })}}' >{% trans %}jda.user.logout{% endtrans %}</a></li>
 										</ul>
 								</li>
@@ -181,6 +186,11 @@
 										<ul class="dropdown-menu">
 											<!-- <li><a id="account-settings" href ="#">{% trans %}jda.user.settings{% endtrans %}</a></li> -->
 											<li><a href="{{path('user', { '_locale': locale,'id':userId })}}">{% trans %}jda.user.profile{% endtrans %}</a></li>
+											{% if locale == 'ja' %}
+												<li><a href="http://jdawaku.herokuapp.com/#ja/login" target="_blank">{% trans %}jda.waku.title{% endtrans %}</a></li>
+											{% else %}
+												<li><a href="http://jdawaku.herokuapp.com/#en/login" target="_blank">{% trans %}jda.waku.title{% endtrans %}</a></li>
+											{% endif %}
 											<li><a href='{{ path('fos_user_security_logout',{ '_locale': locale })}}' >{% trans %}jda.user.logout{% endtrans %}</a></li>
 										</ul>
 								</li>
@@ -240,6 +250,16 @@
 			<p>{% trans %}jda.browser.modalbody{% endtrans %}</p>
 		</div>
 
+	</div>
+	
+	<div class="modal"  id="firstTimeModal">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">×</a>
+			<h3>{% trans %}jda.firsttime.header{% endtrans %}</h3>
+		</div>
+		<div class="modal-body">
+			<p>{% trans %}jda.firsttime.body{% endtrans %}<a href="{{path('howtouse', { '_locale': locale,'first':true})}}">{% trans %}jda.howtocontribute.searchpage{% endtrans %}</a></p>
+		</div>
 	</div>
 
 

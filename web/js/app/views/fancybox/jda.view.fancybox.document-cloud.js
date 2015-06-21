@@ -78,7 +78,7 @@
 		
 		getMediaTemplate : function(width, height)
 		{
-			if(this.model.get('layer_type') == 'Pdf')
+			if(this.model.get('layer_type') == 'Pdf' || this.model.get('layer_type') == 'PDF')
 			{
 				return '<div id="fancybox-pdf"><a href="<%= uri %>" target="_blank">PDF: <%=title%></a></div>';
 			}

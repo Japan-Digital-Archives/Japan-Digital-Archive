@@ -13,7 +13,7 @@
     }
   </style>
 	<div id="widget-wrapper" data-id="{{widget_id}}"> 
-		{%if userId == 0 %}
+		{%if userId == 0 and app.environment != 'dev' %}
 			<div class='widget-message'>Please login at <a href="http://jdarchive.org">jdarchive.org</a> to add content.</div>
 		{% else %}
 		
@@ -70,6 +70,7 @@
 					</select>
 				</div>
 			
+
 				<div id="website-fields" style="display:none">
 					<h3>Archive Frequency</h3>
 					<div class="ingest-info">
@@ -95,9 +96,13 @@
 					<select id="widget-collection"></select>
 				</div>
 				
+        <h3>URI</h3>
+        <div class="ingest-info"><input type="text" id="widget-uri"></div>
+
 				<h3>Title</h3>
 				<div class='ingest-info'><input type="text" id="widget-title"></div>
-				<h3>Description:</h3>
+				
+        <h3>Description:</h3>
 				<div id="description">
 			
 				<div class="widget-textbox ingest-info">
@@ -110,6 +115,22 @@
 					  <textarea id="widget-tags" ></textarea>
 					</div>
 				</div>
+
+        <h3>Date:</h3>
+        <div id="Date">
+        <div class='ingest-info'> <input type="date" id="datepicker"> </div>
+        </div>
+
+        
+        <h3>Language:</h3>
+        <div id="Language">
+        <div class='ingest-info'>
+        <input type="checkbox" class="languageChk" id="englishChk" value="English">English / 英語<br>
+        <input type="checkbox" class="languageChk" id="japaneseChk" value="Japanese">Japanese / 日本語<br>
+        <input type="checkbox" class="languageChk" id="chineseChk" value="Chinese">Chinese / 中国語<br>
+		<input type="checkbox" class="languageChk" id="koreanChk" value="Korean">Korean / 韓国語<br>
+        </div>
+        </div>
 
 				<h3>Location:</h3>
 				<div class="ingest-info">
@@ -136,12 +157,20 @@
 	</script>	
 
 
-  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js" charset="UTF-8"></script>
+  <!--<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>-->
 
 	<script type="text/javascript" language="Javascript">
-
+    /*$(function() {
+     	$( "#datepicker" ).datepicker({
+     	changeMonth: true,
+     	changeYear: true
+     	});
+    });
+		*/
+		
     var layerMediaMap = {
-        Video: "YouTube",
+        Video: "Youtube",
         Website: "Website",
         Document: "PDF",
         Image: "Image",
@@ -169,6 +198,7 @@
     	
     	postObj.uri = decodeURIComponent(newhash.url);  
     	postObj.attribution_uri = postObj.uri;
+		$("#widget-uri").val(postObj.uri);
 
     	if(postObj.title == null || postObj.title == "") postObj.title = "{{ title }}";
     	if(postObj.media_type == null) {
@@ -177,9 +207,13 @@
     		$("#website-fields").show();
 			postObj.uri = "http://wayback.archive-it.org/2438/20110301000000/" + postObj.attribution_uri;
     	}
+		var today = new Date().toDateString();
+		if(postObj.media_date_created == null || postObj.media_date_created == "") postObj.media_date_created = today;
+
     	postObj.username = "{{ displayname }}";
     	$("#widget-description").val(postObj.description);
     	$("#widget-title").val(postObj.title);
+      //$("datepicker").val(postObj.media_date_created);
     	$("#item-image").attr("src", postObj.thumbnail_url);
 
     	if(postObj.uri.indexOf("twitter.com") > -1) {
@@ -189,28 +223,32 @@
     		var id = url_array.pop();
     		postObj.attribution_uri = postObj.uri;
     		postObj.uri = id;
-			var cb = new Codebird;
-			cb.setConsumerKey("D31EL4VBtCk6TSiwG2MAw", "QUzeHgHSweIC3wSDLUu8Y3jEzkgvYfYkXyTqeg5MSs");
-			cb.setBearerToken("AAAAAAAAAAAAAAAAAAAAAAvCTQAAAAAAM%2FIZB80G7W1l2QpDZfN11HuoWVI%3DSTyXQGeOjTbf49FcCrs1Mil1PhCreVOlzaSN6Sl3g");
-			cb.__call(
-				"statuses_show_ID",
-				"id="+id,
-				function (reply) {
-					postObj.media_date_created = "";
-					postObj.description = reply.text;
-					postObj.text = reply.text;
-					postObj.title = "";
-    				$("#widget-description").val(postObj.description);
-    				$("#widget-title").val(postObj.title);
-    				var created_date = new Date(Date.parse(reply.created_at, "m/d/Y H:i")).toDateString();
-    				postObj.media_date_created = created_date;
-    				postObj.thumbnail_url = reply.user.profile_image_url;
-					$("#item-image").attr("src", postObj.thumbnail_url);
-					$("#item-image").css("width", "48px");
-				},
-				true // this parameter required
-			);
-		}	
+				var cb = new Codebird;
+				cb.setConsumerKey("D31EL4VBtCk6TSiwG2MAw", "QUzeHgHSweIC3wSDLUu8Y3jEzkgvYfYkXyTqeg5MSs");
+				cb.setBearerToken("AAAAAAAAAAAAAAAAAAAAAAvCTQAAAAAAM%2FIZB80G7W1l2QpDZfN11HuoWVI%3DSTyXQGeOjTbf49FcCrs1Mil1PhCreVOlzaSN6Sl3g");
+				cb.__call(
+					"statuses_show_ID",
+					"id="+id,
+					function (reply) {
+						postObj.media_date_created = "";
+						postObj.description = reply.text;
+						postObj.text = reply.text;
+						postObj.title = "";
+							$("#widget-description").val(postObj.description);
+							$("#widget-title").val(postObj.title);
+							var created_date = new Date(Date.parse(reply.created_at, "m/d/Y H:i")).toDateString();
+							postObj.media_date_created = created_date;
+							postObj.thumbnail_url = reply.user.profile_image_url;
+						$("#item-image").attr("src", postObj.thumbnail_url);
+						$("#item-image").css("width", "48px");
+					},
+					true // this parameter required
+				);
+			} else if(postObj.uri.indexOf("youtube.com") > -1) {
+				var id = postObj.uri.split("v=")[1];
+				postObj.uri = id;
+		
+			}
 			
     	$("#widget-media option[value$='"+postObj.media_type+"']").attr('selected', true);
     });
@@ -220,7 +258,26 @@
     		alert("Please fill in a title field before submitting.");
     		return;
     	}
-    	
+
+      	if($("#widget-uri").val() == "" || $("#widget-uri").val() == " ") {
+        	alert("Please fill in a URI for your submission.");
+        	return;
+		}
+		
+		var checkboxes = document.getElementsByClassName("languageChk");
+		var lent = checkboxes.length;
+		var checkedCount = 0;
+		for (i = 0; i < lent; i++) {
+			if (checkboxes[i].checked) {
+				checkedCount+=1;
+			}
+		}
+
+		if (checkedCount == 0) {
+			alert("Please select a language before submitting.");
+			return;
+		}
+
     	var Browser = jda.module("browser");
     	
     	var trayId = $("#widget-collection > option:selected").val();
@@ -252,8 +309,11 @@
           postObj.tags = [];
           var tags = $("#widget-tags").val().split(",");
           $.each(tags, function(i, tag) {
-          	postObj.tags.push(tag.trim());
+			  if(tag != '' && tag!=' ' && tag){
+				  postObj.tags.push(tag.trim());
+			  }
           });
+		  postObj.tags.filter(Boolean);
 
           postObj.media_type = $("#widget-media > option:selected").val(); 
         
@@ -261,8 +321,23 @@
 			  postObj.attributes.scope = $("#widget-scope").val();
 			  postObj.attributes.frequency = $("#widget-frequency").val();
        	  }    
-       	       
-          postObj.media_date_created = new Date().toDateString();
+		  
+		  var dateValue = $("#datepicker").val();
+		  console.log(dateValue);
+		  if (!dateValue){ // true if empty 
+			  postObj.media_date_created = new Date().toDateString();
+		  }
+		  else { // true if not empty
+			  postObj.media_date_created = dateValue;
+		  }
+		  
+          postObj.date_created = new Date().toDateString();
+
+
+          postObj.attributes.language = $("#englishChk").is(":checked") ? "English|" : "";
+		  postObj.attributes.language += $("#japaneseChk").is(":checked") ? "Japanese|" : "";
+		  postObj.attributes.language += $("#chineseChk").is(":checked") ? "Chinese|" : "";
+		  postObj.attributes.language += $("#koreanChk").is(":checked") ? "Korean|" : "";
           
           if ($("#lat").val() != "") {
             postObj.media_geo_latitude = parseFloat($("#lat").val());

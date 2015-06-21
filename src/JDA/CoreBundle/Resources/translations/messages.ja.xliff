@@ -997,10 +997,6 @@
                 <source>jda.about.project</source>
                 <target>アーカイブについて</target>
             </trans-unit>
-             <trans-unit id="248">
-                <source>jda.team.leader</source>
-                <target>This project is led by the Reischauer Institute of Japanese Studies</target>
-            </trans-unit>
             <trans-unit id="249">
                 <source>jda.team.additional</source>
                 <target>ライシャワー日本研究所　協力教員・スタッフ</target>
@@ -1590,7 +1586,7 @@
 			</trans-unit>
 			<trans-unit id="395">
 				<source>jda.howtocontribute.searchpage</source>
-				<target>「アーカイブの使い方」をご覧下さい。</target>
+				<target>アーカイブの使い方のページにてご参照ください。</target>
 			</trans-unit>
 			<trans-unit id="396">
 				<source>jda.howtocontribute.adding</source>
@@ -1720,6 +1716,264 @@
 			<trans-unit id="425">
 				<source>jda.waku.title</source>
 				<target>Waku エディター</target>
+			</trans-unit>
+            <trans-unit id="426">
+                <source>jda.aboutpartners.hidenoriwatanavetitle</source>
+                <target>Hidenori Watanave</target>
+            </trans-unit>
+            <trans-unit id="427">
+                <source>jda.aboutpartners.hidenoriwatanave</source>
+                <target></target>
+            </trans-unit>
+            <trans-unit id="428">
+                <source>jda.aboutpartners.gejeatitle</source>
+                <target>Great East Japan Earthquake Archive</target>
+            </trans-unit>
+            <trans-unit id="429">
+                <source>jda.aboutpartners.gejea</source>
+                <target></target>
+            </trans-unit>
+            <trans-unit id="430">
+                <source>jda.team.leader.projectdirector</source>
+                <target>プロジェクト・ディレクター： Andrew Gordon, Professor of History（ハーバード大学歴史学部　アンドリュー・ゴードン教授）</target>
+            </trans-unit>
+            <trans-unit id="431">
+                <source>jda.team.leader.projectmanager</source>
+                <target>プロジェクトマネージャー：Ryo Morimoto, Fellow in Japanese Digital Humanities and Social Sciences (森本　涼　ハーバード大学　日本デジタルヒューマニティーズ・社会科学研究フェロー)</target>
+            </trans-unit>
+            <trans-unit id="432">
+                <source>jda.team.additional.director</source>
+                <target>所長：Professor Ted Bestor（テッド・ベスター教授）</target>
+            </trans-unit>
+            <trans-unit id="433">
+                <source>jda.team.additional.executivedirector</source>
+                <target>副所長：Dr. Ted Gilman（テッド・Ｊ・ギルマン博士）</target>
+            </trans-unit>
+            <trans-unit id="434">
+                <source>jda.team.additional.librarian</source>
+                <target>ハーバード大学現代日本研究資料センター司書：Kazuko Sakaguchi（坂口和子）</target>
+            </trans-unit>
+            <trans-unit id="435">
+                <source>jda.team.additional.assistantdirector</source>
+                <target>所長補佐：Stacie Matsumoto（ステイシー・マツモト）</target>
+            </trans-unit>
+            <trans-unit id="436">
+                <source>jda.team.webdeveloper.corinne</source>
+                <target>プロジェクト技術部リーダー：Corinne Curcie（コリン・カーシー）</target>
+            </trans-unit>
+            <trans-unit id="437">
+                <source>jda.team.webdeveloper.zahra</source>
+                <target>インターフェース開発：Zahra Mahmood (ザラ・マムッド)</target>
+            </trans-unit>
+            <trans-unit id="438">
+                <source>jda.team.alumni.karashen</source>
+                <target>Kara Shen (カラ・シェン): インターフェイス開発</target>
+            </trans-unit>
+            <trans-unit id="439">
+                <source>jda.team.webdeveloper.harnek</source>
+                <target>インターフェース開発：Harnek Gulati (ハーニック・グラティ)</target>
+            </trans-unit>
+            <trans-unit id="440">
+                <source>jda.team.webdeveloper.rebecca</source>
+                <target>インターフェース開発：Rebecca Chen (レベッカ・チェン)</target>
+            </trans-unit>
+            <trans-unit id="441">
+                <source>jda.team.webdeveloper.annie</source>
+                <target>インターフェース開発：Annie Lin (アニー・リン)</target>
+            </trans-unit>
+            <trans-unit id="442">
+                <source>jda.team.webdeveloper.javier</source>
+                <target>インターフェース開発：Javier Cuan-Martinez (ハビアー　クアン・マルティネズ)</target>
+            </trans-unit>
+            <trans-unit id="443">
+                <source>jda.team.webdeveloper.tyreke</source>
+                <target>インターフェース開発：Tyreke White (タイリーク・ホワイト)</target>
+            </trans-unit>
+            <trans-unit id="444">
+                <source>jda.team.webdeveloper.kyle</source>
+                <target>教育設計：Kyle Parry, metaLAB (at) Harvard（ハーバード大学メタラボ　カイル・パリー）</target>
+            </trans-unit>
+            <trans-unit id="445">
+                <source>jda.team.webdeveloper.jessica</source>
+                <target>インターフェース開発： Jessica Yurkofsky, metaLAB (at) Harvard（ハーバード大学メタラボ　ジェシカ・ユルコフスキー）</target>
+            </trans-unit>
+            <trans-unit id="446">
+                <source>jda.team.content.lead</source>
+                <target>デジタルコンテンツ部リーダー：Koko Howell（藤田公子）</target>
+            </trans-unit>
+            <trans-unit id="447">
+                <source>jda.team.content.developer</source>
+                <target>デジタルコンテンツ開発： Anna Wada（和田杏奈）</target>
+            </trans-unit>
+            <trans-unit id="448">
+                <source>jda.team.content.curation</source>
+                <target>ウェブシード　キュレーション：Momoko Howell (ハウエル・モモコ)
+                    <![CDATA[<br />]]>
+                    ウェブシード　キュレーション：Kae Nakahashi（昭和ボストン　中橋佳恵）
+                    <![CDATA[<br />]]>
+                    ウェブシード　キュレーション：Yumiko Takeda（昭和ボストン　竹田有美子）
+                </target>
+            </trans-unit>
+            <trans-unit id="449">
+                <source>jda.team.alumni.nick</source>
+                <target>プロジェクト・マネージャー： Nick Kapur, Postdoctoral Fellow（博士研究員　ニック・カプーア）</target>
+            </trans-unit>
+            <trans-unit id="450">
+                <source>jda.team.alumni.ej</source>
+                <target>EJ.ベンシング：プロジェ クトテクノロジー開発部門主任</target>
+            </trans-unit>
+            <trans-unit id="451">
+                <source>jda.team.alumni.molly</source>
+                <target>モーリー・デス　ジャーディン：アーカイブ開発マネージャー</target>
+            </trans-unit>
+            <trans-unit id="452">
+                <source>jda.team.alumni.konrad</source>
+                <target>Konrad M. Lawson: Project management コンラッド　M・ローソン：プロジェクトマネージメント</target>
+            </trans-unit>
+            <trans-unit id="453">
+                <source>jda.team.alumni.yuhki</source>
+                <target>Yuhki Yamashita: Project development and design ユウキ・ヤマシタ：プロジェクト開発・デザイン</target>
+            </trans-unit>
+            <trans-unit id="454">
+                <source>jda.team.alumni.arne</source>
+                <target>Arne Brasseur: Project development アーネ・ブラッセーウア：プロジェクト開発</target>
+            </trans-unit>
+            <trans-unit id="455">
+                <source>jda.team.alumni.jesse</source>
+                <target>Jesse Shapins: Zeega Platform design and development ジェス・シャーピン：ジーガ　プラットフォーム開発・デザイン</target>
+            </trans-unit>
+            <trans-unit id="456">
+                <source>jda.team.alumni.hikari</source>
+                <target>Hikari Senju: Interface Developer ヒカル・センジュ：インターフェース開発</target>
+            </trans-unit>
+            <trans-unit id="457">
+                <source>jda.team.alumni.luis</source>
+                <target>Luis Filipe Brandao: Zeega Platform design and development ルイス　フィリッペ・ブランド：　ジーガ　プラットフォーム開発・デザイン</target>
+            </trans-unit>
+            <trans-unit id="458">
+                <source>jda.team.alumni.james</source>
+                <target>James Burns: Zeega Platform design and development ジェームス・バーン：ジーガ　プラットフォーム開発・デザイン</target>
+            </trans-unit>
+            <trans-unit id="459">
+                <source>jda.team.alumni.kara</source>
+                <target>Kara Oehler: Zeega Platform design and development カラ・オイラー：ジーガ　プラットフォーム開発・デザイン</target>
+            </trans-unit>
+            <trans-unit id="460">
+                <source>jda.team.alumni.joseph</source>
+                <target>Joseph Bergen: Zeega Platform design and development ジョセフ・バーゲン：ジーガ　プラットフォーム開発・デザイン</target>
+            </trans-unit>
+            <trans-unit id="461">
+                <source>jda.team.alumni.selena</source>
+                <target>Selena Kim: Interface design セリナ・キム：　インターフェースデザイン</target>
+            </trans-unit>
+            <trans-unit id="462">
+                <source>jda.team.alumni.eric</source>
+                <target>Eric Dinmore: Collection curation エリック・ダンモア：　コレクション　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="463">
+                <source>jda.team.alumni.julie</source>
+                <target>Julie Zhang: Interface Developer ジュリア・ザング：　インターフェース開発</target>
+            </trans-unit>
+            <trans-unit id="464">
+                <source>jda.team.alumni.kyoko</source>
+                <target>Kyoko Shiga: Web seed and testimonial curation キョウコ・シガ：ウェブシード・証言　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="465">
+                <source>jda.team.alumni.ray</source>
+                <target>Ray Kameda: GIS data curation レイ・カマダ：GISデータ　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="466">
+                <source>jda.team.alumni.takamasa</source>
+                <target>Takamasa Nunogaki: Web seed curation タカマサ・ヌノガキ：ウェブシード　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="467">
+                <source>jda.team.alumni.alicia</source>
+                <target>Alicia Zhao: Web seed curation アリシア・ザオ：ウェブシード　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="468">
+                <source>jda.team.alumni.yeonjoo</source>
+                <target>Yeonjoo Kim: Web seed curation ヨンジョ・キム：ウェブシード　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="469">
+                <source>jda.team.alumni.ilsoo</source>
+                <target>Ilsoo Cho: Web seed curation イルソ・チョ：ウェブシード　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="470">
+                <source>jda.team.alumni.miho</source>
+                <target>Miho Segal: Web seed curation ミホ・セガル：ウェブシード　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="471">
+                <source>jda.team.alumni.grace</source>
+                <target>Grace Song: Web seed curation グレイス・ソング：ウェブシード　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="472">
+                <source>jda.team.alumni.sandy</source>
+                <target>Sandy Xu: Web seed and testimonial curation サンディ・シュウ：ウェブシード・証言　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="473">
+                <source>jda.team.alumni.atsuko</source>
+                <target>Atsuko Yamashita: Web seed curation アツコ・ヤマシタ：ウェブシード　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="474">
+                <source>jda.team.alumni.rei</source>
+                <target>Rei Yoshimine: Web seed curation レイ・ヨシミネ：ウェブシード　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="475">
+                <source>jda.team.alumni.taisei</source>
+                <target>Taisei Wake: Web seed curation and SNS promotion</target>
+            </trans-unit>
+			<trans-unit id="476">
+                <source>jda.firsttime.header</source>
+                <target>初めての方へ</target>
+            </trans-unit>
+            <trans-unit id="477">
+                <source>jda.firsttime.body</source>
+                <target>２０１１年東日本大震災デジタルアーカイブ（JDA) へようこそ。
+JDAの基本コンセプトの紹介ビデオ、及び使用説明ビデオ・テキストは、</target>
+            </trans-unit>
+            <trans-unit id="478">
+                <source>jda.howtouse.waku</source>
+                <target>わくエディターの利用について</target>
+            </trans-unit>
+            <trans-unit id="479">
+                <source>jda.howtouse.wakustart</source>
+                <target>はじめに</target>
+            </trans-unit>
+            <trans-unit id="480">
+                <source>jda.howtouse.wakunavi</source>
+                <target>Wakuの使い方</target>
+            </trans-unit>
+            <trans-unit id="481">
+                <source>jda.howtouse.wakuhakos</source>
+                <target>Hakoの作り方</target>
+            </trans-unit>
+            <trans-unit id="482">
+                <source>jda.howtouse.wakuanno</source>
+                <target>注釈のつけ方</target>
+            </trans-unit>
+			<trans-unit id="483">
+				<source>jda.howtouse.wakutext1</source>
+				<target>JDAのユーザは、個人的な整理方法あるいは公開プレゼンテーションとして、アーカイブの資料からコレクションを作ることができます。コレクションの作り方については、</target>
+			</trans-unit>
+			<trans-unit id="484">
+				<source>jda.howtouse.wakutext2</source>
+				<target> コレクションを作成した後JDA の「Waku」ツールを使うことにより、コレクションのキュレーションを行い、公開プレゼンテーションを作ることも可能です。以下はWakuツールの利用方法を紹介する、4 つの動画です。</target>
+			</trans-unit>
+			<trans-unit id="485">
+				<source>jda.about.videointro</source>
+				<target>ビデオ紹介</target>
+			</trans-unit>
+			<trans-unit id="486">
+				<source>jda.about.videoheader</source>
+				<target>東日本大震災デジタルアーカイブ紹介ムービー</target>
+			</trans-unit>
+			<trans-unit id="487">
+				<source>jda.about.videotext</source>
+				<target>2015年3月に震災の4周年を期に制作された、東日本大震災デジタルアーカイブを紹介するコンセプトムービーを閲覧するには、以下をご覧下さい。CCライセンス</target>
+			</trans-unit>
+			<trans-unit id="488">
+				<source>jda.about.videocc</source>
+				<target>表示3.0</target>
 			</trans-unit>
         </body>
     </file>
