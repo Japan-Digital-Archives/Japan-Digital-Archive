@@ -1786,6 +1786,9 @@ prompt those of us who were not affected to reflect on the way we live our lives
             <trans-unit id="448">
                 <source>jda.team.content.curation</source>
                 <target>Web Seed Curation: Momoko Howell
+                        <![CDATA[<br />]]>
+                        Web Seed Curation: Kae Nakahashi, Showa Boston Institute for Language and Culture
+			<![CDATA[<br />]]>
 			Web Seed Curation: Yumiko Takeda, Showa Boston Institute for Language and Culture
                 </target>
             </trans-unit>
@@ -1898,10 +1901,6 @@ prompt those of us who were not affected to reflect on the way we live our lives
                 <target>Taisei Wake: Web seed curation and SNS promotion</target>
             </trans-unit>            
 			<trans-unit id="476">
-	        <source>jda.team.alumni.kae</source>
-                <target> Kae Nakahashi, Showa Boston Institute for Language and Culture: Web Seed Curation</target>
-            </trans-unit>            
-			<trans-unit id="477">
                 <source>jda.firsttime.header</source>
                 <target>New Users</target>
             </trans-unit>
