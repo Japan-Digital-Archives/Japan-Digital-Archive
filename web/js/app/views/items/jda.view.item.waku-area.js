@@ -8,7 +8,7 @@
         el : $('#jda-collection-waku-area'),
 
         events: {
-            'click #create-waku-from-collection' : 'createWakuFromCollection'
+            'click #jda-collection-create-waku' : 'createWakuFromCollection'
         },
 
         initialize: function()
