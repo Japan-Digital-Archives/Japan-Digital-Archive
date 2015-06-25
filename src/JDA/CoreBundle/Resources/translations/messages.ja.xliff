@@ -1715,7 +1715,7 @@
 			</trans-unit>
 			<trans-unit id="425">
 				<source>jda.waku.title</source>
-				<target>Waku エディター</target>
+				<target>waku エディター</target>
 			</trans-unit>
             <trans-unit id="426">
                 <source>jda.aboutpartners.hidenoriwatanavetitle</source>
