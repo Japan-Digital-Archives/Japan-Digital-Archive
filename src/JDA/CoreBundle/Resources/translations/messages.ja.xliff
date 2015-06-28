@@ -1979,6 +1979,10 @@ JDAの基本コンセプトの紹介ビデオ、及び使用説明ビデオ・�
                 <source>jda.team.alumni.kae</source>
                 <target>Kae Nakahashi（昭和ボストン　中橋佳恵）: ウェブシード　キュレーション</target>
             </trans-unit>
+	    <trans-unit id="490">
+                <source>jda.team.webdeveloper.alex</source>
+                <target>プロジェクト技術部リーダー (Project Technical Lead)：Alex Horak（アレックス・ホラック）</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

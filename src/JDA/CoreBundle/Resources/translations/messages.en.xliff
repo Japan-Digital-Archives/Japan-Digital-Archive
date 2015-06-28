@@ -1953,6 +1953,10 @@ prompt those of us who were not affected to reflect on the way we live our lives
                 <source>jda.team.alumni.kae</source>
                 <target>Kae Nakahashi, Showa Boston Institute for Language and Culture: Web Seed Curation</target>
             </trans-unit>
+	    <trans-unit id="490">
+                <source>jda.team.webdeveloper.alex</source>
+                <target>Project Technical Lead: Alex Horax</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
