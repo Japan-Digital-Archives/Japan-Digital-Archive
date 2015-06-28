@@ -1975,6 +1975,10 @@ JDAの基本コンセプトの紹介ビデオ、及び使用説明ビデオ・�
 				<source>jda.about.videocc</source>
 				<target>表示3.0</target>
 			</trans-unit>
+	    <trans-unit id="489">
+                <source>jda.team.alumni.kae</source>
+                <target>Kae Nakahashi（昭和ボストン　中橋佳恵）: ウェブシード　キュレーション</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
