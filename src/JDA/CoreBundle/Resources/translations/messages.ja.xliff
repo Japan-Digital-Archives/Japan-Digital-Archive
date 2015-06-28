@@ -1758,8 +1758,8 @@
                 <target>所長補佐：Stacie Matsumoto（ステイシー・マツモト）</target>
             </trans-unit>
             <trans-unit id="436">
-                <source>jda.team.webdeveloper.corinne</source>
-                <target>プロジェクト技術部リーダー：Corinne Curcie（コリン・カーシー）</target>
+                <source>jda.team.alumni.corinne</source>
+                <target>Corinne Curcie（コリン・カーシー）:プロジェクト技術部リーダー</target>
             </trans-unit>
             <trans-unit id="437">
                 <source>jda.team.webdeveloper.zahra</source>
@@ -1975,6 +1975,14 @@ JDAの基本コンセプトの紹介ビデオ、及び使用説明ビデオ・�
 				<source>jda.about.videocc</source>
 				<target>表示3.0</target>
 			</trans-unit>
+	    <trans-unit id="489">
+                <source>jda.team.alumni.kae</source>
+                <target>Kae Nakahashi（昭和ボストン　中橋佳恵）: ウェブシード　キュレーション</target>
+            </trans-unit>
+	    <trans-unit id="490">
+                <source>jda.team.webdeveloper.alex</source>
+                <target>プロジェクト技術部リーダー：Alex Horak（アレックス・ホラック）</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
