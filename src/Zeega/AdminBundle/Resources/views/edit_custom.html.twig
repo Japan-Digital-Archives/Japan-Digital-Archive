@@ -2,7 +2,8 @@
 
 {% block actions %}
     <div class="sonata-actions">
-
+	    <a class="btn sonata-action-element" href="#" target="_blank" id="uri-link-btn">Internet Archive Link</a>
+	
             <a class="btn sonata-action-element" href="#" target="_blank" id="link-link-btn">Live Link</a>
 			
         {% if admin.hasroute('show') and admin.id(object) and admin.isGranted('VIEW', object) and admin.show|length > 0 %}
