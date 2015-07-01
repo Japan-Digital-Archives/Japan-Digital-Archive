@@ -1713,10 +1713,6 @@
 				<source>jda.bookmarklet.browser</source>
 				<target>* このブックマークレットはGoogle Chrome のブラウザーに最適化されています。</target>
 			</trans-unit>
-			<trans-unit id="425">
-				<source>jda.waku.title</source>
-				<target>waku エディター</target>
-			</trans-unit>
             <trans-unit id="426">
                 <source>jda.aboutpartners.hidenoriwatanavetitle</source>
                 <target>Hidenori Watanave</target>
@@ -1977,7 +1973,11 @@ JDAの基本コンセプトの紹介ビデオ、及び使用説明ビデオ・�
 			</trans-unit>
             <trans-unit id="489">
                 <source>jda.my.waku</source>
-                <target>wakuを作成</target>
+                <target>Wakuを作成</target>
+            </trans-unit>
+            <trans-unit id="490">
+                <source>jda.my.wakuInformational</source>
+                <target>Waku使うことによって、このコレクションをマルチメディアな物語へと構築することができます。Wakuはキュレートされた震災記録から個人の物語を紡ぎ、発表、シェアできるプラットフォームです。ぜひお試しください!</target>
             </trans-unit>
         </body>
     </file>
