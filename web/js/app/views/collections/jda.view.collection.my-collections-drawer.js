@@ -94,10 +94,6 @@
 				this.switchActiveCollection(activeCollectionID);
 			}
 
-			$(this.el).find('#create-waku-from-collection').click(function(){
-				_this.createWakuFromCollection(model.id);
-			})
-
 			$(this.el).find('#zeega-my-collections-items').droppable({
 				accept : '.thumb-fancymedia, .list-media',
 				hoverClass : 'zeega-my-collections-items-dropping',
@@ -283,11 +279,6 @@
 			}
 		},
 
-		createWakuFromCollection : function(id){
-			console.log('create waku from collection');
-			console.log(id);
-		},
-		
 		createNewCollection : function(){
 			$('#zeega-my-collections-items-thumbs li').fadeTo(100,0.2);
 			$('#zeega-my-collections-items-thumbs').spin();
