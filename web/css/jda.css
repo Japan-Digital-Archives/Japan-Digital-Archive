@@ -373,14 +373,14 @@ margin-left: -20px;
 	margin:12px;
 	display:none;
 }
-#jda-collection-informational:after
+#jda-collection-informational:before
 {
 	position:relative;
 	border-left:solid transparent 10px;
 	border-right:solid transparent 10px;
 	border-bottom:solid rgb(76, 178, 208) 10px;
 	width:350px;
-	bottom:96px;
+	top:-25px;
 	content:" ";
 	left:10px;
 	z-index:2;
@@ -391,7 +391,8 @@ margin-left: -20px;
 	background:none;
 	box-shadow:none;
 	float:right;
-	margin:11px;
+	top:-17px;
+	font-size:1.4em;
 }
 #jda-collection-close-informational:active
 {
@@ -399,7 +400,7 @@ margin-left: -20px;
 }
 #jda-collection-waku-description
 {
-	margin:16px 0 0px 17px;
+	margin:0px 33px 14px 18px;
 	color:white;
 }
 
