@@ -93,8 +93,6 @@
 				var activeCollectionID = this.collection.at(0).id;
 				this.switchActiveCollection(activeCollectionID);
 			}
-			
-			
 
 			$(this.el).find('#zeega-my-collections-items').droppable({
 				accept : '.thumb-fancymedia, .list-media',
@@ -280,7 +278,7 @@
 				this.render();
 			}
 		},
-		
+
 		createNewCollection : function(){
 			$('#zeega-my-collections-items-thumbs li').fadeTo(100,0.2);
 			$('#zeega-my-collections-items-thumbs').spin();
