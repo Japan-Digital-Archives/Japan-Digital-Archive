@@ -1,4 +1,4 @@
-
+﻿
 
 {# src/Zeega/\CoreBundle\/Resources/views/Widget/fail.widget.html.twig #}
 
@@ -121,14 +121,15 @@
         <div class='ingest-info'> <input type="date" id="datepicker"> </div>
         </div>
 
-        
         <h3>Language:</h3>
         <div id="Language">
         <div class='ingest-info'>
         <input type="checkbox" class="languageChk" id="englishChk" value="English">English / 英語<br>
         <input type="checkbox" class="languageChk" id="japaneseChk" value="Japanese">Japanese / 日本語<br>
         <input type="checkbox" class="languageChk" id="chineseChk" value="Chinese">Chinese / 中国語<br>
-		<input type="checkbox" class="languageChk" id="koreanChk" value="Korean">Korean / 韓国語<br>
+	<input type="checkbox" class="languageChk" id="koreanChk" value="Korean">Korean / 韓国語<br>
+	<input type="checkbox" class="languageChk" id="frenchChk" value="French">French / フランス語<br>
+	<input type="checkbox" class="languageChk" id="othersChk" value="Others">Others / その他<br>
         </div>
         </div>
 
@@ -264,19 +265,19 @@
         	return;
 		}
 		
-		var checkboxes = document.getElementsByClassName("languageChk");
-		var lent = checkboxes.length;
-		var checkedCount = 0;
-		for (i = 0; i < lent; i++) {
-			if (checkboxes[i].checked) {
-				checkedCount+=1;
-			}
+	var checkboxes = document.getElementsByClassName("languageChk");
+	var lent = checkboxes.length;
+	var checkedCount = 0;
+	for (i = 0; i < lent; i++) {
+		if (checkboxes[i].checked) {
+			checkedCount+=1;
 		}
+	}
 
-		if (checkedCount == 0) {
-			alert("Please select a language before submitting.");
-			return;
-		}
+	if (checkedCount == 0) {
+		alert("Please select a language before submitting.");
+		return;
+	}
 
     	var Browser = jda.module("browser");
     	
@@ -335,9 +336,11 @@
 
 
           postObj.attributes.language = $("#englishChk").is(":checked") ? "English|" : "";
-		  postObj.attributes.language += $("#japaneseChk").is(":checked") ? "Japanese|" : "";
-		  postObj.attributes.language += $("#chineseChk").is(":checked") ? "Chinese|" : "";
-		  postObj.attributes.language += $("#koreanChk").is(":checked") ? "Korean|" : "";
+	  postObj.attributes.language += $("#japaneseChk").is(":checked") ? "Japanese|" : "";
+	  postObj.attributes.language += $("#chineseChk").is(":checked") ? "Chinese|" : "";
+	  postObj.attributes.language += $("#koreanChk").is(":checked") ? "Korean|" : "";
+	  postObj.attributes.language += $("#frenchChk").is(":checked") ? "French|" : "";
+	  postObj.attributes.language += $("#othersChk").is(":checked") ? "Others|" : "";
           
           if ($("#lat").val() != "") {
             postObj.media_geo_latitude = parseFloat($("#lat").val());

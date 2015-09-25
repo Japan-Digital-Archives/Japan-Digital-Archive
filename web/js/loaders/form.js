@@ -213,6 +213,8 @@ require(loadFiles, function () {
                 postObj.attributes.language += $("#japaneseChk").is(":checked") ? "Japanese|" : "";
                 postObj.attributes.language += $("#chineseChk").is(":checked") ? "Chinese|" : "";
                 postObj.attributes.language += $("#koreanChk").is(":checked") ? "Korean|" : "";
+		postObj.attributes.language += $("#frenchChk").is(":checked") ? "French|" : "";
+		postObj.attributes.language += $("#othersChk").is(":checked") ? "Others|" : "";
 
                 postObj.published = 0;
                 postObj.archive = "Seeds";
