@@ -296,7 +296,11 @@ $(document).ready(function(){
       case 'Video':
 	var source;
 	var controls;
-    	switch( $('#item').data("layer_type").toLowerCase() )
+        var layer_type = $('#item').data("layer_type").toLowerCase();
+        if (layer_type.lastIndexOf("outside-", 0) === 0) {
+	    layer_type = layer_type.substring(8);
+	}
+    	switch( layer_type )
     	{
             case 'youtube':
                 var yt_uri = $('#item').data('uri');
