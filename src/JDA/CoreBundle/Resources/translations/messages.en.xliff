@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
@@ -1960,6 +1960,14 @@ prompt those of us who were not affected to reflect on the way we live our lives
             <trans-unit id="492">
                 <source>jda.my.wakuInformational</source>
                 <target>Construct a media rich narrative using this collection on the Waku. Waku is a story telling platform for curation and presentation, give it a try!</target>
+            </trans-unit>
+            <trans-unit id="493">
+              <source>jda.form.contribute.language.french</source>
+              <target>French</target>
+            </trans-unit>
+	    <trans-unit id="494">
+              <source>jda.form.contribute.language.others</source>
+              <target>Others</target>
             </trans-unit>
         </body>
     </file>
