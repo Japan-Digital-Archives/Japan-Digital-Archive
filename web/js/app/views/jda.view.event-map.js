@@ -154,7 +154,7 @@
 			var heatmapLayer = new Heatmap.Layer("Heatmap");
 			colorGradient = this.getColorGradient(this.getColors(), classifications);
 			heatmapLayer.setGradientStops(colorGradient);
-
+			cellSize = this.getCellSize(facetHeatmap, this.map);
 			geodeticProjection = new OpenLayers.Projection("EPSG:4326");
 			latitudeStepSize = (facetHeatmap.maxY - facetHeatmap.minY) / facetHeatmap.rows
 			longitudeStepSize = (facetHeatmap.maxX - facetHeatmap.minX) / facetHeatmap.columns
@@ -166,7 +166,7 @@
 			    if (currentRow == null) return;
 			    jQuery.each(currentRow, function(columnNumber, value){
 				if (value == null || value <= 0) return;
-				cellSize = this.getCellSize(facetHeatmap, this.map);
+
 				latitude = facetHeatmap.minY + ((facetHeatmap.rows - rowNumber- 1) * latitudeStepSize); 
 				longitude = facetHeatmap.minX + (columnNumber * longitudeStepSize);
 				geodetic = new OpenLayers.LonLat(longitude, latitude); 
