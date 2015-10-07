@@ -14,8 +14,10 @@
 		timeSliderLoaded : false,
 		japanMapUrl : sessionStorage.getItem("japanMapUrl"),
 		geoUrl : sessionStorage.getItem("geoServerUrl"),
+
 		initialize : function()
 		{
+		    foo = this;
 
 			OpenLayers.Layer.Grid.newRatio = 1.5;
 
@@ -82,6 +84,16 @@
 		},
 
 		load : function(){
+
+		    _this = this;
+/*
+		    this.map.events.register("moveend", this.map, function(){
+			_this.sendSolrRequest();
+		    });
+		    this.map.events.register("movezoom", this.map, function(){
+			_this.sendSolrRequest();
+		    });
+*/
 			this.resetMapSize();
 			$('.olPopup').remove();
 
@@ -97,6 +109,224 @@
 				this.initTimeSlider();
 			}
 		},
+
+		    sendSolrRequest : function()
+		    {
+			_this = this;
+			//solrUrl = "http://localhost:8984/solr/jda/select?q=*:*";
+			solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select?q=*:*";
+			jQuery.ajax({
+			    url: solrUrl,
+			    dataType: 'JSONP',
+			    data: {
+				q: '*:*',
+				wt: 'json',
+				facet: true,
+				'facet.heatmap': "bbox_rpt",
+				'facet.heatmap.distErrPct': 0.1,
+				'facet.heatmap.geom': this._mapViewToWkt(this.map),
+				fq: "bbox_rpt"  + this._mapViewToEnvelope(this.map)
+			    },
+			    jsonp: 'json.wrf',
+			    success: function(data) {
+				solrResponse = data;
+				console.log("solr response received");
+				_this.processSolrResult(solrResponse);
+			    }
+			});
+		    },
+
+		    processSolrResult : function(data) 
+		    {
+			facetHeatmap = this._solrResponseToObject(data);
+			this.classifications = this.getClassifications(facetHeatmap);
+			this.renderHeatmap(facetHeatmap, classifications);
+		    },
+
+		    renderHeatmap : function(facetHeatmap, classifications)
+		    {
+			_this = this;
+			maxValue = classifications[classifications.length - 1] + .001;
+
+			var oldLayers = this.map.getLayersByName("Heatmap");
+			if (oldLayers.length > 0)
+			    this.map.removeLayer(oldLayers[0]);
+			var heatmapLayer = new Heatmap.Layer("Heatmap");
+			colorGradient = this.getColorGradient(this.getColors(), classifications);
+			heatmapLayer.setGradientStops(colorGradient);
+
+			geodeticProjection = new OpenLayers.Projection("EPSG:4326");
+			latitudeStepSize = (facetHeatmap.maxY - facetHeatmap.minY) / facetHeatmap.rows
+			longitudeStepSize = (facetHeatmap.maxX - facetHeatmap.minX) / facetHeatmap.columns
+			countsArray = facetHeatmap.counts_ints2D;
+			//testData = this.generateTestData(facetHeatmap.rows, facetHeatmap.columns, classifications);
+			// iterate over cell values and create heatmap items
+			jQuery.each(countsArray, function(rowNumber, currentRow){
+			//jQuery.each(testData, function(rowNumber, currentRow){
+			    if (currentRow == null) return;
+			    jQuery.each(currentRow, function(columnNumber, value){
+				if (value == null || value <= 0) return;
+				cellSize = this.getCellSize(facetHeatmap, this.map);
+				latitude = facetHeatmap.minY + ((facetHeatmap.rows - rowNumber- 1) * latitudeStepSize); 
+				longitude = facetHeatmap.minX + (columnNumber * longitudeStepSize);
+				geodetic = new OpenLayers.LonLat(longitude, latitude); 
+				transformed = geodetic.transform(geodeticProjection, _this.map.getProjectionObject());
+				heatmapLayer.addSource(new Heatmap.Source(transformed, cellSize, Math.min(1., value / maxValue)));
+			    }
+				       )});
+			heatmapLayer.setOpacity(0.40);
+			this.map.addLayer(heatmapLayer);
+		    },
+		    
+		    // returns the count of how many values are in each classifications
+		    // it is useful for test purposes
+		    getClassificationCounts : function()
+		    {
+			var counts = [];
+			var classifications = this.classifications;
+			jQuery.each(classifications, function(index, value){
+			    counts[index] = 0;
+			});
+			var array = facetHeatmap.counts_ints2D;
+			jQuery.each(array, function(rowNumber, currentRow){
+			    if (currentRow == null) return;
+			    jQuery.each(currentRow, function(columnNumber, value){
+				for (i = 0 ; i < classifications.length ; i++)
+				{
+				    if (value <= classifications[i])
+				    {
+					counts[i]++;
+					return;
+				    }
+				}
+			    })});
+		        return counts;
+		    },
+
+		    // create vertial bars of colors on screen
+		    // typically called after regular Solr request has completed
+		    generateTestData : function(numberOfRows, numberOfColumns, classifications)
+		    {
+			var returnArray = [];
+			var numberOfBars = classifications.length;
+			var barSize = Math.floor(numberOfColumns / numberOfBars);
+			for (var i = 0 ; i < numberOfRows ; i++)
+			{
+			    returnArray[i] = [];
+			    for (var j = 0 ; j < numberOfColumns ; j++)
+			    {
+				index = Math.floor(j / barSize);
+				returnArray[i][j] = classifications[index];
+			    }
+			}
+			return returnArray;
+		    },
+		    
+
+		    getClassifications : function(facetHeatmap)
+		    {
+			flatArray = [];
+			for (var i = 0; i < facetHeatmap.counts_ints2D.length; i++) 
+			{
+			    if (facetHeatmap.counts_ints2D[i] != null)  // entire row can be null
+				for (var j = 0 ; j < facetHeatmap.counts_ints2D[i].length ; j++)
+				    if (facetHeatmap.counts_ints2D[i][j] != null)
+					flatArray = flatArray.concat(facetHeatmap.counts_ints2D[i][j]);
+			};
+			series = new geostats(flatArray);
+			numberOfClassifications = this.getColors().length
+			classifications = series.getClassJenks(numberOfClassifications);
+			// probably should check for multiple 0 in array
+			return classifications;
+		    },
+
+		    // return heatmap cell size in pixels
+		    getCellSize: function(facetHeatmap, map)
+		    {
+			var mapSize = map.getSize();
+			var widthInPixels = mapSize.w;
+			var heightInPixels = mapSize.h;
+			var heatmapRows = facetHeatmap.rows;
+			var heatmapColumns = facetHeatmap.columns;
+			var sizeX = widthInPixels / heatmapColumns;
+			var sizeY = heightInPixels / heatmapRows;
+			var size = Math.max(sizeX, sizeY);
+			console.log("getCellSize = " + size + ", " + sizeX +":"+ sizeY); 
+			return size; 
+		    },
+
+		    getColors: function()
+		    {
+                        var colors = [0x000000, 0xffffb2ff, 0xfed976ff, 0xfeb24cff, 0xfd8d3cff, 0xf03b20ff, 0xbd0026ff];   // brewer
+                        //var colors = [0x00000000, 0x0000dfff, 0x00effeff, 0x00ff42ff, 0xfeec30ff, 0xff5f00ff, 0xff0000ff]; 
+			return colors;
+		    },
+
+		    // OpenLayers gradient is hash of values and colors
+		    getColorGradient: function(colors, classifications)
+		    {
+			colorGradient = {};
+			maxValue = classifications[classifications.length - 1];
+			for (var i = 0 ; i < classifications.length ; i++)
+			{
+			    value = classifications[i];
+			    scaledValue = value / maxValue;
+			    if (scaledValue < 0)
+				scaledValue = 0;
+			    colorGradient[scaledValue] = colors[i];
+			}
+			return colorGradient;
+		    },
+
+
+		    _solrResponseToObject : function(data)
+		    {
+			// Solr object is array of name/value pairs, convert to hash
+			heatmap = {};
+			heatmapArray = data.facet_counts.facet_heatmaps['bbox_rpt'];
+			jQuery.each(heatmapArray, function(index, value) {
+			    if ((index % 2) == 0) {
+				heatmap[heatmapArray[index]] = heatmapArray[index + 1];
+			    }});
+			return heatmap;
+		    },
+
+		    _mapViewToEnvelope: function(map) {
+			extent = map.getExtent();
+			lowerLeft = new OpenLayers.LonLat(extent.left, extent.bottom);
+			upperRight = new OpenLayers.LonLat(extent.right, extent.top);
+			geodeticProjection = new OpenLayers.Projection("EPSG:4326");
+			lowerLeftGeodetic = lowerLeft.transform(map.getProjectionObject(), geodeticProjection);
+			upperRightGeodetic = upperRight.transform(map.getProjectionObject(), geodeticProjection);
+			envelope = ':"Intersects(ENVELOPE(' + lowerLeftGeodetic.lon + ', ' + upperRightGeodetic.lon + ', ' + upperRightGeodetic.lat + ', ' + lowerLeftGeodetic.lat + '))"';
+			return envelope;
+		    },
+
+		    _mapViewToWkt: function(map) {
+			extent = map.getExtent();
+			lowerLeft = new OpenLayers.LonLat(extent.left, extent.bottom);
+			upperRight = new OpenLayers.LonLat(extent.right, extent.top);
+			geodeticProjection = new OpenLayers.Projection("EPSG:4326");
+			lowerLeftGeodetic = lowerLeft.transform(map.getProjectionObject(), geodeticProjection);
+			upperRightGeodetic = upperRight.transform(map.getProjectionObject(), geodeticProjection);
+			wkt = '["' + lowerLeftGeodetic.lon + ' ' + lowerLeftGeodetic.lat + '" TO "' + upperRightGeodetic.lon + ' ' + upperRightGeodetic.lat + '"]';
+			return wkt;
+		    },
+
+
+		    showHeatmapTest : function(data)
+		    {
+			heatmapLayer = new Heatmap.Layer("Heatmap");
+
+			geodetic = new OpenLayers.LonLat(139.5, 35.5);  // Tokyo test point
+			geodeticProjection = new OpenLayers.Projection("EPSG:4326");
+			transformed = geodetic.transform(geodeticProjection, this.map.getProjectionObject());
+                        heatmapLayer.addSource(new Heatmap.Source(transformed, 200, .9));
+			heatmapLayer.setOpacity(0.50);
+			this.map.addLayer(heatmapLayer);
+			console.log("added heatmap layer");
+			return heatmapLayer;
+		    },
 
 		initMap : function(){
 			console.log("Initializing Map");
@@ -165,21 +395,31 @@
 					_this.map.getLayersByName('cite:item - Tiled')[0].events.register('loadstart','ok',function(){$('.jda-map-loader').show();});
 					_this.map.getLayersByName('cite:item - Tiled')[0].events.register('loadend','ok',function(){$('.jda-map-loader').fadeOut('fast');});
 					_this.initTimeSlider(_this.map);
+				    _this.sendSolrRequest();
 				}
 			);
 		},
 
 		startMapListeners : function(map){
 			var _this = this;
+		    this.map.events.register("moveend", map, function(){
+			_this.sendSolrRequest();
+		    });
+		    this.map.events.register("movezoom", map, function(){
+			_this.sendSolrRequest();
+		    });
+
+		    console.log("startMapListeners");
 			this.map.events.register('click', map, function(e){
 				var event=e;
 				var lonlat =map.getLonLatFromViewPortPx(e.xy).transform(_this.map.getProjectionObject(),new OpenLayers.Projection("EPSG:4326"));
 				//if (lonlat.lat != null && lonlat.lat != null)
-				var mapSelections =  new Browser.Items.MapCollection([],{SQL:jda.app.resultsView.getSQLSearchString(lonlat.lon,lonlat.lat)});
+			    mapSelections =  new Browser.Items.MapCollection([],{SQL:jda.app.resultsView.getSQLSearchString(lonlat.lon,lonlat.lat), 
+										 mouseLongitude: lonlat.lon, mouseLatitude: lonlat.lat});
 				
 				$('.olPopup').remove();
-				mapSelections.fetch({success:function(response,collection){
-						
+			    mapSelections.fetch({error: function(arg, arg2, arg3, arg4){console.log("error!!!");baz = arg;baz2=arg2;baz3=arg3;baz4=arg4}, success:function(response,collection){
+				    console.log("in MapCollection fetch success function");
 						_this.mapViewCollection = new Browser.Items.Collections.Views.MapPopup({ collection : mapSelections});
 
 

@@ -250,6 +250,10 @@
 		{
 
       this.elemId = Math.floor(Math.random()*10000);
+		    quux = this;
+		    var text = this.model.get('text');
+		    if (!text) text = '';
+		    if (text instanceof Array) text = text[0];
 			/** Temp Fix **/
 			var blanks = {
 				sourceLink : this.model.get('uri'),
@@ -257,7 +261,7 @@
 				description : this.model.get('description'),
 				creator : this.model.get('author'),
 				tags : this.model.get('tags'),
-				text : this.model.get('text').replace(/\r\n/gi, '<br/>'),
+				text : text.replace(/\r\n/gi, '<br/>'), // this.model.get('text').replace(/\r\n/gi, '<br/>'),
 				randId: this.elemId
 			};
 			

@@ -72,31 +72,84 @@
     });
 
 
+
     Browser.Items.MapCollection = Backbone.Collection.extend({
 
-        model:Browser.Items.Model,
-        base : sessionStorage.getItem("geoServerUrl"),
-        initialize : function(models,options){
+	model:Browser.Items.Model,
+	base : sessionStorage.getItem("geoServerUrl"),
+	initialize : function(models,options){
+	    console.log("in MapCollection.initialize");
+	    this.latitude = options.mouseLatitude;
+	    this.longitude = options.mouseLongitude;
             _.extend(this,options);
 
-        },
+	},
         url : function()
-        {
-            return this.base+'getFeatureInfo&SQL='+this.SQL;
+	{
+	    console.log("in MapCollection.url");
+            return "http://dev.jdarchive.org:8983/solr/jda/select?wt=json";
+	    //return this.base+'getFeatureInfo&SQL='+this.SQL;
 
         },
+
+	fetch : function(options) {
+	    console.log("in MapCollection.fetch");
+	    _this = this;
+	    solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select";
+	    pt = this.latitude + ',' + this.longitude;
+	    jQuery.ajax({
+		url: solrUrl,
+		dataType: 'JSONP',
+		data: {
+		    q: '*:*',
+		    rows: 50,
+		    wt: 'json',
+		    fq: '{!geofilt}',
+		    sfield: 'bbox_rpt',
+		    d: 10,
+		    pt: pt,
+		    sort: "geodist() asc"
+		    //fq: "bbox_rpt"  + this._mapViewToEnvelope(this.map)
+		},
+		jsonp: 'json.wrf',
+		success: function(data) {
+		    solrResponse = data;
+		    console.log("in MapCollection.fetch, solr response received");
+		    solrItems = data.response.docs;
+		    first = solrItems[0];
+		    browser = jda.module("browser");
+		    model = new browser.Items.Model(first);
+		    _this.reset();  // remove items
+		    _.each(solrItems, function(element, index, list){this.add(element);}, _this);
+		    success = options.success;
+		    success(data.response.docs, _this);
+		},
+		error: function(arg) {
+		    console.log("in MapCollection.fetch, error!!");
+		    error = options.error;
+		    error(arg, arg, arg);
+		}
+	    });
+
+	},
 
         parse : function(response)
         {
+	    console.log("in MapCollection.parse")
+	    r = response;
+		
+	    return response.response.docs;
+/*
             if(!_.isNull(response)){
                 return response.results.splice(0,Math.max(response.results.length,50));
             }
             else{
                 return [];
             }
-
+*/
         }
     });
+
 
     Browser.Router = Backbone.Router.extend({ /* ... */ });
 

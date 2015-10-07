@@ -18,7 +18,8 @@
 			//Call parent class to do captioning and metadata
 			Browser.Views._Fancybox.prototype.render.call(this, obj); //This is like calling super()
 			var tweet = this.model.get('text');
-
+		        if (!tweet) tweet = '';
+		        if (tweet instanceof Array) tweet = tweet[0];
 			//Fill in tweet-specific stuff
 			var blanks = {
 				tweet : linkifyTweet(tweet),
