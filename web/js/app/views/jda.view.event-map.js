@@ -84,16 +84,10 @@
 		},
 
 		load : function(){
+		    console.log('in EventMap.load. ');
 
-		    _this = this;
-/*
-		    this.map.events.register("moveend", this.map, function(){
-			_this.sendSolrRequest();
-		    });
-		    this.map.events.register("movezoom", this.map, function(){
-			_this.sendSolrRequest();
-		    });
-*/
+		    var _this = this;
+
 			this.resetMapSize();
 			$('.olPopup').remove();
 
@@ -104,28 +98,47 @@
 						'SQL' : jda.app.resultsView.getSQLSearchString()
 					});
 				this.initTimeSlider();
+			    this.sendSolrRequest();
+			    console.log('in EventMap.load, sql = ', jda.app.resultsView.getSQLSearchString());
 			}
 			else{
 				this.initTimeSlider();
+			        this.sendSolrRequest();
 			}
+
 		},
 
 		    sendSolrRequest : function()
 		    {
-			_this = this;
+			var _this = this;
 			//solrUrl = "http://localhost:8984/solr/jda/select?q=*:*";
-			solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select?q=*:*";
+			solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select";
+			var searchParams = jda.app.resultsView.getSearch();
+			var query = "*:*";
+			if (searchParams.q)
+			    query = "text:" + searchParams.q + "";
+			var mediaFilter = "layer_type:*";
+			var mediaType = searchParams.media_type;
+			if (mediaType)
+			    mediaFilter = "layer_type:" + mediaType;
+			console.log("mediaFilter = ", mediaFilter);
+			var dates = this.getDatesIso();
+			var timeFilter = "media_date_created:[" + dates[0] + " TO " + dates[1] + "}";
+			solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select?" + "fq=" + mediaFilter + "&fq=" + timeFilter;
+			console.log("in sendSolrRequest with query = ", query);
 			jQuery.ajax({
 			    url: solrUrl,
 			    dataType: 'JSONP',
 			    data: {
-				q: '*:*',
+				q: query,
 				wt: 'json',
 				facet: true,
 				'facet.heatmap': "bbox_rpt",
 				'facet.heatmap.distErrPct': 0.1,
 				'facet.heatmap.geom': this._mapViewToWkt(this.map),
-				fq: "bbox_rpt"  + this._mapViewToEnvelope(this.map)
+				fq: "bbox_rpt"  + this._mapViewToEnvelope(this.map),
+				fq: mediaFilter,
+				fq: timeFilter
 			    },
 			    jsonp: 'json.wrf',
 			    success: function(data) {
@@ -138,7 +151,20 @@
 
 		    processSolrResult : function(data) 
 		    {
+			var oldLayers = this.map.getLayersByName("Heatmap");
+			if (oldLayers.length > 0)
+			    this.map.removeLayer(oldLayers[0]);
+			if (solrResponse.response.numFound == 0) 
+			{
+			    console.log("numFound = 0");
+			    return;
+			}
 			facetHeatmap = this._solrResponseToObject(data);
+			if (facetHeatmap.counts_ints2D == null)
+			{
+			    console.log("no heatmap counts");
+			    return;
+			}
 			this.classifications = this.getClassifications(facetHeatmap);
 			this.renderHeatmap(facetHeatmap, classifications);
 		    },
@@ -148,9 +174,6 @@
 			_this = this;
 			maxValue = classifications[classifications.length - 1] + .001;
 
-			var oldLayers = this.map.getLayersByName("Heatmap");
-			if (oldLayers.length > 0)
-			    this.map.removeLayer(oldLayers[0]);
 			var heatmapLayer = new Heatmap.Layer("Heatmap");
 			colorGradient = this.getColorGradient(this.getColors(), classifications);
 			heatmapLayer.setGradientStops(colorGradient);
@@ -330,7 +353,6 @@
 
 		initMap : function(){
 			console.log("Initializing Map");
-
 			OpenLayers.IMAGE_RELOAD_ATTEMPTS = 5;
 			OpenLayers.DOTS_PER_INCH = 25.4 / 0.28;
 
@@ -659,7 +681,7 @@
 			oldValues =  $("#range-slider").slider( "option", "values" );
 			$( "#range-slider" ).slider( "option", "values", [seconds, oldValues[1]] );
 			this.setStartDateTimeSliderBubble(seconds);
-		},
+	},
 
 		setEndDateTimeSliderHandle : function(){
 			dateMillis = $("#end-date").datepicker('getDate').getTime();
@@ -683,7 +705,16 @@
 			var d = new Date(val*1000);
 			$("#end-date").val(d.format('mmmm d, yy'));
 			$("#end-time").val(d.format("h:MM tt"));
-		}
+		},
+
+		    getDatesIso : function ()
+		    {
+			var dates = jQuery("#range-slider").slider( "option", "values" )
+			// [1294112504, 1444324260.853]
+			var date1 = new Date(dates[0] * 1000);
+			var date2 = new Date(dates[1] * 1000);
+			return [date1.toISOString(), date2.toISOString()];
+		    }
 	});
 
 
