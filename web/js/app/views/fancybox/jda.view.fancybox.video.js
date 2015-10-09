@@ -70,7 +70,11 @@ function fixVimeoUri(uri) {
 		
 		Browser.Views._Fancybox.prototype.afterShow.call(this);
 		var source;
-		switch( this.model.get("layer_type").toLowerCase() )
+                var layer_type = this.model.get("layer_type").toLowerCase();
+                if (layer_type.lastIndexOf("outside-", 0) === 0) {
+		    layer_type = layer_type.substring(8);
+		}
+		switch( layer_type )
 			{
 				case 'youtube':
                                         var uri = this.model.get('uri');

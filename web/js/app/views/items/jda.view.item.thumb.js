@@ -54,8 +54,8 @@ function fixYoutubeUri(uri) {
 
                         // Thumbnail for YouTube video
                         if (this.model.get("media_type") === "Video" &&
-                            this.model.get("layer_type").toLowerCase() ===
-                              "youtube" &&
+			    /youtube$/.test(
+				this.model.get("layer_type").toLowerCase()) &&
                             !this.model.get("thumbnail_url")) {
                           var uri = this.model.get("uri");
                           var yt_id = fixYoutubeUri(uri);
