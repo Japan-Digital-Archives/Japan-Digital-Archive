@@ -5,9 +5,7 @@
 {% block title %}<title>{% trans %}jda.home.title{% endtrans %}</title>{% endblock %}
 
  
-
 {% block stylesheets %}
-
 
 
 <link type="text/css" href="{{ asset('js/lib/jquery-ui-1.8.18.custom/css/smoothness/jquery-ui-1.8.18.custom.css')}}" rel="Stylesheet" />
@@ -108,7 +106,7 @@ body {
 
 				<a href="#" id="jda-go-button" class="btn btn-info btn-large">{% trans %}jda.home.go{% endtrans %}</a>
 				<span class="badge badge-inverse" id="zeega-search-help" data-content='{% trans %}jda.search.tips1{% endtrans %}<br><br>{% trans %}jda.search.tips2{% endtrans %}<br><br>{% trans %}jda.search.tips3{% endtrans %}'>?</span>
-        <a href="{{path('advsearch', { '_locale': locale })}}" id="jda-search-advancedoptions" >{% trans %}jda.advanced.search{% endtrans %}</a>
+                <a href="{{path('advsearch', { '_locale': locale })}}" id="jda-search-advancedoptions" >{% trans %}jda.advanced.search{% endtrans %}</a>
 			</div>
 
 		</div>
