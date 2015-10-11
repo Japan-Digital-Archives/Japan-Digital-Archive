@@ -4,10 +4,8 @@
 
 {% block title %}<title>{% trans %}jda.home.title{% endtrans %}</title>{% endblock %}
 
-
-
+ 
 {% block stylesheets %}
-
 
 
 <link type="text/css" href="{{ asset('js/lib/jquery-ui-1.8.18.custom/css/smoothness/jquery-ui-1.8.18.custom.css')}}" rel="Stylesheet" />
@@ -94,13 +92,13 @@ body {
 							<option value="Video">{% trans %}jda.search.video{% endtrans %}</option>
 							<option value="Audio">{% trans %}jda.search.audio{% endtrans %}</option>
 							<option value="Tweet">{% trans %}jda.search.tweet{% endtrans %}</option>
-							<option value="Document">{% trans %}jda.search.document{% endtrans %}</option>
-							<option value="Article">{% trans %}jda.search.article{% endtrans %}</option>
 							<option value="Website">{% trans %}jda.search.website{% endtrans %}</option>
+							<option value="Document">{% trans %}jda.search.document{% endtrans %}</option>
 							<option value="Text">{% trans %}jda.search.testimonial{% endtrans %}</option>
 							<option value="Broadcast">{% trans %}jda.search.broadcast{% endtrans %}</option>
+							<option value="Article">{% trans %}jda.search.article{% endtrans %}</option>
+							<option value="Headline">{% trans %}jda.search.headline{% endtrans %}</option>
 							<option value="Collection">{% trans %}jda.search.collection{% endtrans %}</option>
-                            <option value="Headline">{% trans %}jda.search.headline{% endtrans %}</option>
 						</select>
 					</span>
 				</div>
@@ -108,7 +106,7 @@ body {
 
 				<a href="#" id="jda-go-button" class="btn btn-info btn-large">{% trans %}jda.home.go{% endtrans %}</a>
 				<span class="badge badge-inverse" id="zeega-search-help" data-content='{% trans %}jda.search.tips1{% endtrans %}<br><br>{% trans %}jda.search.tips2{% endtrans %}<br><br>{% trans %}jda.search.tips3{% endtrans %}'>?</span>
-        <a href="{{path('advsearch', { '_locale': locale })}}" id="jda-search-advancedoptions" >{% trans %}jda.advanced.search{% endtrans %}</a>
+                <a href="{{path('advsearch', { '_locale': locale })}}" id="jda-search-advancedoptions" >{% trans %}jda.advanced.search{% endtrans %}</a>
 			</div>
 
 		</div>

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
@@ -1985,6 +1985,14 @@ JDAの基本コンセプトの紹介ビデオ、及び使用説明ビデオ・�
             <trans-unit id="492">
                 <source>jda.my.wakuInformational</source>
                 <target>Waku使うことによって、このコレクションをマルチメディアな物語へと構築することができます。Wakuはキュレートされた震災記録から個人の物語を紡ぎ、発表、シェアできるプラットフォームです。ぜひお試しください!</target>
+            </trans-unit>
+	    <trans-unit id="493">
+              <source>jda.form.contribute.language.french</source>
+              <target>フランス語</target>
+            </trans-unit>
+	    <trans-unit id="494">
+              <source>jda.form.contribute.language.others</source>
+              <target>その他</target>
             </trans-unit>
         </body>
     </file>
