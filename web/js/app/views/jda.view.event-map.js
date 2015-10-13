@@ -116,11 +116,23 @@
 			var searchParams = jda.app.resultsView.getSearch();
 			var query = "*:*";
 			if (searchParams.q)
+			{
 			    query = "text:" + searchParams.q + "";
+			}
 			var mediaFilter = "layer_type:*";
 			var mediaType = searchParams.media_type;
+			console.log("mediaType = ", mediaType);
 			if (mediaType)
-			    mediaFilter = "layer_type:" + mediaType;
+			{
+			    var field = "layer_type:";
+			    var media = mediaType;
+			    if (mediaType.startsWith("-"))
+			    {
+				field = "-" + field;
+				media = media.substr(1);
+			    }
+			    mediaFilter = field + media;
+			}
 			console.log("mediaFilter = ", mediaFilter);
 			var dates = this.getDatesIso();
 			var timeFilter = "media_date_created:[" + dates[0] + " TO " + dates[1] + "}";
