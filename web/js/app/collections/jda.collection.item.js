@@ -95,13 +95,19 @@
 	fetch : function(options) {
 	    console.log("in MapCollection.fetch");
 	    _this = this;
-	    solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select";
+	    // use EventMap functions that convert UI widgets to components of Solr query
+	    var mediaFilter = jda.app.eventMap.getMediaFilter();
+	    var timeFilter = jda.app.eventMap.getTimeFilter();
+	    var searchQuery = jda.app.eventMap.getSearchQuery();
+	    console.log("  with", mediaFilter, timeFilter, searchQuery);
+	    solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select?" + "fq=" + mediaFilter + "&fq=" + timeFilter;
+	    //solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select";
 	    pt = this.latitude + ',' + this.longitude;
 	    jQuery.ajax({
 		url: solrUrl,
 		dataType: 'JSONP',
 		data: {
-		    q: '*:*',
+		    q: searchQuery,
 		    rows: 50,
 		    wt: 'json',
 		    fq: '{!geofilt}',

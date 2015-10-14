@@ -108,17 +108,9 @@
 
 		},
 
-		    sendSolrRequest : function()
+		    getMediaFilter : function()
 		    {
-			var _this = this;
-			//solrUrl = "http://localhost:8984/solr/jda/select?q=*:*";
-			solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select";
 			var searchParams = jda.app.resultsView.getSearch();
-			var query = "*:*";
-			if (searchParams.q)
-			{
-			    query = "text:" + searchParams.q + "";
-			}
 			var mediaFilter = "layer_type:*";
 			var mediaType = searchParams.media_type;
 			console.log("mediaType = ", mediaType);
@@ -133,11 +125,37 @@
 			    }
 			    mediaFilter = field + media;
 			}
-			console.log("mediaFilter = ", mediaFilter);
+			return mediaFilter;
+		    },
+
+		    getTimeFilter : function()
+		    {
 			var dates = this.getDatesIso();
 			var timeFilter = "media_date_created:[" + dates[0] + " TO " + dates[1] + "}";
+			return timeFilter;
+		    },
+
+		    getSearchQuery : function()
+		    {
+			var searchParams = jda.app.resultsView.getSearch();
+			var query = "*:*";
+			if (searchParams.q)
+			{
+			    query = "text:" + searchParams.q + "";
+			}
+			return query;
+		    },
+
+		    sendSolrRequest : function()
+		    {
+			var _this = this;
+			//solrUrl = "http://localhost:8984/solr/jda/select?q=*:*";
+			solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select";
+			var searchParams = jda.app.resultsView.getSearch();
+			var query = this.getSearchQuery(); //"*:*";
+			var mediaFilter = this.getMediaFilter(); //"layer_type:*";
+			var timeFilter = this.getTimeFilter();
 			solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select?" + "fq=" + mediaFilter + "&fq=" + timeFilter;
-			console.log("in sendSolrRequest with query = ", query);
 			jQuery.ajax({
 			    url: solrUrl,
 			    dataType: 'JSONP',
@@ -155,7 +173,6 @@
 			    jsonp: 'json.wrf',
 			    success: function(data) {
 				solrResponse = data;
-				console.log("solr response received");
 				_this.processSolrResult(solrResponse);
 			    }
 			});
@@ -286,7 +303,6 @@
 			var sizeX = widthInPixels / heatmapColumns;
 			var sizeY = heightInPixels / heatmapRows;
 			var size = Math.max(sizeX, sizeY);
-			console.log("getCellSize = " + size + ", " + sizeX +":"+ sizeY); 
 			return size; 
 		    },
 
