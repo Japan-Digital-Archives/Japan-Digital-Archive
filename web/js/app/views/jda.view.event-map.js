@@ -288,6 +288,12 @@
 			series = new geostats(flatArray);
 			numberOfClassifications = this.getColors().length
 			classifications = series.getClassJenks(numberOfClassifications);
+			var lastExtraZero = -1;
+			for (var i = classifications.length - 1 ; i > 0 ; i--)
+			    if (classifications[i] == 0 && lastExtraZero == -1)
+				lastExtraZero = i;
+			if (lastExtraZero > 0)
+			    classifications = classifications.slice(lastExtraZero)
 			// probably should check for multiple 0 in array
 			return classifications;
 		    },
