@@ -113,7 +113,6 @@
 			var searchParams = jda.app.resultsView.getSearch();
 			var mediaFilter = "layer_type:*";
 			var mediaType = searchParams.media_type;
-			console.log("mediaType = ", mediaType);
 			if (mediaType)
 			{
 			    var field = "layer_type:";

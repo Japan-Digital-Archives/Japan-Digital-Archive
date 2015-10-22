@@ -78,7 +78,6 @@
 	model:Browser.Items.Model,
 	base : sessionStorage.getItem("geoServerUrl"),
 	initialize : function(models,options){
-	    console.log("in MapCollection.initialize");
 	    this.latitude = options.mouseLatitude;
 	    this.longitude = options.mouseLongitude;
             _.extend(this,options);
@@ -86,14 +85,41 @@
 	},
         url : function()
 	{
-	    console.log("in MapCollection.url");
             return "http://dev.jdarchive.org:8983/solr/jda/select?wt=json";
 	    //return this.base+'getFeatureInfo&SQL='+this.SQL;
 
         },
 
+	/*
+	  solr query needs distance in km for filter
+	*/
+	computeDegreesPerPixel : function()
+	{
+	    var map = jda.app.eventMap.map;
+	    var mapSize = map.size;
+	    var mapHeight = mapSize.h;
+	    var mapWidth = mapSize.w;
+	    var mapExtent = jda.app.eventMap.map.getExtent();
+	    var lowerLeft = new OpenLayers.LonLat(extent.left, extent.bottom);
+	    var lowerRight = new OpenLayers.LonLat(extent.right, extent.bottom);
+	    var upperLeft = new OpenLayers.LonLat(extent.left, extent.top);
+	    var geodeticProjection = new OpenLayers.Projection("EPSG:4326");
+	    var lowerLeftGeodetic = lowerLeft.transform(map.getProjectionObject(), geodeticProjection);
+	    var lowerRightGeodetic = lowerRight.transform(map.getProjectionObject(), geodeticProjection);
+	    var upperLeftGeodetic = upperLeft.transform(map.getProjectionObject(), geodeticProjection);
+
+	    var deltaXGeodetic = lowerRightGeodetic.lon - lowerLeftGeodetic.lon;
+	    var deltaYGeodetic = upperLeftGeodetic.lat - lowerLeftGeodetic.lat;
+	    var degreesPerPixelX = deltaXGeodetic / mapWidth;
+	    var degreesPerPixelY = deltaYGeodetic / mapHeight;
+
+	    return degreesPerPixelX;
+	},
+
+	/* 
+	   on mouse click send solr query request for nearby items
+	*/
 	fetch : function(options) {
-	    console.log("in MapCollection.fetch");
 	    _this = this;
 	    // use EventMap functions that convert UI widgets to components of Solr query
 	    var mediaFilter = jda.app.eventMap.getMediaFilter();
@@ -103,6 +129,8 @@
 	    solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select?" + "fq=" + mediaFilter + "&fq=" + timeFilter;
 	    //solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select";
 	    pt = this.latitude + ',' + this.longitude;
+	    var distanceKm = this.computeDegreesPerPixel()* 35 * 110.; // 110 km/degree
+	    console.log("distanceKm = " , distanceKm);
 	    jQuery.ajax({
 		url: solrUrl,
 		dataType: 'JSONP',
@@ -112,7 +140,7 @@
 		    wt: 'json',
 		    fq: '{!geofilt}',
 		    sfield: 'bbox_rpt',
-		    d: 10,
+		    d: distanceKm,
 		    pt: pt,
 		    sort: "geodist() asc"
 		    //fq: "bbox_rpt"  + this._mapViewToEnvelope(this.map)
