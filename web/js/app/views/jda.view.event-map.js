@@ -218,8 +218,8 @@
 			    jQuery.each(currentRow, function(columnNumber, value){
 				if (value == null || value <= 0) return;
 
-				latitude = facetHeatmap.minY + ((facetHeatmap.rows - rowNumber- 1) * latitudeStepSize); 
-				longitude = facetHeatmap.minX + (columnNumber * longitudeStepSize);
+				latitude = facetHeatmap.minY + ((facetHeatmap.rows - rowNumber- 1) * latitudeStepSize) + (latitudeStepSize * .5); 
+				longitude = facetHeatmap.minX + (columnNumber * longitudeStepSize) + (longitudeStepSize * 1.);
 				geodetic = new OpenLayers.LonLat(longitude, latitude); 
 				transformed = geodetic.transform(geodeticProjection, _this.map.getProjectionObject());
 				heatmapLayer.addSource(new Heatmap.Source(transformed, cellSize, Math.min(1., value / maxValue)));
