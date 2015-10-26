@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
@@ -1783,7 +1783,12 @@ prompt those of us who were not affected to reflect on the way we live our lives
                 <source>jda.team.content.curation</source>
                 <target>Web Seed Curation: Momoko Howell 
 		        <![CDATA[<br />]]>
-		        Web Seed Curation: Yumiko Takeda, Showa Boston Institute for Language and Culture</target>
+		        Web Seed Curation: Yumiko Takeda, Showa Boston Institute for Language and Culture
+			<![CDATA[<br />]]>
+			Web Seed Curation: Kanami Ohno, Showa Boston Institute for Language and Culture
+			<![CDATA[<br />]]>
+			Web Seed Curation: Maho Yanagisawa, Showa Boston Institute for Language and Culture
+		</target>
             </trans-unit>
             <trans-unit id="449">
                 <source>jda.team.alumni.nick</source>

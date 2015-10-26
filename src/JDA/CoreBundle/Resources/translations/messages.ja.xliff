@@ -1805,8 +1805,11 @@
                 <source>jda.team.content.curation</source>
                 <target>ウェブシード　キュレーション：Momoko Howell (ハウエル・モモコ)
                     <![CDATA[<br />]]>
-             
                     ウェブシード　キュレーション：Yumiko Takeda（昭和ボストン　竹田有美子）
+                    <![CDATA[<br />]]>
+                    ウェブシード　キュレーション：Kanami Ohno（昭和ボストン　大野奏美）
+                    <![CDATA[<br />]]>
+                    ウェブシード　キュレーション：Maho Yanagisawa（昭和ボストン　柳澤真帆）
                 </target>
             </trans-unit>
             <trans-unit id="449">
