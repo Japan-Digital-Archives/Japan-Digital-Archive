@@ -84,7 +84,6 @@
 		},
 
 		load : function(){
-		    console.log('in EventMap.load. ');
 
 		    var _this = this;
 
@@ -155,6 +154,10 @@
 			var mediaFilter = this.getMediaFilter(); //"layer_type:*";
 			var timeFilter = this.getTimeFilter();
 			solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select?" + "fq=" + mediaFilter + "&fq=" + timeFilter;
+			var solrDistErrPct = 0.1;
+			var zoomLevel = this.map.getZoom();
+			if (zoomLevel >= 13)
+			    solrDistErrPct = 0.05;
 			jQuery.ajax({
 			    url: solrUrl,
 			    dataType: 'JSONP',
@@ -163,11 +166,10 @@
 				wt: 'json',
 				facet: true,
 				'facet.heatmap': "bbox_rpt",
-				'facet.heatmap.distErrPct': 0.1,
+				'facet.heatmap.distErrPct': solrDistErrPct,
 				'facet.heatmap.geom': this._mapViewToWkt(this.map),
-				fq: "bbox_rpt"  + this._mapViewToEnvelope(this.map),
-				fq: mediaFilter,
-				fq: timeFilter
+				fq: "bbox_rpt"  + this._mapViewToEnvelope(this.map),  // other filters set above
+				fl: "media_type"  // needed to get a valid numFound count
 			    },
 			    jsonp: 'json.wrf',
 			    success: function(data) {
@@ -182,15 +184,14 @@
 			var oldLayers = this.map.getLayersByName("Heatmap");
 			if (oldLayers.length > 0)
 			    this.map.removeLayer(oldLayers[0]);
+			var count = new Number(solrResponse.response.numFound);
+			jQuery("#zeega-results-count-number").text(count.toLocaleString());
+			
 			if (solrResponse.response.numFound == 0) 
-			{
-			    console.log("numFound = 0");
 			    return;
-			}
 			facetHeatmap = this._solrResponseToObject(data);
 			if (facetHeatmap.counts_ints2D == null)
 			{
-			    console.log("no heatmap counts");
 			    return;
 			}
 			this.classifications = this.getClassifications(facetHeatmap);
@@ -205,11 +206,13 @@
 			var heatmapLayer = new Heatmap.Layer("Heatmap");
 			colorGradient = this.getColorGradient(this.getColors(), classifications);
 			heatmapLayer.setGradientStops(colorGradient);
-			cellSize = this.getCellSize(facetHeatmap, this.map);
+			// cells size is used on mouse click to define item capture distance
+			jda.app.heatmapCellSize = Math.ceil(this.getCellSize(facetHeatmap, this.map));
 			geodeticProjection = new OpenLayers.Projection("EPSG:4326");
 			latitudeStepSize = (facetHeatmap.maxY - facetHeatmap.minY) / facetHeatmap.rows
 			longitudeStepSize = (facetHeatmap.maxX - facetHeatmap.minX) / facetHeatmap.columns
 			countsArray = facetHeatmap.counts_ints2D;
+			heatmapSourceCounts = 0;
 			//testData = this.generateTestData(facetHeatmap.rows, facetHeatmap.columns, classifications);
 			// iterate over cell values and create heatmap items
 			jQuery.each(countsArray, function(rowNumber, currentRow){
@@ -219,10 +222,12 @@
 				if (value == null || value <= 0) return;
 
 				latitude = facetHeatmap.minY + ((facetHeatmap.rows - rowNumber- 1) * latitudeStepSize) + (latitudeStepSize * .5); 
-				longitude = facetHeatmap.minX + (columnNumber * longitudeStepSize) + (longitudeStepSize * 1.);
+				longitude = facetHeatmap.minX + (columnNumber * longitudeStepSize) + (longitudeStepSize * .5);
 				geodetic = new OpenLayers.LonLat(longitude, latitude); 
 				transformed = geodetic.transform(geodeticProjection, _this.map.getProjectionObject());
-				heatmapLayer.addSource(new Heatmap.Source(transformed, cellSize, Math.min(1., value / maxValue)));
+				tmpValue = Math.min(classifications[classifications.length-1] / maxValue, value / maxValue);
+				heatmapLayer.addSource(new Heatmap.Source(transformed, jda.app.heatmapCellSize, tmpValue));
+				heatmapSourceCounts++;
 			    }
 				       )});
 			heatmapLayer.setOpacity(0.40);
@@ -313,8 +318,8 @@
 
 		    getColors: function()
 		    {
-                        var colors = [0x000000, 0xffffb2ff, 0xfed976ff, 0xfeb24cff, 0xfd8d3cff, 0xf03b20ff, 0xbd0026ff];   // brewer
-                        //var colors = [0x00000000, 0x0000dfff, 0x00effeff, 0x00ff42ff, 0xfeec30ff, 0xff5f00ff, 0xff0000ff]; 
+                        //var colors = [0x000000, 0xffffb2ff, 0xfed976ff, 0xfeb24cff, 0xfd8d3cff, 0xf03b20ff, 0xbd0026ff];   // brewer
+                        var colors = [0x00000000, 0x0000dfff, 0x00effeff, 0x00ff42ff, 0xfeec30ff, 0xff5f00ff, 0xff0000ff]; 
 			return colors;
 		    },
 
@@ -380,12 +385,10 @@
                         heatmapLayer.addSource(new Heatmap.Source(transformed, 200, .9));
 			heatmapLayer.setOpacity(0.50);
 			this.map.addLayer(heatmapLayer);
-			console.log("added heatmap layer");
 			return heatmapLayer;
 		    },
 
 		initMap : function(){
-			console.log("Initializing Map");
 			OpenLayers.IMAGE_RELOAD_ATTEMPTS = 5;
 			OpenLayers.DOTS_PER_INCH = 25.4 / 0.28;
 
@@ -474,7 +477,7 @@
 				
 				$('.olPopup').remove();
 			    mapSelections.fetch({error: function(arg, arg2, arg3, arg4){console.log("error!!!");baz = arg;baz2=arg2;baz3=arg3;baz4=arg4}, success:function(response,collection){
-				    console.log("in MapCollection fetch success function");
+
 						_this.mapViewCollection = new Browser.Items.Collections.Views.MapPopup({ collection : mapSelections});
 
 

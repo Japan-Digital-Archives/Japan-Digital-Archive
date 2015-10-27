@@ -11,7 +11,6 @@
         {
             //constructs the search URL
             var url = this.base;
-            console.log(this.search);
             if( !_.isUndefined(this.search.q) && this.search.q.length > 0) url += '&q=' + this.search.q.toString();
             if( !_.isUndefined(this.search.nq) ) url += '&nq=' + this.search.nq;
             if( !_.isUndefined(this.search.tags) && this.search.tags.length > 0) url += '&tags=' + this.search.tags.toString();
@@ -30,7 +29,6 @@
             if( !_.isUndefined(this.search.media_after) ) url += '&media_after=' + this.search.media_after;
             if( !_.isUndefined(this.search.user) && this.search.user>=-1&& this.search.user!=="") url += '&user=' + this.search.user;
             if(jda.app.currentView=='event') url+='&geo_located=1';
-            console.log(url);
             return url;
         },
 
@@ -125,12 +123,12 @@
 	    var mediaFilter = jda.app.eventMap.getMediaFilter();
 	    var timeFilter = jda.app.eventMap.getTimeFilter();
 	    var searchQuery = jda.app.eventMap.getSearchQuery();
-	    console.log("  with", mediaFilter, timeFilter, searchQuery);
 	    solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select?" + "fq=" + mediaFilter + "&fq=" + timeFilter;
 	    //solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select";
 	    pt = this.latitude + ',' + this.longitude;
-	    var distanceKm = this.computeDegreesPerPixel()* 35 * 110.; // 110 km/degree
-	    console.log("distanceKm = " , distanceKm);
+	    var captureInPixelsRadius = jda.app.heatmapCellSize;    // set during processing of solr request
+	    var distanceKm = this.computeDegreesPerPixel()* captureInPixelsRadius * 111.; // 111 km/degree
+	    console.log("capture, pixel radius", captureInPixelsRadius, "in km", distanceKm);
 	    jQuery.ajax({
 		url: solrUrl,
 		dataType: 'JSONP',
@@ -148,7 +146,6 @@
 		jsonp: 'json.wrf',
 		success: function(data) {
 		    solrResponse = data;
-		    console.log("in MapCollection.fetch, solr response received");
 		    solrItems = data.response.docs;
 		    first = solrItems[0];
 		    browser = jda.module("browser");
@@ -169,7 +166,6 @@
 
         parse : function(response)
         {
-	    console.log("in MapCollection.parse")
 	    r = response;
 		
 	    return response.response.docs;

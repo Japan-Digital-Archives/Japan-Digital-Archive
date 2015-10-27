@@ -73,12 +73,14 @@
 				$('.jda-results-collections-count').text( this.addCommas(collectionsCount));
 			}
 			$('.jda-results-items-count').text( this.addCommas(itemsCount));
-			$("#zeega-results-count-number").html( this.addCommas(itemsCount) );
+  		        if (jQuery("#zeega-event-view").is(":visible") == false)  // skip if map view
+			    $("#zeega-results-count-number").html( this.addCommas(itemsCount) );
 		},
 
 		render : function(){
 			var _this = this;
 			$("#zeega-results-count").hide();
+		    console.log("in jda.view.collection.results.render()");
 
 			_this._isRendered = true;
 			if(jda.app.currentView == 'thumb'){
@@ -118,8 +120,9 @@
 				}
 
 			} else {
-				$('#zeega-results-count-number').text(this.addCommas(this.collection.count));
-				$("#zeega-results-count").fadeTo(100,1);
+			           if (jQuery("#zeega-event-view").is(":visible") == false)  // skip if map view                                                  
+				       $('#zeega-results-count-number').text(this.addCommas(this.collection.count)); 
+			           $("#zeega-results-count").fadeTo(100,1);
 			}
 
 			//Display items
@@ -151,8 +154,8 @@
 				$(this.el).find('li').css('height','170px');
 			}
 
-
-			this.updateResultsCounts();
+                        if (jQuery("#zeega-event-view") == false)  // skip if map view                                                                 
+  			    this.updateResultsCounts();
 
 			$(this.el).show();
 
@@ -211,7 +214,8 @@
 		search : function(obj,reset)
 		{
 
-			console.log("jda.app.resultsView.search",obj);
+			console.log("jda.app.resultsView.search: ",obj);
+
 			var _this = this;
 
 			this.updated = true;
@@ -236,8 +240,8 @@
 					//deselect/unfocus last tag - temp fix till figure out why tag is popping up autocomplete
 
 					VisualSearch.searchBox.disableFacets();
-
-					$('#zeega-results-count-number').html( _this.addCommas(response["items_count"]));
+  				        if (jQuery("#zeega-event-view").is(":visible") == false)  // skip if map view
+					    $('#zeega-results-count-number').html( _this.addCommas(response["items_count"]));
 					_this.renderTags(response.tags);
 					_this.render();
 
