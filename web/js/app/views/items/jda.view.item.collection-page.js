@@ -95,7 +95,7 @@
 			/***************************************************************************
 				Look up location with reverse geocode
 			***************************************************************************/
-			if (!_.isUndefined(this.model.get('media_geo_latitude')) && !_.isUndefined(this.model.get('media_geo_longitude'))){
+			if (!_.isNull(this.model.get('media_geo_latitude')) && !_.isNull(this.model.get('media_geo_longitude'))){
 				this.geocoder.geocode( { 'latLng' : new google.maps.LatLng(this.model.get('media_geo_latitude'),this.model.get('media_geo_longitude')) }, function(results, status) {
 					if (status == google.maps.GeocoderStatus.OK) {
 						if (results[0].formatted_address){
