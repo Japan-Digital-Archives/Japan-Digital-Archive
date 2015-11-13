@@ -354,6 +354,11 @@ margin-left: -20px;
 	*/
 }
 
+button#jda-collection-create-waku
+{
+	margin-top:3px;
+}
+
 #jda-collection-create-waku
 {
 	margin:-22px 0 5px 0;
