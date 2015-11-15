@@ -353,11 +353,11 @@ margin-left: -20px;
 	background:white;
 	*/
 }
-
 #jda-collection-create-waku
 {
 	margin:-22px 0 5px 0;
   	border-radius:0;
+	margin-top:3px;
 	display:none;
 }
 #jda-collection-create-waku i
