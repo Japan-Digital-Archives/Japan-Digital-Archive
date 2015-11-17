@@ -153,7 +153,7 @@
 			var query = this.getSearchQuery(); //"*:*";
 			var mediaFilter = this.getMediaFilter(); //"layer_type:*";
 			var timeFilter = this.getTimeFilter();
-			solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select?" + "fq=" + mediaFilter + "&fq=" + timeFilter;
+			solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select?" + "fq=" + mediaFilter + "&fq=" + timeFilter + "&rows=100";
 			var solrDistErrPct = 0.1;
 			var zoomLevel = this.map.getZoom();
 			if (zoomLevel >= 13)
@@ -169,7 +169,7 @@
 				'facet.heatmap.distErrPct': solrDistErrPct,
 				'facet.heatmap.geom': this._mapViewToWkt(this.map),
 				fq: "bbox_rpt"  + this._mapViewToEnvelope(this.map),  // other filters set above
-				fl: "media_type"  // needed to get a valid numFound count
+				fl: "bbox_rpt" 
 			    },
 			    jsonp: 'json.wrf',
 			    success: function(data) {
@@ -181,6 +181,7 @@
 
 		    processSolrResult : function(data) 
 		    {
+			console.log("jda.view.event-map:processingSolrResult", data);
 			var oldLayers = this.map.getLayersByName("Heatmap");
 			if (oldLayers.length > 0)
 			    this.map.removeLayer(oldLayers[0]);
@@ -194,25 +195,32 @@
 			{
 			    return;
 			}
+			console.log("  rendering heatmap", facetHeatmap, " with numFound = ", count);
 			this.classifications = this.getClassifications(facetHeatmap);
-			this.renderHeatmap(facetHeatmap, classifications);
+			if (count > 100)
+			    this.renderHeatmap(facetHeatmap, this.classifications);
+			else
+			{
+			    console.log("rendering documents");
+			    this.renderDocuments(solrResponse);
+			}
 		    },
-
+		    
 		    renderHeatmap : function(facetHeatmap, classifications)
 		    {
-			_this = this;
-			maxValue = classifications[classifications.length - 1] + .001;
+			var _this = this;
+			var maxValue = classifications[classifications.length - 1] + .001;
 
 			var heatmapLayer = new Heatmap.Layer("Heatmap");
-			colorGradient = this.getColorGradient(this.getColors(), classifications);
+			var colorGradient = this.getColorGradient(this.getColors(), classifications);
 			heatmapLayer.setGradientStops(colorGradient);
 			// cells size is used on mouse click to define item capture distance
 			jda.app.heatmapCellSize = Math.ceil(this.getCellSize(facetHeatmap, this.map));
-			geodeticProjection = new OpenLayers.Projection("EPSG:4326");
-			latitudeStepSize = (facetHeatmap.maxY - facetHeatmap.minY) / facetHeatmap.rows
-			longitudeStepSize = (facetHeatmap.maxX - facetHeatmap.minX) / facetHeatmap.columns
-			countsArray = facetHeatmap.counts_ints2D;
-			heatmapSourceCounts = 0;
+			var geodeticProjection = new OpenLayers.Projection("EPSG:4326");
+			var latitudeStepSize = (facetHeatmap.maxY - facetHeatmap.minY) / facetHeatmap.rows
+			var longitudeStepSize = (facetHeatmap.maxX - facetHeatmap.minX) / facetHeatmap.columns
+			var countsArray = facetHeatmap.counts_ints2D;
+			var heatmapSourceCounts = 0;
 			//testData = this.generateTestData(facetHeatmap.rows, facetHeatmap.columns, classifications);
 			// iterate over cell values and create heatmap items
 			jQuery.each(countsArray, function(rowNumber, currentRow){
@@ -221,17 +229,18 @@
 			    jQuery.each(currentRow, function(columnNumber, value){
 				if (value == null || value <= 0) return;
 
-				latitude = facetHeatmap.minY + ((facetHeatmap.rows - rowNumber- 1) * latitudeStepSize) + (latitudeStepSize * .5); 
-				longitude = facetHeatmap.minX + (columnNumber * longitudeStepSize) + (longitudeStepSize * .5);
-				geodetic = new OpenLayers.LonLat(longitude, latitude); 
-				transformed = geodetic.transform(geodeticProjection, _this.map.getProjectionObject());
-				tmpValue = Math.min(classifications[classifications.length-1] / maxValue, value / maxValue);
+				var latitude = facetHeatmap.minY + ((facetHeatmap.rows - rowNumber- 1) * latitudeStepSize) + (latitudeStepSize * .5); 
+				var longitude = facetHeatmap.minX + (columnNumber * longitudeStepSize) + (longitudeStepSize * .5);
+				var geodetic = new OpenLayers.LonLat(longitude, latitude); 
+				var transformed = geodetic.transform(geodeticProjection, _this.map.getProjectionObject());
+				var tmpValue = Math.min(classifications[classifications.length-1] / maxValue, value / maxValue);
 				heatmapLayer.addSource(new Heatmap.Source(transformed, jda.app.heatmapCellSize, tmpValue));
 				heatmapSourceCounts++;
 			    }
 				       )});
 			heatmapLayer.setOpacity(0.40);
 			this.map.addLayer(heatmapLayer);
+			$('.jda-map-loader').fadeOut('fast');
 		    },
 		    
 		    // returns the count of how many values are in each classifications
@@ -393,8 +402,10 @@
 			OpenLayers.DOTS_PER_INCH = 25.4 / 0.28;
 
 			var _this=this;
+
 			wax.tilejson('http://api.tiles.mapbox.com/v3/jdarchive.he805gp4.json',
 				function(tilejson) {
+
 					var baseLayer =  wax.ol.connector(tilejson);
 					_this.map = new OpenLayers.Map('event-map',{
 
@@ -407,7 +418,7 @@
 
 					});
 
-					var dataLayer =  new OpenLayers.Layer.WMS(
+/*					var dataLayer =  new OpenLayers.Layer.WMS(
 						"cite:item - Tiled",
 						_this.geoUrl + "?LAYERS=point&",
 							{
@@ -433,7 +444,7 @@
 							}
 					);
 
-
+*/
 					var proj = new OpenLayers.Projection("EPSG:4326");
 
 					_this.map.setCenter(new OpenLayers.LonLat(140.652466, 38.052417).transform(proj, _this.map.getProjectionObject()), 9);
@@ -446,12 +457,14 @@
 					_this.map.addLayers(_this.getMapLayers());
 
           // merge in new params before adding the layer
-          dataLayer.mergeNewParams({'SQL' : jda.app.resultsView.getSQLSearchString()});
-					_this.map.addLayer(dataLayer);
-
+          // dataLayer.mergeNewParams({'SQL' : jda.app.resultsView.getSQLSearchString()});   //spmcd
+				//	_this.map.addLayer(dataLayer);   //spmcd
+				    themap = _this.map;
 					_this.map.addControl(new OpenLayers.Control.Attribution());
-					_this.map.getLayersByName('cite:item - Tiled')[0].events.register('loadstart','ok',function(){$('.jda-map-loader').show();});
-					_this.map.getLayersByName('cite:item - Tiled')[0].events.register('loadend','ok',function(){$('.jda-map-loader').fadeOut('fast');});
+					_this.map.baseLayer.events.register('loadstart','ok',function(){$('.jda-map-loader').show();});
+				        _this.map.baseLayer.events.register('loadend','ok',function(){$('.jda-map-loader').fadeOut('fast');});
+					//_this.map.getLayersByName('cite:item - Tiled')[0].events.register('loadstart','ok',function(){$('.jda-map-loader').show();});
+				        //_this.map.getLayersByName('cite:item - Tiled')[0].events.register('loadend','ok',function(){$('.jda-map-loader').fadeOut('fast');});
 					_this.initTimeSlider(_this.map);
 				    _this.sendSolrRequest();
 				}
@@ -708,25 +721,25 @@
 		},
 
 		setStartDateTimeSliderHandle : function(){
-			dateMillis = $("#start-date").datepicker('getDate').getTime();
-			timeStrings = $("#start-time").val().split(':');
-			h = timeStrings[0];
-			m = timeStrings[1].split(' ')[0];
-			timeMillis = h*60*60*1000 + m*60*1000;
-			seconds = (dateMillis + timeMillis)/1000;
-			oldValues =  $("#range-slider").slider( "option", "values" );
+			var dateMillis = $("#start-date").datepicker('getDate').getTime();
+			var timeStrings = $("#start-time").val().split(':');
+			var h = timeStrings[0];
+			var m = timeStrings[1].split(' ')[0];
+			var timeMillis = h*60*60*1000 + m*60*1000;
+			var seconds = (dateMillis + timeMillis)/1000;
+			var oldValues =  $("#range-slider").slider( "option", "values" );
 			$( "#range-slider" ).slider( "option", "values", [seconds, oldValues[1]] );
 			this.setStartDateTimeSliderBubble(seconds);
 	},
 
 		setEndDateTimeSliderHandle : function(){
-			dateMillis = $("#end-date").datepicker('getDate').getTime();
-			timeStrings = $("#end-time").val().split(':');
-			h = timeStrings[0];
-			m = timeStrings[1].split(' ')[0];
-			timeMillis = h*60*60*1000 + m*60*1000;
-			seconds = (dateMillis + timeMillis)/1000;
-			oldValues =  $("#range-slider").slider( "option", "values" );
+			var dateMillis = $("#end-date").datepicker('getDate').getTime();
+			var timeStrings = $("#end-time").val().split(':');
+			var h = timeStrings[0];
+			var m = timeStrings[1].split(' ')[0];
+			var timeMillis = h*60*60*1000 + m*60*1000;
+			var seconds = (dateMillis + timeMillis)/1000;
+			var oldValues =  $("#range-slider").slider( "option", "values" );
 			$( "#range-slider" ).slider( "option", "values", [oldValues[0], seconds] );
 			this.setEndDateTimeSliderBubble(seconds);
 		},
@@ -750,7 +763,75 @@
 			var date1 = new Date(dates[0] * 1000);
 			var date2 = new Date(dates[1] * 1000);
 			return [date1.toISOString(), date2.toISOString()];
+		    },
+
+		    // render each Solr document as a red dot
+		    // this is more useful than the heatmap when there aren't many documents
+		    renderDocuments: function(solrResponse)
+		    {
+			jda.app.heatmapCellSize = 5;
+			var docs = solrResponse.response.docs;
+			console.log('number of docs = ', docs.length);
+			var geodeticProjection = new OpenLayers.Projection("EPSG:4326");
+			var features = Array(docs.length);
+			for (var i = 0 ; i < docs.length ; i++)
+			{
+			    try
+			    {
+				//based on http://dev.openlayers.org/examples/graphic-name.js
+				var doc = docs[i];
+				var rpt = doc.bbox_rpt;
+				if (rpt.startsWith("POINT"))
+				{
+				    rpt = rpt.substr(6);
+				    rpt = rpt.replace(')', '');
+				    var parts = rpt.split(' ');
+				    var lon = parts[0];
+				    var lat = parts[1];
+				    var geodetic = new OpenLayers.LonLat(Number(lon), Number(lat));
+				    var transformed = geodetic.transform(geodeticProjection, this.map.getProjectionObject());
+				    var geometry = new OpenLayers.Geometry.Point(transformed.lon, transformed.lat);
+				    features[i] = new OpenLayers.Feature.Vector(geometry, {type: 'circle'});
+				}
+			    }
+			    catch (exception)
+			    {
+				console.log("in jda.view.event-map:renderDocuments", exception);
+			    }
+			}
+			// Create a style map for painting the features.
+			// The graphicName property of the symbolizer is evaluated using
+			// the type attribute on each feature (set above).
+			var styles = new OpenLayers.StyleMap({
+			    "default": {
+				graphicName: "circle",
+				pointRadius: 5,
+				strokeColor: "red",
+				strokeWidth: 1,
+				fillColor: "red",
+				fillOpacity: 1.
+			    },
+			    "select": {
+				pointRadius: 10,
+				fillOpacity: 1,
+				rotation: 45
+			    }
+			});
+			var renderer = OpenLayers.Util.getParameters(window.location.href).renderer;
+			renderer = (renderer) ? [renderer] : OpenLayers.Layer.Vector.prototype.renderers;
+
+			// Finally, create the heatmap layer
+			var layer = new OpenLayers.Layer.Vector("Heatmap", {
+			    styleMap: styles,
+			    isBaseLayer: false,
+			    renderers: renderer
+			});
+			var map = this.map;
+			layer.addFeatures(features);
+			this.map.addLayer(layer);
+			console.log("rendered solr response as items");
 		    }
+
 	});
 
 
