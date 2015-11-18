@@ -93,9 +93,9 @@
 			if( !this.mapLoaded ) this.initMap();
 			else if( jda.app.resultsView.getSQLSearchString()!==null){
 
-				this.map.getLayersByName('cite:item - Tiled')[0].mergeNewParams({
-						'SQL' : jda.app.resultsView.getSQLSearchString()
-					});
+				//this.map.getLayersByName('cite:item - Tiled')[0].mergeNewParams({
+				//		'SQL' : jda.app.resultsView.getSQLSearchString()
+				//	});
 				this.initTimeSlider();
 			    this.sendSolrRequest();
 			    console.log('in EventMap.load, sql = ', jda.app.resultsView.getSQLSearchString());
