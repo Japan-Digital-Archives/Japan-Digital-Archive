@@ -156,8 +156,8 @@
 			solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select?" + "fq=" + mediaFilter + "&fq=" + timeFilter + "&rows=100";
 			var solrDistErrPct = 0.1;
 			var zoomLevel = this.map.getZoom();
-			if (zoomLevel >= 13)
-			    solrDistErrPct = 0.05;
+			//if (zoomLevel >= 13)
+			//    solrDistErrPct = 0.05;
 			jQuery.ajax({
 			    url: solrUrl,
 			    dataType: 'JSONP',
