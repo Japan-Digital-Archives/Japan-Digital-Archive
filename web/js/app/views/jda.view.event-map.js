@@ -210,7 +210,9 @@
 		    {
 			var _this = this;
 			var maxValue = classifications[classifications.length - 1] + .001;
-
+			// rendering the heatmap has problems when the lowest classification is one
+			//   the heatmap library mistakenly adds a background color, probably due to round off error
+			if (classifications[1] == 1) classifications[1] = 2;
 			var heatmapLayer = new Heatmap.Layer("Heatmap");
 			var colorGradient = this.getColorGradient(this.getColors(), classifications);
 			heatmapLayer.setGradientStops(colorGradient);
@@ -307,7 +309,6 @@
 				lastExtraZero = i;
 			if (lastExtraZero > 0)
 			    classifications = classifications.slice(lastExtraZero)
-			// probably should check for multiple 0 in array
 			return classifications;
 		    },
 
