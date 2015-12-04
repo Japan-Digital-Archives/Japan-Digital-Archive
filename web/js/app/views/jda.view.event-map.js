@@ -187,6 +187,7 @@
 			    this.map.removeLayer(oldLayers[0]);
 			var count = new Number(solrResponse.response.numFound);
 			jQuery("#zeega-results-count-number").text(count.toLocaleString());
+			jda.app.solrNumFound = count;
 			
 			if (solrResponse.response.numFound == 0) 
 			    return;
@@ -195,13 +196,11 @@
 			{
 			    return;
 			}
-			console.log("  rendering heatmap", facetHeatmap, " with numFound = ", count);
 			this.classifications = this.getClassifications(facetHeatmap);
 			if (count > 100)
 			    this.renderHeatmap(facetHeatmap, this.classifications);
 			else
 			{
-			    console.log("rendering documents");
 			    this.renderDocuments(solrResponse);
 			}
 		    },
@@ -209,6 +208,7 @@
 		    renderHeatmap : function(facetHeatmap, classifications)
 		    {
 			var _this = this;
+			jda.app.facetHeatmap = facetHeatmap; // needed to display counts on mouse move
 			var maxValue = classifications[classifications.length - 1] + .001;
 			// rendering the heatmap has problems when the lowest classification is one
 			//   the heatmap library mistakenly adds a background color, probably due to round off error
@@ -219,8 +219,8 @@
 			// cells size is used on mouse click to define item capture distance
 			jda.app.heatmapCellSize = Math.ceil(this.getCellSize(facetHeatmap, this.map));
 			var geodeticProjection = new OpenLayers.Projection("EPSG:4326");
-			var latitudeStepSize = (facetHeatmap.maxY - facetHeatmap.minY) / facetHeatmap.rows
-			var longitudeStepSize = (facetHeatmap.maxX - facetHeatmap.minX) / facetHeatmap.columns
+			var latitudeStepSize = (facetHeatmap.maxY - facetHeatmap.minY) / facetHeatmap.rows;
+			var longitudeStepSize = (facetHeatmap.maxX - facetHeatmap.minX) / facetHeatmap.columns;
 			var countsArray = facetHeatmap.counts_ints2D;
 			var heatmapSourceCounts = 0;
 			//testData = this.generateTestData(facetHeatmap.rows, facetHeatmap.columns, classifications);
@@ -482,6 +482,36 @@
 		    });
 
 		    console.log("startMapListeners");
+		    this.map.events.register('mousemove', map, function(e){
+			// on mousemove, display number of items under mouse
+			var eventLonLat =map.getLonLatFromViewPortPx(e.xy).transform(_this.map.getProjectionObject(),new OpenLayers.Projection("EPSG:4326"));
+			// from lonlat we have to compute offsets into heatmap array
+			var facetHeatmap = jda.app.facetHeatmap;
+			var heatmapLatitudeStepSize = (facetHeatmap.maxY - facetHeatmap.minY) / facetHeatmap.rows;
+			var heatmapLongitudeStepSize = (facetHeatmap.maxX - facetHeatmap.minX) / facetHeatmap.columns;
+			var heatmapIndexLatitude = Math.floor((eventLonLat.lat - facetHeatmap.minY) / heatmapLatitudeStepSize);
+			var heatmapIndexLongitude = Math.floor((eventLonLat.lon - facetHeatmap.minX) / heatmapLongitudeStepSize);
+			var counts = 0;
+			try 
+			{
+			    counts = facetHeatmap.counts_ints2D[facetHeatmap.rows - heatmapIndexLatitude - 1][heatmapIndexLongitude];
+			}
+			catch (e) {counts = 0;} // errors due to nulls in solr array instead of zeros
+			if (typeof(mapInit) === 'undefined')
+			{
+			    jQuery("#event-map").attr("title", "");
+			    jQuery("#map").tooltip({track: true}); 
+			    mapInit = true;
+			}
+			if (counts === 0 || (jda.app.solrNumFound <= 100))
+			    jQuery("#event-map").attr("title", "");
+			else
+			{
+			    var tmp = new Number(counts);
+			    jQuery("#event-map").attr("title", tmp.toLocaleString());
+			}
+			
+		    });
 			this.map.events.register('click', map, function(e){
 				var event=e;
 				var lonlat =map.getLonLatFromViewPortPx(e.xy).transform(_this.map.getProjectionObject(),new OpenLayers.Projection("EPSG:4326"));
