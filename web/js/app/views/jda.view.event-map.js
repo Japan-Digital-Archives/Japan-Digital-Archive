@@ -156,7 +156,8 @@
 			solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select?" + "fq=" + mediaFilter + "&fq=" + timeFilter + "&rows=100";
 			var solrDistErrPct = 0.1;
 			var zoomLevel = this.map.getZoom();
-			if ((zoomLevel == 13) || (zoomLevel == 8))
+			console.log("current zoom level := " + zoomLevel);
+			if ((zoomLevel == 13) || (zoomLevel == 8) || (zoomLevel == 6))
 			    solrDistErrPct = 0.125;  // otherwise, too may cells to draw quickly
 			jQuery.ajax({
 			    url: solrUrl,
@@ -369,6 +370,8 @@
 			geodeticProjection = new OpenLayers.Projection("EPSG:4326");
 			lowerLeftGeodetic = lowerLeft.transform(map.getProjectionObject(), geodeticProjection);
 			upperRightGeodetic = upperRight.transform(map.getProjectionObject(), geodeticProjection);
+			if (upperRightGeodetic.lon > 180) upperRightGeodetic.lon = 180;
+			if (lowerLeftGeodetic.lon < -180) lowerLeftGeodetic.lon = -180;
 			envelope = ':"Intersects(ENVELOPE(' + lowerLeftGeodetic.lon + ', ' + upperRightGeodetic.lon + ', ' + upperRightGeodetic.lat + ', ' + lowerLeftGeodetic.lat + '))"';
 			return envelope;
 		    },
@@ -377,9 +380,12 @@
 			extent = map.getExtent();
 			lowerLeft = new OpenLayers.LonLat(extent.left, extent.bottom);
 			upperRight = new OpenLayers.LonLat(extent.right, extent.top);
+
 			geodeticProjection = new OpenLayers.Projection("EPSG:4326");
 			lowerLeftGeodetic = lowerLeft.transform(map.getProjectionObject(), geodeticProjection);
 			upperRightGeodetic = upperRight.transform(map.getProjectionObject(), geodeticProjection);
+			if (upperRightGeodetic.lon > 180) upperRightGeodetic.lon = 180;
+			if (lowerLeftGeodetic.lon < -180) lowerLeftGeodetic.lon = -180;
 			wkt = '["' + lowerLeftGeodetic.lon + ' ' + lowerLeftGeodetic.lat + '" TO "' + upperRightGeodetic.lon + ' ' + upperRightGeodetic.lat + '"]';
 			return wkt;
 		    },
@@ -483,10 +489,12 @@
 
 		    console.log("startMapListeners");
 		    this.map.events.register('mousemove', map, function(e){
+			return;
 			// on mousemove, display number of items under mouse
 			var eventLonLat =map.getLonLatFromViewPortPx(e.xy).transform(_this.map.getProjectionObject(),new OpenLayers.Projection("EPSG:4326"));
 			// from lonlat we have to compute offsets into heatmap array
 			var facetHeatmap = jda.app.facetHeatmap;
+			if (facetHeatmap == null) return;
 			var heatmapLatitudeStepSize = (facetHeatmap.maxY - facetHeatmap.minY) / facetHeatmap.rows;
 			var heatmapLongitudeStepSize = (facetHeatmap.maxX - facetHeatmap.minX) / facetHeatmap.columns;
 			var heatmapIndexLatitude = Math.floor((eventLonLat.lat - facetHeatmap.minY) / heatmapLatitudeStepSize);
@@ -495,6 +503,7 @@
 			try 
 			{
 			    counts = facetHeatmap.counts_ints2D[facetHeatmap.rows - heatmapIndexLatitude - 1][heatmapIndexLongitude];
+			    if (isNan(counts)) counts = 0;
 			}
 			catch (e) {counts = 0;} // errors due to nulls in solr array instead of zeros
 			if (typeof(mapInit) === 'undefined')
