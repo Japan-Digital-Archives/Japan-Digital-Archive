@@ -156,9 +156,11 @@
 			solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select?" + "fq=" + mediaFilter + "&fq=" + timeFilter + "&rows=100";
 			var solrDistErrPct = 0.1;
 			var zoomLevel = this.map.getZoom();
-			console.log("current zoom level := " + zoomLevel);
 			if ((zoomLevel == 13) || (zoomLevel == 8) || (zoomLevel == 6))
 			    solrDistErrPct = 0.125;  // otherwise, too may cells to draw quickly
+			else if (zoomLevel == 3)
+			    solrDistErrPct = 0.195;
+			console.log("zoomLevel", zoomLevel, "solrDistErrPct", solrDistErrPct);
 			jQuery.ajax({
 			    url: solrUrl,
 			    dataType: 'JSONP',
@@ -174,15 +176,19 @@
 			    },
 			    jsonp: 'json.wrf',
 			    success: function(data) {
-				solrResponse = data;
+				var solrResponse = data;
 				_this.processSolrResult(solrResponse);
 			    }
 			});
 		    },
 
-		    processSolrResult : function(data) 
+		    processSolrResult : function(solrResponse) 
 		    {
-			console.log("jda.view.event-map:processingSolrResult", data);
+			// first, check for outdated response that doesn't match current map
+			var heatmapGeom = solrResponse.responseHeader.params["facet.heatmap.geom"];
+			var viewWkt = this._mapViewToWkt(this.map);
+			if (heatmapGeom !== viewWkt) return;
+
 			var oldLayers = this.map.getLayersByName("Heatmap");
 			if (oldLayers.length > 0)
 			    this.map.removeLayer(oldLayers[0]);
@@ -192,7 +198,7 @@
 			
 			if (solrResponse.response.numFound == 0) 
 			    return;
-			facetHeatmap = this._solrResponseToObject(data);
+			facetHeatmap = this._solrResponseToObject(solrResponse);
 			if (facetHeatmap.counts_ints2D == null)
 			{
 			    return;
@@ -210,20 +216,28 @@
 		    {
 			var _this = this;
 			jda.app.facetHeatmap = facetHeatmap; // needed to display counts on mouse move
-			var maxValue = classifications[classifications.length - 1] + .001;
+			var maxValue = classifications[classifications.length - 1]; 
 			// rendering the heatmap has problems when the lowest classification is one
 			//   the heatmap library mistakenly adds a background color, probably due to round off error
 			if (classifications[1] == 1) classifications[1] = 2;
 			var heatmapLayer = new Heatmap.Layer("Heatmap");
 			var colorGradient = this.getColorGradient(this.getColors(), classifications);
+			console.log("colorGradient = ", colorGradient);
 			heatmapLayer.setGradientStops(colorGradient);
+			var extent = this.map.getExtent();
+			var mapLowerLeft = new OpenLayers.LonLat(extent.left, extent.bottom);
+                        var mapUpperRight = new OpenLayers.LonLat(extent.right, extent.top);
+                        var geodeticProjection = new OpenLayers.Projection("EPSG:4326");
+                        var mapLowerLeftGeodetic = mapLowerLeft.transform(this.map.getProjectionObject(), geodeticProjection);
+			var mapUpperRightGeodetic = mapUpperRight.transform(this.map.getProjectionObject(), geodeticProjection);
+
 			// cells size is used on mouse click to define item capture distance
 			jda.app.heatmapCellSize = Math.ceil(this.getCellSize(facetHeatmap, this.map));
-			var geodeticProjection = new OpenLayers.Projection("EPSG:4326");
 			var latitudeStepSize = (facetHeatmap.maxY - facetHeatmap.minY) / facetHeatmap.rows;
 			var longitudeStepSize = (facetHeatmap.maxX - facetHeatmap.minX) / facetHeatmap.columns;
 			var countsArray = facetHeatmap.counts_ints2D;
-			var heatmapSourceCounts = 0;
+			var heatmapSourceCount = 0;
+			var pointNotOnMapCount = 0;
 			//testData = this.generateTestData(facetHeatmap.rows, facetHeatmap.columns, classifications);
 			// iterate over cell values and create heatmap items
 			jQuery.each(countsArray, function(rowNumber, currentRow){
@@ -235,14 +249,18 @@
 				var latitude = facetHeatmap.minY + ((facetHeatmap.rows - rowNumber- 1) * latitudeStepSize) + (latitudeStepSize * .5); 
 				var longitude = facetHeatmap.minX + (columnNumber * longitudeStepSize) + (longitudeStepSize * .5);
 				var geodetic = new OpenLayers.LonLat(longitude, latitude); 
+				if (geodetic.lat > mapUpperRightGeodetic.lat || geodetic.lat < mapLowerLeftGeodetic.lat
+				    || geodetic.lon > mapUpperRightGeodetic.lon || geodetic.lon < mapLowerLeftGeodetic.lon)
+				{pointNotOnMapCount++ ; return};  // point not on map
 				var transformed = geodetic.transform(geodeticProjection, _this.map.getProjectionObject());
 				var tmpValue = Math.min(classifications[classifications.length-1] / maxValue, value / maxValue);
 				heatmapLayer.addSource(new Heatmap.Source(transformed, jda.app.heatmapCellSize, tmpValue));
-				heatmapSourceCounts++;
+				heatmapSourceCount++;
 			    }
 				       )});
 			heatmapLayer.setOpacity(0.40);
 			this.map.addLayer(heatmapLayer);
+			console.log("heatmapSourceCount", heatmapSourceCount, "pointNotOnMapCount", pointNotOnMapCount, "number of cells", facetHeatmap.rows*facetHeatmap.columns, "jda.app.heatmapCellSize", jda.app.heatmapCellSize, "classifications", classifications);
 			$('.jda-map-loader').fadeOut('fast');
 		    },
 		    
@@ -302,7 +320,7 @@
 					flatArray = flatArray.concat(facetHeatmap.counts_ints2D[i][j]);
 			};
 			series = new geostats(flatArray);
-			numberOfClassifications = this.getColors().length
+			numberOfClassifications = this.getColors().length - 1;
 			classifications = series.getClassJenks(numberOfClassifications);
 			var lastExtraZero = -1;
 			for (var i = classifications.length - 1 ; i > 0 ; i--)
@@ -330,7 +348,7 @@
 		    getColors: function()
 		    {
                         //var colors = [0x000000, 0xffffb2ff, 0xfed976ff, 0xfeb24cff, 0xfd8d3cff, 0xf03b20ff, 0xbd0026ff];   // brewer
-                        var colors = [0x00000000, 0x0000dfff, 0x00effeff, 0x00ff42ff, 0xfeec30ff, 0xff5f00ff, 0xff0000ff]; 
+                        var colors = [0x00000000, 0xd3d3d3ff, 0x0000dfff, 0x00effeff, 0x00ff42ff, 0xfeec30ff, 0xff5f00ff, 0xff0000ff]; 
 			return colors;
 		    },
 
