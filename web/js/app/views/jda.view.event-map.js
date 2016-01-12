@@ -158,7 +158,7 @@
 			var zoomLevel = this.map.getZoom();
 			if ((zoomLevel == 13) || (zoomLevel == 8) || (zoomLevel == 6))
 			    solrDistErrPct = 0.125;  // otherwise, too may cells to draw quickly
-			else if (zoomLevel == 3)
+			else if (zoomLevel <= 3)
 			    solrDistErrPct = 0.195;
 			console.log("zoomLevel", zoomLevel, "solrDistErrPct", solrDistErrPct);
 			jQuery.ajax({
