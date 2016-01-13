@@ -15,10 +15,47 @@
 		japanMapUrl : sessionStorage.getItem("japanMapUrl"),
 		geoUrl : sessionStorage.getItem("geoServerUrl"),
 
+		    initializeLayers : function()
+		    {
+			// create layers for heatmap cells and heatmap documents once and reuse
+			console.log("in event-map initializeLayers");
+			this.heatmapCellsLayer = new Heatmap.Layer("HeatmapCellsLayer");
+			this.heatmapCellsLayer.setVisibility(false);
+
+			// Create a style map for painting the features.
+			// The graphicName property of the symbolizer is evaluated using
+			// the type attribute on each feature (set above).
+			var styles = new OpenLayers.StyleMap({
+			    "default": {
+				graphicName: "circle",
+				pointRadius: 5,
+				strokeColor: "red",
+				strokeWidth: 1,
+				fillColor: "red",
+				fillOpacity: 1.
+			    },
+			    "select": {
+				pointRadius: 10,
+				fillOpacity: 1,
+				rotation: 45
+			    }
+			});
+			var renderer = OpenLayers.Util.getParameters(window.location.href).renderer;
+			renderer = (renderer) ? [renderer] : OpenLayers.Layer.Vector.prototype.renderers;
+
+			this.heatmapDocumentsLayer = new OpenLayers.Layer.Vector("HeatmapDocumentsLayer", {
+			    styleMap: styles,
+			    isBaseLayer: false,
+			    renderers: renderer
+			});
+
+			this.heatmapDocumentsLayer.setVisibility(false);
+		    },
+
 		initialize : function()
 		{
 		    foo = this;
-
+		    this.initializeLayers();
 			OpenLayers.Layer.Grid.newRatio = 1.5;
 
 			OpenLayers.Layer.Grid.prototype.setTileSize = function(size) {
@@ -189,9 +226,14 @@
 			var viewWkt = this._mapViewToWkt(this.map);
 			if (heatmapGeom !== viewWkt) return;
 
-			var oldLayers = this.map.getLayersByName("Heatmap");
-			if (oldLayers.length > 0)
-			    this.map.removeLayer(oldLayers[0]);
+			var oldLayers = this.map.getLayersByName("HeatmapCellsLayer");
+			if (oldLayers.length == 0)
+			    this.map.addLayer(this.heatmapCellsLayer);
+			oldLayers = this.map.getLayersByName("HeatmapDocumentsLayer");
+			if (oldLayers.length == 0)
+			    this.map.addLayer(this.heatmapDocumentsLayer);
+			//if (oldLayers.length > 0)
+			//    this.map.removeLayer(oldLayers[0]);
 			var count = new Number(solrResponse.response.numFound);
 			jQuery("#zeega-results-count-number").text(count.toLocaleString());
 			jda.app.solrNumFound = count;
@@ -220,10 +262,17 @@
 			// rendering the heatmap has problems when the lowest classification is one
 			//   the heatmap library mistakenly adds a background color, probably due to round off error
 			if (classifications[1] == 1) classifications[1] = 2;
-			var heatmapLayer = new Heatmap.Layer("Heatmap");
+			var heatmapLayer = this.map.getLayersByName("HeatmapCellsLayer")[0];
+			var heatmapDocuments = this.map.getLayersByName("HeatmapDocumentsLayer")[0];
+			heatmapDocuments.setVisibility(false);
+			heatmapLayer.setVisibility(true);
+			heatmapLayer.points = [];
 			var colorGradient = this.getColorGradient(this.getColors(), classifications);
 			console.log("colorGradient = ", colorGradient);
 			heatmapLayer.setGradientStops(colorGradient);
+			heatmapLayer.setOpacity(0.40);
+			foobar = heatmapLayer;
+
 			var extent = this.map.getExtent();
 			var mapLowerLeft = new OpenLayers.LonLat(extent.left, extent.bottom);
                         var mapUpperRight = new OpenLayers.LonLat(extent.right, extent.top);
@@ -256,10 +305,10 @@
 				var tmpValue = Math.min(classifications[classifications.length-1] / maxValue, value / maxValue);
 				heatmapLayer.addSource(new Heatmap.Source(transformed, jda.app.heatmapCellSize, tmpValue));
 				heatmapSourceCount++;
-			    }
-				       )});
-			heatmapLayer.setOpacity(0.40);
-			this.map.addLayer(heatmapLayer);
+			    })
+			});
+			//this.map.addLayer(heatmapLayer);
+			    heatmapLayer.redraw();
 			console.log("heatmapSourceCount", heatmapSourceCount, "pointNotOnMapCount", pointNotOnMapCount, "number of cells", facetHeatmap.rows*facetHeatmap.columns, "jda.app.heatmapCellSize", jda.app.heatmapCellSize, "classifications", classifications);
 			$('.jda-map-loader').fadeOut('fast');
 		    },
@@ -312,13 +361,21 @@
 		    getClassifications : function(facetHeatmap)
 		    {
 			flatArray = [];
+			count = 0;
 			for (var i = 0; i < facetHeatmap.counts_ints2D.length; i++) 
 			{
 			    if (facetHeatmap.counts_ints2D[i] != null)  // entire row can be null
 				for (var j = 0 ; j < facetHeatmap.counts_ints2D[i].length ; j++)
-				    if (facetHeatmap.counts_ints2D[i][j] != null)
-					flatArray = flatArray.concat(facetHeatmap.counts_ints2D[i][j]);
+				    if (facetHeatmap.counts_ints2D[i][j] != null) // && facetHeatmap.counts_ints2D[i][j] != 0)
+			            {
+					if (count % 1 == 0)
+					{
+					    flatArray = flatArray.concat(facetHeatmap.counts_ints2D[i][j]);
+					}
+					count++;
+			            }
 			};
+			console.log("length of classification array", flatArray.length);
 			series = new geostats(flatArray);
 			numberOfClassifications = this.getColors().length - 1;
 			classifications = series.getClassJenks(numberOfClassifications);
@@ -857,36 +914,13 @@
 				console.log("in jda.view.event-map:renderDocuments", exception);
 			    }
 			}
-			// Create a style map for painting the features.
-			// The graphicName property of the symbolizer is evaluated using
-			// the type attribute on each feature (set above).
-			var styles = new OpenLayers.StyleMap({
-			    "default": {
-				graphicName: "circle",
-				pointRadius: 5,
-				strokeColor: "red",
-				strokeWidth: 1,
-				fillColor: "red",
-				fillOpacity: 1.
-			    },
-			    "select": {
-				pointRadius: 10,
-				fillOpacity: 1,
-				rotation: 45
-			    }
-			});
-			var renderer = OpenLayers.Util.getParameters(window.location.href).renderer;
-			renderer = (renderer) ? [renderer] : OpenLayers.Layer.Vector.prototype.renderers;
-
-			// Finally, create the heatmap layer
-			var layer = new OpenLayers.Layer.Vector("Heatmap", {
-			    styleMap: styles,
-			    isBaseLayer: false,
-			    renderers: renderer
-			});
-			var map = this.map;
-			layer.addFeatures(features);
-			this.map.addLayer(layer);
+			var heatmapLayer = this.map.getLayersByName("HeatmapCellsLayer")[0];
+			var heatmapDocuments = this.map.getLayersByName("HeatmapDocumentsLayer")[0];
+			heatmapLayer.setVisibility(false);
+			heatmapDocuments.setVisibility(true);
+			heatmapDocuments.removeAllFeatures();
+			heatmapDocuments.addFeatures(features);
+			//this.map.addLayer(layer);
 			console.log("rendered solr response as items");
 		    }
 
