@@ -23,7 +23,7 @@ this.jda = {
   app: _.extend({
     apiLocation : sessionStorage.getItem("apiUrl"),
     currentView : 'list',
-    resultsPerPage : 100,
+    resultsPerPage : 101,
 
     init : function(){
         // make item collection
