@@ -17,7 +17,6 @@
 			this.collection = new Browser.Items.Collection();
             this.collection.url=jda.app.apiLocation + 'api/items/search?q=type:Collection&user='+user+'&data_source=db';			
             this.collection.parse= function(data){ 
-              console.log('COLLECTION.PARSE', data.items);
               return data.items;
             }
 			
