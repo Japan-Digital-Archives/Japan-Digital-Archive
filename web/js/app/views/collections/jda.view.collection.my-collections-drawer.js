@@ -4,6 +4,7 @@
 	Browser.Items.Collections = Browser.Items.Collections || {};
 	Browser.Items.Collections.Views =  Browser.Items.Collections.Views || {};
 	
+  var REQUEST_ITEM_LIMIT = 10000;
 	
 	Browser.Items.Collections.Views.MyCollectionsDrawer = Backbone.View.extend({
 		
@@ -15,14 +16,11 @@
                         var user = sessionStorage.getItem('user');
 
 			this.collection = new Browser.Items.Collection();
-            this.collection.url=jda.app.apiLocation + 'api/items/search?q=type:Collection&user='+user+'&data_source=db';			
-            this.collection.parse= function(data){ 
-              return data.items;
-            }
+            this.collection.url=jda.app.apiLocation + 'api/items/search?q=type:Collection&user=' + user + '&data_source=db&limit=' + REQUEST_ITEM_LIMIT;
+            this.collection.parse= function(data){ return data.items;}
 			
 			if(sessionStorage.getItem('user')!=0)this.user=sessionStorage.getItem('user');
 			else this.user=null;
-			console.log(this.user,"IS THE USER");
 			//show 3 thumbnails by default in collections drawer
 			this.showThumbnailCount = 3;
 		},
