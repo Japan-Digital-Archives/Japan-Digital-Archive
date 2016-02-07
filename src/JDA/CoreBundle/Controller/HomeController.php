@@ -34,11 +34,13 @@ class HomeController extends Controller
     		$userId=0;	
     	}
 		
-		$em = $this->getDoctrine()->getEntityManager();
-        $q = $em->createQuery("select i from ZeegaDataBundle:Item i where i.media_type='collection' and i.thumbnail_url<>'' and i.published=true ORDER BY i.date_created DESC");
-        $q->setMaxResults(50);
-		$items = $q->getResult();
-    	
+		//$em = $this->getDoctrine()->getEntityManager();
+        //$q = $em->createQuery("select i from ZeegaDataBundle:Item i where i.media_type='collection' and i.thumbnail_url<>'' and i.published=true ORDER BY i.date_created DESC");
+        //$q->setMaxResults(25);
+		//$items = $q->getResult();
+    	$response = json_decode(file_get_contents("http://api.jdarchive.org/api/items/search?&type=Collection&sort=date-desc&published=1&thumbnail_url%3C%3E%22%22&limit=50"), true);
+		$items = $response["items"];
+		
     	$request = $this->getRequest();
     	if($request->request->get('search-text')) return $this->redirect(sprintf('%s#%s', $this->generateUrl('search'), 'text='.$request->request->get('search-text')));
    

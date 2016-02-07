@@ -1,5 +1,50 @@
 /// <reference path="jda.ux.item.js" />
 
+// Ensures start of address is http, not https
+function toHttp(uri) {
+  var pattern = /^https?(.+)$/;
+  var match = uri.match(pattern);
+  return match ? "http"+match[1] : uri;
+}
+
+function embedVideo(src,cntrls) {
+    this.unique = Math.floor(Math.random() *10000)
+        $('#item').append($('<div>').attr({id:'item-video-'+this.unique}));
+    this.plyr = new Plyr('item-video-'+this.unique,{url:src,controls:cntrls});
+    $(window).unload(function() {
+	this.plyr.destroy();
+    });
+}
+
+// Extracts the video id from a YouTube link
+function fixYoutubeUri(uri) {
+  var parts = uri.split('http');
+  var original_src = "http"+parts[parts.length-1];
+  // Matches http://(www.)?youtube.com/watch?v=(.+)
+  var yt_url = /^https?:\/\/(?:www\.)?youtube\.com\/watch\?v=(.+)$/;
+  var yt_match = original_src.match(yt_url);
+  if (yt_match) {
+    return yt_match[1];
+  } else {
+    return false;
+  }
+}
+
+// Extracts the video id from a Vimeo link
+function fixVimeoUri(uri) {
+  var parts = uri.split('http');
+  var original_src = "http"+parts[parts.length-1];
+  // Together, these two regexes match http://(www.)?vimeo.com(.*)/[0-9]+
+  var vm_url_hd = /^https?:\/\/(?:www\.)?vimeo.com\/(.+)$/;
+  var vm_url_tl = /\d+$/;
+  var vm_match_hd = original_src.match(vm_url_hd);
+  if (vm_match_hd && original_src.match(vm_url_tl)) {
+    return vm_match_hd[1];
+  } else {
+    return false;
+  }
+}
+
 $(document).ready(function(){
 	
 
@@ -249,32 +294,35 @@ $(document).ready(function(){
         $('#item').append('<img src="'+$('#item').data('uri')+'" class="jda-item-image"/>');
         break;
       case 'Video':
-      	this.unique =Math.floor(Math.random() *10000)
-		$('#item').append($('<div>').attr({id:'item-video-'+this.unique}));
-		
-      	switch( $('#item').data("layer_type") )
-		{
-
-			case 'Video':
-				var source = $('#item').data('uri');
-				this.plyr = new Plyr('item-video-'+this.unique,{url:source,controls:1});
-				break;
-			case 'Youtube':
-				var source = "http://www.youtube.com/watch?v="+$('#item').data('uri');
-				this.plyr = new Plyr('item-video-'+this.unique,{url:source,controls:1});
-				break;
-			case 'Vimeo':
-				var source = "http://vimeo.com/"+$('#item').data('uri');
-				this.plyr = new Plyr('item-video-'+this.unique,{url:source,controls:0});
-				break;
-		
-		}
-		$(window).unload(function() {
-		  	this.plyr.destroy();
-		});
-        
-        break;
-      
+	var source;
+	var controls;
+        var layer_type = $('#item').data("layer_type").toLowerCase();
+        if (layer_type.lastIndexOf("outside-", 0) === 0) {
+	    layer_type = layer_type.substring(8);
+	}
+    	switch( layer_type )
+    	{
+            case 'youtube':
+                var yt_uri = $('#item').data('uri');
+                var yt_id = fixYoutubeUri(yt_uri);
+	        source = "http://www.youtube.com/watch?v=" + 
+                    (yt_id === false ? yt_uri : yt_id);
+	        controls = 1;
+	        break;
+            case 'vimeo':
+                var vm_uri = $('#item').data('uri');
+                var vm_id = fixVimeoUri(vm_uri);
+	        source = "http://vimeo.com/" +
+                    (vm_id === false ? vm_uri : vm_id);
+	        controls = 0;
+	        break;
+            default:
+                source = toHttp($('#item').data('uri'));
+                controls = 1;
+                break;	
+        }
+	embedVideo(source, controls);
+	break;
       case 'Audio':
       	this.unique =Math.floor(Math.random() *10000)
 		$('#item').append($('<div">').attr({id:'item-video-'+this.unique}));
@@ -307,19 +355,25 @@ $(document).ready(function(){
         
         break;
          
-      case 'Website':
-      
-	    var parts=$('#item').data('attribution_uri').split('http');
-	    var original_src = "http"+parts[parts.length-1];
-		var src= $('#item').data('attribution_uri');
-
-      	$('#item').append('<div class="website-caption"><a href="'+original_src+'" target="_blank">'+original_src+'</a></div>'+
-					'<div id="jda-item-website">'+
-					'<iframe type="text/html" width="100%" height="400px" src="'+src+'" frameborder="0">'+
-					'</iframe>'+
-					'</div>');
-       
-      	break;
+        case 'Website':
+            var attrib_uri = $('#item').data('attribution_uri');
+            var yt_id = fixYoutubeUri(attrib_uri);
+            var vm_id = fixVimeoUri(attrib_uri);
+            if (yt_id !== false) {
+                embedVideo('http://www.youtube.com/watch?v=' + yt_id, 1);
+            } else if (vm_id !== false) {
+                embedVideo('http://www.vimeo.com/' + vm_id, 0);
+            } else {
+	        var src = attrib_uri;
+                var parts = attrib_uri.split('http');
+                var original_src = "http"+parts[parts.length-1];
+      	        $('#item').append('<div class="website-caption"><a href="'+original_src+'" target="_blank">'+original_src+'</a></div>'+
+						'<div id="jda-item-website">'+
+						'<iframe type="text/html" width="100%" height="400px" src="'+src+'" frameborder="0">'+
+						'</iframe>'+
+						'</div>');
+	    }       
+      	    break;
         case 'Headline':
             // currently, nothing happens for news articles, so nothing happens here.
             break;

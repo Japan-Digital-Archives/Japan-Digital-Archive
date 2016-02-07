@@ -994,10 +994,6 @@
                 <source>jda.about.project</source>
                 <target>About</target>
             </trans-unit>
-             <trans-unit id="248">
-                <source>jda.team.leader</source>
-                <target>This project is led by the Reischauer Institute of Japanese Studies</target>
-            </trans-unit>
             <trans-unit id="249">
                 <source>jda.team.additional</source>
                 <target>Reischauer Institute Faculty and Staff providing additional support</target>
@@ -1695,6 +1691,289 @@ prompt those of us who were not affected to reflect on the way we live our lives
 				<source>jda.bookmarklet.browser</source>
 				<target>* Best supported by the Chrome browser *</target>
 			</trans-unit>
+            <trans-unit id="426">
+                <source>jda.aboutpartners.hidenoriwatanavetitle</source>
+                <target>Hidenori Watanave</target>
+            </trans-unit>
+            <trans-unit id="427">
+                <source>jda.aboutpartners.hidenoriwatanave</source>
+                <target></target>
+            </trans-unit>
+            <trans-unit id="428">
+                <source>jda.aboutpartners.gejeatitle</source>
+                <target>Great East Japan Earthquake Archive</target>
+            </trans-unit>
+            <trans-unit id="429">
+                <source>jda.aboutpartners.gejea</source>
+                <target></target>
+            </trans-unit>
+            <trans-unit id="430">
+                <source>jda.team.leader.projectdirector</source>
+                <target>Project Director: Andrew Gordon, Professor of History</target>
+            </trans-unit>
+            <trans-unit id="431">
+                <source>jda.team.leader.projectmanager</source>
+                <target>Project Manager: Ryo Morimoto, Research Fellow</target>
+            </trans-unit>
+            <trans-unit id="432">
+                <source>jda.team.additional.director</source>
+                <target>Professor Ted Bestor, Director</target>
+            </trans-unit>
+            <trans-unit id="433">
+                <source>jda.team.additional.executivedirector</source>
+                <target>Dr. Ted Gilman, Executive Director</target>
+            </trans-unit>
+            <trans-unit id="434">
+                <source>jda.team.additional.librarian</source>
+                <target>Kazuko Sakaguchi, Librarian, Documentation Center on Contemporary Japan</target>
+            </trans-unit>
+            <trans-unit id="435">
+                <source>jda.team.additional.assistantdirector</source>
+                <target>Stacie Matsumoto, Assistant Director</target>
+            </trans-unit>
+            <trans-unit id="436">
+                <source>jda.team.alumni.corinne</source>
+                <target>Corinne Curcie: Project Technical Lead</target>
+            </trans-unit>
+            <trans-unit id="437">
+                <source>jda.team.webdeveloper.zahra</source>
+                <target>Interface Developer: Zahra Mahmood</target>
+            </trans-unit>
+            <trans-unit id="438">
+                <source>jda.team.alumni.karashen</source>
+                <target>Kara Shen: Interface Developer</target>
+            </trans-unit>
+            <trans-unit id="439">
+                <source>jda.team.webdeveloper.harnek</source>
+                <target>Interface Developer: Harnek Gulati</target>
+            </trans-unit>
+            <trans-unit id="440">
+                <source>jda.team.webdeveloper.rebecca</source>
+                <target>Interface Developer: Rebecca Chen</target>
+            </trans-unit>
+            <trans-unit id="441">
+                <source>jda.team.webdeveloper.annie</source>
+                <target>Interface Developer: Annie Lin</target>
+            </trans-unit>
+            <trans-unit id="442">
+                <source>jda.team.webdeveloper.javier</source>
+                <target>Interface Developer: Javier Cuan-Martinez</target>
+            </trans-unit>
+            <trans-unit id="443">
+                <source>jda.team.webdeveloper.tyreke</source>
+                <target>Interface Developer: Tyreke White</target>
+            </trans-unit>
+            <trans-unit id="444">
+                <source>jda.team.webdeveloper.kyle</source>
+                <target>Educational Design Coordinator: Kyle Parry, metaLAB (at) Harvard</target>
+            </trans-unit>
+            <trans-unit id="445">
+                <source>jda.team.webdeveloper.jessica</source>
+                <target>Interface Developer: Jessica Yurkofsky, metaLAB (at) Harvard</target>
+            </trans-unit>
+            <trans-unit id="446">
+                <source>jda.team.content.lead</source>
+                <target>Digital Content Lead: Koko Howell</target>
+            </trans-unit>
+            <trans-unit id="447">
+                <source>jda.team.content.developer</source>
+                <target>Digital Content Developer: Anna Wada</target>
+            </trans-unit>
+            <trans-unit id="448">
+                <source>jda.team.content.curation</source>
+                <target>Web Seed Curation: Momoko Howell 
+		        <![CDATA[<br />]]>
+		        Web Seed Curation: Yumiko Takeda, Showa Boston Institute for Language and Culture
+			<![CDATA[<br />]]>
+			Web Seed Curation: Kanami Ohno, Showa Boston Institute for Language and Culture
+			<![CDATA[<br />]]>
+			Web Seed Curation: Maho Yanagisawa, Showa Boston Institute for Language and Culture
+		</target>
+            </trans-unit>
+            <trans-unit id="449">
+                <source>jda.team.alumni.nick</source>
+                <target>Nick Kapur: Project Manager</target>
+            </trans-unit>
+            <trans-unit id="450">
+                <source>jda.team.alumni.ej</source>
+                <target>E.J. Bensing: Project Technical Lead</target>
+            </trans-unit>
+            <trans-unit id="451">
+                <source>jda.team.alumni.molly</source>
+                <target>Molly Des Jardin: Archive Development Manager</target>
+            </trans-unit>
+            <trans-unit id="452">
+                <source>jda.team.alumni.konrad</source>
+                <target>Konrad M. Lawson: Project management</target>
+            </trans-unit>
+            <trans-unit id="453">
+                <source>jda.team.alumni.yuhki</source>
+                <target>Yuhki Yamashita: Project development and design</target>
+            </trans-unit>
+            <trans-unit id="454">
+                <source>jda.team.alumni.arne</source>
+                <target>Arne Brasseur: Project development</target>
+            </trans-unit>
+            <trans-unit id="455">
+                <source>jda.team.alumni.jesse</source>
+                <target>Jesse Shapins: Zeega Platform design and development</target>
+            </trans-unit>
+            <trans-unit id="456">
+                <source>jda.team.alumni.hikari</source>
+                <target>Hikari Senju: Interface Developer</target>
+            </trans-unit>
+            <trans-unit id="457">
+                <source>jda.team.alumni.luis</source>
+                <target>Luis Filipe Brandao: Zeega Platform design and development</target>
+            </trans-unit>
+            <trans-unit id="458">
+                <source>jda.team.alumni.james</source>
+                <target>James Burns: Zeega Platform design and development</target>
+            </trans-unit>
+            <trans-unit id="459">
+                <source>jda.team.alumni.kara</source>
+                <target>Kara Oehler: Zeega Platform design and development</target>
+            </trans-unit>
+            <trans-unit id="460">
+                <source>jda.team.alumni.joseph</source>
+                <target>Joseph Bergen: Zeega Platform design and development</target>
+            </trans-unit>
+            <trans-unit id="461">
+                <source>jda.team.alumni.selena</source>
+                <target>Selena Kim: Interface design</target>
+            </trans-unit>
+            <trans-unit id="462">
+                <source>jda.team.alumni.eric</source>
+                <target>Eric Dinmore: Collection curation</target>
+            </trans-unit>
+            <trans-unit id="463">
+                <source>jda.team.alumni.julie</source>
+                <target>Julie Zhang: Interface Developer</target>
+            </trans-unit>
+            <trans-unit id="464">
+                <source>jda.team.alumni.kyoko</source>
+                <target>Kyoko Shiga: Web seed and testimonial curation</target>
+            </trans-unit>
+            <trans-unit id="465">
+                <source>jda.team.alumni.ray</source>
+                <target>Ray Kameda: GIS data curation</target>
+            </trans-unit>
+            <trans-unit id="466">
+                <source>jda.team.alumni.takamasa</source>
+                <target>Takamasa Nunogaki: Web seed curation</target>
+            </trans-unit>
+            <trans-unit id="467">
+                <source>jda.team.alumni.alicia</source>
+                <target>Alicia Zhao: Web seed curation</target>
+            </trans-unit>
+            <trans-unit id="468">
+                <source>jda.team.alumni.yeonjoo</source>
+                <target>Yeonjoo Kim: Web seed curation</target>
+            </trans-unit>
+            <trans-unit id="469">
+                <source>jda.team.alumni.ilsoo</source>
+                <target>Ilsoo Cho: Web seed curation</target>
+            </trans-unit>
+            <trans-unit id="470">
+                <source>jda.team.alumni.miho</source>
+                <target>Miho Segal: Web seed curation</target>
+            </trans-unit>
+            <trans-unit id="471">
+                <source>jda.team.alumni.grace</source>
+                <target>Grace Song: Web seed curation</target>
+            </trans-unit>
+            <trans-unit id="472">
+                <source>jda.team.alumni.sandy</source>
+                <target>Sandy Xu: Web seed and testimonial curation</target>
+            </trans-unit>
+            <trans-unit id="473">
+                <source>jda.team.alumni.atsuko</source>
+                <target>Atsuko Yamashita: Web seed curation</target>
+            </trans-unit>
+            <trans-unit id="474">
+                <source>jda.team.alumni.rei</source>
+                <target>Rei Yoshimine: Web seed curation</target>
+            </trans-unit>
+            <trans-unit id="475">
+                <source>jda.team.alumni.taisei</source>
+                <target>Taisei Wake: Web seed curation and SNS promotion</target>
+            </trans-unit>            
+			<trans-unit id="476">
+                <source>jda.firsttime.header</source>
+                <target>New Users</target>
+            </trans-unit>
+            <trans-unit id="477">
+                <source>jda.firsttime.body</source>
+                <target>Welcome to the Digital Archive of Japan's 2011 Disasters. For a video introduction to our archive, as well as detailed text and video instructions, please visit our </target>
+            </trans-unit>
+            <trans-unit id="478">
+                <source>jda.howtouse.waku</source>
+                <target>Using the Waku Editor</target>
+            </trans-unit>
+            <trans-unit id="479">
+                <source>jda.howtouse.wakustart</source>
+                <target>Getting Started</target>
+            </trans-unit>
+            <trans-unit id="480">
+                <source>jda.howtouse.wakunavi</source>
+                <target>Navigating Waku</target>
+            </trans-unit>
+            <trans-unit id="481">
+                <source>jda.howtouse.wakuhakos</source>
+                <target>Building Waku</target>
+            </trans-unit>
+            <trans-unit id="482">
+                <source>jda.howtouse.wakuanno</source>
+                <target>Annotation</target>
+            </trans-unit>
+			<trans-unit id="483">
+				<source>jda.howtouse.wakutext1</source>
+				<target>JDA users can build collections of materials in the archive, for private use or public presentation.  The collection building function is described on the </target>
+			</trans-unit>
+			<trans-unit id="484">
+				<source>jda.howtouse.wakutext2</source>
+				<target> Once you have built a collection, you can curate that collection and create public presentations with our “Waku” tool.   Here are four instructional videos about the Waku tool.</target>
+			</trans-unit>
+			<trans-unit id="485">
+				<source>jda.about.videointro</source>
+				<target>Video Introduction</target>
+			</trans-unit>
+			<trans-unit id="486">
+				<source>jda.about.videoheader</source>
+				<target>Video Introduction to the Japan Disaster Archive</target>
+			</trans-unit>
+			<trans-unit id="487">
+				<source>jda.about.videotext</source>
+				<target>Below is a conceptual introduction to the Japanese Disaster Archive, prepared in March 2015 on the fourth anniversary of the disaster. Musical credit: "Senbazuru" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: </target>
+			</trans-unit>
+			<trans-unit id="488">
+				<source>jda.about.videocc</source>
+				<target>By Attribution 3.0.</target>
+			</trans-unit>
+	    <trans-unit id="489">
+                <source>jda.team.alumni.kae</source>
+                <target>Kae Nakahashi, Showa Boston Institute for Language and Culture: Web Seed Curation</target>
+            </trans-unit>
+	    <trans-unit id="490">
+                <source>jda.team.webdeveloper.alex</source>
+                <target>Project Technical Lead: Alex Horak</target>
+	    </trans-unit>
+            <trans-unit id="491">
+                <source>jda.my.waku</source>
+                <target>create Waku</target>
+            </trans-unit>
+            <trans-unit id="492">
+                <source>jda.my.wakuInformational</source>
+                <target>Construct a media rich narrative using this collection on the Waku. Waku is a story telling platform for curation and presentation, give it a try!</target>
+            </trans-unit>
+            <trans-unit id="493">
+              <source>jda.form.contribute.language.french</source>
+              <target>French</target>
+            </trans-unit>
+	    <trans-unit id="494">
+              <source>jda.form.contribute.language.others</source>
+              <target>Others</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

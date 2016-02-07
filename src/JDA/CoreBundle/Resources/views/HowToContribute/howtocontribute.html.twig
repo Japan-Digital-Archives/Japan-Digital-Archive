@@ -13,6 +13,22 @@
 <!--<![endif]-->
 {% endblock %}
 {% block scripts %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!--<script>
+    $(document).ready(function(){
+        $('#instructional h3').siblings().addClass("hidden");
+
+        $('#instructional h3').click(function() {
+            var $this = $(this);
+	
+            if ($this.siblings().hasClass("hidden")) {
+                $(this).siblings().removeClass("hidden");
+            } else {
+                $(this).siblings().addClass("hidden");
+            }
+        });
+    });
+</script>-->
 {% if app.environment == 'dev' %}
 <!-- to load JS libraries separately -->
 	<script data-main="{{ asset('js/loaders/about') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
@@ -46,10 +62,10 @@
 	<div id="instructional" style="width:80%">
 		<p>{% trans %}jda.howtocontribute.intro{% endtrans %}<a href="{{path('howtouse')}}">{% trans %}jda.howtocontribute.searchpage{% endtrans %}</a></p>
 		
-		<h3 style="margin-bottom:20px">{% trans %}jda.howtocontribute.adding{% endtrans %}</h3>
 
 		<div>
-			<p style="padding-top:3px">{% trans %}jda.howtocontribute.addingp1{% endtrans %}</p>
+			<h3 style="margin-bottom:20px">{% trans %}jda.howtocontribute.adding{% endtrans %}</h3>
+			<p>{% trans %}jda.howtocontribute.addingp1{% endtrans %}</p>
 			{% if locale == 'ja' %}
 				<img src="{{ asset('images/howtocontribute1ja.png')}}"></a>
 			{% else %}
@@ -57,16 +73,14 @@
 			{% endif %}
 		</div>
 		
-		<h3 style="margin-bottom:20px">{% trans %}jda.howtocontribute.testimonial{% endtrans %}</h3>
-
 		<div>
-			<p style="padding-top:3px">{% trans %}jda.howtocontribute.testimonialp1{% endtrans %}</p>
+			<h3 style="margin-bottom:20px">{% trans %}jda.howtocontribute.testimonial{% endtrans %}</h3>
+			<p>{% trans %}jda.howtocontribute.testimonialp1{% endtrans %}</p>
 		</div>
 		
-		<h3 style="margin-bottom:20px">{% trans %}jda.howtocontribute.tagging{% endtrans %}</h3>
-
 		<div>
-			<p style="padding-top:3px">{% trans %}jda.howtocontribute.taggingp1{% endtrans %}</p>
+			<h3 style="margin-bottom:20px">{% trans %}jda.howtocontribute.tagging{% endtrans %}</h3>
+			<p>{% trans %}jda.howtocontribute.taggingp1{% endtrans %}</p>
 			{% if locale == 'ja' %}
 				<img src="{{ asset('images/howtocontribute2ja.png')}}"></a>
 			{% else %}
@@ -74,10 +88,9 @@
 			{% endif %}
 		</div>
 		
-		<h3 style="margin-bottom:20px">{% trans %}jda.howtocontribute.translate{% endtrans %}</h3>
-
 		<div>
-			<p style="padding-top:3px">{% trans %}jda.howtocontribute.translatep1{% endtrans %}</p>
+			<h3 style="margin-bottom:20px">{% trans %}jda.howtocontribute.translate{% endtrans %}</h3>
+			<p>{% trans %}jda.howtocontribute.translatep1{% endtrans %}</p>
 			{% if locale == 'ja' %}
 				<img src="{{ asset('images/howtocontribute3ja.png')}}"></a>
 			{% else %}
@@ -85,19 +98,18 @@
 			{% endif %}
 		</div>
 		
-		<h3 style="margin-bottom:20px">{% trans %}jda.howtocontribute.create{% endtrans %}</h3>
-
 		<div>
-			<p style="padding-top:3px">{% trans %}jda.howtocontribute.createp1{% endtrans %}</p>
-			<p style="padding-top:3px">{% trans %}jda.howtocontribute.createp2{% endtrans %}</p>
+			<h3 style="margin-bottom:20px">{% trans %}jda.howtocontribute.create{% endtrans %}</h3>
+			<p>{% trans %}jda.howtocontribute.createp1{% endtrans %}</p>
+			<p>{% trans %}jda.howtocontribute.createp2{% endtrans %}</p>
 			{% if locale == 'ja' %}
 				<img src="{{ asset('images/howtocontribute4ja.png')}}"></a>
 			{% else %}
 				<img src="{{ asset('images/howtocontribute4.png')}}"></a>
 			{% endif %}
-			<p style="padding-top:3px">{% trans %}jda.howtocontribute.createp3{% endtrans %}</p>
-			<p style="padding-top:3px">{% trans %}jda.howtocontribute.createp4{% endtrans %}</p>
-			<p style="padding-top:3px">{% trans %}jda.howtocontribute.createp5{% endtrans %}</p>
+			<p>{% trans %}jda.howtocontribute.createp3{% endtrans %}</p>
+			<p>{% trans %}jda.howtocontribute.createp4{% endtrans %}</p>
+			<p>{% trans %}jda.howtocontribute.createp5{% endtrans %}</p>
 						{% if locale == 'ja' %}
 				<img src="{{ asset('images/howtocontribute5ja.png')}}"></a>
 			{% else %}

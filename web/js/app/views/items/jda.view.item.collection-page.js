@@ -95,7 +95,7 @@
 			/***************************************************************************
 				Look up location with reverse geocode
 			***************************************************************************/
-			if (!_.isUndefined(this.model.get('media_geo_latitude')) && !_.isUndefined(this.model.get('media_geo_longitude'))){
+			if (!_.isNull(this.model.get('media_geo_latitude')) && !_.isNull(this.model.get('media_geo_longitude'))){
 				this.geocoder.geocode( { 'latLng' : new google.maps.LatLng(this.model.get('media_geo_latitude'),this.model.get('media_geo_longitude')) }, function(results, status) {
 					if (status == google.maps.GeocoderStatus.OK) {
 						if (results[0].formatted_address){
@@ -343,7 +343,7 @@
 		},
 			
 		loadMap : function(){
-				if( !this.isGeoLocated )
+				if( typeof(this.map) == 'undefined' && !this.isGeoLocated )
 				{
 					this.latlng = new L.LatLng( 38.266667,140.866667 );
 					var div = $(this.el).find('.jda-collection-map').get(0);

@@ -20,7 +20,12 @@ class ItemAdmin extends Admin
               'Broadcast' => 'Broadcast', 'News Headline' => 'Headline', 
               'Collection' => 'Collection');
       $fileLoc = realpath("lastExport.txt");
-      $lastExport = file_get_contents($fileLoc);
+	  if ($fileLoc != "") { 
+		$lastExport = file_get_contents($fileLoc);
+	  }
+	  else {
+		$lastExport = "";
+	  }
       $formMapper
           ->add('title')
           ->add('description')
@@ -53,6 +58,7 @@ class ItemAdmin extends Admin
         $datagridMapper
             ->add('title')
             ->add('uri')
+			->add('attribution_uri')
             ->add('published')
             ->add('media_type')
             ->add('layer_type')
@@ -60,6 +66,9 @@ class ItemAdmin extends Admin
             ->add('media_creator_realname')
             ->add('id')
             ->add('user_id')
+			->add('media_date_created', 'doctrine_orm_datetime_range')
+			->add('date_created', 'doctrine_orm_datetime_range')
+			->add('attributes')
         ;
     }
 

@@ -145,6 +145,7 @@ this.jda = {
                 this.filterModel.fetch({
                     success : function(model, response){
                         _this.resultsView.collectionFilter = new Browser.Items.Views.CollectionPage({model:model});
+                        _this.resultsView.wakuArea = new Browser.Items.Views.WakuArea({model:model});
                         if (!_.isUndefined(_this.searchObject.view_type)) _this.switchViewTo(_this.searchObject.view_type,true) ;
                         else _this.search(_this.searchObject);
                     },

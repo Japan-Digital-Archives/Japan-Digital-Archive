@@ -6,8 +6,8 @@
 
 
 {% block stylesheets %}
-
 <link href="{{ asset('js/lib/jcarousel/skins/tango/skin.css')}}" media="screen" rel="stylesheet" type="text/css" />
+
 <!-- Visual Search --> 
 <!--[if (!IE)|(gte IE 8)]><!-->
 <link href="{{ asset('js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
@@ -15,6 +15,7 @@
 <!--[if lte IE 7]><!-->
 <link href="{{ asset('js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
 <!--<![endif]-->
+
  {% endblock %}
 
 {% block scripts %}
@@ -27,8 +28,8 @@
 	<script data-main="{{ asset('js_min/home') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
 {% endif %}
 
-<script type="text/javascript" src="{{ asset('js/lib/jcarousel/lib/jquery-1.9.1.min.js')}}"></script>
-<script type="text/javascript" src="{{ asset('js/lib/jcarousel/lib/jquery.jcarousel.min.js')}}"></script>
+ <script type="text/javascript" src="{{ asset('js/lib/jcarousel/lib/jquery-1.9.1.min.js')}}"></script> 
+ <script type="text/javascript" src="{{ asset('js/lib/jcarousel/lib/jquery.jcarousel.min.js')}}"></script>
 
 <!-- Carousel scripts -->
 <script type="text/javascript">
@@ -93,7 +94,7 @@ jQuery_1_9_1(document).ready(function() {
 	</div>
 
 	<!-- carousel -->
-
+	
 	<div id="wrap" style="position: absolute;bottom:0;width:100%;height:250px;">
 		<!-- recent collections -->
 		<div style="margin-left:2%; position:relative; display:inline-block;">
@@ -102,8 +103,10 @@ jQuery_1_9_1(document).ready(function() {
 		
 	<ul id="mycarousel" class="jcarousel-skin-tango">
 		{% for item in items %}
-				<li style="background-image:url({{item.getThumbnailUrl}});"><a href="{{path('collection', { '_locale': locale,'id':item.getId })}}">{{item.getTitle}}</a></li>
-        {% endfor %}
+			{% if item.thumbnail_url is not null %}
+				<li style="background-image:url({{item.thumbnail_url}});"><a href="{{path('collection', { '_locale': locale,'id':item.id })}}">{{item.title}}</a></li>
+			{% endif %}
+		{% endfor %}
 		
 	  </ul>
 	</div>
