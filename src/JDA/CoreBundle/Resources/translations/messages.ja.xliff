@@ -2001,6 +2001,9 @@ JDAの基本コンセプトの紹介ビデオ、及び使用説明ビデオ・�
               <source>jda.form.contribute.language.others</source>
               <target>その他</target>
             </trans-unit>
+        <trans-unit id="495">
+                <source>jda.team.alumni.yumiko</source>
+                <target>Yumiko Takeda （昭和ボストン　竹田有美子）: ウェブシード　キュレーション
         </body>
     </file>
 </xliff>

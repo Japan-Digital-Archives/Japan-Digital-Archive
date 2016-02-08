@@ -1976,6 +1976,10 @@ prompt those of us who were not affected to reflect on the way we live our lives
                 <source>jda.team.alumni.yumiko</source>
                 <target>Yumiko Takeda, Showa Boston Institute for Language and Culture: Web Seed Curation</target>
             </trans-unit>
+        <trans-unit id="496">
+                <source>jda.team.alumni.kanami</source>
+                <target>Kanami Ohno, Showa Boston Institute for Language and Culture: Web Seed Curation</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
