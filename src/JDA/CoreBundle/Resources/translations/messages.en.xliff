@@ -1980,6 +1980,10 @@ prompt those of us who were not affected to reflect on the way we live our lives
                 <source>jda.team.alumni.kanami</source>
                 <target>Kanami Ohno, Showa Boston Institute for Language and Culture: Web Seed Curation</target>
             </trans-unit>
+        <trans-unit id="497">
+                <source>jda.team.alumni.maho</source>
+                <target>Maho Yanagisawa, Showa Boston Institute for Language and Culture: Web Seed Curation</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
