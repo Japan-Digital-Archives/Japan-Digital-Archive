@@ -1805,12 +1805,6 @@
                 <source>jda.team.content.curation</source>
                 <target>ウェブシード　キュレーション：Momoko Howell (ハウエル・モモコ)
                     <![CDATA[<br />]]>
-                    ウェブシード　キュレーション：Yumiko Takeda（昭和ボストン　竹田有美子）
-                    <![CDATA[<br />]]>
-                    ウェブシード　キュレーション：Kanami Ohno（昭和ボストン　大野奏美）
-                    <![CDATA[<br />]]>
-                    ウェブシード　キュレーション：Maho Yanagisawa（昭和ボストン　柳澤真帆）
-                    <![CDATA[<br />]]>
                     ウェブシード　キュレーション：Mao Kuroda（昭和ボストン　黒田真央） 
                     <![CDATA[<br />]]>
                     ウェブシード　キュレーション：Rie Suzaki（昭和ボストン　須崎理絵）
@@ -2008,6 +2002,10 @@ JDAの基本コンセプトの紹介ビデオ、及び使用説明ビデオ・�
         <trans-unit id="496">
                 <source>jda.team.alumni.kanami</source>
                 <target>Kanami Ohno（昭和ボストン　大野奏美）: ウェブシード　キュレーション</target>
+            </trans-unit>
+        <trans-unit id="497">
+                <source>jda.team.alumni.maho</source>
+                <target>Maho Yanagisawa（昭和ボストン　柳澤真帆） : ウェブシード　キュレーション</target>
             </trans-unit>
         </body>
     </file>
