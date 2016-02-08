@@ -2003,7 +2003,8 @@ JDAの基本コンセプトの紹介ビデオ、及び使用説明ビデオ・�
             </trans-unit>
         <trans-unit id="495">
                 <source>jda.team.alumni.yumiko</source>
-                <target>Yumiko Takeda （昭和ボストン　竹田有美子）: ウェブシード　キュレーション
+                <target>Yumiko Takeda （昭和ボストン　竹田有美子）: ウェブシード　キュレーション</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
