@@ -1783,11 +1783,9 @@ prompt those of us who were not affected to reflect on the way we live our lives
                 <source>jda.team.content.curation</source>
                 <target>Web Seed Curation: Momoko Howell 
 		        <![CDATA[<br />]]>
-		        Web Seed Curation: Yumiko Takeda, Showa Boston Institute for Language and Culture
-			<![CDATA[<br />]]>
-			Web Seed Curation: Kanami Ohno, Showa Boston Institute for Language and Culture
-			<![CDATA[<br />]]>
-			Web Seed Curation: Maho Yanagisawa, Showa Boston Institute for Language and Culture
+		        Web Seed Curation: Mao Kuroda, Showa Boston Institute for Language and Culture
+                <![CDATA[<br />]]>
+			    Web Seed Curation: Rie Suzaki, Showa Boston Institute for Language and Culture
 		</target>
             </trans-unit>
             <trans-unit id="449">
@@ -1973,6 +1971,18 @@ prompt those of us who were not affected to reflect on the way we live our lives
 	    <trans-unit id="494">
               <source>jda.form.contribute.language.others</source>
               <target>Others</target>
+            </trans-unit>
+        <trans-unit id="495">
+                <source>jda.team.alumni.yumiko</source>
+                <target>Yumiko Takeda, Showa Boston Institute for Language and Culture: Web Seed Curation</target>
+            </trans-unit>
+        <trans-unit id="496">
+                <source>jda.team.alumni.kanami</source>
+                <target>Kanami Ohno, Showa Boston Institute for Language and Culture: Web Seed Curation</target>
+            </trans-unit>
+        <trans-unit id="497">
+                <source>jda.team.alumni.maho</source>
+                <target>Maho Yanagisawa, Showa Boston Institute for Language and Culture: Web Seed Curation</target>
             </trans-unit>
         </body>
     </file>
