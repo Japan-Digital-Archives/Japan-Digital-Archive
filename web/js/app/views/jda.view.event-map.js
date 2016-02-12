@@ -18,7 +18,15 @@
 		    initializeLayers : function()
 		    {
 			// create layers for heatmap cells and heatmap documents once and reuse
-			console.log("in event-map initializeLayers");
+			if (this.map)
+			{
+			    var oldLayers = this.map.getLayersByName("HeatmapCellsLayer");
+			    if (oldLayers.length > 0)
+				this.map.removeLayer(oldLayers[0]);
+			    oldLayers = this.map.getLayersByName("HeatmapDocumentsLayer");
+			    if (oldLayers.length > 0)
+				this.map.removeLayer(oldLayers[0]);
+			}
 			this.heatmapCellsLayer = new Heatmap.Layer("HeatmapCellsLayer");
 			this.heatmapCellsLayer.setVisibility(false);
 
@@ -50,6 +58,12 @@
 			});
 
 			this.heatmapDocumentsLayer.setVisibility(false);
+
+			if (this.map)
+			{
+			    this.map.addLayer(this.heatmapCellsLayer);
+			    this.map.addLayer(this.heatmapDocumentsLayer);
+			}
 		    },
 
 		initialize : function()
@@ -191,13 +205,10 @@
 			var mediaFilter = this.getMediaFilter(); //"layer_type:*";
 			var timeFilter = this.getTimeFilter();
 			solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select?" + "fq=" + mediaFilter + "&fq=" + timeFilter + "&rows=100";
-			var solrDistErrPct = 0.1;
+			var solrDistErrPct = 0.10;  // default 0.15
 			var zoomLevel = this.map.getZoom();
-			if ((zoomLevel == 13) || (zoomLevel == 8) || (zoomLevel == 6))
-			    solrDistErrPct = 0.125;  // otherwise, too may cells to draw quickly
-			else if (zoomLevel <= 3)
-			    solrDistErrPct = 0.195;
-			console.log("zoomLevel", zoomLevel, "solrDistErrPct", solrDistErrPct);
+			if (zoomLevel <= 3)
+			    solrDistErrPct = 0.14;
 			jQuery.ajax({
 			    url: solrUrl,
 			    dataType: 'JSONP',
@@ -257,21 +268,20 @@
 		    renderHeatmap : function(facetHeatmap, classifications)
 		    {
 			var _this = this;
+			this.initializeLayers();
 			jda.app.facetHeatmap = facetHeatmap; // needed to display counts on mouse move
 			var maxValue = classifications[classifications.length - 1]; 
-			// rendering the heatmap has problems when the lowest classification is one
-			//   the heatmap library mistakenly adds a background color, probably due to round off error
-			if (classifications[1] == 1) classifications[1] = 2;
 			var heatmapLayer = this.map.getLayersByName("HeatmapCellsLayer")[0];
 			var heatmapDocuments = this.map.getLayersByName("HeatmapDocumentsLayer")[0];
 			heatmapDocuments.setVisibility(false);
 			heatmapLayer.setVisibility(true);
 			heatmapLayer.points = [];
+			heatmapLayer.cache = {};
+			heatmapLayer.defaultIntensity = 0;
+			heatmapLayer.defaultRadius = 0;
 			var colorGradient = this.getColorGradient(this.getColors(), classifications);
-			console.log("colorGradient = ", colorGradient);
 			heatmapLayer.setGradientStops(colorGradient);
 			heatmapLayer.setOpacity(0.40);
-			foobar = heatmapLayer;
 
 			var extent = this.map.getExtent();
 			var mapLowerLeft = new OpenLayers.LonLat(extent.left, extent.bottom);
@@ -280,7 +290,7 @@
                         var mapLowerLeftGeodetic = mapLowerLeft.transform(this.map.getProjectionObject(), geodeticProjection);
 			var mapUpperRightGeodetic = mapUpperRight.transform(this.map.getProjectionObject(), geodeticProjection);
 
-			// cells size is used on mouse click to define item capture distance
+			// cells size is also used on mouse click to define item capture distance
 			jda.app.heatmapCellSize = Math.ceil(this.getCellSize(facetHeatmap, this.map));
 			var latitudeStepSize = (facetHeatmap.maxY - facetHeatmap.minY) / facetHeatmap.rows;
 			var longitudeStepSize = (facetHeatmap.maxX - facetHeatmap.minX) / facetHeatmap.columns;
@@ -307,8 +317,7 @@
 				heatmapSourceCount++;
 			    })
 			});
-			//this.map.addLayer(heatmapLayer);
-			    heatmapLayer.redraw();
+			heatmapLayer.redraw();
 			console.log("heatmapSourceCount", heatmapSourceCount, "pointNotOnMapCount", pointNotOnMapCount, "number of cells", facetHeatmap.rows*facetHeatmap.columns, "jda.app.heatmapCellSize", jda.app.heatmapCellSize, "classifications", classifications);
 			$('.jda-map-loader').fadeOut('fast');
 		    },
@@ -361,24 +370,41 @@
 		    getClassifications : function(facetHeatmap)
 		    {
 			flatArray = [];
-			count = 0;
+			var count = 0;
+			var maxValue = 0;
 			for (var i = 0; i < facetHeatmap.counts_ints2D.length; i++) 
 			{
 			    if (facetHeatmap.counts_ints2D[i] != null)  // entire row can be null
 				for (var j = 0 ; j < facetHeatmap.counts_ints2D[i].length ; j++)
-				    if (facetHeatmap.counts_ints2D[i][j] != null) // && facetHeatmap.counts_ints2D[i][j] != 0)
+			        {
+				    var currentValue = facetHeatmap.counts_ints2D[i][j];
+				    if (currentValue != null) // && facetHeatmap.counts_ints2D[i][j] != 0)
 			            {
-					if (count % 1 == 0)
-					{
-					    flatArray = flatArray.concat(facetHeatmap.counts_ints2D[i][j]);
-					}
+					flatArray = flatArray.concat(currentValue);
+					if (currentValue > maxValue) maxValue = currentValue;
 					count++;
+					
 			            }
+				}
 			};
-			console.log("length of classification array", flatArray.length);
-			series = new geostats(flatArray);
+			// jenks classification takes too long on lots of data
+			// so we just sample larger data sets
+			reducedArray = [];
+			var period = Math.ceil(count / 300);
+			console.log("desired period", period);
+			period = Math.min(period, 6);
+			if (period > 1)
+			{
+			    for (i = 0 ; i < flatArray.length ; i = i + period)
+				reducedArray.push(flatArray[i]);
+			    reducedArray.push(maxValue);  // make sure largest value gets in, doesn't matter much if duplicated
+			}
+			else
+			    reducedArray = flatArray;
+			series = new geostats(reducedArray);
 			numberOfClassifications = this.getColors().length - 1;
 			classifications = series.getClassJenks(numberOfClassifications);
+
 			var lastExtraZero = -1;
 			for (var i = classifications.length - 1 ; i > 0 ; i--)
 			    if (classifications[i] == 0 && lastExtraZero == -1)
@@ -405,7 +431,8 @@
 		    getColors: function()
 		    {
                         //var colors = [0x000000, 0xffffb2ff, 0xfed976ff, 0xfeb24cff, 0xfd8d3cff, 0xf03b20ff, 0xbd0026ff];   // brewer
-                        var colors = [0x00000000, 0xd3d3d3ff, 0x0000dfff, 0x00effeff, 0x00ff42ff, 0xfeec30ff, 0xff5f00ff, 0xff0000ff]; 
+                        //var colors = [0x00000000, 0xd3d3d3ff, 0x0000dfff, 0x00effeff, 0x00ff42ff, 0xfeec30ff, 0xff5f00ff, 0xff0000ff]; 
+                        var colors = [0x00000000, 0x0000dfff, 0x00effeff, 0x00ff42ff, 0xfeec30ff, 0xff5f00ff, 0xff0000ff]; 
 			return colors;
 		    },
 
@@ -414,10 +441,13 @@
 		    {
 			colorGradient = {};
 			maxValue = classifications[classifications.length - 1];
+			if (classifications.length != colors.length)
+			    console.log("!!! number of classifications do not match colors", classifications.length, colors.length);
 			for (var i = 0 ; i < classifications.length ; i++)
 			{
 			    value = classifications[i];
 			    scaledValue = value / maxValue;
+			    scaledValue = Number(scaledValue.toFixed(4));
 			    if (scaledValue < 0)
 				scaledValue = 0;
 			    colorGradient[scaledValue] = colors[i];
@@ -562,9 +592,7 @@
 			_this.sendSolrRequest();
 		    });
 
-		    console.log("startMapListeners");
 		    this.map.events.register('mousemove', map, function(e){
-			return;
 			// on mousemove, display number of items under mouse
 			var eventLonLat =map.getLonLatFromViewPortPx(e.xy).transform(_this.map.getProjectionObject(),new OpenLayers.Projection("EPSG:4326"));
 			// from lonlat we have to compute offsets into heatmap array
@@ -578,7 +606,7 @@
 			try 
 			{
 			    counts = facetHeatmap.counts_ints2D[facetHeatmap.rows - heatmapIndexLatitude - 1][heatmapIndexLongitude];
-			    if (isNan(counts)) counts = 0;
+			    if (isNaN(counts)) counts = 0;
 			}
 			catch (e) {counts = 0;} // errors due to nulls in solr array instead of zeros
 			if (typeof(mapInit) === 'undefined')
@@ -928,3 +956,29 @@
 
 
 	})(jda.module("browser"));
+
+function subsetArray(array, start, step)
+{
+    var newArray = [];
+    for (var i = start ; i < array.length ; i = i + step)
+	newArray.push(array[i]);
+    return newArray;
+}
+
+function jenksOptions(array, maxValue)
+{
+    var series = new geostats(array);
+    var jenks = series.getClassJenks(8);
+    console.log("all data", array.length, jenks);
+    for (var i = 2 ; i < 5 ; i++)
+    {
+	for (var j = 0 ; j < i ; j++)
+	{
+	    var r0 = subsetArray(array, j, i);
+	    r0.push(maxValue);
+	    var s0 = new geostats(r0);
+	    var j0 = s0.getClassJenks(8);
+	    console.log("step", i, "offset", j, j0);
+	}
+    }
+}

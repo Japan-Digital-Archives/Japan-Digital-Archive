@@ -160,10 +160,95 @@ Heatmap.Layer = OpenLayers.Class(OpenLayers.Layer, {
         ((stops[i] >>  8) & 0xFF) + ',' +
         ((stops[i] >>  0) & 0xFF) + ')');
     }
-
     ctx.fillStyle = grd;
     ctx.fillRect(0, 0, 256, 1);
     this.gradient = ctx.getImageData(0, 0, 256, 1).data;
+      // changed by SpacemanSteve, hard code the first color to be transparent
+      // for reasons I don't understand, the gradient generation sometimes gets the first color wrong
+      // in jda heatmaps, the first color is always transparent
+      this.gradient[0] = 0;
+      this.gradient[1] = 0;
+      this.gradient[2] = 0;
+      this.gradient[3] = 0;
+
+
+/*
+      // some unused code that computed the color gradient by hand
+      var keys = Object.keys(stops);
+      keys.sort();
+      for (var j = 0 ; j < keys.length ; j++ )
+      {
+	  var i = keys[j];
+	  var colorValue = 'rgba(' +
+              ((stops[i] >> 24) & 0xFF) + ',' +
+              ((stops[i] >> 16) & 0xFF) + ',' +
+              ((stops[i] >>  8) & 0xFF) + ',' +
+              ((stops[i] >>  0) & 0xFF) + ')';
+	  grd.addColorStop(i, colorValue);
+
+      //console.log("in HL", i, stops[i].toString(16), colorValue, ((stops[i] >> 24) & 0xFF).toString(16));
+      }
+
+      ctx.fillStyle = grd;
+      ctx.fillRect(0, 0, 256, 1);
+      var data = ctx.getImageData(0, 0, 256, 1).data;
+      //console.log("  original gradient length", data.length);
+      //console.log("  original gradient", data);
+      var offset = 0;
+      var stepsBetweenColors = Math.floor(256 / (keys.length - 1));
+      console.log("  keys.length", keys.length, "stepsBetweenColors", stepsBetweenColors);
+      for (var j = 0 ; j < keys.length-1 ; j++)
+      {
+	  var currentKey = keys[j];
+	  var currentColor = stops[currentKey];
+	  var currentRed = (currentColor >> 24) &0xFF;
+	  var currentGreen = (currentColor >> 16) &0xFF;
+	  var currentBlue = (currentColor >> 8) &0xFF;
+	  var currentAlpha = (currentColor >> 0) &0xFF;
+	  data[offset++] = currentRed;
+	  data[offset++] = currentGreen;
+	  data[offset++] = currentBlue;
+	  data[offset++] = currentAlpha;
+
+	  var nextKey = keys[j+1];
+	  var nextColor = stops[nextKey];
+	  var nextRed = (nextColor >> 24) &0xFF;
+	  var nextGreen = (nextColor >> 16) &0xFF;
+	  var nextBlue = (nextColor >> 8) &0xFF;
+	  var nextAlpha = (nextColor >> 0) &0xFF;
+	  var deltaRed = Math.floor((currentRed - nextRed)/ stepsBetweenColors);
+	  //if (j == 0) console.log("currentColor", currentColor.toString(16), "nextColor", nextColor.toString(16));
+	  //if (j == 0) console.log("  deltaRed", deltaRed);
+	  var deltaGreen = Math.floor((currentGreen - nextGreen)/ stepsBetweenColors);
+	  var deltaBlue = Math.floor((currentBlue - nextBlue)/ stepsBetweenColors);
+	  var deltaAlpha = Math.floor((currentAlpha - nextAlpha)/ stepsBetweenColors);
+	  console.log("deltaGreen", deltaRed, deltaGreen, deltaBlue, deltaAlpha);
+	  for (var k = 1 ; k < stepsBetweenColors - 1 ; k++)
+	  {
+	      data[offset++] = Math.floor(currentRed - (k * deltaRed)) &0xFF;
+	      //if (j == 0) console.log("  red value = ", data[offset - 1]);
+	      data[offset++] = Math.floor(currentGreen - (k * deltaGreen)) &0xFF;
+	      data[offset++] = Math.floor(currentBlue - (k * deltaBlue)) &0xFF;
+	      data[offset++] = Math.floor(currentAlpha - (k * deltaAlpha)) &0xFF;
+	  }
+	  //console.log("  offset", offset/4);
+      }
+      var lastKey = keys[keys.length - 1];
+      var lastColor = stops[lastKey];
+      var lastRed = (lastColor >> 24) &0xFF;
+      var lastGreen = (lastColor >> 16) &0xFF;
+      var lastBlue = (lastColor >> 8) &0xFF;
+      var lastAlpha = (lastColor >> 0) &0xFF;
+      data[offset++] = lastRed;
+      data[offset++] = lastGreen;
+      data[offset++] = lastBlue;
+      data[offset++] = lastAlpha;
+      console.log("offset = ", offset/4);
+      this.gradient = data;
+      console.log("  recalulated this.gradient.length", this.gradient.length);
+      console.log("  recalulated this.gradient", this.gradient);
+      fooGradient = this.gradient;
+*/
   },
 
   /**
@@ -248,13 +333,13 @@ Heatmap.Layer = OpenLayers.Class(OpenLayers.Layer, {
       ctx.translate(x, y);
       ctx.fillRect(0, 0, 2 * rad, 2 * rad);
       ctx.translate(-x, -y);
-    }
+    } 
 
     var dat = ctx.getImageData(0, 0, this.canvas.width, this.canvas.height);
     var dim = this.canvas.width * this.canvas.height * 4;
     var pix = dat.data;
 
-    for (var p = 0; p < dim; /* */) {
+    for (var p = 0; p < dim; ) {
       var a = pix[ p + 3 ] * 4;
       pix[ p++ ] = this.gradient[ a++ ];
       pix[ p++ ] = this.gradient[ a++ ];
