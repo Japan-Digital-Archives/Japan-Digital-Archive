@@ -14,6 +14,7 @@
 		timeSliderLoaded : false,
 		japanMapUrl : sessionStorage.getItem("japanMapUrl"),
 		geoUrl : sessionStorage.getItem("geoServerUrl"),
+		solrHeatmapUrl : sessionStorage.getItem("solrHeatmapUrl"),
 
 		    initializeLayers : function()
 		    {
@@ -198,13 +199,11 @@
 		    sendSolrRequest : function()
 		    {
 			var _this = this;
-			//solrUrl = "http://localhost:8984/solr/jda/select?q=*:*";
-			solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select";
 			var searchParams = jda.app.resultsView.getSearch();
 			var query = this.getSearchQuery(); //"*:*";
 			var mediaFilter = this.getMediaFilter(); //"layer_type:*";
 			var timeFilter = this.getTimeFilter();
-			solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select?" + "fq=" + mediaFilter + "&fq=" + timeFilter + "&rows=100";
+			var solrUrl = this.solrHeatmapUrl + "fq=" + mediaFilter + "&fq=" + timeFilter + "&rows=100";
 			var solrDistErrPct = 0.10;  // default 0.15
 			var zoomLevel = this.map.getZoom();
 			if (zoomLevel <= 3)

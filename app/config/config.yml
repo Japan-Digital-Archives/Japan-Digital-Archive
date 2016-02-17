@@ -61,6 +61,7 @@ twig:
         japan_map_url: %japan_map_url%
         api_url: %api_url%
         geoserver_url: %geoserver_url%
+        solrHeatmap_url: %solrHeatmap_url%
 
 # Assetic Configuration
 assetic:
