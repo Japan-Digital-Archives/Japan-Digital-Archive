@@ -615,7 +615,7 @@
 			    mapInit = true;
 			}
 			if (counts === 0 || (jda.app.solrNumFound <= 100))
-			    jQuery("#event-map").attr("title", "");
+			    jQuery("#event-map").attr("title", "0");
 			else
 			{
 			    var tmp = new Number(counts);
