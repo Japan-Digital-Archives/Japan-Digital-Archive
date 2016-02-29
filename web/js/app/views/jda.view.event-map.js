@@ -291,6 +291,7 @@
 
 			// cells size is also used on mouse click to define item capture distance
 			jda.app.heatmapCellSize = Math.ceil(this.getCellSize(facetHeatmap, this.map));
+			jda.app.solrUrl = this.solrHeatmapUrl;  // also pass along url from parameters.ini
 			var latitudeStepSize = (facetHeatmap.maxY - facetHeatmap.minY) / facetHeatmap.rows;
 			var longitudeStepSize = (facetHeatmap.maxX - facetHeatmap.minX) / facetHeatmap.columns;
 			var countsArray = facetHeatmap.counts_ints2D;
@@ -615,7 +616,9 @@
 			    mapInit = true;
 			}
 			if (counts === 0 || (jda.app.solrNumFound <= 100))
+			{
 			    jQuery("#event-map").attr("title", "0");
+			}
 			else
 			{
 			    var tmp = new Number(counts);

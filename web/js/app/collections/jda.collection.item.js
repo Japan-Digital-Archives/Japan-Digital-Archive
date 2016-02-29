@@ -7,6 +7,7 @@
         search : {  page:1
                 },
 
+
         url : function()
         {
             //constructs the search URL
@@ -123,8 +124,9 @@
 	    var mediaFilter = jda.app.eventMap.getMediaFilter();
 	    var timeFilter = jda.app.eventMap.getTimeFilter();
 	    var searchQuery = jda.app.eventMap.getSearchQuery();
-	    solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select?" + "fq=" + mediaFilter + "&fq=" + timeFilter;
+	    //solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select?" + "fq=" + mediaFilter + "&fq=" + timeFilter;
 	    //solrUrl = "http://dev.jdarchive.org:8983/solr/jda/select";
+	    var solrUrl = jda.app.solrUrl + "fq=" + mediaFilter + "&fq=" + timeFilter;
 	    pt = this.latitude + ',' + this.longitude;
 	    var captureInPixelsRadius = jda.app.heatmapCellSize;    // set during processing of solr request
 	    var distanceKm = this.computeDegreesPerPixel()* captureInPixelsRadius * 111.; // 111 km/degree
