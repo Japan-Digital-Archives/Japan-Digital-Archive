@@ -634,43 +634,37 @@
 										 mouseLongitude: lonlat.lon, mouseLatitude: lonlat.lat});
 				
 				$('.olPopup').remove();
-			    mapSelections.fetch({error: function(arg, arg2, arg3, arg4){console.log("error!!!");baz = arg;baz2=arg2;baz3=arg3;baz4=arg4}, success:function(response,collection){
-
-						_this.mapViewCollection = new Browser.Items.Collections.Views.MapPopup({ collection : mapSelections});
-
-
-						_this.popup = new OpenLayers.Popup.FramedCloud(
-							"map-popup",
-							_this.map.getLonLatFromPixel(event.xy),
-							_this.map.size,
-							$(_this.mapViewCollection.el).html(),
-							null,
-							true
-						);
-
-						//openlayers workaround, propogates click events to trigger fancybox
-						_this.popup.events.register("click", _this.popup, function(event){ $(event.target).trigger('click'); });
-
-						_this.map.addPopup(_this.popup);
-						$('.map-popup-list-items').css("margin-right","-40px");
-						$('#map-popup').height($('#map-popup').height() - 50);
-					}
+			    mapSelections.fetch(
+				{error: function(arg, arg2, arg3, arg4){console.log("error!!!");baz = arg;baz2=arg2;baz3=arg3;baz4=arg4;}, 
+				 success:function(response,collection){
+				     // pop-up a jQuery window listing nearby items
+				     _this.mapViewCollection = new Browser.Items.Collections.Views.MapPopup({ collection : mapSelections});
+				     
+				     console.log ('collection', collection);
+				     console.log ('mapSelections', mapSelections);
+				     if (typeof jda.app.oldMapPopup != 'undefined')
+				     {
+					 jda.app.oldMapPopup.dialog('close');
+					 jda.app.oldMapPopup.dialog().remove();
+				     }
+				     if (collection.length === 0) return;
+				     var popup = jQuery('<div></div>').dialog();
+				     popup.html(_this.mapViewCollection.el.innerHTML);
+				     var mapHeight = _this.map.size.h;
+				     popup.dialog('option', 'height', Math.round(mapHeight * .75));
+				     popup.dialog('option', 'width', '310px');
+				     popup.dialog('option', 'title', 'Nearby Items');
+				     popup.click(function(){popup.dialog('close')});
+				     popup.parent().css({top: 200, left: 300});
+				     popup.css({padding: '0em 0em'});
+				     jda.app.oldMapPopup = popup;
+				     popup.dialog('open');
+				 }
 				});
 				
-				
-
-
-
-
-				return false;
-
+			    return false;
 
 		});
-
-
-
-
-
 
 	},
 
