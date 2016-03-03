@@ -247,12 +247,19 @@
 			var count = new Number(solrResponse.response.numFound);
 			jQuery("#zeega-results-count-number").text(count.toLocaleString());
 			jda.app.solrNumFound = count;
-			
+			var heatmapLayer = this.map.getLayersByName("HeatmapCellsLayer")[0];
+			var heatmapDocuments = this.map.getLayersByName("HeatmapDocumentsLayer")[0];			
 			if (solrResponse.response.numFound == 0) 
+			{
+			    heatmapDocuments.setVisibility(false);
+			    heatmapLayer.setVisibility(false);
 			    return;
+			}
 			facetHeatmap = this._solrResponseToObject(solrResponse);
 			if (facetHeatmap.counts_ints2D == null)
 			{
+			    heatmapDocuments.setVisibility(false);
+			    heatmapLayer.setVisibility(false);
 			    return;
 			}
 			this.classifications = this.getClassifications(facetHeatmap);
