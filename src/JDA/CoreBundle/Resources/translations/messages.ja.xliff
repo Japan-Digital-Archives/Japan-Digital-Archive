@@ -1972,41 +1972,45 @@ JDAの基本コンセプトの紹介ビデオ、及び使用説明ビデオ・�
 				<target>表示3.0</target>
 			</trans-unit>
 	    <trans-unit id="489">
-                <source>jda.team.alumni.kae</source>
-                <target>Kae Nakahashi（昭和ボストン　中橋佳恵）: ウェブシード　キュレーション</target>
-            </trans-unit>
+        <source>jda.team.alumni.kae</source>
+        <target>Kae Nakahashi（昭和ボストン　中橋佳恵）: ウェブシード　キュレーション</target>
+      </trans-unit>
 	    <trans-unit id="490">
-                <source>jda.team.webdeveloper.alex</source>
-                <target>プロジェクト技術部リーダー：Alex Horak（アレックス・ホラック）</target>
-            </trans-unit>
-            <trans-unit id="491">
-                <source>jda.my.waku</source>
-                <target>Wakuを作成</target>
-            </trans-unit>
-            <trans-unit id="492">
-                <source>jda.my.wakuInformational</source>
-                <target>Waku使うことによって、このコレクションをマルチメディアな物語へと構築することができます。Wakuはキュレートされた震災記録から個人の物語を紡ぎ、発表、シェアできるプラットフォームです。ぜひお試しください!</target>
-            </trans-unit>
+        <source>jda.team.webdeveloper.alex</source>
+        <target>プロジェクト技術部リーダー：Alex Horak（アレックス・ホラック）</target>
+      </trans-unit>
+      <trans-unit id="491">
+        <source>jda.my.waku</source>
+        <target>Wakuを作成</target>
+      </trans-unit>
+      <trans-unit id="492">
+        <source>jda.my.wakuInformational</source>
+        <target>Waku使うことによって、このコレクションをマルチメディアな物語へと構築することができます。Wakuはキュレートされた震災記録から個人の物語を紡ぎ、発表、シェアできるプラットフォームです。ぜひお試しください!</target>
+      </trans-unit>
 	    <trans-unit id="493">
-              <source>jda.form.contribute.language.french</source>
-              <target>フランス語</target>
-            </trans-unit>
+        <source>jda.form.contribute.language.french</source>
+        <target>フランス語</target>
+      </trans-unit>
 	    <trans-unit id="494">
-              <source>jda.form.contribute.language.others</source>
-              <target>その他</target>
-            </trans-unit>
-        <trans-unit id="495">
-                <source>jda.team.alumni.yumiko</source>
-                <target>Yumiko Takeda （昭和ボストン　竹田有美子）: ウェブシード　キュレーション</target>
-            </trans-unit>
-        <trans-unit id="496">
-                <source>jda.team.alumni.kanami</source>
-                <target>Kanami Ohno（昭和ボストン　大野奏美）: ウェブシード　キュレーション</target>
-            </trans-unit>
-        <trans-unit id="497">
-                <source>jda.team.alumni.maho</source>
-                <target>Maho Yanagisawa（昭和ボストン　柳澤真帆） : ウェブシード　キュレーション</target>
-            </trans-unit>
+        <source>jda.form.contribute.language.others</source>
+        <target>その他</target>
+      </trans-unit>
+      <trans-unit id="495">
+        <source>jda.team.alumni.yumiko</source>
+        <target>Yumiko Takeda （昭和ボストン　竹田有美子）: ウェブシード　キュレーション</target>
+      </trans-unit>
+      <trans-unit id="496">
+        <source>jda.team.alumni.kanami</source>
+        <target>Kanami Ohno（昭和ボストン　大野奏美）: ウェブシード　キュレーション</target>
+      </trans-unit>
+      <trans-unit id="497">
+        <source>jda.team.alumni.maho</source>
+        <target>Maho Yanagisawa（昭和ボストン　柳澤真帆） : ウェブシード　キュレーション</target>
+      </trans-unit>
+      <trans-unit id="498">
+        <source>jda.about.rfp</source>
+        <target>プログラミング RFP</target>
+      </trans-unit>
         </body>
     </file>
 </xliff>

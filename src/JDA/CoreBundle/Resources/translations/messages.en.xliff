@@ -1786,7 +1786,7 @@ prompt those of us who were not affected to reflect on the way we live our lives
 		        Web Seed Curation: Mao Kuroda, Showa Boston Institute for Language and Culture
                 <![CDATA[<br />]]>
 			    Web Seed Curation: Rie Suzaki, Showa Boston Institute for Language and Culture
-		</target>
+          </target>
             </trans-unit>
             <trans-unit id="449">
                 <source>jda.team.alumni.nick</source>
@@ -1896,7 +1896,7 @@ prompt those of us who were not affected to reflect on the way we live our lives
                 <source>jda.team.alumni.taisei</source>
                 <target>Taisei Wake: Web seed curation and SNS promotion</target>
             </trans-unit>            
-			<trans-unit id="476">
+            <trans-unit id="476">
                 <source>jda.firsttime.header</source>
                 <target>New Users</target>
             </trans-unit>
@@ -1949,41 +1949,45 @@ prompt those of us who were not affected to reflect on the way we live our lives
 				<target>By Attribution 3.0.</target>
 			</trans-unit>
 	    <trans-unit id="489">
-                <source>jda.team.alumni.kae</source>
-                <target>Kae Nakahashi, Showa Boston Institute for Language and Culture: Web Seed Curation</target>
-            </trans-unit>
+        <source>jda.team.alumni.kae</source>
+        <target>Kae Nakahashi, Showa Boston Institute for Language and Culture: Web Seed Curation</target>
+      </trans-unit>
 	    <trans-unit id="490">
-                <source>jda.team.webdeveloper.alex</source>
-                <target>Project Technical Lead: Alex Horak</target>
+        <source>jda.team.webdeveloper.alex</source>
+        <target>Project Technical Lead: Alex Horak</target>
 	    </trans-unit>
-            <trans-unit id="491">
-                <source>jda.my.waku</source>
-                <target>create Waku</target>
-            </trans-unit>
-            <trans-unit id="492">
-                <source>jda.my.wakuInformational</source>
-                <target>Construct a media rich narrative using this collection on the Waku. Waku is a story telling platform for curation and presentation, give it a try!</target>
-            </trans-unit>
-            <trans-unit id="493">
-              <source>jda.form.contribute.language.french</source>
-              <target>French</target>
-            </trans-unit>
+      <trans-unit id="491">
+        <source>jda.my.waku</source>
+        <target>create Waku</target>
+      </trans-unit>
+      <trans-unit id="492">
+        <source>jda.my.wakuInformational</source>
+        <target>Construct a media rich narrative using this collection on the Waku. Waku is a story telling platform for curation and presentation, give it a try!</target>
+      </trans-unit>
+      <trans-unit id="493">
+        <source>jda.form.contribute.language.french</source>
+        <target>French</target>
+      </trans-unit>
 	    <trans-unit id="494">
-              <source>jda.form.contribute.language.others</source>
-              <target>Others</target>
-            </trans-unit>
-        <trans-unit id="495">
-                <source>jda.team.alumni.yumiko</source>
-                <target>Yumiko Takeda, Showa Boston Institute for Language and Culture: Web Seed Curation</target>
-            </trans-unit>
-        <trans-unit id="496">
-                <source>jda.team.alumni.kanami</source>
-                <target>Kanami Ohno, Showa Boston Institute for Language and Culture: Web Seed Curation</target>
-            </trans-unit>
-        <trans-unit id="497">
-                <source>jda.team.alumni.maho</source>
-                <target>Maho Yanagisawa, Showa Boston Institute for Language and Culture: Web Seed Curation</target>
-            </trans-unit>
-        </body>
+        <source>jda.form.contribute.language.others</source>
+        <target>Others</target>
+      </trans-unit>
+      <trans-unit id="495">
+        <source>jda.team.alumni.yumiko</source>
+        <target>Yumiko Takeda, Showa Boston Institute for Language and Culture: Web Seed Curation</target>
+      </trans-unit>
+      <trans-unit id="496">
+          <source>jda.team.alumni.kanami</source>
+          <target>Kanami Ohno, Showa Boston Institute for Language and Culture: Web Seed Curation</target>
+        </trans-unit>
+      <trans-unit id="497">
+        <source>jda.team.alumni.maho</source>
+        <target>Maho Yanagisawa, Showa Boston Institute for Language and Culture: Web Seed Curation</target>
+      </trans-unit>
+      <trans-unit id="498">
+        <source>jda.about.rfp</source>
+        <target>Development RFP</target>
+      </trans-unit>
+      </body>
     </file>
 </xliff>
