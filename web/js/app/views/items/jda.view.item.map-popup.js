@@ -41,9 +41,17 @@
 				blanks["author"] = this.model.get("media_creator_realname");
 			}
 			if (blanks.media_type !==null) blanks.media_type = blanks.media_type.toLowerCase();
-			
-
-			$(this.el).html( _.template( template, blanks ));
+		        if (blanks.title == null) blanks.title = "";
+  		        if (blanks.thumbnail_url == null) blanks.thumbnail_url = "";
+		       
+		        try
+		        {
+			    $(this.el).html( _.template( template, blanks ));
+			}
+		        catch (err)
+		        {
+			    console.log("error in jda.view.item.map-popup.js processing item", err);
+			}
 
 			if(this.model.get('media_type')=="Collection"){
 			
