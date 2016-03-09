@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
@@ -2010,6 +2010,10 @@ JDAの基本コンセプトの紹介ビデオ、及び使用説明ビデオ・�
       <trans-unit id="498">
         <source>jda.about.rfp</source>
         <target>プログラミング RFP</target>
+      </trans-unit>
+      <trans-unit id="499">
+	<source>fancybox.itemshare</source>
+	<target>View Item Page</target>
       </trans-unit>
         </body>
     </file>

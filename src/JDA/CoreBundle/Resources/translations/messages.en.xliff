@@ -1988,6 +1988,10 @@ prompt those of us who were not affected to reflect on the way we live our lives
         <source>jda.about.rfp</source>
         <target>Development RFP</target>
       </trans-unit>
+      <trans-unit id="497">
+	<source>fancybox.itemshare</source>
+	<target>View Item Page</target>
+      </trans-unit>
       </body>
     </file>
 </xliff>
