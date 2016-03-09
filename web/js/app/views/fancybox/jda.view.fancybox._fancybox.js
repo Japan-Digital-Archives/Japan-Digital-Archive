@@ -272,7 +272,7 @@
 			}
 			
 			blanks.sourceText = l.fancybox_source;
-			blanks.itemShareText = l.fancybox_itemshare;
+			blanks.linkText = l.fancybox_link;
 			
 			if (this.model.get('layer_type') == "Testimonial")
 			{
@@ -437,7 +437,7 @@
 							'<div class="fancybox-left-column">' +
 								/* Share & Add to collection buttons */
 								'<div style="margin-bottom:3px">'+
-				'<div class="btn-group jda-add-to-menu pull-left">'+
+								'<div class="btn-group jda-add-to-menu pull-left">'+
 										'<a class="btn btn-mini btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">'+
 											l.fancybox_addto +
 											'<span class="caret"></span>'+
@@ -456,7 +456,7 @@
 
 							'</div>'+
 							'<p class="fancybox-editable title" style="text-transform: uppercase;"><%= title %></p>'+
-							'<p><span class=" creator fancybox-editable"><%= creator %></span> <span class="source"><a href="<%= sourceLink %>" target="_blank"><%= sourceText %></a></span> <span class="source"><a href="<%= itemShareLink %>" target="_blank"><%= itemShareText %></a></span></p>'+
+							'<p><span class=" creator fancybox-editable"><%= creator %></span> <span class="source"><a href="<%= sourceLink %>" target="_blank"><%= sourceText %></a></span> <span class="source"><a href="<%= itemShareLink %>" target="_blank"><%= linkText %></a></span></p>'+
 							'<div class="fancybox-right-column">'+
 
 								'<div class="description-wrapper">'+
