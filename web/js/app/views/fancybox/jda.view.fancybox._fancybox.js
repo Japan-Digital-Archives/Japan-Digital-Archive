@@ -34,9 +34,6 @@
 		events : {
 			'click .show-translate' : 'showTranslate',
 			'click .submitTranslation' : 'submitTranslation',
-			'click .jda-share-link input' : function(){
-				$('.jda-share-link input').select();
-			}
 		},
 		beforeClose: function(){
 
@@ -241,11 +238,6 @@
 			$(this.el).removeClass("fancybox-media-container-more");
 			return false;
 		},
-		shareLink : function(){
-			$('.jda-share-link').toggle();
-			$('.jda-show-share-link').toggleClass('active');
-			$('.jda-share-link').find('input').select();
-		},
 		render: function(obj)
 		{
 
@@ -280,14 +272,20 @@
 			}
 			
 			blanks.sourceText = l.fancybox_source;
-			
-			
+			blanks.linkText = l.fancybox_link;
 			
 			if (this.model.get('layer_type') == "Testimonial")
 			{
 			blanks.sourceText = "";
 			}
-			blanks.itemShareLink = sessionStorage.getItem('hostname')+sessionStorage.getItem('locale')+'/item/'+ this.model.id;
+
+			var share = sessionStorage.getItem('hostname');
+			if (share.indexOf('dev.jdarchive.org') >= 0) {
+				var url = window.location.href;
+				var share = url.substring(0, url.lastIndexOf('web')+3)+'/';
+			}
+
+			blanks.itemShareLink = share+sessionStorage.getItem('locale')+'/item/'+ this.model.id;
 
 			//use template to clone the database items into
 			var template = _.template( this.getTemplate() );
@@ -439,8 +437,7 @@
 							'<div class="fancybox-left-column">' +
 								/* Share & Add to collection buttons */
 								'<div style="margin-bottom:3px">'+
-									'<button class="btn btn-mini btn-inverse pull-left jda-show-share-link" ><i  class="icon-share-alt icon-white"></i>'+l.fancybox_link+'</button> '+
-									'<div class="btn-group jda-add-to-menu pull-left">'+
+								'<div class="btn-group jda-add-to-menu pull-left">'+
 										'<a class="btn btn-mini btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">'+
 											l.fancybox_addto +
 											'<span class="caret"></span>'+
@@ -448,9 +445,6 @@
 										'<ul class="dropdown-menu fancybox-my-collections-list">'+
 										'</ul>'+
 									'</div><span class="label label-info jda-saving" style="display:none;margin-left:3px">Saving...</span><span class="label label-success jda-added" style="display:none;margin-left:3px">Added</span><span  style="display:none;margin-left:3px" class="label label-warning jda-duplicate-item">Duplicate</span>'+
-								'</div>'+
-								'<div class="jda-share-link">'+
-									'<input type="text" value="<%= itemShareLink %>">'+
 								'</div>'+
 
 								/* Media Item */
@@ -462,7 +456,7 @@
 
 							'</div>'+
 							'<p class="fancybox-editable title" style="text-transform: uppercase;"><%= title %></p>'+
-							'<p><span class=" creator fancybox-editable"><%= creator %></span> <span class="source"><a href="<%= sourceLink %>" target="_blank"><%= sourceText %></a></span></p>'+
+							'<p><span class=" creator fancybox-editable"><%= creator %></span> <span class="source"><a href="<%= sourceLink %>" target="_blank"><%= sourceText %></a></span> <span class="source"><a href="<%= itemShareLink %>" target="_blank"><%= linkText %></a></span></p>'+
 							'<div class="fancybox-right-column">'+
 
 								'<div class="description-wrapper">'+
