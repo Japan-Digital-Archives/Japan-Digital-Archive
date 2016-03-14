@@ -188,10 +188,10 @@
 		    getSearchQuery : function()
 		    {
 			var searchParams = jda.app.resultsView.getSearch();
-			var query = "*:*";
+			var query = "enabled:1 AND *:*";
 			if (searchParams.q)
-			{
-			    query = "text:" + searchParams.q + "";
+			{ 
+			    query = "enabled:1 AND text_search:" + searchParams.q + "";
 			}
 			return query;
 		    },
