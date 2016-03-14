@@ -2,7 +2,7 @@
 ; by enclosing the key with % (like %database_user%)
 ; Comments start with ';', as in php.ini
 [parameters]
-    solrHeatmap_url   = http://dev.jdarchive.org:8080/solr/zeega/select?
+    solrheatmap_url   = http://dev.jdarchive.org:8080/solr/zeega/select?
 
     database_driver   = pdo_mysql
     database_host     = 
