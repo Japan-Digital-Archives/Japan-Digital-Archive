@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
@@ -2010,6 +2010,16 @@ JDAの基本コンセプトの紹介ビデオ、及び使用説明ビデオ・�
       <trans-unit id="498">
         <source>jda.about.rfp</source>
         <target>プログラミング RFP</target>
+      </trans-unit>
+      <trans-unit id="499">
+    	<source>jda.aboutpartners.kstitle</source>
+    	<target>Kahoku Shimpo Disaster Archive</target>
+      </trans-unit>
+      <trans-unit id="500">
+    	<source>jda.aboutpartners.ks</source>
+    	<target>河北新報は１８９７年、不羈独立と東北振興を社是として創刊しました。東北地方はたび重なる地震、津波被害を被りながらも、農林水産業を中心に日本の産業を支えてきました。２０１１年３月１１日に発生した東日本大震災は、わたしたちのふるさと東北に、甚大な被害を与えました。
+　河北新報社は、被災地にある新聞社として「１０００年に一度」とも言われる大震災を後世に伝える国の「東日本大震災アーカイブ」プロジェクトに参加し、東北大学災害科学国際研究所の支援協力のもと、「河北新報震災アーカイブ」を立ち上げました。
+新聞記事や報道写真のほか、市民の皆様が撮影した貴重な写真や動画なども収集・保存・整理し公開しています。震災の教訓が語り継がれ、今後の防災・減災に少しでも役立つよう、多くの皆様が利用しやすいサイトづくりを目指しています。</target>
       </trans-unit>
         </body>
     </file>
