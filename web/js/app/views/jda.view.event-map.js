@@ -8,7 +8,7 @@
 
 		tagName : 'div',
 		className: 'event-map',
-		minTime : 1293840000,
+		    minTime : 1167541200,
 		maxTime : (new Date().getTime() / 1000),
 		mapLoaded : false,
 		timeSliderLoaded : false,
