@@ -187,8 +187,9 @@
 		{
 			var html =	
 				'<p class="map-title">'+l.fancybox_map+'</p>'+
-			//'<div class="locator-map"></div><span class="edit edit-geo-location"><a>'+l.fancybox_editlocation+'</a></span>'+
-				//'<div class="no-geo-data jda-collection-map jda-no-geo-info" style="display:none;width:280px;height:150px;"></div>'+
+			'<div style="display:none;" class="locator-map"></div>' +
+			/*'<span class="edit edit-geo-location"><a>'+l.fancybox_editlocation+'</a></span>'+
+				'<div class="no-geo-data jda-collection-map jda-no-geo-info" style="display:none;width:280px;height:150px;"></div>'+*/
 				'<span class="no-geo-data" style="display:none;font-size:11px">'+l.fancybox_nolocation+'</span>'+
 				'<span class="item-address-text" style="display:none;font-size:11px"></span>'+
 				'<div class="item-lat-lng"><span class="item-latitude"><%= latitude %></span><span class="item-longitude"><%= longitude %></span></div>'+
