@@ -97,10 +97,10 @@
 						
 						<ul class="nav">
 							<li class='active'>
-								{% if displayname is iterable %}
-									<a href='#'>Hello {{displayname}}!</a>
-								{% else %}
+								{% if displayname == null %}
 									<a href='#'>Hello there!</a>
+								{% else %}
+									<a href='#'>Hello {{displayname}}!!</a>
 								{% endif %}
 							</li>
 							<li>
