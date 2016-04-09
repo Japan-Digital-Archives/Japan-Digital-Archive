@@ -8,7 +8,7 @@
 
 		tagName : 'div',
 		className: 'event-map',
-		minTime : 1293840000,
+		    minTime : 1167541200,
 		maxTime : (new Date().getTime() / 1000),
 		mapLoaded : false,
 		timeSliderLoaded : false,
@@ -188,10 +188,10 @@
 		    getSearchQuery : function()
 		    {
 			var searchParams = jda.app.resultsView.getSearch();
-			var query = "*:*";
+			var query = "enabled:1 AND *:*";
 			if (searchParams.q)
-			{
-			    query = "text:" + searchParams.q + "";
+			{ 
+			    query = "enabled:1 AND text_search:" + searchParams.q + "";
 			}
 			return query;
 		    },
