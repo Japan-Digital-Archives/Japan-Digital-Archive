@@ -711,7 +711,7 @@
             </trans-unit>
             <trans-unit id="178">
                 <source>fancybox.map</source>
-                <target>Map</target>
+                <target>Location</target>
             </trans-unit>
             <trans-unit id="179">
                 <source>fancybox.tags</source>

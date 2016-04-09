@@ -75,9 +75,9 @@
 			var mapEditable = this.isEditView;
 			this.locatorMapView = new Browser.Views.LocatorMap({ model : this.model, isEditable : mapEditable});
 
-			$(this.el).find('.geo').append(this.locatorMapView.render());
+			//$(this.el).find('.geo').append(this.locatorMapView.render());
 
-			if (this.locatorMapView.geoLocated){this.locatorMapView.addMap();}
+			//if (this.locatorMapView.geoLocated){this.locatorMapView.addMap();}
 
 			/***************************************************************************
 				Tags view
@@ -513,7 +513,7 @@
 						
 
 						'<div class="span3" style="position:relative">'+
-							'<div class="jda-collection-map" style="text-align:center;"><h3 class="jda-no-geo-location-message" style="top:24px">'+l.jda_collection_nolocation+'</h3></div>'+
+							'<div class="jda-collection-map" style="text-align:center;display:none;"><h3 class="jda-no-geo-location-message" style="top:24px">'+l.jda_collection_nolocation+'</h3></div>'+
 
 							'<div class="jda-collection-map-location"></div>'+
 							'<a class="btn btn-mini jda-collection-map-location-go" style="margin-left:5px;margin-top:5px;display:none" href=".">go</a>'+
