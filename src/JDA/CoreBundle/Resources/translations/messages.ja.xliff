@@ -714,7 +714,7 @@
             </trans-unit>
             <trans-unit id="178">
                 <source>fancybox.map</source>
-                <target>地図</target>
+                <target>位置情報</target>
             </trans-unit>
              <trans-unit id="179">
                 <source>fancybox.tags</source>

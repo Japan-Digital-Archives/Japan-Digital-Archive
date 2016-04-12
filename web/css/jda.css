@@ -879,7 +879,7 @@ border-radius: 0px 4px 0px 0px;
 	background-color:gray;
 	text-align:center;
 	background-image: url(../images/nogeomap.gif);
-
+	display: none;
 
 }
 #jda-item-website iframe{
