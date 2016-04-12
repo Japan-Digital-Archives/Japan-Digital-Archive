@@ -1,0 +1,108 @@
+{# src/Zeega/CoreBundle/Resources/views/About/about.html.twig #}
+
+{% extends '::base.html.twig' %}
+
+{% block title %}<title>{% trans %}jda.home.title{% endtrans %}</title>{% endblock %}
+{% block stylesheets %}
+<!-- Visual Search --> 
+<!--[if (!IE)|(gte IE 8)]><!-->
+<link href="{{ asset('js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+<!--[if lte IE 7]><!-->
+<link href="{{ asset('js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+{% endblock %}
+{% block scripts %}
+{% if app.environment == 'dev' %}
+<!-- to load JS libraries separately -->
+	<script data-main="{{ asset('js/loaders/about') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
+{% else %}
+	<!-- to load single aggregated JS library --> 
+	<script data-main="{{ asset('js_min/about') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="container" id="zeega-view-navigation" style="background-color:rgba(0,0,0,0.7)">
+
+
+	<div id="jda-home-search-div" class="pull-left" style="margin-right:17px;margin-top:5px;margin-left:5%;margin-bottom:5px;display:none;width:600px;">
+		<div id="search-bar" style="margin-right:10px">
+			<div class="visual_search pull-left"></div>
+		</div>
+		<a href="#" id="jda-go-button" class="btn btn-info btn-large">go</a>
+	</div>
+
+
+
+</div><!-- end container -->
+<div id="jda-about-container" style="margin:0 5%;position:relative;top:115px">
+
+	<h2 style="color:#666;letter-spacing:1px;margin-bottom:20px">{% trans %}jda.about.archive{% endtrans %}</h2>
+	<!--<ul class="nav nav-pills" style="padding-bottom: 10px;border-bottom: 1px solid #DDD;">
+		<li><a href="#mission"  data-toggle="tab">{% trans %}jda.about.mission{% endtrans %}</a></li>
+		<li><a href="#team" data-toggle="tab">{% trans %}jda.about.team{% endtrans %}</a></li>
+		<li><a href="#news" data-toggle="tab">{% trans %}jda.about.news{% endtrans %}</a></li>
+		<li><a href="#faq" data-toggle="tab">{% trans %}jda.about.faq{% endtrans %}</a></li>
+		<li><a href="#terms" data-toggle="tab">{% trans %}jda.about.terms{% endtrans %}</a></li>
+
+	</ul>-->
+	<div class="tab-content">
+	<div id="mission" class="tab-pane active">
+	<div id="jda-about-mission">
+		<p>{% trans %}jda.about.paragraph3{% endtrans %}</p>
+		<h3 style="margin-bottom:20px">{% trans %}jda.about.missiontext{% endtrans %}</h3>
+
+		<div>
+			<h1 class="pull-left" style="margin-right:30px">1</h1>
+			<p style="padding-top:3px">{% trans %}jda.about.one{% endtrans %}</p>
+		</div>
+		
+		<div>
+
+			<h1 class="pull-left" style="margin-right:30px">2</h1>
+
+			<p style="padding-top:3px">{% trans %}jda.about.two{% endtrans %}</p>
+		</div>
+		<div>
+
+			<h1 class="pull-left" style="margin-right:30px">3</h1>
+
+			<p style="padding-top:3px">{% trans %}jda.about.three{% endtrans %}</p>
+		</div>
+
+		<p>{% trans %}jda.about.paragraph1{% endtrans %}</p>
+
+	</div>
+	<div>
+		<h3>{% trans %}jda.about.participate{% endtrans %}</h3>
+
+		<ul style="position:relative;left:18px">
+			<li style="list-style:disc">{% trans %}jda.about.participateone{% endtrans %}</li>
+			<li style="list-style:disc">{% trans %}jda.about.participatetwo{% endtrans %}</li>
+			<li style="list-style:disc">{% trans %}jda.about.participatethree{% endtrans %}</li>
+			<li style="list-style:disc">{% trans %}jda.about.participatefour{% endtrans %}</li>
+		</ul>
+
+
+		<h3>{% trans %}jda.about.connect{% endtrans %}</h3>
+		<p>{% trans %}jda.about.connectbody{% endtrans %}</p>
+	</div>
+</div>
+<div id="team" class="tab-pane">
+	<h3>{% trans %}jda.about.team{% endtrans %}</h3>
+</div>
+<div id="news" class="tab-pane">
+	<h3>{% trans %}jda.about.news{% endtrans %}</h3>
+</div>
+<div id="faq" class="tab-pane">
+	<h3>{% trans %}jda.about.faq{% endtrans %}</h3>
+</div>
+<div id="terms" class="tab-pane">
+	<h3>{% trans %}jda.about.terms{% endtrans %}</h3>
+</div>
+</div>
+</div><!-- end tab content -->
+
+{% endblock %}	

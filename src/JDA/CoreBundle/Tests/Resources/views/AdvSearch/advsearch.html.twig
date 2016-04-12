@@ -1,0 +1,162 @@
+{# src/Zeega/CoreBundle/Resources/views/Home/home.html.twig #}
+
+{% extends '::base.html.twig' %}
+
+{% block title %}<title>{% trans %}jda.home.title{% endtrans %}</title>{% endblock %}
+
+{% block stylesheets %}
+	<link type="text/css" href="{{ asset('js/lib/jquery-ui-1.8.18.custom/css/smoothness/jquery-ui-1.8.18.custom.css')}}" rel="Stylesheet" />
+	<link href="{{ asset('js/lib/jquerySVG/jquery.svg.css')}}" rel="stylesheet" type="text/css">
+
+	<!-- Leaflet CSS --> 
+	<link rel="stylesheet" href="{{ asset('js/lib/leaflet/leaflet.css')}}" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="{{ asset('js/lib/leaflet/leaflet.ie.css')}}" /><![endif]-->
+
+	<!-- Tags --> 
+	<link rel="stylesheet" type="text/css" href="{{ asset('js/lib/jquery.tagsinput.css')}}" />
+
+	<!-- Visual Search --> 
+	<!--[if (!IE)|(gte IE 8)]><!-->
+	<link href="{{ asset('js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
+	<!--<![endif]-->
+	<!--[if lte IE 7]><!-->
+	<link href="{{ asset('js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
+	<!--<![endif]-->
+{% endblock %}	
+
+{% block scripts %}
+
+	<script type="text/javascript">
+        // add new filter types here, format 'translated name' : 'english/system counterpart' 
+	    var contentTypes = {'{% trans %}jda.search.video {% endtrans %}':'Video', '{% trans %}jda.search.audio {% endtrans %}':'Audio',
+	        '{% trans %}jda.search.image {% endtrans %}':'Image', '{% trans %}jda.search.website {% endtrans %}':'Website',
+	        '{% trans %}jda.search.tweet {% endtrans %}': 'Tweet', '{% trans %}jda.search.document {% endtrans %}': 'Document', 
+            '{% trans %}jda.search.headline {% endtrans %}': 'News Headline', '{% trans %}jda.search.article {% endtrans %}' : 'News Article',
+            '{% trans %}jda.search.broadcast {% endtrans %}': 'Broadcast', '{% trans %}jda.search.testimonial {% endtrans %}' : 'Text'
+	    };
+	</script>
+
+	<script data-main="{{ asset('js/loaders/advsearch') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
+
+{% endblock %}
+
+{% block content %}
+
+<div class='container' id='zeega-main-content'>
+	<div class="row">
+    <span class="span12">
+      <h3>{% trans %}jda.advanced.search{% endtrans %}</h3>
+    </span>
+  </div>
+  <div class="row">
+    <span class="span12">
+      <form class="form-horizontal">
+        <div class="control-group">
+          <label class="control-label" for="searchTerms">
+            {% trans %}jda.advsearch.searchTerms{% endtrans %}
+          </label>
+          <div class="controls">
+            <input type="text" id="searchTerms" />
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="excludeTermsTxt">
+            {% trans %}jda.advsearch.searchTermsExclude{% endtrans %}
+          </label>
+          <div class="controls">
+            <input type="text" id="excludeTermsTxt" />
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="contentTypeDDL">
+            {% trans %}jda.advsearch.contentType {% endtrans %}
+          </label>
+          <div class="controls">
+            <select id="contentTypeDDL" multiple="multiple">
+              <option value="0">{% trans %}jda.search.allformats{% endtrans %}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="tagTxt">
+            {% trans %}jda.advsearch.tags{% endtrans %}
+          </label>
+          <div class="controls">
+            <input id="tagTxt" type="text" /><br />
+            <div id="tagListDiv">
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="collRbl">
+            {% trans %}jda.advsearch.incCollections{% endtrans %}
+          </label>
+          <div class="controls">
+            <label class="radio inline">
+              <input type="radio" name="collRbl" value="0" /> {% trans %}jda.advsearch.noCollections{% endtrans %}
+            </label>
+            <label class="radio inline">
+              <input type="radio" name="collRbl" value="1" /> {% trans %}jda.advsearch.onlyCollections{% endtrans %}
+            </label>
+            <label class="radio inline">
+              <input type="radio" name="collRbl" value="2" /> {% trans %}jda.advsearch.both{% endtrans %}
+            </label>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="userDDL">
+            {% trans %}jda.advsearch.user{% endtrans %}
+          </label>
+          <div class="controls">
+            <select id="userDDL">
+              <option value="0">{% trans %}jda.advsearch.allusers{% endtrans %}</option>
+              <option value="-1">{% trans %}jda.advsearch.onlyCurrentUser{% endtrans %}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="startDateTxt">
+            {% trans %}jda.advsearch.startDate{% endtrans %}
+          </label>
+          <div class="controls">
+            <input type="text" id="startDateTxt" value="" />
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="endDateTxt">
+            {% trans %}jda.advsearch.endDate{% endtrans %}
+          </label>
+          <div class="controls">
+            <input type="text" id="endDateTxt" value="" />
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="searchTerms">
+            <b>{% trans %}jda.advsearch.mapInstructions{% endtrans %}:</b>{% trans %}jda.advsearch.mapInstructionsTxt{% endtrans %}
+            <div id="info"></div>
+          </label>
+          <div class="controls">
+            <div id='container' style="width:400px; height:400px;">
+              <div id="map">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <input type="button" id="submitBtn" value="{% trans %}jda.home.go{% endtrans %}" onclick="DoSearch();" />
+          </div>
+        </div>
+      </form>
+    </span>
+  </div>
+</div>
+{% endblock %}

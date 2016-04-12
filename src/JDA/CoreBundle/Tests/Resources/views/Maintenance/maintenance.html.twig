@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+       	<meta name="robots" content="noindex,follow">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        {% block title %}
+        {% endblock %}
+         <link href="{{ asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css">
+			<link href="{{ asset('css/home.css')}}" rel="stylesheet" type="text/css">
+			<link href="{{ asset('css/style.css')}}" rel="stylesheet" type="text/css">
+			<link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/jda.ico')}}"> 
+         
+         {% block stylesheets %}
+	
+			
+			
+		{% endblock %}
+				
+		<script> 
+			sessionStorage.setItem('directory', '{{directory}}');
+			sessionStorage.setItem('hostname','{{hostname}}');
+		</script>
+		
+		
+		{% block scripts %}
+		{% endblock %}
+		
+		
+		
+    </head>
+    
+  <body>
+
+		{% block header %}
+		<div class="white-background"></div>
+			<div id="header-bar"><div id="header-english">
+
+		<header class="clearfix"> 
+		<a><img id="logo" class="home-english" src="{{ asset('images/logo-jp.png')}}"></a>
+		
+		<a href='#myModal' class='alpha-header' data-toggle='modal'>alpha</a>
+		
+		<div id="user-bar">
+			<ul id="header-menu" class="unstyled">
+
+			</ul>
+		</div>
+
+			</header>
+		</div></div>
+
+		
+  		{% endblock %}
+				
+		
+<div id="content"><div id="about-content-english">
+		<div class="narrow-container" >
+			
+
+
+			<div id="content-row" class="rowx" style="margin-top:10px">
+			
+			<br>
+			<h1>
+			
+			The site is temporarily unavailable due to database updates.</h1>
+			<br><h1>Please check back again later.
+			</h1>
+			<br>
+			</div>
+			
+
+		</div>
+		<footer>
+			<div class="narrow-container footer-container">
+
+				<!--<div class='rowx'>
+
+					<div class="footer-nav span16">
+						<ul class='unstyled'>
+
+							<li><a href="#">Home</a></li>
+							<li><a href="#">About</a></li>
+							<li><a href="#">FAQ</a></li>
+							<li><a href="#">Contact</a></li>
+
+						</ul>
+					</div>
+				</div>-->
+				<div class="rowx">
+					<div class="span16">
+
+						<h3>Partners</h3>
+		<ul id="partner-logos" class="">
+					
+						<li><a href="http://warp.ndl.go.jp/WARP_disaster.html" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/nationalDietLibrary.png')}}"></a></li>
+						<li><a href="http://www.fas.harvard.edu/~rijs/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/reischauer.png')}}"></a></li>
+						<li><a href="http://311archives.jp/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/all311.png')}}"></a></li>
+						<li><a href="http://www.dcrc.tohoku.ac.jp/archive/index.html/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/tohoku311.png')}}"></a></li>						
+						<li><a href="http://recorder311.smt.jp/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/logo_cr.png')}}"></a></li>
+						<li><a href="http://savemlak.jp/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/saveMLAK.png')}}"></a></li>
+						<li><a href="http://recorder311.smt.jp/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/sendaiMedia.png')}}"></a></li>
+						
+						
+						<li><a href="http://www.yahoo.co.jp/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/YahooJapan.gif')}}"></a></li>
+						
+						
+						<li><a href="http://zeega.org" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/zeega.png')}}"></a></li>
+						<li><a href="http://metalab.harvard.edu" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/mlh.gif')}}"></a></li>
+						
+						
+						
+						<li><a href="http://www.archive-it.org/collections/2438" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/archiveIT.png')}}"></a></li>
+						<li><a href="http://worldmap.harvard.edu/japanmap/" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/CGA.png')}}"></a></li>
+						<li><a href="http://archive.org" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/InternetArchive.png')}}"></a></li>
+						<li><a href="http://www.loc.gov/index.html" target="_blank"><img class="thumbnail partnerimg" src="{{ asset('images/partner-logos/LibraryOfCongress.png')}}"></a></li>
+					</ul>
+					</div>
+
+				</div>
+
+				<div class="rowx">
+					<div class="span16 partnerimg" style="text-align: center;">
+						Site powered by <a href="http://www.zeega.org/about.php" target="_blank">Zeega.org</a><br> <br>
+					</div>
+				</div>
+
+			</div>
+
+			</footer>
+	</div></div>
+
+
+		   
+		{% block footer %}
+		{% endblock %}
+
+
+		
+			
+			<div class="modal" id="myModal" style='display:none'>
+				<div class="modal-header">
+					<a class="close" data-dismiss="modal">×</a>
+					<h3>About Alpha</h3>
+				</div>
+				<div class="modal-body">
+					<p>This 'alpha' version of the Digital Archive of Japan's 2011 Disasters is still a work in progress. We invite you to look around and see what's going on, but there will be a few bumps in the road. We're working every day to expand the functionality of the site and fix bugs. We hope you you are able to make use of the site and keep checking back!</p>
+				</div>
+
+			</div>
+			
+
+		
+         
+    </body>
+</html>
+
