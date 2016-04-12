@@ -74,7 +74,7 @@
 			if(this.geoLocated){
 				console.log("13");
 				$(this.el).find('.item-lat-lng').fadeIn();
-				$(this.el).find('.locator-map').fadeIn();
+				//$(this.el).find('.locator-map').fadeIn();
 				this.mapRendered=true;
 
 				var _this = this;
