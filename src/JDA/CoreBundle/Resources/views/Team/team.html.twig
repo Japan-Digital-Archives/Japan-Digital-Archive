@@ -1,0 +1,123 @@
+{# src/Zeega/CoreBundle/Resources/views/Team/team.html.twig #}
+
+{% extends '::base.html.twig' %}
+
+{% block title %}<title>{% trans %}jda.home.title{% endtrans %}</title>{% endblock %}
+{% block stylesheets %}
+<!-- Visual Search --> 
+<!--[if (!IE)|(gte IE 8)]><!-->
+<link href="{{ asset('js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+<!--[if lte IE 7]><!-->
+<link href="{{ asset('js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<style>
+	p{
+		margin:14px 25px 18px;
+	}
+</style>
+<!--<![endif]-->
+{% endblock %}
+{% block scripts %}
+{% if app.environment == 'dev' %}
+<!-- to load JS libraries separately -->
+	<script data-main="{{ asset('js/loaders/about') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
+{% else %}
+	<!-- to load single aggregated JS library --> 
+	<script data-main="{{ asset('js_min/about') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="container" id="zeega-view-navigation" style="background-color:rgba(0,0,0,0.7)">
+
+
+	<div id="jda-home-search-div" class="pull-left" style="margin-right:17px;margin-top:5px;margin-left:5%;margin-bottom:5px;display:none;width:600px;">
+		<div id="search-bar" style="margin-right:10px">
+			<div class="visual_search pull-left"></div>
+		</div>
+		<a href="#" id="jda-go-button" class="btn btn-info btn-large">go</a>
+	</div>
+
+
+
+</div><!-- end container -->
+<div id="jda-about-container" style="margin:0 5%;position:relative;top:115px">
+
+	<h2 style="color:#666;letter-spacing:1px;margin-bottom:20px">{% trans %}jda.about.team{% endtrans %}</h2>
+
+	<h3>{% trans %}jda.team.leader{% endtrans %}</h3>
+
+	<p>{% trans %}jda.team.leader.projectdirector{% endtrans %}<br/>
+	{% trans %}jda.team.leader.projectmanager{% endtrans %}<br/>
+	</p>
+
+	<h4>{% trans %}jda.team.additional{% endtrans %}</h4>
+
+	<p>{% trans %}jda.team.additional.director{% endtrans %}<br/>
+	{% trans %}jda.team.additional.executivedirector{% endtrans %}<br/>
+	{% trans %}jda.team.additional.librarian{% endtrans %}<br/>
+	{% trans %}jda.team.additional.assistantdirector{% endtrans %}<br/>
+	</p>
+
+	<h4>{% trans %}jda.team.interaction{% endtrans %}</h4>
+
+	<p>{% trans %}jda.team.webdeveloper.alex{% endtrans %}<br/>
+	{% trans %}jda.team.webdeveloper.zahra{% endtrans %}<br/>
+	{% trans %}jda.team.webdeveloper.harnek{% endtrans %} <br/>
+	{% trans %}jda.team.webdeveloper.rebecca{% endtrans %}<br/>
+	{% trans %}jda.team.webdeveloper.annie{% endtrans %}<br/>
+	{% trans %}jda.team.webdeveloper.javier{% endtrans %}<br/>
+	{% trans %}jda.team.webdeveloper.tyreke{% endtrans %}<br/>
+	{% trans %}jda.team.webdeveloper.kyle{% endtrans %}<br/>
+	{% trans %}jda.team.webdeveloper.jessica{% endtrans %}<br/>
+	</p>
+	
+	<h4>{% trans %}jda.team.contentdevelopment{% endtrans %}</h4>
+	<p>{% trans %}jda.team.content.lead{% endtrans %}<br/>
+	{% trans %}jda.team.content.developer{% endtrans %}<br/>
+	{% trans %}jda.team.content.curation{% endtrans %}</br>
+	</p>
+
+	<h4>{% trans %}jda.team.alumni{% endtrans %}</h4>
+
+	<p>
+	{% trans %}jda.team.alumni.nick{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.ej{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.molly{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.konrad{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.yuhki{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.arne{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.jesse{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.hikari{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.karashen{% endtrans %} <br/>
+	{% trans %}jda.team.alumni.luis{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.james{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.kara{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.joseph{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.selena{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.eric{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.julie{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.kyoko{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.ray{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.takamasa{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.alicia{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.yeonjoo{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.ilsoo{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.miho{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.grace{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.sandy{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.atsuko{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.rei{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.taisei{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.kae{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.corinne{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.yumiko{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.kanami{% endtrans %}<br/>
+	{% trans %}jda.team.alumni.maho{% endtrans %}<br/>
+	</p>
+
+	<h4>{% trans %}jda.team.inquiries{% endtrans %}<a href="mailto:info@jdarchive.org">info@jdarchive.org</h4>
+</div>
+<!-- end tab content -->
+{% endblock %}	

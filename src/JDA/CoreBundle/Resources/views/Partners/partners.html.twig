@@ -1,0 +1,96 @@
+{# src/Zeega/CoreBundle/Resources/views/About/partners.html.twig #}
+
+{% extends '::base.html.twig' %}
+
+{% block title %}<title>{% trans %}jda.home.title{% endtrans %}</title>{% endblock %}
+{% block stylesheets %}
+<!-- Visual Search --> 
+<!--[if (!IE)|(gte IE 8)]><!-->
+<link href="{{ asset('js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+<!--[if lte IE 7]><!-->
+<link href="{{ asset('js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+{% endblock %}
+{% block scripts %}
+{% if app.environment == 'dev' %}
+<!-- to load JS libraries separately -->
+	<script data-main="{{ asset('js/loaders/about') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
+{% else %}
+	<!-- to load single aggregated JS library --> 
+	<script data-main="{{ asset('js_min/about') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="container" id="zeega-view-navigation" style="background-color:rgba(0,0,0,0.7)">
+
+
+	<div id="jda-home-search-div" class="pull-left" style="width:600px;margin-right:17px;margin-top:5px;margin-left:5%;margin-bottom:5px;display:none">
+		<div id="search-bar" style="margin-right:10px">
+			<div class="visual_search pull-left"></div>
+		</div>
+		<a href="#" id="jda-go-button" class="btn btn-info btn-large">go</a>
+	</div>
+
+
+
+</div><!-- end container -->
+
+<div id="jda-about-partners-container" style="margin:0 5%;position:relative;top:115px">
+
+	<h2 style="color:#666;letter-spacing:1px;margin-bottom:20px">{% trans %}jda.aboutpartners.title{% endtrans %}</h2>
+	<!--<ul class="nav nav-pills" style="padding-bottom: 10px;border-bottom: 1px solid #DDD;">
+		<li><a href="#mission"  data-toggle="tab">{% trans %}jda.about.mission{% endtrans %}</a></li>
+		<li><a href="#team" data-toggle="tab">{% trans %}jda.about.team{% endtrans %}</a></li>
+		<li><a href="#news" data-toggle="tab">{% trans %}jda.about.news{% endtrans %}</a></li>
+		<li><a href="#faq" data-toggle="tab">{% trans %}jda.about.faq{% endtrans %}</a></li>
+		<li><a href="#terms" data-toggle="tab">{% trans %}jda.about.terms{% endtrans %}</a></li>
+
+	</ul>-->
+	<div class="tab-content">
+		<div id="partners" class="tab-pane active">
+			<div id="jda-about-partners">
+				<p>{% trans %}jda.aboutpartners.paragraph1{% endtrans %}</p>
+				<p>{% trans %}jda.aboutpartners.paragraph2{% endtrans %}</p>
+				<h3>{% trans %}jda.aboutpartners.311memoriestitle{% endtrans %}</h3>
+				<p>{% trans %}jda.aboutpartners.311memories{% endtrans %}</p>
+				<h3>{% trans %}jda.aboutpartners.311marugototitle{% endtrans %}</h3>
+				<p>{% trans %}jda.aboutpartners.311marugoto{% endtrans %}</p>
+				<h3>{% trans %}jda.aboutpartners.asahititle{% endtrans %}</h3>
+				<p>{% trans %}jda.aboutpartners.asahi{% endtrans %}</p>
+				<h3>{% trans %}jda.aboutpartners.cgatitle{% endtrans %}</h3>
+				<p>{% trans %}jda.aboutpartners.cga{% endtrans %}</p>
+				<h3>{% trans %}jda.aboutpartners.hypercitiestitle{% endtrans %}</h3>
+				<p>{% trans %}jda.aboutpartners.hypercities{% endtrans %}</p>
+				<h3>{% trans %}jda.aboutpartners.internetarchivetitle{% endtrans %}</h3>
+				<p>{% trans %}jda.aboutpartners.internetarchive{% endtrans %}</p>
+                                <h3>{% trans %}jda.aboutpartners.kstitle{% endtrans %}</h3>
+                                <p>{% trans %}jda.aboutpartners.ks{% endtrans %}</p>
+				<h3>{% trans %}jda.aboutpartners.metalabtitle{% endtrans %}</h3>
+				<p>{% trans %}jda.aboutpartners.metalab{% endtrans %}</p>
+				<h3>{% trans %}jda.aboutpartners.michinokutitle{% endtrans %}</h3>
+				<p>{% trans %}jda.aboutpartners.michinoku{% endtrans %}</p>
+				<h3>{% trans %}jda.aboutpartners.ncctitle{% endtrans %}</h3>
+				<p>{% trans %}jda.aboutpartners.ncc{% endtrans %}</p>
+				<h3>{% trans %}jda.aboutpartners.ndltitle{% endtrans %}</h3>
+				<p>{% trans %}jda.aboutpartners.ndl{% endtrans %}</p>
+				<h3>{% trans %}jda.aboutpartners.nhktitle{% endtrans %}</h3>
+				<p>{% trans %}jda.aboutpartners.nhk{% endtrans %}</p>
+				<h3>{% trans %}jda.aboutpartners.sakuratitle{% endtrans %}</h3>
+				<p>{% trans %}jda.aboutpartners.sakura{% endtrans %}</p>
+				<h3>{% trans %}jda.aboutpartners.sendaimediathequetitle{% endtrans %}</h3>
+				<p>{% trans %}jda.aboutpartners.sendaimediatheque{% endtrans %}</p>
+				<h3>{% trans %}jda.aboutpartners.tokyofoundationtitle{% endtrans %}</h3>
+				<p>{% trans %}jda.aboutpartners.tokyofoundation{% endtrans %}</p>
+				<h3>{% trans %}jda.aboutpartners.yahootitle{% endtrans %}</h3>
+				<p>{% trans %}jda.aboutpartners.yahoo{% endtrans %}</p>
+				<h3>{% trans %}jda.aboutpartners.hidenoriwatanavetitle{% endtrans %}</h3>
+				<p>{% trans %}jda.aboutpartners.hidenoriwatanave{% endtrans %}</p>
+				<h3>{% trans %}jda.aboutpartners.gejeatitle{% endtrans %}</h3>
+				<p>{% trans %}jda.aboutpartners.gejea{% endtrans %}</p>
+			</div>
+		</div>
+	</div><!-- end tab content -->
+{% endblock %}	

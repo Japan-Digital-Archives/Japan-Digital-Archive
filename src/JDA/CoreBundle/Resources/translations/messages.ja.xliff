@@ -1,0 +1,2026 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>jda.home.featured</source>
+                <target>印象的なコレクション</target>
+            </trans-unit>
+             <trans-unit id="2">
+                <source>jda.home.about.intro</source>
+                <target>2011年東日本大震災デジタルアーカイブ</target>
+            </trans-unit>
+             <trans-unit id="3">
+                <source>jda.home.about</source>
+                <target>2011年東日本大震災デジタルアーカイブは、皆様お一人おひとり、研究者、そして政策に携わる方が対話し、つながるための参加型空間であり、この震災によって大きな影響を受けた皆様にとって大切な記憶を共有する場所となることを願っています。</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>jda.home.archive</source>
+                <target>アーカイブの内容</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>jda.home.tags</source>
+                <target>タグ</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>jda.home.title</source>
+                <target> Digital Archive of Japan's 2011 Disasters</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>jda.home.more</source>
+                <target>続きを読む</target>
+            </trans-unit> 
+            <trans-unit id="8">
+                <source>jda.home.add</source>
+                <target>投稿する</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>jda.home.search</source>
+                <target>キーワードを入力して下さい</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>jda.home.logo</source>
+                <target>logo-jp</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>jda.about.missiontext</source>
+                <target>2011年東日本大震災デジタルアーカイブには3つの使命があります</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>jda.about.one</source>
+                <target>2011年3月11日の震災とその後の出来事に関するデジタル情報を整理、保存し、できる限り多くの方にとって活用可能な状態にすること。</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>jda.about.two</source>
+                <target>皆様お一人おひとりが、そして研究者、学生や政策に携わる方が、情報を共有し、協力し合い、対話することができる公共空間を提供すること。</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>jda.about.three</source>
+                <target>震災から大きな被害を受けた方や、今後を強く憂慮している方が、記憶や思いを共有できる場となること。</target>
+            </trans-unit>
+             <trans-unit id="15">
+                <source>jda.about.participate</source>
+                <target>参加型アーカイブ</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>jda.about.connect</source>
+                <target>つながりと発見</target>
+            </trans-unit>   
+            <trans-unit id="17">
+                <source>jda.about.connectbody</source>
+                <target>このアーカイブが目指すのは、収蔵された情報同士の、そしてユーザ同士の新たな発見を促進することです。ユーザがデジタルアーカイブ内の収蔵情報やコレクションの間を行き来するとき、他のアーキビストたちの拡大し続けるネットワークに出会うことでしょう。それは、位置情報や説明がタグ付けされた何千枚の写真をアーカイブに提供した大きな団体である場合もあれば、自分の家族の経験を綴ったユーザや、そして救援活動に携わる公共・民間団体の関係を研究する歴史家であるかもしれません</target>
+            </trans-unit>
+                    <trans-unit id="18">
+                <source>jda.about.participateone</source>
+                <target>デジタル情報を閲覧、説明、可視化する</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>jda.about.participatetwo</source>
+                <target>文書や写真、動画、リンクなどをアーカイブする</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>jda.about.participatethree</source>
+                <target>自分だけのコレクションをつくり、他のユーザと共有する</target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>jda.about.participatefour</source>
+                <target>震災に関する皆様の「物語」を共有する（開発中）</target>
+            </trans-unit>
+             <trans-unit id="22">
+                <source>jda.search.allformats</source>
+                <target>すべて検索</target>
+            </trans-unit>
+             <trans-unit id="23">
+                <source>jda.search.image</source>
+                <target>画像</target>
+            </trans-unit>            
+             <trans-unit id="24">
+                <source>jda.search.video</source>
+                <target>動画</target>
+            </trans-unit>
+             <trans-unit id="25">
+                <source>jda.search.audio</source>
+                <target>音声</target>
+            </trans-unit>            
+             <trans-unit id="26">
+                <source>jda.search.tweet</source>
+                <target>ツイート</target>
+            </trans-unit>
+             <trans-unit id="27">
+                <source>jda.search.document</source>
+                <target>ドキュメント</target>
+            </trans-unit>
+             <trans-unit id="28">
+                <source>jda.search.website</source>
+                <target>ウェブサイト</target>
+            </trans-unit>   
+             <trans-unit id="29">
+                <source>jda.search.pdf</source>
+                <target>PDF</target>
+            </trans-unit>
+             <trans-unit id="30">
+                <source>jda.search.testimonial</source>
+                <target>物語</target>
+            </trans-unit>
+             <trans-unit id="31">
+                <source>jda.search.listview</source>
+                <target>リスト表示</target>
+            </trans-unit>
+             <trans-unit id="32">
+                <source>jda.search.mapview</source>
+                <target>時間・地図表示</target>
+            </trans-unit>
+             <trans-unit id="33">
+                <source>jda.search.relatedtags</source>
+                <target>関連タグ</target>
+            </trans-unit>
+             <trans-unit id="34">
+                <source>jda.search.layers</source>
+                <target>レイヤー</target>
+            </trans-unit>
+             <trans-unit id="35">
+                <source>jda.search.legend</source>
+                <target>凡例</target>
+            </trans-unit>
+             <trans-unit id="36">
+                <source>jda.search.muncipaldistricts</source>
+                <target>行政区</target>
+            </trans-unit>
+             <trans-unit id="37">
+                <source>jda.search.radiation</source>
+                <target>放射能</target>
+            </trans-unit>
+             <trans-unit id="38">
+                <source>jda.search.casualties</source>
+                <target>死者</target>
+            </trans-unit>
+             <trans-unit id="39">
+                <source>jda.search.flooding</source>
+                <target>津波</target>
+            </trans-unit>
+             <trans-unit id="40">
+                <source>jda.search.shake</source>
+                <target>震度分布</target>
+            </trans-unit>
+            <trans-unit id="41">
+                <source>jda.header.about</source>
+                <target>このアーカイブについて</target>
+            </trans-unit>
+            <trans-unit id="42">
+                <source>jda.header.feedback</source>
+                <target>お問い合わせ</target>
+            </trans-unit>
+            <trans-unit id="43">
+                <source>jda.header.japanese</source>
+                <target>日本語</target>
+            </trans-unit>               
+            <trans-unit id="44">
+                <source>jda.header.english</source>
+                <target>English</target>
+            </trans-unit>           
+            <trans-unit id="45">
+                <source>jda.home.partners</source>
+                <target>協力企業・団体</target>
+            </trans-unit>           
+            <trans-unit id="46">
+                <source>jda.home.go</source>
+                <target>検索</target>
+            </trans-unit>           
+             <trans-unit id="47">
+                <source>jda.about.paragraph1</source>
+                <target>当アーカイブは積極的にユーザーが投稿したウェブサイト、動画、写真、そして経験談などの資料を集めています。皆様のご参加をお待ちしております。</target>
+            </trans-unit>
+            <trans-unit id="48">
+                <source>jda.search.items</source>
+                <target> 検索結果</target>
+            </trans-unit>   
+            <trans-unit id="49">
+                <source>jda.home.source</source>
+                <target>出典</target>
+            </trans-unit>
+            <trans-unit id="51">
+                <source>jda.login.username</source>
+                <target>Eメール</target>
+            </trans-unit>
+            <trans-unit id="52">
+                <source>jda.login.password</source>
+                <target>パスワード</target>
+            </trans-unit>
+            <trans-unit id="53">
+                <source>jda.login.partnerlogin</source>
+                <target>協力企業・団体 ログイン</target>
+            </trans-unit>
+            <trans-unit id="54">
+                <source>jda.login.requestalogin</source>
+                <target>Request a login</target>
+            </trans-unit>
+            <trans-unit id="55">
+                <source>jda.login.description</source>
+                <target>このアーカイブ・プロジェクトは皆様のご参加とご協力なくしては成立し得ません。共に試作モデル・アルファ版の改良にあたって下さるパートナーの輪は広がり続けており、そこに是非加わって頂ければと願っております。既に登録がお済みでしたら、どのようなご意見・ご感想、不具合のご指摘でも結構ですので、私どもと共有して下されば幸いです。トップページ右上部のリンクを通じて承っております。</target>
+            </trans-unit>
+            <trans-unit id="56">
+                <source>jda.header.signin</source>
+                <target>2011年東日本大震災デジタルアーカイブへようこそ</target>
+            </trans-unit>
+            <trans-unit id="57">
+                <source>jda.login.subheader</source>
+                <target>現在開発中につき、アーカイブはパートナーの皆様だけに公開させて頂いております。</target>
+            </trans-unit>
+            <trans-unit id="58">
+                <source>jda.login.button</source>
+                <target>送信</target>
+            </trans-unit>
+            <trans-unit id="59">
+                <source>jda.header.alphadescription</source>
+                <target>2011年東日本大震災デジタルアーカイブ・alphaは現在まさに開発段階にあります。そのため、皆様がウェブサイト内の様々な機能をご利用になり、このプロジェクトで行われていることをご覧になる際、いくつかの技術的課題にお気づきになるかと存じます。しかし私たちは機能の向上とプログラムの不具合の修正に日々取り組んでおりますので、今後も皆様がこのインターフェースをお使いになり、ご意見・ご要望をお寄せ頂けるようでしたら幸いです。</target>
+            </trans-unit>
+             <trans-unit id="60">
+                <source>jda.header.aboutalpha</source>
+                <target>Alpha版について</target>
+            </trans-unit>
+            <trans-unit id="61">
+                <source>jda.header.signout</source>
+                <target>ログイン</target>
+            </trans-unit>
+            <trans-unit id="62">
+                <source>jda.advsearch.searchTerms</source>
+                <target>検索語 :</target>
+            </trans-unit>
+            <trans-unit id="63">
+                <source>jda.advsearch.title</source>
+                <target>詳細検索 :</target>
+            </trans-unit>
+            <trans-unit id="64">
+                <source>jda.advsearch.video</source>
+                <target>Video</target>
+            </trans-unit>
+            <trans-unit id="65">
+                <source>jda.advsearch.audio</source>
+                <target>Audio</target>
+            </trans-unit>
+            <trans-unit id="66">
+                <source>jda.advsearch.image</source>
+                <target>Image</target>
+            </trans-unit>
+            <trans-unit id="67">
+                <source>jda.advsearch.website</source>
+                <target>Website</target>
+            </trans-unit>
+            <trans-unit id="68">
+                <source>jda.advsearch.tweet</source>
+                <target>Tweet</target>
+            </trans-unit>
+            <trans-unit id="69">
+                <source>jda.advsearch.document</source>
+                <target>Document</target>
+            </trans-unit>
+            <trans-unit id="70">
+                <source>jda.advsearch.all</source>
+                <target>All</target>
+            </trans-unit>
+            <trans-unit id="71">
+                <source>jda.advsearch.contentType</source>
+                <target>情報の種類 :</target>
+            </trans-unit>
+            <trans-unit id="72">
+                <source>jda.advsearch.user</source>
+                <target>ユーザ：</target>
+            </trans-unit>
+            <trans-unit id="73">
+                <source>jda.advsearch.allusers</source>
+                <target>すべてのユーザ</target>
+            </trans-unit>
+            <trans-unit id="74">
+                <source>jda.advsearch.onlyCurrentUser</source>
+                <target>自分のアーカイブのみ</target>
+            </trans-unit>
+            <trans-unit id="75">
+                <source>jda.advsearch.tags</source>
+                <target>タグ：</target>
+            </trans-unit>
+            <trans-unit id="76">
+                <source>jda.advsearch.startDate</source>
+                <target>〜日から :</target>
+            </trans-unit>
+            <trans-unit id="77">
+                <source>jda.advsearch.endDate</source>
+                <target>〜日まで :</target>
+            </trans-unit>
+            <trans-unit id="78">
+                <source>jda.advsearch.incCollections</source>
+                <target>コレクションを含めますか？</target>
+            </trans-unit>
+            <trans-unit id="79">
+                <source>jda.advsearch.noCollections</source>
+                <target>コレクションは含めない</target>
+            </trans-unit>
+            <trans-unit id="80">
+                <source>jda.advsearch.onlyCollections</source>
+                <target>コレクションのみ</target>
+            </trans-unit>
+            <trans-unit id="81">
+                <source>jda.advsearch.both</source>
+                <target>コレクションも含める</target>
+            </trans-unit>
+            <trans-unit id="82">
+                <source>jda.advsearch.mapInstructions</source>
+                <target>使い方</target>
+            </trans-unit>
+            <trans-unit id="83">
+                <source>jda.advsearch.mapInstructionsTxt</source>
+                <target>シフト・キーを押したままドラッグすることで、検索したい地域を指定できます。</target>
+            </trans-unit>
+            <trans-unit id="84">
+                <source>jda.header.explore</source>
+                <target>検索</target>
+            </trans-unit>
+            <trans-unit id="85">
+                <source>jda.header.collections</source>
+                <target>コレクション</target>
+            </trans-unit>
+            <trans-unit id="86">
+                <source>jda.header.participate</source>
+                <target>参加する</target>
+            </trans-unit>
+            <trans-unit id="87">
+                <source>jda.login.register</source>
+                <target>アカウントを新規作成</target>
+            </trans-unit>
+            <trans-unit id="88">
+                <source>jda.login.savecollection</source>
+                <target>あなたのコレクションを保存する</target>
+            </trans-unit>
+            <trans-unit id="89">
+                <source>jda.register.header</source>
+                <target>アカウントを新規作成する！</target>
+            </trans-unit>
+             <trans-unit id="90">
+                <source>jda.register.confirm</source>
+                <target>さんの登録が完了しました！</target>
+            </trans-unit>
+            <trans-unit id="91">
+                <source>jda.register.login</source>
+                <target>ログインが完了しました！</target>
+            </trans-unit>
+            <trans-unit id="92">
+                <source>jda.about.mission</source>
+                <target>使命</target>
+            </trans-unit>
+            <trans-unit id="93">
+                <source>jda.about.team</source>
+                <target>チーム</target>
+            </trans-unit>
+            <trans-unit id="94">
+                <source>jda.about.news</source>
+                <target>ニュース</target>
+            </trans-unit>
+            <trans-unit id="95">
+                <source>jda.about.faq</source>
+                <target>よくあるご質問</target>
+            </trans-unit>
+            <trans-unit id="96">
+                <source>jda.about.terms</source>
+                <target>ご利用規約</target>
+            </trans-unit>
+            <trans-unit id="97">
+                <source>jda.user.settings</source>
+                <target>アカウント設定</target>
+            </trans-unit>
+            <trans-unit id="98">
+                <source>jda.user.profile</source>
+                <target>プロフィール</target>
+            </trans-unit>
+            <trans-unit id="99">
+                <source>jda.user.logout</source>
+                <target>ログアウト</target>
+            </trans-unit>
+            <trans-unit id="100">
+                <source>jda.header.signin</source>
+                <target>サインイン</target>
+            </trans-unit>
+            <trans-unit id="101">
+                <source>jda.login.header</source>
+                <target>サインイン</target>
+            </trans-unit>
+            <trans-unit id="102">
+                <source>jda.login.forgot</source>
+                <target>パスワードをお忘れですか？</target>
+            </trans-unit>
+            <trans-unit id="103">
+                <source>jda.login.back</source>
+                <target>戻る</target>
+            </trans-unit>
+            <trans-unit id="104">
+                <source>jda.login.return</source>
+                <target>ログイン画面に戻る</target>
+            </trans-unit>
+            <trans-unit id="105">
+                <source>jda.login.confirm</source>
+                <target>ログインが完了しました！</target>
+            </trans-unit>
+            <trans-unit id="106">
+                <source>jda.header.me</source>
+                <target>Me</target>
+            </trans-unit>
+            <trans-unit id="107">
+                <source>jda.home.collection1</source>
+                <target>南三陸の漁業</target>
+            </trans-unit>
+            <trans-unit id="108">
+                <source>jda.home.collection1text</source>
+                <target>この公開コレクションでは、2011年3月11日の震災によって被害を受けた南三陸町と気仙沼の漁業・水産養殖業の様子を記録した映像と文書が集められています。</target>
+            </trans-unit>
+            <trans-unit id="109">
+                <source>jda.home.collection2</source>
+                <target>再建と移転</target>
+            </trans-unit>
+            <trans-unit id="110">
+                <source>jda.home.collection2text</source>
+                <target>この公開コレクションでは、被災地の住民による地域経済の将来や再建の形を巡る極め
+て重要な議論に関する記事、計画案、そして映像が取り上げられています。</target>
+            </trans-unit>
+             <trans-unit id="111">
+                <source>jda.home.collection3</source>
+                <target>福島と食糧</target>
+            </trans-unit>
+            <trans-unit id="112">
+                <source>jda.home.collection3text</source>
+                <target>この公開コレクションでは、2011年に生じた福島原発の大惨事が引き起こした、食物
+の放射能汚染や地域農業の将来への不安に関する記録が収集されています。</target>
+            </trans-unit>
+            <trans-unit id="113">
+                <source>jda.accountsettings.header</source>
+                <target>パスワードを変更する</target>
+            </trans-unit>
+            <trans-unit id="114">
+                <source>jda.report.feedback</source>
+                <target>ご意見・お問い合わせ</target>
+            </trans-unit>
+            <trans-unit id="115">
+                <source>jda.report.bugintro</source>
+                <target>このウェブサイトは開発中のベータ版です。質の向上のため、ご協力頂けるようお願い申し上げます。どのような不具合が起きたのかを簡単にご説明下さい。</target>
+            </trans-unit>
+             <trans-unit id="116">
+                <source>jda.report.buglinknote</source>
+                <target>現在ご覧のページは自動的に添付されます</target>
+            </trans-unit>
+            <trans-unit id="117">
+                <source>jda.report.bugemail</source>
+                <target>Eメールアドレス（任意）</target>
+            </trans-unit>            
+  			<trans-unit id="118">
+                <source>jda.sort.by</source>
+                <target>並べ替え</target>
+            </trans-unit>
+            <trans-unit id="119">
+                <source>jda.search.recent</source>
+                <target>最新</target>
+            </trans-unit>
+            <trans-unit id="120">
+                <source>jda.search.oldest</source>
+                <target>最古</target>
+            </trans-unit>
+            <trans-unit id="121">
+                <source>jda.search.collection</source>
+                <target>コレクション</target>
+            </trans-unit>
+             <trans-unit id="122">
+                <source>jda.search.collections</source>
+                <target>コレクション</target>
+            </trans-unit>
+            
+       		<trans-unit id="123">
+                <source>jda.my.collection</source>
+                <target>マイ・コレクション</target>
+            </trans-unit>
+     		 <trans-unit id="124">
+                <source>jda.drag.items</source>
+                <target>ここにドラッグした情報はあなたのコレクションに加わります</target>
+            </trans-unit>      
+               <trans-unit id="125">
+                <source>jda.drag.added</source>
+                <target>追加されました！</target>
+            </trans-unit>     
+              <trans-unit id="126">
+                <source>jda.drag.shareorganize</source>
+                <target>共有設定</target>
+            </trans-unit>
+			 <trans-unit id="127">
+                <source>jda.drag.and</source>
+                <target>＋</target>
+            </trans-unit>  
+            <trans-unit id="128">
+                <source>jda.drag.moreitems</source>
+                <target>個のアーカイブ情報</target>
+            </trans-unit>   
+            <trans-unit id="129">
+                <source>jda.drag.createnewcollection</source>
+                <target>コレクションを新規作成</target>
+            </trans-unit>   
+         	<trans-unit id="130">
+                <source>jda.advanced.search</source>
+                <target>詳細検索</target>
+            </trans-unit>             
+             <trans-unit id="131">
+                <source>jda.search.withtimeplace</source>
+                <target>（時間／地図データ）</target>
+            </trans-unit> 
+			 <trans-unit id="132">
+                <source>jda.collection.goto</source>
+                <target>コレクションに移動する</target>
+            </trans-unit>     
+            <trans-unit id="133">
+                <source>jda.collection.save</source>
+                <target>コレクションを保存する</target>
+            </trans-unit>   
+             <trans-unit id="134">
+                <source>jda.collection.dragcover</source>
+                <target>ここにドラッグした画像がカバーになります</target>
+            </trans-unit>   
+             <trans-unit id="135">
+                <source>jda.search.tips1</source>
+                <target>左にある検索スペースに調べたい言葉を入力して下さい。
+                </target>
+            </trans-unit>  
+             <trans-unit id="136">
+                <source>jda.search.tips2</source>
+                <target>タグだけを検索したい場合は、キーボードの"t"キーを押し、次に"タグ"をお選び下さい。
+                </target>
+            </trans-unit>
+             <trans-unit id="137">
+                <source>jda.search.tips3</source>
+                <target>ユーザ別に検索したい場合は、キーボードの"u"キーを押し、次に"ユーザ"をお選び下さい。
+                </target>
+            </trans-unit>  
+            <trans-unit id="138">
+                <source>jda.about.paragraph2</source>
+                <target>2011年東日本大震災デジタルアーカイブ・試作モデル・ベータ版は、国際的な協力関係の下で進められている取り組みの結果生まれたものです。そこに収蔵されているコンテンツは拡大を続けており、2011年3月とその後の未曾有の出来事によって様々に影響を受けた個人や団体からの投稿で構成されています。このアーカイブのインターフェースは、ハーバード大学エドウィン・O・ライシャワー日本研究所を中心としながら、ハーバード大学メタ・ラボ （metaLAB(at)Harvard）や地理学分析センター（Harvard's Center for Geographic Analysis）、そして非営利のクリエイティブ・テクノロジスト集団であるジーガ（Zeega.org）と密接に連携しながら開発されています。ベータ版は進化し続ける参加型のアーカイブにその基礎を置いています。このインターフェースはジーガ（Zeega）というオープンソース・プラットフォームの上に構築されております。ジーガは危機的状況の際のアーカイブ作業において先導的な役割を果たしており、これを利用することで、どなたでも参加型のプロジェクトを作り、そこで写真・動画・文書・音声・データフィード・地図などの素材をウェブ上のAPIを通じて編集することが可能です。</target>
+            </trans-unit>
+            <trans-unit id="139">
+                <source>jda.about.archive</source>
+                <target>2011年東日本大震災デジタルアーカイブについて</target>
+            </trans-unit>
+             <trans-unit id="140">
+                <source>jda.search.itemscontributed</source>
+                <target>アーカイブされたデジタル情報</target>
+            </trans-unit>
+            <trans-unit id="141">
+                <source>jda.collection.confirmdelete</source>
+                <target>この情報をコレクションから削除してもよろしいですか？</target>
+            </trans-unit>
+            <trans-unit id="142">
+                <source>jda.search.removedFilter</source>
+                <target>フィルターを外す</target>
+            </trans-unit>
+            <trans-unit id="143">
+                <source>jda.search.unsupportedFilters</source>
+                <target>現在のところ、時間／地図表示ではタグによるフィルタリングができません。どうぞご了解下さい。</target>
+            </trans-unit>
+            <trans-unit id="144">
+                <source>jda.search.loadingmoreresults</source>
+                <target>Loading more results...</target>
+            </trans-unit>
+            <trans-unit id="145">
+                <source>jda.login.forgotpassword</source>
+                <target>パスワードをお忘れですか？</target>
+            </trans-unit>
+                        <trans-unit id="146">
+                <source>jda.browser.modalheader</source>
+                <target>推奨動作環境についてのお知らせ</target>
+            </trans-unit>
+            <trans-unit id="147">
+                <source>jda.browser.modalbody</source>
+                <target>2011年東日本大震災デジタルアーカイブは、現在Chrome、Internet Explorer、Firefox、Safariの最新版に最適化しています。アーカイブを快適にご利用歌頂くため、お使いのブラウザの更新をお勧め致します。</target>
+            </trans-unit>
+                <trans-unit id="148">
+                <source>jda.collection.play</source>
+                <target>ジーガ・プレイヤーでコレクションを再生</target>
+            </trans-unit>
+            <trans-unit id="149">
+                <source>jda.collection.editdetails</source>
+                <target>コレクションの詳細を編集する</target>
+            </trans-unit>
+             <trans-unit id="150">
+                <source>jda.collection.editarchive</source>
+                <target>アーカイブ設定を変更する</target>
+            </trans-unit>
+             <trans-unit id="151">
+                <source>jda.collection.description</source>
+                <target>コレクションの説明</target>
+            </trans-unit>
+             <trans-unit id="152">
+                <source>jda.collection.archive</source>
+                <target>アーカイブ設定</target>
+            </trans-unit>
+             <trans-unit id="153">
+                <source>jda.collection.public</source>
+                <target>公開</target>
+            </trans-unit>
+             <trans-unit id="154">
+                <source>jda.collection.limited</source>
+                <target>限定</target>
+            </trans-unit>
+             <trans-unit id="155">
+                <source>jda.collection.archivenote</source>
+                <target>変更が反映されるまで少しお時間がかかる場合がございます。</target>
+            </trans-unit>
+             <trans-unit id="156">
+                <source>jda.collection.new</source>
+                <target>新しいコレクション</target>
+            </trans-unit>
+            <trans-unit id="157">
+                <source>jda.collection.createnew</source>
+                <target>コレクションを新規作成</target>
+            </trans-unit>
+              <trans-unit id="158">
+                <source>jda.save</source>
+                <target>保存</target>
+            </trans-unit>
+             <trans-unit id="159">
+                <source>jda.cancel</source>
+                <target>キャンセル</target>
+            </trans-unit>
+            <trans-unit id="160">
+                <source>jda.collection.nolocation</source>
+                <target>位置情報はありません</target>
+            </trans-unit>
+            <trans-unit id="161">
+                <source>jda.collection.publiclabel</source>
+                <target>どなたでもあなたのコレクションを見ることができます。またあなたのコレクションはアーカイブの一般検索結果に表示されます。</target>
+            </trans-unit>
+            <trans-unit id="162">
+                <source>jda.collection.limitedlabel</source>
+                <target>リンクを知っている方だけがあなたのコレクションを見ることができます。あなたのコレクションは一般検索結果や公開ユーザページには表示されません。</target>
+            </trans-unit>
+              <trans-unit id="163">
+                <source>jda.collection.publicdesc</source>
+                <target>検索結果には表示されません。</target>
+            </trans-unit>
+            <trans-unit id="164">
+                <source>jda.collection.limiteddesc</source>
+                <target>検索結果には表示されません。</target>
+            </trans-unit>
+             <trans-unit id="165">
+                <source>jda.collection.editdesc</source>
+                <target>コレクションの説明を編集する</target>
+            </trans-unit>
+            <trans-unit id="166">
+                <source>jda.collection.editlocation</source>
+                <target>位置情報を編集する</target>
+            </trans-unit>
+        	<trans-unit id="167">
+                <source>jda.collection.remove</source>
+                <target>削除</target>
+            </trans-unit>
+            <trans-unit id="168">
+                <source>jda.searching</source>
+                <target>検索方法</target>
+            </trans-unit>
+            <trans-unit id="169">
+                <source>jda.feedbackthanks</source>
+                <target>ご意見・ご感想ありがとうございました！</target>
+            </trans-unit>
+            <trans-unit id="170">
+                <source>jda.close</source>
+                <target>閉じる</target>
+            </trans-unit>
+             <trans-unit id="171">
+                <source>jda.team</source>
+                <target>アーカイブ開発チーム</target>
+            </trans-unit>
+             <trans-unit id="172">
+                <source>fancybox.addto</source>
+                <target>追加</target>
+            </trans-unit>
+            <trans-unit id="173">
+                <source>fancybox.link</source>
+                <target>リンク</target>
+            </trans-unit>
+            <trans-unit id="174">
+                <source>fancybox.more</source>
+                <target>詳細</target>
+            </trans-unit>
+            <trans-unit id="175">
+                <source>fancybox.less</source>
+                <target>概要</target>
+            </trans-unit>
+            <trans-unit id="176">
+                <source>fancybox.source</source>
+                <target>元の情報を開く</target>
+            </trans-unit>
+              <trans-unit id="177">
+                <source>fancybox.description</source>
+                <target>説明</target>
+            </trans-unit>
+            <trans-unit id="178">
+                <source>fancybox.map</source>
+                <target>地図</target>
+            </trans-unit>
+             <trans-unit id="179">
+                <source>fancybox.tags</source>
+                <target>タグ</target>
+            </trans-unit>
+            <trans-unit id="180">
+                <source>fancybox.addtag</source>
+                <target>タグを加える</target>
+            </trans-unit>
+             <trans-unit id="181">
+                <source>jda.search.thumbnailview</source>
+                <target>サムネイル表示</target>
+            </trans-unit>
+            <trans-unit id="182">
+              <source>jda.form.contribute.title</source>
+              <target>投稿方法</target>
+            </trans-unit>
+            <trans-unit id="183">
+              <source>jda.form.contribute.instructions</source>
+              <target>
+                アーカイブにウェブサイトを収録するため、皆様のご協力をお願い致します。なるべく詳しく以下の質問事項にお答え下さい。 &lt;br /&gt; &lt;span style="color:red;"&gt;*&lt;/span&gt; 必須事項
+              </target>
+            </trans-unit>
+            <trans-unit id="184">
+              <source>jda.form.contribute.url</source>
+              <target>URL</target>
+            </trans-unit>
+            <trans-unit id="185">
+              <source>jda.form.contribute.pageTitle</source>
+              <target>ウェブサイトのタイトル</target>
+            </trans-unit>
+            <trans-unit id="186">
+              <source>jda.form.contribute.description</source>
+              <target>説明</target>
+            </trans-unit>
+            <trans-unit id="187">
+              <source>jda.form.contribute.frequency</source>
+              <target>ウェブサイトの説明したタイトル</target>
+            </trans-unit>
+            <trans-unit id="188">
+              <source>jda.form.contribute.scope</source>
+              <target>ウェブサイトのURL</target>
+            </trans-unit>
+            <trans-unit id="189">
+              <source>jda.form.contribute.tags</source>
+              <target>タグ付け</target>
+            </trans-unit>
+            <trans-unit id="190">
+              <source>jda.form.contribute.location</source>
+              <target>地名</target>
+            </trans-unit>
+            <trans-unit id="191">
+              <source>jda.form.contribute.category</source>
+              <target>カテゴリー</target>
+            </trans-unit>
+            <trans-unit id="192">
+              <source>jda.form.contribute.language</source>
+              <target>言語</target>
+            </trans-unit>
+            <trans-unit id="193">
+              <source>jda.form.contribute.name</source>
+              <target>お名前</target>
+            </trans-unit>
+            <trans-unit id="194">
+              <source>jda.form.contribute.email</source>
+              <target>Eメールアドレス</target>
+            </trans-unit>
+            <trans-unit id="195">
+              <source>jda.form.contribute.once</source>
+              <target>一度のみ</target>
+            </trans-unit>
+            <trans-unit id="196">
+              <source>jda.form.contribute.daily</source>
+              <target>毎日</target>
+            </trans-unit>
+            <trans-unit id="197">
+              <source>jda.form.contribute.weekly</source>
+              <target>毎週</target>
+            </trans-unit>
+            <trans-unit id="198">
+              <source>jda.form.contribute.monthly</source>
+              <target>毎月</target>
+            </trans-unit>
+            <trans-unit id="199">
+              <source>jda.form.contribute.scope.page</source>
+              <target>１ページのみ</target>
+            </trans-unit>
+            <trans-unit id="200">
+              <source>jda.form.contribute.scope.directory</source>
+              <target>ディレクトリーも含む</target>
+            </trans-unit>
+            <trans-unit id="201">
+              <source>jda.form.contribute.scope.site</source>
+              <target>サイト全て</target>
+            </trans-unit>
+            <trans-unit id="202">
+              <source>jda.form.contribute.map.hint</source>
+              <target>主に言及されている地名を検索して下さい。見つからない場合は直接マーカーを動かすことができます。</target>
+            </trans-unit>
+            <trans-unit id="203">
+              <source>jda.form.contribute.language.english</source>
+              <target>英語</target>
+            </trans-unit>
+            <trans-unit id="204">
+              <source>jda.form.contribute.language.japanese</source>
+              <target>日本語</target>
+            </trans-unit>
+            <trans-unit id="205">
+              <source>jda.form.contribute.language.chinese</source>
+              <target>中国語</target>
+            </trans-unit>
+            <trans-unit id="206">
+              <source>jda.form.contribute.language.korean</source>
+              <target>韓国語</target>
+            </trans-unit>
+            <trans-unit id="207">
+              <source>jda.form.testimonial.title</source>
+              <target>わたしの「東日本大震災」</target>
+            </trans-unit>
+            <trans-unit id="208">
+              <source>jda.form.testimonial.instructions</source>
+              <target>差し支えの無い範囲で、なるべく詳しく以下の質問項目にお答え下さい。 &lt;br /&gt; &lt;span style="color:red;"&gt;*&lt;/span&gt; 必須事項</target>
+            </trans-unit>
+            <trans-unit id="209">
+              <source>jda.form.testimonial.name</source>
+              <target>お名前</target>
+            </trans-unit>
+            <trans-unit id="210">
+              <source>jda.form.testimonial.privacy</source>
+              <target>お名前のプライバシー</target>
+            </trans-unit>
+            <trans-unit id="211">
+              <source>jda.form.testimonial.privacy.show</source>
+              <target>公開</target>
+            </trans-unit>
+            <trans-unit id="212">
+              <source>jda.form.testimonial.privacy.hide</source>
+              <target>非公開</target>
+            </trans-unit>
+            <trans-unit id="213">
+              <source>jda.form.testimonial.email</source>
+              <target>Eメールアドレス</target>
+            </trans-unit>
+            <trans-unit id="214">
+              <source>jda.form.testimonial.residence</source>
+              <target>当時の住所</target>
+            </trans-unit>
+            <trans-unit id="215">
+              <source>jda.form.testimonial.occupation</source>
+              <target>ご職業</target>
+            </trans-unit>
+            <trans-unit id="216">
+              <source>jda.form.testimonial.birthyear</source>
+              <target>誕生年</target>
+            </trans-unit>
+            <trans-unit id="217">
+              <source>jda.form.testimonial.story</source>
+              <target>あなたの物語をお話し下さい。</target>
+            </trans-unit>
+            <trans-unit id="218">
+              <source>jda.form.testimonial.to</source>
+              <target>〜まで</target>
+            </trans-unit>
+            <trans-unit id="219">
+              <source>jda.form.testimonial.from</source>
+              <target>〜から</target>
+            </trans-unit>
+            <trans-unit id="220">
+              <source>jda.form.testimonial.locations</source>
+              <target>場所</target>
+            </trans-unit>
+            <trans-unit id="221">
+              <source>jda.form.testimonial.locations.note</source>
+              <target>この物語はどこで起きたものですか？またそのお話の中で言及されている場所はどこですか。下記に１つ以上の地名をご記入下さい。</target>
+            </trans-unit>
+            <trans-unit id="222">
+              <source>jda.form.testimonial.imageUpload</source>
+              <target>写真を追加する</target>
+            </trans-unit>
+            <trans-unit id="223">
+              <source>jda.form.testimonial.terms</source>
+              <target>同意事項</target>
+            </trans-unit>
+            <trans-unit id="224">
+              <source>jda.form.testimonial.terms.text</source>
+              <target>
+                あなたの物語が当デジタルアーカイブに記録され、訪れた人がそれを読めることに同意しますか。デジタルアーカイブへの記録を希望される場合、ご同意が必要となります。Eメールアドレスは完全に非公開ですが、お名前も含めた他のすべての情報は閲覧者が読むことができます（ただし「非公開」を選ばれた場合、お名前は表示されません）。 投稿後、ご記入されたEメールアドレス宛に届くリンクを通じて、投稿内容を訂正または削除することができます。
+                &lt;br /&gt;同意します
+              </target>
+            </trans-unit>
+            <trans-unit id="225">
+              <source>jda.form.testimonial.title</source>
+              <target>わたしの「東日本大震災」</target>
+            </trans-unit>
+            <trans-unit id="226">
+                <source>jda.collection.delete</source>
+                <target>Delete Collection</target>
+            </trans-unit>
+            <trans-unit id="227">
+                <source>fancybox.pdf</source>
+                <target>Click to download PDF</target>
+            </trans-unit>
+            <trans-unit id="228">
+                <source>jda.about.project</source>
+                <target>About the Archive</target>
+            </trans-unit>
+             <trans-unit id="229">
+                <source>jda.team.leader</source>
+                <target>このアーカイブはハーバード大学エドウィン・O・ライシャワー日本研究所によるプロジェクトです</target>
+            </trans-unit>
+            <trans-unit id="230">
+                <source>jda.team.additional</source>
+                <target>ライシャワー日本研究所　協力教員・スタッフ</target>
+            </trans-unit>
+             <trans-unit id="231">
+                <source>jda.team.zeega</source>
+                <target>Interactive Design and Development by Zeega.org</target>
+            </trans-unit>
+            <trans-unit id="232">
+                <source>jda.team.interaction</source>
+                <target>アーカイブのデザイン・開発</target>
+            </trans-unit>
+            <trans-unit id="233">
+                <source>jda.team.alumni</source>
+                <target>チームの卒業者</target>
+            </trans-unit>
+            <trans-unit id="234">
+                <source>jda.team.inquiries</source>
+                <target>お問い合わせは、</target>
+            </trans-unit>
+             <trans-unit id="235">
+                <source>jda.header.add</source>
+                <target>Add to the Archive</target>
+            </trans-unit>
+            <trans-unit id="236">
+                <source>jda.header.addwebsite</source>
+                <target>Add a Website</target>
+            </trans-unit>
+             <trans-unit id="237">     
+                <source>jda.header.addtestimonial</source>
+                <target>Add a Testimonial</target>
+            </trans-unit>
+             <trans-unit id="238"> 
+                <source>jda.search.relevant</source>
+                <target>Relevant</target>
+            </trans-unit>
+            <trans-unit id="239">
+                <source>jda.collection.dragcover</source>
+                <target>drag to add a cover image</target>
+            </trans-unit>
+            <trans-unit id="240">
+                <source>jda.search.excludetweets</source>
+                <target>exclude tweets</target>
+            </trans-unit>
+            <trans-unit id="241">
+                <source>jda.about.paragraph2</source>
+                <target>In 2013, we will be introducing improvements to our current site, with particular attention to mapping and collection building. We welcome your suggestions and feedback.</target>
+            </trans-unit>
+            <trans-unit id="242">
+                <source>jda.about.paragraph3</source>
+                <target>2011年東日本大震災デジタルアーカイブは、常に成長し続ける参加型のアーカイブとしてハーバード大学のライシャワー日本研究所で構想されたプロジェクトです。一般市民、研究者、学生、そして政策担当者のための情報交換の場である一方、震災の影響を身近に受けている方々にとっては自らの経験を振り返り、記憶を共有する場でもあります。当デジタルアーカイブは、ウェブ上の様々な資料や個人の経験談、ツイート、そして世界中のパートナーによって収集された震災に関するデジタル資料へのアクセスが出来る、高度な検索エンジンです。また、このサイトでは検索だけでなく、ユーザーが自ら選択した資料から「コレクション」を作成したり、興味のあるテーマに基づいてインタラクティブなプレゼンテーションを作ることも可能です。このような「マイ・コレクション」や「プレゼンテーション」をサイト上で公開する事により、収集された資料に様々な角度から意味付けをし、新たな価値を付加する事が出来ます。アーカイブには他にも位置情報付きの資料をリアル・タイムで表示する、画期的な地図機能もあります。</target>
+            </trans-unit>
+            <trans-unit id="243">
+                <source>jda.form.testimonial.titleTxt</source>
+                <target>Title</target>
+          </trans-unit>
+          <trans-unit id="244">
+            <source>jda.collection.archivesettings</source>
+            <target>Archive Settings</target>
+        </trans-unit>
+        <trans-unit id="245">
+                <source>jda.collection.delete</source>
+                <target>削除</target>
+            </trans-unit>
+            <trans-unit id="246">
+                <source>fancybox.pdf</source>
+                <target>Click to download PDF</target>
+            </trans-unit>
+             <trans-unit id="247">
+                <source>jda.about.project</source>
+                <target>アーカイブについて</target>
+            </trans-unit>
+            <trans-unit id="249">
+                <source>jda.team.additional</source>
+                <target>ライシャワー日本研究所　協力教員・スタッフ</target>
+            </trans-unit>
+             <trans-unit id="250">
+                <source>jda.team.zeega</source>
+                <target>Interactive Design and Development by Zeega.org</target>
+            </trans-unit>
+            <trans-unit id="251">
+                <source>jda.team.alumni</source>
+                <target>チームの卒業者</target>
+            </trans-unit>
+            <trans-unit id="252">
+                <source>jda.team.inquiries</source>
+                <target>お問い合わせは、</target>
+            </trans-unit>
+             <trans-unit id="253">
+                <source>jda.header.add</source>
+                <target>アーカイブに情報を加える</target>
+            </trans-unit>
+            <trans-unit id="254">
+                <source>jda.header.addwebsite</source>
+                <target>ウェブサイト</target>
+            </trans-unit>
+            <trans-unit id="255">
+                <source>jda.header.addtestimonial</source>
+                <target>わたしの「東日本大震災」</target>
+            </trans-unit>
+            <trans-unit id="256">
+                <source>jda.search.relevant</source>
+                <target>関連性</target>
+            </trans-unit>
+            <trans-unit id="257">
+                <source>jda.collection.dragcover</source>
+                <target>drag to add a cover image</target>
+            </trans-unit>
+            <trans-unit id="258">
+                <source>jda.search.excludetweets</source>
+                <target>ツイート以外</target>
+            </trans-unit>
+             <trans-unit id="259">
+                <source>jda.team.interaction</source>
+                <target>アーカイブのデザイン・開発</target>
+            </trans-unit>
+            <trans-unit id="260">
+            	<source>jda.form.testimonial.title</source>
+            	<target>わたしの「東日本大震災」</target>
+             </trans-unit>
+             <trans-unit id="261">
+                <source>fancybox.text</source>
+                <target>Text</target>
+            </trans-unit>
+            <trans-unit id="262">
+                <source>jda.search.article</source>
+                <target>ニュース記事</target>
+            </trans-unit>
+             <trans-unit id="263">
+                <source>jda.search.broadcast</source>
+                <target>放送</target>
+            </trans-unit>
+			 <trans-unit id="264">
+                <source>jda.login.registergroup</source>
+                <target>グループとして登録しますか？</target>
+            </trans-unit>
+			 <trans-unit id="265">
+                <source>jda.login.registergroupinfo</source>
+                <target>複数のユーザによる共同プロジェクトにおいては、グループとして一つのグループ・ユーザネームと共同Eメールアドレスを利用することを奨励致します。</target>
+            </trans-unit>
+			 <trans-unit id="266">
+                <source>jda.register.title</source>
+                <target>アカウント登録</target>
+            </trans-unit>
+			 <trans-unit id="267">
+                <source>jda.register.displayname</source>
+                <target>表示名</target>
+            </trans-unit>
+            <trans-unit id="268">
+              <source>jda.search.headline</source>
+              <target>ニュース見出し</target>
+            </trans-unit>
+            <trans-unit id="269">
+    			<source>jda.aboutpartners.title</source>
+    			<target>パートナーについて</target>
+    		</trans-unit>
+    		<trans-unit id="270">
+    			<source>jda.aboutpartners.paragraph1</source>
+    			<target>2011年東日本大震災デジタルアーカイブ（以下、当デジタルアーカイブ）にとってパートナーの存在は欠くことのできないものです。当デジタルアーカイブそれ自体にはデジタル情報が所蔵されておらず、国際的なパートナーが扱っているコンテンツ（アーカイブされたウェブサイト、写真、動画、報道記事、見出しなど）へのリンクを提供しています。また当デジタルアーカイブの地図機能やインターフェースの構築は、その他のパートナーが担っています。各パートナーについては下記をご覧下さい。</target>
+    		</trans-unit>
+    		<trans-unit id="271">
+    			<source>jda.aboutpartners.311memoriestitle</source>
+    			<target>311メモリーズ (国立情報学研究所)</target>
+    		</trans-unit>
+    		<trans-unit id="272">
+    			<source>jda.aboutpartners.311memories</source>
+    			<target>311メモリーズは、東日本大震災以降のオンラインニュース（Yahoo!ニュース）の中から震災に関連する記事を収集し、その文章をコンピュータで解析し可視化することで、震災以後の時の流れを振り返るための「静かに動く年表」を提供します。また311メモリーズからは、当デジタルアーカイブに数十万の記事見出しが収蔵されています。</target>
+    		</trans-unit>
+    		<trans-unit id="273">
+    			<source>jda.aboutpartners.311marugototitle</source>
+    			<target>３１１まるごとアーカイブス</target>
+    		</trans-unit>
+    		<trans-unit id="274">
+    			<source>jda.aboutpartners.311marugoto</source>
+    			<target>３１１まるごとアーカイブスは、市民や被災自治体、国の研究機関、大学、NPO、ボランティア、民間企業などと官民恊働で取り組む東日本大震災支援のe-コミュニティ・プラットフォームです。被災地の失われた「過去」の記憶をデジタルで再生し、被災した「現在」と復興に向けた「未来」の映像や資料をデジタルで記録、そして被災地の復興状況や将来の防災学習・防災研究等の貴重な資料をまるごとアーカイブすることを目的としています。</target>
+			</trans-unit>
+    		<trans-unit id="275">
+    			<source>jda.aboutpartners.asahititle</source>
+    			<target>朝日新聞(AJW)</target>
+    		</trans-unit>
+    		<trans-unit id="276">
+    			<source>jda.aboutpartners.asahi</source>
+    			<target>「The Asahi Shimbun AJW (Asia and Japan Watch))は、日本とアジアのニュースを世界に発信する朝日新聞社の英語総合ニュースサイト。政治、経済、社会などのニュースのほか、アニメや文化、ファション、クールジャパン系のコンテンツなどを中心に配信しています。ニュースの背景を読み解く解説や検証記事、識者による多様なオピオニオンなどは、海外の識者から好評を得ています。東日本大震災に関する記事をまとめた震災・原発特集コーナー「３／１１　Disaster in Japan」は、大震災と福島原発事故のドキュメントとして世界の専門家から高く評価されています。The Asahi Shimbun AJW からは、数千に及ぶ震災関連英語記事の全文が当デジタルアーカイブに収められています。</target>
+    		</trans-unit>
+    		<trans-unit id="277">
+    			<source>jda.aboutpartners.cgatitle</source>
+    			<target>ハーバード大学地理学分析センター</target>
+    		</trans-unit>
+    		<trans-unit id="278">
+    			<source>jda.aboutpartners.cga</source>
+    			<target>ハーバード大学地理学分析センター（CGA）は、地理空間に関する新しい技術により、ハーバード大学内におけるあらゆる学問分野の研究および教育を支えるべく、２００６年に創設されました。同センターは、学内のすべての人や組織と恊働することにより、地理情報システム（Geographic Information Systems : GIS）の基盤とサービスの充実を目指してきました。具体的には次のようなことが目標となります。第一に、異なる学問分野の多様な知識や資源から得られた空間データを統合するための、共通のプラットフォームを提供すること。第二に、地理空間を分析するための技術を使用し、向上させ、あるいは学べるような学問的研究を可能にすること。そして第三に、GIS及び空間分析を指導するための能力を、学内のすべてのレベルにおいて改良すること、です。当デジタルアーカイブの「アーカイブ情報の地図表示」はCGA によって開発・運用されています。</target>
+    		</trans-unit>
+    		<trans-unit id="279">
+    			<source>jda.aboutpartners.hypercitiestitle</source>
+    			<target>Hypercities</target>
+    		</trans-unit>
+    		<trans-unit id="280">
+    			<source>jda.aboutpartners.hypercities</source>
+    			<target>Google MapsとGoogle EarthのAPIを利用して作られた同ウェブサイトは、地図情報プラットフォーム上にツイートを重ねるという、双方向のハイパーメディア環境を特徴とするデジタル情報システムで、大震災直後からテキストメッセージを地図情報と共に随時発信しています。当デジタルアーカイブ には、Hypercitiesから提供された震災に関連する数十万のツイートが収められています。</target>
+    		</trans-unit>
+    		<trans-unit id="281">
+    			<source>jda.aboutpartners.internetarchivetitle</source>
+    			<target>インターネット・アーカイブ</target>
+    		</trans-unit>
+    		<trans-unit id="282">
+    			<source>jda.aboutpartners.internetarchive</source>
+    			<target>インターネット・アーカイブは、人類が持つ知識を誰でも利用できることを目指して１９９６年に設立されたデジタル図書館です。現実の図書館と同様に、研究者・歴史学者・学徒、そしてそれ以外の人々にも無料で情報を閲覧して頂けます。当デジタルアーカイブに収録された一部のウェブサイトは、インターネット・アーカイブによるアーカイブ・イット（Archive-It）というサービスを使用して見つけられ、保存されたものです。アーカイブ・イットを活用することにより、世界中の諸機関が独自にウェブサイトを収集・保管してデジタルアーカイブを創ることが可能になります。インターネット・アーカイブからは、震災に関連した数万のウェブサイトが当デジタルアーカイブに保存されています。</target>
+    		</trans-unit>
+    		<trans-unit id="283">
+    			<source>jda.aboutpartners.metalabtitle</source>
+    			<target>ハーバード大学メタ・ラボ</target>
+    		</trans-unit>
+    		<trans-unit id="284">
+    			<source>jda.aboutpartners.metalab</source>
+    			<target>ハーバード大学メタ・ラボは、バークマン・センター（Berkman Center for Internet and Society）によって主宰される、芸術・メディア・人文科学の革新の中枢となる存在です。このラボラトリーは次のような信念に基づいて創設されました。すなわち、相互に結びついた現代世界で生じる事象への重要な問い、文化と自然の境界、民主主義と社会正義の関係などのテーマはもちろんのこと、新しい世紀においては、鍵となる諸研究が様々な課題に挑み、機会に臨むことになりますが、それらは芸術・科学・人文科学の垣根を超え、学問・産業・公的空間の仕切りをなくし、理論と応用を統合するであろうということです。ハーバード大学メタ・ラボは当デジタルアーカイブ の構想と開発におけるプロジェクト開始時からの重要なパートナーです。
+</target>
+    		</trans-unit>
+    		<trans-unit id="285">
+    			<source>jda.aboutpartners.michinokutitle</source>
+    			<target>みちのく震録伝</target>
+    		</trans-unit>
+    		<trans-unit id="286">
+    			<source>jda.aboutpartners.michinoku</source>
+    			<target>国立大学として地域のリーダー的役割を担ってきた東北大学は、新たに東日本大震災のデジタルアーカイブプロジェクトを始動させました。今回の震災に関して「みちのく震録伝」は産官学の諸機関と連携しつつ、被災地を中心としたあらゆる記憶、記録、事例を集めた総合的なアーカイブの構築を目指しており、復旧や復興の過程も記録し、ほぼリアルタイムで公開することを目指しています。みちのく震録伝からは数万の写真が当デジタルアーカイブに提供されています。</target>
+    		</trans-unit>
+    		<trans-unit id="287">
+    			<source>jda.aboutpartners.ncctitle</source>
+    			<target>北米日本研究資料調整協議会（NCC)</target>
+    		</trans-unit>
+    		<trans-unit id="288">
+    			<source>jda.aboutpartners.ncc</source>
+    			<target>北米日本研究資料調整協議会（NCC）は、授業・研究・一般教育への支援を目的として、日本研究資料・情報へのアクセスを提供しています。NCCのウェブサイト(www.nccjapan.org)は電子資料の流通拠点である同時に、グローバルな協力に向けたプラットフォームとなっています。NCCのウェブサイト上では、当デジタルアーカイブについての解説と、その利用法についての詳細なオンラインガイドを見ることができます。</target>
+    		</trans-unit>
+    		<trans-unit id="289">
+    			<source>jda.aboutpartners.ndltitle</source>
+    			<target>国立国会図書館</target>
+    		</trans-unit>
+    		<trans-unit id="290">
+    			<source>jda.aboutpartners.ndl</source>
+    			<target>国立国会図書館は、日本における唯一の国立図書館として、1948年に設立されました。国立国会図書館は、日本国内で刊行される出版物を網羅的に収集する納本制度の下、収集資料を国民の文化的財産として永く保存し、これらの資料にもとづいて（1）国会（2）行政及び司法の各部門（3）国民に対してサービスを行っています。デジタル情報については、ウェブサイトや、電子化された所蔵資料等を広く収集・蓄積しています。このうち、ウェブサイトについては、2002年に発信者との許諾に基づく収集を開始し、2010年4月からは国立国会図書館法に基づき、公的機関の発信するものを網羅的に収集しています。東日本大震災に関連するウェブサイトについても、被災地の地方自治体等を中心に収集しています。当デジタルアーカイブ には、国会図書館によりアーカイブされた数千の震災関連のウェブサイトが収蔵されています。</target>
+    		</trans-unit>
+    		<trans-unit id="291">
+    			<source>jda.aboutpartners.nhktitle</source>
+    			<target>日本放送協会</target>
+    		</trans-unit>
+    		<trans-unit id="292">
+    			<source>jda.aboutpartners.nhk</source>
+    			<target>NHK（日本放送協会）は日本の唯一の公共放送で、1925年にラジオを、また1953 年にテレビ放送を開始しました。NHKはテレビ受信機を持つ一般の家庭からの受信料によって資金を得ており、この方法により政府や企業からの独立性をたもち、視聴者の判断のよりどころとなる信頼できる放送をお届けしています。より詳しい説明はhttp://www.nhk.or.jp/pr/koho-e.htmをご覧下さい。NHKは2011年3月11日に発生した「東日本大震災」の被災者による被災体験を複数の番組シリーズとインターネットアーカイブで提供しています。NHKによって制作・提供・デジタルアーカイブされた数百のニュース映像が、当デジタルアーカイブに収められています。</target>
+    		</trans-unit>
+    		<trans-unit id="293">
+    			<source>jda.aboutpartners.sakuratitle</source>
+    			<target>Sakura on Project</target>
+    		</trans-unit>
+    		<trans-unit id="294">
+    			<source>jda.aboutpartners.sakura</source>
+    			<target>桜onプロジェクトは、あらゆる「物語」の発見、再編、創出を未来のための重要な価値と捉えています。 中でも、桜の植樹をひとつのツールにして、参加者が自身と、出会った地域の「物語」を長く大切に育てていくための プ ログラムと場をプロデュースします。 そして、そこから生まれた「新たな数々の物語」の成長と広がりをデジタルアーカイブスとして記録し、編纂、発信、保存していきます。より良き未来のために。桜onプロジェクトからは、その活動に関する解説付きの写真や動画をはじめとして、多岐にわたる情報が当デジタルアーカイブに収蔵されています。</target>
+    		</trans-unit>
+    		<trans-unit id="295">
+    			<source>jda.aboutpartners.sendaimediathequetitle</source>
+    			<target>Sendai Mediatheque</target>
+    		</trans-unit>
+    		<trans-unit id="296">
+    			<source>jda.aboutpartners.sendaimediatheque</source>
+    			<target>「情報発信は支援活動を応援し、記録は未来への財産となるように」との理念のもと、日本における最先端の情報センターの一つであるせんだいメディアテークは、型にはまらないアーカイブプロジェクトを牽引してきました。市民、専門家、スタッフが恊働しながら復旧・復興プロセスを記録することに注力する一方、映像、写真、音声、テキストなどの多様なメディアを通じて発信し続けています。Sendai Mediathequeからは多くの動画や音声が当デジタルアーカイブに提供されています。</target>
+    		</trans-unit>
+    		<trans-unit id="297">
+    			<source>jda.aboutpartners.tokyofoundationtitle</source>
+    			<target>東京財団</target>
+    		</trans-unit>
+    		<trans-unit id="298">
+    			<source>jda.aboutpartners.tokyofoundation</source>
+    			<target>この取り組みは、公益財団法人東京財団とNPO法人共存の森ネットワークの共催で、学生や社会人47人が聞き手となり、2011年7月より約1年かけ、東日本大震災で被災された101人の方々に、震災前の暮らしの様子や今後への思いなどを一対一で聞き、その話し手の言葉で文章にまとめたものです。
+特徴は、震災前の普段の暮らしや生活文化（家族、仕事、地域の行事など）がどのようなものだったのかを、これまで歩んできた人生とともに丁寧に聞いていること、また「聞き書き」という手法で、話を要約したり足したりせず、方言もそのまま活かし、話し手が一人語りしているように文章にまとめているという点にあります。さらに、史的資料を失った地域では、これまで育んできた生活文化を後世に伝える貴重な記録にもなっています。「被災地の聞き書き101」は、この取り組みを通じて被災地の暮らしの再生だけではなく、それとつながる私たち一人ひとりの生活や価値観、日本社会のあり方を改めて見直し考えるきっかけにしていくことを目的としています。東京財団の被災地の聞き書き１０１による被災者への数百のインタビューがフル・テキストとなって当デジタルアーカイブに収められています。</target>
+    		</trans-unit>
+    		<trans-unit id="299">
+    			<source>jda.aboutpartners.yahootitle</source>
+    			<target>Yahoo! JAPAN</target>
+    		</trans-unit>
+    		<trans-unit id="300">
+    			<source>jda.aboutpartners.yahoo</source>
+    			<target>このウェブサイトはYahoo! JAPANによるもので、東日本大震災の被災地の姿や思い出の品物の写真などを保存していくプロジェクトです。様々な方法での検索が簡単に行うことができ、キーワード、位置情報（経度・緯度など）、撮影時期（震災前、震災後）、種類、都道府県、そして市町村などの条件により写真を探すことができます。APIプラットフォームへの公開アクセスが先頃発表され、社会に開かれたオープン・アクセスに向けたより幅広い協力を得ながらの写真アーカイブへとつながることでしょう。 Yahoo! JAPANからは数千枚に及ぶ被災地の写真が提供されています。</target>
+    		</trans-unit>
+    		<trans-unit id="301">
+    			<source>jda.aboutpartners.zeegatitle</source>
+    			<target>ジーガ</target>
+    		</trans-unit>
+    		<trans-unit id="302">
+    			<source>jda.aboutpartners.zeega</source>
+    			<target></target>
+    		</trans-unit>
+          <trans-unit id="303">
+            <source>jda.form.contribute.dateCreated</source>
+            <target>ウェブサイトの日時</target>
+          </trans-unit>
+          <trans-unit id="304">
+          	<source>jda.team.contentdevelopment</source>
+          	<target>コンテンツ開発</target>
+          </trans-unit>
+                    <trans-unit id="305">
+          	<source>jda.contribute.contributeheader</source>
+          	<target>Contribute to the Archive</target>
+          </trans-unit>
+          <trans-unit id="306">
+          	<source>jda.contribute.paragraph1</source>
+          	<target>We need your help! The Digital Archive of Japan’s 2011 Disasters is an interactive resource that depends on its users to make it a valuable and lasting repository of digital information related to the disasters. Please consider contributing to the archive in the following ways.</target>
+          </trans-unit>
+          <trans-unit id="307">
+          	<source>jda.contribute.addwebsite</source>
+          	<target>Add a Website</target>
+          </trans-unit>
+          <trans-unit id="308">
+          	<source>jda.contribute.addwebsitep1</source>
+          	<target>You can submit relevant websites through our website submission form. Please submit websites in any language that relate to the disasters and their aftermath. Fill out the form as completely as possible, including choosing the appropriate scope and frequency for our harvesting of the site. Scope refers to the depth of the harvesting - should we only harvest the front page, or the entire site? Frequency determines how often we harvest the site. For example, if the site is updated often, please choose a weekly or monthly frequency so we can keep our preservation of the website up to date.</target>
+          </trans-unit>
+          <trans-unit id="309">
+          	<source>jda.contribute.addtestimonial</source>
+          	<target>Add a Testimonial</target>
+          </trans-unit>
+          <trans-unit id="310">
+          	<source>jda.contribute.addtestimonialp1</source>
+          	<target>We are collecting testimonials from people affected by the disasters, whether they were in the disaster area at the time or elsewhere. Please submit your personal story to the archive. You can submit your testimonial anonymously, but we ask that you fill out the biographical information that you are comfortable with, even if you don’t provide your name.</target>
+          </trans-unit>
+          <trans-unit id="311">
+          	<source>jda.contribute.tag</source>
+          	<target>Tag an Item</target>
+          </trans-unit>
+          <trans-unit id="312">
+          	<source>jda.contribute.tagp1</source>
+          	<target>Our search is only as good as the information we have about the items in our archive. Tagging an item with keywords helps users find items in the archive that are relevant to their searches. Tags are especially valuable for items like photos, audio, and video, that do not have “full text” that can be searched. Please tag the items you find in your searches and help us improve our archive!</target>
+          </trans-unit>
+          <trans-unit id="313">
+          	<source>jda.contribute.translate</source>
+          	<target>Translate an Item</target>
+          </trans-unit>
+          <trans-unit id="314">
+          	<source>jda.contribute.translatep1</source>
+          	<target>Every item in the archive can be translated by our users. To translate, click “Translate This” on the item’s pop-up page, and enter your translation. It will then appear on the item’s page in the future. If a translation already exists and you would like to add to or fix it, click on “Edit Translation,” then make and save your changes. Every translation contributed by our users adds value to the archive, and especially assists English-language users. However, any item can be translated into any language. Feel free to add a translation in your native language!</target>
+          </trans-unit>
+                    <trans-unit id="315">
+          	<source>jda.faq.title</source>
+          	<target>2011年東日本大震災デジタルアーカイブよくある質問</target>
+          </trans-unit>
+          <trans-unit id="316">
+          	<source>jda.faq.by</source>
+          	<target>草稿：和田杏奈 (ブラウン大学)</target>
+          </trans-unit>
+          <trans-unit id="317">
+          	<source>jda.faq.general</source>
+          	<target>概要</target>
+          </trans-unit>
+          <trans-unit id="318">
+          	<source>jda.faq.q1</source>
+          	<target>「2011年東日本大震災デジタルアーカイブ」とは？アーカイブに掲載されている資料はどのように収集されているのですか？</target>
+          </trans-unit>
+          <trans-unit id="319">
+          	<source>jda.faq.q1answer</source>
+          	<target>東日本大震災以降、様々なデジタル・アーカイブが震災関連の記録を保存する事業に取り組んでいます。「2011年東日本大震災デジタルアーカイブ」は、インターネットを通じてこれらのサイトが集めた電子資料へのアクセスを提供しているポータルサイトです。本アーカイブを通して、インターネット・アーカイブ
+の集めたウェブサイト、Yahoo! JAPANの集めた写真、Hypercitiesの集めたツイート、そしてユーザーが投稿した震災体験談など、様々な形態の資料を閲覧できます。</target>
+          </trans-unit>
+          <trans-unit id="320">
+          	<source>jda.faq.q2</source>
+          	<target>掲載されている資料は全てこのアーカイブに保管されているのですか？</target>
+          </trans-unit>
+          <trans-unit id="321">
+          	<source>jda.faq.q2answer</source>
+          	<target>このアーカイブには資料を保存する機能はありません。その代わり協力団体が集めた電子資料に直接リンクし、ユーザーが複数のアーカイブの資料をスムーズに
+一括検索・閲覧・整理できるようにデザインされています。</target>
+          </trans-unit>
+          <trans-unit id="322">
+          	<source>jda.faq.q3</source>
+          	<target>個人がこのアーカイブに資料を提供することはできますか？</target>
+          </trans-unit>
+          <trans-unit id="323">
+          	<source>jda.faq.q3answer</source>
+          	<target>本アーカイブはサイトの作り手、情報提供者、そしてユーザーの間の敷居をなくすことを目指した参加型プロジェクトなので、誰にでも新しい資料を加えること
+ができます。スクリーンの上部にある「アーカイブに情報を加える」ボタンをクリックすれば、インターネット・アーカイブによって保存されるべきウェブサイトを提案（「ウェブサイト」ボタン）、あるいは震災に関連した個人的な体験談や思いを投稿（「わたしの『東日本大震災』」ボタン）する事ができます。表示されたフォームに入力することにより、投稿した資料が他のユーザーにも東日本大震災デジタルアーカイブを通して検索できるようになります。</target>
+          </trans-unit>
+          <trans-unit id="324">
+          	<source>jda.faq.q4</source>
+          	<target>このアーカイブはいつまで公開される予定ですか？</target>
+          </trans-unit>
+          <trans-unit id="325">
+          	<source>jda.faq.q4answer</source>
+          	<target>特に期限はありません。本アーカイブは震災に関連した電子資料を永久保存することを目的として設計されています。</target>
+          </trans-unit>
+          <trans-unit id="326">
+          	<source>jda.faq.searching</source>
+          	<target>検索について</target>
+          </trans-unit>
+          <trans-unit id="327">
+          	<source>jda.faq.q5</source>
+          	<target>ウェブサイト・写真・経験談など、資料の形態によって検索を絞ることはできますか？</target>
+          </trans-unit>
+          <trans-unit id="328">
+          	<source>jda.faq.q5answer</source>
+          	<target>検索バーの右端にある「すべて検索」矢印をクリックすれば、検索したい資料のカテゴリを選択するができます。</target>
+          </trans-unit>
+          <trans-unit id="329">
+          	<source>jda.faq.q6</source>
+          	<target>ウェブサイトの全文を検索することはできますか？</target>
+          </trans-unit>
+          <trans-unit id="330">
+          	<source>jda.faq.q6answer</source>
+          	<target>体験談とツイート以外の資料は全文検索をすることができません。ウェブサイト等その他の資料に関しては、本アーカイブのスタッフ、ボランティア、そして投
+稿者によって入力されたタイトル、説明、タグ等の情報が検索対象となります。アーカイブに新たな資料を投稿する際、これらの情報を的確に入力すればする程検索結果に表示されやすくなります。</target>
+          </trans-unit>
+          <trans-unit id="331">
+          	<source>jda.faq.q7</source>
+          	<target>日本語で検索をした場合、英語の資料も検索対象に入りますか？</target>
+          </trans-unit>
+          <trans-unit id="332">
+          	<source>jda.faq.q7answer</source>
+          	<target>資料のタイトルや説明等が投稿者によって両言語で入力されているかによります。本アーカイブのスタッフが、なるべく日本語（元の言語によっては中国語、
+韓国語）と英語で説明が入力されているように確認作業を行っています。</target>
+          </trans-unit>
+          <trans-unit id="333">
+          	<source>jda.faq.q8</source>
+          	<target>地図機能の使い方を教えて下さい。</target>
+          </trans-unit>
+          <trans-unit id="334">
+          	<source>jda.faq.q8answer</source>
+          	<target>位置情報が入力されている資料は地図上で閲覧できます。表示されるアイテムを絞り込むには、検索バーを使ってキーワード検索したり、その下にある時間軸を
+移動することによって日時を指定して検索することができます。地図にレイヤーを追加するには、スクリーンの右端にある灰色のアイコンをクリックして下さい。「レイヤー」タブで地図上に表示したい追加情報を選択することが出来、「凡例」タブでは追加情報の色分けが表示されます。</target>
+          </trans-unit>
+          <trans-unit id="335">
+          	<source>jda.faq.q9</source>
+          	<target>とても興味深いコレクションを見つけたので作成者のお話を伺いたいのですが、連絡を取る方法はありますか？</target>
+          </trans-unit>
+          <trans-unit id="336">
+          	<source>jda.faq.q9answer</source>
+          	<target>現在はコレクションの作成者に直接コンタクトを取ることは出来ませんが、今後そのような機能を追加することを検討しています。</target>
+          </trans-unit>
+          <trans-unit id="337">
+          	<source>jda.faq.q10</source>
+          	<target>アーカイブされているウェブサイトがリンク切れしていました。リンクを直すことはできますか？</target>
+          </trans-unit>
+          <trans-unit id="338">
+          	<source>jda.faq.q10answer</source>
+          	<target>リンク切れやその他のバグを見つけた場合、info@jdarchive.org　に直接メールを送信するか、スクリーン上部のお問い合わせフォームを通して不具合をお伝えください。</target>
+          </trans-unit>
+          <trans-unit id="339">
+          	<source>jda.faq.q11</source>
+          	<target>アーカイブで見つけた資料を学術論文に引用しようと思います。資料の出典はどのように表記すれば良いでしょうか？</target>
+          </trans-unit>
+          <trans-unit id="340">
+          	<source>jda.faq.q11answer</source>
+          	<target>もとの資料は、通常のウェブサイト、文書、画像等と同じ方法で引用してください。本アーカイブも参考文献に入れる場合、下記の表記を推奨します：
+2011年東日本大震災デジタルアーカイブ. http://www.jdarchive.org. (20XX/XX/XXアクセス).</target>
+          </trans-unit>
+          <trans-unit id="341">
+          	<source>jda.faq.q11answer2</source>
+          	<target>また、体験談を引用する場合は投稿者の名前、アドレス（体験談左上の「リンク」ボタンをクリックすると常設リンクのアドレスが表示されます）、そして本
+アーカイブを上記に書かれた通り引用して下さい。</target>
+          </trans-unit>
+          <trans-unit id="342">
+          	<source>jda.faq.contributing</source>
+          	<target>新しい資料の投稿について</target>
+          </trans-unit>
+          <trans-unit id="343">
+          	<source>jda.faq.q12</source>
+          	<target>アーカイブに投稿するための条件はありますか？</target>
+          </trans-unit>
+          <trans-unit id="344">
+          	<source>jda.faq.q12answer</source>
+          	<target>本アーカイブはユーザーアカウントを作成しなくても、誰にでも投稿することができます。ただし、自分の「コレクション」を作成するためにはアカウントを作
+成することが必要となります（下記「コレクションの作成について」参照）。</target>
+          </trans-unit>
+          <trans-unit id="345">
+          	<source>jda.faq.q13</source>
+          	<target>ツイートを投稿することはできますか？</target>
+          </trans-unit>
+          <trans-unit id="346">
+          	<source>jda.faq.q13answer</source>
+          	<target>現在は個人ユーザーによるツイートの投稿は受け付けておりません。</target>
+          </trans-unit>
+          <trans-unit id="347">
+          	<source>jda.faq.q14</source>
+          	<target>投稿が推奨されていない資料はありますか？</target>
+          </trans-unit>
+          <trans-unit id="348">
+          	<source>jda.faq.q14answer</source>
+          	<target>2011年の東日本大震災に関連していない情報の投稿はお控えください。ユーザーが投稿したウェブサイトや体験談は、本アーカイブのスタッフによって適切な内容か、あるいは以前に同じものが投稿されていないかどうか確認させていただきます。</target>
+          </trans-unit>
+          <trans-unit id="349">
+          	<source>jda.faq.q15</source>
+          	<target>ウェブサイトを投稿をするためにフォームの入力をしています。タグ付けをする際に定型の言葉はありますか？それとも自分が適切だと思う言葉を入力しても
+良いのでしょうか？</target>
+          </trans-unit>
+          <trans-unit id="350">
+          	<source>jda.faq.q15answer</source>
+          	<target>定型の言葉はありませんが、タグを入力し始めた時に自動的に表示される、既にアーカイブで使用されている言葉を優先してお使いください。</target>
+          </trans-unit>
+          <trans-unit id="351">
+          	<source>jda.faq.q15answer2</source>
+          	<target>また、タグ付けをする際は検索する側のユーザーがどのようなキーワードを使って検索するかご想像ください。出来るだけたくさんの検索結果に表示されるた
+めには、似ている単語でもたくさんのタグを入力することをお勧めします。ただし、日時をタグとして入力する必要はありません。例：福島第一、福島第一原子力発電所、原子力発電、など</target>
+          </trans-unit>
+          <trans-unit id="352">
+          	<source>jda.faq.q16</source>
+          	<target>アーカイブに新しい資料を投稿できる期間は限られていますか？</target>
+          </trans-unit>
+          <trans-unit id="353">
+          	<source>jda.faq.q16answer</source>
+          	<target>特に締め切りはありません。本アーカイブは常にウェブサイトと体験談の投稿を受け付けております。特にウェブ上の情報は不安定でいつ消去されるか分からないため、早期の収集を必要としています。見つけた際はなるべく早くご投稿いただけるよう、ご協力お願い致します。</target>
+          </trans-unit>
+          <trans-unit id="354">
+          	<source>jda.faq.collections</source>
+          	<target>コレクションの作成について</target>
+          </trans-unit>
+          <trans-unit id="355">
+          	<source>jda.faq.q17</source>
+          	<target>「コレクション」機能はどのように使えば良いのでしょうか？</target>
+          </trans-unit>
+          <trans-unit id="356">
+          	<source>jda.faq.q17answer</source>
+          	<target>ユーザーは「マイ・コレクション」機能を通して自分の興味ある資料を選択・整理し、テーマ別にサイト上に展示することができます。ユーザーが自ら情報のキュレーションを行うことによって資料に新たなつながりや価値を付与でき、震災を様々な角度から見ることが可能となります。テーマ、場所、時間等、様々な条件を基に資料を整理してコレクションを作成することができます。また、この機能を使って興味のある資料を後にアクセスしやすいように保存することもできます。</target>
+          </trans-unit>
+          <trans-unit id="357">
+          	<source>jda.faq.q18</source>
+          	<target>自分のコレクションを他のユーザーに検索できるよう設定したいのですが、公開の手順を教えてください。</target>
+          </trans-unit>
+          <trans-unit id="358">
+          	<source>jda.faq.q18answer</source>
+          	<target>コレクションのプライバシー設定は、「設定」の鉛筆アイコンをクリックすることで調整できます。「パブリック」を選択すると、他のユーザーもコレクションを閲覧できるようになります。「制限あり」を選択すると、自分で設定を変えない限り、コレクションが検索結果に表示されることや他のユーザーに公開される事はありません。</target>
+          </trans-unit>
+          <trans-unit id="359">
+          	<source>jda.faq.q19</source>
+          	<target>コレクションのまとめ方教えてください。また、コレクションはいつまで保存されるのでしょうか？</target>
+          </trans-unit>
+          <trans-unit id="360">
+          	<source>jda.faq.q19answer</source>
+          	<target>ユーザー登録した方しかコレクションを作成できません。登録を済ませてから、スクリーン右上の「ログイン」ボタンからサイトにログインして下さい。アーカイブを検索して興味のある資料を見つけたら、スクリーン右端の「マイ・コレクション」ボックスに資料をドラッグしてください。「コレクションに移動する」を選択し、次に表示されるスクリーンで鉛筆アイコンをクリックすることにより、新しいコレクションのタイトルや説明書きを編集することができます。ご自分で消去することを選ばない限り、コレクションはアーカイブと共に無期限で保存されます。</target>
+          </trans-unit>
+          <trans-unit id="361">
+          	<source>jda.faq.q20</source>
+          	<target>コレクションの編集や消去はどのように行えるのでしょうか？</target>
+          </trans-unit>
+          <trans-unit id="362">
+          	<source>jda.faq.q20answer</source>
+          	<target>「コレクションの説明」横にある鉛筆アイコンをクリックしてください。タイトルや説明を編集したり、コレクション自体を消去することができます。</target>
+          </trans-unit>
+          <trans-unit id="363">
+          	<source>jda.faq.q21</source>
+          	<target>コレクションを複数作ることはできますか？</target>
+          </trans-unit>
+          <trans-unit id="364">
+          	<source>jda.faq.q21answer</source>
+          	<target>可能です。「マイ・コレクション」ボックスの矢印をクリックし、「コレクションを新規作成」を選択して下さい。</target>
+          </trans-unit>
+          <trans-unit id="365">
+          	<source>jda.about.partners</source>
+          	<target>パートナー</target>
+          </trans-unit>
+          <trans-unit id="366">
+          	<source>jda.about.faq</source>
+          	<target>よくある質問</target>
+          </trans-unit>
+          <trans-unit id="367">
+          	<source>jda.aboutpartners.paragraph2</source>
+          	<target>検索マニュアルや地図機能の制作を担った団体を含め、全てのパートナーがデジタル・アーカイブであるとは限りません。こうした様々なパートナーの協力があってこそ、当アーカイブを通して東日本大震災に関する価値あるデジタル・コンテンツを提供する事が可能となります。各パートナーについての詳細は下記をご覧下さい。</target>
+          </trans-unit>
+		  <trans-unit id="368">
+				<source>jda.home.howtouse</source>
+				<target>アーカイブの使い方</target>
+			</trans-unit>
+			<trans-unit id="369">
+				<source>jda.home.contributeto</source>
+				<target>アーカイブに投稿する</target>
+			</trans-unit>
+			<trans-unit id="370">
+				<source>jda.home.meetpartners</source>
+				<target>パートナーの紹介</target>
+			</trans-unit>
+			<trans-unit id="371">
+				<source>jda.home.recentcollections</source>
+				<target>新しいコレクション</target>
+			</trans-unit>
+			<trans-unit id="372">
+				<source>jda.howtouse.title</source>
+				<target>アーカイブの使い方</target>
+			</trans-unit>
+			<trans-unit id="373">
+				<source>jda.howtouse.intro</source>
+				<target> (JDA) は、2011年3月11日から続く自然・人工災害を記録したデジタル情報へのアクセスを提供する、ポータルサイトです。
+当アーカイブはハーバード大学のライシャワー日本研究所がデザイン・運営していますが、ウェブサイト、ツイート、音声、ニュース記事等のコンテンツは世界中のパートナー団体に提供いただいています。ＪＤＡ自体にはデータを保存する機能はありません。パートナー団体が各自アーカイブした電子資料に直接リンクし、ユーザが複数のアーカイブの資料を一元的に検索・閲覧・整理できるようにデザインされています。
+
+このページではアーカイブのインターフェイスを使った情報検索の方法をご紹介します。ご自分でアーカイブにウェブ情報等を投稿する場合は、</target>
+			</trans-unit>
+			<trans-unit id="374">
+				<source>jda.howtouse.contributepage</source>
+				<target>「アーカイブへの投稿の仕方」をご覧下さい。</target>
+			</trans-unit>
+			<trans-unit id="375">
+				<source>jda.howtouse.searching</source>
+				<target>簡易検索について</target>
+			</trans-unit>
+			<trans-unit id="376">
+				<source>jda.howtouse.searchingp1</source>
+				<target>アーカイブを検索するには、画面の左上に表示されている検索バーに単語を入力し、青い「検索」ボタンをクリックするかキーボードのEnterキーを入力して下さい。
+ 
+言語によって検索結果を絞る場合は、該当する言語で検索をして下さい。例えば、英語で検索をすると主に英語の検索結果が表示され、日本語で検索をすると主に日本語の検索結果が表示されます。
+ 
+複数の単語を検索する場合、単語をスペースで区切って入力して下さい。また、ブール型演算子を使って詳細検索をすることも出来ます：
+
+				</target>
+			</trans-unit>
+			<trans-unit id="378">
+				<source>jda.howtouse.searchingp2</source>
+				<target>体験談とツイート以外の資料は全文検索をすることができません。その他の資料に関しては、JDAのスタッフ、ボランティア、そしてユーザによって入力された題名、説明、タグ等の項目が検索対象となります。体験談とツイートの全文検索は可能です。
+英語でタグを検索する場合、２語以上のフレーズには "cherry blossoms" のように単語の周りに引用符を入力して下さい。引用符がなければ正しい検索結果が表示されません。</target>
+			</trans-unit>
+			<trans-unit id="379">
+				<source>jda.howtouse.limit</source>
+				<target>検索フィールドを選択する</target>
+			</trans-unit>
+			<trans-unit id="381">
+				<source>jda.howtouse.limitp1</source>
+				<target>タグ項目のみを検索する場合、キーワードの前に tag と入力して下さい。検索バーにポップアップメニューが表示され、tag 項目を選択する事が出来ます。複数語を１つのタグとして検索するためには、フレーズ前後に引用符(“ ”)を入れて下さい。全ての項目をを同時に検索する場合は、検索バーに直接キーワードを入力するか、キーワードの前に text と入力し、ポップアップメニューでtext 項目を選択して下さい。</target>
+			</trans-unit>
+			<trans-unit id="383">
+				<source>jda.howtouse.limit2</source>
+				<target>メディア形式を選択する</target>
+			</trans-unit>
+			<trans-unit id="384">
+				<source>jda.howtouse.limitp2</source>
+				<target>資料種別に検索をする場合、ホームページの左上にある「検索」リンクをクリックし、検索バーの右端のドロップダウンメニューから該当するカテゴリーを選択して下さい。また、詳細検索の画面から資料の種類、場所、日付、ユーザ名、検索範囲を同時に指定する事も出来ます。</target>
+			</trans-unit>
+			<trans-unit id="386">
+				<source>jda.howtouse.advanced</source>
+				<target>詳細検索について</target>
+			</trans-unit>
+			<trans-unit id="387">
+				<source>jda.howtouse.advancedp1</source>
+				<target>詳細検索ではキーワード、資料の種類、タグ、ユーザ、日付、そして位置情報が入力されているアイテムに関しては場所を指定することができます。複数のメディア形式を選択する場合、コントロールキー (Windows) か アップルキー (Mac) を押しながら該当するカテゴリーをクリックして下さい。日付を指定する場合、「〜日から」「〜日まで」のフィールドをそれぞれクリックし、表示されたカレンダーから該当する日付をクリックして下さい。位置を指定する場合は、シフトキーを押しながら地図上の該当領域にカーサーをドラッグして下さい。
+検索条件を指定した後は、画面の下にある「検索」ボタンをクリックして下さい。</target>
+			</trans-unit>
+			<trans-unit id="389">
+				<source>jda.howtouse.map</source>
+				<target>地図機能を使う</target>
+			</trans-unit>
+			<trans-unit id="390">
+				<source>jda.howtouse.mapp1</source>
+				<target>検索地域を指定する場合、地図画面の検索バーからキーワード検索をするか、検索バーの下にあるスクロールバーを使って日時を指定することができます。また、詳細検索の画面から場所と日時を絞ることもできます。</target>
+			</trans-unit>
+			<trans-unit id="392">
+				<source>jda.howtouse.mapp2</source>
+				<target>地図にレイヤーを加える場合、マップの右端にある灰色のアイコンをクリックして下さい。レイヤーのタブから人口密度、避難地域等の情報を地図に重ねて表示することができます。また、凡例のタブからはレイヤーの色コードの説明を見ることが出来ます。写真、動画、ツイート等の様々な形式のデータを、位置情報を通じて関連付けて見ることが出来ます。</target>
+			</trans-unit>
+			<trans-unit id="393">
+				<source>jda.howtocontribute.title</source>
+				<target>アーカイブに投稿する</target>
+			</trans-unit>
+			<trans-unit id="394">
+				<source>jda.howtocontribute.intro</source>
+				<target>2011年東日本大震災デジタルアーカイブは、ユーザの皆様のご協力で更に発展するように設計された、対話型のプロジェクトです。ユーザ同士で情報を発掘・共有・説明し合う事により、永くデジタル資料の貴重な情報源となります。新たなコンテンツを加える他に、投稿済みコンテンツのタグ付けや翻訳、また「コレクション」機能を使って皆様だけのミニ展示のキュレーションを行うなど、様々な形でアーカイブを充実させる事が出来ます。
+皆様のご協力をお待ちしております！
+
+以下では、アーカイブへのご協力方法の詳細をご説明します。検索方法に関しては、</target>
+			</trans-unit>
+			<trans-unit id="395">
+				<source>jda.howtocontribute.searchpage</source>
+				<target>アーカイブの使い方のページにてご参照ください。</target>
+			</trans-unit>
+			<trans-unit id="396">
+				<source>jda.howtocontribute.adding</source>
+				<target>ウェブサイトを投稿する</target>
+			</trans-unit>
+			<trans-unit id="397">
+				<source>jda.howtocontribute.addingp1</source>
+				<target>ウェブ情報を投稿するには、スクリーン右上にある「アーカイブに情報を加える」メニューから「ウェブサイト」を選択して下さい。震災に関連する内容であれば、どの言語で投稿されても結構です。「収録回数」と「範囲」の項目を含め、出来る限り多くの情報をフォームにご記入下さい。
+「収録回数」とは、投稿されたウェブサイトがアーカイブに回収される頻度を示します。頻繁に更新されるウェブサイトの場合、「毎週」や「毎月」の回収頻度を選択する事により、常にそのサイトの最新情報がアーカイブされることになります。
+また、「範囲」とは、回収の対象範囲を示します。例えばウェブサイトのトップページ、あるいはブログの記事の一日分のみが震災に関連した内容であれば、「１ページのみ」。震災関連特設ページなど、ある程度の震災関連情報がまとめられている場合は「ディレクトリーを含む」。震災のために作られたウェブサイトであれば「サイト全て」をお選び下さい。
+皆様によって投稿されたウェブサイトは、アーキビストが確認の上、当デジタルアーカイブで閲覧可能となります。</target>
+			</trans-unit>
+			<trans-unit id="398">
+				<source>jda.howtocontribute.testimonial</source>
+				<target>証言を投稿する</target>
+			</trans-unit>
+			<trans-unit id="399">
+				<source>jda.howtocontribute.testimonialp1</source>
+				<target>皆様の体験談を投稿するには、スクリーン右上にある「アーカイブに情報を加える」メニューから「わたしの『東日本大震災』」を選択して下さい。当アーカイブでは、被災地内外の皆様から、震災に関連する直接的・間接的な体験談の投稿をお願いしております。他の誰のものでもない、皆様のお話しを、差し支えがないと思われる範囲内で共有していただければと思います。ご希望であれば匿名での投稿も可能です。投稿内容はアーキビストが確認の上、当デジタルアーカイブで閲覧可能となります。</target>
+			</trans-unit>
+			<trans-unit id="400">
+				<source>jda.howtocontribute.tagging</source>
+				<target>タグ付けをする</target>
+			</trans-unit>
+			<trans-unit id="401">
+				<source>jda.howtocontribute.taggingp1</source>
+				<target>アーカイブに投稿された資料は、追加情報が的確に入力されている程、検索結果に表示されやすくなります。資料のキーワードを「タグ」として入力すると、写真、音声、動画など、検索可能な文面を持たないアイテムを見つけるために特に役立ちます。
+ 
+タグを加えるには、閲覧したいアイテムをクリックし、表示されたポップアップ画面からオレンジ色の「タグを加える」ボタンをクリックします。新しく表示された空欄にキーワードを入力し、キーボードのエンターキーを押して下さい。
+ 
+一度付けられたタグは削除できませんので、入力する前に綴りなどをもう一度ご確認下さい。検索した情報にタグを加えて、アーカイブをより良いものに育てて下さい！</target>
+			</trans-unit>
+			<trans-unit id="402">
+				<source>jda.howtocontribute.translate</source>
+				<target>翻訳をする</target>
+			</trans-unit>
+			<trans-unit id="403">
+				<source>jda.howtocontribute.translatep1</source>
+				<target>ユーザは当アーカイブの全てのアイテムに、翻訳を加える事ができます。翻訳を始めるには、閲覧したいアイテムをクリックし、表示されたポップアップ画面の青い「翻訳を編集する (Edit translation)」ボタンをクリックし、訳文の入力後「翻訳を投稿する (Submit Translation)」を選択して、内容を保存して下さい。入力した文章がアーカイブ上に表示されるまでに、少しお時間がかかることを予めご了解下さい。既存の訳文を編集する場合も、同じ「翻訳を編集する」ボタンをクリックして変更を保存して下さい。ユーザの皆様が翻訳して下さることで、資料の内容を理解することの出来るユーザが増え、より多くの方にとって有用な情報源となります。資料のもとの言語に関わらず、どの言語での翻訳も受け付けています！</target>
+			</trans-unit>
+			<trans-unit id="404">
+				<source>jda.howtocontribute.create</source>
+				<target>コレクションをつくる</target>
+			</trans-unit>
+			<trans-unit id="405">
+				<source>jda.howtocontribute.createp1</source>
+				<target>ユーザは「マイ・コレクション」機能により、自分の興味ある資料を選択・整理し、テーマ別にサイト上に展示することができます。ユーザが自ら情報のキュレーションを行うことによって資料同士に様々なつながりや価値を付与でき、他のユーザにも新しい角度から震災を見ることを提案できます。
+テーマ、場所、時間など、様々な条件を基に資料を整理してコレクションを作ることが可能です。また、この機能を使って興味のある資料を後にアクセスしやすいように保存することもできます。</target>
+			</trans-unit>
+			<trans-unit id="406">
+				<source>jda.howtocontribute.createp2</source>
+				<target>当アーカイブにはどなたでもウェブサイト、証言、タグ、そして翻訳を加える事が出来ますが、「マイ・コレクション」は登録済みユーザのみが作成出来ます。ユーザ登録は簡単に無料で行えます。画面右上の「サインイン」をクリックし、アカウント登録のリンクからユーザ名、メールアドレス等を入力して下さい。
+登録・サインインをした後、関心のある情報を検索し、保存したいアイテムを画面右側にある「マイ・コレクション」ボックスにドラッグして下さい。</target>
+			</trans-unit>
+			<trans-unit id="407">
+				<source>jda.howtocontribute.createp3</source>
+				<target>アイテムをドラッグした後、「コレクションを保存する」そして「コレクションに移動する」をクリックし、表示されたページで鉛筆マークをクリックすることにより、ご自分のコレクションのタイトルや説明等を編集できます。意図的に削除しない限り、コレクションは失われません。</target>
+			</trans-unit>
+			<trans-unit id="408">
+				<source>jda.howtocontribute.createp4</source>
+				<target>コレクションを修正・削除するには、「コレクションの説明」の隣にある鉛筆マークをクリックして下さい。コレクションの題名や説明を入力したり、コレクション自体を削除する事ができます。</target>
+			</trans-unit>
+			<trans-unit id="409">
+				<source>jda.howtocontribute.createp5</source>
+				<target>プライバシー設定を変更する事により、コレクションを他のユーザと共有することもできます。「アーカイブ設定」の鉛筆マークをクリックして、「公開」か「限定」をお選びください。「公開」を選択すると、他のユーザもコレクションを閲覧することができるようになります。「限定」を選択すると、他のユーザは見ることができず、設定を変えない限り検索結果に表示されることもありません。</target>
+			</trans-unit>
+			<trans-unit id="410">
+				<source>jda.search.removert</source>
+				<target>リツイートを除く</target>
+			</trans-unit>
+			<trans-unit id="411">
+				<source>jda.presentation.view</source>
+				<target>View Presentation</target>
+			</trans-unit>
+			<trans-unit id="412">
+				<source>jda.presentation.edit</source>
+				<target>Edit Presentation</target>
+			</trans-unit>
+			<trans-unit id="413">
+				<source>jda.advsearch.searchTermsExclude</source>
+				<target>検索から除外する言葉</target>
+			</trans-unit>
+			<trans-unit id="414">
+				<source>jda.howtouse.sort</source>
+				<target>検索結果を並び替える</target>
+			</trans-unit>
+			<trans-unit id="415">
+				<source>jda.howtouse.sortp1</source>
+				<target>検索結果はデフォルトで「関連性」（検索用語が各アイテムの題名・説明・メタデータに含まれている回数）によって表示されますが、時系列に表示することも出来ます。アイテム作成日時の順に並び替えるためには、検索バー右端のドロップダウン・メニューから「最新」「最古」を選択して下さい。</target>
+			</trans-unit>
+			<trans-unit id="416">
+				<source>jda.bookmarklet.title</source>
+				<target>JDA ブックマークレット</target>
+			</trans-unit>
+			<trans-unit id="417">
+				<source>jda.bookmarklet.touse</source>
+				<target>ブックマークレットの使い方：</target>
+			</trans-unit>
+			<trans-unit id="418">
+				<source>jda.bookmarklet.bullet1</source>
+				<target>ブラウザのツールバーに上記のアイコンをドラッグする。</target>
+			</trans-unit>
+			<trans-unit id="419">
+				<source>jda.bookmarklet.bullet2</source>
+				<target>jdarchive.org/ja/homeにログインする。ログインをせずにブックマークレットを使用すると、コンテンツが正しく追加されません。</target>
+			</trans-unit>
+			<trans-unit id="420">
+				<source>jda.bookmarklet.bullet3</source>
+				<target>ご自身のマイ・コレクションに追加したいコンテンツを見つけた際、そのウェブサイトを開いたままブラウザのツールバーの「Add to JDA」リンクをクリックする。</target>
+			</trans-unit>
+			<trans-unit id="421">
+				<source>jda.bookmarklet.bullet4</source>
+				<target>表示された投稿フォームから対象のマイ・コレクションを選択し、適切な情報を記入する。事前にコレクションを作成していない場合、新しいコレクションが自動的に作成されます。</target>
+			</trans-unit>
+			<trans-unit id="422">
+				<source>jda.bookmarklet.bullet5</source>
+				<target>コンテンツをマイ・コレクションだけでなくアーカイブ自体に追加する場合、「Add to Archive」ボックスをクリックする。JDAのスタッフが投稿されたコンテンツを確認後、適切な内容であればアーカイブに追加します。「Add to Archive」ボックスをクリックしていない場合、コンテンツは一般公開をされないままユーザのマイ・コレクションのみに追加され、アーカイブの検索結果には表示されません。アーカイブに投稿する際は、同じコンテンツが既に保存されていないか、アーカイブを検索して確認して下さい。</target>
+			</trans-unit>
+			<trans-unit id="423">
+				<source>jda.bookmarklet.bullet6</source>
+				<target>最後に、「Add Media」ボタンをクリックし、コンテンツをマイ・コレクションまたはアーカイブに追加する。</target>
+			</trans-unit>
+			<trans-unit id="424">
+				<source>jda.bookmarklet.browser</source>
+				<target>* このブックマークレットはGoogle Chrome のブラウザーに最適化されています。</target>
+			</trans-unit>
+            <trans-unit id="426">
+                <source>jda.aboutpartners.hidenoriwatanavetitle</source>
+                <target>Hidenori Watanave</target>
+            </trans-unit>
+            <trans-unit id="427">
+                <source>jda.aboutpartners.hidenoriwatanave</source>
+                <target></target>
+            </trans-unit>
+            <trans-unit id="428">
+                <source>jda.aboutpartners.gejeatitle</source>
+                <target>Great East Japan Earthquake Archive</target>
+            </trans-unit>
+            <trans-unit id="429">
+                <source>jda.aboutpartners.gejea</source>
+                <target></target>
+            </trans-unit>
+            <trans-unit id="430">
+                <source>jda.team.leader.projectdirector</source>
+                <target>プロジェクト・ディレクター： Andrew Gordon, Professor of History（ハーバード大学歴史学部　アンドリュー・ゴードン教授）</target>
+            </trans-unit>
+            <trans-unit id="431">
+                <source>jda.team.leader.projectmanager</source>
+                <target>プロジェクトマネージャー：Ryo Morimoto, Fellow in Japanese Digital Humanities and Social Sciences (森本　涼　ハーバード大学　日本デジタルヒューマニティーズ・社会科学研究フェロー)</target>
+            </trans-unit>
+            <trans-unit id="432">
+                <source>jda.team.additional.director</source>
+                <target>所長：Professor Ted Bestor（テッド・ベスター教授）</target>
+            </trans-unit>
+            <trans-unit id="433">
+                <source>jda.team.additional.executivedirector</source>
+                <target>副所長：Dr. Ted Gilman（テッド・Ｊ・ギルマン博士）</target>
+            </trans-unit>
+            <trans-unit id="434">
+                <source>jda.team.additional.librarian</source>
+                <target>ハーバード大学現代日本研究資料センター司書：Kazuko Sakaguchi（坂口和子）</target>
+            </trans-unit>
+            <trans-unit id="435">
+                <source>jda.team.additional.assistantdirector</source>
+                <target>所長補佐：Stacie Matsumoto（ステイシー・マツモト）</target>
+            </trans-unit>
+            <trans-unit id="436">
+                <source>jda.team.alumni.corinne</source>
+                <target>Corinne Curcie（コリン・カーシー）:プロジェクト技術部リーダー</target>
+            </trans-unit>
+            <trans-unit id="437">
+                <source>jda.team.webdeveloper.zahra</source>
+                <target>インターフェース開発：Zahra Mahmood (ザラ・マムッド)</target>
+            </trans-unit>
+            <trans-unit id="438">
+                <source>jda.team.alumni.karashen</source>
+                <target>Kara Shen (カラ・シェン): インターフェイス開発</target>
+            </trans-unit>
+            <trans-unit id="439">
+                <source>jda.team.webdeveloper.harnek</source>
+                <target>インターフェース開発：Harnek Gulati (ハーニック・グラティ)</target>
+            </trans-unit>
+            <trans-unit id="440">
+                <source>jda.team.webdeveloper.rebecca</source>
+                <target>インターフェース開発：Rebecca Chen (レベッカ・チェン)</target>
+            </trans-unit>
+            <trans-unit id="441">
+                <source>jda.team.webdeveloper.annie</source>
+                <target>インターフェース開発：Annie Lin (アニー・リン)</target>
+            </trans-unit>
+            <trans-unit id="442">
+                <source>jda.team.webdeveloper.javier</source>
+                <target>インターフェース開発：Javier Cuan-Martinez (ハビアー　クアン・マルティネズ)</target>
+            </trans-unit>
+            <trans-unit id="443">
+                <source>jda.team.webdeveloper.tyreke</source>
+                <target>インターフェース開発：Tyreke White (タイリーク・ホワイト)</target>
+            </trans-unit>
+            <trans-unit id="444">
+                <source>jda.team.webdeveloper.kyle</source>
+                <target>教育設計：Kyle Parry, metaLAB (at) Harvard（ハーバード大学メタラボ　カイル・パリー）</target>
+            </trans-unit>
+            <trans-unit id="445">
+                <source>jda.team.webdeveloper.jessica</source>
+                <target>インターフェース開発： Jessica Yurkofsky, metaLAB (at) Harvard（ハーバード大学メタラボ　ジェシカ・ユルコフスキー）</target>
+            </trans-unit>
+            <trans-unit id="446">
+                <source>jda.team.content.lead</source>
+                <target>デジタルコンテンツ部リーダー：Koko Howell（藤田公子）</target>
+            </trans-unit>
+            <trans-unit id="447">
+                <source>jda.team.content.developer</source>
+                <target>デジタルコンテンツ開発： Anna Wada（和田杏奈）</target>
+            </trans-unit>
+            <trans-unit id="448">
+                <source>jda.team.content.curation</source>
+                <target>ウェブシード　キュレーション：Momoko Howell (ハウエル・モモコ)
+                    <![CDATA[<br />]]>
+                    ウェブシード　キュレーション：Mao Kuroda（昭和ボストン　黒田真央） 
+                    <![CDATA[<br />]]>
+                    ウェブシード　キュレーション：Rie Suzaki（昭和ボストン　須崎理絵）
+                </target>
+            </trans-unit>
+            <trans-unit id="449">
+                <source>jda.team.alumni.nick</source>
+                <target>プロジェクト・マネージャー： Nick Kapur, Postdoctoral Fellow（博士研究員　ニック・カプーア）</target>
+            </trans-unit>
+            <trans-unit id="450">
+                <source>jda.team.alumni.ej</source>
+                <target>EJ.ベンシング：プロジェ クトテクノロジー開発部門主任</target>
+            </trans-unit>
+            <trans-unit id="451">
+                <source>jda.team.alumni.molly</source>
+                <target>モーリー・デス　ジャーディン：アーカイブ開発マネージャー</target>
+            </trans-unit>
+            <trans-unit id="452">
+                <source>jda.team.alumni.konrad</source>
+                <target>Konrad M. Lawson: Project management コンラッド　M・ローソン：プロジェクトマネージメント</target>
+            </trans-unit>
+            <trans-unit id="453">
+                <source>jda.team.alumni.yuhki</source>
+                <target>Yuhki Yamashita: Project development and design ユウキ・ヤマシタ：プロジェクト開発・デザイン</target>
+            </trans-unit>
+            <trans-unit id="454">
+                <source>jda.team.alumni.arne</source>
+                <target>Arne Brasseur: Project development アーネ・ブラッセーウア：プロジェクト開発</target>
+            </trans-unit>
+            <trans-unit id="455">
+                <source>jda.team.alumni.jesse</source>
+                <target>Jesse Shapins: Zeega Platform design and development ジェス・シャーピン：ジーガ　プラットフォーム開発・デザイン</target>
+            </trans-unit>
+            <trans-unit id="456">
+                <source>jda.team.alumni.hikari</source>
+                <target>Hikari Senju: Interface Developer ヒカル・センジュ：インターフェース開発</target>
+            </trans-unit>
+            <trans-unit id="457">
+                <source>jda.team.alumni.luis</source>
+                <target>Luis Filipe Brandao: Zeega Platform design and development ルイス　フィリッペ・ブランド：　ジーガ　プラットフォーム開発・デザイン</target>
+            </trans-unit>
+            <trans-unit id="458">
+                <source>jda.team.alumni.james</source>
+                <target>James Burns: Zeega Platform design and development ジェームス・バーン：ジーガ　プラットフォーム開発・デザイン</target>
+            </trans-unit>
+            <trans-unit id="459">
+                <source>jda.team.alumni.kara</source>
+                <target>Kara Oehler: Zeega Platform design and development カラ・オイラー：ジーガ　プラットフォーム開発・デザイン</target>
+            </trans-unit>
+            <trans-unit id="460">
+                <source>jda.team.alumni.joseph</source>
+                <target>Joseph Bergen: Zeega Platform design and development ジョセフ・バーゲン：ジーガ　プラットフォーム開発・デザイン</target>
+            </trans-unit>
+            <trans-unit id="461">
+                <source>jda.team.alumni.selena</source>
+                <target>Selena Kim: Interface design セリナ・キム：　インターフェースデザイン</target>
+            </trans-unit>
+            <trans-unit id="462">
+                <source>jda.team.alumni.eric</source>
+                <target>Eric Dinmore: Collection curation エリック・ダンモア：　コレクション　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="463">
+                <source>jda.team.alumni.julie</source>
+                <target>Julie Zhang: Interface Developer ジュリア・ザング：　インターフェース開発</target>
+            </trans-unit>
+            <trans-unit id="464">
+                <source>jda.team.alumni.kyoko</source>
+                <target>Kyoko Shiga: Web seed and testimonial curation キョウコ・シガ：ウェブシード・証言　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="465">
+                <source>jda.team.alumni.ray</source>
+                <target>Ray Kameda: GIS data curation レイ・カマダ：GISデータ　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="466">
+                <source>jda.team.alumni.takamasa</source>
+                <target>Takamasa Nunogaki: Web seed curation タカマサ・ヌノガキ：ウェブシード　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="467">
+                <source>jda.team.alumni.alicia</source>
+                <target>Alicia Zhao: Web seed curation アリシア・ザオ：ウェブシード　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="468">
+                <source>jda.team.alumni.yeonjoo</source>
+                <target>Yeonjoo Kim: Web seed curation ヨンジョ・キム：ウェブシード　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="469">
+                <source>jda.team.alumni.ilsoo</source>
+                <target>Ilsoo Cho: Web seed curation イルソ・チョ：ウェブシード　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="470">
+                <source>jda.team.alumni.miho</source>
+                <target>Miho Segal: Web seed curation ミホ・セガル：ウェブシード　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="471">
+                <source>jda.team.alumni.grace</source>
+                <target>Grace Song: Web seed curation グレイス・ソング：ウェブシード　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="472">
+                <source>jda.team.alumni.sandy</source>
+                <target>Sandy Xu: Web seed and testimonial curation サンディ・シュウ：ウェブシード・証言　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="473">
+                <source>jda.team.alumni.atsuko</source>
+                <target>Atsuko Yamashita: Web seed curation アツコ・ヤマシタ：ウェブシード　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="474">
+                <source>jda.team.alumni.rei</source>
+                <target>Rei Yoshimine: Web seed curation レイ・ヨシミネ：ウェブシード　キュレーション</target>
+            </trans-unit>
+            <trans-unit id="475">
+                <source>jda.team.alumni.taisei</source>
+                <target>Taisei Wake: Web seed curation and SNS promotion</target>
+            </trans-unit>
+			<trans-unit id="476">
+                <source>jda.firsttime.header</source>
+                <target>初めての方へ</target>
+            </trans-unit>
+            <trans-unit id="477">
+                <source>jda.firsttime.body</source>
+                <target>２０１１年東日本大震災デジタルアーカイブ（JDA) へようこそ。
+JDAの基本コンセプトの紹介ビデオ、及び使用説明ビデオ・テキストは、</target>
+            </trans-unit>
+            <trans-unit id="478">
+                <source>jda.howtouse.waku</source>
+                <target>わくエディターの利用について</target>
+            </trans-unit>
+            <trans-unit id="479">
+                <source>jda.howtouse.wakustart</source>
+                <target>はじめに</target>
+            </trans-unit>
+            <trans-unit id="480">
+                <source>jda.howtouse.wakunavi</source>
+                <target>Wakuの使い方</target>
+            </trans-unit>
+            <trans-unit id="481">
+                <source>jda.howtouse.wakuhakos</source>
+                <target>Hakoの作り方</target>
+            </trans-unit>
+            <trans-unit id="482">
+                <source>jda.howtouse.wakuanno</source>
+                <target>注釈のつけ方</target>
+            </trans-unit>
+			<trans-unit id="483">
+				<source>jda.howtouse.wakutext1</source>
+				<target>JDAのユーザは、個人的な整理方法あるいは公開プレゼンテーションとして、アーカイブの資料からコレクションを作ることができます。コレクションの作り方については、</target>
+			</trans-unit>
+			<trans-unit id="484">
+				<source>jda.howtouse.wakutext2</source>
+				<target> コレクションを作成した後JDA の「Waku」ツールを使うことにより、コレクションのキュレーションを行い、公開プレゼンテーションを作ることも可能です。以下はWakuツールの利用方法を紹介する、4 つの動画です。</target>
+			</trans-unit>
+			<trans-unit id="485">
+				<source>jda.about.videointro</source>
+				<target>ビデオ紹介</target>
+			</trans-unit>
+			<trans-unit id="486">
+				<source>jda.about.videoheader</source>
+				<target>東日本大震災デジタルアーカイブ紹介ムービー</target>
+			</trans-unit>
+			<trans-unit id="487">
+				<source>jda.about.videotext</source>
+				<target>2015年3月に震災の4周年を期に制作された、東日本大震災デジタルアーカイブを紹介するコンセプトムービーを閲覧するには、以下をご覧下さい。CCライセンス</target>
+			</trans-unit>
+			<trans-unit id="488">
+				<source>jda.about.videocc</source>
+				<target>表示3.0</target>
+			</trans-unit>
+	    <trans-unit id="489">
+        <source>jda.team.alumni.kae</source>
+        <target>Kae Nakahashi（昭和ボストン　中橋佳恵）: ウェブシード　キュレーション</target>
+      </trans-unit>
+	    <trans-unit id="490">
+        <source>jda.team.webdeveloper.alex</source>
+        <target>プロジェクト技術部リーダー：Alex Horak（アレックス・ホラック）</target>
+      </trans-unit>
+      <trans-unit id="491">
+        <source>jda.my.waku</source>
+        <target>Wakuを作成</target>
+      </trans-unit>
+      <trans-unit id="492">
+        <source>jda.my.wakuInformational</source>
+        <target>Waku使うことによって、このコレクションをマルチメディアな物語へと構築することができます。Wakuはキュレートされた震災記録から個人の物語を紡ぎ、発表、シェアできるプラットフォームです。ぜひお試しください!</target>
+      </trans-unit>
+	    <trans-unit id="493">
+        <source>jda.form.contribute.language.french</source>
+        <target>フランス語</target>
+      </trans-unit>
+	    <trans-unit id="494">
+        <source>jda.form.contribute.language.others</source>
+        <target>その他</target>
+      </trans-unit>
+      <trans-unit id="495">
+        <source>jda.team.alumni.yumiko</source>
+        <target>Yumiko Takeda （昭和ボストン　竹田有美子）: ウェブシード　キュレーション</target>
+      </trans-unit>
+      <trans-unit id="496">
+        <source>jda.team.alumni.kanami</source>
+        <target>Kanami Ohno（昭和ボストン　大野奏美）: ウェブシード　キュレーション</target>
+      </trans-unit>
+      <trans-unit id="497">
+        <source>jda.team.alumni.maho</source>
+        <target>Maho Yanagisawa（昭和ボストン　柳澤真帆） : ウェブシード　キュレーション</target>
+      </trans-unit>
+      <trans-unit id="498">
+        <source>jda.about.rfp</source>
+        <target>プログラミング RFP</target>
+      </trans-unit>
+      <trans-unit id="499">
+    	<source>jda.aboutpartners.kstitle</source>
+    	<target>河北新報震災アーカイブ</target>
+      </trans-unit>
+      <trans-unit id="500">
+    	<source>jda.aboutpartners.ks</source>
+    	<target>河北新報は１８９７年、不羈独立と東北振興を社是として創刊しました。東北地方はたび重なる地震、津波被害を被りながらも、農林水産業を中心に日本の産業を支えてきました。２０１１年３月１１日に発生した東日本大震災は、わたしたちのふるさと東北に、甚大な被害を与えました。
+　河北新報社は、被災地にある新聞社として「１０００年に一度」とも言われる大震災を後世に伝える国の「東日本大震災アーカイブ」プロジェクトに参加し、東北大学災害科学国際研究所の支援協力のもと、「河北新報震災アーカイブ」を立ち上げました。
+新聞記事や報道写真のほか、市民の皆様が撮影した貴重な写真や動画なども収集・保存・整理し公開しています。震災の教訓が語り継がれ、今後の防災・減災に少しでも役立つよう、多くの皆様が利用しやすいサイトづくりを目指しています。</target>
+      </trans-unit>
+        </body>
+    </file>
+</xliff>
