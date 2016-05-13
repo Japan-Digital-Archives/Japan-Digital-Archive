@@ -247,7 +247,6 @@
 
 					// if editing the collection, load 'remove' buttons on newly loaded infinte scroll items
                                         if ($('.btn.btn-success.btn-mini.save.hide').css('display') === 'block') {
-                                            console.log("YOOOOOOOOOOOOOOOOOOOOOOOOO");
                                             $('.jda-delete-item').show();
                                         }
 
