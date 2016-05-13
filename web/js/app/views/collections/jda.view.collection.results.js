@@ -252,7 +252,6 @@
 
 					if(_this.collection.length<parseInt(response["items_count"],10)) {
                                             jda.app.killScroll = false; //to activate infinite scroll again
-                                            }
                                         } else jda.app.killScroll = true;
 					$(_this.el).fadeTo(1000,1);
 					jda.app.isLoading = false;	//to activate infinite scroll again
