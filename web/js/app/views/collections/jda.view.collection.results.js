@@ -245,8 +245,12 @@
 					_this.renderTags(response.tags);
 					_this.render();
 
-					if(_this.collection.length<parseInt(response["items_count"],10)) jda.app.killScroll = false; //to activate infinite scroll again
-					else jda.app.killScroll = true;
+					if(_this.collection.length<parseInt(response["items_count"],10)) {
+                                            jda.app.killScroll = false; //to activate infinite scroll again
+                                            if $('.btn.btn-success.btn-mini.save.hide').css('display' === 'block') { // if true, then we're in collection edit mode 
+                                                $('.jda-delete-item').show(); // which means we should show all the delete buttons for items loaded by infite scroll
+                                            }
+                                        } else jda.app.killScroll = true;
 					$(_this.el).fadeTo(1000,1);
 					jda.app.isLoading = false;	//to activate infinite scroll again
 
