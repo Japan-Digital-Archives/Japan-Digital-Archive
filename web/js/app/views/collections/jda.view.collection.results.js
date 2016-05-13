@@ -245,8 +245,15 @@
 					_this.renderTags(response.tags);
 					_this.render();
 
-					if(_this.collection.length<parseInt(response["items_count"],10)) jda.app.killScroll = false; //to activate infinite scroll again
-					else jda.app.killScroll = true;
+					// if editing the collection, load 'remove' buttons on newly loaded infinte scroll items
+                                        if ($('.btn.btn-success.btn-mini.save.hide').css('display') === 'block') {
+                                            $('.jda-delete-item').show();
+                                        }
+
+					if(_this.collection.length<parseInt(response["items_count"],10)) {
+                                            jda.app.killScroll = false; //to activate infinite scroll again
+                                            }
+                                        } else jda.app.killScroll = true;
 					$(_this.el).fadeTo(1000,1);
 					jda.app.isLoading = false;	//to activate infinite scroll again
 
