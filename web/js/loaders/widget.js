@@ -36,7 +36,6 @@ require (
 	'order!../lib/jquery.tagsinput',
 
 	'order!../lib/jeditable.min',
-	'order!../lib/jquery/plugins/jeditable.min',
 
 	'order!../lib/dateformat/date.format',
 	'order!../lib/visualsearch/visualsearch',
@@ -83,12 +82,6 @@ require (
 
 	
 	'order!../app/zeega.widget',
-		
-	'order!../app/models/widget.model.item',
-
-	'order!../app/collections/widget.collections.item',
-
-	'order!../app/views/widget.item/widget.view.item.ingesting',
 	
 	'order!../app/index',
 
