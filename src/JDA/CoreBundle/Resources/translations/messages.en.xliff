@@ -1782,10 +1782,12 @@ prompt those of us who were not affected to reflect on the way we live our lives
             <trans-unit id="448">
                 <source>jda.team.content.curation</source>
                 <target>Web Seed Curation: Momoko Howell 
-		        <![CDATA[<br />]]>
-		        Web Seed Curation: Mao Kuroda, Showa Boston Institute for Language and Culture
                 <![CDATA[<br />]]>
 			    Web Seed Curation: Rie Suzaki, Showa Boston Institute for Language and Culture
+                <![CDATA[<br />]]>
+                Web Seed Curation: Natsumi Yasuda, Showa Boston Institute for Language and Culture
+                <![CDATA[<br />]]>
+                Web Seed Curation: Sarah Bush, Simmons College
           </target>
             </trans-unit>
             <trans-unit id="449">
@@ -1995,6 +1997,10 @@ prompt those of us who were not affected to reflect on the way we live our lives
       <trans-unit id="500">
     	<source>jda.aboutpartners.ks</source>
     	<target>In March 11, 2011, the Great East Japan Disasters caused grave damage to our Furusato (hometown). As one of the oldest local newspaper companies in the disaster-stricken area that has been distributing papers to Tohoku region since 1897, Kahoku Shimpo participates in the “2011 Great East Japan Disasters Archive” national project in order to pass down the story of this “millennial-scale” disaster to future generations. Kahoku Shimpo Disaster Archive was launched in 2013 with technical assistance from the International Research Institute of Disaster Science at Tohoku University. Our archive collects, preserves and organizes not only newspaper articles and photographs we have published but also photographs and video footage that the local residents have generously contributed.. It is our wish that our archive be shared widely and that it aid in the generation of the stories and lessons learned from the disasters in 2011. Moreover, we hope to create an archive that is easy to use for all those who might utilize the records for disaster prevention and mitigation purposes.</target>
+      </trans-unit>
+      <trans-unit id="501">
+            <source>jda.team.alumni.mao</source>
+            <target>Mao Kuroda, Showa Boston Institute for Language and Culture: Web Seed Curation</target>
       </trans-unit>
       </body>
     </file>
