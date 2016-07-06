@@ -54,8 +54,11 @@ if (url.indexOf('dev.jdarchive.org') >= 0) {
 } else { alert('This feature is not supported in dev!'); }
 ">Add to JDA</a>
 		{% else %}
-		<p><b> hi there </b> </p>
-		<a type="button" class="jda-home-button" draggable="true" href="javascript:window.open('http://jdarchive.org/widget?url='+window.location.href+'&title='+document.title, 'JDA Bookmarklet', 'status=no,directories=no,location=no,resizable=no,menubar=no,width=400,height='+window.innerHeight+',toolbar=no');">Add to JDA</a>
+			{% if displayname == 'none'%}
+				<p> This is where you you would be redirected </p>
+			{% else%}
+			<a type="button" class="jda-home-button" draggable="true" href="javascript:window.open('http://jdarchive.org/widget?url='+window.location.href+'&title='+document.title, 'JDA Bookmarklet', 'status=no,directories=no,location=no,resizable=no,menubar=no,width=400,height='+window.innerHeight+',toolbar=no');">Add to JDA</a>
+			{%endif%}
 		{% endif %}
 	
 
