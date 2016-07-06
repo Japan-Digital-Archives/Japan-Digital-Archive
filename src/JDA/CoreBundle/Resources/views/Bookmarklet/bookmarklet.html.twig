@@ -53,7 +53,11 @@ if (url.indexOf('dev.jdarchive.org') >= 0) {
 } else { alert('This feature is not supported in dev!'); }
 ">Add to JDA</a>
 		{% else %}
-		<a type="button" class="jda-home-button" draggable="true" href="javascript:window.open('http://jdarchive.org/widget?url='+window.location.href+'&title='+document.title, 'JDA Bookmarklet', 'status=no,directories=no,location=no,resizable=no,menubar=no,width=400,height='+window.innerHeight+',toolbar=no');">Add to JDA</a>
+			{% if displayname == 'none'%}
+		         <a type="button" class="jda-home-button" draggable="true" href="javascript:window.open('http://jdarchive.org/widget?url='+window.location.href+'&title='+document.title, 'JDA Bookmarklet', 'status=no,directories=no,location=no,resizable=no,menubar=no,width=400,height='+window.innerHeight+',toolbar=no');">Add to JDA</a>
+		    {% else %}
+		    	<a type="button" class="jda-home-button" draggable="true" href="javascript:window.open('http://jdarchive.org/widget?url='+window.location.href+'&title='+document.title, 'JDA Bookmarklet', 'status=no,directories=no,location=no,resizable=no,menubar=no,width=400,height='+window.innerHeight+',toolbar=no');">Add to JDA</a>
+		    {% endif %}
 		{% endif %}
 	
 
