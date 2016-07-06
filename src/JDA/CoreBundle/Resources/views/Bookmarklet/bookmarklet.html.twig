@@ -45,7 +45,7 @@
 	<div id="mission" class="tab-pane active">
 	<div id="instructional" style="font-size: 15px; width:80%">
 		
-		{% if app.environment == 'dev' %}
+		{% if app.environment == 'dev' or displayname == 'none'%}
 		<a type="button" class="jda-home-button" draggable="true" href="javascript:
 var url = window.location.href;
 if (url.indexOf('dev.jdarchive.org') >= 0) {
@@ -53,12 +53,7 @@ if (url.indexOf('dev.jdarchive.org') >= 0) {
 } else { alert('This feature is not supported in dev!'); }
 ">Add to JDA</a>
 		{% else %}
-			{% if displayname == 'none'%}
-		         <a id="sign-in" data-link="{{path('fos_user_security_login')}}" href="#">{% trans %}jda.header.signin{% endtrans %}</a>
-		    {% else %}
-		    <a type="button" class="jda-home-button" draggable="true" href="javascript:window.open('http://jdarchive.org/widget?url='+window.location.href+'&title='+document.title, 'JDA Bookmarklet', 'status=no,directories=no,location=no,resizable=no,menubar=no,width=400,height='+window.innerHeight+',toolbar=no');">Add to JDA</a>
-		    	
-		    {% endif %}
+		<a type="button" class="jda-home-button" draggable="true" href="javascript:window.open('http://jdarchive.org/widget?url='+window.location.href+'&title='+document.title, 'JDA Bookmarklet', 'status=no,directories=no,location=no,resizable=no,menubar=no,width=400,height='+window.innerHeight+',toolbar=no');">Add to JDA</a>
 		{% endif %}
 	
 
