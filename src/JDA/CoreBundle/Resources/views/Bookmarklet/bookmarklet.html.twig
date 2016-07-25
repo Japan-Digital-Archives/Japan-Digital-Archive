@@ -47,11 +47,13 @@
 		
 		{% if app.environment == 'dev' %}
 		<a type="button" class="jda-home-button" draggable="true" href="javascript:
-var url = window.location.href;
-if (url.indexOf('dev.jdarchive.org') >= 0) {
-  window.open(url.substring(0, url.lastIndexOf('web')+3)+'/widget?url='+window.location.href+'&title='+document.title, 'JDA Bookmarklet', 'status=no,directories=no,location=no,resizable=no,menubar=no,width=400,height='+window.innerHeight+',toolbar=no');
-} else { alert('This feature is not supported in dev!'); }
-">Add to JDA</a>
+				var url = window.location.href;
+				if (url.indexOf('dev.jdarchive.org') >= 0) {
+				  window.open(url.substring(0, url.lastIndexOf('web')+3)+'/widget?url='+window.location.href+'&title='+document.title, 'JDA Bookmarklet', 'status=no,directories=no,location=no,resizable=no,menubar=no,width=400,height='+window.innerHeight+',toolbar=no');
+				} else { alert('This feature is not supported in dev!'); }">
+			 Add to JDA
+		</a>
+		<a id="sign-in" data-link="/en/login" href="#">Sign In</a>
 		{% else %}
 			{% if displayname == 'none'%}
 				<p> This is where you you would be redirected </p>
