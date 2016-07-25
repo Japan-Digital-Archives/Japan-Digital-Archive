@@ -54,7 +54,7 @@
 		</a>
 		{% else %}
 			{% if displayname == 'none'%}
-				<a id="sign-in" href="http://www.jdarchive.org/en/login">Sign In</a>
+				<a type="button" class="jda-home-button" draggable="true" href="javascript:window.open('http://www.jdarchive.org/en/login');">You are not logged in! Click here to do so</a>
 			{% else%}
 			<a type="button" class="jda-home-button" draggable="true" href="javascript:window.open('http://jdarchive.org/widget?url='+window.location.href+'&title='+document.title, 'JDA Bookmarklet', 'status=no,directories=no,location=no,resizable=no,menubar=no,width=400,height='+window.innerHeight+',toolbar=no');">Add to JDA</a>
 			{%endif%}
