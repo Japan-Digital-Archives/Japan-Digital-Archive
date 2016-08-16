@@ -201,7 +201,7 @@
 				'<h3><%= title %></h3><p >by: <%= author %>'+
 				'<p class="jda-item-description"><%= description %></p>'+
 			'</td>'+
-			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
+			'<td class="zeega-list-right-column jda-item-date">HI MY NAME IS Abigail<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 				'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
 			'</td>';
 
@@ -222,7 +222,7 @@
 				'<h3><%= title %></h3><p class="jda-item-author">by: <%= author %></p>'+
 				'<p class="jda-item-description"><%= description %></p>'+
 			'</td>'+
-			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
+			'<td class="zeega-list-right-column jda-item-date">HI MY NAME IS Arianna<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 			'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
 			'</td>';
 
@@ -245,7 +245,7 @@
 				'<div class="jda-item-title"><%= title %></div>'+
 				'<div><%= description %></div>'+
 			'</td>'+
-			'<td class="jda-item-date">'+
+			'<td class="jda-item-date">HI MY NAME IS Roberto'+
 				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 				'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
 			'</td>';
@@ -266,7 +266,7 @@
 				'<p><%= original_url %></p>'+
 				'<p class="jda-item-description"><%= description %></p>'+
 			'</td>'+
-			'<td class="zeega-list-right-column jda-item-date">'+
+			'<td class="zeega-list-right-column jda-item-date">HI MY NAME IS Havi'+
 				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 				'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
 			'</td>';
@@ -279,13 +279,13 @@
 		{
 			html =
 
-			'HI<td class="zeega-list-left-column">'+
+			'<td class="zeega-list-left-column">'+
 				'<div class="zeega-item-thumbnail"></div>'+
 			'</td>'+
 			'<td class="zeega-list-middle-column">'+
 				'<p class="jda-item-description"><%= text %></p>'+
 			'</td>'+
-			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
+			'<td class="zeega-list-right-column jda-item-date">HI MY NAME IS JAVI<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 				'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
 			'</td>';
 
@@ -302,7 +302,7 @@
 				'<h3><%= title %></h3><p class="jda-item-author">Testimonial by: <%= author %></p>'+
 				'<p class="jda-item-description"><%= description %></p>'+
 			'</td>'+
-			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
+			'<td class="zeega-list-right-column jda-item-date">HI MY NAME IS Bankai<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 				'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
 			'</td>';
 			return html;
@@ -319,7 +319,7 @@
 					'<h3><%= title %></h3><p>by <a href="#" class="jda-user-link"><%= display_name %></a></p>'+
 					'<p class="jda-item-description"><%= description %></p>'+
 				'</td>'+
-				'<td class="zeega-list-right-column jda-item-date"><%= media_date %>'+
+				'<td class="zeega-list-right-column jda-item-date">HI MY NAME IS ALE<%= media_date %>'+
 					'<input class="jda-item-checkbox" type="checkbox">'+
 				'</td>';
 
