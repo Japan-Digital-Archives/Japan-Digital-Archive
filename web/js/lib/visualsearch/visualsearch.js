@@ -156,7 +156,7 @@ VS.ui.SearchBox = Backbone.View.extend({
   // Used to launch a search. Hitting enter or clicking the search button.
   searchEvent : function(e) {
     var query = this.value();
-    console.log(e);
+    console.log("WHAT IS UP!!!S");
     this.focusSearch(e);
     this.value(query);
     this.app.options.callbacks.search(query, this.app.searchQuery);
