@@ -279,7 +279,7 @@
 		{
 			html =
 
-			'<td class="zeega-list-left-column">'+
+			'HI<td class="zeega-list-left-column">'+
 				'<div class="zeega-item-thumbnail"></div>'+
 			'</td>'+
 			'<td class="zeega-list-middle-column">'+
