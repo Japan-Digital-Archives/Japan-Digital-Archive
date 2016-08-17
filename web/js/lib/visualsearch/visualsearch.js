@@ -16,7 +16,7 @@
 
   var $ = jQuery; // Handle namespaced jQuery
   console.log("HI MY NAME IS JAVI");
-  console.log($);
+
   // Setting up VisualSearch globals. These will eventually be made instance-based.
   if (!window.VS) window.VS = {};
   if (!VS.app)    VS.app    = {};
@@ -53,7 +53,7 @@
       $(this.options.container).html(searchBox);
     }
     this.searchBox.value(this.options.query || '');
-
+    console.log("I got to this spot");
     // Disable page caching for browsers that incorrectly cache the visual search inputs.
     // This is forced the browser to re-render the page when it is retrieved in its history.
     $(window).bind('unload', function(e) {});
