@@ -116,9 +116,7 @@ VS.ui.SearchBox = Backbone.View.extend({
   
   // Either gets a serialized query string or sets the faceted query from a query string.
   value : function(query) {
-    console.log("I got here");
     if (query == null) return this.serialize();
-    console.log(query);
     return this.setQuery(query);
   },
 
@@ -132,7 +130,7 @@ VS.ui.SearchBox = Backbone.View.extend({
       query.push(this.inputViews[i].value());
       query.push(facet.serialize());
     }, this));
-    console.log(query);
+  
     if (inputViewsCount) {
       query.push(this.inputViews[inputViewsCount-1].value());
     }
@@ -144,7 +142,9 @@ VS.ui.SearchBox = Backbone.View.extend({
   // `VS.app.SearchParser` refreshes the `VS.app.searchQuery` collection, which is bound
   // here to call `this.renderFacets`.
   setQuery : function(query) {
+    console.log("I got here1");
     this.currentQuery = query;
+    console.log(this.currentQuery);
     VS.app.SearchParser.parse(this.app, query);
   },
 
@@ -158,6 +158,7 @@ VS.ui.SearchBox = Backbone.View.extend({
 
   // Used to launch a search. Hitting enter or clicking the search button.
   searchEvent : function(e) {
+    console.log("I got here2");
     var query = this.value();
     this.focusSearch(e);
     this.value(query);
