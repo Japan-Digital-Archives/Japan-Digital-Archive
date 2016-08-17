@@ -158,11 +158,11 @@ VS.ui.SearchBox = Backbone.View.extend({
     console.log("I got here2");
     var query = this.value();
     console.log(query);
-    console.log(unquotable);
     console.log(e);
     this.focusSearch(e);
     this.value(query);
     this.app.options.callbacks.search(query, this.app.searchQuery);
+    console.log(this.app.options.callbacks.search(query, this.app.searchQuery);)
   },
 
   // # Rendering Facets #
