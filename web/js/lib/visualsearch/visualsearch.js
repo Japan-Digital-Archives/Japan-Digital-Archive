@@ -191,7 +191,7 @@ VS.ui.SearchBox = Backbone.View.extend({
   renderFacets : function() {
     this.facetViews = [];
     this.inputViews = [];
-    console.log("I got here 3")
+    console.log(this.facetViews)
     this.$('.VS-search-inner').empty();
 
     this.app.searchQuery.each(_.bind(function(facet, i) {
