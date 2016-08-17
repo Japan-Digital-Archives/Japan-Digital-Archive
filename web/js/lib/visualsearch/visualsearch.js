@@ -155,14 +155,11 @@ VS.ui.SearchBox = Backbone.View.extend({
 
   // Used to launch a search. Hitting enter or clicking the search button.
   searchEvent : function(e) {
-    console.log("I got here2");
     var query = this.value();
     console.log(query);
-    console.log(e);
     this.focusSearch(e);
     this.value(query);
     this.app.options.callbacks.search(query, this.app.searchQuery);
-    console.log(this.app.options.callbacks.search(query, this.app.searchQuery));
   },
 
   // # Rendering Facets #
@@ -194,7 +191,7 @@ VS.ui.SearchBox = Backbone.View.extend({
   renderFacets : function() {
     this.facetViews = [];
     this.inputViews = [];
-
+    console.log("I got here 3")
     this.$('.VS-search-inner').empty();
 
     this.app.searchQuery.each(_.bind(function(facet, i) {
