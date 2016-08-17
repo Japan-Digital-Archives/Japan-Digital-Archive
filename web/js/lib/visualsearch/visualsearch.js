@@ -142,7 +142,6 @@ VS.ui.SearchBox = Backbone.View.extend({
   // here to call `this.renderFacets`.
   setQuery : function(query) {
     this.currentQuery = query;
-    console.log(query);
     VS.app.SearchParser.parse(this.app, query);
   },
 
@@ -159,6 +158,7 @@ VS.ui.SearchBox = Backbone.View.extend({
     console.log("I got here2");
     var query = this.value();
     console.log(query);
+    console.log(unquotable);
     console.log(e);
     this.focusSearch(e);
     this.value(query);
