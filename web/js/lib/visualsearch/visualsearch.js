@@ -162,7 +162,7 @@ VS.ui.SearchBox = Backbone.View.extend({
     this.focusSearch(e);
     this.value(query);
     this.app.options.callbacks.search(query, this.app.searchQuery);
-    console.log(this.app.options.callbacks.search(query, this.app.searchQuery);)
+    console.log(this.app.options.callbacks.search(query, this.app.searchQuery));
   },
 
   // # Rendering Facets #
