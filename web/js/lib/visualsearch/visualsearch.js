@@ -16,6 +16,7 @@
 
   var $ = jQuery; // Handle namespaced jQuery
   console.log("HI MY NAME IS JAVI");
+  console.log($);
   // Setting up VisualSearch globals. These will eventually be made instance-based.
   if (!window.VS) window.VS = {};
   if (!VS.app)    VS.app    = {};
