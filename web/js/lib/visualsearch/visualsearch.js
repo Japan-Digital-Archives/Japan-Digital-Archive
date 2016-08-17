@@ -191,7 +191,7 @@ VS.ui.SearchBox = Backbone.View.extend({
   renderFacets : function() {
     this.facetViews = [];
     this.inputViews = [];
-    console.log(this.facetViews)
+
     this.$('.VS-search-inner').empty();
 
     this.app.searchQuery.each(_.bind(function(facet, i) {
@@ -200,6 +200,8 @@ VS.ui.SearchBox = Backbone.View.extend({
 
     // Add on an n+1 empty search input on the very end.
     this.renderSearchInput();
+    console.log(this.facetViews)
+    console.log(this.inputViews)
   },
 
   // Render a single facet, using its category and query value.
