@@ -113,9 +113,10 @@ VS.ui.SearchBox = Backbone.View.extend({
   },
 
   // # Querying Facets #
-  console.log("I got here");
+  
   // Either gets a serialized query string or sets the faceted query from a query string.
   value : function(query) {
+    console.log("I got here");
     console.log(query);
     if (query == null) return this.serialize();
     return this.setQuery(query);
