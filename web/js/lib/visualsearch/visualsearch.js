@@ -15,7 +15,6 @@
 (function() {
 
   var $ = jQuery; // Handle namespaced jQuery
-  console.log("HI MY NAME IS JAVI");
 
   // Setting up VisualSearch globals. These will eventually be made instance-based.
   if (!window.VS) window.VS = {};
@@ -142,9 +141,8 @@ VS.ui.SearchBox = Backbone.View.extend({
   // `VS.app.SearchParser` refreshes the `VS.app.searchQuery` collection, which is bound
   // here to call `this.renderFacets`.
   setQuery : function(query) {
-    console.log("I got here1");
     this.currentQuery = query;
-    console.log(this.currentQuery);
+    console.log(query);
     VS.app.SearchParser.parse(this.app, query);
   },
 
@@ -160,6 +158,8 @@ VS.ui.SearchBox = Backbone.View.extend({
   searchEvent : function(e) {
     console.log("I got here2");
     var query = this.value();
+    console.log(query);
+    console.log(e);
     this.focusSearch(e);
     this.value(query);
     this.app.options.callbacks.search(query, this.app.searchQuery);
