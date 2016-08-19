@@ -117,7 +117,7 @@
 			}
 
 			//console.log(this.model.get("description"));
-			var text = document.getElementsByClassName("VS-input-width-tester VS-interface emphasize").textContent;
+			var text = document.getElementsByClassName("VS-input-width-tester VS-interface").innerHTML;
 			console.log(text);
 
 			$(this.el).html( _.template( template, blanks ) );
