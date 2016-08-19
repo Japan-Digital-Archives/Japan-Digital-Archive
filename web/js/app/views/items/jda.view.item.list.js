@@ -115,6 +115,7 @@
 				var parts = this.model.get('attribution_uri').split('http');
 				blanks["original_url"] = parts[2] !== undefined ? "http" + parts[2] : this.model.get('attribution_uri');
 			}
+			console.log(this.model.get("description"));
 
 
 			$(this.el).html( _.template( template, blanks ) );

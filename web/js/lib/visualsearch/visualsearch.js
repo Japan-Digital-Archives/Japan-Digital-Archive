@@ -156,7 +156,6 @@ VS.ui.SearchBox = Backbone.View.extend({
   // Used to launch a search. Hitting enter or clicking the search button.
   searchEvent : function(e) {
     var query = this.value();
-    console.log(query);
     this.focusSearch(e);
     this.value(query);
     this.app.options.callbacks.search(query, this.app.searchQuery);
@@ -200,8 +199,6 @@ VS.ui.SearchBox = Backbone.View.extend({
 
     // Add on an n+1 empty search input on the very end.
     this.renderSearchInput();
-    
-    console.log(this.inputViews[0])
   },
 
   // Render a single facet, using its category and query value.
