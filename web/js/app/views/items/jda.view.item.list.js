@@ -117,9 +117,9 @@
 			}
 
 			//console.log(this.model.get("description"));
-			var text = document.getElementsByClassName("emphasize");
+			var text = document.getElementsByClassName("emphasize").innerHTML;
 			console.log(text);
-			
+
 			$(this.el).html( _.template( template, blanks ) );
 
 			$(this.el).find('.zeega-item-thumbnail').append(this.thumbnailView.render().el);
