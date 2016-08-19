@@ -121,15 +121,14 @@
 			var filter = text.split(" ");
 			var arr = [];
 
-			/*
 			for(var i = 0; i < filter.length; i++)
 			{
-				if (filter[i] != "")
+				if (filter[i] != "" || filter[i] != " ")
 				{
 					arr.push(filter[i]);
 				}
 			} 
-			*/
+			
 			console.log(filter);
 
 			$(this.el).html( _.template( template, blanks ) );
