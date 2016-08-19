@@ -1438,7 +1438,7 @@ $.fn.extend({
         left        : -9999,
         position    : 'absolute',
         whiteSpace  : 'nowrap'
-      }).addClass('VS-input-width-tester').addClass('VS-interface').addClass('Javi');
+      }).addClass('VS-input-width-tester').addClass('VS-interface').addClass('emphasize');
 
       // Watch for input value changes on all of these events. `resize`
       // event is called explicitly when the input has been changed without
