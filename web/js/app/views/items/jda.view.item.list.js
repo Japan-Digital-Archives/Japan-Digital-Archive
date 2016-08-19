@@ -129,7 +129,7 @@
 				}
 			} 
 			
-			console.log(filter);
+			console.log(arr);
 
 			$(this.el).html( _.template( template, blanks ) );
 
