@@ -118,7 +118,18 @@
 
 			//console.log(this.model.get("description"));
 			var text = document.getElementById("search").textContent;
-			console.log(text);
+			var filter = text.split(" ");
+			var arr = [];
+
+			for(var i = 0; i < filter.length; i++)
+			{
+				if (filter[i] != "")
+				{
+					arr.push(filter[i]);
+				}
+			} 
+
+			console.log(arr);
 
 			$(this.el).html( _.template( template, blanks ) );
 
