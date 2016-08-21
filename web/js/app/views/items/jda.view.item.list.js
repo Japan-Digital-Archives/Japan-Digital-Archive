@@ -135,6 +135,7 @@
 			{
 				if (new_arr[j] != null)
 				{
+					console.log("hi");
 					final_arr.push(new_arr[j]);
 				}
 			}
