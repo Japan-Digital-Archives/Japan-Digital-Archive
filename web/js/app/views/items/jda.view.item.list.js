@@ -127,12 +127,10 @@
 			{
 				var str = old_arr[i].match(/[A-Za-z]+/);
 				console.log(str);
-				new_arr.concat(str);
-
+				new_arr.push(str[0]);
 			} 
 
 			console.log(new_arr);
-			
 
 /*
 			var real_text = [];
