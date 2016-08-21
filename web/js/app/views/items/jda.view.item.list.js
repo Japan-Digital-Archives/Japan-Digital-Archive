@@ -119,6 +119,8 @@
 			//console.log(this.model.get("description"));
 			var text = document.getElementById("search").textContent;
 			var old_arr = text.split(" ");
+			console.log(old_arr);
+			/*
 			var new_arr = [];
 
 			for (var i = 0; i < old_arr.length; i++)
@@ -129,6 +131,7 @@
 			} 
 
 			console.log(new_arr);
+			*/
 
 /*
 			var real_text = [];
