@@ -118,7 +118,7 @@
 
 			//console.log(this.model.get("description"));
 			var text = document.getElementById("search").textContent; 
-			var str = text.match(/[A-Za-z]/);
+			var str = text.match(/[A-Za-z]+/);
 
 			console.log(str);
 
