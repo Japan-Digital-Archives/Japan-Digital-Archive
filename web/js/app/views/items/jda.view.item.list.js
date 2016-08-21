@@ -130,7 +130,17 @@
 				new_arr.push(str);
 			} 
 
+			var final_arr = [];
+			for (var j = 0; j < new_arr; j++)
+			{
+				if (new_arr[j] != null)
+				{
+					final_arr.push(new_arr[j]);
+				}
+			}
+
 			console.log(new_arr);
+			console.log(final_arr);
 
 /*
 			var real_text = [];
