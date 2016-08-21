@@ -134,6 +134,7 @@
 					else
 					{
 						str.concat(text[i]);
+						console.log(str);
 					}
 				}
 			}
