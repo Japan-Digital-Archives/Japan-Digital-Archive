@@ -126,6 +126,7 @@
 			for (var i = 0; i < old_arr.length; i++)
 			{
 				var str = old_arr[i].match(/[A-Za-z]+/);
+				console.log(str);
 				new_arr.concat(str);
 
 			} 
