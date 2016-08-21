@@ -133,7 +133,7 @@
 
 			for (var j = 0; j < new_arr.length; j++)
 			{
-				if (new_arr[j].length == 1)
+				if (new_arr[j].length != null)
 				{
 					console.log("hi");
 					final_arr.push(new_arr[j]);
