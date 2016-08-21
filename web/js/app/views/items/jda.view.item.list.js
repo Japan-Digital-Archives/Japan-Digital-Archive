@@ -133,13 +133,11 @@
 			var final_arr = [];
 			for (var j = 0; j < new_arr; j++)
 			{
-				if (new_arr[j] == null)
+				if (new_arr[j] != "null")
 				{
 					console.log("hi");
-					continue;
+					final_arr.push(new_arr[j]);
 				}
-
-				final_arr.push(new_arr[j]);
 			}
 
 			console.log(new_arr);
