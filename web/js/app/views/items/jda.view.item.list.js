@@ -120,7 +120,7 @@
 			var text = document.getElementById("search").textContent;
 			var real_text = [];
 			var str = "";
-
+			console.log(text);
 			for (var i = 0; i < text.length; i++)
 			{
 				if (text[i] != "" || text[i] != " ")
