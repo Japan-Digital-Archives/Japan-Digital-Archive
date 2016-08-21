@@ -127,6 +127,7 @@
 				{
 					if (text[i] == "" || text[i] == " ")
 					{
+						console.log(str);
 						real_text.push(str);
 						str = "";
 					}
