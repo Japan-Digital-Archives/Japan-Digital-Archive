@@ -127,7 +127,7 @@
 			{
 				var str = old_arr[i].match(/[A-Za-z]+/);
 				console.log(str);
-				new_arr.push(str[0]);
+				new_arr.push(str);
 			} 
 
 			console.log(new_arr);
