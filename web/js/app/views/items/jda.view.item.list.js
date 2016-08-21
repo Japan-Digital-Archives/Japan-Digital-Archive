@@ -118,6 +118,13 @@
 
 			//console.log(this.model.get("description"));
 			var text = document.getElementById("search").textContent;
+			var letters = /^[A-Za-z]+$/; 
+
+			var str = text.match(letters);
+
+			console.log(str);
+
+/*
 			var real_text = [];
 			var str = "";
 			console.log(text);
@@ -141,7 +148,7 @@
 
 			console.log(real_text);
 
-			/*
+			
 			var filter = text.split(" ");
 			var arr = [];
 			
