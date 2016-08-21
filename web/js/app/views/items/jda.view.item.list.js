@@ -118,9 +118,31 @@
 
 			//console.log(this.model.get("description"));
 			var text = document.getElementById("search").textContent;
+			var real_text = [];
+			var str = "";
+
+			for (var i = 0; i < text.length; i++)
+			{
+				if (text[i] != "" || text[i] != " ")
+				{
+					if (text[i] == "" || text[i] == " ")
+					{
+						real_text.push(str);
+						str = "";
+					}
+					else
+					{
+						str.concat(text[i]);
+					}
+				}
+			}
+
+			console.log(real_text);
+
+			/*
 			var filter = text.split(" ");
 			var arr = [];
-
+			
 			for(var i = 0; i < filter.length; i++)
 			{
 				if (filter[i] != "" || filter[i] != " ")
@@ -128,7 +150,7 @@
 					arr.push(filter[i]);
 				}
 			} 
-			
+			*/
 			console.log(arr);
 
 			$(this.el).html( _.template( template, blanks ) );
