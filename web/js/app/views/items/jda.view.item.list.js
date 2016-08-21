@@ -117,10 +117,18 @@
 			}
 
 			//console.log(this.model.get("description"));
-			var text = document.getElementById("search").textContent; 
-			var str = text.match(/^[A-Za-z]+$/);
+			var text = document.getElementById("search").textContent;
+			var old_arr = text.split(" ");
+			var new_arr = [];
 
-			console.log(str);
+			for (var i = 0; i < arr.length; i++)
+			{
+				var str = old_arr[i].match(/^[A-Za-z]+$/);
+				new_arr.concat(str);
+
+			} 
+
+			console.log(new_arr);
 
 /*
 			var real_text = [];
