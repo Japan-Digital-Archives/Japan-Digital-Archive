@@ -117,10 +117,8 @@
 			}
 
 			//console.log(this.model.get("description"));
-			var text = document.getElementById("search").textContent;
-			var letters = /^[A-Za-z]+$/; 
-
-			var str = text.match(letters);
+			var text = document.getElementById("search").textContent; 
+			var str = text.match([A-Za-z]);
 
 			console.log(str);
 
