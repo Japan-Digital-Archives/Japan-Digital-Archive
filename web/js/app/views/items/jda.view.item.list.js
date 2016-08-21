@@ -133,6 +133,7 @@
 			var final_arr = [];
 			for (var j = 0; j < new_arr; j++)
 			{
+				console.log(new_arr[j].length);
 				if (new_arr[j].length == 1)
 				{
 					console.log("hi");
