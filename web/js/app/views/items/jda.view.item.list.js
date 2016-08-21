@@ -121,7 +121,7 @@
 			var old_arr = text.split(" ");
 			var new_arr = [];
 
-			for (var i = 0; i < arr.length; i++)
+			for (var i = 0; i < old_arr.length; i++)
 			{
 				var str = old_arr[i].match(/^[A-Za-z]+$/);
 				new_arr.concat(str);
