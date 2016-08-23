@@ -137,11 +137,11 @@
 					final_arr.push(new_arr[j]);
 				}
 			}
-
+			console.log(final_arr);
 			// Gets rid of the "text:" string that we don't want
 			final_arr.splice(0,1);
 
-			console.log(final_arr[0]);
+			console.log(final_arr);
 
 /*
 			var real_text = [];
