@@ -119,13 +119,13 @@
 			//console.log(this.model.get("description"));
 			var text = document.getElementById("search").textContent;
 			var old_arr = text.split(" ");
-			console.log(old_arr);
 			
 			var new_arr = [];
 
 			for (var i = 0; i < old_arr.length; i++)
 			{
 				var str = old_arr[i].match(/[A-Za-z]+/);
+				console.log(str);
 				new_arr.push(str);
 			} 
 
