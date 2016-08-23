@@ -118,6 +118,7 @@
 
 			//console.log(this.model.get("description"));
 			var text = document.getElementById("search").textContent;
+			console.log(text);
 			var old_arr = text.split(" ");
 			
 			var new_arr = [];
@@ -137,7 +138,7 @@
 					final_arr.push(new_arr[j]);
 				}
 			}
-			console.log(final_arr);
+			//console.log(final_arr);
 			// Gets rid of the "text:" string that we don't want
 			//final_arr.splice(0,1);
 
