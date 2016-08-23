@@ -119,7 +119,6 @@
 			//console.log(this.model.get("description"));
 			var text = document.getElementById("search").textContent;
 			var old_arr = text.split(" ");
-			//console.log(old_arr);
 			
 			var new_arr = [];
 
@@ -135,12 +134,11 @@
 			{
 				if (new_arr[j] != null)
 				{
-					console.log("hi");
 					final_arr.push(new_arr[j]);
 				}
 			}
 
-			console.log(new_arr);
+			final_arr.splice(0,1);
 			console.log(final_arr);
 
 /*
