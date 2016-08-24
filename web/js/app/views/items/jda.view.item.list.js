@@ -134,14 +134,12 @@
 						substitute = "";
 					}
 				}
-				/*
-				var str = old_arr[i].match(/[A-Za-z]+/);
-				new_arr.push(str);
-				*/
 			}
 
-			console.log(new_arr); 
+			new_arr.splice(0,1);
 
+			console.log(new_arr);
+			/*
 			var final_arr = [];
 
 			for (var j = 0; j < new_arr.length; j++)
@@ -151,6 +149,7 @@
 					final_arr.push(new_arr[j]);
 				}
 			}
+			*/
 			//console.log(final_arr);
 			// Gets rid of the "text:" string that we don't want
 			//final_arr.splice(0,1);
