@@ -1,3 +1,5 @@
+var item_description;
+
 (function(Browser) {
 
 	Browser.Items = Browser.Items || {};
@@ -138,7 +140,7 @@
 
 			// Gets rid of the unnecessary "text:" string
 			new_arr.splice(0,1);
-			var item_description = this.model.get("description");
+			item_description = this.model.get("description");
 
 			var pre_string;
 			var searched_term;
