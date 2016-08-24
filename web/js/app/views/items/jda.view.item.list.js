@@ -139,7 +139,7 @@
 			// Gets rid of the unnecessary "text:" string
 			new_arr.splice(0,1);
 
-			this.model.get("description") = "<b>hi</b>";
+			blanks["description"] = "<b>hi</b>";
 
 
 			$(this.el).html( _.template( template, blanks ) );
