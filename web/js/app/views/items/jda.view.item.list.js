@@ -138,10 +138,8 @@
 
 			// Gets rid of the unnecessary "text:" string
 			new_arr.splice(0,1);
-
-			//var find = this.find("zeega-list-middle-column");
-
-			//console.log(find);
+			var item_description = this.model.get("description");
+			console.log(item_description);
 
 
 			$(this.el).html( _.template( template, blanks ) );
