@@ -152,7 +152,7 @@
 					searched_term = item_description.substring(item_description.indexOf(new_arr[k]), item_description.indexOf(new_arr[k]) + new_arr[k].length);
 					end_string = item_description.substring(item_description.indexOf(new_arr[k]) + new_arr[k].length + 1, item_description.length);
 					item_description = pre_string + '<b>' + searched_term + '</b>' + end_string;
-					console.log(item_description);
+					//console.log(item_description);
 				}
 			}
 
@@ -239,7 +239,7 @@
 			'</td>'+
 			'<td class="zeega-list-middle-column">'+
 				'<h3><%= title %></h3><p >by: <%= author %>'+
-				'<p class="jda-item-description"><%= description %></p>'+
+				'<p class="jda-item-description">' + item_description +'</p>'+
 			'</td>'+
 			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 				'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
