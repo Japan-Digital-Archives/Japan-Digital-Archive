@@ -136,63 +136,11 @@
 				}
 			}
 
+			// Gets rid of the unnecessary "text:" string
 			new_arr.splice(0,1);
 
-			console.log(new_arr);
-			/*
-			var final_arr = [];
+			this.model.get("description") = "<b>hi</b>";
 
-			for (var j = 0; j < new_arr.length; j++)
-			{
-				if (new_arr[j] != null)
-				{
-					final_arr.push(new_arr[j]);
-				}
-			}
-			*/
-			//console.log(final_arr);
-			// Gets rid of the "text:" string that we don't want
-			//final_arr.splice(0,1);
-
-			//console.log(final_arr);
-
-/*
-			var real_text = [];
-			var str = "";
-			console.log(text);
-			for (var i = 0; i < text.length; i++)
-			{
-				if (text[i] != "" || text[i] != " ")
-				{
-					if (text[i] == "" || text[i] == " ")
-					{
-						console.log(str);
-						real_text.push(str);
-						str = "";
-					}
-					else
-					{
-						str.concat(text[i]);
-						console.log(str);
-					}
-				}
-			}
-
-			console.log(real_text);
-
-			
-			var filter = text.split(" ");
-			var arr = [];
-			
-			for(var i = 0; i < filter.length; i++)
-			{
-				if (filter[i] != "" || filter[i] != " ")
-				{
-					arr.push(filter[i]);
-				}
-			} 
-			
-			console.log(arr);*/
 
 			$(this.el).html( _.template( template, blanks ) );
 
