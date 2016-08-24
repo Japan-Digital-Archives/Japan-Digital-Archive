@@ -119,14 +119,28 @@
 			//console.log(this.model.get("description"));
 			var text = document.getElementById("search").textContent;
 			var old_arr = text.split("");
-			console.log(old_arr);
+			var substitute = "";
 			var new_arr = [];
 
 			for (var i = 0; i < old_arr.length; i++)
 			{
+				if (old_arr[i].match(/[A-Za-z]+/) != null)
+				{
+					substitute = substitue.concat(old_arr[i][0]);
+
+					if (old_arr[i + 1].match(/[A-Za-z]+/) == null)
+					{
+						new_arr.push(substitute);
+						substitute = "";
+					}
+				}
+				/*
 				var str = old_arr[i].match(/[A-Za-z]+/);
 				new_arr.push(str);
-			} 
+				*/
+			}
+
+			console.log(new_arr); 
 
 			var final_arr = [];
 
