@@ -231,6 +231,8 @@
 
 		getImageTemplate : function()
 		{
+			console.log("I got here");
+			console.log(item_description);
 			html =
 
 
