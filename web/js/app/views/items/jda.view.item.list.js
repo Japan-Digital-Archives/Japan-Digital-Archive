@@ -126,7 +126,7 @@
 			{
 				if (old_arr[i].match(/[A-Za-z]+/) != null)
 				{
-					substitute = substitue.concat(old_arr[i][0]);
+					substitute = substitute.concat(old_arr[i][0]);
 
 					if (old_arr[i + 1].match(/[A-Za-z]+/) == null)
 					{
