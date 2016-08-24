@@ -148,9 +148,9 @@
 			{
 				if (item_description.indexOf(new_arr[k]) != -1)
 				{
-					pre_string = item_description.splice(0,item_description.indexOf(new_arr[k]));
-					searched_term = item_description.splice(item_description.indexOf(new_arr[k]), item_description.indexOf(new_arr[k]) + new_arr[k].length);
-					end_string = item_description.splice(item_description.indexOf(new_arr[k]) + new_arr[k].length + 1, item_description.length);
+					pre_string = item_description.substring(0,item_description.indexOf(new_arr[k]));
+					searched_term = item_description.substring(item_description.indexOf(new_arr[k]), item_description.indexOf(new_arr[k]) + new_arr[k].length);
+					end_string = item_description.substring(item_description.indexOf(new_arr[k]) + new_arr[k].length + 1, item_description.length);
 					item_description = pre_string + '<b>' + searched_term + '</b>' + end_string;
 					console.log(item_description);
 				}
