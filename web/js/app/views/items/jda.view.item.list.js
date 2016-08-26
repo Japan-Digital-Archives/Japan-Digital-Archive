@@ -154,6 +154,12 @@ var item_description;
 			// back together with the emphasize HTML tags
 			for (var k = 0; k < new_arr.length; k++)
 			{
+				if (item_description == undefined)
+				{
+					console.log("I got here");
+					item_description = " ";
+				} 
+
 				if (item_description.indexOf(new_arr[k]) != -1)
 				{
 					pre_string = item_description.substring(0,item_description.indexOf(new_arr[k]));
@@ -164,11 +170,7 @@ var item_description;
 			}
 
 			console.log(item_description);
-			if (item_description == "undefined")
-			{
-				console.log("I got here");
-				item_description = " ";
-			} 
+			
 
 
 			$(this.el).html( _.template( template, blanks ) );
