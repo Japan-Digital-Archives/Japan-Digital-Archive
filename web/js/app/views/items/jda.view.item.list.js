@@ -163,8 +163,10 @@ var item_description;
 				}
 			}
 
+			console.log(item_description);
 			if (item_description == "undefined")
 			{
+				console.log("I got here");
 				item_description = " ";
 			} 
 
