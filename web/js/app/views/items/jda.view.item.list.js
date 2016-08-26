@@ -163,6 +163,11 @@ var item_description;
 				}
 			}
 
+			if (item_description == undefined)
+			{
+				item_description = "";
+			} 
+
 
 			$(this.el).html( _.template( template, blanks ) );
 
@@ -369,9 +374,6 @@ var item_description;
 				'<td class="zeega-list-right-column jda-item-date"><%= media_date %>'+
 					'<input class="jda-item-checkbox" type="checkbox">'+
 				'</td>';
-
-
-
 
 			return html;
 		}
