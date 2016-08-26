@@ -238,8 +238,6 @@ var item_description;
 
 		getImageTemplate : function()
 		{
-			console.log("I got here1");
-			console.log(item_description);
 			html =
 
 
@@ -261,9 +259,6 @@ var item_description;
 
 		getDefaultTemplate : function()
 		{
-			console.log("I got here2");
-			console.log(item_description);
-
 			html =
 
 
@@ -285,9 +280,6 @@ var item_description;
 
 		getDocumentTemplate : function()
 		{
-
-			console.log("I got here3");
-			console.log(item_description);
 			html =
 
 
@@ -311,8 +303,6 @@ var item_description;
 
 		getWebsiteTemplate : function()
 		{
-			console.log("I got here4");
-			console.log(item_description);
 			html =
 
 			'<td class="zeega-list-left-column">'+
@@ -334,8 +324,6 @@ var item_description;
 
 		getTweetTemplate : function()
 		{
-			console.log("I got here5");
-			console.log(item_description);
 			html =
 
 			'<td class="zeega-list-left-column">'+
@@ -353,8 +341,6 @@ var item_description;
 
 		getTestimonialTemplate : function()
 		{
-			console.log("I got here6");
-			console.log(item_description);
 			html =
 			'<td class="zeega-list-left-column">'+
 				'<div class="zeega-item-thumbnail"></div>'+
@@ -371,8 +357,6 @@ var item_description;
 
 		getCollectionTemplate : function()
 		{
-			console.log("I got here7");
-			console.log(item_description);
 			html =
 
 				'<td class="zeega-list-left-column">'+
