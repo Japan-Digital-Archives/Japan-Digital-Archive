@@ -156,7 +156,6 @@ var item_description;
 			{
 				if (item_description == "")
 				{
-					console.log("I got here");
 					item_description = " ";
 				} 
 
@@ -168,10 +167,6 @@ var item_description;
 					item_description = pre_string + '<u>' + '<b>' + searched_term + '</b>' + '</u>' + end_string;
 				}
 			}
-
-			console.log(item_description);
-			
-
 
 			$(this.el).html( _.template( template, blanks ) );
 
