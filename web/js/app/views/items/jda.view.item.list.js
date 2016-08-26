@@ -165,7 +165,7 @@ var item_description;
 
 			if (item_description == undefined)
 			{
-				item_description = "";
+				item_description = " ";
 			} 
 
 
