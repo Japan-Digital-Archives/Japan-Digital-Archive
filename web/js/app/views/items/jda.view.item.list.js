@@ -1,5 +1,48 @@
 var item_description;
 
+var emphasizeSearchedTerm = function(str)
+{
+	var old_arr = str.split("");
+	var substitute = "";
+	var new_arr = [];
+
+	for (var i = 0; i < old_arr.length; i++)
+	{
+		if (old_arr[i].match(/[A-Za-z]+/) != null)
+		{
+			substitute = substitute.concat(old_arr[i][0]);
+
+			if (old_arr[i + 1].match(/[A-Za-z]+/) == null)
+			{
+				new_arr.push(substitute);
+				substitute = "";
+			}
+		}
+	}
+
+			// Gets rid of the unnecessary "text:" string
+			new_arr.splice(0,1);
+			item_description = this.model.get("description");
+
+			var pre_string;
+			var searched_term;
+			var end_string;
+			
+			for (var k = 0; k < new_arr.length; k++)
+			{
+				if (item_description.indexOf(new_arr[k]) != -1)
+				{
+					pre_string = item_description.substring(0,item_description.indexOf(new_arr[k]));
+					searched_term = item_description.substring(item_description.indexOf(new_arr[k]), item_description.indexOf(new_arr[k]) + new_arr[k].length);
+					end_string = item_description.substring(item_description.indexOf(new_arr[k]) + new_arr[k].length, item_description.length);
+					item_description = pre_string + '<u>' + '<b>' + searched_term + '</b>' + '</u>' + end_string;
+				}
+			}
+
+			return item_description;
+}
+
+
 (function(Browser) {
 
 	Browser.Items = Browser.Items || {};
@@ -119,7 +162,11 @@ var item_description;
 			}
 
 			//console.log(this.model.get("description"));
+
 			var text = document.getElementById("search").textContent;
+
+			emphasizeSearchedTerm(text);
+			/*
 			var old_arr = text.split("");
 			var substitute = "";
 			var new_arr = [];
@@ -157,7 +204,7 @@ var item_description;
 				}
 			}
 
-
+*/
 			$(this.el).html( _.template( template, blanks ) );
 
 			$(this.el).find('.zeega-item-thumbnail').append(this.thumbnailView.render().el);
