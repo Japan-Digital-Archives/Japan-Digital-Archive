@@ -1,48 +1,5 @@
 var item_description;
 
-var emphasizeSearchedTerm = function(str)
-{
-	var old_arr = str.split("");
-	var substitute = "";
-	var new_arr = [];
-
-	for (var i = 0; i < old_arr.length; i++)
-	{
-		if (old_arr[i].match(/[A-Za-z]+/) != null)
-		{
-			substitute = substitute.concat(old_arr[i][0]);
-
-			if (old_arr[i + 1].match(/[A-Za-z]+/) == null)
-			{
-				new_arr.push(substitute);
-				substitute = "";
-			}
-		}
-	}
-
-			// Gets rid of the unnecessary "text:" string
-			new_arr.splice(0,1);
-			item_description = this.model.get("description");
-
-			var pre_string;
-			var searched_term;
-			var end_string;
-			
-			for (var k = 0; k < new_arr.length; k++)
-			{
-				if (item_description.indexOf(new_arr[k]) != -1)
-				{
-					pre_string = item_description.substring(0,item_description.indexOf(new_arr[k]));
-					searched_term = item_description.substring(item_description.indexOf(new_arr[k]), item_description.indexOf(new_arr[k]) + new_arr[k].length);
-					end_string = item_description.substring(item_description.indexOf(new_arr[k]) + new_arr[k].length, item_description.length);
-					item_description = pre_string + '<u>' + '<b>' + searched_term + '</b>' + '</u>' + end_string;
-				}
-			}
-
-			return item_description;
-}
-
-
 (function(Browser) {
 
 	Browser.Items = Browser.Items || {};
@@ -161,16 +118,15 @@ var emphasizeSearchedTerm = function(str)
 				blanks["original_url"] = parts[2] !== undefined ? "http" + parts[2] : this.model.get('attribution_uri');
 			}
 
-			//console.log(this.model.get("description"));
 
+			// !!!! THIS IS THE CODE FOR GOING THROUGH EACH ITEM AND EMPHSIZING EACH TERM THAT IS SEARCHED FOR !!!!//
 			var text = document.getElementById("search").textContent;
-
-			emphasizeSearchedTerm(text);
-			/*
 			var old_arr = text.split("");
 			var substitute = "";
 			var new_arr = [];
 
+			// Going through the entire search string and finding only alphabetic letters. Once found, the function turns the chars into strings
+			// and stores them into new_arr.
 			for (var i = 0; i < old_arr.length; i++)
 			{
 				if (old_arr[i].match(/[A-Za-z]+/) != null)
@@ -187,12 +143,15 @@ var emphasizeSearchedTerm = function(str)
 
 			// Gets rid of the unnecessary "text:" string
 			new_arr.splice(0,1);
+
 			item_description = this.model.get("description");
 
 			var pre_string;
 			var searched_term;
 			var end_string;
 			
+			// Parses the item's description for the searched term and cutes the beginning and end of the string. It then pastes it 
+			// back together with the emphasize HTML tags
 			for (var k = 0; k < new_arr.length; k++)
 			{
 				if (item_description.indexOf(new_arr[k]) != -1)
@@ -204,7 +163,7 @@ var emphasizeSearchedTerm = function(str)
 				}
 			}
 
-*/
+
 			$(this.el).html( _.template( template, blanks ) );
 
 			$(this.el).find('.zeega-item-thumbnail').append(this.thumbnailView.render().el);
