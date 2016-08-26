@@ -163,7 +163,7 @@ var item_description;
 				}
 			}
 
-			if (item_description == undefined)
+			if (item_description == "undefined")
 			{
 				item_description = " ";
 			} 
