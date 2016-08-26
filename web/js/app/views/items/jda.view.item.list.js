@@ -154,7 +154,7 @@ var item_description;
 			// back together with the emphasize HTML tags
 			for (var k = 0; k < new_arr.length; k++)
 			{
-				if (item_description == undefined)
+				if (item_description == "")
 				{
 					console.log("I got here");
 					item_description = " ";
