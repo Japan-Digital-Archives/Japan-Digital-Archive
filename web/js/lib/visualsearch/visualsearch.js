@@ -46,13 +46,13 @@
     VS.app.hotkeys.initialize();
     this.searchQuery   = new VS.model.SearchQuery();
     this.searchBox     = new VS.ui.SearchBox({app: this});
-
+    
     if (options.container) {
       var searchBox = this.searchBox.render().el;
       $(this.options.container).html(searchBox);
     }
     this.searchBox.value(this.options.query || '');
-
+    
     // Disable page caching for browsers that incorrectly cache the visual search inputs.
     // This is forced the browser to re-render the page when it is retrieved in its history.
     $(window).bind('unload', function(e) {});
@@ -112,7 +112,7 @@ VS.ui.SearchBox = Backbone.View.extend({
   },
 
   // # Querying Facets #
-
+  
   // Either gets a serialized query string or sets the faceted query from a query string.
   value : function(query) {
     if (query == null) return this.serialize();
@@ -129,7 +129,7 @@ VS.ui.SearchBox = Backbone.View.extend({
       query.push(this.inputViews[i].value());
       query.push(facet.serialize());
     }, this));
-
+  
     if (inputViewsCount) {
       query.push(this.inputViews[inputViewsCount-1].value());
     }
