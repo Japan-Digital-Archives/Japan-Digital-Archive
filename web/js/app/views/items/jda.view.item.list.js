@@ -1,5 +1,3 @@
-var item_description;
-
 (function(Browser) {
 
 	Browser.Items = Browser.Items || {};
@@ -119,55 +117,6 @@ var item_description;
 			}
 
 
-			// !!!! THIS IS THE CODE FOR GOING THROUGH EACH ITEM AND EMPHSIZING EACH TERM THAT IS SEARCHED FOR !!!!//
-			var text = document.getElementById("search").textContent;
-			var old_arr = text.split("");
-			var substitute = "";
-			var new_arr = [];
-
-			// Going through the entire search string and finding only alphabetic letters. Once found, the function turns the chars into strings
-			// and stores them into new_arr.
-			for (var i = 0; i < old_arr.length; i++)
-			{
-				if (old_arr[i].match(/[A-Za-z]+/) != null)
-				{
-					substitute = substitute.concat(old_arr[i][0]);
-
-					if (old_arr[i + 1].match(/[A-Za-z]+/) == null)
-					{
-						new_arr.push(substitute);
-						substitute = "";
-					}
-				}
-			}
-
-			// Gets rid of the unnecessary "text:" string
-			new_arr.splice(0,1);
-
-			item_description = this.model.get("description");
-
-			var pre_string;
-			var searched_term;
-			var end_string;
-			
-			// Parses the item's description for the searched term and cutes the beginning and end of the string. It then pastes it 
-			// back together with the emphasize HTML tags
-			for (var k = 0; k < new_arr.length; k++)
-			{
-				if (item_description == "")
-				{
-					item_description = " ";
-				} 
-
-				if (item_description.indexOf(new_arr[k]) != -1)
-				{
-					pre_string = item_description.substring(0,item_description.indexOf(new_arr[k]));
-					searched_term = item_description.substring(item_description.indexOf(new_arr[k]), item_description.indexOf(new_arr[k]) + new_arr[k].length);
-					end_string = item_description.substring(item_description.indexOf(new_arr[k]) + new_arr[k].length, item_description.length);
-					item_description = pre_string + '<u>' + '<b>' + searched_term + '</b>' + '</u>' + end_string;
-				}
-			}
-
 			$(this.el).html( _.template( template, blanks ) );
 
 			$(this.el).find('.zeega-item-thumbnail').append(this.thumbnailView.render().el);
@@ -250,7 +199,7 @@ var item_description;
 			'</td>'+
 			'<td class="zeega-list-middle-column">'+
 				'<h3><%= title %></h3><p >by: <%= author %>'+
-				'<p class="jda-item-description">' + item_description +'</p>'+
+				'<p class="jda-item-description"><%= description %></p>'+
 			'</td>'+
 			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 				'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
@@ -271,7 +220,7 @@ var item_description;
 			'</td>'+
 			'<td class="zeega-list-middle-column">'+
 				'<h3><%= title %></h3><p class="jda-item-author">by: <%= author %></p>'+
-				'<p class="jda-item-description">' + item_description +'</p>'+
+				'<p class="jda-item-description"><%= description %></p>'+
 			'</td>'+
 			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 			'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
@@ -294,7 +243,7 @@ var item_description;
 			'</td>'+
 			'<td class="jda-item-description">'+
 				'<div class="jda-item-title"><%= title %></div>'+
-				'<div>' + item_description + '</div>'+
+				'<div><%= description %></div>'+
 			'</td>'+
 			'<td class="jda-item-date">'+
 				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
@@ -315,7 +264,7 @@ var item_description;
 			'<td class="zeega-list-middle-column">'+
 				'<h3><%= title %></h3>'+
 				'<p><%= original_url %></p>'+
-				'<p class="jda-item-description">' + item_description + '</p>'+
+				'<p class="jda-item-description"><%= description %></p>'+
 			'</td>'+
 			'<td class="zeega-list-right-column jda-item-date">'+
 				'<%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
@@ -334,7 +283,7 @@ var item_description;
 				'<div class="zeega-item-thumbnail"></div>'+
 			'</td>'+
 			'<td class="zeega-list-middle-column">'+
-				'<p class="jda-item-description">' + item_description +'</p>'+
+				'<p class="jda-item-description"><%= text %></p>'+
 			'</td>'+
 			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 				'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
@@ -351,7 +300,7 @@ var item_description;
 			'</td>'+
 			'<td class="zeega-list-middle-column">'+
 				'<h3><%= title %></h3><p class="jda-item-author">Testimonial by: <%= author %></p>'+
-				'<p class="jda-item-description">' + item_description + '</p>'+
+				'<p class="jda-item-description"><%= description %></p>'+
 			'</td>'+
 			'<td class="zeega-list-right-column jda-item-date"><%= media_date %><input class="jda-item-checkbox" type="checkbox">'+
 				'<div style="position:relative; height:55px"><p class="jda-user-link bottom" style="margin:0px">via <a href="#" ><%= display_name %></a></p></div>'+
@@ -368,11 +317,14 @@ var item_description;
 				'</td>'+
 				'<td class="zeega-list-middle-column">'+
 					'<h3><%= title %></h3><p>by <a href="#" class="jda-user-link"><%= display_name %></a></p>'+
-					'<p class="jda-item-description">' + item_description + '</p>'+
+					'<p class="jda-item-description"><%= description %></p>'+
 				'</td>'+
 				'<td class="zeega-list-right-column jda-item-date"><%= media_date %>'+
 					'<input class="jda-item-checkbox" type="checkbox">'+
 				'</td>';
+
+
+
 
 			return html;
 		}
