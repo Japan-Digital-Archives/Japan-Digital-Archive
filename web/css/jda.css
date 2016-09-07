@@ -498,6 +498,30 @@ margin-left: -20px;
 	
 *********************/
 
+.banner{
+	position: relative;
+	left: 50%;
+	display: block;
+	margin: 80px -325px -20px;
+	width: 625px;
+	height: 80px;
+	border: 1px solid #2f801a;
+	text-align: center;
+	color: white;
+	background: #52bb69;
+	border-radius: 4px;
+	box-shadow: 0 0 30px rgba(0,0,0,.15) inset, 0 6px 10px rgba(0,0,0,.15);
+}
+
+.banner-title{
+	font-size:30px;
+	padding: 14px 0px 7px 0px;
+}
+
+.banner-body{
+	font-size:14px;
+}
+
 .jda-home-featured-collection-text-block{
 	cursor:pointer;
 	padding: 10px;

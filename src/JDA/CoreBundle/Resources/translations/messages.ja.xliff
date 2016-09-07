@@ -2027,6 +2027,10 @@ JDAの基本コンセプトの紹介ビデオ、及び使用説明ビデオ・�
             <source>jda.team.alumni.mao</source>
             <target>Mao Kuroda（昭和ボストン　黒田真央）: ウェブシード　キュレーション</target>
       </trans-unit>
+      <trans-unit id="502">
+            <source>jda.aboutnewsite.title</source>
+            <target>９月中旬から新しいJDAが利用できます</target>
+      </trans-unit>
         </body>
     </file>
 </xliff>

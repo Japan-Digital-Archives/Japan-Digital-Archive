@@ -50,6 +50,18 @@ jQuery_1_9_1(document).ready(function() {
 
 {% block content %}
 
+<div class="banner">
+	<p class="banner-title">
+		{% trans %}jda.aboutnewsite.title{% endtrans %}
+	</p>
+	<p class="banner-body">
+		{% if locale == 'ja' %}
+			詳細は<a href="http://jdarchive.org/en/newsite">ここをクリック</a>
+		{% else %}
+			Please click <a href="http://jdarchive.org/en/newsite">here</a> for important information regarding our transition.
+		{% endif %}</a>
+	</p>
+</div>
 {% block extra %}
 {% endblock %}
 <div class="container" id="home-view-navigation" style="min-height:100%;position:relative;height:100%">

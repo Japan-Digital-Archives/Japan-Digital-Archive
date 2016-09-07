@@ -2002,6 +2002,10 @@ prompt those of us who were not affected to reflect on the way we live our lives
             <source>jda.team.alumni.mao</source>
             <target>Mao Kuroda, Showa Boston Institute for Language and Culture: Web Seed Curation</target>
       </trans-unit>
+      <trans-unit id="502">
+            <source>jda.aboutnewsite.title</source>
+            <target>New look arriving mid-September!</target>
+      </trans-unit>
       </body>
     </file>
 </xliff>
