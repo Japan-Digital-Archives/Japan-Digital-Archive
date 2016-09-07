@@ -1,0 +1,73 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}<title>{% trans %}jda.home.title{% endtrans %}</title>{% endblock %}
+{% block stylesheets %}
+<!-- Visual Search -->
+<!--[if (!IE)|(gte IE 8)]><!-->
+<link href="{{ asset('js/lib/visualsearch/visualsearch-datauri.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+<!--[if lte IE 7]><!-->
+<link href="{{ asset('js/lib/visualsearch/visualsearch.css')}}" media="screen" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+{% endblock %}
+{% block scripts %}
+{% if app.environment == 'dev' %}
+<!-- to load JS libraries separately -->
+        <script data-main="{{ asset('js/loaders/about') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
+{% else %}
+        <!-- to load single aggregated JS library -->
+        <script data-main="{{ asset('js_min/about') }}" src="{{ asset('js/lib/require/require-1.0.5.js') }}"></script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="container" id="zeega-view-navigation" style="background-color:rgba(0,0,0,0.7)">
+
+
+        <div id="jda-home-search-div" class="pull-left" style="width:600px;margin-right:17px;margin-top:5px;margin-left:5%;margin-bottom:5px;display:none">
+                <div id="search-bar" style="margin-right:10px">
+                        <div class="visual_search pull-left"></div>
+                </div>
+                <a href="#" id="jda-go-button" class="btn btn-info btn-large">go</a>
+        </div>
+
+
+
+</div><!-- end container -->
+
+<div id="jda-about-partners-container" style="margin:0 5%;position:relative;top:115px">
+
+        <h2 style="color:#666;letter-spacing:1px;margin-bottom:20px">{% trans %}jda.aboutnewsite.title{% endtrans %}</h2>
+        <div class="tab-content">
+                <div id="partners" class="tab-pane active">
+                        <div id="jda-about-partners">
+				{% if locale == 'ja' %}
+					<p>登録済みユーザー様へのメッセージ:</p>
+
+					<p>私達は今後も引き続き皆様にバーチャルな「記憶の場」を提供し、ユーザー皆様の3.11および、その他の災害について学び、寄り添っていく活動のお手伝いをしていきたいと考えています。その一環としまして、９月中旬にJDAアップデート版をリリースすることとなりました。また、このリリースと並行して、プロジェクトの名前を『日本災害DIGITALアーカイブ』に変更します。この新しいプロジェクト名により、当プロジェクトがユーザー皆様が参加、協力し、3.11のみでなく日本のにおける他の災害に関するデータを集めていく場であるという再確認をしたいと考えています。どうぞよろしくお願い致します。</p>
+
+					<p>今回のアップデート後も、今まで以上に皆様のアーカイブ利用体験の向上を目指していきたいと思いますが、アップデートにあたり登録済みユーザーの皆様に一つお願いを申し上げます。新しいバージョンを使用するにあたり、パスワードを再登録していただく必要があります。再登録の方法は、現在利用しているアカウント登録に使われたEメールを使って行って頂きます。これは、ユーザー皆様一人一人の安全なインターネットセキュリティー環境を提供する為の処置ですので、お手数をおかけしますがどうぞご理解ください。パスワード再登録をする事により、今までアカウントデータは失われることはなく、新サイトに引き継がれます。</p>
+
+					<p>新サイトの準備が出来次第、再度パスワードの再登録のお願いと方法の詳細についてメールを送信します。</p>
+
+					<p>新規ユーザーの方には、このアップデートでの影響はありません。サイトでユーザー新規登録をしてください。</p>
+
+					<p>このメッセージや新サイト移行に関するご質問がありましたら、info@jdarchive.orgまでご連絡ください。新しくなった日本災害DIGITALアーカイブを、引き続きどうぞよろしくお願い申し上げます。</p>
+
+					<p>敬具</p>
+
+					<p>日本災害DIGITALアーカイブチーム</p>
+				{% else %}
+					<p>Note for our registered users - </p>
+
+					<p>We are happy to announce that in mid-September, the Digital Archive of Japan’s 2011 Disasters (JDA) will be relaunched on a new platform, and renamed the Japan Disasters Digital Archive, signaling our commitment to continue to gather materials concerning the 2011 disasters and to collect materials concerning other disasters as well. With this major update, we must ask you to create a new password using the email address associated with your existing JDA account(s). This is to ensure that we provide you the most secure environment possible. With this new password, you will be able to access any and all of your existing collections, as well as use what we believe will be a more stable and more easily searchable archive.</p>
+
+					<p>If you are new to JDA, the change does not affect you. You can simply register to use our archive.</p>
+
+					<p>If you have any questions, feel free to contact us at info@jdarchive.org</p>
+				{% endif %}</a>
+                        </div>
+                </div>
+        </div><!-- end tab content -->
+{% endblock %}

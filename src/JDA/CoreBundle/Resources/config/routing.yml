@@ -113,3 +113,8 @@ bookmarklet:
     defaults:  { _controller: JDACoreBundle:Bookmarklet:index, _locale: ja }
     requirements:
         _locale: en|ja
+newsite:
+    pattern:	/{_locale}/newsite/
+    defaults:   {_controller: JDACoreBundle:NewSite:index, _locale: ja}
+    requirements:
+        _locale: en|ja
